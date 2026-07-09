@@ -1,4 +1,4 @@
-package com.thelightphone.sample
+package com.andyweaver.chess
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -21,11 +23,31 @@ android {
         }
     }
 
+    val localProps = Properties().apply {
+        val f = rootProject.file("local.properties")
+        if (f.exists()) f.inputStream().use { load(it) }
+    }
+
     defaultConfig {
         minSdk = rootProject.ext["minSdk"] as Int
         targetSdk = rootProject.ext["targetSdk"] as Int
 
         manifestPlaceholders["sdkVersion"] = property("sdkVersion") as String
+
+        buildConfigField(
+            "String",
+            "LICHESS_TOKEN_ACCOUNT_1",
+            "\"${localProps.getProperty("lichess.token.account1", "")}\"",
+        )
+        buildConfigField(
+            "String",
+            "LICHESS_TOKEN_ACCOUNT_2",
+            "\"${localProps.getProperty("lichess.token.account2", "")}\"",
+        )
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {
