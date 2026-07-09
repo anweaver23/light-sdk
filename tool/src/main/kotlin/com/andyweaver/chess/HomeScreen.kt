@@ -18,6 +18,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.lifecycle.viewModelScope
 import com.andyweaver.chess.board.BoardScreen
 import com.andyweaver.chess.engine.Chess
+import com.andyweaver.chess.history.HistoryScreen
 import com.andyweaver.chess.lichess.AccountEventType
 import com.andyweaver.chess.lichess.LichessActionResult
 import com.andyweaver.chess.lichess.LichessApi
@@ -402,6 +403,11 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                             contentDescription = "Settings",
                         ),
                         LightBarButton.LightIcon(
+                            icon = LightIcons.LIST,
+                            onClick = { navigateTo({ sa -> HistoryScreen(sa, viewModel.currentToken) }) },
+                            contentDescription = "Game history",
+                        ),
+                        LightBarButton.LightIcon(
                             icon = LightIcons.ADD,
                             onClick = {
                                 navigateTo({ sa ->
@@ -608,30 +614,29 @@ private fun GameRow(
             )
         }
         // Subtitle: indented to align under the name; dimmed to match the mockup.
-        subtitle?.let {
-            LightText(
-                text = it,
-                variant = SUBTITLE_VARIANT,
-                lighten = true,
-                modifier = Modifier.padding(start = asteriskColWidth),
-            )
-        }
+        LightText(
+            text = subtitle,
+            variant = SUBTITLE_VARIANT,
+            lighten = true,
+            modifier = Modifier.padding(start = asteriskColWidth),
+        )
     }
 }
 
-// Both settings off → no subtitle (row collapses to a single line).
+// Subtitle always leads with the side you play (white/black); time-remaining and
+// last-move segments are gated by their settings toggles.
 private fun buildSubtitle(
     game: LichessGame,
     showTimeRemaining: Boolean,
     showLastMove: Boolean,
-): String? {
-    if (!showTimeRemaining && !showLastMove) return null
+): String {
     val parts = buildList {
+        add(game.color)
         if (!game.isMyTurn) add("their move")
         if (showTimeRemaining) game.secondsLeft?.let { add(formatTimeLabel(it, game.isMyTurn)) }
         if (showLastMove) game.lastMove?.takeIf { it.isNotBlank() }?.let { add(formatLastMove(game.fen, it)) }
     }
-    return parts.takeIf { it.isNotEmpty() }?.joinToString(" · ")
+    return parts.joinToString(" · ")
 }
 
 private fun formatTimeLabel(seconds: Int, isMyTurn: Boolean): String {

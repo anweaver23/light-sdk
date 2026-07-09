@@ -7,6 +7,7 @@ import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.request.get
 import io.ktor.client.request.header
+import io.ktor.client.request.parameter
 import io.ktor.client.request.forms.submitForm
 import io.ktor.client.request.post
 import io.ktor.client.request.prepareGet
@@ -201,6 +202,42 @@ private data class ChallengesResponse(
     @kotlinx.serialization.SerialName("out") val outgoing: List<LichessChallenge> = emptyList(),
 )
 
+@Serializable
+private data class AccountResponse(val id: String? = null, val username: String? = null)
+
+/** One side of an archived game (`players.white` / `players.black`). */
+@Serializable
+data class ArchivedPlayer(
+    val user: LichessUser? = null,
+    val rating: Int? = null,
+)
+
+@Serializable
+data class ArchivedPlayers(
+    val white: ArchivedPlayer = ArchivedPlayer(),
+    val black: ArchivedPlayer = ArchivedPlayer(),
+)
+
+/**
+ * A finished (or ongoing) game from `GET /api/games/user/{username}`. [moves] is
+ * space-separated SAN; [winner] is "white"/"black" or null for a draw/ongoing game.
+ * [createdAt] is an epoch-ms timestamp used for pagination.
+ */
+@Serializable
+data class LichessArchivedGame(
+    val id: String,
+    val rated: Boolean = false,
+    val variant: String? = null,
+    val speed: String? = null,
+    val status: String = "",
+    val winner: String? = null,
+    val createdAt: Long = 0,
+    val players: ArchivedPlayers = ArchivedPlayers(),
+    val moves: String = "",
+    /** Present for games that don't start from the standard position. */
+    val initialFen: String? = null,
+)
+
 class LichessApi(private val token: String) {
 
     private val json = Json { ignoreUnknownKeys = true }
@@ -246,6 +283,41 @@ class LichessApi(private val token: String) {
         }
     } catch (_: Exception) {
         AccountEventType.UNKNOWN
+    }
+
+    /** The authenticated account's Lichess username. `GET /api/account`. */
+    suspend fun getAccountUsername(): String {
+        val resp: AccountResponse = client.get("$BASE_URL/api/account").body()
+        return resp.username ?: resp.id ?: ""
+    }
+
+    /**
+     * A page of [username]'s games, newest first, across all speeds/variants.
+     * `GET /api/games/user/{username}` (NDJSON). Pass [until] (epoch-ms) to fetch games
+     * created strictly before it — use the oldest game's `createdAt` from the previous
+     * page to load the next chunk (messages-style infinite scroll).
+     */
+    suspend fun getUserGames(username: String, max: Int, until: Long? = null): List<LichessArchivedGame> {
+        val games = mutableListOf<LichessArchivedGame>()
+        // NOTE: use application/json (not x-ndjson). The shared client's ContentNegotiation
+        // already advertises application/json; adding x-ndjson on top yields an Accept
+        // ordering that makes Lichess return PGN instead. application/json returns one JSON
+        // object per line, which we parse below. (Body is read manually, not via CN.)
+        client.prepareGet("$BASE_URL/api/games/user/$username") {
+            header("Accept", "application/json")
+            parameter("max", max)
+            if (until != null) parameter("until", until)
+        }.execute { response ->
+            val channel = response.bodyAsChannel()
+            while (true) {
+                val line = channel.readUTF8Line() ?: break
+                if (line.isNotBlank()) {
+                    runCatching { json.decodeFromString(LichessArchivedGame.serializer(), line) }
+                        .getOrNull()?.let { games += it }
+                }
+            }
+        }
+        return games
     }
 
     /** Pending correspondence challenges in both directions. `GET /api/challenge`. */

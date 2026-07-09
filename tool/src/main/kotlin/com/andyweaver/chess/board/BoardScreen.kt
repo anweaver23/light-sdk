@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
@@ -19,12 +20,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
-import androidx.compose.ui.platform.LocalClipboardManager
+import android.content.ClipData
+import androidx.compose.ui.platform.ClipEntry
+import androidx.compose.ui.platform.LocalClipboard
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -40,6 +43,8 @@ import com.thelightphone.sdk.SealedLightActivity
 import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightBottomBar
 import com.thelightphone.sdk.ui.LightFullscreenModal
+import com.thelightphone.sdk.ui.LightIcon
+import com.thelightphone.sdk.ui.LightIconConfiguration
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightScrollView
 import com.thelightphone.sdk.ui.LightText
@@ -110,16 +115,17 @@ class BoardScreen(
         val state by viewModel.uiState.collectAsState()
         val pgnEvent by viewModel.pgnEvent.collectAsState()
 
-        val clipboard = LocalClipboardManager.current
+        val clipboard = LocalClipboard.current
 
         // PGN delivery happens in the UI layer via the clipboard. LightOS does not
         // permit launching a share/email intent (startActivity is disallowed by the
-        // SDK), so both "Copy" and "Share/Email" copy the PGN to the clipboard for
-        // the user to paste wherever they like. TODO: revisit if LightOS exposes an
-        // SDK-sanctioned share/export mechanism later.
+        // SDK), so "Copy PGN" writes the PGN to the clipboard for the user to paste
+        // wherever they like. Uses the modern Clipboard API (suspend setClipEntry);
+        // note the Android 13+ system "copied" confirmation is shown by the OS and
+        // can't be suppressed by the app.
         LaunchedEffect(pgnEvent) {
             val event = pgnEvent ?: return@LaunchedEffect
-            clipboard.setText(AnnotatedString(event.pgn))
+            clipboard.setClipEntry(ClipEntry(ClipData.newPlainText("PGN", event.pgn)))
             viewModel.onPgnDelivered("PGN copied to clipboard")
         }
 
@@ -165,11 +171,23 @@ class BoardScreen(
                 }
 
                 if (state.menuOpen) {
-                    ActionMenuOverlay(showGameActions = !state.terminal, viewModel = viewModel)
+                    ActionMenuOverlay(
+                        showGameActions = !state.terminal,
+                        canOfferDraw = state.canOfferDraw,
+                        viewModel = viewModel,
+                    )
                 }
 
                 state.confirmation?.let { confirmation ->
                     ConfirmationOverlay(confirmation = confirmation, viewModel = viewModel)
+                }
+
+                // Opponent offered a draw: prompt to accept/decline (unless another
+                // overlay is up).
+                if (state.incomingDrawOffer && !state.menuOpen &&
+                    state.confirmation == null && !state.promotionActive
+                ) {
+                    DrawOfferOverlay(viewModel = viewModel)
                 }
 
                 state.message?.let { message ->
@@ -184,19 +202,11 @@ class BoardScreen(
 private fun BottomControls(state: BoardUiState, viewModel: BoardViewModel) {
     when (state.mode) {
         BottomMode.BROWSE -> {
-            LightBottomBar(
-                items = listOf(
-                    LightBarButton.LightIcon(
-                        icon = LightIcons.BACK,
-                        onClick = { viewModel.stepBack() },
-                        contentDescription = "Previous move",
-                    ),
-                    LightBarButton.LightIcon(
-                        icon = LightIcons.ARROW_RIGHT,
-                        onClick = { viewModel.stepForward() },
-                        contentDescription = "Next move",
-                    ),
-                ),
+            BrowseBar(
+                canStepBack = state.canStepBack,
+                canStepForward = state.canStepForward,
+                onBack = { viewModel.stepBack() },
+                onForward = { viewModel.stepForward() },
             )
         }
 
@@ -219,8 +229,50 @@ private fun BottomControls(state: BoardUiState, viewModel: BoardViewModel) {
     }
 }
 
+// Browse controls that grey out (and disable) an arrow at the ends of the move
+// history. Mirrors LightBottomBar's 2-item metrics (height, top margin, padding).
 @Composable
-private fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
+internal fun BrowseBar(
+    canStepBack: Boolean,
+    canStepForward: Boolean,
+    onBack: () -> Unit,
+    onForward: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 1f.gridUnitsAsDp())
+            .height(4f.gridUnitsAsDp())
+            .padding(horizontal = 2f.gridUnitsAsDp()),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.CenterStart) {
+            NavArrow(LightIcons.BACK, "Previous move", canStepBack, onBack)
+        }
+        Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.CenterEnd) {
+            NavArrow(LightIcons.ARROW_RIGHT, "Next move", canStepForward, onForward)
+        }
+    }
+}
+
+@Composable
+private fun NavArrow(
+    icon: LightIconConfiguration,
+    contentDescription: String,
+    enabled: Boolean,
+    onClick: () -> Unit,
+) {
+    LightIcon(
+        icon = icon,
+        contentDescription = contentDescription,
+        modifier = Modifier
+            .alpha(if (enabled) 1f else 0.3f)
+            .then(if (enabled) Modifier.lightClickable(onClick = onClick) else Modifier),
+    )
+}
+
+@Composable
+internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
     BoxWithConstraints(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
@@ -370,7 +422,41 @@ private fun PromotionOverlay(myColor: EngineColor, viewModel: BoardViewModel) {
 }
 
 @Composable
-private fun ActionMenuOverlay(showGameActions: Boolean, viewModel: BoardViewModel) {
+private fun DrawOfferOverlay(viewModel: BoardViewModel) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(LightThemeTokens.colors.background),
+    ) {
+        Box(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth()
+                .padding(horizontal = 1f.gridUnitsAsDp()),
+            contentAlignment = Alignment.Center,
+        ) {
+            LightText(
+                text = "Opponent offers a draw",
+                variant = LightTextVariant.Copy,
+                align = TextAlign.Center,
+            )
+        }
+        LightBottomBar(
+            items = listOf(
+                null,
+                LightBarButton.Text(text = "ACCEPT", onClick = { viewModel.acceptIncomingDraw() }),
+                LightBarButton.LightIcon(
+                    icon = LightIcons.CLOSE,
+                    onClick = { viewModel.declineIncomingDraw() },
+                    contentDescription = "Decline draw",
+                ),
+            ),
+        )
+    }
+}
+
+@Composable
+private fun ActionMenuOverlay(showGameActions: Boolean, canOfferDraw: Boolean, viewModel: BoardViewModel) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -383,7 +469,8 @@ private fun ActionMenuOverlay(showGameActions: Boolean, viewModel: BoardViewMode
         LightScrollView(modifier = Modifier.weight(1f).fillMaxWidth()) {
             if (showGameActions) {
                 MenuRow("Resign") { viewModel.requestResign() }
-                MenuRow("Offer draw") { viewModel.requestDraw() }
+                // Lichess only allows a draw offer once both players have moved.
+                if (canOfferDraw) MenuRow("Offer draw") { viewModel.requestDraw() }
             }
             // SDK has no sanctioned email/share hook (raw intents are blocked), so PGN export is
             // copy-to-clipboard only. Revisit if LightOS later exposes a share/forward capability.

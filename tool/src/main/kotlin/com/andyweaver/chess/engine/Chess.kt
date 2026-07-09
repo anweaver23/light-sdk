@@ -188,6 +188,49 @@ object Chess {
         return Replay(initial, steps)
     }
 
+    /**
+     * Replay a space-separated SAN move list — the format Lichess returns in a game's
+     * `moves` field (e.g. "e4 e5 Nf3"). Each token is matched against the legal moves of
+     * the current position by generated SAN (check/mate/annotation suffixes ignored), so
+     * it handles disambiguation, captures, castling, and promotion. Produces the same
+     * [Replay] as [replay]. Used by the game-history review screen.
+     *
+     * @throws IllegalArgumentException if a token matches no legal move (e.g. an
+     * unsupported variant).
+     */
+    fun replaySan(sanMoves: String, startFen: String? = null): Replay =
+        replaySan(splitMoves(sanMoves), startFen)
+
+    /** As [replaySan], but taking an already-split list of SAN tokens. */
+    fun replaySan(sanMoves: List<String>, startFen: String? = null): Replay {
+        val initial = startFen?.let { Position.fromFen(it) } ?: Position.START
+        var current = initial
+        val steps = ArrayList<MoveRecord>(sanMoves.size)
+        for (token in sanMoves) {
+            val target = normalizeSan(token)
+            val move = MoveGenerator.legalMoves(current)
+                .firstOrNull { normalizeSan(San.of(current, it)) == target }
+                ?: throw IllegalArgumentException("Unrecognized SAN '$token' in ${current.toFen()}")
+            val after = MoveGenerator.applyMove(current, move)
+            steps.add(
+                MoveRecord(
+                    move = move,
+                    san = San.of(current, move),
+                    before = current,
+                    after = after,
+                    number = current.fullmoveNumber,
+                    byWhite = current.sideToMove == Color.WHITE,
+                ),
+            )
+            current = after
+        }
+        return Replay(initial, steps)
+    }
+
+    // Strip check/mate/annotation glyphs so SAN comparison is on the core move only.
+    private fun normalizeSan(san: String): String =
+        san.replace("+", "").replace("#", "").replace("!", "").replace("?", "")
+
     private fun splitMoves(moves: String): List<String> =
         moves.trim().split(Regex("\\s+")).filter { it.isNotEmpty() }
 

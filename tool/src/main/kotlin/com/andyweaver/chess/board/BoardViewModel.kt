@@ -62,6 +62,10 @@ data class BoardUiState(
     val terminal: Boolean = false,
     val menuOpen: Boolean = false,
     val confirmation: Confirmation? = null,
+    /** Lichess only allows offering a draw after both players have moved. */
+    val canOfferDraw: Boolean = false,
+    /** The opponent has offered a draw and we haven't responded yet. */
+    val incomingDrawOffer: Boolean = false,
     val message: String? = null,
 )
 
@@ -105,6 +109,9 @@ class BoardViewModel(
     private var streamWinner: String? = null
     private var opponentName: String = "Opponent"
     private var opponentOfferedDraw: Boolean = false
+    // Set true once we accept/decline an incoming offer, to hide the prompt until
+    // the stream reflects the change; reset when the offer clears.
+    private var drawResponsePending: Boolean = false
     private var menuOpen: Boolean = false
     private var confirmation: Confirmation? = null
     private var message: String? = null
@@ -187,6 +194,8 @@ class BoardViewModel(
         streamStatus = state.status
         streamWinner = state.winner
         opponentOfferedDraw = if (myColor == Color.WHITE) state.bdraw else state.wdraw
+        // Offer withdrawn/resolved -> allow the prompt to show again next time.
+        if (!opponentOfferedDraw) drawResponsePending = false
 
         // Re-derive the whole timeline from the authoritative move list.
         replay = try {
@@ -390,6 +399,26 @@ class BoardViewModel(
         }
     }
 
+    // ----- responding to an incoming draw offer -----
+
+    fun acceptIncomingDraw() = respondToDraw(accept = true, failNote = "Couldn't accept draw")
+    fun declineIncomingDraw() = respondToDraw(accept = false, failNote = "Couldn't decline draw")
+
+    private fun respondToDraw(accept: Boolean, failNote: String) {
+        if (drawResponsePending) return
+        drawResponsePending = true
+        recompute() // hides the prompt immediately
+        viewModelScope.launch {
+            val res = api.handleDraw(gameId, accept = accept)
+            if (res is LichessActionResult.Failure) {
+                drawResponsePending = false
+                message = "$failNote: ${res.error}"
+                recompute()
+            }
+            // On success the stream reflects the resolution (draw -> terminal, or offer cleared).
+        }
+    }
+
     // ----- PGN export -----
 
     fun copyPgn() { menuOpen = false; recompute(); fetchPgn(PgnDelivery.CLIPBOARD) }
@@ -457,8 +486,11 @@ class BoardViewModel(
             }
         }
 
+        // Don't reveal check/checkmate for a move the user hasn't confirmed yet.
+        val moveUnconfirmed = pendingMove != null && !awaitingServer
         val displayStatus = Chess.status(displayPosition)
-        val inCheck = displayStatus is GameStatus.Check || displayStatus is GameStatus.Checkmate
+        val inCheck = !moveUnconfirmed &&
+            (displayStatus is GameStatus.Check || displayStatus is GameStatus.Checkmate)
         val checkedKing = if (inCheck) {
             displayPosition.kingSquare(displayPosition.sideToMove).takeIf { it >= 0 }
         } else {
@@ -475,6 +507,10 @@ class BoardViewModel(
         }
 
         val mode = if (pendingMove != null && !awaitingServer) BottomMode.PENDING else BottomMode.BROWSE
+
+        // Lichess rejects draw offers before both players have moved (>= 2 plies).
+        val canOfferDraw = !terminal && replay.steps.size >= 2
+        val incomingDrawOffer = opponentOfferedDraw && !drawResponsePending && !terminal
 
         _uiState.value = BoardUiState(
             opponentName = opponentName,
@@ -494,6 +530,8 @@ class BoardViewModel(
             terminal = terminal,
             menuOpen = menuOpen,
             confirmation = confirmation,
+            canOfferDraw = canOfferDraw,
+            incomingDrawOffer = incomingDrawOffer,
             message = message,
         )
     }
