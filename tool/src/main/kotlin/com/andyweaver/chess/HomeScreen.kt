@@ -14,10 +14,12 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.lifecycle.viewModelScope
 import com.andyweaver.chess.board.BoardScreen
-import com.andyweaver.chess.engine.Chess
+// v1: last-move-in-subtitle removed — may re-add
+// import com.andyweaver.chess.engine.Chess
 import com.andyweaver.chess.history.HistoryScreen
 import com.andyweaver.chess.lichess.AccountEventType
 import com.andyweaver.chess.lichess.LichessActionResult
@@ -26,6 +28,7 @@ import com.andyweaver.chess.lichess.LichessChallenge
 import com.andyweaver.chess.lichess.LichessGame
 import com.andyweaver.chess.lichess.nameWithRating
 import com.andyweaver.chess.newgame.NewGameScreen
+import com.andyweaver.chess.ui.NameWithRating
 import com.andyweaver.chess.settings.ChessSettings
 import com.andyweaver.chess.settings.PendingSeek
 import com.andyweaver.chess.settings.SettingsScreen
@@ -39,6 +42,7 @@ import com.thelightphone.sdk.ui.LightBottomBar
 import com.thelightphone.sdk.ui.LightIcon
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightScrollView
+import com.thelightphone.sdk.ui.LightSurfaceScheme
 import com.thelightphone.sdk.ui.LightText
 import com.thelightphone.sdk.ui.LightTextVariant
 import com.thelightphone.sdk.ui.LightTheme
@@ -115,12 +119,6 @@ class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<
     // One long-lived client per account (the event stream needs to stay open); swapped
     // out on account switch, closed on clear.
     private var api = LichessApi(currentToken)
-
-    // Backed by persisted settings (Settings screen). Defaults true until loaded.
-    val showTimeRemaining = settings.showTimeRemaining
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), true)
-    val showLastMove = settings.showLastMove
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), true)
 
     // Locally-tracked pending seeks for the current account (Lichess can't list them).
     @OptIn(ExperimentalCoroutinesApi::class)
@@ -294,8 +292,6 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
     override fun Content() {
         val themeColors by LightThemeController.colors.collectAsState()
         val state by viewModel.state.collectAsState()
-        val showTime by viewModel.showTimeRemaining.collectAsState()
-        val showLastMove by viewModel.showLastMove.collectAsState()
         val pendingSeeks by viewModel.pendingSeeks.collectAsState()
         val openGame by viewModel.openGame.collectAsState()
 
@@ -359,8 +355,6 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                                     content.games.forEach { game ->
                                         GameRow(
                                             game = game,
-                                            showTimeRemaining = showTime,
-                                            showLastMove = showLastMove,
                                             onClick = {
                                                 navigateTo({ sa ->
                                                     BoardScreen(
@@ -368,6 +362,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                                                         game.gameId,
                                                         viewModel.currentToken,
                                                         game.color,
+                                                        game.fen,
                                                     )
                                                 })
                                             },
@@ -402,8 +397,16 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                             onClick = { navigateTo(::SettingsScreen) },
                             contentDescription = "Settings",
                         ),
-                        LightBarButton.LightIcon(
-                            icon = LightIcons.LIST,
+                        LightBarButton.Icon(
+                            // Custom Material "history" glyph; pick the variant that matches
+                            // the theme's content color (LightBarButton.Icon doesn't tint).
+                            painter = painterResource(
+                                if (LightThemeTokens.surfaceScheme == LightSurfaceScheme.Dark) {
+                                    R.drawable.ic_history_white
+                                } else {
+                                    R.drawable.ic_history_black
+                                },
+                            ),
                             onClick = { navigateTo({ sa -> HistoryScreen(sa, viewModel.currentToken) }) },
                             contentDescription = "Game history",
                         ),
@@ -456,11 +459,11 @@ private fun IncomingChallengeRow(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(modifier = Modifier.weight(1f)) {
-            LightText(
-                text = challenge.challenger?.let { nameWithRating(it.displayName, it.ratingOrNull) } ?: "Someone",
-                variant = NAME_VARIANT,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
+            NameWithRating(
+                name = challenge.challenger?.displayName ?: "Someone",
+                rating = challenge.challenger?.ratingOrNull,
+                nameVariant = NAME_VARIANT,
+                modifier = Modifier.fillMaxWidth(),
             )
             LightText(
                 text = "wants to play · ${challengeTerms(challenge)}",
@@ -578,11 +581,9 @@ private fun seekTerms(seek: PendingSeek): String {
 @Composable
 private fun GameRow(
     game: LichessGame,
-    showTimeRemaining: Boolean,
-    showLastMove: Boolean,
     onClick: () -> Unit,
 ) {
-    val subtitle = buildSubtitle(game, showTimeRemaining, showLastMove)
+    val subtitle = buildSubtitle(game)
     val asteriskColWidth = ASTERISK_COL_UNITS.gridUnitsAsDp()
     Column(
         modifier = Modifier
@@ -605,11 +606,10 @@ private fun GameRow(
                     LightText(text = "*", variant = NAME_VARIANT)
                 }
             }
-            LightText(
-                text = nameWithRating(game.opponent.username, game.opponent.rating),
-                variant = NAME_VARIANT,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
+            NameWithRating(
+                name = game.opponent.username,
+                rating = game.opponent.rating,
+                nameVariant = NAME_VARIANT,
                 modifier = Modifier.weight(1f),
             )
         }
@@ -623,18 +623,13 @@ private fun GameRow(
     }
 }
 
-// Subtitle always leads with the side you play (white/black); time-remaining and
-// last-move segments are gated by their settings toggles.
-private fun buildSubtitle(
-    game: LichessGame,
-    showTimeRemaining: Boolean,
-    showLastMove: Boolean,
-): String {
+// Subtitle: which side you play (white/black), "their move" when waiting, and the
+// time remaining (always shown now — the toggles were removed for v1).
+private fun buildSubtitle(game: LichessGame): String {
     val parts = buildList {
         add(game.color)
         if (!game.isMyTurn) add("their move")
-        if (showTimeRemaining) game.secondsLeft?.let { add(formatTimeLabel(it, game.isMyTurn)) }
-        if (showLastMove) game.lastMove?.takeIf { it.isNotBlank() }?.let { add(formatLastMove(game.fen, it)) }
+        game.secondsLeft?.let { add(formatTimeLabel(it, game.isMyTurn)) }
     }
     return parts.joinToString(" · ")
 }
@@ -644,33 +639,37 @@ private fun formatTimeLabel(seconds: Int, isMyTurn: Boolean): String {
     return if (isMyTurn) "$duration left" else duration
 }
 
-private fun formatDuration(seconds: Int): String {
-    val days = seconds / 86_400
-    if (days >= 1) return "$days ${plural(days, "day")}"
-    val hours = seconds / 3_600
-    if (hours >= 1) return "$hours ${plural(hours, "hour")}"
-    val minutes = seconds / 60
-    if (minutes >= 1) return "$minutes ${plural(minutes, "minute")}"
-    return "$seconds ${plural(seconds, "second")}"
+// 48h is the cutoff: 2+ days show "N days"; under that, switch to hours (rounded)
+// so a ~2-day correspondence turn reads "48 hours" rather than a misleading "1 day".
+private fun formatDuration(seconds: Int): String = when {
+    seconds >= 2 * 86_400 -> {
+        val days = (seconds + 43_200) / 86_400
+        "$days ${plural(days, "day")}"
+    }
+    seconds >= 3_600 -> {
+        val hours = (seconds + 1_800) / 3_600
+        "$hours ${plural(hours, "hour")}"
+    }
+    seconds >= 60 -> {
+        val minutes = (seconds + 30) / 60
+        "$minutes ${plural(minutes, "minute")}"
+    }
+    else -> "$seconds ${plural(seconds, "second")}"
 }
 
 private fun plural(n: Int, unit: String): String = if (n == 1) unit else "${unit}s"
 
-// Move-number prefix (from the FEN) + the move in SAN, e.g. "8... Bd6" / "9. O-O".
-// SAN is reconstructed by the engine from the post-move FEN + the UCI move; if that
-// can't be resolved we fall back to the raw UCI so the row never shows nothing.
-private fun formatLastMove(fen: String, move: String): String {
-    val prefix = lastMovePrefix(fen) ?: ""
-    val san = Chess.sanForLastMove(fen, move) ?: move
-    return prefix + san
-}
-
-private fun lastMovePrefix(fen: String): String? {
-    val parts = fen.trim().split(" ")
-    if (parts.size < 6) return null
-    val activeColor = parts[1]
-    val fullmove = parts[5].toIntOrNull() ?: return null
-    // FEN fullmove increments after Black's move; active color is who moves NOW,
-    // so the last move was the other side's.
-    return if (activeColor == "w") "${fullmove - 1}... " else "$fullmove. "
-}
+// v1: last-move-in-subtitle removed — may re-add. Kept for reference.
+// private fun formatLastMove(fen: String, move: String): String {
+//     val prefix = lastMovePrefix(fen) ?: ""
+//     val san = Chess.sanForLastMove(fen, move) ?: move
+//     return prefix + san
+// }
+//
+// private fun lastMovePrefix(fen: String): String? {
+//     val parts = fen.trim().split(" ")
+//     if (parts.size < 6) return null
+//     val activeColor = parts[1]
+//     val fullmove = parts[5].toIntOrNull() ?: return null
+//     return if (activeColor == "w") "${fullmove - 1}... " else "$fullmove. "
+// }

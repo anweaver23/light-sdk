@@ -232,6 +232,7 @@ private fun HistoryRow(game: LichessArchivedGame, username: String, onClick: () 
         add(mySide)
         add(resultText(game, iAmWhite))
         game.speed?.let { add(it) }
+        relativeTime(game.lastMoveAt)?.let { add(it) }
     }.joinToString(" · ")
 
     Column(
@@ -256,7 +257,26 @@ private fun isWhite(game: LichessArchivedGame, username: String): Boolean =
 
 private fun resultText(game: LichessArchivedGame, iAmWhite: Boolean): String = when {
     game.status.lowercase() in ONGOING_STATUSES -> "ongoing"
+    game.status.lowercase() == "stalemate" -> "stale"
     game.winner == null -> "draw"
-    (game.winner == "white") == iAmWhite -> "won"
-    else -> "lost"
+    (game.winner == "white") == iAmWhite -> "win"
+    else -> "loss"
+}
+
+// Short relative time for [epochMs] vs now, or null if the timestamp is missing.
+private fun relativeTime(epochMs: Long): String? {
+    if (epochMs <= 0) return null
+    val diff = System.currentTimeMillis() - epochMs
+    val seconds = diff / 1000
+    val minutes = seconds / 60
+    val hours = minutes / 60
+    val days = hours / 24
+    return when {
+        seconds < 60 -> "just now"
+        minutes < 60 -> "$minutes min ago"
+        hours < 24 -> if (hours > 1) "$hours hrs ago" else "$hours hr ago"
+        days < 30 -> if (days > 1) "$days days ago" else "$days day ago"
+        else -> java.text.SimpleDateFormat("MMM d, yyyy", java.util.Locale.getDefault())
+            .format(java.util.Date(epochMs))
+    }
 }

@@ -28,13 +28,14 @@ import kotlinx.coroutines.launch
 enum class BottomMode { BROWSE, PENDING }
 
 /** A destructive/irreversible action awaiting a CONFIRM/✕ overlay. */
-enum class Confirmation { RESIGN, DRAW }
+enum class Confirmation { RESIGN, DRAW, ABORT }
 
 /** How a fetched PGN should be delivered (performed in the UI layer). */
 enum class PgnDelivery { CLIPBOARD, SHARE }
 
-/** One-shot side effect: a fetched PGN plus how to deliver it. */
-data class PgnEvent(val pgn: String, val delivery: PgnDelivery)
+// v1: PGN export disabled — may re-add
+// /** One-shot side effect: a fetched PGN plus how to deliver it. */
+// data class PgnEvent(val pgn: String, val delivery: PgnDelivery)
 
 /**
  * Immutable render snapshot for the board screen. Everything [BoardScreen] draws
@@ -64,6 +65,8 @@ data class BoardUiState(
     val confirmation: Confirmation? = null,
     /** Lichess only allows offering a draw after both players have moved. */
     val canOfferDraw: Boolean = false,
+    /** Lichess only allows aborting before both players have moved. */
+    val canAbort: Boolean = false,
     /** The opponent has offered a draw and we haven't responded yet. */
     val incomingDrawOffer: Boolean = false,
     val message: String? = null,
@@ -84,6 +87,7 @@ class BoardViewModel(
     private val settings: ChessSettings,
     private val gameId: String,
     private val myColor: Color,
+    currentFen: String? = null,
 ) : LightViewModel<Unit>() {
 
     private val _uiState = MutableStateFlow(
@@ -91,9 +95,10 @@ class BoardViewModel(
     )
     val uiState: StateFlow<BoardUiState> = _uiState.asStateFlow()
 
-    // One-shot PGN delivery, consumed by the UI (clipboard / share intent).
-    private val _pgnEvent = MutableStateFlow<PgnEvent?>(null)
-    val pgnEvent: StateFlow<PgnEvent?> = _pgnEvent.asStateFlow()
+    // v1: PGN export disabled — may re-add
+    // // One-shot PGN delivery, consumed by the UI (clipboard / share intent).
+    // private val _pgnEvent = MutableStateFlow<PgnEvent?>(null)
+    // val pgnEvent: StateFlow<PgnEvent?> = _pgnEvent.asStateFlow()
 
     // ----- internal game/render state (all mutated on the Main thread) -----
     private var initialFen: String? = null
@@ -122,6 +127,14 @@ class BoardViewModel(
     private val myColorString = if (myColor == Color.WHITE) "white" else "black"
 
     init {
+        // Seed the displayed board from the game's current FEN (passed by the home
+        // screen) so the FIRST render shows the real position instead of the standard
+        // start — avoids a start-position flash before the live stream arrives. When
+        // gameFull lands it reconciles from the authoritative move list as usual.
+        if (currentFen != null) {
+            replay = runCatching { Chess.replay("", currentFen) }.getOrElse { Chess.replay("") }
+            viewIndex = replay.positions.lastIndex
+        }
         // Keep the confirm-moves preference current; defaults to true until loaded.
         viewModelScope.launch { settings.confirmMoves.collect { confirmMoves = it } }
         recompute()
@@ -251,6 +264,25 @@ class BoardViewModel(
         }
     }
 
+    fun stepToStart() {
+        if (pendingMove != null || pendingPromotion != null) return
+        if (viewIndex != 0) {
+            viewIndex = 0
+            clearSelection()
+            recompute()
+        }
+    }
+
+    fun stepToEnd() {
+        if (pendingMove != null || pendingPromotion != null) return
+        val last = replay.positions.lastIndex
+        if (viewIndex != last) {
+            viewIndex = last
+            clearSelection()
+            recompute()
+        }
+    }
+
     // ----- move interaction -----
 
     fun onSquareTap(square: Int) {
@@ -373,6 +405,7 @@ class BoardViewModel(
     fun closeMenu() { menuOpen = false; recompute() }
 
     fun requestResign() { menuOpen = false; confirmation = Confirmation.RESIGN; recompute() }
+    fun requestAbort() { menuOpen = false; confirmation = Confirmation.ABORT; recompute() }
     fun requestDraw() { menuOpen = false; confirmation = Confirmation.DRAW; recompute() }
     fun cancelConfirmation() { confirmation = null; recompute() }
 
@@ -383,6 +416,18 @@ class BoardViewModel(
             val res = api.resignGame(gameId)
             if (res is LichessActionResult.Failure) {
                 message = "Couldn't resign: ${res.error}"
+                recompute()
+            }
+        }
+    }
+
+    fun confirmAbort() {
+        confirmation = null
+        recompute()
+        viewModelScope.launch {
+            val res = api.abortGame(gameId)
+            if (res is LichessActionResult.Failure) {
+                message = "Couldn't abort: ${res.error}"
                 recompute()
             }
         }
@@ -420,26 +465,26 @@ class BoardViewModel(
     }
 
     // ----- PGN export -----
-
-    fun copyPgn() { menuOpen = false; recompute(); fetchPgn(PgnDelivery.CLIPBOARD) }
-    fun sharePgn() { menuOpen = false; recompute(); fetchPgn(PgnDelivery.SHARE) }
-
-    private fun fetchPgn(delivery: PgnDelivery) {
-        viewModelScope.launch {
-            try {
-                _pgnEvent.value = PgnEvent(api.exportGamePgn(gameId), delivery)
-            } catch (e: Exception) {
-                message = "Couldn't fetch PGN"
-                recompute()
-            }
-        }
-    }
-
-    /** UI reports how it delivered the PGN. [note] (if any) is surfaced to the user. */
-    fun onPgnDelivered(note: String?) {
-        _pgnEvent.value = null
-        if (note != null) { message = note; recompute() }
-    }
+    // v1: PGN export disabled — may re-add
+    // fun copyPgn() { menuOpen = false; recompute(); fetchPgn(PgnDelivery.CLIPBOARD) }
+    // fun sharePgn() { menuOpen = false; recompute(); fetchPgn(PgnDelivery.SHARE) }
+    //
+    // private fun fetchPgn(delivery: PgnDelivery) {
+    //     viewModelScope.launch {
+    //         try {
+    //             _pgnEvent.value = PgnEvent(api.exportGamePgn(gameId), delivery)
+    //         } catch (e: Exception) {
+    //             message = "Couldn't fetch PGN"
+    //             recompute()
+    //         }
+    //     }
+    // }
+    //
+    // /** UI reports how it delivered the PGN. [note] (if any) is surfaced to the user. */
+    // fun onPgnDelivered(note: String?) {
+    //     _pgnEvent.value = null
+    //     if (note != null) { message = note; recompute() }
+    // }
 
     // ----- messages -----
 
@@ -510,6 +555,8 @@ class BoardViewModel(
 
         // Lichess rejects draw offers before both players have moved (>= 2 plies).
         val canOfferDraw = !terminal && replay.steps.size >= 2
+        // Lichess only allows aborting before both players have moved (< 2 plies).
+        val canAbort = !terminal && replay.steps.size < 2
         val incomingDrawOffer = opponentOfferedDraw && !drawResponsePending && !terminal
 
         _uiState.value = BoardUiState(
@@ -531,6 +578,7 @@ class BoardViewModel(
             menuOpen = menuOpen,
             confirmation = confirmation,
             canOfferDraw = canOfferDraw,
+            canAbort = canAbort,
             incomingDrawOffer = incomingDrawOffer,
             message = message,
         )

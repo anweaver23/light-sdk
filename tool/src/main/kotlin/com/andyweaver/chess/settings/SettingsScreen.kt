@@ -32,7 +32,7 @@ private const val ROW_VERTICAL_PADDING_UNITS = 1f
 private val ROW_LABEL_VARIANT = LightTextVariant.Subheading
 
 /**
- * Settings screen for the chess tool. Lists the four persisted toggles from
+ * Settings screen for the chess tool. Lists the persisted toggles from
  * [ChessSettings] as tap-to-flip rows, LP style (mirrors
  * `sdk/emulator`'s `EmulatorSettings.kt`): centered "Settings" title with a
  * back chevron on the top bar, and one row per setting with a trailing
@@ -83,16 +83,18 @@ class SettingsScreen(sealedActivity: SealedLightActivity) :
                         enabled = snapshot.confirmMoves,
                         onClick = { viewModel.toggleConfirmMoves() },
                     )
-                    SettingsToggleRow(
-                        label = "Show time remaining",
-                        enabled = snapshot.showTimeRemaining,
-                        onClick = { viewModel.toggleShowTimeRemaining() },
-                    )
-                    SettingsToggleRow(
-                        label = "Show last move",
-                        enabled = snapshot.showLastMove,
-                        onClick = { viewModel.toggleShowLastMove() },
-                    )
+                    // v1: removed — may re-add
+                    // SettingsToggleRow(
+                    //     label = "Show time remaining",
+                    //     enabled = snapshot.showTimeRemaining,
+                    //     onClick = { viewModel.toggleShowTimeRemaining() },
+                    // )
+                    // v1: removed — may re-add
+                    // SettingsToggleRow(
+                    //     label = "Show last move",
+                    //     enabled = snapshot.showLastMove,
+                    //     onClick = { viewModel.toggleShowLastMove() },
+                    // )
                 }
             }
         }

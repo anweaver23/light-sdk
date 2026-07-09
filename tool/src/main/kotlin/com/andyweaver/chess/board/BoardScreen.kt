@@ -12,10 +12,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+// v1: PGN export disabled — may re-add (was used by the clipboard LaunchedEffect)
+// import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -24,14 +26,16 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
-import android.content.ClipData
-import androidx.compose.ui.platform.ClipEntry
-import androidx.compose.ui.platform.LocalClipboard
+// v1: PGN export disabled — may re-add
+// import android.content.ClipData
+// import androidx.compose.ui.platform.ClipEntry
+// import androidx.compose.ui.platform.LocalClipboard
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.andyweaver.chess.engine.Color as EngineColor
 import com.andyweaver.chess.engine.Piece
 import com.andyweaver.chess.engine.PieceType
@@ -90,6 +94,7 @@ class BoardScreen(
     private val gameId: String,
     private val token: String,
     private val myColorName: String,
+    private val currentFen: String? = null,
 ) : LightScreen<Unit, BoardViewModel>(sealedActivity) {
 
     override val viewModelClass: Class<BoardViewModel>
@@ -106,6 +111,7 @@ class BoardScreen(
             settings = ChessSettings(lightContext.dataStore),
             gameId = gameId,
             myColor = color,
+            currentFen = currentFen,
         )
     }
 
@@ -113,21 +119,23 @@ class BoardScreen(
     override fun Content() {
         val themeColors by LightThemeController.colors.collectAsState()
         val state by viewModel.uiState.collectAsState()
-        val pgnEvent by viewModel.pgnEvent.collectAsState()
 
-        val clipboard = LocalClipboard.current
-
-        // PGN delivery happens in the UI layer via the clipboard. LightOS does not
-        // permit launching a share/email intent (startActivity is disallowed by the
-        // SDK), so "Copy PGN" writes the PGN to the clipboard for the user to paste
-        // wherever they like. Uses the modern Clipboard API (suspend setClipEntry);
-        // note the Android 13+ system "copied" confirmation is shown by the OS and
-        // can't be suppressed by the app.
-        LaunchedEffect(pgnEvent) {
-            val event = pgnEvent ?: return@LaunchedEffect
-            clipboard.setClipEntry(ClipEntry(ClipData.newPlainText("PGN", event.pgn)))
-            viewModel.onPgnDelivered("PGN copied to clipboard")
-        }
+        // v1: PGN export disabled — may re-add
+        // val pgnEvent by viewModel.pgnEvent.collectAsState()
+        //
+        // val clipboard = LocalClipboard.current
+        //
+        // // PGN delivery happens in the UI layer via the clipboard. LightOS does not
+        // // permit launching a share/email intent (startActivity is disallowed by the
+        // // SDK), so "Copy PGN" writes the PGN to the clipboard for the user to paste
+        // // wherever they like. Uses the modern Clipboard API (suspend setClipEntry);
+        // // note the Android 13+ system "copied" confirmation is shown by the OS and
+        // // can't be suppressed by the app.
+        // LaunchedEffect(pgnEvent) {
+        //     val event = pgnEvent ?: return@LaunchedEffect
+        //     clipboard.setClipEntry(ClipEntry(ClipData.newPlainText("PGN", event.pgn)))
+        //     viewModel.onPgnDelivered("PGN copied to clipboard")
+        // }
 
         LightTheme(colors = themeColors) {
             Box(
@@ -174,6 +182,7 @@ class BoardScreen(
                     ActionMenuOverlay(
                         showGameActions = !state.terminal,
                         canOfferDraw = state.canOfferDraw,
+                        canAbort = state.canAbort,
                         viewModel = viewModel,
                     )
                 }
@@ -207,6 +216,8 @@ private fun BottomControls(state: BoardUiState, viewModel: BoardViewModel) {
                 canStepForward = state.canStepForward,
                 onBack = { viewModel.stepBack() },
                 onForward = { viewModel.stepForward() },
+                onSkipStart = { viewModel.stepToStart() },
+                onSkipEnd = { viewModel.stepToEnd() },
             )
         }
 
@@ -229,14 +240,19 @@ private fun BottomControls(state: BoardUiState, viewModel: BoardViewModel) {
     }
 }
 
-// Browse controls that grey out (and disable) an arrow at the ends of the move
-// history. Mirrors LightBottomBar's 2-item metrics (height, top margin, padding).
+// Browse controls that grey out (and disable) a control at the ends of the move
+// history. Four controls left-to-right: skip-to-start, back, forward, skip-to-end.
+// The two skip controls reuse the same arrow glyphs with a thin vertical bar tight
+// against the arrow's point. Mirrors LightBottomBar's 2-item metrics (height, top
+// margin, padding); the four controls are evenly distributed across the width.
 @Composable
 internal fun BrowseBar(
     canStepBack: Boolean,
     canStepForward: Boolean,
     onBack: () -> Unit,
     onForward: () -> Unit,
+    onSkipStart: () -> Unit,
+    onSkipEnd: () -> Unit,
 ) {
     Row(
         modifier = Modifier
@@ -244,14 +260,58 @@ internal fun BrowseBar(
             .padding(top = 1f.gridUnitsAsDp())
             .height(4f.gridUnitsAsDp())
             .padding(horizontal = 2f.gridUnitsAsDp()),
+        horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.CenterStart) {
-            NavArrow(LightIcons.BACK, "Previous move", canStepBack, onBack)
-        }
-        Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.CenterEnd) {
-            NavArrow(LightIcons.ARROW_RIGHT, "Next move", canStepForward, onForward)
-        }
+        // Skip-to-start: a vertical bar immediately LEFT of a BACK arrow.
+        SkipControl(
+            barSide = BarSide.LEADING,
+            icon = LightIcons.BACK,
+            contentDescription = "First move",
+            enabled = canStepBack,
+            onClick = onSkipStart,
+        )
+        NavArrow(LightIcons.BACK, "Previous move", canStepBack, onBack)
+        NavArrow(LightIcons.ARROW_RIGHT, "Next move", canStepForward, onForward)
+        // Skip-to-end: an ARROW_RIGHT arrow with a vertical bar immediately to its RIGHT.
+        SkipControl(
+            barSide = BarSide.TRAILING,
+            icon = LightIcons.ARROW_RIGHT,
+            contentDescription = "Last move",
+            enabled = canStepForward,
+            onClick = onSkipEnd,
+        )
+    }
+}
+
+/** Which side of the arrow the skip bar sits on. */
+private enum class BarSide { LEADING, TRAILING }
+
+@Composable
+private fun SkipControl(
+    barSide: BarSide,
+    icon: LightIconConfiguration,
+    contentDescription: String,
+    enabled: Boolean,
+    onClick: () -> Unit,
+) {
+    val bar: @Composable () -> Unit = {
+        Box(
+            modifier = Modifier
+                .width(2.dp)
+                .height(2f.gridUnitsAsDp())
+                .background(LightThemeTokens.colors.content),
+        )
+    }
+    Row(
+        modifier = Modifier
+            .alpha(if (enabled) 1f else 0.3f)
+            .then(if (enabled) Modifier.lightClickable(onClick = onClick) else Modifier),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        if (barSide == BarSide.LEADING) bar()
+        LightIcon(icon = icon, contentDescription = contentDescription)
+        if (barSide == BarSide.TRAILING) bar()
     }
 }
 
@@ -456,7 +516,12 @@ private fun DrawOfferOverlay(viewModel: BoardViewModel) {
 }
 
 @Composable
-private fun ActionMenuOverlay(showGameActions: Boolean, canOfferDraw: Boolean, viewModel: BoardViewModel) {
+private fun ActionMenuOverlay(
+    showGameActions: Boolean,
+    canOfferDraw: Boolean,
+    canAbort: Boolean,
+    viewModel: BoardViewModel,
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -469,12 +534,15 @@ private fun ActionMenuOverlay(showGameActions: Boolean, canOfferDraw: Boolean, v
         LightScrollView(modifier = Modifier.weight(1f).fillMaxWidth()) {
             if (showGameActions) {
                 MenuRow("Resign") { viewModel.requestResign() }
+                // Lichess only allows aborting before both players have moved.
+                if (canAbort) MenuRow("Abort game") { viewModel.requestAbort() }
                 // Lichess only allows a draw offer once both players have moved.
                 if (canOfferDraw) MenuRow("Offer draw") { viewModel.requestDraw() }
             }
-            // SDK has no sanctioned email/share hook (raw intents are blocked), so PGN export is
-            // copy-to-clipboard only. Revisit if LightOS later exposes a share/forward capability.
-            MenuRow("Copy PGN") { viewModel.copyPgn() }
+            // v1: PGN export disabled — may re-add
+            // // SDK has no sanctioned email/share hook (raw intents are blocked), so PGN export is
+            // // copy-to-clipboard only. Revisit if LightOS later exposes a share/forward capability.
+            // MenuRow("Copy PGN") { viewModel.copyPgn() }
         }
         LightBottomBar(
             items = listOf(
@@ -504,6 +572,7 @@ private fun MenuRow(label: String, onClick: () -> Unit) {
 private fun ConfirmationOverlay(confirmation: Confirmation, viewModel: BoardViewModel) {
     val message = when (confirmation) {
         Confirmation.RESIGN -> "Resign this game?"
+        Confirmation.ABORT -> "Abort this game?"
         Confirmation.DRAW -> "Offer a draw?"
     }
     Column(
@@ -528,6 +597,7 @@ private fun ConfirmationOverlay(confirmation: Confirmation, viewModel: BoardView
                     onClick = {
                         when (confirmation) {
                             Confirmation.RESIGN -> viewModel.confirmResign()
+                            Confirmation.ABORT -> viewModel.confirmAbort()
                             Confirmation.DRAW -> viewModel.confirmDraw()
                         }
                     },

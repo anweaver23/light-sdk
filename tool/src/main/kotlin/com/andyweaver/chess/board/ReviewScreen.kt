@@ -49,7 +49,8 @@ class ReviewViewModel(
     private val replay: Replay? = runCatching { Chess.replaySan(movesSan, initialFen) }.getOrNull()
     val parseFailed: Boolean get() = replay == null
 
-    private var viewIndex = 0
+    // Open on the game's final position; the user steps/skips backward from there.
+    private var viewIndex = replay?.positions?.lastIndex ?: 0
 
     private val _uiState = MutableStateFlow(buildState())
     val uiState: StateFlow<BoardUiState> = _uiState.asStateFlow()
@@ -61,6 +62,15 @@ class ReviewViewModel(
     fun stepForward() {
         val last = replay?.positions?.lastIndex ?: return
         if (viewIndex < last) { viewIndex++; _uiState.value = buildState() }
+    }
+
+    fun stepToStart() {
+        if (viewIndex != 0) { viewIndex = 0; _uiState.value = buildState() }
+    }
+
+    fun stepToEnd() {
+        val last = replay?.positions?.lastIndex ?: return
+        if (viewIndex != last) { viewIndex = last; _uiState.value = buildState() }
     }
 
     private fun buildState(): BoardUiState {
@@ -156,6 +166,8 @@ class ReviewScreen(
                         canStepForward = state.canStepForward,
                         onBack = { viewModel.stepBack() },
                         onForward = { viewModel.stepForward() },
+                        onSkipStart = { viewModel.stepToStart() },
+                        onSkipEnd = { viewModel.stepToEnd() },
                     )
                 }
             }

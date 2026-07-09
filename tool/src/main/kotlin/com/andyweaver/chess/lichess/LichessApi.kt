@@ -232,6 +232,8 @@ data class LichessArchivedGame(
     val status: String = "",
     val winner: String? = null,
     val createdAt: Long = 0,
+    /** Epoch-ms timestamp of the last move / game end (included in the games export). */
+    val lastMoveAt: Long = 0,
     val players: ArchivedPlayers = ArchivedPlayers(),
     val moves: String = "",
     /** Present for games that don't start from the standard position. */
@@ -402,6 +404,10 @@ class LichessApi(private val token: String) {
     /** Resigns the game. `POST /api/board/game/{gameId}/resign`. */
     suspend fun resignGame(gameId: String): LichessActionResult =
         postAction("$BASE_URL/api/board/game/$gameId/resign")
+
+    /** Aborts the game (only valid before both players have moved). `POST /api/board/game/{gameId}/abort`. */
+    suspend fun abortGame(gameId: String): LichessActionResult =
+        postAction("$BASE_URL/api/board/game/$gameId/abort")
 
     /**
      * Offers/accepts ([accept] = true) or declines ([accept] = false) a draw.

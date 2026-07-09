@@ -19,7 +19,7 @@ import androidx.lifecycle.viewModelScope
 import com.andyweaver.chess.lichess.LichessActionResult
 import com.andyweaver.chess.lichess.LichessApi
 import com.andyweaver.chess.lichess.LichessUser
-import com.andyweaver.chess.lichess.nameWithRating
+import com.andyweaver.chess.ui.NameWithRating
 import com.andyweaver.chess.settings.ChessSettings
 import com.andyweaver.chess.settings.PendingSeek
 import java.util.UUID
@@ -396,11 +396,10 @@ class NewGameScreen(
                 ),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            LightText(
-                text = nameWithRating(user.displayName, user.ratingOrNull),
-                variant = LightTextVariant.Subheading,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
+            NameWithRating(
+                name = user.displayName,
+                rating = user.ratingOrNull,
+                nameVariant = LightTextVariant.Subheading,
                 modifier = Modifier.weight(1f),
             )
             if (user.online) {

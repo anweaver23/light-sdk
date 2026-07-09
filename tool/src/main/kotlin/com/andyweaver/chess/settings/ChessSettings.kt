@@ -15,14 +15,15 @@ import kotlinx.serialization.json.Json
 
 /**
  * Combined snapshot of all persisted chess settings, for callers (e.g. Compose
- * screens) that want to observe every value at once rather than four separate
+ * screens) that want to observe every value at once rather than several separate
  * flows.
  */
 data class ChessSettingsSnapshot(
     val notificationsEnabled: Boolean = true,
     val confirmMoves: Boolean = true,
-    val showTimeRemaining: Boolean = true,
-    val showLastMove: Boolean = true,
+    // v1: removed — may re-add
+    // val showTimeRemaining: Boolean = true,
+    // val showLastMove: Boolean = true,
 )
 
 /**
@@ -55,28 +56,29 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
 
     val notificationsEnabled: Flow<Boolean> = booleanFlow(Keys.NOTIFICATIONS_ENABLED, default = true)
     val confirmMoves: Flow<Boolean> = booleanFlow(Keys.CONFIRM_MOVES, default = true)
-    val showTimeRemaining: Flow<Boolean> = booleanFlow(Keys.SHOW_TIME_REMAINING, default = true)
-    val showLastMove: Flow<Boolean> = booleanFlow(Keys.SHOW_LAST_MOVE, default = true)
+    // v1: removed — may re-add
+    // val showTimeRemaining: Flow<Boolean> = booleanFlow(Keys.SHOW_TIME_REMAINING, default = true)
+    // val showLastMove: Flow<Boolean> = booleanFlow(Keys.SHOW_LAST_MOVE, default = true)
 
-    /** All four settings combined into one snapshot flow. */
+    /** All settings combined into one snapshot flow. */
     val snapshot: Flow<ChessSettingsSnapshot> = combine(
         notificationsEnabled,
         confirmMoves,
-        showTimeRemaining,
-        showLastMove,
-    ) { notifications, confirm, showTime, showLast ->
+    ) { notifications, confirm ->
         ChessSettingsSnapshot(
             notificationsEnabled = notifications,
             confirmMoves = confirm,
-            showTimeRemaining = showTime,
-            showLastMove = showLast,
+            // v1: removed — may re-add
+            // showTimeRemaining = showTime,
+            // showLastMove = showLast,
         )
     }
 
     suspend fun setNotificationsEnabled(enabled: Boolean) = setBoolean(Keys.NOTIFICATIONS_ENABLED, enabled)
     suspend fun setConfirmMoves(enabled: Boolean) = setBoolean(Keys.CONFIRM_MOVES, enabled)
-    suspend fun setShowTimeRemaining(enabled: Boolean) = setBoolean(Keys.SHOW_TIME_REMAINING, enabled)
-    suspend fun setShowLastMove(enabled: Boolean) = setBoolean(Keys.SHOW_LAST_MOVE, enabled)
+    // v1: removed — may re-add
+    // suspend fun setShowTimeRemaining(enabled: Boolean) = setBoolean(Keys.SHOW_TIME_REMAINING, enabled)
+    // suspend fun setShowLastMove(enabled: Boolean) = setBoolean(Keys.SHOW_LAST_MOVE, enabled)
 
     private fun booleanFlow(key: Preferences.Key<Boolean>, default: Boolean): Flow<Boolean> =
         dataStore.data.map { prefs -> prefs[key] ?: default }
@@ -145,8 +147,9 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
     private object Keys {
         val NOTIFICATIONS_ENABLED = booleanPreferencesKey("chess_notifications_enabled")
         val CONFIRM_MOVES = booleanPreferencesKey("chess_confirm_moves")
-        val SHOW_TIME_REMAINING = booleanPreferencesKey("chess_show_time_remaining")
-        val SHOW_LAST_MOVE = booleanPreferencesKey("chess_show_last_move")
+        // v1: removed — may re-add
+        // val SHOW_TIME_REMAINING = booleanPreferencesKey("chess_show_time_remaining")
+        // val SHOW_LAST_MOVE = booleanPreferencesKey("chess_show_last_move")
     }
 
     private companion object {
