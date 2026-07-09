@@ -120,8 +120,12 @@ private fun SettingsToggleRow(
             variant = ROW_LABEL_VARIANT,
             modifier = Modifier.weight(1f),
         )
+        // Light's TOGGLE_ON/OFF assets are swapped: TOGGLE_OFF is the filled knob on
+        // the RIGHT (what reads as "on") and TOGGLE_ON is the empty knob on the LEFT
+        // ("off"). So we deliberately use TOGGLE_OFF for enabled and TOGGLE_ON for
+        // disabled to get the conventional on=filled-right / off=empty-left look.
         LightIcon(
-            icon = if (enabled) LightIcons.TOGGLE_ON else LightIcons.TOGGLE_OFF,
+            icon = if (enabled) LightIcons.TOGGLE_OFF else LightIcons.TOGGLE_ON,
             contentDescription = if (enabled) "$label: on" else "$label: off",
         )
     }

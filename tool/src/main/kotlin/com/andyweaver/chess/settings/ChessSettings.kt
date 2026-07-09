@@ -4,9 +4,14 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringSetPreferencesKey
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 /**
  * Combined snapshot of all persisted chess settings, for callers (e.g. Compose
@@ -18,6 +23,21 @@ data class ChessSettingsSnapshot(
     val confirmMoves: Boolean = true,
     val showTimeRemaining: Boolean = true,
     val showLastMove: Boolean = true,
+)
+
+/**
+ * A correspondence seek the user created that hasn't matched yet. Lichess offers no
+ * API to list or cancel correspondence seeks, so we persist them locally to show in
+ * the home "Pending" group. [id] is a local key only (not a server id). [side] is
+ * "white" | "black" | "random".
+ */
+@Serializable
+data class PendingSeek(
+    val id: String,
+    val days: Int,
+    val rated: Boolean,
+    val side: String,
+    val createdAt: Long,
 )
 
 /**
@@ -65,10 +85,71 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
         dataStore.edit { prefs -> prefs[key] = value }
     }
 
+    // ----- pending correspondence seeks (local only; per account) -----
+
+    /** Pending seeks for [account], newest first. */
+    fun pendingSeeks(account: String): Flow<List<PendingSeek>> =
+        dataStore.data.map { prefs ->
+            (prefs[pendingSeeksKey(account)] ?: emptySet())
+                .mapNotNull { decodeSeek(it) }
+                .sortedByDescending { it.createdAt }
+        }
+
+    suspend fun addPendingSeek(account: String, seek: PendingSeek) {
+        dataStore.edit { prefs ->
+            val current = prefs[pendingSeeksKey(account)] ?: emptySet()
+            prefs[pendingSeeksKey(account)] = current + json.encodeToString(seek)
+        }
+    }
+
+    suspend fun removePendingSeek(account: String, id: String) {
+        dataStore.edit { prefs ->
+            val current = prefs[pendingSeeksKey(account)] ?: return@edit
+            prefs[pendingSeeksKey(account)] = current.filterNot { decodeSeek(it)?.id == id }.toSet()
+        }
+    }
+
+    /**
+     * Clears seeks that have likely been matched. Since correspondence seeks aren't
+     * listable/cancelable via the API, we infer a match when a game id appears that we
+     * haven't seen for this account before: each newly-appeared game clears one (oldest)
+     * pending seek. The first call for an account only records the baseline.
+     */
+    suspend fun reconcileSeeks(account: String, currentGameIds: Set<String>) {
+        dataStore.edit { prefs ->
+            val known = prefs[knownGamesKey(account)]
+            if (known == null) {
+                prefs[knownGamesKey(account)] = currentGameIds
+                return@edit
+            }
+            val newlyAppeared = currentGameIds - known
+            val seeks = prefs[pendingSeeksKey(account)] ?: emptySet()
+            if (newlyAppeared.isNotEmpty() && seeks.isNotEmpty()) {
+                val oldestIds = seeks.mapNotNull { decodeSeek(it) }
+                    .sortedBy { it.createdAt }
+                    .take(newlyAppeared.size)
+                    .map { it.id }
+                    .toSet()
+                prefs[pendingSeeksKey(account)] = seeks.filterNot { decodeSeek(it)?.id in oldestIds }.toSet()
+            }
+            prefs[knownGamesKey(account)] = currentGameIds
+        }
+    }
+
+    private fun decodeSeek(raw: String): PendingSeek? =
+        runCatching { json.decodeFromString<PendingSeek>(raw) }.getOrNull()
+
+    private fun pendingSeeksKey(account: String) = stringSetPreferencesKey("chess_pending_seeks_$account")
+    private fun knownGamesKey(account: String) = stringSetPreferencesKey("chess_known_games_$account")
+
     private object Keys {
         val NOTIFICATIONS_ENABLED = booleanPreferencesKey("chess_notifications_enabled")
         val CONFIRM_MOVES = booleanPreferencesKey("chess_confirm_moves")
         val SHOW_TIME_REMAINING = booleanPreferencesKey("chess_show_time_remaining")
         val SHOW_LAST_MOVE = booleanPreferencesKey("chess_show_last_move")
+    }
+
+    private companion object {
+        val json = Json { ignoreUnknownKeys = true }
     }
 }

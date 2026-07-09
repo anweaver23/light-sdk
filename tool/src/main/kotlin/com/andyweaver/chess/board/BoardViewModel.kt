@@ -13,6 +13,7 @@ import com.andyweaver.chess.engine.Square
 import com.andyweaver.chess.lichess.BoardStreamEvent
 import com.andyweaver.chess.lichess.LichessActionResult
 import com.andyweaver.chess.lichess.LichessApi
+import com.andyweaver.chess.lichess.nameWithRating
 import com.andyweaver.chess.settings.ChessSettings
 import com.thelightphone.sdk.LightViewModel
 import com.thelightphone.sdk.SimpleLightScreen
@@ -52,8 +53,9 @@ data class BoardUiState(
     val legalDestinations: Set<Int> = emptySet(),
     val lastMoveFrom: Int? = null,
     val lastMoveTo: Int? = null,
-    val lastMoveByMe: Boolean = false,
     val checkedKingSquare: Int? = null,
+    /** When true, the promotion picker is shown; render the four choices in [myColor]. */
+    val promotionActive: Boolean = false,
     val mode: BottomMode = BottomMode.BROWSE,
     val canStepBack: Boolean = false,
     val canStepForward: Boolean = false,
@@ -95,6 +97,8 @@ class BoardViewModel(
     private var viewIndex: Int = 0
     private var selectedSquare: Int? = null
     private var legalDests: Set<Int> = emptySet()
+    // A pawn move to the last rank awaiting a promotion-piece choice (from, to).
+    private var pendingPromotion: Pair<Int, Int>? = null
     private var pendingMove: Move? = null
     private var awaitingServer: Boolean = false
     private var streamStatus: String = ""
@@ -164,9 +168,9 @@ class BoardViewModel(
         when (event) {
             is BoardStreamEvent.GameFull -> {
                 initialFen = event.initialFen.takeUnless { it == "startpos" || it.isBlank() }
-                opponentName =
-                    (if (myColor == Color.WHITE) event.black.name else event.white.name)
-                        ?.takeIf { it.isNotBlank() } ?: "Opponent"
+                val opp = if (myColor == Color.WHITE) event.black else event.white
+                val oppName = opp.name?.takeIf { it.isNotBlank() } ?: "Opponent"
+                opponentName = nameWithRating(oppName, opp.rating)
                 applyState(event.state, resetView = true)
             }
 
@@ -221,7 +225,7 @@ class BoardViewModel(
     // ----- history browsing -----
 
     fun stepBack() {
-        if (pendingMove != null) return
+        if (pendingMove != null || pendingPromotion != null) return
         if (viewIndex > 0) {
             viewIndex--
             clearSelection()
@@ -230,7 +234,7 @@ class BoardViewModel(
     }
 
     fun stepForward() {
-        if (pendingMove != null) return
+        if (pendingMove != null || pendingPromotion != null) return
         if (viewIndex < replay.positions.lastIndex) {
             viewIndex++
             clearSelection()
@@ -242,9 +246,9 @@ class BoardViewModel(
 
     fun onSquareTap(square: Int) {
         val positions = replay.positions
-        // Read-only while a move is pending/in-flight, while reviewing history,
-        // when the game is over, or when it is not our turn.
-        if (pendingMove != null) return
+        // Read-only while a move is pending/in-flight, while picking a promotion
+        // piece, while reviewing history, when the game is over, or when not our turn.
+        if (pendingMove != null || pendingPromotion != null) return
         if (viewIndex != positions.lastIndex) return
         if (isTerminal()) return
         val latest = replay.finalPosition
@@ -274,10 +278,41 @@ class BoardViewModel(
 
     private fun makeMove(from: Int, to: Int) {
         val latest = replay.finalPosition
-        // Promotion picker is deferred; auto-queen for now (see BoardScreen note).
         val isPromotion = latest.pieceAt(from)?.type == PieceType.PAWN &&
             (Square.rank(to) == 0 || Square.rank(to) == 7)
-        val uci = Square.name(from) + Square.name(to) + if (isPromotion) "q" else ""
+        if (isPromotion) {
+            // Hold the move and ask which piece to promote to (BoardScreen shows a picker).
+            pendingPromotion = from to to
+            clearSelection()
+            recompute()
+            return
+        }
+        commitMove(from, to, promotion = null)
+    }
+
+    /** User picked a promotion piece from the picker. */
+    fun choosePromotion(type: PieceType) {
+        val (from, to) = pendingPromotion ?: return
+        pendingPromotion = null
+        commitMove(from, to, promotion = type)
+    }
+
+    fun cancelPromotion() {
+        pendingPromotion = null
+        clearSelection()
+        recompute()
+    }
+
+    private fun commitMove(from: Int, to: Int, promotion: PieceType?) {
+        val latest = replay.finalPosition
+        val suffix = when (promotion) {
+            PieceType.QUEEN -> "q"
+            PieceType.ROOK -> "r"
+            PieceType.BISHOP -> "b"
+            PieceType.KNIGHT -> "n"
+            else -> ""
+        }
+        val uci = Square.name(from) + Square.name(to) + suffix
         val move = Chess.parseUci(uci, latest)
         clearSelection()
         if (move == null) {
@@ -410,18 +445,15 @@ class BoardViewModel(
         // Last-move highlight follows whatever produced the displayed position.
         var lastFrom: Int? = null
         var lastTo: Int? = null
-        var lastByMe = false
         when {
             pendingMove != null -> {
                 lastFrom = pendingMove!!.from
                 lastTo = pendingMove!!.to
-                lastByMe = true
             }
             viewIndex > 0 -> {
                 val step = replay.steps[viewIndex - 1]
                 lastFrom = step.move.from
                 lastTo = step.move.to
-                lastByMe = step.byWhite == (myColor == Color.WHITE)
             }
         }
 
@@ -454,8 +486,8 @@ class BoardViewModel(
             legalDestinations = legalDests,
             lastMoveFrom = lastFrom,
             lastMoveTo = lastTo,
-            lastMoveByMe = lastByMe,
             checkedKingSquare = checkedKing,
+            promotionActive = pendingPromotion != null,
             mode = mode,
             canStepBack = viewIndex > 0,
             canStepForward = viewIndex < positions.lastIndex,

@@ -2,6 +2,7 @@ package com.andyweaver.chess.board
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -59,8 +60,7 @@ private val DARK_SQUARE = Color(0xFF4D4D4D)
 
 // Faint full-square highlight tints (translucent so they read over both squares).
 private val SELECTED_FILL = Color(0x5A4C9A78)      // muted green — the piece you picked up
-private val LAST_MOVE_MINE_FILL = Color(0x4DB08A3E) // muted amber — your last move
-private val LAST_MOVE_OPP_FILL = Color(0x4D3E6DB0)  // muted blue — opponent's last move
+private val LAST_MOVE_FILL = Color(0x4DB08A3E)      // muted amber — the last move (either player)
 private val CHECK_FILL = Color(0x59C0392B)          // muted red — king in check
 private val LEGAL_MARKER = Color(0x992E7D5B)        // teal dot/ring — legal destinations
 
@@ -160,6 +160,10 @@ class BoardScreen(
                     BottomControls(state = state, viewModel = viewModel)
                 }
 
+                if (state.promotionActive) {
+                    PromotionOverlay(myColor = state.myColor, viewModel = viewModel)
+                }
+
                 if (state.menuOpen) {
                     ActionMenuOverlay(showGameActions = !state.terminal, viewModel = viewModel)
                 }
@@ -183,12 +187,12 @@ private fun BottomControls(state: BoardUiState, viewModel: BoardViewModel) {
             LightBottomBar(
                 items = listOf(
                     LightBarButton.LightIcon(
-                        icon = LightIcons.REWIND,
+                        icon = LightIcons.BACK,
                         onClick = { viewModel.stepBack() },
                         contentDescription = "Previous move",
                     ),
                     LightBarButton.LightIcon(
-                        icon = LightIcons.FAST_FORWARD,
+                        icon = LightIcons.ARROW_RIGHT,
                         onClick = { viewModel.stepForward() },
                         contentDescription = "Next move",
                     ),
@@ -257,8 +261,7 @@ private fun SquareCell(
     val background = if (Square.isLight(square)) LIGHT_SQUARE else DARK_SQUARE
     val highlight = when {
         square == state.selectedSquare -> SELECTED_FILL
-        square == state.lastMoveFrom || square == state.lastMoveTo ->
-            if (state.lastMoveByMe) LAST_MOVE_MINE_FILL else LAST_MOVE_OPP_FILL
+        square == state.lastMoveFrom || square == state.lastMoveTo -> LAST_MOVE_FILL
         else -> null
     }
     val piece = state.board.getOrNull(square)
@@ -320,6 +323,49 @@ private fun LegalMarker(isCapture: Boolean, squareSize: Dp) {
         Box(modifier = Modifier.size(squareSize * 0.92f).border(squareSize * 0.06f, LEGAL_MARKER, CircleShape))
     } else {
         Box(modifier = Modifier.size(squareSize * 0.30f).background(LEGAL_MARKER, CircleShape))
+    }
+}
+
+@Composable
+private fun PromotionOverlay(myColor: EngineColor, viewModel: BoardViewModel) {
+    // Order the offered pieces by usefulness: queen first.
+    val choices = listOf(PieceType.QUEEN, PieceType.ROOK, PieceType.BISHOP, PieceType.KNIGHT)
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(LightThemeTokens.colors.background),
+    ) {
+        LightTopBar(
+            center = LightTopBarCenter.Text("Promote to"),
+            modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
+        )
+        Box(
+            modifier = Modifier.weight(1f).fillMaxWidth(),
+            contentAlignment = Alignment.Center,
+        ) {
+            Row(horizontalArrangement = Arrangement.spacedBy(1f.gridUnitsAsDp())) {
+                val cell = 6f.gridUnitsAsDp()
+                choices.forEach { type ->
+                    Box(
+                        modifier = Modifier
+                            .size(cell)
+                            .lightClickable { viewModel.choosePromotion(type) },
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        PieceGlyph(piece = Piece(myColor, type), squareSize = cell)
+                    }
+                }
+            }
+        }
+        LightBottomBar(
+            items = listOf(
+                LightBarButton.LightIcon(
+                    icon = LightIcons.CLOSE,
+                    onClick = { viewModel.cancelPromotion() },
+                    contentDescription = "Cancel promotion",
+                ),
+            ),
+        )
     }
 }
 
