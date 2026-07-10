@@ -65,8 +65,12 @@ object Chess {
     /** Status (ongoing / check / checkmate / stalemate / draw) of [position]. */
     fun status(position: Position): GameStatus = GameStatusEvaluator.status(position)
 
-    /** True if the side to move is in check. */
-    fun isInCheck(position: Position): Boolean = MoveGenerator.isInCheck(position, position.sideToMove)
+    /** True if the side to move is in check (variant-aware). */
+    fun isInCheck(position: Position): Boolean = MoveGenerator.inCheck(position, position.sideToMove)
+
+    /** Legal drop target squares for [type] from the side-to-move's pocket (Crazyhouse). */
+    fun legalDropSquares(position: Position, type: PieceType): Set<Int> =
+        MoveGenerator.legalDropSquares(position, type)
 
     /** SAN for [move] made in [position]. The move must be legal in the position. */
     fun san(position: Position, move: Move, enPassantSuffix: Boolean = false): String =
@@ -157,12 +161,15 @@ object Chess {
      *
      * @throws IllegalArgumentException if a move is malformed (unparseable UCI).
      */
-    fun replay(uciMoves: String, startFen: String? = null): Replay =
-        replay(splitMoves(uciMoves), startFen)
+    fun replay(uciMoves: String, startFen: String? = null, variant: Variant = Variant.STANDARD): Replay =
+        replay(splitMoves(uciMoves), startFen, variant)
 
     /** As [replay], but taking an already-split list of UCI move strings. */
-    fun replay(uciMoves: List<String>, startFen: String? = null): Replay {
-        val initial = startFen?.let { Position.fromFen(it) } ?: Position.START
+    fun replay(uciMoves: List<String>, startFen: String? = null, variant: Variant = Variant.STANDARD): Replay {
+        val parsed = startFen?.let { Position.fromFen(it, variant) } ?: Position.START
+        // Tag the variant even when starting from the standard position (e.g. Crazyhouse
+        // or Atomic games that begin from "startpos").
+        val initial = if (parsed.variant != variant) parsed.copy(variant = variant) else parsed
         var current = initial
         val steps = ArrayList<MoveRecord>(uciMoves.size)
         for (uci in uciMoves) {
@@ -203,12 +210,13 @@ object Chess {
      * @throws IllegalArgumentException if a token matches no legal move (e.g. an
      * unsupported variant).
      */
-    fun replaySan(sanMoves: String, startFen: String? = null): Replay =
-        replaySan(splitMoves(sanMoves), startFen)
+    fun replaySan(sanMoves: String, startFen: String? = null, variant: Variant = Variant.STANDARD): Replay =
+        replaySan(splitMoves(sanMoves), startFen, variant)
 
     /** As [replaySan], but taking an already-split list of SAN tokens. */
-    fun replaySan(sanMoves: List<String>, startFen: String? = null): Replay {
-        val initial = startFen?.let { Position.fromFen(it) } ?: Position.START
+    fun replaySan(sanMoves: List<String>, startFen: String? = null, variant: Variant = Variant.STANDARD): Replay {
+        val parsed = startFen?.let { Position.fromFen(it, variant) } ?: Position.START
+        val initial = if (parsed.variant != variant) parsed.copy(variant = variant) else parsed
         var current = initial
         val steps = ArrayList<MoveRecord>(sanMoves.size)
         for (token in sanMoves) {

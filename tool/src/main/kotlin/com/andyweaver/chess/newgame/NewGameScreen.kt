@@ -80,16 +80,17 @@ class NewGameViewModel(
         BLACK("Black", "black"),
     }
 
-    // Only the variants the board can render faithfully (see BoardViewModel's
-    // UNSUPPORTED_VARIANTS) — so we never create a game that lands on the board's
-    // "not supported yet" screen. [apiValue] is the Lichess variant key.
+    // Every variant the board can play. [apiValue] is the Lichess variant key.
     enum class Variant(val label: String, val apiValue: String) {
         STANDARD("Standard", "standard"),
-        HORDE("Horde", "horde"),
+        CRAZYHOUSE("Crazyhouse", "crazyhouse"),
+        CHESS960("Chess960", "chess960"),
         KING_OF_THE_HILL("King of the Hill", "kingOfTheHill"),
         THREE_CHECK("Three-check", "threeCheck"),
-        RACING_KINGS("Racing Kings", "racingKings"),
         ANTICHESS("Antichess", "antichess"),
+        ATOMIC("Atomic", "atomic"),
+        HORDE("Horde", "horde"),
+        RACING_KINGS("Racing Kings", "racingKings"),
     }
 
     data class Options(

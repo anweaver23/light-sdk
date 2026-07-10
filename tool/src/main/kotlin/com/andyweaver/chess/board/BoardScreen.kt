@@ -40,6 +40,7 @@ import com.andyweaver.chess.engine.Color as EngineColor
 import com.andyweaver.chess.engine.Piece
 import com.andyweaver.chess.engine.PieceType
 import com.andyweaver.chess.engine.Square
+import com.andyweaver.chess.engine.Variant
 import com.andyweaver.chess.lichess.LichessApi
 import com.andyweaver.chess.settings.ChessSettings
 import com.thelightphone.sdk.LightScreen
@@ -72,6 +73,7 @@ private val SELECTED_FILL = Color(0x5A4C9A78)      // muted green — the piece 
 private val LAST_MOVE_FILL = Color(0x4DB08A3E)      // muted amber — the last move (either player)
 private val CHECK_FILL = Color(0x59C0392B)          // muted red — king in check
 private val LEGAL_MARKER = Color(0x992E7D5B)        // teal dot/ring — legal destinations
+private val GOAL_OUTLINE = Color(0xFFCC3B3B)        // red — variant goal squares (KotH centre, Racing Kings rank 8)
 
 // Skip-to-start/end bar height, in grid units. The nav arrows render inside a 2f
 // box but the visible glyph is padded within it, so a full-2f bar looks taller
@@ -101,6 +103,7 @@ class BoardScreen(
     private val myColorName: String,
     private val currentFen: String? = null,
     private val seededOpponentName: String? = null,
+    private val seededVariant: Variant = Variant.STANDARD,
 ) : LightScreen<Unit, BoardViewModel>(sealedActivity) {
 
     override val viewModelClass: Class<BoardViewModel>
@@ -119,6 +122,7 @@ class BoardScreen(
             myColor = color,
             currentFen = currentFen,
             seededOpponentName = seededOpponentName,
+            seededVariant = seededVariant,
         )
     }
 
@@ -188,6 +192,15 @@ class BoardScreen(
                             )
                         }
                     } else {
+                        // Crazyhouse: opponent's reserves above the board (read-only).
+                        if (state.variant == Variant.CRAZYHOUSE) {
+                            PocketBar(
+                                pocket = state.opponentPocket,
+                                color = state.myColor.opposite,
+                                selected = null,
+                                onTap = null,
+                            )
+                        }
                         Box(
                             modifier = Modifier
                                 .weight(1f)
@@ -196,6 +209,15 @@ class BoardScreen(
                             contentAlignment = Alignment.Center,
                         ) {
                             ChessBoard(state = state, onSquareTap = viewModel::onSquareTap)
+                        }
+                        // Crazyhouse: your reserves below the board — tap to pick one up to drop.
+                        if (state.variant == Variant.CRAZYHOUSE) {
+                            PocketBar(
+                                pocket = state.myPocket,
+                                color = state.myColor,
+                                selected = state.selectedDrop,
+                                onTap = viewModel::onPocketTap,
+                            )
                         }
 
                         BottomControls(state = state, viewModel = viewModel)
@@ -391,6 +413,49 @@ internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
     }
 }
 
+// Crazyhouse reserves shown as a centered row of piece glyphs with a ×count when >1.
+// The player's own bar is tappable (pick a piece up to drop); the opponent's is not.
+private val POCKET_ORDER = listOf(
+    PieceType.QUEEN, PieceType.ROOK, PieceType.BISHOP, PieceType.KNIGHT, PieceType.PAWN,
+)
+
+@Composable
+private fun PocketBar(
+    pocket: Map<PieceType, Int>,
+    color: EngineColor,
+    selected: PieceType?,
+    onTap: ((PieceType) -> Unit)?,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(4f.gridUnitsAsDp())
+            .padding(horizontal = 1f.gridUnitsAsDp()),
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        val cell = 3f.gridUnitsAsDp()
+        POCKET_ORDER.filter { (pocket[it] ?: 0) > 0 }.forEach { type ->
+            val count = pocket[type] ?: 0
+            Row(
+                modifier = Modifier
+                    .padding(horizontal = 0.5f.gridUnitsAsDp())
+                    .then(if (type == selected) Modifier.background(SELECTED_FILL) else Modifier)
+                    .then(if (onTap != null) Modifier.lightClickable { onTap(type) } else Modifier)
+                    .padding(2.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Box(modifier = Modifier.size(cell), contentAlignment = Alignment.Center) {
+                    PieceGlyph(piece = Piece(color, type), squareSize = cell)
+                }
+                if (count > 1) {
+                    LightText(text = "×$count", variant = LightTextVariant.Detail)
+                }
+            }
+        }
+    }
+}
+
 @Composable
 private fun SquareCell(
     square: Int,
@@ -418,8 +483,14 @@ private fun SquareCell(
             Box(Modifier.matchParentSize().background(CHECK_FILL))
         }
         piece?.let { PieceGlyph(piece = it, squareSize = squareSize) }
-        if (square in state.legalDestinations) {
-            LegalMarker(isCapture = piece != null, squareSize = squareSize)
+        if (square in state.legalDestinations || square in state.dropTargets) {
+            // A drop always targets an empty square, so it reads as the non-capture marker.
+            LegalMarker(isCapture = square in state.legalDestinations && piece != null, squareSize = squareSize)
+        }
+        // Variant goal squares (KotH centre, Racing Kings rank 8): a red outline, drawn
+        // on top so it stays visible over pieces and highlights.
+        if (square in state.goalSquares) {
+            Box(Modifier.matchParentSize().border(0.18f.gridUnitsAsDp(), GOAL_OUTLINE))
         }
     }
 }

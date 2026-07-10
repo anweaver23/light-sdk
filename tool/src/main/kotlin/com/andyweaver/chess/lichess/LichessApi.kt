@@ -46,6 +46,7 @@ data class LichessGame(
     val opponent: LichessOpponent,
     val speed: String,
     val secondsLeft: Int? = null,
+    val variant: BoardVariant = BoardVariant(),
 )
 
 @Serializable
@@ -405,9 +406,13 @@ class LichessApi(private val token: String) {
         BoardStreamEvent.Unknown
     }
 
-    /** Submits a move in UCI notation (e.g. "e2e4", "e7e8q"). `POST /api/board/game/{gameId}/move/{move}`. */
+    /**
+     * Submits a move in UCI notation (e.g. "e2e4", "e7e8q", or a Crazyhouse drop "N@f3").
+     * `POST /api/board/game/{gameId}/move/{move}`. The '@' in a drop is percent-encoded so
+     * it isn't misread inside the URL path.
+     */
     suspend fun submitMove(gameId: String, uciMove: String): LichessActionResult =
-        postAction("$BASE_URL/api/board/game/$gameId/move/$uciMove")
+        postAction("$BASE_URL/api/board/game/$gameId/move/${uciMove.replace("@", "%40")}")
 
     /** Resigns the game. `POST /api/board/game/{gameId}/resign`. */
     suspend fun resignGame(gameId: String): LichessActionResult =

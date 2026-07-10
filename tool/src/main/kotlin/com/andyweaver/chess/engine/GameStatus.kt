@@ -41,7 +41,7 @@ object GameStatusEvaluator {
      * history — see [Chess.replay] callers if needed).
      */
     fun status(position: Position): GameStatus {
-        val inCheck = MoveGenerator.isInCheck(position, position.sideToMove)
+        val inCheck = MoveGenerator.inCheck(position, position.sideToMove)
         val hasMoves = MoveGenerator.legalMoves(position).isNotEmpty()
 
         if (!hasMoves) {

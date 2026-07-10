@@ -10,6 +10,7 @@ import com.andyweaver.chess.engine.PieceType
 import com.andyweaver.chess.engine.Position
 import com.andyweaver.chess.engine.Replay
 import com.andyweaver.chess.engine.Square
+import com.andyweaver.chess.engine.Variant
 import com.andyweaver.chess.lichess.BoardStreamEvent
 import com.andyweaver.chess.lichess.LichessActionResult
 import com.andyweaver.chess.lichess.LichessApi
@@ -69,9 +70,20 @@ data class BoardUiState(
     val canAbort: Boolean = false,
     /** The opponent has offered a draw and we haven't responded yet. */
     val incomingDrawOffer: Boolean = false,
-    /** Non-null when the game is a variant our engine can't render faithfully yet
+    /** Non-null when the game is a variant our engine doesn't recognise yet
      * (the display name to show on the "not supported" screen instead of a board). */
     val unsupportedVariant: String? = null,
+    /** The active variant, for variant-specific rendering (pockets, goal squares). */
+    val variant: Variant = Variant.STANDARD,
+    /** Crazyhouse reserves the player may drop, and the opponent's, as type→count. */
+    val myPocket: Map<PieceType, Int> = emptyMap(),
+    val opponentPocket: Map<PieceType, Int> = emptyMap(),
+    /** A pocket piece the player has picked up to drop (Crazyhouse), if any. */
+    val selectedDrop: PieceType? = null,
+    /** Legal squares for the [selectedDrop]. */
+    val dropTargets: Set<Int> = emptySet(),
+    /** Squares to outline in red as the variant's goal (KotH centre, Racing Kings rank 8). */
+    val goalSquares: Set<Int> = emptySet(),
     val message: String? = null,
 )
 
@@ -92,6 +104,7 @@ class BoardViewModel(
     private val myColor: Color,
     currentFen: String? = null,
     seededOpponentName: String? = null,
+    seededVariant: Variant = Variant.STANDARD,
 ) : LightViewModel<Unit>() {
 
     private val _uiState = MutableStateFlow(
@@ -120,6 +133,11 @@ class BoardViewModel(
     // (no "Opponent" flash); reconciled from gameFull when the stream arrives.
     private var opponentName: String = seededOpponentName?.takeIf { it.isNotBlank() } ?: "Opponent"
     private var unsupportedVariant: String? = null
+    // Seeded from the home row; corrected from gameFull when the stream arrives.
+    private var variant: Variant = seededVariant
+    // Crazyhouse: a pocket piece picked up to drop, and its legal target squares.
+    private var selectedDrop: PieceType? = null
+    private var dropTargets: Set<Int> = emptySet()
     private var opponentOfferedDraw: Boolean = false
     // Set true once we accept/decline an incoming offer, to hide the prompt until
     // the stream reflects the change; reset when the offer clears.
@@ -139,7 +157,7 @@ class BoardViewModel(
         // start — avoids a start-position flash before the live stream arrives. When
         // gameFull lands it reconciles from the authoritative move list as usual.
         if (currentFen != null) {
-            replay = runCatching { Chess.replay("", currentFen) }.getOrElse { Chess.replay("") }
+            replay = runCatching { Chess.replay("", currentFen, variant) }.getOrElse { Chess.replay("", null, variant) }
             viewIndex = replay.positions.lastIndex
         }
         // Keep the confirm-moves preference current; defaults to true until loaded.
@@ -195,10 +213,11 @@ class BoardViewModel(
         when (event) {
             is BoardStreamEvent.GameFull -> {
                 initialFen = event.initialFen.takeUnless { it == "startpos" || it.isBlank() }
-                // Variants our standard-rules replay can't render faithfully get a
-                // clear "not supported" screen instead of a silently-wrong board.
+                variant = Variant.fromKey(event.variant.key)
+                // Only a variant we don't recognise at all falls back to the "not
+                // supported" screen; every known variant now plays.
                 unsupportedVariant = event.variant.name
-                    .takeIf { event.variant.key.lowercase() in UNSUPPORTED_VARIANTS }
+                    .takeIf { event.variant.key.lowercase() !in KNOWN_VARIANTS }
                 val opp = if (myColor == Color.WHITE) event.black else event.white
                 val oppName = opp.name?.takeIf { it.isNotBlank() } ?: "Opponent"
                 opponentName = nameWithRating(oppName, opp.rating)
@@ -223,7 +242,7 @@ class BoardViewModel(
 
         // Re-derive the whole timeline from the authoritative move list.
         replay = try {
-            Chess.replay(state.moves, initialFen)
+            Chess.replay(state.moves, initialFen, variant)
         } catch (_: Exception) {
             replay
         }
@@ -248,8 +267,7 @@ class BoardViewModel(
 
         // Any change in ply count means the board moved under any selection.
         if (newPositions.size != oldPositions.size) {
-            selectedSquare = null
-            legalDests = emptySet()
+            clearSelection()
         }
 
         recompute()
@@ -306,6 +324,13 @@ class BoardViewModel(
         val latest = replay.finalPosition
         if (latest.sideToMove != myColor) return
 
+        // Crazyhouse: a pocket piece is picked up — this tap chooses where to drop it.
+        val drop = selectedDrop
+        if (drop != null) {
+            if (square in dropTargets) commitDrop(drop, square) else clearSelectionAndRecompute()
+            return
+        }
+
         val piece = latest.pieceAt(square)
         val selected = selectedSquare
 
@@ -326,6 +351,29 @@ class BoardViewModel(
         selectedSquare = square
         legalDests = Chess.legalDestinations(position, square)
         recompute()
+    }
+
+    /** Crazyhouse: pick up (or put back) a pocket piece to drop. */
+    fun onPocketTap(type: PieceType) {
+        if (pendingMove != null || pendingPromotion != null) return
+        if (viewIndex != replay.positions.lastIndex) return
+        if (isTerminal()) return
+        val latest = replay.finalPosition
+        if (latest.sideToMove != myColor) return
+        if (latest.pocket.count(myColor, type) <= 0) return
+        if (selectedDrop == type) {
+            clearSelectionAndRecompute() // tapping the held piece again puts it back
+            return
+        }
+        clearSelection()
+        selectedDrop = type
+        dropTargets = Chess.legalDropSquares(latest, type)
+        recompute()
+    }
+
+    private fun commitDrop(type: PieceType, square: Int) {
+        clearSelection()
+        stage(Move(from = square, to = square, drop = type))
     }
 
     private fun makeMove(from: Int, to: Int) {
@@ -371,6 +419,11 @@ class BoardViewModel(
             recompute()
             return
         }
+        stage(move)
+    }
+
+    // Stage a move: hold it for confirmation, or submit immediately if confirm-moves is off.
+    private fun stage(move: Move) {
         pendingMove = move
         if (confirmMoves) {
             awaitingServer = false
@@ -506,6 +559,8 @@ class BoardViewModel(
     private fun clearSelection() {
         selectedSquare = null
         legalDests = emptySet()
+        selectedDrop = null
+        dropTargets = emptySet()
     }
 
     private fun clearSelectionAndRecompute() {
@@ -592,8 +647,23 @@ class BoardViewModel(
             canAbort = canAbort,
             incomingDrawOffer = incomingDrawOffer,
             unsupportedVariant = unsupportedVariant,
+            variant = variant,
+            myPocket = displayPosition.pocket.forColor(myColor),
+            opponentPocket = displayPosition.pocket.forColor(myColor.opposite),
+            selectedDrop = selectedDrop,
+            dropTargets = dropTargets,
+            goalSquares = goalSquares(),
             message = message,
         )
+    }
+
+    // Squares the active variant highlights as its goal (red outline in the UI).
+    private fun goalSquares(): Set<Int> = when (variant) {
+        Variant.KING_OF_THE_HILL -> setOf(
+            Square.of(3, 3), Square.of(4, 3), Square.of(3, 4), Square.of(4, 4), // d4, e4, d5, e5
+        )
+        Variant.RACING_KINGS -> (0..7).map { Square.of(it, 7) }.toSet() // the 8th rank
+        else -> emptySet()
     }
 
     private fun safeApply(position: Position, move: Move): Position =
@@ -624,11 +694,12 @@ class BoardViewModel(
         // Stream statuses that mean the game is still in progress.
         val LIVE_STATUSES = setOf("", "started", "created")
 
-        // Variants the standard-rules engine can't render faithfully yet: atomic
-        // needs capture-explosion logic, chess960 needs arbitrary-square castling,
-        // crazyhouse needs pockets + @-drops (not even parseable as UCI). Everything
-        // else — standard, horde, kingOfTheHill, threeCheck, racingKings, antichess —
-        // replays correctly with the viewer-lenient Chess.replay.
-        val UNSUPPORTED_VARIANTS = setOf("atomic", "crazyhouse", "chess960")
+        // Every variant the engine now handles. Anything outside this set (an
+        // unknown/future Lichess variant) falls back to the "not supported" screen.
+        // "fromposition" is standard rules from a custom FEN, so it plays normally.
+        val KNOWN_VARIANTS = setOf(
+            "standard", "fromposition", "chess960", "crazyhouse", "atomic",
+            "kingofthehill", "threecheck", "antichess", "racingkings", "horde",
+        )
     }
 }

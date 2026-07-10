@@ -18,6 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.lifecycle.viewModelScope
 import com.andyweaver.chess.board.BoardScreen
+import com.andyweaver.chess.engine.Variant
 // v1: last-move-in-subtitle removed — may re-add
 // import com.andyweaver.chess.engine.Chess
 import com.andyweaver.chess.history.HistoryScreen
@@ -371,6 +372,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                                                         game.color,
                                                         game.fen,
                                                         nameWithRating(game.opponent.username, game.opponent.rating),
+                                                        Variant.fromKey(game.variant.key),
                                                     )
                                                 })
                                             },
@@ -589,11 +591,14 @@ private fun seekTerms(seek: PendingSeek): String {
 
 // Human label for a non-standard variant key, or null for standard (so it's omitted).
 private fun variantLabel(key: String): String? = when (key) {
-    "horde" -> "Horde"
+    "crazyhouse" -> "Crazyhouse"
+    "chess960" -> "Chess960"
     "kingOfTheHill" -> "King of the Hill"
     "threeCheck" -> "Three-check"
-    "racingKings" -> "Racing Kings"
     "antichess" -> "Antichess"
+    "atomic" -> "Atomic"
+    "horde" -> "Horde"
+    "racingKings" -> "Racing Kings"
     else -> null
 }
 
