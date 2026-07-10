@@ -187,6 +187,7 @@ data class LichessChallenge(
     val destUser: LichessUser? = null,
     val speed: String? = null,
     val rated: Boolean = false,
+    val variant: BoardVariant = BoardVariant(),
     val timeControl: ChallengeTimeControl? = null,
     /** Requested color from the creator's side: "white" | "black" | "random". */
     val color: String? = null,
@@ -227,6 +228,13 @@ data class ArchivedPlayers(
     val black: ArchivedPlayer = ArchivedPlayer(),
 )
 
+/** The game's base clock: [initial] and [increment] in seconds. Absent for correspondence. */
+@Serializable
+data class ArchivedClock(
+    val initial: Int = 0,
+    val increment: Int = 0,
+)
+
 /**
  * A finished (or ongoing) game from `GET /api/games/user/{username}`. [moves] is
  * space-separated SAN; [winner] is "white"/"black" or null for a draw/ongoing game.
@@ -247,6 +255,14 @@ data class LichessArchivedGame(
     val moves: String = "",
     /** Present for games that don't start from the standard position. */
     val initialFen: String? = null,
+    /**
+     * Per-ply clock remaining, in centiseconds, one entry per half-move (requested
+     * with `clocks=true`). Empty for correspondence games (no clock) and when not
+     * requested. Index i corresponds to the position after ply i+1.
+     */
+    val clocks: List<Int> = emptyList(),
+    /** Base clock (initial/increment seconds); null for correspondence. */
+    val clock: ArchivedClock? = null,
 )
 
 class LichessApi(private val token: String) {
@@ -317,6 +333,8 @@ class LichessApi(private val token: String) {
         client.prepareGet("$BASE_URL/api/games/user/$username") {
             header("Accept", "application/json")
             parameter("max", max)
+            // Per-move clock times, used by the review screen (non-correspondence games).
+            parameter("clocks", true)
             if (until != null) parameter("until", until)
         }.execute { response ->
             val channel = response.bodyAsChannel()

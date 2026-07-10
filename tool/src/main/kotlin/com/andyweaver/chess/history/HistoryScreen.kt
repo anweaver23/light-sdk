@@ -13,8 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.lifecycle.viewModelScope
 import com.andyweaver.chess.board.ReviewScreen
+import com.andyweaver.chess.engine.Variant
 import com.andyweaver.chess.lichess.LichessApi
 import com.andyweaver.chess.lichess.LichessArchivedGame
+import com.andyweaver.chess.lichess.nameWithRating
 import com.andyweaver.chess.ui.NameWithRating
 import com.thelightphone.sdk.LightScreen
 import com.thelightphone.sdk.LightViewModel
@@ -205,8 +207,17 @@ class HistoryScreen(
                 movesSan = game.moves,
                 initialFen = game.initialFen,
                 myColorName = mySide,
-                title = "vs $oppName",
-                result = "$mySide · ${resultText(game, iAmWhite)}",
+                title = "vs ${nameWithRating(oppName, opp.rating)}",
+                // No color indicator — material makes your side clear enough.
+                result = resultText(game, iAmWhite),
+                variant = Variant.fromKey(game.variant ?: "standard"),
+                // Per-ply clocks + base time, shown while reviewing; correspondence has none.
+                clocks = game.clocks,
+                initialClockSeconds = game.clock?.initial,
+                // On a timeout the flagged side's clock hit 0 without a final move (the
+                // clocks array has no entry for it), so force that side to 0:00 at the end.
+                flaggedColorName = flaggedColorName(game),
+                isCorrespondence = game.speed == "correspondence",
             )
         })
     }
@@ -226,11 +237,10 @@ private fun HistoryRow(game: LichessArchivedGame, username: String, onClick: () 
     val iAmWhite = isWhite(game, username)
     val opp = if (iAmWhite) game.players.black else game.players.white
     val oppName = opp.user?.displayName ?: "Anonymous"
-    val mySide = if (iAmWhite) "white" else "black"
     val subtitle = buildList {
-        add(mySide)
         add(resultText(game, iAmWhite))
         game.speed?.let { add(it) }
+        add(Variant.fromKey(game.variant ?: "standard").displayName)
         relativeTime(game.lastMoveAt)?.let { add(it) }
     }.joinToString(" · ")
 
@@ -253,6 +263,15 @@ private fun HistoryRow(game: LichessArchivedGame, username: String, onClick: () 
 // True if the account (by [username]) played White in [game].
 private fun isWhite(game: LichessArchivedGame, username: String): Boolean =
     game.players.white.user?.name?.equals(username, ignoreCase = true) == true
+
+// The color that ran out of time (the loser of a timeout), or null if the game
+// didn't end on time. Lichess reports this as the "outoftime" status; the winner is
+// the other side, so the flagged side is the winner's opposite.
+private fun flaggedColorName(game: LichessArchivedGame): String? {
+    val timedOut = game.status.equals("outoftime", true) || game.status.equals("timeout", true)
+    if (!timedOut || game.winner == null) return null
+    return if (game.winner == "white") "black" else "white"
+}
 
 private fun resultText(game: LichessArchivedGame, iAmWhite: Boolean): String = when {
     game.status.lowercase() in ONGOING_STATUSES -> "ongoing"
