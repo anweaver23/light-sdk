@@ -1,5 +1,6 @@
 package com.andyweaver.chess.board
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -7,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -24,13 +26,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.drawscope.Fill
-import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.ColorFilter
 // v1: PGN export disabled — may re-add
 // import android.content.ClipData
 // import androidx.compose.ui.platform.ClipEntry
 // import androidx.compose.ui.platform.LocalClipboard
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -41,6 +44,7 @@ import com.andyweaver.chess.engine.Piece
 import com.andyweaver.chess.engine.PieceType
 import com.andyweaver.chess.engine.Square
 import com.andyweaver.chess.engine.Variant
+import com.andyweaver.chess.R
 import com.andyweaver.chess.lichess.LichessApi
 import com.andyweaver.chess.settings.ChessSettings
 import com.thelightphone.sdk.LightScreen
@@ -80,12 +84,8 @@ private val GOAL_OUTLINE = Color(0xFFCC3B3B)        // red — variant goal squa
 // than the arrows. This is tuned to match the arrow's visible height — tweak here.
 private const val SKIP_BAR_HEIGHT_UNITS = 1.4f
 
-// Piece fill/outline. White piece = white fill + black outline; black piece =
-// black fill + white outline — visible on any square color.
-private val WHITE_PIECE_FILL = Color.White
-private val WHITE_PIECE_OUTLINE = Color.Black
-private val BLACK_PIECE_FILL = Color.Black
-private val BLACK_PIECE_OUTLINE = Color.White
+// Fraction of a square a piece glyph occupies (Fit-scaled, centred). Tune to taste.
+private const val PIECE_SCALE = 0.82f
 
 /**
  * The live board screen for one Lichess correspondence game.
@@ -104,6 +104,7 @@ class BoardScreen(
     private val currentFen: String? = null,
     private val seededOpponentName: String? = null,
     private val seededVariant: Variant = Variant.STANDARD,
+    private val seededLastMove: String? = null,
 ) : LightScreen<Unit, BoardViewModel>(sealedActivity) {
 
     override val viewModelClass: Class<BoardViewModel>
@@ -123,6 +124,7 @@ class BoardScreen(
             currentFen = currentFen,
             seededOpponentName = seededOpponentName,
             seededVariant = seededVariant,
+            seededLastMove = seededLastMove,
         )
     }
 
@@ -192,13 +194,19 @@ class BoardScreen(
                             )
                         }
                     } else {
-                        // Crazyhouse: opponent's reserves above the board (read-only).
                         if (state.variant == Variant.CRAZYHOUSE) {
-                            PocketBar(
+                            // Opponent's reserves above the board (read-only, small).
+                            OpponentPocketBar(
                                 pocket = state.opponentPocket,
                                 color = state.myColor.opposite,
-                                selected = null,
-                                onTap = null,
+                            )
+                        } else {
+                            // Material lead: pieces the opponent captured (my colour) + their +N,
+                            // hugging the top edge of the board.
+                            MaterialRow(
+                                captured = state.opponentCaptured,
+                                capturedColor = state.myColor,
+                                advantage = state.opponentAdvantage,
                             )
                         }
                         Box(
@@ -210,13 +218,14 @@ class BoardScreen(
                         ) {
                             ChessBoard(state = state, onSquareTap = viewModel::onSquareTap)
                         }
-                        // Crazyhouse: your reserves below the board — tap to pick one up to drop.
-                        if (state.variant == Variant.CRAZYHOUSE) {
-                            PocketBar(
-                                pocket = state.myPocket,
-                                color = state.myColor,
-                                selected = state.selectedDrop,
-                                onTap = viewModel::onPocketTap,
+                        if (state.variant != Variant.CRAZYHOUSE) {
+                            // Material lead: pieces I captured (opponent's colour) + my +N,
+                            // hugging the bottom edge of the board. (Crazyhouse puts my
+                            // reserves in the bottom bar instead — see BottomControls.)
+                            MaterialRow(
+                                captured = state.myCaptured,
+                                capturedColor = state.myColor.opposite,
+                                advantage = state.myAdvantage,
                             )
                         }
 
@@ -261,14 +270,30 @@ class BoardScreen(
 private fun BottomControls(state: BoardUiState, viewModel: BoardViewModel) {
     when (state.mode) {
         BottomMode.BROWSE -> {
-            BrowseBar(
-                canStepBack = state.canStepBack,
-                canStepForward = state.canStepForward,
-                onBack = { viewModel.stepBack() },
-                onForward = { viewModel.stepForward() },
-                onSkipStart = { viewModel.stepToStart() },
-                onSkipEnd = { viewModel.stepToEnd() },
-            )
+            if (state.variant == Variant.CRAZYHOUSE) {
+                // Crazyhouse: the bottom bar carries the player's reserves, flanked by
+                // back/forward arrows at the edges. Skip-to-start/end are dropped to make
+                // room for the (tappable) inventory.
+                CrazyhousePocketBar(
+                    pocket = state.myPocket,
+                    color = state.myColor,
+                    selected = state.selectedDrop,
+                    onTap = viewModel::onPocketTap,
+                    canStepBack = state.canStepBack,
+                    canStepForward = state.canStepForward,
+                    onBack = { viewModel.stepBack() },
+                    onForward = { viewModel.stepForward() },
+                )
+            } else {
+                BrowseBar(
+                    canStepBack = state.canStepBack,
+                    canStepForward = state.canStepForward,
+                    onBack = { viewModel.stepBack() },
+                    onForward = { viewModel.stepForward() },
+                    onSkipStart = { viewModel.stepToStart() },
+                    onSkipEnd = { viewModel.stepToEnd() },
+                )
+            }
         }
 
         BottomMode.PENDING -> {
@@ -413,46 +438,200 @@ internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
     }
 }
 
-// Crazyhouse reserves shown as a centered row of piece glyphs with a ×count when >1.
-// The player's own bar is tappable (pick a piece up to drop); the opponent's is not.
+// Queen-first display order for pockets (most valuable first); pawns last.
 private val POCKET_ORDER = listOf(
     PieceType.QUEEN, PieceType.ROOK, PieceType.BISHOP, PieceType.KNIGHT, PieceType.PAWN,
 )
 
+// Pocket piece cell sizes (grid units). The opponent's read-only row above the
+// board uses the same glyph size as the player's bar, just with less vertical space.
+private const val MY_POCKET_CELL_UNITS = 2.4f
+private const val OPP_POCKET_CELL_UNITS = MY_POCKET_CELL_UNITS
+// Captured-piece glyph size for the material rows hugging the board edges.
+private const val MATERIAL_CELL_UNITS = 1.6f
+// Same-type captured pieces fan out like a hand of cards: each overlaps the previous
+// by this fraction of a cell, with a background-coloured halo giving a faint gap
+// between them (like the pocket count badge). Different types sit a small gap apart.
+private const val MATERIAL_OVERLAP_FRACTION = 0.7f
+private const val MATERIAL_HALO_SCALE = 1.2f
+private const val MATERIAL_GROUP_GAP_UNITS = 0f
+
+/**
+ * A material row hugging one board edge (non-Crazyhouse): the pieces one side has
+ * captured (drawn in [capturedColor]), same types fanned/overlapped like a hand of
+ * cards, followed by that side's "+N" point lead, if any. Left-aligned to the board's
+ * edge. Always occupies its height so the board doesn't shift when captures appear.
+ */
 @Composable
-private fun PocketBar(
-    pocket: Map<PieceType, Int>,
-    color: EngineColor,
-    selected: PieceType?,
-    onTap: ((PieceType) -> Unit)?,
-) {
+internal fun MaterialRow(captured: List<PieceType>, capturedColor: EngineColor, advantage: Int) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(4f.gridUnitsAsDp())
+            .height(2f.gridUnitsAsDp())
+            // Align to the board's left edge (the board Box uses 0.5f horizontal padding).
+            .padding(horizontal = 0.5f.gridUnitsAsDp()),
+        horizontalArrangement = Arrangement.Start,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        val cell = MATERIAL_CELL_UNITS.gridUnitsAsDp()
+        // The list is ordered by type, so distinct() gives the groups in display order.
+        captured.distinct().forEachIndexed { groupIndex, type ->
+            if (groupIndex > 0) Spacer(Modifier.width(MATERIAL_GROUP_GAP_UNITS.gridUnitsAsDp()))
+            CapturedStack(type = type, color = capturedColor, count = captured.count { it == type }, cell = cell)
+        }
+        if (advantage > 0) {
+            LightText(
+                text = "+$advantage",
+                variant = LightTextVariant.Detail,
+                modifier = Modifier.padding(start = 0.5f.gridUnitsAsDp()),
+            )
+        }
+    }
+}
+
+/**
+ * One captured piece type shown [count] times, overlapping like a hand of cards. Each
+ * piece carries a background-coloured halo (the same silhouette tinted to the screen
+ * background, slightly enlarged) so where it overlaps the piece behind it there's a
+ * faint separation and each remains legible.
+ */
+@Composable
+private fun CapturedStack(type: PieceType, color: EngineColor, count: Int, cell: Dp) {
+    val piece = Piece(color, type)
+    Row(horizontalArrangement = Arrangement.spacedBy(-(cell * MATERIAL_OVERLAP_FRACTION))) {
+        repeat(count) {
+            Box(modifier = Modifier.size(cell), contentAlignment = Alignment.Center) {
+                Image(
+                    painter = painterResource(pieceDrawable(piece)),
+                    contentDescription = null,
+                    contentScale = ContentScale.Fit,
+                    colorFilter = ColorFilter.tint(LightThemeTokens.colors.background),
+                    modifier = Modifier.size(cell * PIECE_SCALE * MATERIAL_HALO_SCALE),
+                )
+                PieceGlyph(piece = piece, squareSize = cell)
+            }
+        }
+    }
+}
+
+/**
+ * Crazyhouse: opponent's reserves above the board — read-only. Same glyph size as
+ * the player's bar, but hugged tight vertically (minimal top/bottom space).
+ */
+@Composable
+private fun OpponentPocketBar(pocket: Map<PieceType, Int>, color: EngineColor) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height((OPP_POCKET_CELL_UNITS + 0.4f).gridUnitsAsDp())
             .padding(horizontal = 1f.gridUnitsAsDp()),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        val cell = 3f.gridUnitsAsDp()
         POCKET_ORDER.filter { (pocket[it] ?: 0) > 0 }.forEach { type ->
-            val count = pocket[type] ?: 0
-            Row(
-                modifier = Modifier
-                    .padding(horizontal = 0.5f.gridUnitsAsDp())
-                    .then(if (type == selected) Modifier.background(SELECTED_FILL) else Modifier)
-                    .then(if (onTap != null) Modifier.lightClickable { onTap(type) } else Modifier)
-                    .padding(2.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Box(modifier = Modifier.size(cell), contentAlignment = Alignment.Center) {
-                    PieceGlyph(piece = Piece(color, type), squareSize = cell)
-                }
-                if (count > 1) {
-                    LightText(text = "×$count", variant = LightTextVariant.Detail)
-                }
+            PocketPiece(
+                type = type,
+                color = color,
+                count = pocket[type] ?: 0,
+                cell = OPP_POCKET_CELL_UNITS.gridUnitsAsDp(),
+                selected = false,
+                onTap = null,
+            )
+        }
+    }
+}
+
+/**
+ * Crazyhouse bottom bar: the player's reserves centered between a back arrow (left
+ * edge) and a forward arrow (right edge). Tap a reserve piece to pick it up to drop.
+ */
+@Composable
+private fun CrazyhousePocketBar(
+    pocket: Map<PieceType, Int>,
+    color: EngineColor,
+    selected: PieceType?,
+    onTap: (PieceType) -> Unit,
+    canStepBack: Boolean,
+    canStepForward: Boolean,
+    onBack: () -> Unit,
+    onForward: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 1f.gridUnitsAsDp())
+            .height(4f.gridUnitsAsDp())
+            .padding(horizontal = 2f.gridUnitsAsDp()),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        NavArrow(LightIcons.BACK, "Previous move", canStepBack, onBack)
+        Row(
+            modifier = Modifier.weight(1f),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            POCKET_ORDER.filter { (pocket[it] ?: 0) > 0 }.forEach { type ->
+                PocketPiece(
+                    type = type,
+                    color = color,
+                    count = pocket[type] ?: 0,
+                    cell = MY_POCKET_CELL_UNITS.gridUnitsAsDp(),
+                    selected = type == selected,
+                    onTap = { onTap(type) },
+                )
             }
         }
+        NavArrow(LightIcons.ARROW_RIGHT, "Next move", canStepForward, onForward)
+    }
+}
+
+/**
+ * One reserve piece with a count badge: the glyph, plus (when more than one is held)
+ * a small circle in the background colour overlapping the piece's bottom-right corner
+ * showing the count. Optionally tappable/selectable.
+ */
+@Composable
+private fun PocketPiece(
+    type: PieceType,
+    color: EngineColor,
+    count: Int,
+    cell: Dp,
+    selected: Boolean,
+    onTap: (() -> Unit)?,
+) {
+    Box(
+        modifier = Modifier
+            .padding(horizontal = 0.3f.gridUnitsAsDp())
+            .then(if (selected) Modifier.background(SELECTED_FILL) else Modifier)
+            .then(if (onTap != null) Modifier.lightClickable { onTap() } else Modifier)
+            .padding(2.dp),
+    ) {
+        Box(modifier = Modifier.size(cell), contentAlignment = Alignment.Center) {
+            PieceGlyph(piece = Piece(color, type), squareSize = cell)
+            if (count > 1) {
+                CountBadge(count = count, diameter = cell * 0.50f, modifier = Modifier.align(Alignment.BottomEnd))
+            }
+        }
+    }
+}
+
+/** A small count badge: a background-coloured circle with the number, sized to overlap a piece corner. */
+@Composable
+private fun CountBadge(count: Int, diameter: Dp, modifier: Modifier) {
+    val density = LocalDensity.current
+    val fontSize = with(density) { (diameter * 0.7f).toSp() }
+    Box(
+        modifier = modifier
+            .size(diameter)
+            .background(LightThemeTokens.colors.background, CircleShape),
+        contentAlignment = Alignment.Center,
+    ) {
+        Text(
+            text = "$count",
+            color = LightThemeTokens.colors.content,
+            style = TextStyle(fontSize = fontSize, fontWeight = FontWeight.Medium, textAlign = TextAlign.Center),
+            maxLines = 1,
+        )
     }
 }
 
@@ -497,34 +676,27 @@ private fun SquareCell(
 
 @Composable
 private fun PieceGlyph(piece: Piece, squareSize: Dp) {
-    val fill = if (piece.color == EngineColor.WHITE) WHITE_PIECE_FILL else BLACK_PIECE_FILL
-    val outline = if (piece.color == EngineColor.WHITE) WHITE_PIECE_OUTLINE else BLACK_PIECE_OUTLINE
-
-    if (piece.type == PieceType.PAWN) {
-        // Pawn = filled dot with a thin contrasting rim.
-        Box(
-            modifier = Modifier
-                .size(squareSize * 0.28f)
-                .background(fill, CircleShape)
-                .border(squareSize * 0.03f, outline, CircleShape),
-        )
-        return
-    }
-
-    val letter = piece.type.sanLetter // K / Q / R / B / N
-    val density = LocalDensity.current
-    val fontSize = with(density) { (squareSize * 0.6f).toSp() }
-    val strokeWidthPx = with(density) { squareSize.toPx() } * 0.045f
-    val base = TextStyle(
-        fontSize = fontSize,
-        fontWeight = FontWeight.Medium,
-        textAlign = TextAlign.Center,
+    // Custom piece art (vector drawables): the white/black variants bake in a fill
+    // plus a contrasting outline stroke, so a piece reads on a same-coloured square
+    // without any runtime tint. Rendered Fit-inside a square box so it stays centred.
+    Image(
+        painter = painterResource(pieceDrawable(piece)),
+        contentDescription = null,
+        contentScale = ContentScale.Fit,
+        modifier = Modifier.size(squareSize * PIECE_SCALE),
     )
+}
 
-    // Fill first, stroke on top so the outline rims the glyph edge.
-    Box(contentAlignment = Alignment.Center) {
-        Text(text = letter, style = base.copy(drawStyle = Fill), color = fill, maxLines = 1)
-        Text(text = letter, style = base.copy(drawStyle = Stroke(width = strokeWidthPx)), color = outline, maxLines = 1)
+/** Map a piece to its vector-drawable resource (color variant × type). */
+private fun pieceDrawable(piece: Piece): Int {
+    val white = piece.color == EngineColor.WHITE
+    return when (piece.type) {
+        PieceType.PAWN -> if (white) R.drawable.piece_white_pawn else R.drawable.piece_black_pawn
+        PieceType.KNIGHT -> if (white) R.drawable.piece_white_knight else R.drawable.piece_black_knight
+        PieceType.BISHOP -> if (white) R.drawable.piece_white_bishop else R.drawable.piece_black_bishop
+        PieceType.ROOK -> if (white) R.drawable.piece_white_rook else R.drawable.piece_black_rook
+        PieceType.QUEEN -> if (white) R.drawable.piece_white_queen else R.drawable.piece_black_queen
+        PieceType.KING -> if (white) R.drawable.piece_white_king else R.drawable.piece_black_king
     }
 }
 

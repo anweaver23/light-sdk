@@ -84,6 +84,24 @@ data class BoardUiState(
     val dropTargets: Set<Int> = emptySet(),
     /** Squares to outline in red as the variant's goal (KotH centre, Racing Kings rank 8). */
     val goalSquares: Set<Int> = emptySet(),
+    /**
+     * Material display (Lichess-style), non-Crazyhouse only. [myCaptured] are the
+     * opponent-coloured pieces I've captured; [opponentCaptured] are my-coloured
+     * pieces the opponent has captured. At most one advantage is > 0 (the leader's
+     * point lead); the other is 0. Empty/zero for Crazyhouse (the pockets cover it).
+     */
+    val myCaptured: List<PieceType> = emptyList(),
+    val opponentCaptured: List<PieceType> = emptyList(),
+    val myAdvantage: Int = 0,
+    val opponentAdvantage: Int = 0,
+    /**
+     * Review only: each player's clock remaining at the displayed position (formatted).
+     * [myClockLabel] renders bottom-right, [opponentClockLabel] top-right. Both show the
+     * base time before either side has moved. Null on the live board and for
+     * correspondence games (no per-move clock).
+     */
+    val myClockLabel: String? = null,
+    val opponentClockLabel: String? = null,
     val message: String? = null,
 )
 
@@ -105,6 +123,7 @@ class BoardViewModel(
     currentFen: String? = null,
     seededOpponentName: String? = null,
     seededVariant: Variant = Variant.STANDARD,
+    seededLastMove: String? = null,
 ) : LightViewModel<Unit>() {
 
     private val _uiState = MutableStateFlow(
@@ -138,6 +157,11 @@ class BoardViewModel(
     // Crazyhouse: a pocket piece picked up to drop, and its legal target squares.
     private var selectedDrop: PieceType? = null
     private var dropTargets: Set<Int> = emptySet()
+    // Last-move highlight seeded from the home row's UCI, so the highlight paints on
+    // the very first frame instead of popping in when the stream's move list arrives.
+    // Used only while the replay has no moves of its own (the seed-only state).
+    private val seededLastFrom: Int? = seededLastMove?.takeIf { it.length >= 4 }?.let { Square.fromName(it.substring(0, 2)) }
+    private val seededLastTo: Int? = seededLastMove?.takeIf { it.length >= 4 }?.let { Square.fromName(it.substring(2, 4)) }
     private var opponentOfferedDraw: Boolean = false
     // Set true once we accept/decline an incoming offer, to hide the prompt until
     // the stream reflects the change; reset when the offer clears.
@@ -599,6 +623,12 @@ class BoardViewModel(
                 lastFrom = step.move.from
                 lastTo = step.move.to
             }
+            // Seed-only state (no move list yet): use the last move passed by the home
+            // row so the highlight doesn't flash in when the stream arrives.
+            replay.steps.isEmpty() -> {
+                lastFrom = seededLastFrom
+                lastTo = seededLastTo
+            }
         }
 
         // Don't reveal check/checkmate for a move the user hasn't confirmed yet.
@@ -616,6 +646,8 @@ class BoardViewModel(
             resultSubtitle(latest)
         } else {
             buildString {
+                // Lead with the variant name for non-standard games, before the turn.
+                if (variant != Variant.STANDARD) append("${variant.displayName} · ")
                 append(if (isMyTurn) "your move" else "their move")
                 if (opponentOfferedDraw) append(" · draw offered")
             }
@@ -628,6 +660,14 @@ class BoardViewModel(
         // Lichess only allows aborting before both players have moved (< 2 plies).
         val canAbort = !terminal && replay.steps.size < 2
         val incomingDrawOffer = opponentOfferedDraw && !drawResponsePending && !terminal
+
+        // Compare against the variant's canonical starting complement (not
+        // replay.positions.first()) so material is stable from the very first seeded
+        // frame: during the seed-only state the replay's "first" position IS the
+        // current position, which would otherwise read as zero captures and then
+        // flash to the real count when the move list streams in. Every non-fromPosition
+        // game has identical starting piece counts to this reference, so no flash.
+        val material = computeMaterial(referenceStart(), displayPosition, variant, myColor)
 
         _uiState.value = BoardUiState(
             opponentName = opponentName,
@@ -657,9 +697,20 @@ class BoardViewModel(
             selectedDrop = selectedDrop,
             dropTargets = dropTargets,
             goalSquares = goalSquares(),
+            myCaptured = material.myCaptured,
+            opponentCaptured = material.opponentCaptured,
+            myAdvantage = material.myAdvantage,
+            opponentAdvantage = material.opponentAdvantage,
             message = message,
         )
     }
+
+    // The variant's canonical starting position, used as the stable reference for the
+    // material count (see the call site). Cheap to build; falls back to the standard
+    // start if the variant's start FEN somehow fails to parse.
+    private fun referenceStart(): Position =
+        runCatching { variant.startFen?.let { Position.fromFen(it, variant) } ?: Chess.startPosition }
+            .getOrDefault(Chess.startPosition)
 
     // Squares the active variant highlights as its goal (red outline in the UI).
     private fun goalSquares(): Set<Int> = when (variant) {
