@@ -432,7 +432,7 @@ object MoveGenerator {
             }
         }
 
-        val rights = updateCastlingRights(position.castlingRights, move.from, move.to, mover)
+        val rights = updateCastlingRights(position, move.from, move.to, mover)
 
         // En passant target: only after a double push from the standard start rank. A
         // Horde first-rank double push does NOT create an en-passant target.
@@ -517,27 +517,48 @@ object MoveGenerator {
         )
     }
 
-    private fun updateCastlingRights(rights: CastlingRights, from: Int, to: Int, mover: Piece): CastlingRights {
-        var r = rights
+    private fun updateCastlingRights(position: Position, from: Int, to: Int, mover: Piece): CastlingRights {
+        val orig = position.castlingRights
+        var wk = orig.whiteKingSide
+        var wq = orig.whiteQueenSide
+        var bk = orig.blackKingSide
+        var bq = orig.blackQueenSide
+
         // King moved: lose both rights for that color.
         if (mover.type == PieceType.KING) {
-            r = if (mover.color == Color.WHITE) {
-                r.copy(whiteKingSide = false, whiteQueenSide = false)
-            } else {
-                r.copy(blackKingSide = false, blackQueenSide = false)
-            }
+            if (mover.color == Color.WHITE) { wk = false; wq = false } else { bk = false; bq = false }
         }
-        // A rook leaving its home square, or being captured on its home square,
-        // removes the corresponding right. Checking both from and to covers both.
-        // (Standard corners; Chess960 rooks off-corner are a rare edge the server validates.)
+
+        // A castling rook leaving its square, or being captured on it, removes that
+        // right. The rook's square is derived from the pre-move position (outermost own
+        // rook on that side of the king), so this is correct for Chess960 rooks on any
+        // file — not just the standard corners. Checking both from and to covers a rook
+        // that moves and a rook captured in place.
+        val wkRook = if (orig.whiteKingSide) castlingRook(position, Color.WHITE, kingSide = true) else -1
+        val wqRook = if (orig.whiteQueenSide) castlingRook(position, Color.WHITE, kingSide = false) else -1
+        val bkRook = if (orig.blackKingSide) castlingRook(position, Color.BLACK, kingSide = true) else -1
+        val bqRook = if (orig.blackQueenSide) castlingRook(position, Color.BLACK, kingSide = false) else -1
         for (sq in intArrayOf(from, to)) {
             when (sq) {
-                Square.of(0, 0) -> r = r.copy(whiteQueenSide = false) // a1
-                Square.of(7, 0) -> r = r.copy(whiteKingSide = false)  // h1
-                Square.of(0, 7) -> r = r.copy(blackQueenSide = false) // a8
-                Square.of(7, 7) -> r = r.copy(blackKingSide = false)  // h8
+                wkRook -> wk = false
+                wqRook -> wq = false
+                bkRook -> bk = false
+                bqRook -> bq = false
             }
         }
-        return r
+        return CastlingRights(wk, wq, bk, bq)
+    }
+
+    /** Outermost own rook on [kingSide]/queenside of [color]'s king (the castling rook), or -1. */
+    private fun castlingRook(position: Position, color: Color, kingSide: Boolean): Int {
+        val king = position.kingSquare(color)
+        if (king < 0) return -1
+        val backRank = Square.rank(king)
+        val kingFile = Square.file(king)
+        val range = if (kingSide) (7 downTo kingFile + 1) else (0 until kingFile)
+        for (f in range) {
+            if (isOwnRook(position, f, backRank, color)) return Square.of(f, backRank)
+        }
+        return -1
     }
 }

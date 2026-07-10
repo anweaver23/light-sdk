@@ -155,4 +155,67 @@ class VariantTest {
         val after = Chess.replay("a1a3", "4k3/8/8/8/8/8/8/P3K3 w - - 0 1", Variant.HORDE).finalPosition
         assertNull(after.enPassantTarget, "first-rank double push is not a valid en-passant target")
     }
+
+    // ----- hardening: Chess960 perft + off-corner castling rights -----------
+
+    private fun perft(pos: Position, depth: Int): Long {
+        if (depth == 0) return 1L
+        var nodes = 0L
+        for (m in MoveGenerator.legalMoves(pos)) nodes += perft(MoveGenerator.applyMove(pos, m), depth - 1)
+        return nodes
+    }
+
+    @Test
+    fun chess960PerftMatchesStandardOnKiwipete() {
+        // "Kiwipete" is a castling-rich position with known perft values. Run it under
+        // the CHESS960 code path (king-onto-rook castling, outermost-rook logic): the
+        // legal-move tree must be identical to standard chess, so the counts must match.
+        val fen = "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1"
+        val pos = Position.fromFen(fen, Variant.CHESS960)
+        assertEquals(48L, perft(pos, 1))
+        assertEquals(2039L, perft(pos, 2))
+        assertEquals(97862L, perft(pos, 3))
+    }
+
+    @Test
+    fun chess960OffCornerCastlingRookClearsItsRight() {
+        // King e1, castling rooks on a1 (queenside) and g1 (kingside, NOT the corner).
+        // Moving the g1 rook must clear only the kingside right; queenside stays.
+        val after = Chess.replay("g1g5", "4k3/8/8/8/8/8/8/R3K1R1 w KQ - 0 1", Variant.CHESS960).finalPosition
+        assertFalse(after.castlingRights.whiteKingSide, "off-corner castling rook moved -> right cleared")
+        assertTrue(after.castlingRights.whiteQueenSide, "the other right is untouched")
+    }
+
+    // ----- hardening: Atomic + Antichess edge cases -------------------------
+
+    @Test
+    fun atomicCaptureNextToOwnKingIsIllegal() {
+        // Rook d1 could capture the d2 knight, but the explosion sits next to our own
+        // king on e1 — so it's illegal (self-explosion). Other rook moves stay legal.
+        val pos = Position.fromFen("4k3/8/8/8/8/8/3n4/3RK3 w - - 0 1", Variant.ATOMIC)
+        val dests = MoveGenerator.legalDestinations(pos, sq("d1"))
+        assertFalse(sq("d2") in dests, "capture next to own king would self-explode")
+        assertTrue(sq("c1") in dests, "an ordinary rook move is fine")
+    }
+
+    @Test
+    fun atomicExplosionBeatsCheck() {
+        // White is in check from the c5 bishop, but Nxg7 explodes the black king on h8
+        // (winning). Exploding the enemy king takes precedence over being in check, so
+        // it's legal; a knight move that neither blocks nor wins (Nf4) is not.
+        val pos = Position.fromFen("7k/6p1/4N3/2b5/8/8/8/6K1 w - - 0 1", Variant.ATOMIC)
+        assertTrue(Chess.isInCheck(pos), "white is in atomic check")
+        val dests = MoveGenerator.legalDestinations(pos, sq("e6"))
+        assertTrue(sq("g7") in dests, "capturing to explode the enemy king wins, even in check")
+        assertFalse(sq("f4") in dests, "a move that doesn't resolve check or win is illegal")
+    }
+
+    @Test
+    fun antichessEnPassantCaptureIsForced() {
+        // The only available capture is en passant (exd6); it must be forced.
+        val pos = Position.fromFen("4k3/8/8/3pP3/8/8/8/4K3 w - d6 0 1", Variant.ANTICHESS)
+        val moves = MoveGenerator.legalMoves(pos)
+        assertTrue(moves.isNotEmpty())
+        assertTrue(moves.all { it.isEnPassant && it.to == sq("d6") }, "forced to take en passant")
+    }
 }
