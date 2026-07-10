@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -73,7 +75,7 @@ class NewGameViewModel(
     private val accountKey: String,
 ) : LightViewModel<Unit>() {
 
-    enum class Step { OPTIONS, OPPONENT, USERNAME, DONE }
+    enum class Step { OPTIONS, VARIANT, OPPONENT, USERNAME, DONE }
 
     enum class Side(val label: String, val apiValue: String) {
         RANDOM("Random", "random"),
@@ -135,10 +137,12 @@ class NewGameViewModel(
         it.copy(options = it.options.copy(side = next))
     }
 
-    fun cycleVariant() = _uiState.update {
-        val values = Variant.values()
-        val next = values[(it.options.variant.ordinal + 1) % values.size]
-        it.copy(options = it.options.copy(variant = next))
+    // Six variants is too many to cycle through a single row, so the "Variant" row
+    // opens a full-screen picker (Step.VARIANT) instead.
+    fun goToVariant() = _uiState.update { it.copy(step = Step.VARIANT) }
+
+    fun selectVariant(variant: Variant) = _uiState.update {
+        it.copy(step = Step.OPTIONS, options = it.options.copy(variant = variant))
     }
 
     // ----- navigation between steps -----
@@ -163,6 +167,7 @@ class NewGameViewModel(
     /** Handles the on-screen/hardware back per step; returns true when we consumed it. */
     override fun onBackPressed(): Boolean = when (_uiState.value.step) {
         Step.OPTIONS, Step.DONE -> false
+        Step.VARIANT -> { _uiState.update { it.copy(step = Step.OPTIONS) }; true }
         Step.OPPONENT -> { _uiState.update { it.copy(step = Step.OPTIONS) }; true }
         Step.USERNAME -> { _uiState.update { it.copy(step = Step.OPPONENT) }; true }
     }
@@ -247,6 +252,7 @@ class NewGameScreen(
             ) {
                 when (state.step) {
                     NewGameViewModel.Step.OPTIONS -> OptionsStep(state.options)
+                    NewGameViewModel.Step.VARIANT -> VariantStep(state.options.variant)
                     NewGameViewModel.Step.OPPONENT -> OpponentStep(state.friends)
                     NewGameViewModel.Step.USERNAME -> UsernameStep()
                     NewGameViewModel.Step.DONE -> DoneStep(state.doneMessage.orEmpty())
@@ -285,7 +291,8 @@ class NewGameScreen(
                 OptionRow("Time per move", "$days ${if (days == 1) "day" else "days"}") { viewModel.cycleDays() }
                 OptionRow("Mode", if (options.rated) "Rated" else "Casual") { viewModel.toggleRated() }
                 OptionRow("Your side", options.side.label) { viewModel.cycleSide() }
-                OptionRow("Variant", options.variant.label) { viewModel.cycleVariant() }
+                // Six variants — open a picker rather than cycling one at a time.
+                OptionRow("Variant", options.variant.label) { viewModel.goToVariant() }
             }
             LightBottomBar(
                 items = listOf(
@@ -293,6 +300,28 @@ class NewGameScreen(
                     LightBarButton.Text(text = "NEXT", onClick = { viewModel.goToOpponents() }),
                 ),
             )
+        }
+    }
+
+    // ----- variant picker (opened from the OPTIONS "Variant" row) -----
+
+    @Composable
+    private fun VariantStep(selected: NewGameViewModel.Variant) {
+        Column(modifier = Modifier.fillMaxSize()) {
+            LightTopBar(
+                leftButton = LightBarButton.LightIcon(icon = LightIcons.BACK, onClick = { goBack() }),
+                center = LightTopBarCenter.Text("Variant"),
+                modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
+            )
+            LightScrollView(modifier = Modifier.weight(1f).fillMaxWidth()) {
+                NewGameViewModel.Variant.values().forEach { variant ->
+                    SelectableRow(
+                        label = variant.label,
+                        selected = variant == selected,
+                        onClick = { viewModel.selectVariant(variant) },
+                    )
+                }
+            }
         }
     }
 
@@ -388,6 +417,30 @@ class NewGameScreen(
         ) {
             LightText(text = label, variant = LightTextVariant.Subheading, modifier = Modifier.weight(1f))
             LightText(text = value, variant = LightTextVariant.Subheading, lighten = true)
+        }
+    }
+
+    // A tappable list row with a trailing dot marking the current selection.
+    @Composable
+    private fun SelectableRow(label: String, selected: Boolean, onClick: () -> Unit) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .lightClickable(onClick = onClick)
+                .padding(
+                    horizontal = EDGE_UNITS.gridUnitsAsDp(),
+                    vertical = ROW_VERTICAL_UNITS.gridUnitsAsDp(),
+                ),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            LightText(text = label, variant = LightTextVariant.Subheading, modifier = Modifier.weight(1f))
+            if (selected) {
+                Box(
+                    modifier = Modifier
+                        .size(0.75f.gridUnitsAsDp())
+                        .background(LightThemeTokens.colors.content, CircleShape),
+                )
+            }
         }
     }
 
