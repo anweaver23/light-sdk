@@ -12,6 +12,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -28,7 +31,9 @@ import com.andyweaver.chess.lichess.LichessApi
 import com.andyweaver.chess.lichess.LichessChallenge
 import com.andyweaver.chess.lichess.LichessGame
 import com.andyweaver.chess.lichess.nameWithRating
+import com.andyweaver.chess.newgame.EDGE_UNITS
 import com.andyweaver.chess.newgame.NewGameScreen
+import com.andyweaver.chess.newgame.ROW_VERTICAL_UNITS
 import com.andyweaver.chess.ui.NameWithRating
 import com.andyweaver.chess.settings.ChessSettings
 import com.andyweaver.chess.settings.PendingSeek
@@ -40,7 +45,6 @@ import com.thelightphone.sdk.SealedLightActivity
 import com.thelightphone.sdk.SimpleLightScreen
 import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightBottomBar
-import com.thelightphone.sdk.ui.LightIcon
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightScrollView
 import com.thelightphone.sdk.ui.LightSurfaceScheme
@@ -303,6 +307,9 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
         val pendingSeeks by viewModel.pendingSeeks.collectAsState()
         val openGame by viewModel.openGame.collectAsState()
 
+        // The pending challenge/seek whose detail popup is open, if any.
+        var detail by remember { mutableStateOf<PendingDetail?>(null) }
+
         // Accepting a challenge as White jumps straight into the game for the first move.
         LaunchedEffect(openGame) {
             val open = openGame ?: return@LaunchedEffect
@@ -311,6 +318,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
         }
 
         LightTheme(colors = themeColors) {
+          Box(modifier = Modifier.fillMaxSize().background(LightThemeTokens.colors.background)) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -355,8 +363,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                                     content.incoming.forEach { challenge ->
                                         IncomingChallengeRow(
                                             challenge = challenge,
-                                            onAccept = { viewModel.acceptChallenge(challenge) },
-                                            onDecline = { viewModel.declineChallenge(challenge.id) },
+                                            onClick = { detail = PendingDetail.Incoming(challenge) },
                                         )
                                     }
                                     // Active games.
@@ -373,6 +380,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                                                         game.fen,
                                                         nameWithRating(game.opponent.username, game.opponent.rating),
                                                         Variant.fromKey(game.variant.key),
+                                                        game.lastMove,
                                                     )
                                                 })
                                             },
@@ -384,11 +392,14 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                                         content.outgoing.forEach { challenge ->
                                             OutgoingChallengeRow(
                                                 challenge = challenge,
-                                                onCancel = { viewModel.cancelChallenge(challenge.id) },
+                                                onClick = { detail = PendingDetail.Outgoing(challenge) },
                                             )
                                         }
                                         pendingSeeks.forEach { seek ->
-                                            SeekRow(seek = seek)
+                                            SeekRow(
+                                                seek = seek,
+                                                onClick = { detail = PendingDetail.Seek(seek) },
+                                            )
                                         }
                                     }
                                 }
@@ -433,8 +444,36 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                     ),
                 )
             }
+
+            // Detail popup for a tapped pending challenge/seek, over the whole screen.
+            detail?.let { d ->
+                PendingDetailOverlay(
+                    detail = d,
+                    onAccept = {
+                        if (d is PendingDetail.Incoming) viewModel.acceptChallenge(d.challenge)
+                        detail = null
+                    },
+                    onDecline = {
+                        if (d is PendingDetail.Incoming) viewModel.declineChallenge(d.challenge.id)
+                        detail = null
+                    },
+                    onCancel = {
+                        if (d is PendingDetail.Outgoing) viewModel.cancelChallenge(d.challenge.id)
+                        detail = null
+                    },
+                    onClose = { detail = null },
+                )
+            }
+          }
         }
     }
+}
+
+// The pending item (challenge/seek) whose detail popup is open.
+private sealed interface PendingDetail {
+    data class Incoming(val challenge: LichessChallenge) : PendingDetail
+    data class Outgoing(val challenge: LichessChallenge) : PendingDetail
+    data class Seek(val seek: PendingSeek) : PendingDetail
 }
 
 // Dim, small section header (used above the greyed "Pending" group).
@@ -452,60 +491,73 @@ private fun SectionLabel(text: String) {
     )
 }
 
-// An incoming challenge: name + terms, with accept (✓) and decline (✕) controls.
+// An incoming challenge, laid out like a game row (reserved asterisk column + name +
+// subtitle) so it sits uniformly with the rest of the list. The asterisk is always
+// shown — an incoming challenge needs your action, like a "your move" game. Tapping
+// the row opens the detail popup (accept/decline live there, not inline).
 @Composable
 private fun IncomingChallengeRow(
     challenge: LichessChallenge,
-    onAccept: () -> Unit,
-    onDecline: () -> Unit,
+    onClick: () -> Unit,
 ) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(
-                start = EDGE_PADDING_UNITS.gridUnitsAsDp(),
-                end = EDGE_PADDING_UNITS.gridUnitsAsDp(),
-                bottom = ROW_GAP_UNITS.gridUnitsAsDp(),
-            ),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Column(modifier = Modifier.weight(1f)) {
-            NameWithRating(
-                name = challenge.challenger?.displayName ?: "Someone",
-                rating = challenge.challenger?.ratingOrNull,
-                nameVariant = NAME_VARIANT,
-                modifier = Modifier.fillMaxWidth(),
-            )
-            LightText(
-                text = "wants to play · ${challengeTerms(challenge)}",
-                variant = SUBTITLE_VARIANT,
-                lighten = true,
-            )
-        }
-        LightIcon(
-            icon = LightIcons.ACCEPT,
-            contentDescription = "Accept challenge",
-            modifier = Modifier.lightClickable(onClick = onAccept),
-        )
-        LightIcon(
-            icon = LightIcons.CLOSE,
-            contentDescription = "Decline challenge",
-            modifier = Modifier
-                .padding(start = 1f.gridUnitsAsDp())
-                .lightClickable(onClick = onDecline),
-        )
-    }
+    PendingRow(
+        showAsterisk = true,
+        dimmed = false,
+        name = challenge.challenger?.displayName ?: "Someone",
+        rating = challenge.challenger?.ratingOrNull,
+        subtitle = "challenge · ${challengeTerms(challenge)}",
+        onClick = onClick,
+    )
 }
 
-// A challenge you've sent, awaiting acceptance — greyed, with a cancel (✕).
+// A challenge you've sent, awaiting acceptance — greyed in the "Pending" group.
+// Tapping opens the detail popup (cancel lives there).
 @Composable
 private fun OutgoingChallengeRow(
     challenge: LichessChallenge,
-    onCancel: () -> Unit,
+    onClick: () -> Unit,
+) {
+    PendingRow(
+        showAsterisk = false,
+        dimmed = true,
+        name = challenge.destUser?.displayName ?: "Open challenge",
+        rating = challenge.destUser?.ratingOrNull,
+        subtitle = "waiting · ${challengeTerms(challenge)}",
+        onClick = onClick,
+    )
+}
+
+// A locally-tracked seek awaiting a random match — greyed. Tapping opens the detail
+// popup (which shows the terms; a correspondence seek can't be canceled via the API,
+// so the popup offers no cancel). The marker auto-clears when the seek matches into a
+// game (reconcileSeeks).
+@Composable
+private fun SeekRow(seek: PendingSeek, onClick: () -> Unit) {
+    PendingRow(
+        showAsterisk = false,
+        dimmed = true,
+        name = "Random opponent",
+        rating = null,
+        subtitle = "waiting · ${seekTerms(seek)}",
+        onClick = onClick,
+    )
+}
+
+// Shared layout for challenge/seek rows: reserved asterisk column + name (with elo)
+// + dimmed subtitle, matching [GameRow] so every list row lines up.
+@Composable
+private fun PendingRow(
+    showAsterisk: Boolean,
+    dimmed: Boolean,
+    name: String,
+    rating: Int?,
+    subtitle: String,
+    onClick: () -> Unit,
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .lightClickable(onClick = onClick)
             .padding(
                 start = EDGE_PADDING_UNITS.gridUnitsAsDp(),
                 end = EDGE_PADDING_UNITS.gridUnitsAsDp(),
@@ -513,67 +565,152 @@ private fun OutgoingChallengeRow(
             ),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Column(modifier = Modifier.weight(1f)) {
-            LightText(
-                text = challenge.destUser?.let { nameWithRating(it.displayName, it.ratingOrNull) } ?: "Open challenge",
-                variant = NAME_VARIANT,
-                lighten = true,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
-            LightText(
-                text = "waiting · ${challengeTerms(challenge)}",
-                variant = SUBTITLE_VARIANT,
-                lighten = true,
-            )
+        Box(
+            modifier = Modifier.width(ASTERISK_COL_UNITS.gridUnitsAsDp()),
+            contentAlignment = Alignment.Center,
+        ) {
+            if (showAsterisk) LightText(text = "*", variant = NAME_VARIANT)
         }
-        LightIcon(
-            icon = LightIcons.CLOSE,
-            contentDescription = "Cancel challenge",
-            modifier = Modifier.lightClickable(onClick = onCancel),
-        )
+        Column(modifier = Modifier.weight(1f)) {
+            if (dimmed) {
+                LightText(
+                    text = nameWithRating(name, rating),
+                    variant = NAME_VARIANT,
+                    lighten = true,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            } else {
+                NameWithRating(
+                    name = name,
+                    rating = rating,
+                    nameVariant = NAME_VARIANT,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
+            LightText(text = subtitle, variant = SUBTITLE_VARIANT, lighten = true)
+        }
     }
 }
 
 // e.g. "2 days/turn · casual". Days omitted if the challenge didn't specify one.
 private fun challengeTerms(challenge: LichessChallenge): String {
     val parts = buildList {
+        Variant.fromKey(challenge.variant.key).takeIf { it != Variant.STANDARD }?.let { add(it.displayName) }
         challenge.timeControl?.daysPerTurn?.let { add("$it ${plural(it, "day")}/turn") }
         add(if (challenge.rated) "rated" else "casual")
     }
     return parts.joinToString(" · ")
 }
 
-// A locally-tracked seek awaiting a random match — greyed, no controls. There is
-// deliberately NO ✕: a correspondence seek can't be canceled via the Lichess API
-// (a dismiss here would only drop the local marker), and an ✕ wrongly implies it
-// can. The marker auto-clears when the seek matches into a game (reconcileSeeks).
+// ----- pending challenge/seek detail popup -----
+
+// A full-screen popup with the complete terms of a tapped challenge/seek. Action
+// buttons at the bottom: accept/decline for an incoming challenge, cancel for one you
+// sent; a seek shows none (correspondence seeks can't be canceled via the API).
 @Composable
-private fun SeekRow(seek: PendingSeek) {
+private fun PendingDetailOverlay(
+    detail: PendingDetail,
+    onAccept: () -> Unit,
+    onDecline: () -> Unit,
+    onCancel: () -> Unit,
+    onClose: () -> Unit,
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(LightThemeTokens.colors.background),
+    ) {
+        val title = when (detail) {
+            is PendingDetail.Incoming -> "Incoming challenge"
+            is PendingDetail.Outgoing -> "Pending challenge"
+            is PendingDetail.Seek -> "Pending seek"
+        }
+        LightTopBar(
+            leftButton = LightBarButton.LightIcon(
+                icon = LightIcons.BACK,
+                onClick = onClose,
+                contentDescription = "Back",
+            ),
+            center = LightTopBarCenter.Text(title),
+            modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
+        )
+
+        LightScrollView(modifier = Modifier.weight(1f).fillMaxWidth()) {
+            detailLines(detail).forEach { (label, value) -> DetailRow(label, value) }
+        }
+
+        when (detail) {
+            is PendingDetail.Incoming -> LightBottomBar(
+                items = listOf(
+                    LightBarButton.Text(text = "DECLINE", onClick = onDecline),
+                    LightBarButton.Text(text = "ACCEPT", onClick = onAccept),
+                ),
+            )
+            is PendingDetail.Outgoing -> LightBottomBar(
+                items = listOf(
+                    null,
+                    LightBarButton.Text(text = "CANCEL", onClick = onCancel),
+                ),
+            )
+            // Seeks can't be canceled via the API, so no action — back closes the popup.
+            is PendingDetail.Seek -> Unit
+        }
+    }
+}
+
+// Label/value rows describing a pending challenge or seek.
+private fun detailLines(detail: PendingDetail): List<Pair<String, String>> = when (detail) {
+    is PendingDetail.Incoming -> {
+        val c = detail.challenge
+        buildList {
+            add("From" to nameWithRating(c.challenger?.displayName ?: "Someone", c.challenger?.ratingOrNull))
+            add("Variant" to Variant.fromKey(c.variant.key).displayName)
+            c.timeControl?.daysPerTurn?.let { add("Time" to "$it ${plural(it, "day")}/turn") }
+            add("Mode" to if (c.rated) "rated" else "casual")
+            // finalColor is the CHALLENGER's color; the recipient (me) plays the opposite.
+            add("Your side" to opposite(c.finalColor))
+        }
+    }
+    is PendingDetail.Outgoing -> {
+        val c = detail.challenge
+        buildList {
+            add("To" to (c.destUser?.let { nameWithRating(it.displayName, it.ratingOrNull) } ?: "Open challenge"))
+            add("Variant" to Variant.fromKey(c.variant.key).displayName)
+            c.timeControl?.daysPerTurn?.let { add("Time" to "$it ${plural(it, "day")}/turn") }
+            add("Mode" to if (c.rated) "rated" else "casual")
+            // I'm the challenger, so finalColor is my color.
+            add("Your side" to (c.finalColor ?: "random"))
+        }
+    }
+    is PendingDetail.Seek -> {
+        val s = detail.seek
+        buildList {
+            add("Opponent" to "random")
+            add("Variant" to Variant.fromKey(s.variant).displayName)
+            add("Time" to "${s.days} ${plural(s.days, "day")}/turn")
+            add("Mode" to if (s.rated) "rated" else "casual")
+            add("Your side" to s.side)
+        }
+    }
+}
+
+// The color the recipient plays, given the challenger's resolved [finalColor].
+private fun opposite(finalColor: String?): String = when (finalColor) {
+    "white" -> "black"
+    "black" -> "white"
+    else -> "random"
+}
+
+@Composable
+private fun DetailRow(label: String, value: String) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(
-                start = EDGE_PADDING_UNITS.gridUnitsAsDp(),
-                end = EDGE_PADDING_UNITS.gridUnitsAsDp(),
-                bottom = ROW_GAP_UNITS.gridUnitsAsDp(),
-            ),
-        verticalAlignment = Alignment.CenterVertically,
+            .padding(horizontal = EDGE_UNITS.gridUnitsAsDp(), vertical = ROW_VERTICAL_UNITS.gridUnitsAsDp()),
     ) {
-        Column(modifier = Modifier.weight(1f)) {
-            LightText(
-                text = "Random opponent",
-                variant = NAME_VARIANT,
-                lighten = true,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
-            LightText(
-                text = "waiting · ${seekTerms(seek)}",
-                variant = SUBTITLE_VARIANT,
-                lighten = true,
-            )
-        }
+        LightText(text = label, variant = LightTextVariant.Subheading, modifier = Modifier.weight(1f))
+        LightText(text = value, variant = LightTextVariant.Subheading, lighten = true)
     }
 }
 
@@ -581,25 +718,12 @@ private fun SeekRow(seek: PendingSeek) {
 // side omitted when random.
 private fun seekTerms(seek: PendingSeek): String {
     val parts = buildList {
-        variantLabel(seek.variant)?.let { add(it) }
+        Variant.fromKey(seek.variant).takeIf { it != Variant.STANDARD }?.let { add(it.displayName) }
         add("${seek.days} ${plural(seek.days, "day")}/turn")
         add(if (seek.rated) "rated" else "casual")
         if (seek.side != "random") add(seek.side)
     }
     return parts.joinToString(" · ")
-}
-
-// Human label for a non-standard variant key, or null for standard (so it's omitted).
-private fun variantLabel(key: String): String? = when (key) {
-    "crazyhouse" -> "Crazyhouse"
-    "chess960" -> "Chess960"
-    "kingOfTheHill" -> "King of the Hill"
-    "threeCheck" -> "Three-check"
-    "antichess" -> "Antichess"
-    "atomic" -> "Atomic"
-    "horde" -> "Horde"
-    "racingKings" -> "Racing Kings"
-    else -> null
 }
 
 @Composable
@@ -652,16 +776,26 @@ private fun GameRow(
 // time remaining (always shown now — the toggles were removed for v1).
 private fun buildSubtitle(game: LichessGame): String {
     val parts = buildList {
-        add(game.color)
-        if (!game.isMyTurn) add("their move")
-        game.secondsLeft?.let { add(formatTimeLabel(it, game.isMyTurn)) }
+        // Show the variant name only for non-standard games, using the engine's display
+        // name — matches the board screen's subtitle (BoardViewModel). The previous check
+        // compared the Lichess key ("standard") to the enum name ("STANDARD"), which never
+        // matched, so "standard" was shown on every row.
+        val variant = Variant.fromKey(game.variant.key)
+        if (variant != Variant.STANDARD) add(variant.displayName)
+        if (game.isMyTurn) {
+            // `secondsLeft` from /api/account/playing is ALWAYS the account's own clock,
+            // not the current mover's (verified against the board stream's wtime/btime).
+            // So it's only meaningful on your turn — your move deadline. On the opponent's
+            // turn it's your frozen clock, NOT their deadline (nowPlaying doesn't include
+            // the opponent's time at all), so showing it there was misleading. Getting the
+            // opponent's real time would require streaming each game, which we don't do on
+            // the list.
+            game.secondsLeft?.let { add("${formatDuration(it)} left") }
+        } else {
+            add("their move")
+        }
     }
     return parts.joinToString(" · ")
-}
-
-private fun formatTimeLabel(seconds: Int, isMyTurn: Boolean): String {
-    val duration = formatDuration(seconds)
-    return if (isMyTurn) "$duration left" else duration
 }
 
 // 48h is the cutoff: 2+ days show "N days"; under that, switch to hours (rounded)

@@ -50,8 +50,8 @@ import kotlinx.coroutines.launch
 // Correspondence days-per-turn Lichess accepts, in the order the "Time per move"
 // row cycles through them.
 private val DAYS_OPTIONS = listOf(1, 2, 3, 5, 7, 10, 14)
-private const val EDGE_UNITS = 1f
-private const val ROW_VERTICAL_UNITS = 1f
+const val EDGE_UNITS = 1f
+const val ROW_VERTICAL_UNITS = 1f
 
 /**
  * New-game flow, options first then opponent (per Andy's spec):
@@ -281,7 +281,7 @@ class NewGameScreen(
         Column(modifier = Modifier.fillMaxSize()) {
             LightTopBar(
                 leftButton = LightBarButton.LightIcon(icon = LightIcons.BACK, onClick = { goBack() }),
-                center = LightTopBarCenter.Text("New game"),
+                center = LightTopBarCenter.Text("New daily game"),
                 modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
             )
             LightScrollView(modifier = Modifier.weight(1f).fillMaxWidth()) {
