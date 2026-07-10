@@ -7,8 +7,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -420,10 +418,14 @@ class NewGameScreen(
         }
     }
 
-    // A tappable list row with a trailing dot marking the current selection.
+    // A tappable list row; the current selection is underlined, matching the LP-native
+    // selector style (e.g. the system ringtone/Messages picker).
     @Composable
     private fun SelectableRow(label: String, selected: Boolean, onClick: () -> Unit) {
-        Row(
+        LightText(
+            text = label,
+            variant = LightTextVariant.Subheading,
+            underline = selected,
             modifier = Modifier
                 .fillMaxWidth()
                 .lightClickable(onClick = onClick)
@@ -431,17 +433,7 @@ class NewGameScreen(
                     horizontal = EDGE_UNITS.gridUnitsAsDp(),
                     vertical = ROW_VERTICAL_UNITS.gridUnitsAsDp(),
                 ),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            LightText(text = label, variant = LightTextVariant.Subheading, modifier = Modifier.weight(1f))
-            if (selected) {
-                Box(
-                    modifier = Modifier
-                        .size(0.75f.gridUnitsAsDp())
-                        .background(LightThemeTokens.colors.content, CircleShape),
-                )
-            }
-        }
+        )
     }
 
     @Composable
