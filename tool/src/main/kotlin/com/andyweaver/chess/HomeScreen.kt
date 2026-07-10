@@ -575,14 +575,26 @@ private fun SeekRow(seek: PendingSeek) {
     }
 }
 
-// e.g. "2 days/turn · casual · white". Side omitted when random.
+// e.g. "Horde · 2 days/turn · casual · white". Variant shown only when non-standard;
+// side omitted when random.
 private fun seekTerms(seek: PendingSeek): String {
     val parts = buildList {
+        variantLabel(seek.variant)?.let { add(it) }
         add("${seek.days} ${plural(seek.days, "day")}/turn")
         add(if (seek.rated) "rated" else "casual")
         if (seek.side != "random") add(seek.side)
     }
     return parts.joinToString(" · ")
+}
+
+// Human label for a non-standard variant key, or null for standard (so it's omitted).
+private fun variantLabel(key: String): String? = when (key) {
+    "horde" -> "Horde"
+    "kingOfTheHill" -> "King of the Hill"
+    "threeCheck" -> "Three-check"
+    "racingKings" -> "Racing Kings"
+    "antichess" -> "Antichess"
+    else -> null
 }
 
 @Composable

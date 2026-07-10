@@ -30,7 +30,9 @@ data class ChessSettingsSnapshot(
  * A correspondence seek the user created that hasn't matched yet. Lichess offers no
  * API to list or cancel correspondence seeks, so we persist them locally to show in
  * the home "Pending" group. [id] is a local key only (not a server id). [side] is
- * "white" | "black" | "random".
+ * "white" | "black" | "random". [variant] is a Lichess variant key ("standard",
+ * "horde", …); defaulted so older persisted seeks (written before variants existed)
+ * still decode.
  */
 @Serializable
 data class PendingSeek(
@@ -39,6 +41,7 @@ data class PendingSeek(
     val rated: Boolean,
     val side: String,
     val createdAt: Long,
+    val variant: String = "standard",
 )
 
 /**

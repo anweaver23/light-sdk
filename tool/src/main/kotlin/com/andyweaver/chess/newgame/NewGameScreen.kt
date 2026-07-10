@@ -62,7 +62,8 @@ private const val ROW_VERTICAL_UNITS = 1f
  * 3. [Step.USERNAME] — free-text username entry (reached from step 2).
  * 4. [Step.DONE]     — confirmation; back returns to the home list.
  *
- * Variant is standard-only for now. Rated is allowed (both test accounts can play
+ * Variant can be Standard or any of the variants the board can render (Horde, KotH,
+ * Three-check, Racing Kings, Antichess). Rated is allowed (both test accounts can play
  * rated correspondence). A seek waits in the background for a match; a challenge
  * waits for the named player to accept — both surface on home when they resolve.
  */
@@ -80,10 +81,23 @@ class NewGameViewModel(
         BLACK("Black", "black"),
     }
 
+    // Only the variants the board can render faithfully (see BoardViewModel's
+    // UNSUPPORTED_VARIANTS) — so we never create a game that lands on the board's
+    // "not supported yet" screen. [apiValue] is the Lichess variant key.
+    enum class Variant(val label: String, val apiValue: String) {
+        STANDARD("Standard", "standard"),
+        HORDE("Horde", "horde"),
+        KING_OF_THE_HILL("King of the Hill", "kingOfTheHill"),
+        THREE_CHECK("Three-check", "threeCheck"),
+        RACING_KINGS("Racing Kings", "racingKings"),
+        ANTICHESS("Antichess", "antichess"),
+    }
+
     data class Options(
         val days: Int = 2,
         val rated: Boolean = false,
         val side: Side = Side.RANDOM,
+        val variant: Variant = Variant.STANDARD,
     )
 
     sealed class Friends {
@@ -121,6 +135,12 @@ class NewGameViewModel(
         it.copy(options = it.options.copy(side = next))
     }
 
+    fun cycleVariant() = _uiState.update {
+        val values = Variant.values()
+        val next = values[(it.options.variant.ordinal + 1) % values.size]
+        it.copy(options = it.options.copy(variant = next))
+    }
+
     // ----- navigation between steps -----
 
     fun goToOpponents() {
@@ -154,14 +174,14 @@ class NewGameViewModel(
         if (name.isEmpty()) return
         val opts = _uiState.value.options
         send("Challenge sent to $name.\nIt appears on your home list once accepted.") {
-            api.createCorrespondenceChallenge(name, opts.days, opts.rated, opts.side.apiValue)
+            api.createCorrespondenceChallenge(name, opts.days, opts.rated, opts.side.apiValue, opts.variant.apiValue)
         }
     }
 
     fun seekRandom() {
         val opts = _uiState.value.options
         send("Looking for an opponent…\nThe game starts on your home list once matched.") {
-            val result = api.seekCorrespondence(opts.days, opts.rated, opts.side.apiValue)
+            val result = api.seekCorrespondence(opts.days, opts.rated, opts.side.apiValue, opts.variant.apiValue)
             if (result is LichessActionResult.Success) {
                 // Lichess can't list/cancel correspondence seeks, so remember it locally
                 // to show in the home "Pending" group until it matches.
@@ -173,6 +193,7 @@ class NewGameViewModel(
                         rated = opts.rated,
                         side = opts.side.apiValue,
                         createdAt = System.currentTimeMillis(),
+                        variant = opts.variant.apiValue,
                     ),
                 )
             }
@@ -264,6 +285,7 @@ class NewGameScreen(
                 OptionRow("Time per move", "$days ${if (days == 1) "day" else "days"}") { viewModel.cycleDays() }
                 OptionRow("Mode", if (options.rated) "Rated" else "Casual") { viewModel.toggleRated() }
                 OptionRow("Your side", options.side.label) { viewModel.cycleSide() }
+                OptionRow("Variant", options.variant.label) { viewModel.cycleVariant() }
             }
             LightBottomBar(
                 items = listOf(

@@ -428,20 +428,22 @@ class LichessApi(private val token: String) {
      * Creates a correspondence challenge to [opponent]. `POST /api/challenge/{username}`
      * (form-urlencoded). [days] must be one of 1, 2, 3, 5, 7, 10, 14. [color] is
      * "white" | "black" | "random" (omitted from the request when random, so Lichess
-     * assigns 50/50). The opponent must accept before the game starts and appears in both
-     * players' ongoing games.
+     * assigns 50/50). [variant] is a Lichess variant key ("standard", "horde", …). The
+     * opponent must accept before the game starts and appears in both players' ongoing games.
      */
     suspend fun createCorrespondenceChallenge(
         opponent: String,
         days: Int = 2,
         rated: Boolean = false,
         color: String = "random",
+        variant: String = "standard",
     ): LichessActionResult {
         val response = client.submitForm(
             url = "$BASE_URL/api/challenge/$opponent",
             formParameters = Parameters.build {
                 append("rated", rated.toString())
                 append("days", days.toString())
+                append("variant", variant)
                 if (color != "random") append("color", color)
             },
         )
