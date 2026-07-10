@@ -25,6 +25,18 @@ enum class Variant {
     /** Kings have no royal power (no check, capturable, may promote to king). */
     val kingIsRoyal: Boolean get() = this != ANTICHESS
 
+    /**
+     * The variant's fixed starting FEN when it differs from standard chess, else null
+     * (standard start). Lichess's board stream reports `initialFen: "startpos"` even for
+     * these fixed-but-non-standard starts, so callers substitute this when they see it.
+     * Chess960's start is random, so Lichess always sends its real FEN — not covered here.
+     */
+    val startFen: String? get() = when (this) {
+        RACING_KINGS -> "8/8/8/8/8/8/krbnNBRK/qrbnNBRQ w - - 0 1"
+        HORDE -> "rnbqkbnr/pppppppp/8/1PP2PP1/PPPPPPPP/PPPPPPPP/PPPPPPPP/PPPPPPPP w kq - 0 1"
+        else -> null
+    }
+
     companion object {
         /** Maps a Lichess variant key (e.g. "kingOfTheHill") to a [Variant]; unknown → [STANDARD]. */
         fun fromKey(key: String): Variant = when (key.lowercase()) {

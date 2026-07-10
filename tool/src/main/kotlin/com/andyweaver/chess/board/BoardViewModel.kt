@@ -212,8 +212,12 @@ class BoardViewModel(
     private fun handleEvent(event: BoardStreamEvent) {
         when (event) {
             is BoardStreamEvent.GameFull -> {
-                initialFen = event.initialFen.takeUnless { it == "startpos" || it.isBlank() }
                 variant = Variant.fromKey(event.variant.key)
+                // Lichess reports "startpos" even for variants with a fixed but
+                // NON-standard start (Racing Kings, Horde); fall back to the variant's
+                // real starting FEN so we don't render the standard chess start.
+                initialFen = event.initialFen.takeUnless { it == "startpos" || it.isBlank() }
+                    ?: variant.startFen
                 // Only a variant we don't recognise at all falls back to the "not
                 // supported" screen; every known variant now plays.
                 unsupportedVariant = event.variant.name
