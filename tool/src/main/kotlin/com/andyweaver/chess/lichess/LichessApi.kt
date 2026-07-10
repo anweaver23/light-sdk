@@ -17,7 +17,7 @@ import io.ktor.client.statement.bodyAsText
 import io.ktor.http.Parameters
 import io.ktor.http.isSuccess
 import io.ktor.serialization.kotlinx.json.json
-import io.ktor.utils.io.readUTF8Line
+import io.ktor.utils.io.readLine
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.Serializable
@@ -276,7 +276,7 @@ class LichessApi(private val token: String) {
         client.prepareGet("$BASE_URL/api/stream/event").execute { response ->
             val channel = response.bodyAsChannel()
             while (true) {
-                val line = channel.readUTF8Line() ?: break
+                val line = channel.readLine() ?: break
                 if (line.isNotBlank()) emit(parseEventType(line))
             }
         }
@@ -320,7 +320,7 @@ class LichessApi(private val token: String) {
         }.execute { response ->
             val channel = response.bodyAsChannel()
             while (true) {
-                val line = channel.readUTF8Line() ?: break
+                val line = channel.readLine() ?: break
                 if (line.isNotBlank()) {
                     runCatching { json.decodeFromString(LichessArchivedGame.serializer(), line) }
                         .getOrNull()?.let { games += it }
@@ -361,7 +361,7 @@ class LichessApi(private val token: String) {
         client.prepareGet("$BASE_URL/api/rel/following").execute { response ->
             val channel = response.bodyAsChannel()
             while (true) {
-                val line = channel.readUTF8Line() ?: break
+                val line = channel.readLine() ?: break
                 if (line.isNotBlank()) {
                     runCatching { json.decodeFromString(LichessUser.serializer(), line) }
                         .getOrNull()?.let { users += it }
@@ -386,7 +386,7 @@ class LichessApi(private val token: String) {
         client.prepareGet("$BASE_URL/api/board/game/stream/$gameId").execute { response ->
             val channel = response.bodyAsChannel()
             while (true) {
-                val line = channel.readUTF8Line() ?: break
+                val line = channel.readLine() ?: break
                 if (line.isNotBlank()) {
                     emit(parseBoardEvent(line))
                 }
@@ -489,14 +489,16 @@ class LichessApi(private val token: String) {
         return LichessActionResult.Failure(error)
     }
 
-    /**
-     * Exports the game as PGN text (for Copy/Email PGN). `GET /game/export/{gameId}` with
-     * `Accept: application/x-chess-pgn`.
-     */
-    suspend fun exportGamePgn(gameId: String): String =
-        client.get("$BASE_URL/game/export/$gameId") {
-            header("Accept", "application/x-chess-pgn")
-        }.bodyAsText()
+    // v1: PGN export disabled — may re-add. Only caller was BoardViewModel's
+    // copyPgn/sharePgn (also disabled), so this is commented out with them.
+    // /**
+    //  * Exports the game as PGN text (for Copy/Email PGN). `GET /game/export/{gameId}` with
+    //  * `Accept: application/x-chess-pgn`.
+    //  */
+    // suspend fun exportGamePgn(gameId: String): String =
+    //     client.get("$BASE_URL/game/export/$gameId") {
+    //         header("Accept", "application/x-chess-pgn")
+    //     }.bodyAsText()
 
     fun close() = client.close()
 }

@@ -14,7 +14,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.lifecycle.viewModelScope
 import com.andyweaver.chess.lichess.LichessActionResult
 import com.andyweaver.chess.lichess.LichessApi
@@ -130,7 +129,7 @@ class NewGameViewModel(
     }
 
     fun cycleSide() = _uiState.update {
-        val values = Side.values()
+        val values = Side.entries
         val next = values[(it.options.side.ordinal + 1) % values.size]
         it.copy(options = it.options.copy(side = next))
     }
@@ -312,7 +311,7 @@ class NewGameScreen(
                 modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
             )
             LightScrollView(modifier = Modifier.weight(1f).fillMaxWidth()) {
-                NewGameViewModel.Variant.values().forEach { variant ->
+                NewGameViewModel.Variant.entries.forEach { variant ->
                     SelectableRow(
                         label = variant.label,
                         selected = variant == selected,

@@ -19,7 +19,7 @@ data class Move(
 ) {
     /** UCI string, e.g. "e2e4" or "e7e8q". */
     fun toUci(): String {
-        val promo = promotion?.let { it.sanLetter.lowercase() } ?: ""
+        val promo = promotion?.sanLetter?.lowercase() ?: ""
         return Square.name(from) + Square.name(to) + promo
     }
 

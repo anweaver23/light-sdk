@@ -30,10 +30,10 @@ enum class BottomMode { BROWSE, PENDING }
 /** A destructive/irreversible action awaiting a CONFIRM/✕ overlay. */
 enum class Confirmation { RESIGN, DRAW, ABORT }
 
-/** How a fetched PGN should be delivered (performed in the UI layer). */
-enum class PgnDelivery { CLIPBOARD, SHARE }
-
 // v1: PGN export disabled — may re-add
+// /** How a fetched PGN should be delivered (performed in the UI layer). */
+// enum class PgnDelivery { CLIPBOARD, SHARE }
+//
 // /** One-shot side effect: a fetched PGN plus how to deliver it. */
 // data class PgnEvent(val pgn: String, val delivery: PgnDelivery)
 
