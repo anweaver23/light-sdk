@@ -155,7 +155,7 @@ object Chess {
      * [startFen] (defaults to the standard start position). Produces a [Replay]
      * with the position and SAN at each step.
      *
-     * @throws IllegalArgumentException if a move is malformed or illegal in its position.
+     * @throws IllegalArgumentException if a move is malformed (unparseable UCI).
      */
     fun replay(uciMoves: String, startFen: String? = null): Replay =
         replay(splitMoves(uciMoves), startFen)
@@ -168,10 +168,15 @@ object Chess {
         for (uci in uciMoves) {
             val move = Move.fromUci(uci, current)
                 ?: throw IllegalArgumentException("Malformed UCI move '$uci' in position ${current.toFen()}")
-            require(MoveGenerator.legalMoves(current).any { it.sameMoveAs(move) }) {
-                "Illegal move '$uci' in position ${current.toFen()}"
-            }
-            val san = San.of(current, move)
+            // Viewer-lenient: these moves come straight from Lichess and are already
+            // validated server-side. We deliberately do NOT re-check standard-chess
+            // legality here — variants have legal moves the standard generator won't
+            // emit (Horde's first-rank pawn double-push, Racing Kings, Antichess,
+            // King-of-the-Hill, Three-check), and re-checking would reject the whole
+            // timeline and desync the board. Move.fromUci already derived the special
+            // flags (double-push, en passant, castle, promotion) from the position.
+            // SAN is best-effort so a variant quirk can't abort an otherwise-valid replay.
+            val san = runCatching { San.of(current, move) }.getOrElse { move.toUci() }
             val after = MoveGenerator.applyMove(current, move)
             steps.add(
                 MoveRecord(
@@ -233,9 +238,4 @@ object Chess {
 
     private fun splitMoves(moves: String): List<String> =
         moves.trim().split(Regex("\\s+")).filter { it.isNotEmpty() }
-
-    // Two moves are "the same" for legality matching if from/to/promotion agree;
-    // flags are derived, so we don't require them to match a generated move exactly.
-    private fun Move.sameMoveAs(other: Move): Boolean =
-        from == other.from && to == other.to && promotion == other.promotion
 }

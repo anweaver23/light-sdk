@@ -86,6 +86,7 @@ sealed interface BoardStreamEvent {
         val initialFen: String = "startpos",
         val rated: Boolean = false,
         val speed: String? = null,
+        val variant: BoardVariant = BoardVariant(),
         val white: BoardPlayer = BoardPlayer(),
         val black: BoardPlayer = BoardPlayer(),
         val state: GameState,
@@ -117,6 +118,13 @@ sealed interface BoardStreamEvent {
     /** A `chatLine`, `opponentGone`, or any line that could not be parsed; safe to skip. */
     data object Unknown : BoardStreamEvent
 }
+
+/** The game's variant, e.g. `key = "standard" | "horde" | "chess960" | "atomic" | …`. */
+@Serializable
+data class BoardVariant(
+    val key: String = "standard",
+    val name: String = "Standard",
+)
 
 /** Result of a board action (move/resign/draw). Lichess returns `{"ok":true}` or `{"error":"..."}`. */
 sealed interface LichessActionResult {

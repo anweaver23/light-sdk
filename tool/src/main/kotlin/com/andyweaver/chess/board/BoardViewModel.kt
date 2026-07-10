@@ -69,6 +69,9 @@ data class BoardUiState(
     val canAbort: Boolean = false,
     /** The opponent has offered a draw and we haven't responded yet. */
     val incomingDrawOffer: Boolean = false,
+    /** Non-null when the game is a variant our engine can't render faithfully yet
+     * (the display name to show on the "not supported" screen instead of a board). */
+    val unsupportedVariant: String? = null,
     val message: String? = null,
 )
 
@@ -88,6 +91,7 @@ class BoardViewModel(
     private val gameId: String,
     private val myColor: Color,
     currentFen: String? = null,
+    seededOpponentName: String? = null,
 ) : LightViewModel<Unit>() {
 
     private val _uiState = MutableStateFlow(
@@ -112,7 +116,10 @@ class BoardViewModel(
     private var awaitingServer: Boolean = false
     private var streamStatus: String = ""
     private var streamWinner: String? = null
-    private var opponentName: String = "Opponent"
+    // Seeded from the home row so the top bar shows the real name on first paint
+    // (no "Opponent" flash); reconciled from gameFull when the stream arrives.
+    private var opponentName: String = seededOpponentName?.takeIf { it.isNotBlank() } ?: "Opponent"
+    private var unsupportedVariant: String? = null
     private var opponentOfferedDraw: Boolean = false
     // Set true once we accept/decline an incoming offer, to hide the prompt until
     // the stream reflects the change; reset when the offer clears.
@@ -188,6 +195,10 @@ class BoardViewModel(
         when (event) {
             is BoardStreamEvent.GameFull -> {
                 initialFen = event.initialFen.takeUnless { it == "startpos" || it.isBlank() }
+                // Variants our standard-rules replay can't render faithfully get a
+                // clear "not supported" screen instead of a silently-wrong board.
+                unsupportedVariant = event.variant.name
+                    .takeIf { event.variant.key.lowercase() in UNSUPPORTED_VARIANTS }
                 val opp = if (myColor == Color.WHITE) event.black else event.white
                 val oppName = opp.name?.takeIf { it.isNotBlank() } ?: "Opponent"
                 opponentName = nameWithRating(oppName, opp.rating)
@@ -580,6 +591,7 @@ class BoardViewModel(
             canOfferDraw = canOfferDraw,
             canAbort = canAbort,
             incomingDrawOffer = incomingDrawOffer,
+            unsupportedVariant = unsupportedVariant,
             message = message,
         )
     }
@@ -611,5 +623,12 @@ class BoardViewModel(
     private companion object {
         // Stream statuses that mean the game is still in progress.
         val LIVE_STATUSES = setOf("", "started", "created")
+
+        // Variants the standard-rules engine can't render faithfully yet: atomic
+        // needs capture-explosion logic, chess960 needs arbitrary-square castling,
+        // crazyhouse needs pockets + @-drops (not even parseable as UCI). Everything
+        // else — standard, horde, kingOfTheHill, threeCheck, racingKings, antichess —
+        // replays correctly with the viewer-lenient Chess.replay.
+        val UNSUPPORTED_VARIANTS = setOf("atomic", "crazyhouse", "chess960")
     }
 }

@@ -9,9 +9,10 @@ import com.thelightphone.sdk.ui.LightText
 import com.thelightphone.sdk.ui.LightTextVariant
 
 /**
- * A player's name with their Elo rendered *less prominently* right after it —
- * the rating uses the smaller [LightTextVariant.Detail] and is dimmed, so the
- * name stays the focus. Used on the home game list and the new-game friend list.
+ * A player's name with their Elo rendered right after it, at the SAME size and
+ * weight as the name ("name · 1500") so the rating reads as part of the name line
+ * rather than a dimmed afterthought. Used on the home game list, incoming
+ * challenges, the new-game friend list, and game history.
  *
  * The name shrinks/ellipsizes to fit (weight, fill = false) so the rating stays
  * visible immediately after it rather than being pushed to the far edge. Pass a
@@ -36,8 +37,7 @@ fun NameWithRating(
         if (rating != null) {
             LightText(
                 text = " · $rating",
-                variant = LightTextVariant.Detail,
-                lighten = true,
+                variant = nameVariant,
                 maxLines = 1,
             )
         }

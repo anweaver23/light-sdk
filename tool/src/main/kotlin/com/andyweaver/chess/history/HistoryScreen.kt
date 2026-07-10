@@ -11,12 +11,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.lifecycle.viewModelScope
 import com.andyweaver.chess.board.ReviewScreen
 import com.andyweaver.chess.lichess.LichessApi
 import com.andyweaver.chess.lichess.LichessArchivedGame
-import com.andyweaver.chess.lichess.nameWithRating
+import com.andyweaver.chess.ui.NameWithRating
 import com.thelightphone.sdk.LightScreen
 import com.thelightphone.sdk.LightViewModel
 import com.thelightphone.sdk.SealedLightActivity
@@ -241,11 +240,11 @@ private fun HistoryRow(game: LichessArchivedGame, username: String, onClick: () 
             .lightClickable(onClick = onClick)
             .padding(horizontal = EDGE_PADDING_UNITS.gridUnitsAsDp(), vertical = 0.75f.gridUnitsAsDp()),
     ) {
-        LightText(
-            text = nameWithRating(oppName, opp.rating),
-            variant = NAME_VARIANT,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
+        NameWithRating(
+            name = oppName,
+            rating = opp.rating,
+            nameVariant = NAME_VARIANT,
+            modifier = Modifier.fillMaxWidth(),
         )
         LightText(text = subtitle, variant = SUBTITLE_VARIANT, lighten = true)
     }

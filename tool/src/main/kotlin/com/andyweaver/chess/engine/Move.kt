@@ -46,6 +46,8 @@ data class Move(
                     'r' -> PieceType.ROOK
                     'b' -> PieceType.BISHOP
                     'n' -> PieceType.KNIGHT
+                    // Antichess/Giveaway allows promoting to a king.
+                    'k' -> PieceType.KING
                     else -> return null
                 }
             } else null

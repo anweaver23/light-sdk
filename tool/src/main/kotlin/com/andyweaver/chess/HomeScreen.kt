@@ -76,6 +76,11 @@ private const val EDGE_PADDING_UNITS = 1f
 // Generous gap below each row so the list doesn't feel crammed.
 private const val ROW_GAP_UNITS = 1.75f
 
+// Bottom-bar history icon: a custom vector (not a LightIcons glyph) whose path
+// under-fills its viewport, so it needs a larger box than the default 2f to match
+// the gear/plus glyphs beside it. Purely visual — tweak to taste.
+private const val HISTORY_ICON_SIZE_UNITS = 2.5f
+
 // Quiet background refresh cadence while the home screen is foregrounded. The
 // event stream catches game start/finish and challenges instantly; this poll is
 // only to pick up opponent MOVES in existing games (which the stream never pushes).
@@ -258,10 +263,12 @@ class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<
     fun declineChallenge(id: String) = challengeAction { api.declineChallenge(id) }
     fun cancelChallenge(id: String) = challengeAction { api.cancelChallenge(id) }
 
-    /** Removes the local pending-seek marker (does not cancel it on Lichess). */
-    fun dismissSeek(id: String) {
-        viewModelScope.launch(Dispatchers.IO) { settings.removePendingSeek(_account.value.name, id) }
-    }
+    // Seek rows no longer expose a dismiss (an ✕ wrongly implies it cancels the
+    // Lichess seek). Kept for reference; markers auto-clear via reconcileSeeks.
+    // /** Removes the local pending-seek marker (does not cancel it on Lichess). */
+    // fun dismissSeek(id: String) {
+    //     viewModelScope.launch(Dispatchers.IO) { settings.removePendingSeek(_account.value.name, id) }
+    // }
 
     private fun challengeAction(block: suspend () -> Unit) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -363,6 +370,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                                                         viewModel.currentToken,
                                                         game.color,
                                                         game.fen,
+                                                        nameWithRating(game.opponent.username, game.opponent.rating),
                                                     )
                                                 })
                                             },
@@ -378,10 +386,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                                             )
                                         }
                                         pendingSeeks.forEach { seek ->
-                                            SeekRow(
-                                                seek = seek,
-                                                onDismiss = { viewModel.dismissSeek(seek.id) },
-                                            )
+                                            SeekRow(seek = seek)
                                         }
                                     }
                                 }
@@ -409,6 +414,10 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                             ),
                             onClick = { navigateTo({ sa -> HistoryScreen(sa, viewModel.currentToken) }) },
                             contentDescription = "Game history",
+                            // The Material path only fills ~80% of its 24dp viewport, so at the
+                            // default 2f it looks smaller than the LightIcons gear/plus beside it.
+                            // Bump the box so the glyph reads at the same size. Tweak to taste.
+                            sizeUnits = HISTORY_ICON_SIZE_UNITS,
                         ),
                         LightBarButton.LightIcon(
                             icon = LightIcons.ADD,
@@ -533,9 +542,12 @@ private fun challengeTerms(challenge: LichessChallenge): String {
     return parts.joinToString(" · ")
 }
 
-// A locally-tracked seek awaiting a random match — greyed, with a dismiss (✕).
+// A locally-tracked seek awaiting a random match — greyed, no controls. There is
+// deliberately NO ✕: a correspondence seek can't be canceled via the Lichess API
+// (a dismiss here would only drop the local marker), and an ✕ wrongly implies it
+// can. The marker auto-clears when the seek matches into a game (reconcileSeeks).
 @Composable
-private fun SeekRow(seek: PendingSeek, onDismiss: () -> Unit) {
+private fun SeekRow(seek: PendingSeek) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -560,11 +572,6 @@ private fun SeekRow(seek: PendingSeek, onDismiss: () -> Unit) {
                 lighten = true,
             )
         }
-        LightIcon(
-            icon = LightIcons.CLOSE,
-            contentDescription = "Dismiss seek",
-            modifier = Modifier.lightClickable(onClick = onDismiss),
-        )
     }
 }
 
@@ -585,7 +592,10 @@ private fun GameRow(
 ) {
     val subtitle = buildSubtitle(game)
     val asteriskColWidth = ASTERISK_COL_UNITS.gridUnitsAsDp()
-    Column(
+    // Reserved asterisk column + a name/subtitle block. The row is center-aligned
+    // vertically so the "your move" asterisk sits centered across BOTH lines
+    // (name + subtitle) rather than riding up on the name line.
+    Row(
         modifier = Modifier
             .fillMaxWidth()
             .lightClickable(onClick = onClick)
@@ -594,32 +604,30 @@ private fun GameRow(
                 end = EDGE_PADDING_UNITS.gridUnitsAsDp(),
                 bottom = ROW_GAP_UNITS.gridUnitsAsDp(),
             ),
+        verticalAlignment = Alignment.CenterVertically,
     ) {
-        // Name line: reserved asterisk column (empty when not your move) + name.
-        // Asterisk is centered on the name line so it doesn't ride high.
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Box(
-                modifier = Modifier.width(asteriskColWidth),
-                contentAlignment = Alignment.Center,
-            ) {
-                if (game.isMyTurn) {
-                    LightText(text = "*", variant = NAME_VARIANT)
-                }
+        Box(
+            modifier = Modifier.width(asteriskColWidth),
+            contentAlignment = Alignment.Center,
+        ) {
+            if (game.isMyTurn) {
+                LightText(text = "*", variant = NAME_VARIANT)
             }
+        }
+        Column(modifier = Modifier.weight(1f)) {
             NameWithRating(
                 name = game.opponent.username,
                 rating = game.opponent.rating,
                 nameVariant = NAME_VARIANT,
-                modifier = Modifier.weight(1f),
+                modifier = Modifier.fillMaxWidth(),
+            )
+            // Subtitle aligns under the name automatically (same column); dimmed.
+            LightText(
+                text = subtitle,
+                variant = SUBTITLE_VARIANT,
+                lighten = true,
             )
         }
-        // Subtitle: indented to align under the name; dimmed to match the mockup.
-        LightText(
-            text = subtitle,
-            variant = SUBTITLE_VARIANT,
-            lighten = true,
-            modifier = Modifier.padding(start = asteriskColWidth),
-        )
     }
 }
 

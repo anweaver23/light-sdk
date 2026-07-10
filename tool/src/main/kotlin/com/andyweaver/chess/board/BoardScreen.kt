@@ -73,6 +73,11 @@ private val LAST_MOVE_FILL = Color(0x4DB08A3E)      // muted amber — the last 
 private val CHECK_FILL = Color(0x59C0392B)          // muted red — king in check
 private val LEGAL_MARKER = Color(0x992E7D5B)        // teal dot/ring — legal destinations
 
+// Skip-to-start/end bar height, in grid units. The nav arrows render inside a 2f
+// box but the visible glyph is padded within it, so a full-2f bar looks taller
+// than the arrows. This is tuned to match the arrow's visible height — tweak here.
+private const val SKIP_BAR_HEIGHT_UNITS = 1.4f
+
 // Piece fill/outline. White piece = white fill + black outline; black piece =
 // black fill + white outline — visible on any square color.
 private val WHITE_PIECE_FILL = Color.White
@@ -95,6 +100,7 @@ class BoardScreen(
     private val token: String,
     private val myColorName: String,
     private val currentFen: String? = null,
+    private val seededOpponentName: String? = null,
 ) : LightScreen<Unit, BoardViewModel>(sealedActivity) {
 
     override val viewModelClass: Class<BoardViewModel>
@@ -112,6 +118,7 @@ class BoardScreen(
             gameId = gameId,
             myColor = color,
             currentFen = currentFen,
+            seededOpponentName = seededOpponentName,
         )
     }
 
@@ -159,19 +166,40 @@ class BoardScreen(
                             onClick = { viewModel.openMenu() },
                             contentDescription = "Menu",
                         ),
+                        // Breathing room between the top bar and the board, matching the
+                        // home/history convention (and roughly the board's bottom gap).
+                        modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
                     )
 
-                    Box(
-                        modifier = Modifier
-                            .weight(1f)
-                            .fillMaxWidth()
-                            .padding(horizontal = 0.5f.gridUnitsAsDp()),
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        ChessBoard(state = state, onSquareTap = viewModel::onSquareTap)
-                    }
+                    if (state.unsupportedVariant != null) {
+                        // Variant we can't render faithfully yet — say so plainly
+                        // rather than showing a wrong/desynced board. Back still works.
+                        Box(
+                            modifier = Modifier
+                                .weight(1f)
+                                .fillMaxWidth()
+                                .padding(horizontal = 1.5f.gridUnitsAsDp()),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            LightText(
+                                text = "${state.unsupportedVariant} games aren't supported yet.",
+                                variant = LightTextVariant.Copy,
+                                align = TextAlign.Center,
+                            )
+                        }
+                    } else {
+                        Box(
+                            modifier = Modifier
+                                .weight(1f)
+                                .fillMaxWidth()
+                                .padding(horizontal = 0.5f.gridUnitsAsDp()),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            ChessBoard(state = state, onSquareTap = viewModel::onSquareTap)
+                        }
 
-                    BottomControls(state = state, viewModel = viewModel)
+                        BottomControls(state = state, viewModel = viewModel)
+                    }
                 }
 
                 if (state.promotionActive) {
@@ -299,7 +327,7 @@ private fun SkipControl(
         Box(
             modifier = Modifier
                 .width(2.dp)
-                .height(2f.gridUnitsAsDp())
+                .height(SKIP_BAR_HEIGHT_UNITS.gridUnitsAsDp())
                 .background(LightThemeTokens.colors.content),
         )
     }
