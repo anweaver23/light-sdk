@@ -96,6 +96,25 @@ class VariantTest {
     }
 
     @Test
+    fun crazyhouseParsesTrailingSlashPocketFormat() {
+        // Lichess's `nowPlaying` FEN puts the Crazyhouse pocket in a trailing
+        // '/'-delimited 9th segment instead of "[...]"; both must parse to the same
+        // position + pocket (regression: the 9-segment form used to throw, which made
+        // the board seed fall back to the standard start).
+        val bracket = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR[Pp] b KQkq - 0 1"
+        val slash = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR/Pp b KQkq - 0 1"
+        val a = Position.fromFen(bracket, Variant.CRAZYHOUSE)
+        val b = Position.fromFen(slash, Variant.CRAZYHOUSE)
+        assertEquals(Color.BLACK, b.sideToMove)
+        assertEquals(1, b.pocket.count(Color.WHITE, PieceType.PAWN))
+        assertEquals(1, b.pocket.count(Color.BLACK, PieceType.PAWN))
+        assertEquals(a.board, b.board)
+        // Empty trailing pocket segment is also valid.
+        val empty = Position.fromFen("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR/ w KQkq - 0 1", Variant.CRAZYHOUSE)
+        assertTrue(empty.pocket.isEmpty)
+    }
+
+    @Test
     fun crazyhouseCaptureGoesToPocket() {
         // White knight g1 captures the black bishop on f3 -> a bishop enters White's pocket.
         val pos = Position.fromFen("4k3/8/8/8/8/5b2/8/4K1N1 w - - 0 1", Variant.CRAZYHOUSE)

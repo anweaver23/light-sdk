@@ -26,6 +26,23 @@ enum class Variant {
     val kingIsRoyal: Boolean get() = this != ANTICHESS
 
     /**
+     * Human-readable name for UI (subtitles, pickers, history). Intentionally
+     * lowercase to match the app's minimal LP aesthetic (used everywhere variant
+     * names are shown), so callers don't each re-lowercase it.
+     */
+    val displayName: String get() = when (this) {
+        STANDARD -> "standard"
+        CHESS960 -> "chess960"
+        CRAZYHOUSE -> "crazyhouse"
+        ATOMIC -> "atomic"
+        KING_OF_THE_HILL -> "king of the hill"
+        THREE_CHECK -> "three-check"
+        ANTICHESS -> "antichess"
+        RACING_KINGS -> "racing kings"
+        HORDE -> "horde"
+    }
+
+    /**
      * The variant's fixed starting FEN when it differs from standard chess, else null
      * (standard start). Lichess's board stream reports `initialFen: "startpos"` even for
      * these fixed-but-non-standard starts, so callers substitute this when they see it.

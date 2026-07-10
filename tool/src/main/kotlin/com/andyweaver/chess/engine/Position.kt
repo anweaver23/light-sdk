@@ -136,7 +136,14 @@ data class Position(
 
             val board = arrayOfNulls<Piece>(Square.COUNT)
             val promoted = HashSet<Int>()
-            val ranks = placement.split('/')
+            var ranks = placement.split('/')
+            // Lichess's Crazyhouse `nowPlaying` FEN puts the pocket in a trailing
+            // '/'-delimited 9th segment (e.g. ".../RNBQKBNR/PPnn w ...") rather than
+            // the "[...]" form. Peel it off so the placement still has 8 ranks.
+            if (ranks.size == 9 && pocketSpec.isEmpty()) {
+                pocketSpec = ranks[8]
+                ranks = ranks.subList(0, 8)
+            }
             require(ranks.size == 8) { "FEN placement must have 8 ranks: '$placement'" }
             // First rank string is rank 8.
             for ((i, rankStr) in ranks.withIndex()) {
