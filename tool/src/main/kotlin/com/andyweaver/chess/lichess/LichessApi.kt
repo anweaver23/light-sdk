@@ -267,7 +267,15 @@ data class LichessArchivedGame(
 
 class LichessApi(private val token: String) {
 
-    private val json = Json { ignoreUnknownKeys = true }
+    // coerceInputValues: if Lichess sends an explicit `null` for a non-nullable field
+    // that has a default (e.g. status/moves/clocks on some game shapes), fall back to the
+    // default instead of throwing. Without this, getUserGames' runCatching{}.getOrNull()
+    // would silently DROP the whole game line — the way a finished game could vanish from
+    // history. winner is already nullable, so a drawn game (no winner) parses either way.
+    private val json = Json {
+        ignoreUnknownKeys = true
+        coerceInputValues = true
+    }
 
     private val client = HttpClient(OkHttp) {
         install(ContentNegotiation) {

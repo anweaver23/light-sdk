@@ -12,9 +12,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import com.andyweaver.chess.engine.Chess
 import com.andyweaver.chess.engine.Color as EngineColor
 import com.andyweaver.chess.engine.GameStatus
+import com.andyweaver.chess.engine.PieceType
 import com.andyweaver.chess.engine.Replay
 import com.andyweaver.chess.engine.Variant
 import com.thelightphone.sdk.LightScreen
@@ -33,6 +35,7 @@ import com.thelightphone.sdk.ui.gridUnitsAsDp
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlin.math.roundToInt
 
 /**
  * Read-only replay of a finished game for the history screen. Reuses the board
@@ -84,6 +87,14 @@ class ReviewViewModel(
         if (viewIndex != last) { viewIndex = last; _uiState.value = buildState() }
     }
 
+    /** Scrub to a position by fraction of the whole game (0 = start, 1 = final). */
+    fun seekToFraction(fraction: Float) {
+        val last = replay?.positions?.lastIndex ?: return
+        if (last <= 0) return
+        val target = (fraction.coerceIn(0f, 1f) * last).roundToInt().coerceIn(0, last)
+        if (target != viewIndex) { viewIndex = target; _uiState.value = buildState() }
+    }
+
     private fun buildState(): BoardUiState {
         val r = replay ?: return BoardUiState(myColor = myColor, flipped = myColor == EngineColor.BLACK)
         val positions = r.positions
@@ -115,12 +126,16 @@ class ReviewViewModel(
             canStepBack = idx > 0,
             canStepForward = idx < positions.lastIndex,
             variant = variant,
+            // Crazyhouse reserves at the reviewed position (empty for other variants).
+            myPocket = pos.pocket.forColor(myColor),
+            opponentPocket = pos.pocket.forColor(myColor.opposite),
             myCaptured = material.myCaptured,
             opponentCaptured = material.opponentCaptured,
             myAdvantage = material.myAdvantage,
             opponentAdvantage = material.opponentAdvantage,
             myClockLabel = clockLabelFor(myColor == EngineColor.WHITE, idx),
             opponentClockLabel = clockLabelFor(myColor != EngineColor.WHITE, idx),
+            viewFraction = if (positions.size > 1) viewIndex.toFloat() / positions.lastIndex else 1f,
         )
     }
 
@@ -201,80 +216,110 @@ class ReviewScreen(
                     center = LightTopBarCenter.TwoLineDetail(line1 = title, line2 = resultLine),
                 )
 
-                if (!viewModel.parseFailed) {
-                    // Opponent's captures + their +N at the top board edge (left), with the
-                    // opponent's clock overlaid at the right (non-correspondence games).
-                    Box(modifier = Modifier.fillMaxWidth()) {
-                        MaterialRow(
-                            captured = state.opponentCaptured,
-                            capturedColor = state.myColor,
-                            advantage = state.opponentAdvantage,
-                        )
-                        state.opponentClockLabel?.let { clock ->
+                when {
+                    viewModel.parseFailed -> {
+                        Box(
+                            modifier = Modifier
+                                .weight(1f)
+                                .fillMaxWidth()
+                                .padding(horizontal = 1f.gridUnitsAsDp()),
+                            contentAlignment = Alignment.Center,
+                        ) {
                             LightText(
-                                text = clock,
-                                variant = LightTextVariant.Detail,
-                                modifier = Modifier
-                                    .align(Alignment.CenterEnd)
-                                    .padding(end = 0.5f.gridUnitsAsDp()),
+                                text = "This game can't be reviewed here.",
+                                variant = LightTextVariant.Copy,
+                                align = TextAlign.Center,
                             )
                         }
                     }
-                }
 
-                Box(
-                    modifier = Modifier
-                        .weight(1f)
-                        .fillMaxWidth()
-                        .padding(horizontal = 0.5f.gridUnitsAsDp()),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    if (viewModel.parseFailed) {
-                        LightText(
-                            text = "This game can't be reviewed here.",
-                            variant = LightTextVariant.Copy,
-                            align = TextAlign.Center,
-                            modifier = Modifier.padding(horizontal = 1f.gridUnitsAsDp()),
+                    state.variant == Variant.CRAZYHOUSE -> {
+                        // Same layout as the live Crazyhouse board: opponent reserves above
+                        // the board, mine in the bottom bar — but with all four browse
+                        // arrows, so the reserves pack tight to fit alongside them.
+                        ReadOnlyPocketBar(
+                            pocket = state.opponentPocket,
+                            color = state.myColor.opposite,
+                            verticalPadUnits = 0.15f,
                         )
-                    } else {
-                        ChessBoard(state = state, onSquareTap = {})
+                        CenteredBoard(
+                            reservedUnits = 0f,
+                            topRightLabel = state.opponentClockLabel,
+                            bottomRightLabel = state.myClockLabel,
+                        ) {
+                            ChessBoard(state = state, onSquareTap = {}, onSeek = { viewModel.seekToFraction(it) })
+                        }
+                        CrazyhouseReviewBottomBar(
+                            pocket = state.myPocket,
+                            color = state.myColor,
+                            canStepBack = state.canStepBack,
+                            canStepForward = state.canStepForward,
+                            onBack = { viewModel.stepBack() },
+                            onForward = { viewModel.stepForward() },
+                            onSkipStart = { viewModel.stepToStart() },
+                            onSkipEnd = { viewModel.stepToEnd() },
+                            onSeek = { viewModel.seekToFraction(it) },
+                        )
                     }
-                }
 
-                if (!viewModel.parseFailed) {
-                    // My captures + my +N at the bottom board edge (left), with the move's
-                    // clock time overlaid at the right (non-correspondence games only).
-                    Box(modifier = Modifier.fillMaxWidth()) {
-                        MaterialRow(
+                    else -> {
+                        // Same layout as the live standard board: opponent's captures above
+                        // the board (aligned to its left edge), mine in the bottom bar with
+                        // all four browse arrows. Both clocks sit rotated at the board's
+                        // right edge (opponent top, me bottom).
+                        CenteredBoard(
+                            reservedUnits = 2f,
+                            topBank = { inset ->
+                                ReviewMaterialBank(
+                                    captured = state.opponentCaptured,
+                                    capturedColor = state.myColor,
+                                    advantage = state.opponentAdvantage,
+                                    inset = inset,
+                                )
+                            },
+                            topRightLabel = state.opponentClockLabel,
+                            bottomRightLabel = state.myClockLabel,
+                        ) {
+                            ChessBoard(state = state, onSquareTap = {}, onSeek = { viewModel.seekToFraction(it) })
+                        }
+
+                        MaterialReviewBottomBar(
                             captured = state.myCaptured,
                             capturedColor = state.myColor.opposite,
                             advantage = state.myAdvantage,
+                            canStepBack = state.canStepBack,
+                            canStepForward = state.canStepForward,
+                            onBack = { viewModel.stepBack() },
+                            onForward = { viewModel.stepForward() },
+                            onSkipStart = { viewModel.stepToStart() },
+                            onSkipEnd = { viewModel.stepToEnd() },
+                            onSeek = { viewModel.seekToFraction(it) },
                         )
-                        state.myClockLabel?.let { clock ->
-                            LightText(
-                                text = clock,
-                                variant = LightTextVariant.Detail,
-                                modifier = Modifier
-                                    .align(Alignment.CenterEnd)
-                                    .padding(end = 0.5f.gridUnitsAsDp()),
-                            )
-                        }
                     }
-                }
-
-                if (!viewModel.parseFailed) {
-                    BrowseBar(
-                        canStepBack = state.canStepBack,
-                        canStepForward = state.canStepForward,
-                        onBack = { viewModel.stepBack() },
-                        onForward = { viewModel.stepForward() },
-                        onSkipStart = { viewModel.stepToStart() },
-                        onSkipEnd = { viewModel.stepToEnd() },
-                    )
                 }
             }
         }
     }
+}
+
+/**
+ * The opponent's reviewed-position material bank (non-Crazyhouse). The fan starts at
+ * [inset] so it aligns to the centered board's left edge. Clocks live at the board's
+ * right edge (see [CenteredBoard]), not here.
+ */
+@Composable
+private fun ReviewMaterialBank(
+    captured: List<PieceType>,
+    capturedColor: EngineColor,
+    advantage: Int,
+    inset: Dp,
+) {
+    MaterialRow(
+        captured = captured,
+        capturedColor = capturedColor,
+        advantage = advantage,
+        startPad = inset,
+    )
 }
 
 // Format a centisecond clock value as m:ss (or h:mm:ss past an hour).

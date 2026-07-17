@@ -25,6 +25,8 @@ class SettingsViewModel(private val settings: ChessSettings) : LightViewModel<Un
 
     fun toggleConfirmMoves() = toggle(snapshot.value.confirmMoves, settings::setConfirmMoves)
 
+    fun toggleShowLegalMoves() = toggle(snapshot.value.showLegalMoves, settings::setShowLegalMoves)
+
     // v1: removed — may re-add
     // fun toggleShowTimeRemaining() = toggle(snapshot.value.showTimeRemaining, settings::setShowTimeRemaining)
 

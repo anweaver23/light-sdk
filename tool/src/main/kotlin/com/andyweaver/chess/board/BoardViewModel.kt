@@ -24,6 +24,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlin.math.roundToInt
 
 /** Which set of controls the bottom bar shows. */
 enum class BottomMode { BROWSE, PENDING }
@@ -102,6 +103,7 @@ data class BoardUiState(
      */
     val myClockLabel: String? = null,
     val opponentClockLabel: String? = null,
+    val viewFraction: Float = 1f,
     val message: String? = null,
 )
 
@@ -170,6 +172,7 @@ class BoardViewModel(
     private var confirmation: Confirmation? = null
     private var message: String? = null
     private var confirmMoves: Boolean = true
+    private var showLegalMoves: Boolean = true
 
     private var streamJob: Job? = null
 
@@ -186,6 +189,8 @@ class BoardViewModel(
         }
         // Keep the confirm-moves preference current; defaults to true until loaded.
         viewModelScope.launch { settings.confirmMoves.collect { confirmMoves = it } }
+        // Show-legal-moves affects rendering directly, so re-render on change.
+        viewModelScope.launch { settings.showLegalMoves.collect { showLegalMoves = it; recompute() } }
         recompute()
     }
 
@@ -335,6 +340,19 @@ class BoardViewModel(
         val last = replay.positions.lastIndex
         if (viewIndex != last) {
             viewIndex = last
+            clearSelection()
+            recompute()
+        }
+    }
+
+    /** Scrub to a position by fraction of the whole game (0 = start, 1 = latest). */
+    fun seekToFraction(fraction: Float) {
+        if (pendingMove != null || pendingPromotion != null) return
+        val last = replay.positions.lastIndex
+        if (last <= 0) return
+        val target = (fraction.coerceIn(0f, 1f) * last).roundToInt().coerceIn(0, last)
+        if (target != viewIndex) {
+            viewIndex = target
             clearSelection()
             recompute()
         }
@@ -676,7 +694,7 @@ class BoardViewModel(
             myColor = myColor,
             flipped = myColor == Color.BLACK,
             selectedSquare = selectedSquare,
-            legalDestinations = legalDests,
+            legalDestinations = if (showLegalMoves) legalDests else emptySet(),
             lastMoveFrom = lastFrom,
             lastMoveTo = lastTo,
             checkedKingSquare = checkedKing,
@@ -695,12 +713,13 @@ class BoardViewModel(
             myPocket = displayPosition.pocket.forColor(myColor),
             opponentPocket = displayPosition.pocket.forColor(myColor.opposite),
             selectedDrop = selectedDrop,
-            dropTargets = dropTargets,
+            dropTargets = if (showLegalMoves) dropTargets else emptySet(),
             goalSquares = goalSquares(),
             myCaptured = material.myCaptured,
             opponentCaptured = material.opponentCaptured,
             myAdvantage = material.myAdvantage,
             opponentAdvantage = material.opponentAdvantage,
+            viewFraction = if (positions.size > 1) viewIndex.toFloat() / positions.lastIndex else 1f,
             message = message,
         )
     }

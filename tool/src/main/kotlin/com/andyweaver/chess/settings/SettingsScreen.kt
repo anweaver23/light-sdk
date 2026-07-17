@@ -83,6 +83,11 @@ class SettingsScreen(sealedActivity: SealedLightActivity) :
                         enabled = snapshot.confirmMoves,
                         onClick = { viewModel.toggleConfirmMoves() },
                     )
+                    SettingsToggleRow(
+                        label = "Show legal moves",
+                        enabled = snapshot.showLegalMoves,
+                        onClick = { viewModel.toggleShowLegalMoves() },
+                    )
                     // v1: removed — may re-add
                     // SettingsToggleRow(
                     //     label = "Show time remaining",

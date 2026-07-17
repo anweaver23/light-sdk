@@ -12,6 +12,13 @@ package com.andyweaver.chess.engine
 object San {
 
     fun of(position: Position, move: Move, enPassantSuffix: Boolean = false): String {
+        // Crazyhouse drop: "<Piece>@<square>" (pawn writes 'P'), matching Lichess's SAN.
+        if (move.isDrop) {
+            val dropType = move.drop!!
+            val letter = if (dropType == PieceType.PAWN) "P" else dropType.sanLetter
+            return "$letter@${Square.name(move.to)}" + checkSuffix(position, move)
+        }
+
         val mover = position.pieceAt(move.from)
             ?: throw IllegalArgumentException("No piece on ${Square.name(move.from)} for SAN")
 

@@ -4,40 +4,35 @@
     android:viewportWidth="16"
     android:viewportHeight="16">
     <path
-        android:fillColor="#FF000000"
+        android:fillColor="#FF3A3A3A"
         android:fillType="evenOdd"
         android:pathData="M9 1H7V2H6V4H7V5H6V6H5V7H4V11H5V12H4V13H3V15H13V13H12V12H11V11H12V7H11V6H10V5H9V4H10V2H9V1ZM10 7V6H9V7H8V8H9V7H10Z" />
     <path
-        android:fillColor="#FF444444"
+        android:fillColor="#FFC1C1C1"
         android:pathData="M7 2V4H9V2H7Z" />
     <path
-        android:fillColor="#FF444444"
+        android:fillColor="#FFC1C1C1"
         android:pathData="M4 14V13H12V14H4Z" />
     <path
-        android:fillColor="#FF444444"
-        android:pathData="M7 5H9V8H8V9H9V8H10V7H11V11H10V12H6V11H5V7H6V6H7V5Z" />
+        android:fillColor="#FFC1C1C1"
+        android:pathData="M9 5H7V6H6V7H5V11H6V12H10V11H11V7H10V8H9V9H8V8H9V7V6V5Z" />
     <path
-        android:fillColor="#FF666666"
+        android:fillColor="#FFE1E1E1"
         android:pathData="M8 2H7V4H8V2Z" />
     <path
-        android:fillColor="#FF666666"
+        android:fillColor="#FFE1E1E1"
         android:pathData="M6 7H5V11H6V12H7V11H6V7Z" />
     <path
-        android:fillColor="#FF666666"
+        android:fillColor="#FFE1E1E1"
         android:pathData="M4 14V13H6V14H4Z" />
     <path
-        android:fillColor="#FF888888"
+        android:fillColor="#FFFDFDFD"
         android:pathData="M7 2H8V3H7V2Z" />
     <path
-        android:fillColor="#FF888888"
+        android:fillColor="#FFFDFDFD"
         android:pathData="M5 7V8H6V7H7V6H6V7H5Z" />
     <path
-        android:fillColor="#FF444444"
-        android:pathData="M9 2H8V4H9V2Z" />
-    <path
-        android:fillColor="#FF444444"
-        android:pathData="M9 5H8V6H9V7H10V11H9V12H10V11H11V7H10V6H9V5Z" />
-    <path
-        android:fillColor="#FF444444"
-        android:pathData="M9 14V13H12V14H9Z" />
+        android:fillColor="#FFA7A7A7"
+        android:fillType="evenOdd"
+        android:pathData="M9 2H8V4H9V2ZM9 5H8V6H9V7H10V11H9V12H10V11H11V7H10V6H9V5ZM9 14V13H12V14H9Z" />
 </vector>

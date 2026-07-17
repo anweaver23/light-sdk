@@ -21,6 +21,7 @@ import kotlinx.serialization.json.Json
 data class ChessSettingsSnapshot(
     val notificationsEnabled: Boolean = true,
     val confirmMoves: Boolean = true,
+    val showLegalMoves: Boolean = true,
     // v1: removed — may re-add
     // val showTimeRemaining: Boolean = true,
     // val showLastMove: Boolean = true,
@@ -59,6 +60,7 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
 
     val notificationsEnabled: Flow<Boolean> = booleanFlow(Keys.NOTIFICATIONS_ENABLED, default = true)
     val confirmMoves: Flow<Boolean> = booleanFlow(Keys.CONFIRM_MOVES, default = true)
+    val showLegalMoves: Flow<Boolean> = booleanFlow(Keys.SHOW_LEGAL_MOVES, default = true)
     // v1: removed — may re-add
     // val showTimeRemaining: Flow<Boolean> = booleanFlow(Keys.SHOW_TIME_REMAINING, default = true)
     // val showLastMove: Flow<Boolean> = booleanFlow(Keys.SHOW_LAST_MOVE, default = true)
@@ -67,10 +69,12 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
     val snapshot: Flow<ChessSettingsSnapshot> = combine(
         notificationsEnabled,
         confirmMoves,
-    ) { notifications, confirm ->
+        showLegalMoves,
+    ) { notifications, confirm, showLegal ->
         ChessSettingsSnapshot(
             notificationsEnabled = notifications,
             confirmMoves = confirm,
+            showLegalMoves = showLegal,
             // v1: removed — may re-add
             // showTimeRemaining = showTime,
             // showLastMove = showLast,
@@ -79,6 +83,7 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
 
     suspend fun setNotificationsEnabled(enabled: Boolean) = setBoolean(Keys.NOTIFICATIONS_ENABLED, enabled)
     suspend fun setConfirmMoves(enabled: Boolean) = setBoolean(Keys.CONFIRM_MOVES, enabled)
+    suspend fun setShowLegalMoves(enabled: Boolean) = setBoolean(Keys.SHOW_LEGAL_MOVES, enabled)
     // v1: removed — may re-add
     // suspend fun setShowTimeRemaining(enabled: Boolean) = setBoolean(Keys.SHOW_TIME_REMAINING, enabled)
     // suspend fun setShowLastMove(enabled: Boolean) = setBoolean(Keys.SHOW_LAST_MOVE, enabled)
@@ -150,6 +155,7 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
     private object Keys {
         val NOTIFICATIONS_ENABLED = booleanPreferencesKey("chess_notifications_enabled")
         val CONFIRM_MOVES = booleanPreferencesKey("chess_confirm_moves")
+        val SHOW_LEGAL_MOVES = booleanPreferencesKey("chess_show_legal_moves")
         // v1: removed — may re-add
         // val SHOW_TIME_REMAINING = booleanPreferencesKey("chess_show_time_remaining")
         // val SHOW_LAST_MOVE = booleanPreferencesKey("chess_show_last_move")

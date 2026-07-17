@@ -3,14 +3,17 @@ package com.andyweaver.chess.board
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
@@ -22,15 +25,19 @@ import androidx.compose.runtime.Composable
 // import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.ui.composed
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 // v1: PGN export disabled — may re-add
 // import android.content.ClipData
 // import androidx.compose.ui.platform.ClipEntry
 // import androidx.compose.ui.platform.LocalClipboard
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
@@ -66,17 +73,15 @@ import com.thelightphone.sdk.ui.LightTopBarCenter
 import com.thelightphone.sdk.ui.gridUnitsAsDp
 import com.thelightphone.sdk.ui.lightClickable
 
-// Classic light/dark board squares. Not pure black/white: keeping a little tone
-// lets each piece's *fill* read on both squares, while the outline (below) is what
-// guarantees visibility of a same-colored piece on a same-colored square.
-private val LIGHT_SQUARE = Color(0xFFE8E8E8)
-private val DARK_SQUARE = Color(0xFF4D4D4D)
+private val BOARD_DARK = Color(0xFF1B1B1B)
+private val BOARD_LIGHT = Color(0xFF5B5B5B)
 
-// Faint full-square highlight tints (translucent so they read over both squares).
-private val SELECTED_FILL = Color(0x5A4C9A78)      // muted green — the piece you picked up
-private val LAST_MOVE_FILL = Color(0x4DB08A3E)      // muted amber — the last move (either player)
+// Every indicator mark (dots, legal-move ring, last-move box, selection box) shares
+// this shade; the legal-move dot additionally gets a thin contact outline.
+private val MARK_SHADE = Color(0xFFB7B7B7)
+private val DOT_OUTLINE = Color(0x8C000000)
+
 private val CHECK_FILL = Color(0x59C0392B)          // muted red — king in check
-private val LEGAL_MARKER = Color(0x992E7D5B)        // teal dot/ring — legal destinations
 private val GOAL_OUTLINE = Color(0xFFCC3B3B)        // red — variant goal squares (KotH centre, Racing Kings rank 8)
 
 // Skip-to-start/end bar height, in grid units. The nav arrows render inside a 2f
@@ -172,9 +177,6 @@ class BoardScreen(
                             onClick = { viewModel.openMenu() },
                             contentDescription = "Menu",
                         ),
-                        // Breathing room between the top bar and the board, matching the
-                        // home/history convention (and roughly the board's bottom gap).
-                        modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
                     )
 
                     if (state.unsupportedVariant != null) {
@@ -195,40 +197,42 @@ class BoardScreen(
                         }
                     } else {
                         if (state.variant == Variant.CRAZYHOUSE) {
-                            // Opponent's reserves above the board (read-only, small).
-                            OpponentPocketBar(
+                            // Opponent's reserves above the board (read-only), hugged tight
+                            // to the board so it can grow toward the bottom bar.
+                            ReadOnlyPocketBar(
                                 pocket = state.opponentPocket,
                                 color = state.myColor.opposite,
+                                verticalPadUnits = 0.15f,
                             )
+                            Box(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 0.5f.gridUnitsAsDp()),
+                                contentAlignment = Alignment.Center,
+                            ) {
+                                ChessBoard(state = state, onSquareTap = viewModel::onSquareTap, onSeek = { viewModel.seekToFraction(it) })
+                            }
                         } else {
-                            // Material lead: pieces the opponent captured (my colour) + their +N,
-                            // hugging the top edge of the board.
-                            MaterialRow(
-                                captured = state.opponentCaptured,
-                                capturedColor = state.myColor,
-                                advantage = state.opponentAdvantage,
-                            )
+                            // Opponent's captured pieces align to the board's left edge (the
+                            // board is centered, so [inset] is the gap to that edge).
+                            CenteredBoard(
+                                reservedUnits = 2f,
+                                topBank = { inset ->
+                                    MaterialRow(
+                                        captured = state.opponentCaptured,
+                                        capturedColor = state.myColor,
+                                        advantage = state.opponentAdvantage,
+                                        startPad = inset,
+                                    )
+                                },
+                            ) {
+                                ChessBoard(state = state, onSquareTap = viewModel::onSquareTap, onSeek = { viewModel.seekToFraction(it) })
+                            }
                         }
-                        Box(
-                            modifier = Modifier
-                                .weight(1f)
-                                .fillMaxWidth()
-                                .padding(horizontal = 0.5f.gridUnitsAsDp()),
-                            contentAlignment = Alignment.Center,
-                        ) {
-                            ChessBoard(state = state, onSquareTap = viewModel::onSquareTap)
-                        }
-                        if (state.variant != Variant.CRAZYHOUSE) {
-                            // Material lead: pieces I captured (opponent's colour) + my +N,
-                            // hugging the bottom edge of the board. (Crazyhouse puts my
-                            // reserves in the bottom bar instead — see BottomControls.)
-                            MaterialRow(
-                                captured = state.myCaptured,
-                                capturedColor = state.myColor.opposite,
-                                advantage = state.myAdvantage,
-                            )
-                        }
-
+                        // My material/reserves live in the bottom bar next to the browse
+                        // arrows (both variants) — see BottomControls. This frees the row
+                        // below the board so the board itself can grow.
                         BottomControls(state = state, viewModel = viewModel)
                     }
                 }
@@ -283,15 +287,21 @@ private fun BottomControls(state: BoardUiState, viewModel: BoardViewModel) {
                     canStepForward = state.canStepForward,
                     onBack = { viewModel.stepBack() },
                     onForward = { viewModel.stepForward() },
+                    onSeek = { viewModel.seekToFraction(it) },
                 )
             } else {
-                BrowseBar(
+                // Standard: the bottom bar carries my captured pieces (left-aligned)
+                // between back/forward arrows — mirroring the Crazyhouse layout. No
+                // skip-to-start/end during play; those are review-only.
+                MaterialBottomBar(
+                    captured = state.myCaptured,
+                    capturedColor = state.myColor.opposite,
+                    advantage = state.myAdvantage,
                     canStepBack = state.canStepBack,
                     canStepForward = state.canStepForward,
                     onBack = { viewModel.stepBack() },
                     onForward = { viewModel.stepForward() },
-                    onSkipStart = { viewModel.stepToStart() },
-                    onSkipEnd = { viewModel.stepToEnd() },
+                    onSeek = { viewModel.seekToFraction(it) },
                 )
             }
         }
@@ -332,9 +342,8 @@ internal fun BrowseBar(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 1f.gridUnitsAsDp())
             .height(4f.gridUnitsAsDp())
-            .padding(horizontal = 2f.gridUnitsAsDp()),
+            .padding(horizontal = 1f.gridUnitsAsDp()),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -359,6 +368,160 @@ internal fun BrowseBar(
     }
 }
 
+/**
+ * Standard review bottom bar: my captured pieces fanned left among all four browse
+ * controls (skip-start, back … forward, skip-end) — the review counterpart to
+ * [MaterialBottomBar], with the two extra skip arrows.
+ */
+@Composable
+internal fun MaterialReviewBottomBar(
+    captured: List<PieceType>,
+    capturedColor: EngineColor,
+    advantage: Int,
+    canStepBack: Boolean,
+    canStepForward: Boolean,
+    onBack: () -> Unit,
+    onForward: () -> Unit,
+    onSkipStart: () -> Unit,
+    onSkipEnd: () -> Unit,
+    onSeek: (Float) -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(4f.gridUnitsAsDp())
+//            .moveScrub(onSeek)
+            .padding(horizontal = 1f.gridUnitsAsDp()),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        SkipControl(BarSide.LEADING, LightIcons.BACK, "First move", canStepBack, onSkipStart)
+        Spacer(Modifier.width(1f.gridUnitsAsDp()))
+        NavArrow(LightIcons.BACK, "Previous move", canStepBack, onBack)
+        Row(
+            modifier = Modifier
+                .weight(1f),
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            MaterialFan(
+                captured = captured,
+                capturedColor = capturedColor,
+                advantage = advantage,
+                cellUnits = MATERIAL_CELL_UNITS,
+            )
+        }
+        NavArrow(LightIcons.ARROW_RIGHT, "Next move", canStepForward, onForward)
+        Spacer(Modifier.width(1f.gridUnitsAsDp()))
+        SkipControl(BarSide.TRAILING, LightIcons.ARROW_RIGHT, "Last move", canStepForward, onSkipEnd)
+    }
+}
+
+/**
+ * Crazyhouse review bottom bar: the player's reserves centered among all four browse
+ * controls (skip-start, back … forward, skip-end). Read-only (no drops in review), and
+ * the pocket pieces pack tight so they fit alongside the extra skip arrows.
+ */
+@Composable
+internal fun CrazyhouseReviewBottomBar(
+    pocket: Map<PieceType, Int>,
+    color: EngineColor,
+    canStepBack: Boolean,
+    canStepForward: Boolean,
+    onBack: () -> Unit,
+    onForward: () -> Unit,
+    onSkipStart: () -> Unit,
+    onSkipEnd: () -> Unit,
+    onSeek: (Float) -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(4f.gridUnitsAsDp())
+//            .moveScrub(onSeek)
+            .padding(horizontal = 1f.gridUnitsAsDp()),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        SkipControl(BarSide.LEADING, LightIcons.BACK, "First move", canStepBack, onSkipStart)
+        Spacer(Modifier.width(1f.gridUnitsAsDp()))
+        NavArrow(LightIcons.BACK, "Previous move", canStepBack, onBack)
+        Row(
+            modifier = Modifier.weight(1f),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            POCKET_ORDER.filter { (pocket[it] ?: 0) > 0 }.forEach { type ->
+                PocketPiece(
+                    type = type,
+                    color = color,
+                    count = pocket[type] ?: 0,
+                    cell = MY_POCKET_CELL_UNITS.gridUnitsAsDp(),
+                    selected = false,
+                    onTap = null,
+                    horizontalPadUnits = 0.0f,
+                )
+            }
+        }
+        NavArrow(LightIcons.ARROW_RIGHT, "Next move", canStepForward, onForward)
+        Spacer(Modifier.width(1f.gridUnitsAsDp()))
+        SkipControl(BarSide.TRAILING, LightIcons.ARROW_RIGHT, "Last move", canStepForward, onSkipEnd)
+    }
+}
+
+/**
+ * Long-press-then-drag anywhere on the chess board to scrub through move history.
+ * The long press arms it (so quick taps on the arrows still work); vertical
+ * position across the board then maps 0→1 across all moves. [onSeek] receives that fraction.
+ * Taps aren't consumed, so the arrow buttons remain fully usable.
+ */
+private fun Modifier.verticalScrub(
+    currentFraction: Float,
+    onSeek: (Float) -> Unit
+): Modifier = composed {
+    val currentFractionState by rememberUpdatedState(currentFraction)
+    val onSeekState by rememberUpdatedState(onSeek)
+
+    pointerInput(Unit) {
+        val height = size.height.toFloat()
+        if (height <= 0f) return@pointerInput
+
+        var startY = 0f
+        var startFraction = 0f
+
+        detectDragGesturesAfterLongPress(
+            onDragStart = { offset ->
+                // Capture the baseline at the moment the long-press is recognized
+                startY = offset.y
+                startFraction = currentFractionState
+            },
+            onDrag = { change, _ ->
+                change.consume()
+                val deltaY = change.position.y - startY
+                // Add the relative movement (delta / height) to our starting fraction
+                onSeekState((startFraction + deltaY / height).coerceIn(0f, 1f))
+            },
+        )
+    }
+}
+
+///**
+// * Long-press-then-drag anywhere on a bottom bar to scrub through the whole game — like
+// * holding the iOS space bar to drag the cursor. The long press arms it (so quick taps on
+// * the arrows still work); horizontal position across the bar then maps 0→1 across all
+// * moves. [onSeek] receives that fraction. Taps aren't consumed, so the arrow buttons
+// * remain fully usable.
+// */
+//private fun Modifier.moveScrub(onSeek: (Float) -> Unit): Modifier = this.pointerInput(Unit) {
+//    val width = size.width.toFloat()
+//    if (width <= 0f) return@pointerInput
+//    detectDragGesturesAfterLongPress(
+//        onDragStart = { offset -> onSeek(offset.x / width) },
+//        onDrag = { change, _ ->
+//            change.consume()
+//            onSeek(change.position.x / width)
+//        },
+//    )
+//}
+
 /** Which side of the arrow the skip bar sits on. */
 private enum class BarSide { LEADING, TRAILING }
 
@@ -373,7 +536,7 @@ private fun SkipControl(
     val bar: @Composable () -> Unit = {
         Box(
             modifier = Modifier
-                .width(2.dp)
+                .width(3.dp)
                 .height(SKIP_BAR_HEIGHT_UNITS.gridUnitsAsDp())
                 .background(LightThemeTokens.colors.content),
         )
@@ -406,19 +569,84 @@ private fun NavArrow(
     )
 }
 
+/**
+ * Lays out the board centered in the remaining vertical space with an optional bank
+ * above and below. The board is square and usually height-limited, so it sits inset
+ * from the screen's side edges; [topBank]/[bottomBank] receive that horizontal [inset]
+ * (screen edge → board edge) so a left-aligned bank can start flush with the board.
+ * [reservedUnits] is the banks' combined height, kept clear when sizing the board.
+ */
 @Composable
-internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
+internal fun ColumnScope.CenteredBoard(
+    reservedUnits: Float,
+    topBank: @Composable (inset: Dp) -> Unit = {},
+    bottomBank: @Composable (inset: Dp) -> Unit = {},
+    // Optional review clocks: shown rotated 90° in the inset at the board's right edge —
+    // opponent's near the top, mine near the bottom — without shifting the centered board.
+    topRightLabel: String? = null,
+    bottomRightLabel: String? = null,
+    board: @Composable () -> Unit,
+) {
     BoxWithConstraints(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .weight(1f)
+            .fillMaxWidth(),
+    ) {
+        val hPad = 0.5f.gridUnitsAsDp()
+        val edge = minOf(maxWidth - hPad * 2, maxHeight - reservedUnits.gridUnitsAsDp())
+        val inset = (maxWidth - edge) / 2
+        Column(modifier = Modifier.fillMaxSize()) {
+            topBank(inset)
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center,
+            ) {
+                // Equal-weight side gutters keep the fixed-size board centered; the right
+                // gutter also carries the rotated clocks, flush to the board's edge.
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Spacer(modifier = Modifier.weight(1f))
+                    Box(modifier = Modifier.size(edge)) { board() }
+                    Box(modifier = Modifier.weight(1f).height(edge)) {
+                        topRightLabel?.let {
+                            RotatedClock(it, Modifier.align(Alignment.TopStart).padding(start = 0.2f.gridUnitsAsDp(), top = 1f.gridUnitsAsDp()))
+                        }
+                        bottomRightLabel?.let {
+                            RotatedClock(it, Modifier.align(Alignment.BottomStart).padding(start = 0.2f.gridUnitsAsDp(), bottom = 0.5f.gridUnitsAsDp()))
+                        }
+                    }
+                }
+            }
+            bottomBank(inset)
+        }
+    }
+}
+
+/** A review clock rendered as a vertical strip (rotated 90°) for the board's right edge. */
+@Composable
+private fun RotatedClock(text: String, modifier: Modifier) {
+    LightText(
+        text = text,
+        variant = LightTextVariant.Detail,
+        maxLines = 1,
+        modifier = modifier.rotate(90f),
+    )
+}
+
+@Composable
+internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit, onSeek: (Float) -> Unit,) {
+    BoxWithConstraints(
+        modifier = Modifier.fillMaxSize()
+            .verticalScrub(currentFraction = state.viewFraction, onSeek = onSeek),
         contentAlignment = Alignment.Center,
     ) {
         val edge: Dp = minOf(maxWidth, maxHeight)
         val squareSize = edge / 8
-        Column(
-            modifier = Modifier
-                .size(edge)
-                .border(boardBorderWidth(), LightThemeTokens.colors.content.copy(alpha = 0.35f)),
-        ) {
+        Column(modifier = Modifier.size(edge)) {
             // Row 0 is the top of the screen; map (row, col) -> engine square per
             // the user's orientation (their back rank at the bottom).
             for (row in 0..7) {
@@ -447,42 +675,78 @@ private val POCKET_ORDER = listOf(
 // board uses the same glyph size as the player's bar, just with less vertical space.
 private const val MY_POCKET_CELL_UNITS = 2.4f
 private const val OPP_POCKET_CELL_UNITS = MY_POCKET_CELL_UNITS
-// Captured-piece glyph size for the material rows hugging the board edges.
-private const val MATERIAL_CELL_UNITS = 1.6f
-// Same-type captured pieces fan out like a hand of cards: each overlaps the previous
-// by this fraction of a cell, with a background-coloured halo giving a faint gap
-// between them (like the pocket count badge). Different types sit a small gap apart.
-private const val MATERIAL_OVERLAP_FRACTION = 0.7f
+// Captured-piece glyph size, used everywhere material is shown (standard play + both
+// review layouts) and for the shrunk Crazyhouse review pockets, so all banks match.
+internal const val MATERIAL_CELL_UNITS = 1.6f
+// Captured pieces of the SAME type fan like a hand of cards; DIFFERENT types form
+// separate groups. Two independent density knobs, each a center-to-center horizontal
+// ADVANCE (grid units) — smaller = tighter/more overlap — both tunable without touching
+// the glyph size (height):
+//   • within a group   → MATERIAL_PIECE_WIDTH_UNITS (the per-piece "fan increment")
+//   • between groups    → MATERIAL_GROUP_GAP_UNITS  (lower this to pull groups together)
+private const val MATERIAL_PIECE_WIDTH_UNITS = 0.48f
+private const val MATERIAL_GROUP_GAP_UNITS = 0.9f
+// Count-badge diameter (grid units), pinned to the gameplay pocket size so it reads
+// the same whether the piece glyph is at pocket size (play) or material size (review).
+private const val POCKET_BADGE_DIAMETER_UNITS = MY_POCKET_CELL_UNITS * 0.5f
 private const val MATERIAL_HALO_SCALE = 1.2f
-private const val MATERIAL_GROUP_GAP_UNITS = 0f
+
 
 /**
  * A material row hugging one board edge (non-Crazyhouse): the pieces one side has
  * captured (drawn in [capturedColor]), same types fanned/overlapped like a hand of
  * cards, followed by that side's "+N" point lead, if any. Left-aligned to the board's
  * edge. Always occupies its height so the board doesn't shift when captures appear.
+ * [cellUnits] sets the glyph size — review uses the small [MATERIAL_CELL_UNITS].
  */
 @Composable
-internal fun MaterialRow(captured: List<PieceType>, capturedColor: EngineColor, advantage: Int) {
+internal fun MaterialRow(
+    captured: List<PieceType>,
+    capturedColor: EngineColor,
+    advantage: Int,
+    cellUnits: Float = MATERIAL_CELL_UNITS,
+    heightUnits: Float = 2f,
+    startPad: Dp = Dp.Unspecified,
+) {
+    // Default the left pad to the board's own 0.5u edge inset; callers that know the
+    // centered board's true left edge pass it in so the fan starts flush with the board.
+    val start = if (startPad == Dp.Unspecified) 0.5f.gridUnitsAsDp() else startPad
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(2f.gridUnitsAsDp())
-            // Align to the board's left edge (the board Box uses 0.5f horizontal padding).
-            .padding(horizontal = 0.5f.gridUnitsAsDp()),
+            .height(heightUnits.gridUnitsAsDp())
+            .padding(start = start, end = 0.5f.gridUnitsAsDp()),
         horizontalArrangement = Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        val cell = MATERIAL_CELL_UNITS.gridUnitsAsDp()
-        // The list is ordered by type, so distinct() gives the groups in display order.
-        captured.distinct().forEachIndexed { groupIndex, type ->
-            if (groupIndex > 0) Spacer(Modifier.width(MATERIAL_GROUP_GAP_UNITS.gridUnitsAsDp()))
-            CapturedStack(type = type, color = capturedColor, count = captured.count { it == type }, cell = cell)
+        MaterialFan(captured = captured, capturedColor = capturedColor, advantage = advantage, cellUnits = cellUnits)
+    }
+}
+
+/**
+ * The captured-piece fan + "+N" lead, emitted directly into the caller's [Row] so it
+ * can live either in a standalone [MaterialRow] or inline in the bottom bar next to the
+ * browse arrows. Must be called from a horizontal layout scope.
+ */
+@Composable
+private fun MaterialFan(captured: List<PieceType>, capturedColor: EngineColor, advantage: Int, cellUnits: Float) {
+    val cell = cellUnits.gridUnitsAsDp()
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        // Groups advance by MATERIAL_GROUP_GAP_UNITS (center-to-center); the negative gap
+        // vs the cell width overlaps adjacent group boxes so groups can be pulled tight.
+        Row(horizontalArrangement = Arrangement.spacedBy(MATERIAL_GROUP_GAP_UNITS.gridUnitsAsDp() - cell)) {
+            // The list is ordered by type, so distinct() gives the groups in display order.
+            captured.distinct().forEach { type ->
+                CapturedStack(type = type, color = capturedColor, count = captured.count { it == type }, cell = cell)
+            }
         }
         if (advantage > 0) {
+            // Keep the lead on one line — in the bottom bar it's tight against the forward
+            // arrow, and a wrapped "+31" reads as broken.
             LightText(
                 text = "+$advantage",
                 variant = LightTextVariant.Detail,
+                maxLines = 1,
                 modifier = Modifier.padding(start = 0.5f.gridUnitsAsDp()),
             )
         }
@@ -498,7 +762,10 @@ internal fun MaterialRow(captured: List<PieceType>, capturedColor: EngineColor, 
 @Composable
 private fun CapturedStack(type: PieceType, color: EngineColor, count: Int, cell: Dp) {
     val piece = Piece(color, type)
-    Row(horizontalArrangement = Arrangement.spacedBy(-(cell * MATERIAL_OVERLAP_FRACTION))) {
+    // The glyph box is `cell` wide; a negative gap of (pitch - cell) advances each piece
+    // by only `pitch`, so the horizontal density is controlled without touching the size.
+    val gap = MATERIAL_PIECE_WIDTH_UNITS.gridUnitsAsDp() - cell
+    Row(horizontalArrangement = Arrangement.spacedBy(gap)) {
         repeat(count) {
             Box(modifier = Modifier.size(cell), contentAlignment = Alignment.Center) {
                 Image(
@@ -508,22 +775,30 @@ private fun CapturedStack(type: PieceType, color: EngineColor, count: Int, cell:
                     colorFilter = ColorFilter.tint(LightThemeTokens.colors.background),
                     modifier = Modifier.size(cell * PIECE_SCALE * MATERIAL_HALO_SCALE),
                 )
-                PieceGlyph(piece = piece, squareSize = cell)
+                BankPieceGlyph(piece = piece, squareSize = cell)
             }
         }
     }
 }
 
 /**
- * Crazyhouse: opponent's reserves above the board — read-only. Same glyph size as
- * the player's bar, but hugged tight vertically (minimal top/bottom space).
+ * A read-only, centered row of reserves — used for the opponent's pocket above the
+ * board during play (at [OPP_POCKET_CELL_UNITS]) and for both sides' pockets stacked
+ * above the browse bar in Crazyhouse review (at [MATERIAL_CELL_UNITS]). The count
+ * badges stay a fixed size ([POCKET_BADGE_DIAMETER_UNITS]) regardless of glyph size.
  */
 @Composable
-private fun OpponentPocketBar(pocket: Map<PieceType, Int>, color: EngineColor) {
+internal fun ReadOnlyPocketBar(
+    pocket: Map<PieceType, Int>,
+    color: EngineColor,
+    cellUnits: Float = OPP_POCKET_CELL_UNITS,
+    verticalPadUnits: Float = 0.4f,
+    badgeOffsetUnits: Float = 0f,
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height((OPP_POCKET_CELL_UNITS + 0.4f).gridUnitsAsDp())
+            .height((cellUnits + verticalPadUnits).gridUnitsAsDp())
             .padding(horizontal = 1f.gridUnitsAsDp()),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
@@ -533,9 +808,10 @@ private fun OpponentPocketBar(pocket: Map<PieceType, Int>, color: EngineColor) {
                 type = type,
                 color = color,
                 count = pocket[type] ?: 0,
-                cell = OPP_POCKET_CELL_UNITS.gridUnitsAsDp(),
+                cell = cellUnits.gridUnitsAsDp(),
                 selected = false,
                 onTap = null,
+                badgeOffsetUnits = badgeOffsetUnits,
             )
         }
     }
@@ -555,13 +831,14 @@ private fun CrazyhousePocketBar(
     canStepForward: Boolean,
     onBack: () -> Unit,
     onForward: () -> Unit,
+    onSeek: (Float) -> Unit,
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 1f.gridUnitsAsDp())
             .height(4f.gridUnitsAsDp())
-            .padding(horizontal = 2f.gridUnitsAsDp()),
+//            .moveScrub(onSeek)
+            .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         NavArrow(LightIcons.BACK, "Previous move", canStepBack, onBack)
@@ -586,6 +863,49 @@ private fun CrazyhousePocketBar(
 }
 
 /**
+ * The standard-material equivalent of [CrazyhousePocketBar] during live play: my
+ * captured pieces fanned left (right after the back arrow), with back/forward arrows
+ * at the edges. No skip-to-start/end here — those live on the review screen only.
+ */
+@Composable
+private fun MaterialBottomBar(
+    captured: List<PieceType>,
+    capturedColor: EngineColor,
+    advantage: Int,
+    canStepBack: Boolean,
+    canStepForward: Boolean,
+    onBack: () -> Unit,
+    onForward: () -> Unit,
+    onSeek: (Float) -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(4f.gridUnitsAsDp())
+//            .moveScrub(onSeek)
+            .padding(horizontal = 1f.gridUnitsAsDp()),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        NavArrow(LightIcons.BACK, "Previous move", canStepBack, onBack)
+        Row(
+            modifier = Modifier
+                .weight(1f)
+                .padding(start = 1f.gridUnitsAsDp()),
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            MaterialFan(
+                captured = captured,
+                capturedColor = capturedColor,
+                advantage = advantage,
+                cellUnits = MATERIAL_CELL_UNITS,
+            )
+        }
+        NavArrow(LightIcons.ARROW_RIGHT, "Next move", canStepForward, onForward)
+    }
+}
+
+/**
  * One reserve piece with a count badge: the glyph, plus (when more than one is held)
  * a small circle in the background colour overlapping the piece's bottom-right corner
  * showing the count. Optionally tappable/selectable.
@@ -598,18 +918,30 @@ private fun PocketPiece(
     cell: Dp,
     selected: Boolean,
     onTap: (() -> Unit)?,
+    badgeOffsetUnits: Float = 0f,
+    horizontalPadUnits: Float = 0.3f,
 ) {
+    val badgeOffset = badgeOffsetUnits.gridUnitsAsDp()
     Box(
         modifier = Modifier
-            .padding(horizontal = 0.3f.gridUnitsAsDp())
-            .then(if (selected) Modifier.background(SELECTED_FILL) else Modifier)
+            .padding(horizontal = horizontalPadUnits.gridUnitsAsDp())
+            .then(if (selected) Modifier.border(2.dp, MARK_SHADE) else Modifier)
             .then(if (onTap != null) Modifier.lightClickable { onTap() } else Modifier)
             .padding(2.dp),
     ) {
         Box(modifier = Modifier.size(cell), contentAlignment = Alignment.Center) {
-            PieceGlyph(piece = Piece(color, type), squareSize = cell)
+            BankPieceGlyph(piece = Piece(color, type), squareSize = cell)
             if (count > 1) {
-                CountBadge(count = count, diameter = cell * 0.50f, modifier = Modifier.align(Alignment.BottomEnd))
+                // Badge is pinned to a fixed size (not derived from the glyph) so it
+                // reads the same in review's smaller pockets as during play. The offset
+                // nudges it toward the corner so it covers less of the (small) glyph.
+                CountBadge(
+                    count = count,
+                    diameter = POCKET_BADGE_DIAMETER_UNITS.gridUnitsAsDp(),
+                    modifier = Modifier
+                        .align(Alignment.BottomEnd)
+                        .offset(x = badgeOffset, y = badgeOffset),
+                )
             }
         }
     }
@@ -642,12 +974,15 @@ private fun SquareCell(
     state: BoardUiState,
     onSquareTap: (Int) -> Unit,
 ) {
-    val background = if (Square.isLight(square)) LIGHT_SQUARE else DARK_SQUARE
-    val highlight = when {
-        square == state.selectedSquare -> SELECTED_FILL
-        square == state.lastMoveFrom || square == state.lastMoveTo -> LAST_MOVE_FILL
-        else -> null
-    }
+    val background = if (Square.isLight(square)) BOARD_LIGHT else BOARD_DARK
+    val isSelected = square == state.selectedSquare
+    // Last-move marks hide while a piece is selected — both use the identical
+    // edge-flush frame, so showing both at once would be visually ambiguous. This
+    // also covers a picked-up Crazyhouse pocket piece (selectedDrop), which likewise
+    // paints selection/drop marks the last-move frame would clash with.
+    val hasSelection = state.selectedSquare != null || state.selectedDrop != null
+    val isLastMove = !hasSelection &&
+        (square == state.lastMoveFrom || square == state.lastMoveTo)
     val piece = state.board.getOrNull(square)
 
     Box(
@@ -657,7 +992,9 @@ private fun SquareCell(
             .lightClickable { onSquareTap(square) },
         contentAlignment = Alignment.Center,
     ) {
-        highlight?.let { Box(Modifier.matchParentSize().background(it)) }
+        if (isSelected || isLastMove) {
+            Box(Modifier.matchParentSize().border(squareSize * 0.04f, MARK_SHADE))
+        }
         if (square == state.checkedKingSquare) {
             Box(Modifier.matchParentSize().background(CHECK_FILL))
         }
@@ -687,6 +1024,17 @@ private fun PieceGlyph(piece: Piece, squareSize: Dp) {
     )
 }
 
+/** Same as [PieceGlyph], but for the material bank/pocket bars — see [pieceDrawableBank]. */
+@Composable
+private fun BankPieceGlyph(piece: Piece, squareSize: Dp) {
+    Image(
+        painter = painterResource(pieceDrawableBank(piece)),
+        contentDescription = null,
+        contentScale = ContentScale.Fit,
+        modifier = Modifier.size(squareSize * PIECE_SCALE),
+    )
+}
+
 /** Map a piece to its vector-drawable resource (color variant × type). */
 private fun pieceDrawable(piece: Piece): Int {
     val white = piece.color == EngineColor.WHITE
@@ -700,12 +1048,34 @@ private fun pieceDrawable(piece: Piece): Int {
     }
 }
 
+/**
+ * Same mapping as [pieceDrawable], but to the "_bank" drawable variants used by the
+ * material row and Crazyhouse pocket bars — those sit on the plain (often true-black)
+ * screen background rather than a board square, so they keep the lighter `#3A3A3A`
+ * outline instead of the board pieces' pure-black one.
+ */
+private fun pieceDrawableBank(piece: Piece): Int {
+    val white = piece.color == EngineColor.WHITE
+    return when (piece.type) {
+        PieceType.PAWN -> if (white) R.drawable.piece_white_pawn_bank else R.drawable.piece_black_pawn_bank
+        PieceType.KNIGHT -> if (white) R.drawable.piece_white_knight_bank else R.drawable.piece_black_knight_bank
+        PieceType.BISHOP -> if (white) R.drawable.piece_white_bishop_bank else R.drawable.piece_black_bishop_bank
+        PieceType.ROOK -> if (white) R.drawable.piece_white_rook_bank else R.drawable.piece_black_rook_bank
+        PieceType.QUEEN -> if (white) R.drawable.piece_white_queen_bank else R.drawable.piece_black_queen_bank
+        PieceType.KING -> if (white) R.drawable.piece_white_king_bank else R.drawable.piece_black_king_bank
+    }
+}
+
 @Composable
 private fun LegalMarker(isCapture: Boolean, squareSize: Dp) {
     if (isCapture) {
-        Box(modifier = Modifier.size(squareSize * 0.92f).border(squareSize * 0.06f, LEGAL_MARKER, CircleShape))
+        Box(modifier = Modifier.size(squareSize).border(squareSize * 0.04f, MARK_SHADE, CircleShape))
     } else {
-        Box(modifier = Modifier.size(squareSize * 0.30f).background(LEGAL_MARKER, CircleShape))
+        Box(
+            modifier = Modifier
+                .size(squareSize * 0.25f)
+                .background(MARK_SHADE, CircleShape)
+        )
     }
 }
 
@@ -897,8 +1267,3 @@ private fun squareAt(row: Int, col: Int, flipped: Boolean): Int =
     } else {
         Square.of(7 - col, row)
     }
-
-// Board outline width; kept tiny and theme-tinted so the board reads as a unit on
-// either background without drawing attention.
-@Composable
-private fun boardBorderWidth(): Dp = 0.08f.gridUnitsAsDp()
