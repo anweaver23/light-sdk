@@ -69,13 +69,37 @@ class ReviewViewModel(
     private val _uiState = MutableStateFlow(buildState())
     val uiState: StateFlow<BoardUiState> = _uiState.asStateFlow()
 
+    // One-shot slide to play into the next state (see BoardViewModel.buildStepAnim).
+    private var pendingAnim: AnimatedMove? = null
+    private var animCounter = 0L
+
+    private fun buildStepAnim(oldIndex: Int, newIndex: Int): AnimatedMove? {
+        val r = replay ?: return null
+        val delta = newIndex - oldIndex
+        if (delta != 1 && delta != -1) return null
+        val step = r.steps.getOrNull(minOf(oldIndex, newIndex)) ?: return null
+        if (step.move.isDrop) return null
+        val slides = stepSlides(step, r.positions[newIndex].board, forward = delta == 1)
+        if (slides.isEmpty()) return null
+        animCounter += 1
+        return AnimatedMove(slides = slides, id = animCounter)
+    }
+
+    // Push a new state built with [pendingAnim] set for the [old]→[viewIndex] step, then
+    // clear it so it's a one-shot.
+    private fun pushState(old: Int) {
+        pendingAnim = buildStepAnim(old, viewIndex)
+        _uiState.value = buildState()
+        pendingAnim = null
+    }
+
     fun stepBack() {
-        if (viewIndex > 0) { viewIndex--; _uiState.value = buildState() }
+        if (viewIndex > 0) { val old = viewIndex; viewIndex--; pushState(old) }
     }
 
     fun stepForward() {
         val last = replay?.positions?.lastIndex ?: return
-        if (viewIndex < last) { viewIndex++; _uiState.value = buildState() }
+        if (viewIndex < last) { val old = viewIndex; viewIndex++; pushState(old) }
     }
 
     fun stepToStart() {
@@ -92,7 +116,7 @@ class ReviewViewModel(
         val last = replay?.positions?.lastIndex ?: return
         if (last <= 0) return
         val target = (fraction.coerceIn(0f, 1f) * last).roundToInt().coerceIn(0, last)
-        if (target != viewIndex) { viewIndex = target; _uiState.value = buildState() }
+        if (target != viewIndex) { val old = viewIndex; viewIndex = target; pushState(old) }
     }
 
     private fun buildState(): BoardUiState {
@@ -136,6 +160,7 @@ class ReviewViewModel(
             myClockLabel = clockLabelFor(myColor == EngineColor.WHITE, idx),
             opponentClockLabel = clockLabelFor(myColor != EngineColor.WHITE, idx),
             viewFraction = if (positions.size > 1) viewIndex.toFloat() / positions.lastIndex else 1f,
+            animatingMove = pendingAnim,
         )
     }
 
@@ -247,13 +272,10 @@ class ReviewScreen(
                             topRightLabel = state.opponentClockLabel,
                             bottomRightLabel = state.myClockLabel,
                         ) {
-                            ChessBoard(state = state, onSquareTap = {}, onSeek = { viewModel.seekToFraction(it) })
+                            ChessBoard(state = state, onSquareTap = {})
                         }
                         CrazyhouseReviewBottomBar(
-                            pocket = state.myPocket,
-                            color = state.myColor,
-                            canStepBack = state.canStepBack,
-                            canStepForward = state.canStepForward,
+                            state = state,
                             onBack = { viewModel.stepBack() },
                             onForward = { viewModel.stepForward() },
                             onSkipStart = { viewModel.stepToStart() },
@@ -280,15 +302,11 @@ class ReviewScreen(
                             topRightLabel = state.opponentClockLabel,
                             bottomRightLabel = state.myClockLabel,
                         ) {
-                            ChessBoard(state = state, onSquareTap = {}, onSeek = { viewModel.seekToFraction(it) })
+                            ChessBoard(state = state, onSquareTap = {})
                         }
 
                         MaterialReviewBottomBar(
-                            captured = state.myCaptured,
-                            capturedColor = state.myColor.opposite,
-                            advantage = state.myAdvantage,
-                            canStepBack = state.canStepBack,
-                            canStepForward = state.canStepForward,
+                            state = state,
                             onBack = { viewModel.stepBack() },
                             onForward = { viewModel.stepForward() },
                             onSkipStart = { viewModel.stepToStart() },

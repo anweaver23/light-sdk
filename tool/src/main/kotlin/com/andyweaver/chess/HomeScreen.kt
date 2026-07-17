@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.text.input.TextFieldState
+import androidx.compose.foundation.text.input.clearText
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -37,6 +39,7 @@ import com.andyweaver.chess.newgame.ROW_VERTICAL_UNITS
 import com.andyweaver.chess.ui.NameWithRating
 import com.andyweaver.chess.settings.ChessSettings
 import com.andyweaver.chess.settings.PendingSeek
+import com.andyweaver.chess.settings.Session
 import com.andyweaver.chess.settings.SettingsScreen
 import com.thelightphone.sdk.InitialScreen
 import com.thelightphone.sdk.LightScreen
@@ -94,11 +97,6 @@ private const val MOVE_POLL_INTERVAL_MS = 20_000L
 
 class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<Unit>() {
 
-    enum class Account(val label: String) {
-        ONE("ACCT 1"),
-        TWO("ACCT 2"),
-    }
-
     /** Everything the home list renders: active games plus pending challenges both ways. */
     data class Content(
         val games: List<LichessGame> = emptyList(),
@@ -109,35 +107,73 @@ class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<
     }
 
     sealed class State {
+        object NeedsLogin : State()
         object Loading : State()
         data class Loaded(val content: Content) : State()
         data class Error(val message: String) : State()
     }
 
-    private val tokensByAccount = mapOf(
-        Account.ONE to BuildConfig.LICHESS_TOKEN_ACCOUNT_1,
-        Account.TWO to BuildConfig.LICHESS_TOKEN_ACCOUNT_2,
-    )
+    // The logged-in session drives everything. Built from the persisted token; when it
+    // changes, the client is rebuilt and the list reloaded. Null → the login gate.
+    private var session: Session? = null
+    val token: String? get() = session?.token
+    val username: String? get() = session?.username
 
-    private val _account = MutableStateFlow(Account.ONE)
-    val account: StateFlow<Account> = _account
+    // One long-lived client for the current session (the event stream stays open);
+    // rebuilt on login, closed on logout/clear.
+    private var api: LichessApi? = null
 
-    // Token for the currently-selected account — passed to the board/new-game screens.
-    val currentToken: String
-        get() = tokensByAccount.getValue(_account.value)
+    // Whether the screen is currently visible/foregrounded (start live only when both a
+    // session exists and the screen is shown).
+    private var shown = false
 
-    // One long-lived client per account (the event stream needs to stay open); swapped
-    // out on account switch, closed on clear.
-    private var api = LichessApi(currentToken)
+    // Login-pane state (shown when there's no session).
+    private val _loginError = MutableStateFlow<String?>(null)
+    val loginError: StateFlow<String?> = _loginError
 
-    // Locally-tracked pending seeks for the current account (Lichess can't list them).
+    // The token field's state is held here, NOT remembered inside LoginPane. The LP keyboard's
+    // backing ViewModel is scoped to this (root) screen's ViewModelStore and, once created, is
+    // never re-created — so it stays bound to whatever TextFieldState it first saw. If LoginPane
+    // recreated the state on each (re)composition (the ENTER TOKEN toggle, or a logout→login
+    // cycle), keystrokes would edit a detached state and nothing would appear. Hoisting it here
+    // gives the state the keyboard VM's exact lifetime, so the binding is always correct.
+    val loginTokenState = TextFieldState("")
+    private val _loggingIn = MutableStateFlow(false)
+    val loggingIn: StateFlow<Boolean> = _loggingIn
+
+    // Locally-tracked pending seeks for the logged-in user (Lichess can't list them).
     @OptIn(ExperimentalCoroutinesApi::class)
-    val pendingSeeks: StateFlow<List<PendingSeek>> = _account
-        .flatMapLatest { settings.pendingSeeks(it.name) }
+    val pendingSeeks: StateFlow<List<PendingSeek>> = settings.session
+        .flatMapLatest { s ->
+            if (s == null) MutableStateFlow<List<PendingSeek>>(emptyList()) else settings.pendingSeeks(s.username)
+        }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     private val _state = MutableStateFlow<State>(State.Loading)
     val state: StateFlow<State> = _state
+
+    init {
+        // React to login/logout: (re)build the client for a new session, or gate to login.
+        viewModelScope.launch {
+            settings.session.collect { s ->
+                val tokenChanged = s?.token != session?.token
+                session = s
+                if (s == null) {
+                    stopLive()
+                    api?.close()
+                    api = null
+                    loginTokenState.clearText()
+                    _state.value = State.NeedsLogin
+                } else if (tokenChanged) {
+                    stopLive()
+                    api?.close()
+                    api = LichessApi(s.token)
+                    _state.value = State.Loading
+                    if (shown) startLive()
+                }
+            }
+        }
+    }
 
     /** One-shot: a game to open immediately (accepting a challenge as White). */
     data class OpenGame(val gameId: String, val color: String)
@@ -151,44 +187,74 @@ class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<
 
     override fun onScreenShow(screen: SimpleLightScreen<Unit>) {
         super.onScreenShow(screen)
-        refresh(showLoading = true)
-        startStream()
-        startPoll()
+        shown = true
+        if (api != null) startLive()
     }
 
     override fun onScreenHide(screen: SimpleLightScreen<Unit>) {
         super.onScreenHide(screen)
+        shown = false
         stopLive()
     }
 
     override fun onAppPause() {
         super.onAppPause()
+        shown = false
         stopLive()
     }
 
     override fun onCleared() {
         super.onCleared()
         stopLive()
-        api.close()
+        api?.close()
     }
 
-    // Dev-only: cycle between the two test Lichess accounts. Real app has one
-    // logged-in account; this is a testing hook wired to a title tap.
-    fun switchAccount() {
-        stopLive()
-        api.close()
-        _account.value = if (_account.value == Account.ONE) Account.TWO else Account.ONE
-        api = LichessApi(currentToken)
-        _state.value = State.Loading
+    /** Refresh + open the event stream + start the poll (requires a logged-in client). */
+    private fun startLive() {
         refresh(showLoading = true)
         startStream()
         startPoll()
     }
 
+    // ----- login / logout -----
+
+    /**
+     * Validate a pasted Lichess personal-access token via `GET /api/account`; on success
+     * persist the session (which drives the reload), else surface an error. Trims input.
+     */
+    fun attemptLogin(rawToken: String) {
+        val token = rawToken.trim()
+        if (token.isEmpty()) {
+            _loginError.value = "Enter your Lichess token."
+            return
+        }
+        if (_loggingIn.value) return
+        _loggingIn.value = true
+        viewModelScope.launch(Dispatchers.IO) {
+            val probe = LichessApi(token)
+            val name = try {
+                probe.getAccountUsername().takeIf { it.isNotBlank() }
+            } catch (_: Exception) {
+                null
+            } finally {
+                probe.close()
+            }
+            if (name == null) {
+                _loginError.value = "That token didn't work. Check it (and its scopes) and try again."
+            } else {
+                settings.saveSession(token, name)
+            }
+            _loggingIn.value = false
+        }
+    }
+
+    fun dismissLoginError() { _loginError.value = null }
+
     // Event-driven liveness: games appear/disappear and challenges surface the instant
     // Lichess pushes an event — no polling for those. (Per-move updates are NOT pushed.)
     private fun startStream() {
         if (streamJob?.isActive == true) return
+        val api = api ?: return
         streamJob = viewModelScope.launch {
             try {
                 api.streamEvents().collect { event ->
@@ -223,15 +289,21 @@ class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<
      * a transient failure keeps the current content rather than flashing an error.
      */
     fun refresh(showLoading: Boolean) {
+        val client = api ?: return
+        val user = session?.username ?: return
         if (showLoading && _state.value !is State.Loaded) _state.value = State.Loading
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val games = async { api.getOngoingCorrespondenceGames() }
-                val challenges = async { api.getChallenges() }
+                val games = async { client.getOngoingCorrespondenceGames() }
+                val challenges = async { client.getChallenges() }
                 val c = challenges.await()
                 val gamesList = games.await()
+                // Bail if we logged out (or the client was swapped) while this request was in
+                // flight: otherwise a late response clobbers the NeedsLogin gate with stale
+                // games, leaving the user stuck on a dead snapshot they can't act on.
+                if (api !== client) return@launch
                 // Clear any pending seek that appears to have matched into a new game.
-                settings.reconcileSeeks(_account.value.name, gamesList.map { it.gameId }.toSet())
+                settings.reconcileSeeks(user, gamesList.map { it.gameId }.toSet())
                 _state.value = State.Loaded(
                     Content(
                         games = gamesList.sortedForList(),
@@ -240,7 +312,7 @@ class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<
                     ),
                 )
             } catch (e: Exception) {
-                if (_state.value !is State.Loaded) {
+                if (api === client && _state.value !is State.Loaded) {
                     _state.value = State.Error(e.message ?: "Unable to load games")
                 }
             }
@@ -253,6 +325,7 @@ class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<
      * White I jump straight into the game to make the first move (via [openGame]).
      */
     fun acceptChallenge(challenge: LichessChallenge) {
+        val api = api ?: return
         viewModelScope.launch(Dispatchers.IO) {
             val result = api.acceptChallenge(challenge.id)
             refresh(showLoading = false)
@@ -265,19 +338,20 @@ class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<
 
     fun consumeOpenGame() { _openGame.value = null }
 
-    fun declineChallenge(id: String) = challengeAction { api.declineChallenge(id) }
-    fun cancelChallenge(id: String) = challengeAction { api.cancelChallenge(id) }
+    fun declineChallenge(id: String) = challengeAction { it.declineChallenge(id) }
+    fun cancelChallenge(id: String) = challengeAction { it.cancelChallenge(id) }
 
     // Seek rows no longer expose a dismiss (an ✕ wrongly implies it cancels the
     // Lichess seek). Kept for reference; markers auto-clear via reconcileSeeks.
     // /** Removes the local pending-seek marker (does not cancel it on Lichess). */
     // fun dismissSeek(id: String) {
-    //     viewModelScope.launch(Dispatchers.IO) { settings.removePendingSeek(_account.value.name, id) }
+    //     viewModelScope.launch(Dispatchers.IO) { settings.removePendingSeek(username, id) }
     // }
 
-    private fun challengeAction(block: suspend () -> Unit) {
+    private fun challengeAction(block: suspend (LichessApi) -> Unit) {
+        val api = api ?: return
         viewModelScope.launch(Dispatchers.IO) {
-            runCatching { block() }
+            runCatching { block(api) }
             // Reflect the change immediately (the stream will also fire).
             refresh(showLoading = false)
         }
@@ -306,6 +380,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
         val state by viewModel.state.collectAsState()
         val pendingSeeks by viewModel.pendingSeeks.collectAsState()
         val openGame by viewModel.openGame.collectAsState()
+        val loginError by viewModel.loginError.collectAsState()
 
         // The pending challenge/seek whose detail popup is open, if any.
         var detail by remember { mutableStateOf<PendingDetail?>(null) }
@@ -314,25 +389,36 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
         LaunchedEffect(openGame) {
             val open = openGame ?: return@LaunchedEffect
             viewModel.consumeOpenGame()
-            navigateTo({ sa -> BoardScreen(sa, open.gameId, viewModel.currentToken, open.color) })
+            navigateTo({ sa -> BoardScreen(sa, open.gameId, viewModel.token.orEmpty(), open.color) })
         }
 
         LightTheme(colors = themeColors) {
           Box(modifier = Modifier.fillMaxSize().background(LightThemeTokens.colors.background)) {
+            if (state is HomeScreenViewModel.State.NeedsLogin) {
+                // No stored session — gate to the login screen.
+                LoginPane(
+                    tokenState = viewModel.loginTokenState,
+                    loginError = loginError,
+                    onSubmit = { viewModel.attemptLogin(it) },
+                    onDismissError = { viewModel.dismissLoginError() },
+                )
+            } else {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(LightThemeTokens.colors.background),
             ) {
-                // Centered title, matching LP convention. Tap is a dev-only hook
-                // to switch test accounts.
+                // Centered title, matching LP convention.
                 LightTopBar(
-                    center = LightTopBarCenter.Text("Chess", onClick = { viewModel.switchAccount() }),
+                    center = LightTopBarCenter.Text("Chess"),
                     modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
                 )
 
                 Box(modifier = Modifier.weight(1f).fillMaxWidth()) {
                     when (val currentState = state) {
+                        // Handled by the login gate above; nothing to draw here.
+                        is HomeScreenViewModel.State.NeedsLogin -> {}
+
                         is HomeScreenViewModel.State.Loading -> {
                             LightText(
                                 text = "Loading…",
@@ -375,7 +461,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                                                     BoardScreen(
                                                         sa,
                                                         game.gameId,
-                                                        viewModel.currentToken,
+                                                        viewModel.token.orEmpty(),
                                                         game.color,
                                                         game.fen,
                                                         nameWithRating(game.opponent.username, game.opponent.rating),
@@ -425,7 +511,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                                     R.drawable.ic_history_black
                                 },
                             ),
-                            onClick = { navigateTo({ sa -> HistoryScreen(sa, viewModel.currentToken) }) },
+                            onClick = { navigateTo({ sa -> HistoryScreen(sa, viewModel.token.orEmpty()) }) },
                             contentDescription = "Game history",
                             // The Material path only fills ~80% of its 24dp viewport, so at the
                             // default 2f it looks smaller than the LightIcons gear/plus beside it.
@@ -436,7 +522,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                             icon = LightIcons.ADD,
                             onClick = {
                                 navigateTo({ sa ->
-                                    NewGameScreen(sa, viewModel.currentToken, viewModel.account.value.name)
+                                    NewGameScreen(sa, viewModel.token.orEmpty(), viewModel.username.orEmpty())
                                 })
                             },
                             contentDescription = "New game",
@@ -463,6 +549,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                     },
                     onClose = { detail = null },
                 )
+            }
             }
           }
         }

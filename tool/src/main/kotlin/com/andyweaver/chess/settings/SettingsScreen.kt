@@ -11,6 +11,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.andyweaver.chess.AboutScreen
 import com.thelightphone.sdk.LightScreen
 import com.thelightphone.sdk.SealedLightActivity
 import com.thelightphone.sdk.ui.LightBarButton
@@ -73,11 +74,8 @@ class SettingsScreen(sealedActivity: SealedLightActivity) :
                 )
 
                 LightScrollView(modifier = Modifier.fillMaxSize()) {
-                    SettingsToggleRow(
-                        label = "Notifications",
-                        enabled = snapshot.notificationsEnabled,
-                        onClick = { viewModel.toggleNotifications() },
-                    )
+                    // Notifications toggle removed for v1 — push needs the (unbuilt) relay,
+                    // so a toggle here would control nothing. Re-add with the relay.
                     SettingsToggleRow(
                         label = "Confirm moves",
                         enabled = snapshot.confirmMoves,
@@ -88,18 +86,14 @@ class SettingsScreen(sealedActivity: SealedLightActivity) :
                         enabled = snapshot.showLegalMoves,
                         onClick = { viewModel.toggleShowLegalMoves() },
                     )
-                    // v1: removed — may re-add
-                    // SettingsToggleRow(
-                    //     label = "Show time remaining",
-                    //     enabled = snapshot.showTimeRemaining,
-                    //     onClick = { viewModel.toggleShowTimeRemaining() },
-                    // )
-                    // v1: removed — may re-add
-                    // SettingsToggleRow(
-                    //     label = "Show last move",
-                    //     enabled = snapshot.showLastMove,
-                    //     onClick = { viewModel.toggleShowLastMove() },
-                    // )
+                    SettingsActionRow(
+                        label = "About",
+                        onClick = { navigateTo(::AboutScreen) },
+                    )
+                    SettingsActionRow(
+                        label = "Log out",
+                        onClick = { viewModel.logOut(onComplete = { goBack() }) },
+                    )
                 }
             }
         }
@@ -134,6 +128,30 @@ private fun SettingsToggleRow(
         LightIcon(
             icon = if (enabled) LightIcons.TOGGLE_OFF else LightIcons.TOGGLE_ON,
             contentDescription = if (enabled) "$label: on" else "$label: off",
+        )
+    }
+}
+
+/** A tap-to-act settings row (no toggle) — used for About and Log out. */
+@Composable
+private fun SettingsActionRow(
+    label: String,
+    onClick: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .lightClickable(onClick = onClick)
+            .padding(
+                horizontal = EDGE_PADDING_UNITS.gridUnitsAsDp(),
+                vertical = ROW_VERTICAL_PADDING_UNITS.gridUnitsAsDp(),
+            ),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        LightText(
+            text = label,
+            variant = ROW_LABEL_VARIANT,
+            modifier = Modifier.weight(1f),
         )
     }
 }

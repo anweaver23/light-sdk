@@ -4,6 +4,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
@@ -35,6 +36,12 @@ data class ChessSettingsSnapshot(
  * "horde", …); defaulted so older persisted seeks (written before variants existed)
  * still decode.
  */
+/**
+ * The logged-in Lichess session: the personal-access [token] and the [username] it
+ * resolved to (via `GET /api/account`). Null when logged out.
+ */
+data class Session(val token: String, val username: String)
+
 @Serializable
 data class PendingSeek(
     val id: String,
@@ -93,6 +100,40 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
 
     private suspend fun setBoolean(key: Preferences.Key<Boolean>, value: Boolean) {
         dataStore.edit { prefs -> prefs[key] = value }
+    }
+
+    // ----- login session (the user's Lichess personal-access token) -----
+    //
+    // NOTE: stored in plaintext DataStore. The Light SDK's allowed-dependency list has no
+    // EncryptedSharedPreferences / androidx.security, and those APIs need a raw Context
+    // (which the plugin bans), so plaintext is the only sanctioned store. Mitigations:
+    // Android's app sandbox + at-rest disk encryption; the token is a scoped, revocable
+    // Lichess PAT (revoke at lichess.org/account/security); logout deletes it.
+
+    /** The logged-in session, or null when logged out. */
+    val session: Flow<Session?> = dataStore.data.map { prefs ->
+        val token = prefs[Keys.AUTH_TOKEN]
+        val username = prefs[Keys.AUTH_USERNAME]
+        if (token.isNullOrBlank() || username.isNullOrBlank()) null else Session(token, username)
+    }
+
+    suspend fun saveSession(token: String, username: String) {
+        dataStore.edit { prefs ->
+            prefs[Keys.AUTH_TOKEN] = token
+            prefs[Keys.AUTH_USERNAME] = username
+        }
+    }
+
+    /** Logs out: clears the token/username and that user's per-account seek partitions. */
+    suspend fun clearSession(username: String?) {
+        dataStore.edit { prefs ->
+            prefs.remove(Keys.AUTH_TOKEN)
+            prefs.remove(Keys.AUTH_USERNAME)
+            if (username != null) {
+                prefs.remove(pendingSeeksKey(username))
+                prefs.remove(knownGamesKey(username))
+            }
+        }
     }
 
     // ----- pending correspondence seeks (local only; per account) -----
@@ -156,6 +197,8 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
         val NOTIFICATIONS_ENABLED = booleanPreferencesKey("chess_notifications_enabled")
         val CONFIRM_MOVES = booleanPreferencesKey("chess_confirm_moves")
         val SHOW_LEGAL_MOVES = booleanPreferencesKey("chess_show_legal_moves")
+        val AUTH_TOKEN = stringPreferencesKey("chess_auth_token")
+        val AUTH_USERNAME = stringPreferencesKey("chess_auth_username")
         // v1: removed — may re-add
         // val SHOW_TIME_REMAINING = booleanPreferencesKey("chess_show_time_remaining")
         // val SHOW_LAST_MOVE = booleanPreferencesKey("chess_show_last_move")

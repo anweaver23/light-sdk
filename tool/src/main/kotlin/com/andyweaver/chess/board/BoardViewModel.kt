@@ -5,6 +5,8 @@ import com.andyweaver.chess.engine.Chess
 import com.andyweaver.chess.engine.Color
 import com.andyweaver.chess.engine.GameStatus
 import com.andyweaver.chess.engine.Move
+import com.andyweaver.chess.engine.MoveGenerator
+import com.andyweaver.chess.engine.MoveRecord
 import com.andyweaver.chess.engine.Piece
 import com.andyweaver.chess.engine.PieceType
 import com.andyweaver.chess.engine.Position
@@ -31,6 +33,53 @@ enum class BottomMode { BROWSE, PENDING }
 
 /** A destructive/irreversible action awaiting a CONFIRM/✕ overlay. */
 enum class Confirmation { RESIGN, DRAW, ABORT }
+
+/**
+ * One piece slide. [startSquare] is where the overlay piece begins, [endSquare] where it
+ * lands — the static board hides its piece on [endSquare] for the duration so it isn't
+ * drawn twice.
+ */
+data class PieceSlide(
+    val startSquare: Int,
+    val endSquare: Int,
+    val piece: Piece,
+)
+
+/**
+ * The slide(s) to animate for one browsed-position transition — usually a single piece,
+ * but castling animates both the king and rook. A forward step animates from→to; a
+ * backward step animates to→from, so undoing a move reads as literal reverse playback
+ * (the just-made move's piece slides back home; nothing else moves, the last-move frames
+ * simply reappear on the earlier move). [id] restarts the animation even when the same
+ * squares repeat.
+ */
+data class AnimatedMove(
+    val slides: List<PieceSlide>,
+    val id: Long,
+)
+
+/**
+ * The [PieceSlide]s for one replay [step], with landing pieces read from [newBoard] (the
+ * board of the DESTINATION position — exactly the squares the board hides during the
+ * slide). [forward] = stepping into the move (from→to); else undoing it (to→from).
+ * Castling yields two slides (king + rook, using the true king destination even in
+ * Chess960 where the move records the rook square); other moves yield one. Drops yield
+ * none (handled by the caller). Shared by the board and review view models.
+ */
+internal fun stepSlides(step: MoveRecord, newBoard: List<Piece?>, forward: Boolean): List<PieceSlide> {
+    val move = step.move
+    fun slide(from: Int, to: Int): PieceSlide? {
+        val start = if (forward) from else to
+        val land = if (forward) to else from
+        val piece = newBoard.getOrNull(land) ?: return null
+        return PieceSlide(startSquare = start, endSquare = land, piece = piece)
+    }
+    if (move.isCastle) {
+        val (kingTo, rookFrom, rookTo) = MoveGenerator.castleSquares(step.before, move)
+        return listOfNotNull(slide(move.from, kingTo), slide(rookFrom, rookTo))
+    }
+    return listOfNotNull(slide(move.from, move.to))
+}
 
 // v1: PGN export disabled — may re-add
 // /** How a fetched PGN should be delivered (performed in the UI layer). */
@@ -104,6 +153,8 @@ data class BoardUiState(
     val myClockLabel: String? = null,
     val opponentClockLabel: String? = null,
     val viewFraction: Float = 1f,
+    /** A one-shot piece slide to play for the transition into this position (or null). */
+    val animatingMove: AnimatedMove? = null,
     val message: String? = null,
 )
 
@@ -308,10 +359,34 @@ class BoardViewModel(
 
     // ----- history browsing -----
 
+    // A one-shot animation to play into the next state, and a counter to key it.
+    private var pendingAnim: AnimatedMove? = null
+    private var animCounter = 0L
+
+    /**
+     * The slide to animate for a single-step transition [oldIndex] → [newIndex]. Only
+     * adjacent steps animate (multi-step jumps and drops snap). Forward: from→to.
+     * Backward: to→from (reverse) — the moved piece slides back home. The overlay piece
+     * is taken from the DESTINATION position at the landing square, which is exactly the
+     * square the static board will hide during the slide.
+     */
+    private fun buildStepAnim(oldIndex: Int, newIndex: Int): AnimatedMove? {
+        val delta = newIndex - oldIndex
+        if (delta != 1 && delta != -1) return null
+        val step = replay.steps.getOrNull(minOf(oldIndex, newIndex)) ?: return null
+        if (step.move.isDrop) return null
+        val slides = stepSlides(step, replay.positions[newIndex].board, forward = delta == 1)
+        if (slides.isEmpty()) return null
+        animCounter += 1
+        return AnimatedMove(slides = slides, id = animCounter)
+    }
+
     fun stepBack() {
         if (pendingMove != null || pendingPromotion != null) return
         if (viewIndex > 0) {
+            val old = viewIndex
             viewIndex--
+            pendingAnim = buildStepAnim(old, viewIndex)
             clearSelection()
             recompute()
         }
@@ -320,7 +395,9 @@ class BoardViewModel(
     fun stepForward() {
         if (pendingMove != null || pendingPromotion != null) return
         if (viewIndex < replay.positions.lastIndex) {
+            val old = viewIndex
             viewIndex++
+            pendingAnim = buildStepAnim(old, viewIndex)
             clearSelection()
             recompute()
         }
@@ -352,7 +429,9 @@ class BoardViewModel(
         if (last <= 0) return
         val target = (fraction.coerceIn(0f, 1f) * last).roundToInt().coerceIn(0, last)
         if (target != viewIndex) {
+            val old = viewIndex
             viewIndex = target
+            pendingAnim = buildStepAnim(old, target)
             clearSelection()
             recompute()
         }
@@ -720,8 +799,12 @@ class BoardViewModel(
             myAdvantage = material.myAdvantage,
             opponentAdvantage = material.opponentAdvantage,
             viewFraction = if (positions.size > 1) viewIndex.toFloat() / positions.lastIndex else 1f,
+            animatingMove = pendingAnim,
             message = message,
         )
+        // Consume the one-shot animation so unrelated recomputes (stream, menu, …) don't
+        // replay it.
+        pendingAnim = null
     }
 
     // The variant's canonical starting position, used as the stable reference for the

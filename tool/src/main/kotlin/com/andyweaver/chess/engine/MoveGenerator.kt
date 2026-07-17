@@ -475,14 +475,18 @@ object MoveGenerator {
         )
     }
 
-    private fun applyCastle(position: Position, move: Move): Position {
-        val board = position.board.toMutableList()
-        val side = position.sideToMove
+    /**
+     * The squares involved in a castle [move]: (kingTo, rookFrom, rookTo). Handles the
+     * standard encoding (king lands on the g/c file) and the Chess960 encoding (the
+     * destination is the friendly rook). Exposed so the UI can animate the rook too —
+     * [move.to] alone doesn't identify the king's real destination in Chess960.
+     */
+    fun castleSquares(position: Position, move: Move): Triple<Int, Int, Int> {
         val backRank = Square.rank(move.from)
         val kingFile = Square.file(move.from)
-
+        val side = position.board[move.from]?.color ?: position.sideToMove
         // Chess960 records the destination as the rook square; standard as the g/c file.
-        val destIsRook = board[move.to]?.let { it.color == side && it.type == PieceType.ROOK } == true
+        val destIsRook = position.board[move.to]?.let { it.color == side && it.type == PieceType.ROOK } == true
         val kingSide: Boolean
         val rookFrom: Int
         if (destIsRook) {
@@ -494,6 +498,13 @@ object MoveGenerator {
         }
         val kingTo = Square.of(if (kingSide) 6 else 2, backRank)
         val rookTo = Square.of(if (kingSide) 5 else 3, backRank)
+        return Triple(kingTo, rookFrom, rookTo)
+    }
+
+    private fun applyCastle(position: Position, move: Move): Position {
+        val board = position.board.toMutableList()
+        val side = position.sideToMove
+        val (kingTo, rookFrom, rookTo) = castleSquares(position, move)
 
         board[move.from] = null
         board[rookFrom] = null

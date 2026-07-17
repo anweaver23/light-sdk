@@ -3,10 +3,13 @@ package com.andyweaver.chess.settings
 import androidx.lifecycle.viewModelScope
 import com.thelightphone.sdk.LightViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  * Backs [SettingsScreen]. Reads the persisted chess settings from
@@ -36,6 +39,25 @@ class SettingsViewModel(private val settings: ChessSettings) : LightViewModel<Un
     private fun toggle(current: Boolean, setter: suspend (Boolean) -> Unit) {
         viewModelScope.launch(Dispatchers.IO) {
             setter(!current)
+        }
+    }
+
+    /**
+     * Log out: clear the stored token/username (and that user's local seek partitions),
+     * then invoke [onComplete] (used to pop back to home, which now shows the login gate).
+     *
+     * The clear runs in a [NonCancellable] block and we navigate back only AFTER it has
+     * persisted. Popping the settings screen destroys this ViewModel and cancels its
+     * [viewModelScope], so calling `goBack()` up front (as the caller used to) would kill
+     * the clear before it ran — leaving the user still logged in.
+     */
+    fun logOut(onComplete: () -> Unit) {
+        viewModelScope.launch {
+            withContext(NonCancellable + Dispatchers.IO) {
+                val username = settings.session.first()?.username
+                settings.clearSession(username)
+            }
+            onComplete()
         }
     }
 }

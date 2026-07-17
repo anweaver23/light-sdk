@@ -1,5 +1,7 @@
 package com.andyweaver.chess.board
 
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -23,8 +25,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 // v1: PGN export disabled — may re-add (was used by the clipboard LaunchedEffect)
 // import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.composed
 import androidx.compose.ui.Alignment
@@ -91,6 +95,11 @@ private const val SKIP_BAR_HEIGHT_UNITS = 1.4f
 
 // Fraction of a square a piece glyph occupies (Fit-scaled, centred). Tune to taste.
 private const val PIECE_SCALE = 0.82f
+
+// Duration of a piece slide when stepping/scrubbing between positions (ms).
+private const val MOVE_ANIM_MS = 180
+
+private const val SCRUB_SENSITIVITY = 0.7f
 
 /**
  * The live board screen for one Lichess correspondence game.
@@ -211,7 +220,7 @@ class BoardScreen(
                                     .padding(horizontal = 0.5f.gridUnitsAsDp()),
                                 contentAlignment = Alignment.Center,
                             ) {
-                                ChessBoard(state = state, onSquareTap = viewModel::onSquareTap, onSeek = { viewModel.seekToFraction(it) })
+                                ChessBoard(state = state, onSquareTap = viewModel::onSquareTap)
                             }
                         } else {
                             // Opponent's captured pieces align to the board's left edge (the
@@ -227,7 +236,7 @@ class BoardScreen(
                                     )
                                 },
                             ) {
-                                ChessBoard(state = state, onSquareTap = viewModel::onSquareTap, onSeek = { viewModel.seekToFraction(it) })
+                                ChessBoard(state = state, onSquareTap = viewModel::onSquareTap)
                             }
                         }
                         // My material/reserves live in the bottom bar next to the browse
@@ -279,12 +288,8 @@ private fun BottomControls(state: BoardUiState, viewModel: BoardViewModel) {
                 // back/forward arrows at the edges. Skip-to-start/end are dropped to make
                 // room for the (tappable) inventory.
                 CrazyhousePocketBar(
-                    pocket = state.myPocket,
-                    color = state.myColor,
-                    selected = state.selectedDrop,
+                    state = state,
                     onTap = viewModel::onPocketTap,
-                    canStepBack = state.canStepBack,
-                    canStepForward = state.canStepForward,
                     onBack = { viewModel.stepBack() },
                     onForward = { viewModel.stepForward() },
                     onSeek = { viewModel.seekToFraction(it) },
@@ -294,11 +299,7 @@ private fun BottomControls(state: BoardUiState, viewModel: BoardViewModel) {
                 // between back/forward arrows — mirroring the Crazyhouse layout. No
                 // skip-to-start/end during play; those are review-only.
                 MaterialBottomBar(
-                    captured = state.myCaptured,
-                    capturedColor = state.myColor.opposite,
-                    advantage = state.myAdvantage,
-                    canStepBack = state.canStepBack,
-                    canStepForward = state.canStepForward,
+                    state = state,
                     onBack = { viewModel.stepBack() },
                     onForward = { viewModel.stepForward() },
                     onSeek = { viewModel.seekToFraction(it) },
@@ -375,11 +376,7 @@ internal fun BrowseBar(
  */
 @Composable
 internal fun MaterialReviewBottomBar(
-    captured: List<PieceType>,
-    capturedColor: EngineColor,
-    advantage: Int,
-    canStepBack: Boolean,
-    canStepForward: Boolean,
+    state: BoardUiState,
     onBack: () -> Unit,
     onForward: () -> Unit,
     onSkipStart: () -> Unit,
@@ -390,13 +387,13 @@ internal fun MaterialReviewBottomBar(
         modifier = Modifier
             .fillMaxWidth()
             .height(4f.gridUnitsAsDp())
-//            .moveScrub(onSeek)
+            .moveScrubX(currentFraction = state.viewFraction, onSeek = onSeek)
             .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        SkipControl(BarSide.LEADING, LightIcons.BACK, "First move", canStepBack, onSkipStart)
+        SkipControl(BarSide.LEADING, LightIcons.BACK, "First move", state.canStepBack, onSkipStart)
         Spacer(Modifier.width(1f.gridUnitsAsDp()))
-        NavArrow(LightIcons.BACK, "Previous move", canStepBack, onBack)
+        NavArrow(LightIcons.BACK, "Previous move", state.canStepBack, onBack)
         Row(
             modifier = Modifier
                 .weight(1f),
@@ -404,15 +401,15 @@ internal fun MaterialReviewBottomBar(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             MaterialFan(
-                captured = captured,
-                capturedColor = capturedColor,
-                advantage = advantage,
+                captured = state.myCaptured,
+                capturedColor = state.myColor.opposite,
+                advantage = state.myAdvantage,
                 cellUnits = MATERIAL_CELL_UNITS,
             )
         }
-        NavArrow(LightIcons.ARROW_RIGHT, "Next move", canStepForward, onForward)
+        NavArrow(LightIcons.ARROW_RIGHT, "Next move", state.canStepForward, onForward)
         Spacer(Modifier.width(1f.gridUnitsAsDp()))
-        SkipControl(BarSide.TRAILING, LightIcons.ARROW_RIGHT, "Last move", canStepForward, onSkipEnd)
+        SkipControl(BarSide.TRAILING, LightIcons.ARROW_RIGHT, "Last move", state.canStepForward, onSkipEnd)
     }
 }
 
@@ -423,10 +420,7 @@ internal fun MaterialReviewBottomBar(
  */
 @Composable
 internal fun CrazyhouseReviewBottomBar(
-    pocket: Map<PieceType, Int>,
-    color: EngineColor,
-    canStepBack: Boolean,
-    canStepForward: Boolean,
+    state: BoardUiState,
     onBack: () -> Unit,
     onForward: () -> Unit,
     onSkipStart: () -> Unit,
@@ -437,23 +431,23 @@ internal fun CrazyhouseReviewBottomBar(
         modifier = Modifier
             .fillMaxWidth()
             .height(4f.gridUnitsAsDp())
-//            .moveScrub(onSeek)
+            .moveScrubX(currentFraction = state.viewFraction, onSeek = onSeek)
             .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        SkipControl(BarSide.LEADING, LightIcons.BACK, "First move", canStepBack, onSkipStart)
+        SkipControl(BarSide.LEADING, LightIcons.BACK, "First move", state.canStepBack, onSkipStart)
         Spacer(Modifier.width(1f.gridUnitsAsDp()))
-        NavArrow(LightIcons.BACK, "Previous move", canStepBack, onBack)
+        NavArrow(LightIcons.BACK, "Previous move", state.canStepBack, onBack)
         Row(
             modifier = Modifier.weight(1f),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            POCKET_ORDER.filter { (pocket[it] ?: 0) > 0 }.forEach { type ->
+            POCKET_ORDER.filter { (state.myPocket[it] ?: 0) > 0 }.forEach { type ->
                 PocketPiece(
                     type = type,
-                    color = color,
-                    count = pocket[type] ?: 0,
+                    color = state.myColor,
+                    count = state.myPocket[type] ?: 0,
                     cell = MY_POCKET_CELL_UNITS.gridUnitsAsDp(),
                     selected = false,
                     onTap = null,
@@ -461,19 +455,18 @@ internal fun CrazyhouseReviewBottomBar(
                 )
             }
         }
-        NavArrow(LightIcons.ARROW_RIGHT, "Next move", canStepForward, onForward)
+        NavArrow(LightIcons.ARROW_RIGHT, "Next move", state.canStepForward, onForward)
         Spacer(Modifier.width(1f.gridUnitsAsDp()))
-        SkipControl(BarSide.TRAILING, LightIcons.ARROW_RIGHT, "Last move", canStepForward, onSkipEnd)
+        SkipControl(BarSide.TRAILING, LightIcons.ARROW_RIGHT, "Last move", state.canStepForward, onSkipEnd)
     }
 }
 
 /**
- * Long-press-then-drag anywhere on the chess board to scrub through move history.
- * The long press arms it (so quick taps on the arrows still work); vertical
- * position across the board then maps 0→1 across all moves. [onSeek] receives that fraction.
- * Taps aren't consumed, so the arrow buttons remain fully usable.
+ * This modifier when applied to an object enables Long-press-then-drag to scrub through move history.
+ * The long press arms it (so quick taps on the arrows still work); horizontal position across the
+ * position then maps 0→1 across all moves. [onSeek] receives that fraction.
  */
-private fun Modifier.verticalScrub(
+private fun Modifier.moveScrubX(
     currentFraction: Float,
     onSeek: (Float) -> Unit
 ): Modifier = composed {
@@ -481,46 +474,27 @@ private fun Modifier.verticalScrub(
     val onSeekState by rememberUpdatedState(onSeek)
 
     pointerInput(Unit) {
-        val height = size.height.toFloat()
-        if (height <= 0f) return@pointerInput
+        val width = size.width.toFloat()
+        if (width <= 0f) return@pointerInput
 
-        var startY = 0f
+        var startX = 0f
         var startFraction = 0f
 
         detectDragGesturesAfterLongPress(
             onDragStart = { offset ->
                 // Capture the baseline at the moment the long-press is recognized
-                startY = offset.y
+                startX = offset.x
                 startFraction = currentFractionState
             },
             onDrag = { change, _ ->
                 change.consume()
-                val deltaY = change.position.y - startY
-                // Add the relative movement (delta / height) to our starting fraction
-                onSeekState((startFraction + deltaY / height).coerceIn(0f, 1f))
+                val deltaX = change.position.x - startX
+                // Add the relative movement (delta / width) to our starting fraction
+                onSeekState((startFraction + deltaX / (width * SCRUB_SENSITIVITY)).coerceIn(0f, 1f))
             },
         )
     }
 }
-
-///**
-// * Long-press-then-drag anywhere on a bottom bar to scrub through the whole game — like
-// * holding the iOS space bar to drag the cursor. The long press arms it (so quick taps on
-// * the arrows still work); horizontal position across the bar then maps 0→1 across all
-// * moves. [onSeek] receives that fraction. Taps aren't consumed, so the arrow buttons
-// * remain fully usable.
-// */
-//private fun Modifier.moveScrub(onSeek: (Float) -> Unit): Modifier = this.pointerInput(Unit) {
-//    val width = size.width.toFloat()
-//    if (width <= 0f) return@pointerInput
-//    detectDragGesturesAfterLongPress(
-//        onDragStart = { offset -> onSeek(offset.x / width) },
-//        onDrag = { change, _ ->
-//            change.consume()
-//            onSeek(change.position.x / width)
-//        },
-//    )
-//}
 
 /** Which side of the arrow the skip bar sits on. */
 private enum class BarSide { LEADING, TRAILING }
@@ -638,31 +612,79 @@ private fun RotatedClock(text: String, modifier: Modifier) {
 }
 
 @Composable
-internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit, onSeek: (Float) -> Unit,) {
+internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
     BoxWithConstraints(
-        modifier = Modifier.fillMaxSize()
-            .verticalScrub(currentFraction = state.viewFraction, onSeek = onSeek),
+        modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
     ) {
         val edge: Dp = minOf(maxWidth, maxHeight)
         val squareSize = edge / 8
-        Column(modifier = Modifier.size(edge)) {
-            // Row 0 is the top of the screen; map (row, col) -> engine square per
-            // the user's orientation (their back rank at the bottom).
-            for (row in 0..7) {
-                Row {
-                    for (col in 0..7) {
-                        val square = squareAt(row, col, state.flipped)
-                        SquareCell(
-                            square = square,
-                            squareSize = squareSize,
-                            state = state,
-                            onSquareTap = onSquareTap,
-                        )
+
+        // Drive the one-shot slide for the current transition. Keying the Animatable on the
+        // move's id gives each new move a fresh Animatable initialised to 0f DURING
+        // composition — so the very first frame already hides the destination square and
+        // draws the overlay at the origin. (Snapping to 0f inside the LaunchedEffect instead
+        // ran a frame late, briefly flashing the moved piece on its destination before the
+        // slide began.) It rests at 1f (done) between animations.
+        val anim = state.animatingMove
+        val progress = remember(anim?.id) { Animatable(if (anim != null) 0f else 1f) }
+        LaunchedEffect(anim?.id) {
+            if (anim != null) progress.animateTo(1f, animationSpec = tween(MOVE_ANIM_MS))
+        }
+        val sliding = anim != null && progress.value < 1f
+        val hidden: Set<Int> = if (sliding) anim.slides.mapTo(HashSet()) { it.endSquare } else emptySet()
+
+        Box(modifier = Modifier.size(edge)) {
+            Column(modifier = Modifier.fillMaxSize()) {
+                // Row 0 is the top of the screen; map (row, col) -> engine square per
+                // the user's orientation (their back rank at the bottom).
+                for (row in 0..7) {
+                    Row {
+                        for (col in 0..7) {
+                            val square = squareAt(row, col, state.flipped)
+                            SquareCell(
+                                square = square,
+                                squareSize = squareSize,
+                                state = state,
+                                onSquareTap = onSquareTap,
+                                hidePiece = square in hidden,
+                            )
+                        }
+                    }
+                }
+            }
+            if (sliding) {
+                val p = progress.value
+                // One overlay per slide — castling animates the king and rook together.
+                anim.slides.forEach { s ->
+                    val (sr, sc) = squareToRowCol(s.startSquare, state.flipped)
+                    val (er, ec) = squareToRowCol(s.endSquare, state.flipped)
+                    Box(
+                        modifier = Modifier
+                            .offset(
+                                x = squareSize * (sc + (ec - sc) * p),
+                                y = squareSize * (sr + (er - sr) * p),
+                            )
+                            .size(squareSize),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        PieceGlyph(piece = s.piece, squareSize = squareSize)
                     }
                 }
             }
         }
+    }
+}
+
+// Map an engine square (0..63) to its (row, col) grid cell for the current orientation
+// — the inverse of [squareAt]. Row 0 is the top of the screen.
+private fun squareToRowCol(square: Int, flipped: Boolean): Pair<Float, Float> {
+    val file = Square.file(square)
+    val rank = Square.rank(square)
+    return if (!flipped) {
+        (7 - rank).toFloat() to file.toFloat()
+    } else {
+        rank.toFloat() to (7 - file).toFloat()
     }
 }
 
@@ -823,12 +845,8 @@ internal fun ReadOnlyPocketBar(
  */
 @Composable
 private fun CrazyhousePocketBar(
-    pocket: Map<PieceType, Int>,
-    color: EngineColor,
-    selected: PieceType?,
+    state: BoardUiState,
     onTap: (PieceType) -> Unit,
-    canStepBack: Boolean,
-    canStepForward: Boolean,
     onBack: () -> Unit,
     onForward: () -> Unit,
     onSeek: (Float) -> Unit,
@@ -837,28 +855,28 @@ private fun CrazyhousePocketBar(
         modifier = Modifier
             .fillMaxWidth()
             .height(4f.gridUnitsAsDp())
-//            .moveScrub(onSeek)
+            .moveScrubX(currentFraction = state.viewFraction, onSeek = onSeek)
             .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        NavArrow(LightIcons.BACK, "Previous move", canStepBack, onBack)
+        NavArrow(LightIcons.BACK, "Previous move", state.canStepBack, onBack)
         Row(
             modifier = Modifier.weight(1f),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            POCKET_ORDER.filter { (pocket[it] ?: 0) > 0 }.forEach { type ->
+            POCKET_ORDER.filter { (state.myPocket[it] ?: 0) > 0 }.forEach { type ->
                 PocketPiece(
                     type = type,
-                    color = color,
-                    count = pocket[type] ?: 0,
+                    color = state.myColor,
+                    count = state.myPocket[type] ?: 0,
                     cell = MY_POCKET_CELL_UNITS.gridUnitsAsDp(),
-                    selected = type == selected,
+                    selected = type == state.selectedDrop,
                     onTap = { onTap(type) },
                 )
             }
         }
-        NavArrow(LightIcons.ARROW_RIGHT, "Next move", canStepForward, onForward)
+        NavArrow(LightIcons.ARROW_RIGHT, "Next move", state.canStepForward, onForward)
     }
 }
 
@@ -869,11 +887,7 @@ private fun CrazyhousePocketBar(
  */
 @Composable
 private fun MaterialBottomBar(
-    captured: List<PieceType>,
-    capturedColor: EngineColor,
-    advantage: Int,
-    canStepBack: Boolean,
-    canStepForward: Boolean,
+    state: BoardUiState,
     onBack: () -> Unit,
     onForward: () -> Unit,
     onSeek: (Float) -> Unit,
@@ -882,11 +896,11 @@ private fun MaterialBottomBar(
         modifier = Modifier
             .fillMaxWidth()
             .height(4f.gridUnitsAsDp())
-//            .moveScrub(onSeek)
+            .moveScrubX(currentFraction = state.viewFraction, onSeek = onSeek)
             .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        NavArrow(LightIcons.BACK, "Previous move", canStepBack, onBack)
+        NavArrow(LightIcons.BACK, "Previous move", state.canStepBack, onBack)
         Row(
             modifier = Modifier
                 .weight(1f)
@@ -895,13 +909,13 @@ private fun MaterialBottomBar(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             MaterialFan(
-                captured = captured,
-                capturedColor = capturedColor,
-                advantage = advantage,
+                captured = state.myCaptured,
+                capturedColor = state.myColor.opposite,
+                advantage = state.myAdvantage,
                 cellUnits = MATERIAL_CELL_UNITS,
             )
         }
-        NavArrow(LightIcons.ARROW_RIGHT, "Next move", canStepForward, onForward)
+        NavArrow(LightIcons.ARROW_RIGHT, "Next move", state.canStepForward, onForward)
     }
 }
 
@@ -973,6 +987,7 @@ private fun SquareCell(
     squareSize: Dp,
     state: BoardUiState,
     onSquareTap: (Int) -> Unit,
+    hidePiece: Boolean = false,
 ) {
     val background = if (Square.isLight(square)) BOARD_LIGHT else BOARD_DARK
     val isSelected = square == state.selectedSquare
@@ -998,7 +1013,9 @@ private fun SquareCell(
         if (square == state.checkedKingSquare) {
             Box(Modifier.matchParentSize().background(CHECK_FILL))
         }
-        piece?.let { PieceGlyph(piece = it, squareSize = squareSize) }
+        // hidePiece: this square is the landing square of an in-flight slide; the sliding
+        // overlay draws the piece instead so it isn't shown twice.
+        if (!hidePiece) piece?.let { PieceGlyph(piece = it, squareSize = squareSize) }
         if (square in state.legalDestinations || square in state.dropTargets) {
             // A drop always targets an empty square, so it reads as the non-capture marker.
             LegalMarker(isCapture = square in state.legalDestinations && piece != null, squareSize = squareSize)
