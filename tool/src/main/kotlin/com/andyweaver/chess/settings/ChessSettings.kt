@@ -29,6 +29,12 @@ data class ChessSettingsSnapshot(
 )
 
 /**
+ * The logged-in Lichess session: the personal-access [token] and the [username] it
+ * resolved to (via `GET /api/account`). Null when logged out.
+ */
+data class Session(val token: String, val username: String)
+
+/**
  * A correspondence seek the user created that hasn't matched yet. Lichess offers no
  * API to list or cancel correspondence seeks, so we persist them locally to show in
  * the home "Pending" group. [id] is a local key only (not a server id). [side] is
@@ -36,12 +42,6 @@ data class ChessSettingsSnapshot(
  * "horde", …); defaulted so older persisted seeks (written before variants existed)
  * still decode.
  */
-/**
- * The logged-in Lichess session: the personal-access [token] and the [username] it
- * resolved to (via `GET /api/account`). Null when logged out.
- */
-data class Session(val token: String, val username: String)
-
 @Serializable
 data class PendingSeek(
     val id: String,

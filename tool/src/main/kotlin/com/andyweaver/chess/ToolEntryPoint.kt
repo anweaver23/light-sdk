@@ -28,7 +28,8 @@ import kotlinx.coroutines.flow.StateFlow
  *
  * TODO(relay): stand up the relay, define the push payload shape (e.g. { gameId, kind }), POST the
  * registration data to it, and wire [onPushNotification] to surface/clear the LightOS notification.
- * The notifications on/off toggle already lives in Settings (ChessSettings.notificationsEnabled).
+ * The persisted setting (ChessSettings.notificationsEnabled) exists; its Settings toggle was
+ * removed for v1 and should be re-added along with the relay.
  */
 @EntryPoint
 object ToolEntryPoint : LightEntryPoint {

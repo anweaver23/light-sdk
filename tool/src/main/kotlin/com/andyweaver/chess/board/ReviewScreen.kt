@@ -39,10 +39,10 @@ import kotlin.math.roundToInt
 
 /**
  * Read-only replay of a finished game for the history screen. Reuses the board
- * renderer ([ChessBoard]) and browse controls ([BrowseBar]); no live stream and no
- * move-making. Starts at the initial position so the user steps forward through the
- * game. Unsupported variants (SAN that the standard engine can't parse) surface a
- * short message instead of a board.
+ * renderer ([ChessBoard]) and browse controls ([MaterialReviewBottomBar] /
+ * [CrazyhouseReviewBottomBar]); no live stream and no move-making. Opens on the
+ * final position so the user steps backward through the game. Unsupported variants
+ * (SAN that the engine can't parse) surface a short message instead of a board.
  */
 class ReviewViewModel(
     movesSan: String,

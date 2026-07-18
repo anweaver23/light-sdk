@@ -29,7 +29,7 @@ sealed class GameStatus {
 
 enum class DrawReason {
     INSUFFICIENT_MATERIAL,
-    FIFTY_MOVE_RULE,
+    SEVENTY_FIVE_MOVE_RULE,
 }
 
 object GameStatusEvaluator {
@@ -37,8 +37,13 @@ object GameStatusEvaluator {
     /**
      * Full status of [position]. Checkmate/stalemate take precedence over draw
      * rules; among the latter, insufficient material is reported before the
-     * fifty-move rule. Threefold repetition is not tracked here (it needs move
+     * move-count rule. Threefold repetition is not tracked here (it needs move
      * history — see [Chess.replay] callers if needed).
+     *
+     * The move-count draw uses the FIDE **75-move rule** (150 half-moves), not the
+     * classic 50-move rule — Lichess auto-draws a game at 75 moves without a pawn
+     * push or capture, but only *permits a claim* at 50 (a claim this app has no UI
+     * for). Using 50 here would freeze a still-live Lichess game as "over" locally.
      */
     fun status(position: Position): GameStatus {
         val inCheck = MoveGenerator.inCheck(position, position.sideToMove)
@@ -50,8 +55,8 @@ object GameStatusEvaluator {
         if (isInsufficientMaterial(position)) {
             return GameStatus.Draw(DrawReason.INSUFFICIENT_MATERIAL)
         }
-        if (position.halfmoveClock >= 100) {
-            return GameStatus.Draw(DrawReason.FIFTY_MOVE_RULE)
+        if (position.halfmoveClock >= 150) {
+            return GameStatus.Draw(DrawReason.SEVENTY_FIVE_MOVE_RULE)
         }
         return if (inCheck) GameStatus.Check else GameStatus.Ongoing
     }

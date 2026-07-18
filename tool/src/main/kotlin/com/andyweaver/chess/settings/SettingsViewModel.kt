@@ -24,7 +24,8 @@ class SettingsViewModel(private val settings: ChessSettings) : LightViewModel<Un
         initialValue = ChessSettingsSnapshot(),
     )
 
-    fun toggleNotifications() = toggle(snapshot.value.notificationsEnabled, settings::setNotificationsEnabled)
+    // v1: notifications toggle removed (push needs the unbuilt relay) — re-add with it.
+    // fun toggleNotifications() = toggle(snapshot.value.notificationsEnabled, settings::setNotificationsEnabled)
 
     fun toggleConfirmMoves() = toggle(snapshot.value.confirmMoves, settings::setConfirmMoves)
 

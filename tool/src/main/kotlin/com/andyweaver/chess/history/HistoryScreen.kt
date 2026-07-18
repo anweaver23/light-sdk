@@ -108,7 +108,7 @@ class HistoryViewModel(private val token: String) : LightViewModel<Unit>() {
                     loadingMore = false,
                     endReached = fresh.isEmpty(),
                 )
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 _state.value = current.copy(loadingMore = false)
             } finally {
                 loading = false

@@ -61,10 +61,10 @@ const val ROW_VERTICAL_UNITS = 1f
  * 3. [Step.USERNAME] — free-text username entry (reached from step 2).
  * 4. [Step.DONE]     — confirmation; back returns to the home list.
  *
- * Variant can be Standard or any of the variants the board can render (Horde, KotH,
- * Three-check, Racing Kings, Antichess). Rated is allowed (both test accounts can play
- * rated correspondence). A seek waits in the background for a match; a challenge
- * waits for the named player to accept — both surface on home when they resolve.
+ * Variant can be any of the nine the board can render (see [NewGameViewModel.Variant]).
+ * Rated is allowed (both test accounts can play rated correspondence). A seek waits in
+ * the background for a match; a challenge waits for the named player to accept — both
+ * surface on home when they resolve.
  */
 class NewGameViewModel(
     private val api: LichessApi,
@@ -135,7 +135,7 @@ class NewGameViewModel(
         it.copy(options = it.options.copy(side = next))
     }
 
-    // Six variants is too many to cycle through a single row, so the "Variant" row
+    // Nine variants is too many to cycle through a single row, so the "Variant" row
     // opens a full-screen picker (Step.VARIANT) instead.
     fun goToVariant() = _uiState.update { it.copy(step = Step.VARIANT) }
 
@@ -289,7 +289,7 @@ class NewGameScreen(
                 OptionRow("Time per move", "$days ${if (days == 1) "day" else "days"}") { viewModel.cycleDays() }
                 OptionRow("Mode", if (options.rated) "Rated" else "Casual") { viewModel.toggleRated() }
                 OptionRow("Your side", options.side.label) { viewModel.cycleSide() }
-                // Six variants — open a picker rather than cycling one at a time.
+                // Nine variants — open a picker rather than cycling one at a time.
                 OptionRow("Variant", options.variant.label) { viewModel.goToVariant() }
             }
             LightBottomBar(

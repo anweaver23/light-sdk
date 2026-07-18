@@ -22,9 +22,6 @@ enum class Variant {
     RACING_KINGS,
     HORDE;
 
-    /** Kings have no royal power (no check, capturable, may promote to king). */
-    val kingIsRoyal: Boolean get() = this != ANTICHESS
-
     /**
      * Human-readable name for UI (subtitles, pickers, history). Intentionally
      * lowercase to match the app's minimal LP aesthetic (used everywhere variant
