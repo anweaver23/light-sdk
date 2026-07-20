@@ -86,6 +86,19 @@ internal fun stepSlides(step: MoveRecord, newBoard: List<Piece?>, forward: Boole
     return listOfNotNull(slide(move.from, move.to))
 }
 
+/**
+ * Squares the active variant highlights as its goal (a single combined dashed border in
+ * the UI): King of the Hill's 2×2 centre, Racing Kings' 8th rank. Empty for every other
+ * variant. Shared by the live board and the review screen so both render it identically.
+ */
+internal fun goalSquaresFor(variant: Variant): Set<Int> = when (variant) {
+    Variant.KING_OF_THE_HILL -> setOf(
+        Square.of(3, 3), Square.of(4, 3), Square.of(3, 4), Square.of(4, 4), // d4, e4, d5, e5
+    )
+    Variant.RACING_KINGS -> (0..7).map { Square.of(it, 7) }.toSet() // the 8th rank
+    else -> emptySet()
+}
+
 // v1: PGN export disabled — may re-add
 // /** How a fetched PGN should be delivered (performed in the UI layer). */
 // enum class PgnDelivery { CLIPBOARD, SHARE }
@@ -237,11 +250,17 @@ class BoardViewModel(
 
     private val myColorString = if (myColor == Color.WHITE) "white" else "black"
 
-    // A one-shot animation to play into the next state, and a counter to key it. Declared
-    // here (BEFORE init{}) rather than down in the "history browsing" section below,
-    // because property initializers/init blocks run in textual declaration order — if
-    // these stayed below init{}, their `= null` / `= 0L` initializers would run AFTER
-    // init{} and silently wipe out the seed-time arrival animation init{} builds.
+    // The animation currently in play, and a counter to key each new one. This PERSISTS
+    // across recomputes (it is emitted on every one, never nulled after emit) — the UI
+    // keys its Animatable off `animatingMove.id`, so re-emitting the same id is a no-op
+    // (the Animatable rests at 1f once done) and a *new* id triggers a fresh slide. That
+    // id-keying is what prevents unrelated recomputes (menu, settings, selection) from
+    // replaying an animation — so we must NOT null this between them, or an intermediate
+    // recompute during an arrival slide would flip the key to null, reset the Animatable,
+    // and flash the piece from destination back to origin. Each genuine transition
+    // (step/move/live-move/arrival) overwrites it with a new id; everything else leaves it.
+    // Declared BEFORE init{} so init{}'s seed-time arrival animation isn't wiped by a
+    // late `= null` initializer (property initializers run in textual order).
     private var pendingAnim: AnimatedMove? = null
     private var animCounter = 0L
 
@@ -673,6 +692,10 @@ class BoardViewModel(
     fun cancelPendingMove() {
         pendingMove = null
         awaitingServer = false
+        // Stop the staged move's slide if it's still mid-flight — the move is being
+        // undone, so there's nothing to animate to. (Nulling here is a deliberate
+        // "cancel this animation", not the incidental wipe recompute used to do.)
+        pendingAnim = null
         recompute()
     }
 
@@ -910,9 +933,9 @@ class BoardViewModel(
             animatingMove = pendingAnim,
             message = message,
         )
-        // Consume the one-shot animation so unrelated recomputes (stream, menu, …) don't
-        // replay it.
-        pendingAnim = null
+        // NOTE: pendingAnim is intentionally NOT nulled here — it persists so unrelated
+        // recomputes re-emit the same id (a UI no-op), rather than flipping it to null and
+        // resetting an in-flight slide. See the pendingAnim declaration for the full why.
     }
 
     // The variant's canonical starting position, used as the stable reference for the
@@ -922,14 +945,8 @@ class BoardViewModel(
         runCatching { variant.startFen?.let { Position.fromFen(it, variant) } ?: Chess.startPosition }
             .getOrDefault(Chess.startPosition)
 
-    // Squares the active variant highlights as its goal (red outline in the UI).
-    private fun goalSquares(): Set<Int> = when (variant) {
-        Variant.KING_OF_THE_HILL -> setOf(
-            Square.of(3, 3), Square.of(4, 3), Square.of(3, 4), Square.of(4, 4), // d4, e4, d5, e5
-        )
-        Variant.RACING_KINGS -> (0..7).map { Square.of(it, 7) }.toSet() // the 8th rank
-        else -> emptySet()
-    }
+    // Squares the active variant highlights as its goal — see [goalSquaresFor].
+    private fun goalSquares(): Set<Int> = goalSquaresFor(variant)
 
     private fun safeApply(position: Position, move: Move): Position =
         try {

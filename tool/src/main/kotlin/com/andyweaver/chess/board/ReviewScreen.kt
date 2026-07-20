@@ -171,6 +171,9 @@ class ReviewViewModel(
             canStepBack = idx > 0,
             canStepForward = idx < positions.lastIndex,
             variant = variant,
+            // Variant goal squares (KotH centre, Racing Kings rank 8) — same combined
+            // dashed border as the live board.
+            goalSquares = goalSquaresFor(variant),
             // Crazyhouse reserves at the reviewed position (empty for other variants).
             myPocket = pos.pocket.forColor(myColor),
             opponentPocket = pos.pocket.forColor(myColor.opposite),

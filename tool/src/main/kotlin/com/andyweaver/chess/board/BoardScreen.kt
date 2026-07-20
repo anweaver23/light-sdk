@@ -101,14 +101,14 @@ private const val DASH_STROKE_WIDTH_DP = 2f
 private const val DASH_ON_DP = 6f
 private const val DASH_GAP_DP = 4f
 
-// Check border "marches" continuously (dash phase cycles) to read as live/urgent —
-// one full dash+gap cycle per this duration. The goal-square border is stationary
-// (phase 0, no animation) since it's just marking fixed squares, not an ongoing threat.
+// The check/checkmate border "marches" continuously (dash phase cycles) to read as
+// live/urgent — one full dash+gap cycle per this duration. The goal-square border is
+// stationary (phase 0) since it just marks fixed squares, not an ongoing threat.
 private const val CHECK_MARCH_MS = 600
 
-// The checkmated king turns onto its side — same pace as a normal move slide
-// (MOVE_ANIM_MS), just a rotation instead of a translation. No border is drawn for
-// checkmate (that's the live-check-only dashed border above); this alone signals it.
+// Checkmate gets BOTH the marching border (same as check) AND the king turned onto its
+// side. The rotation animates at a normal move slide's pace (MOVE_ANIM_MS), just a
+// rotation instead of a translation.
 private const val CHECKMATE_KING_ROTATION = 90f
 
 // Skip-to-start/end bar height, in grid units. The nav arrows render inside a 2f
@@ -735,15 +735,18 @@ internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
                 }
             }
 
-            // Check: a single square, dashed border whose dashes continuously "march"
-            // (phase cycles) to read as live/ongoing. Checkmate shows no border at all —
-            // just the sideways king (see SquareCell) — so this only fires for a live check.
-            state.checkedKingSquare?.let { sq ->
+            // A dashed border whose dashes continuously "march" around the king's square,
+            // for BOTH check and checkmate (checkmate additionally turns the king sideways
+            // — see SquareCell). Check and checkmate are mutually exclusive, so at most one
+            // of these squares is set. The phase animates a 0..1 fraction (LinearEasing,
+            // Restart); DashedRegionBorder scales it by the full dash+gap PERIOD so the
+            // wrap from 1 back to 0 lines up exactly and the ants never visibly jump.
+            (state.checkedKingSquare ?: state.checkmateKingSquare)?.let { sq ->
                 val (r, c) = squareToRowCol(sq, state.flipped)
                 val marchTransition = rememberInfiniteTransition(label = "check-march")
-                val phase by marchTransition.animateFloat(
+                val phaseFraction by marchTransition.animateFloat(
                     initialValue = 0f,
-                    targetValue = DASH_ON_DP + DASH_GAP_DP,
+                    targetValue = 1f,
                     animationSpec = infiniteRepeatable(tween(CHECK_MARCH_MS, easing = LinearEasing)),
                     label = "check-march-phase",
                 )
@@ -751,7 +754,7 @@ internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
                     modifier = Modifier
                         .offset(x = squareSize * c, y = squareSize * r)
                         .size(squareSize),
-                    phase = phase,
+                    phaseFraction = phaseFraction,
                 )
             }
 
@@ -772,7 +775,7 @@ internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
                             width = squareSize * (maxCol - minCol + 1),
                             height = squareSize * (maxRow - minRow + 1),
                         ),
-                    phase = 0f,
+                    phaseFraction = 0f,
                 )
             }
         }
@@ -781,13 +784,19 @@ internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
 
 /**
  * A dashed rectangular stroke over the region [modifier] sizes/positions — used for the
- * live-check king square (animated [phase], marching ants) and the combined variant
- * goal-square region (fixed [phase] = 0, stationary). Monochrome ([MARK_SHADE]) only.
+ * check/checkmate king square (animated, marching ants) and the combined variant
+ * goal-square region (stationary). Monochrome ([MARK_SHADE]) only.
+ *
+ * [phaseFraction] is a 0..1 value; it's scaled here by the full dash+gap period (in px)
+ * so a caller animating it 0→1 on repeat produces a seamless march (fraction 1 lands
+ * exactly one period along, visually identical to fraction 0). Pass 0f for a static border.
  */
 @Composable
-private fun DashedRegionBorder(modifier: Modifier, phase: Float) {
+private fun DashedRegionBorder(modifier: Modifier, phaseFraction: Float = 0f) {
     Canvas(modifier = modifier) {
         val strokeWidthPx = DASH_STROKE_WIDTH_DP.dp.toPx()
+        val onPx = DASH_ON_DP.dp.toPx()
+        val gapPx = DASH_GAP_DP.dp.toPx()
         drawRect(
             color = MARK_SHADE,
             topLeft = Offset(strokeWidthPx / 2, strokeWidthPx / 2),
@@ -795,8 +804,8 @@ private fun DashedRegionBorder(modifier: Modifier, phase: Float) {
             style = Stroke(
                 width = strokeWidthPx,
                 pathEffect = PathEffect.dashPathEffect(
-                    floatArrayOf(DASH_ON_DP.dp.toPx(), DASH_GAP_DP.dp.toPx()),
-                    phase,
+                    floatArrayOf(onPx, gapPx),
+                    phase = phaseFraction * (onPx + gapPx),
                 ),
             ),
         )
@@ -1137,9 +1146,9 @@ private fun SquareCell(
         if (isSelected || isLastMove) {
             Box(Modifier.matchParentSize().border(squareSize * 0.04f, MARK_SHADE))
         }
-        // Check (not checkmate — that's the sideways king below, no border at all) is
-        // drawn as a single rotating dashed border at the ChessBoard level (one overlay,
-        // not per-square), so nothing to draw here.
+        // The check/checkmate marching border is drawn at the ChessBoard level (one
+        // overlay, not per-square), so nothing to draw here. Checkmate ALSO turns the
+        // king sideways — that rotation is applied to the piece glyph just below.
         // hidePiece: this square is the landing square of an in-flight slide; the sliding
         // overlay draws the piece instead so it isn't shown twice.
         if (!hidePiece) {
