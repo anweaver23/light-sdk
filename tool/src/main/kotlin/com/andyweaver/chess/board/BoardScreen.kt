@@ -694,7 +694,18 @@ internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
             }
         }
         val sliding = anim != null && progress.value < 1f
-        val hidden: Set<Int> = if (sliding) anim.slides.mapTo(HashSet()) { it.endSquare } else emptySet()
+        // Atomic capture: while the capturer slides in, render the PRE-explosion board so
+        // every soon-to-explode piece stays visible; the origin is already lifted off it
+        // (the overlay draws the mover) and the target keeps its captured piece until the
+        // slide settles, so nothing needs hiding. Any other slide hides its landing
+        // square(s) — the overlay draws them from the destination board.
+        val explosionSliding = sliding && anim.preExplosionBoard != null
+        val boardToRender = if (explosionSliding) anim.preExplosionBoard else state.board
+        val hidden: Set<Int> = when {
+            !sliding -> emptySet()
+            explosionSliding -> emptySet()
+            else -> anim.slides.mapTo(HashSet()) { it.endSquare }
+        }
 
         Box(modifier = Modifier.size(edge)) {
             Column(modifier = Modifier.fillMaxSize()) {
@@ -708,6 +719,7 @@ internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
                                 square = square,
                                 squareSize = squareSize,
                                 state = state,
+                                board = boardToRender,
                                 onSquareTap = onSquareTap,
                                 hidePiece = square in hidden,
                                 moveSettled = !sliding,
@@ -1132,6 +1144,9 @@ private fun SquareCell(
     square: Int,
     squareSize: Dp,
     state: BoardUiState,
+    // The board to draw the piece from — usually [state.board], but the pre-explosion
+    // board while an Atomic capture slide is in flight (see [ChessBoard]).
+    board: List<Piece?>,
     onSquareTap: (Int) -> Unit,
     hidePiece: Boolean = false,
     // False while a move slide is in flight — the checkmate king only turns sideways once
@@ -1147,7 +1162,7 @@ private fun SquareCell(
     val hasSelection = state.selectedSquare != null || state.selectedDrop != null
     val isLastMove = !hasSelection &&
         (square == state.lastMoveFrom || square == state.lastMoveTo)
-    val piece = state.board.getOrNull(square)
+    val piece = board.getOrNull(square)
 
     Box(
         modifier = Modifier
@@ -1183,6 +1198,16 @@ private fun SquareCell(
         if (square in state.legalDestinations || square in state.dropTargets) {
             // A drop always targets an empty square, so it reads as the non-capture marker.
             LegalMarker(isCapture = square in state.legalDestinations && piece != null, squareSize = squareSize)
+        }
+        // Three-check: a running tally on each king of how many times that side has been
+        // checked (same count-badge treatment as the Crazyhouse pockets). Always shown
+        // (including 0) so it reads as a persistent scoreboard for the variant.
+        if (!hidePiece && state.variant == Variant.THREE_CHECK && piece?.type == PieceType.KING) {
+            CountBadge(
+                count = state.checkCounts[piece.color] ?: 0,
+                diameter = squareSize * 0.4f,
+                modifier = Modifier.align(Alignment.TopEnd),
+            )
         }
         // Variant goal squares are drawn as a single combined dashed border at the
         // ChessBoard level, not per-square — nothing to draw here.

@@ -61,6 +61,14 @@ data class AnimatedMove(
      * position before it moves. Zero (immediate) for every other animation: manual
      * step/scrub, a live opponent move landing, or the user's own staged move. */
     val startDelayMs: Int = 0,
+    /**
+     * Atomic captures only: the board to render WHILE the slide is in flight — the
+     * pre-explosion position with the capturing piece lifted off its origin (the overlay
+     * draws it sliding). The board shows all the soon-to-explode pieces until the slide
+     * settles, then switches to the normal (post-explosion) board — so the capture reads
+     * first and the pieces vanish only after. Null for every non-explosion animation.
+     */
+    val preExplosionBoard: List<Piece?>? = null,
 )
 
 /**
@@ -97,6 +105,62 @@ internal fun goalSquaresFor(variant: Variant): Set<Int> = when (variant) {
     )
     Variant.RACING_KINGS -> (0..7).map { Square.of(it, 7) }.toSet() // the 8th rank
     else -> emptySet()
+}
+
+/**
+ * True if [move] made in [before] is an Atomic capture — one that explodes on landing.
+ * These animate specially (see [explosionAnim]): the capturer slides in, THEN the pieces
+ * vanish. En passant counts (the captured pawn is behind the target square).
+ */
+internal fun isAtomicCapture(before: Position, move: Move): Boolean {
+    if (before.variant != Variant.ATOMIC) return false
+    if (move.isCastle || move.isDrop) return false
+    val capturedSquare = if (move.isEnPassant) {
+        Square.of(Square.file(move.to), Square.rank(move.from))
+    } else {
+        move.to
+    }
+    return before.pieceAt(capturedSquare) != null
+}
+
+/**
+ * The [AnimatedMove] for an Atomic capture: the capturing piece slides from its origin to
+ * the capture square over the PRE-explosion board (all soon-to-explode pieces still shown),
+ * so the move reads first and the explosion clears the board only once the slide settles.
+ * [id] is supplied by the caller (each view model owns its animation counter). Returns null
+ * if the origin is somehow empty.
+ */
+internal fun explosionAnim(before: Position, move: Move, id: Long): AnimatedMove? {
+    val mover = before.pieceAt(move.from) ?: return null
+    // The mover is lifted off its origin so the static board doesn't draw it twice; the
+    // overlay slide draws it travelling to the capture square.
+    val pre = before.board.toMutableList()
+    pre[move.from] = null
+    return AnimatedMove(
+        slides = listOf(PieceSlide(startSquare = move.from, endSquare = move.to, piece = mover)),
+        id = id,
+        preExplosionBoard = pre,
+    )
+}
+
+/**
+ * Three-check only: how many times each colour has BEEN checked, counted over the
+ * positions actually shown (index 0..[uptoIndex]). A position whose side to move is in
+ * check means the move that produced it delivered a check to that side. Empty for every
+ * other variant. The badge on each king shows the count for that king's colour.
+ */
+internal fun threeCheckCounts(positions: List<Position>, uptoIndex: Int, variant: Variant): Map<Color, Int> {
+    if (variant != Variant.THREE_CHECK) return emptyMap()
+    var white = 0
+    var black = 0
+    val last = uptoIndex.coerceIn(0, positions.lastIndex)
+    for (i in 1..last) {
+        val pos = positions[i]
+        if (Chess.isInCheck(pos)) {
+            if (pos.sideToMove == Color.WHITE) white++ else black++
+        }
+    }
+    return mapOf(Color.WHITE to white, Color.BLACK to black)
 }
 
 // v1: PGN export disabled — may re-add
@@ -155,6 +219,11 @@ data class BoardUiState(
     val dropTargets: Set<Int> = emptySet(),
     /** Squares to outline in red as the variant's goal (KotH centre, Racing Kings rank 8). */
     val goalSquares: Set<Int> = emptySet(),
+    /**
+     * Three-check only: times each colour has been checked, shown as a count badge on
+     * that colour's king. Empty for every other variant.
+     */
+    val checkCounts: Map<Color, Int> = emptyMap(),
     /**
      * Material display (Lichess-style), non-Crazyhouse only. [myCaptured] are the
      * opponent-coloured pieces I've captured; [opponentCaptured] are my-coloured
@@ -247,8 +316,6 @@ class BoardViewModel(
     private var showLegalMoves: Boolean = true
 
     private var streamJob: Job? = null
-
-    private val myColorString = if (myColor == Color.WHITE) "white" else "black"
 
     // The animation currently in play, and a counter to key each new one. This PERSISTS
     // across recomputes (it is emitted on every one, never nulled after emit) — the UI
@@ -473,6 +540,14 @@ class BoardViewModel(
         if (delta != 1 && delta != -1) return null
         val step = replay.steps.getOrNull(minOf(oldIndex, newIndex)) ?: return null
         if (step.move.isDrop) return null
+        // Atomic captures: forward, slide the capturer in THEN explode (see explosionAnim).
+        // Backward out of an explosion can't cleanly reverse (the exploded pieces reappear),
+        // so it snaps — no animation.
+        if (isAtomicCapture(step.before, step.move)) {
+            if (delta != 1) return null
+            animCounter += 1
+            return explosionAnim(step.before, step.move, animCounter)
+        }
         val slides = stepSlides(step, replay.positions[newIndex].board, forward = delta == 1)
         if (slides.isEmpty()) return null
         animCounter += 1
@@ -487,6 +562,11 @@ class BoardViewModel(
      */
     private fun buildMoveAnim(before: Position, move: Move): AnimatedMove? {
         if (move.isDrop) return null
+        // Atomic capture staged by the user: slide the capturer in, then explode.
+        if (isAtomicCapture(before, move)) {
+            animCounter += 1
+            return explosionAnim(before, move, animCounter)
+        }
         val slides = if (move.isCastle) {
             val (kingTo, rookFrom, rookTo) = MoveGenerator.castleSquares(before, move)
             listOfNotNull(
@@ -925,6 +1005,7 @@ class BoardViewModel(
             selectedDrop = selectedDrop,
             dropTargets = if (showLegalMoves) dropTargets else emptySet(),
             goalSquares = goalSquares(),
+            checkCounts = threeCheckCounts(positions, viewIndex, variant),
             myCaptured = material.myCaptured,
             opponentCaptured = material.opponentCaptured,
             myAdvantage = material.myAdvantage,
@@ -958,16 +1039,36 @@ class BoardViewModel(
     private fun resultSubtitle(latest: Position): String {
         val engine = Chess.status(latest)
         val s = streamStatus.lowercase()
-        val iWon = streamWinner != null && streamWinner.equals(myColorString, ignoreCase = true)
-        val outcome = if (iWon) "you won" else "you lost"
+        // The winner is authoritative from the stream (the same source the review screen
+        // trusts via game.winner). Fall back to the engine only for a genuine decisive
+        // result: a standard checkmate (loser = side to move), or a variant that ends
+        // with a king removed (Atomic explosion) — which the standard evaluator otherwise
+        // misreads as stalemate, so we must NEVER infer a draw from that. This keeps the
+        // board's game-over text consistent with the history/review screen.
+        val winnerColor: Color? = when {
+            streamWinner.equals("white", ignoreCase = true) -> Color.WHITE
+            streamWinner.equals("black", ignoreCase = true) -> Color.BLACK
+            engine is GameStatus.Checkmate -> latest.sideToMove.opposite
+            latest.kingSquare(Color.WHITE) < 0 -> Color.BLACK
+            latest.kingSquare(Color.BLACK) < 0 -> Color.WHITE
+            else -> null
+        }
+        if (winnerColor != null) {
+            val outcome = if (winnerColor == myColor) "you won" else "you lost"
+            return when {
+                s == "mate" || engine is GameStatus.Checkmate -> "checkmate · $outcome"
+                s == "resign" -> "resigned · $outcome"
+                s == "outoftime" || s == "timeout" -> "time out · $outcome"
+                // variantEnd wins (atomic king explosion, three-check, KotH, racing kings,
+                // antichess, …) have no single mate/resign word — state the outcome plainly.
+                else -> outcome
+            }
+        }
+        // No winner → drawn / aborted / not yet resolved.
         return when {
-            s == "mate" || engine is GameStatus.Checkmate -> "checkmate · $outcome"
-            s == "resign" -> "resigned · $outcome"
-            s == "outoftime" || s == "timeout" -> "time out · $outcome"
             s == "stalemate" || engine is GameStatus.Stalemate -> "stalemate · draw"
             s == "draw" || engine is GameStatus.Draw -> "draw"
             s == "aborted" -> "game aborted"
-            streamWinner != null -> outcome
             else -> "game over"
         }
     }

@@ -80,6 +80,12 @@ class ReviewViewModel(
         if (delta != 1 && delta != -1) return null
         val step = r.steps.getOrNull(minOf(oldIndex, newIndex)) ?: return null
         if (step.move.isDrop) return null
+        // Atomic captures: forward, slide the capturer in THEN explode; backward snaps.
+        if (isAtomicCapture(step.before, step.move)) {
+            if (delta != 1) return null
+            animCounter += 1
+            return explosionAnim(step.before, step.move, animCounter)
+        }
         val slides = stepSlides(step, r.positions[newIndex].board, forward = delta == 1)
         if (slides.isEmpty()) return null
         animCounter += 1
@@ -174,6 +180,8 @@ class ReviewViewModel(
             // Variant goal squares (KotH centre, Racing Kings rank 8) — same combined
             // dashed border as the live board.
             goalSquares = goalSquaresFor(variant),
+            // Three-check running tally (badge on each king); empty for other variants.
+            checkCounts = threeCheckCounts(positions, idx, variant),
             // Crazyhouse reserves at the reviewed position (empty for other variants).
             myPocket = pos.pocket.forColor(myColor),
             opponentPocket = pos.pocket.forColor(myColor.opposite),
