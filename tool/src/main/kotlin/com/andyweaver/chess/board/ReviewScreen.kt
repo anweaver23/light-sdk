@@ -80,11 +80,15 @@ class ReviewViewModel(
         if (delta != 1 && delta != -1) return null
         val step = r.steps.getOrNull(minOf(oldIndex, newIndex)) ?: return null
         if (step.move.isDrop) return null
-        // Atomic captures: forward, slide the capturer in THEN explode; backward snaps.
-        if (isAtomicCapture(step.before, step.move)) {
-            if (delta != 1) return null
-            animCounter += 1
-            return explosionAnim(step.before, step.move, animCounter)
+        // Captures: forward, slide the capturer in over the pre-move board so the captured
+        // piece stays visible until it lands (keeps it on screen during the arrival delay);
+        // Atomic backward can't reverse, so it snaps; a normal backward capture reverse-slides.
+        if (isCaptureMove(step.before, step.move)) {
+            if (delta == 1) {
+                animCounter += 1
+                return captureSlideAnim(step.before, step.after, step.move, animCounter)
+            }
+            if (step.before.variant == Variant.ATOMIC) return null
         }
         val slides = stepSlides(step, r.positions[newIndex].board, forward = delta == 1)
         if (slides.isEmpty()) return null

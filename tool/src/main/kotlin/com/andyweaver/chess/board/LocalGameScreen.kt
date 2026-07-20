@@ -304,10 +304,14 @@ class LocalGameViewModel(
         if (delta != 1 && delta != -1) return null
         val step = replay.steps.getOrNull(minOf(oldIndex, newIndex)) ?: return null
         if (step.move.isDrop) return null
-        if (isAtomicCapture(step.before, step.move)) {
-            if (delta != 1) return null
-            animCounter += 1
-            return explosionAnim(step.before, step.move, animCounter)
+        // Captures: forward slides the capturer in over the pre-move board (captured piece
+        // stays visible until it lands); Atomic backward snaps; normal backward reverse-slides.
+        if (isCaptureMove(step.before, step.move)) {
+            if (delta == 1) {
+                animCounter += 1
+                return captureSlideAnim(step.before, step.after, step.move, animCounter)
+            }
+            if (step.before.variant == Variant.ATOMIC) return null
         }
         val slides = stepSlides(step, replay.positions[newIndex].board, forward = delta == 1)
         if (slides.isEmpty()) return null

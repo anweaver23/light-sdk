@@ -62,13 +62,13 @@ data class AnimatedMove(
      * step/scrub, a live opponent move landing, or the user's own staged move. */
     val startDelayMs: Int = 0,
     /**
-     * Atomic captures only: the board to render WHILE the slide is in flight — the
-     * pre-explosion position with the capturing piece lifted off its origin (the overlay
-     * draws it sliding). The board shows all the soon-to-explode pieces until the slide
-     * settles, then switches to the normal (post-explosion) board — so the capture reads
-     * first and the pieces vanish only after. Null for every non-explosion animation.
+     * Forward capture slides only: the board to render WHILE the slide is in flight — the
+     * pre-move position with the capturing piece lifted off its origin (the overlay draws it
+     * sliding). It keeps the captured piece visible until the slide settles, then switches to
+     * the post-move board — so you see what's taken (and, for Atomic, the whole region clears
+     * on settle). Null for every other animation (non-captures, backward steps).
      */
-    val preExplosionBoard: List<Piece?>? = null,
+    val preMoveBoard: List<Piece?>? = null,
 )
 
 /**
@@ -108,12 +108,12 @@ internal fun goalSquaresFor(variant: Variant): Set<Int> = when (variant) {
 }
 
 /**
- * True if [move] made in [before] is an Atomic capture — one that explodes on landing.
- * These animate specially (see [explosionAnim]): the capturer slides in, THEN the pieces
- * vanish. En passant counts (the captured pawn is behind the target square).
+ * True if [move] made in [before] captures a piece (a normal capture or en passant — the
+ * captured pawn is then behind the target square). Castling and drops never capture.
+ * Forward capture slides animate specially (see [captureSlideAnim]) so the captured piece
+ * stays on the board until the capturer lands.
  */
-internal fun isAtomicCapture(before: Position, move: Move): Boolean {
-    if (before.variant != Variant.ATOMIC) return false
+internal fun isCaptureMove(before: Position, move: Move): Boolean {
     if (move.isCastle || move.isDrop) return false
     val capturedSquare = if (move.isEnPassant) {
         Square.of(Square.file(move.to), Square.rank(move.from))
@@ -124,22 +124,25 @@ internal fun isAtomicCapture(before: Position, move: Move): Boolean {
 }
 
 /**
- * The [AnimatedMove] for an Atomic capture: the capturing piece slides from its origin to
- * the capture square over the PRE-explosion board (all soon-to-explode pieces still shown),
- * so the move reads first and the explosion clears the board only once the slide settles.
- * [id] is supplied by the caller (each view model owns its animation counter). Returns null
- * if the origin is somehow empty.
+ * The [AnimatedMove] for a FORWARD capture slide: the capturing piece slides from its origin
+ * to the capture square over the PRE-move board — where the captured piece is still present —
+ * so the capture reads (you see WHAT is taken) and the board only updates to the post-move
+ * state once the slide settles. This is what keeps the captured piece visible during an
+ * arrival replay's start delay (and covers Atomic, whose whole capture region clears on
+ * settle). The overlay piece is the one that ends up on the target ([after]'s piece there),
+ * or the mover if the target ends empty (an Atomic explosion). [id] is supplied by the caller.
  */
-internal fun explosionAnim(before: Position, move: Move, id: Long): AnimatedMove? {
-    val mover = before.pieceAt(move.from) ?: return null
+internal fun captureSlideAnim(before: Position, after: Position, move: Move, id: Long): AnimatedMove? {
+    val piece = after.board.getOrNull(move.to) ?: before.pieceAt(move.from) ?: return null
     // The mover is lifted off its origin so the static board doesn't draw it twice; the
-    // overlay slide draws it travelling to the capture square.
+    // overlay slide draws it travelling to the capture square. The captured piece stays on
+    // the pre-move board (on the target, or behind it for en passant) until the slide ends.
     val pre = before.board.toMutableList()
     pre[move.from] = null
     return AnimatedMove(
-        slides = listOf(PieceSlide(startSquare = move.from, endSquare = move.to, piece = mover)),
+        slides = listOf(PieceSlide(startSquare = move.from, endSquare = move.to, piece = piece)),
         id = id,
-        preExplosionBoard = pre,
+        preMoveBoard = pre,
     )
 }
 
@@ -556,13 +559,17 @@ class BoardViewModel(
         if (delta != 1 && delta != -1) return null
         val step = replay.steps.getOrNull(minOf(oldIndex, newIndex)) ?: return null
         if (step.move.isDrop) return null
-        // Atomic captures: forward, slide the capturer in THEN explode (see explosionAnim).
-        // Backward out of an explosion can't cleanly reverse (the exploded pieces reappear),
-        // so it snaps — no animation.
-        if (isAtomicCapture(step.before, step.move)) {
-            if (delta != 1) return null
-            animCounter += 1
-            return explosionAnim(step.before, step.move, animCounter)
+        // Captures: forward, slide the capturer in over the pre-move board so the captured
+        // piece stays visible until it lands (Atomic then clears the region on settle) —
+        // see captureSlideAnim. Backward out of an Atomic capture can't cleanly reverse (the
+        // exploded pieces would reappear), so it snaps; a normal backward capture uses the
+        // regular reverse slide below (the earlier position already shows the captured piece).
+        if (isCaptureMove(step.before, step.move)) {
+            if (delta == 1) {
+                animCounter += 1
+                return captureSlideAnim(step.before, step.after, step.move, animCounter)
+            }
+            if (step.before.variant == Variant.ATOMIC) return null
         }
         val slides = stepSlides(step, replay.positions[newIndex].board, forward = delta == 1)
         if (slides.isEmpty()) return null
@@ -578,10 +585,11 @@ class BoardViewModel(
      */
     private fun buildMoveAnim(before: Position, move: Move): AnimatedMove? {
         if (move.isDrop) return null
-        // Atomic capture staged by the user: slide the capturer in, then explode.
-        if (isAtomicCapture(before, move)) {
+        // A capture staged by the user: slide the capturer in over the pre-move board so the
+        // captured piece stays visible until it lands (Atomic clears its region on settle).
+        if (isCaptureMove(before, move)) {
             animCounter += 1
-            return explosionAnim(before, move, animCounter)
+            return captureSlideAnim(before, safeApply(before, move), move, animCounter)
         }
         val slides = if (move.isCastle) {
             val (kingTo, rookFrom, rookTo) = MoveGenerator.castleSquares(before, move)

@@ -109,7 +109,7 @@ class NewGameViewModel(
 
     data class Options(
         val mode: Mode = Mode.ONLINE,
-        val playMode: PlayMode = PlayMode.SIDE_BY_SIDE,
+        val playMode: PlayMode = PlayMode.ACROSS,
         val days: Int = 2,
         val rated: Boolean = false,
         val side: Side = Side.RANDOM,
@@ -344,7 +344,11 @@ class NewGameScreen(
             )
             LightScrollView(modifier = Modifier.weight(1f).fillMaxWidth()) {
                 // Online vs in-person pinned at the top; it swaps which options follow.
-                OptionRow("Mode", options.mode.label) { viewModel.cycleMode() }
+                // Hidden when there's no token (opened from the logged-out login screen):
+                // online play is impossible without an account, so we stay in-person only.
+                if (token.isNotBlank()) {
+                    OptionRow("Mode", options.mode.label) { viewModel.cycleMode() }
+                }
                 if (inPerson) {
                     OptionRow("Play mode", options.playMode.label) { viewModel.cyclePlayMode() }
                     // Nine variants — open a picker rather than cycling one at a time.

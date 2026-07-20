@@ -126,7 +126,7 @@ private const val MOVE_ANIM_MS = 180
 // move) — long enough to register as a deliberate beat, not sluggish. Internal (not
 // private) so BoardViewModel/ReviewViewModel, which build the arrival AnimatedMoves,
 // can set it via AnimatedMove.copy(startDelayMs = ARRIVAL_ANIM_DELAY_MS).
-internal const val ARRIVAL_ANIM_DELAY_MS = 250
+internal const val ARRIVAL_ANIM_DELAY_MS = 350
 
 private const val SCRUB_SENSITIVITY = 0.7f
 
@@ -694,16 +694,17 @@ internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
             }
         }
         val sliding = anim != null && progress.value < 1f
-        // Atomic capture: while the capturer slides in, render the PRE-explosion board so
-        // every soon-to-explode piece stays visible; the origin is already lifted off it
-        // (the overlay draws the mover) and the target keeps its captured piece until the
-        // slide settles, so nothing needs hiding. Any other slide hides its landing
-        // square(s) — the overlay draws them from the destination board.
-        val explosionSliding = sliding && anim.preExplosionBoard != null
-        val boardToRender = if (explosionSliding) anim.preExplosionBoard else state.board
+        // Capture slide: while the capturer slides in, render the PRE-move board so the
+        // captured piece stays visible (on the target, or behind it for en passant; and for
+        // Atomic, every soon-to-explode piece too). The origin is already lifted off it (the
+        // overlay draws the mover) and the target keeps its captured piece until the slide
+        // settles, so nothing needs hiding. Any other slide hides its landing square(s) —
+        // the overlay draws them from the destination board.
+        val captureSliding = sliding && anim.preMoveBoard != null
+        val boardToRender = if (captureSliding) anim.preMoveBoard else state.board
         val hidden: Set<Int> = when {
             !sliding -> emptySet()
-            explosionSliding -> emptySet()
+            captureSliding -> emptySet()
             else -> anim.slides.mapTo(HashSet()) { it.endSquare }
         }
 
