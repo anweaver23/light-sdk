@@ -97,7 +97,7 @@ private val DOT_OUTLINE = Color(0x8C000000)
 // Monochrome only — no colour accents. Check and the variant goal-square outline both
 // reuse MARK_SHADE via a dashed border (see [DashedRegionBorder]); checkmate uses no
 // border at all (see CHECKMATE_KING_ROTATION).
-private const val DASH_STROKE_WIDTH_DP = 2f
+private const val DASH_STROKE_WIDTH_DP = 1f
 private const val DASH_ON_DP = 6f
 private const val DASH_GAP_DP = 4f
 
@@ -710,6 +710,7 @@ internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
                                 state = state,
                                 onSquareTap = onSquareTap,
                                 hidePiece = square in hidden,
+                                moveSettled = !sliding,
                             )
                         }
                     }
@@ -741,8 +742,16 @@ internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
             // of these squares is set. The phase animates a 0..1 fraction (LinearEasing,
             // Restart); DashedRegionBorder scales it by the full dash+gap PERIOD so the
             // wrap from 1 back to 0 lines up exactly and the ants never visibly jump.
-            (state.checkedKingSquare ?: state.checkmateKingSquare)?.let { sq ->
-                val (r, c) = squareToRowCol(sq, state.flipped)
+            //
+            // Held back until the move slide has SETTLED (!sliding), so on the move that
+            // delivers the check/mate the border appears only once the piece has landed —
+            // not mid-flight. NB: gate on !sliding, NOT `anim == null`: animatingMove
+            // persists across recomputes (it rests at progress 1f between moves), so it is
+            // rarely null; `sliding` is the true "a slide is in progress right now" signal.
+            val kingSquare = state.checkedKingSquare ?: state.checkmateKingSquare
+
+            if (kingSquare != null && !sliding) {
+                val (r, c) = squareToRowCol(kingSquare, state.flipped)
                 val marchTransition = rememberInfiniteTransition(label = "check-march")
                 val phaseFraction by marchTransition.animateFloat(
                     initialValue = 0f,
@@ -750,6 +759,7 @@ internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
                     animationSpec = infiniteRepeatable(tween(CHECK_MARCH_MS, easing = LinearEasing)),
                     label = "check-march-phase",
                 )
+
                 DashedRegionBorder(
                     modifier = Modifier
                         .offset(x = squareSize * c, y = squareSize * r)
@@ -1124,6 +1134,9 @@ private fun SquareCell(
     state: BoardUiState,
     onSquareTap: (Int) -> Unit,
     hidePiece: Boolean = false,
+    // False while a move slide is in flight — the checkmate king only turns sideways once
+    // the mating move has landed, so the rotation reads as a beat AFTER the move, not during.
+    moveSettled: Boolean = true,
 ) {
     val background = if (Square.isLight(square)) BOARD_LIGHT else BOARD_DARK
     val isSelected = square == state.selectedSquare
@@ -1153,12 +1166,14 @@ private fun SquareCell(
         // overlay draws the piece instead so it isn't shown twice.
         if (!hidePiece) {
             piece?.let {
-                // Animates 0->90 the moment this square becomes the checkmated king's
-                // square, and back on undo (stepping out of the mate position) — driven
-                // by animateFloatAsState so it always eases toward the current target
-                // rather than snapping, the same MOVE_ANIM_MS pace as a normal slide.
+                // Turns the checkmated king onto its side once the mating move has SETTLED
+                // (moveSettled) — so the rotation plays as a beat after the piece lands, not
+                // during its slide — and rotates back on undo (stepping out of the mate).
+                // animateFloatAsState eases toward the current target at the normal slide
+                // pace (MOVE_ANIM_MS). Gate on moveSettled, NOT animatingMove == null:
+                // animatingMove persists between moves, so it's rarely null.
                 val angle by animateFloatAsState(
-                    targetValue = if (square == state.checkmateKingSquare) CHECKMATE_KING_ROTATION else 0f,
+                    targetValue = if (square == state.checkmateKingSquare && moveSettled) CHECKMATE_KING_ROTATION else 0f,
                     animationSpec = tween(MOVE_ANIM_MS),
                     label = "checkmate-king-angle",
                 )
