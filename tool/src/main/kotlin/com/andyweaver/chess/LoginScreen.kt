@@ -43,6 +43,7 @@ fun LoginPane(
     loginError: String?,
     onSubmit: (String) -> Unit,
     onDismissError: () -> Unit,
+    onStartInPerson: () -> Unit,
 ) {
     var entering by remember { mutableStateOf(false) }
 
@@ -74,7 +75,8 @@ fun LoginPane(
                     verticalArrangement = Arrangement.spacedBy(1f.gridUnitsAsDp()),
                 ) {
                     LightText(
-                        text = "Sign in to Lichess with a personal access token.",
+                        text = "Log in with a Lichess token to play online. " +
+                            "You can also play in-person games without logging in.",
                         variant = LightTextVariant.Copy,
                     )
                     LightText(
@@ -98,9 +100,9 @@ fun LoginPane(
             }
             LightBottomBar(
                 items = listOf(
-                    null,
+                    // Bottom-left: play without an account. Bottom-right: the login path.
+                    LightBarButton.Text(text = "IN PERSON", onClick = onStartInPerson),
                     LightBarButton.Text(text = "ENTER TOKEN", onClick = { entering = true }),
-                    null,
                 ),
             )
         }

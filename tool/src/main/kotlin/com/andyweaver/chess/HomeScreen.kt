@@ -446,6 +446,9 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                     loginError = loginError,
                     onSubmit = { viewModel.attemptLogin(it) },
                     onDismissError = { viewModel.dismissLoginError() },
+                    // Play without an account: open the new-game screen straight into in-person
+                    // options (no token — the online path is hidden there while logged out).
+                    onStartInPerson = { navigateTo({ sa -> NewGameScreen(sa, "", "", startInPerson = true) }) },
                 )
             } else {
             Column(

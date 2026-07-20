@@ -65,6 +65,23 @@ object Chess {
     /** Status (ongoing / check / checkmate / stalemate / draw) of [position]. */
     fun status(position: Position): GameStatus = GameStatusEvaluator.status(position)
 
+    /**
+     * Authoritative, variant-aware [GameOutcome] for a game — whether it is over and, if
+     * so, who won and why. Use this for the LOCAL two-human game mode where there is no
+     * Lichess stream to report the result. Some variants (Three-check) need the move
+     * history, so this takes the whole [replay].
+     */
+    fun outcome(replay: Replay): GameOutcome =
+        GameStatusEvaluator.outcome(replay.positions, replay.initial.variant)
+
+    /**
+     * Export [replay] as a PGN string (Seven Tag Roster + movetext + result token), with a
+     * `Variant` tag for non-standard variants and `FEN`/`SetUp` tags when the game starts
+     * from a non-standard position. Provide [tags] to override any default (e.g. player
+     * names, event, date). See [Pgn].
+     */
+    fun toPgn(replay: Replay, tags: Map<String, String> = emptyMap()): String = Pgn.export(replay, tags)
+
     /** True if the side to move is in check (variant-aware). */
     fun isInCheck(position: Position): Boolean = MoveGenerator.inCheck(position, position.sideToMove)
 

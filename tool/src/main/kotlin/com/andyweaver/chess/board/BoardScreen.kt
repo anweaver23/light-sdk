@@ -523,7 +523,7 @@ internal fun CrazyhouseReviewBottomBar(
  * The long press arms it (so quick taps on the arrows still work); horizontal position across the
  * position then maps 0→1 across all moves. [onSeek] receives that fraction.
  */
-private fun Modifier.moveScrubX(
+internal fun Modifier.moveScrubX(
     currentFraction: Float,
     onSeek: (Float) -> Unit
 ): Modifier = composed {
@@ -585,7 +585,7 @@ private fun SkipControl(
 }
 
 @Composable
-private fun NavArrow(
+internal fun NavArrow(
     icon: LightIconConfiguration,
     contentDescription: String,
     enabled: Boolean,
@@ -743,7 +743,13 @@ internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
                             .size(squareSize),
                         contentAlignment = Alignment.Center,
                     ) {
-                        PieceGlyph(piece = s.piece, squareSize = squareSize)
+                        // Across-table mode rotates the far side's (Black) pieces 180° so
+                        // the sliding overlay matches the static board (see [SquareCell]).
+                        PieceGlyph(
+                            piece = s.piece,
+                            squareSize = squareSize,
+                            rotationDegrees = if (state.acrossMode && s.piece.color == EngineColor.BLACK) 180f else 0f,
+                        )
                     }
                 }
             }
@@ -847,13 +853,13 @@ private fun squareToRowCol(square: Int, flipped: Boolean): Pair<Float, Float> {
 }
 
 // Queen-first display order for pockets (most valuable first); pawns last.
-private val POCKET_ORDER = listOf(
+internal val POCKET_ORDER = listOf(
     PieceType.QUEEN, PieceType.ROOK, PieceType.BISHOP, PieceType.KNIGHT, PieceType.PAWN,
 )
 
 // Pocket piece cell sizes (grid units). The opponent's read-only row above the
 // board uses the same glyph size as the player's bar, just with less vertical space.
-private const val MY_POCKET_CELL_UNITS = 2.4f
+internal const val MY_POCKET_CELL_UNITS = 2.4f
 private const val OPP_POCKET_CELL_UNITS = MY_POCKET_CELL_UNITS
 // Captured-piece glyph size, used everywhere material is shown (standard play + both
 // review layouts) and for the shrunk Crazyhouse review pockets, so all banks match.
@@ -909,7 +915,7 @@ internal fun MaterialRow(
  * browse arrows. Must be called from a horizontal layout scope.
  */
 @Composable
-private fun MaterialFan(captured: List<PieceType>, capturedColor: EngineColor, advantage: Int, cellUnits: Float) {
+internal fun MaterialFan(captured: List<PieceType>, capturedColor: EngineColor, advantage: Int, cellUnits: Float) {
     val cell = cellUnits.gridUnitsAsDp()
     Row(verticalAlignment = Alignment.CenterVertically) {
         // Groups advance by MATERIAL_GROUP_GAP_UNITS (center-to-center); the negative gap
@@ -1002,7 +1008,7 @@ internal fun ReadOnlyPocketBar(
  * edge) and a forward arrow (right edge). Tap a reserve piece to pick it up to drop.
  */
 @Composable
-private fun CrazyhousePocketBar(
+internal fun CrazyhousePocketBar(
     state: BoardUiState,
     onTap: (PieceType) -> Unit,
     onBack: () -> Unit,
@@ -1044,7 +1050,7 @@ private fun CrazyhousePocketBar(
  * at the edges. No skip-to-start/end here — those live on the review screen only.
  */
 @Composable
-private fun MaterialBottomBar(
+internal fun MaterialBottomBar(
     state: BoardUiState,
     onBack: () -> Unit,
     onForward: () -> Unit,
@@ -1083,7 +1089,7 @@ private fun MaterialBottomBar(
  * showing the count. Optionally tappable/selectable.
  */
 @Composable
-private fun PocketPiece(
+internal fun PocketPiece(
     type: PieceType,
     color: EngineColor,
     count: Int,
@@ -1192,7 +1198,12 @@ private fun SquareCell(
                     animationSpec = tween(MOVE_ANIM_MS),
                     label = "checkmate-king-angle",
                 )
-                PieceGlyph(piece = it, squareSize = squareSize, rotationDegrees = angle)
+                // Across-table mode (in-person game): the far side's pieces (Black, since
+                // the board stays unflipped) are turned 180° to read upright to the player
+                // opposite. Added to the checkmate rotation so a mated Black king still
+                // turns sideways relative to that player. Zero (unchanged) off across mode.
+                val acrossRotation = if (state.acrossMode && it.color == EngineColor.BLACK) 180f else 0f
+                PieceGlyph(piece = it, squareSize = squareSize, rotationDegrees = angle + acrossRotation)
             }
         }
         if (square in state.legalDestinations || square in state.dropTargets) {
@@ -1215,7 +1226,7 @@ private fun SquareCell(
 }
 
 @Composable
-private fun PieceGlyph(piece: Piece, squareSize: Dp, rotationDegrees: Float = 0f) {
+internal fun PieceGlyph(piece: Piece, squareSize: Dp, rotationDegrees: Float = 0f) {
     // Custom piece art (vector drawables): the white/black variants bake in a fill
     // plus a contrasting outline stroke, so a piece reads on a same-coloured square
     // without any runtime tint. Rendered Fit-inside a square box so it stays centred.

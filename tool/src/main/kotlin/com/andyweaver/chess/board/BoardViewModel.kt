@@ -183,6 +183,22 @@ data class BoardUiState(
     val board: List<Piece?> = Chess.startPosition.board,
     val myColor: Color = Color.WHITE,
     val flipped: Boolean = false,
+    /**
+     * "Across the table" rendering for the in-person (local) game: the board stays
+     * unflipped (White at the bottom) and the far side's pieces (Black) are drawn rotated
+     * 180° so they read upright to a player sitting opposite. Additive to every existing
+     * behaviour — default false, so the live board and review are completely unaffected —
+     * and combines ADDITIVELY with the checkmate-king rotation (see [SquareCell]/[ChessBoard]).
+     */
+    val acrossMode: Boolean = false,
+    /**
+     * In-person (local) game only: the side to move at the currently VIEWED position — the
+     * player who can move right now (Task B lets you fork from a past position). Drives the
+     * promotion-picker colour and which pocket (Crazyhouse) is tappable, independently of
+     * [myColor], which is now pinned to the fixed BOTTOM side of the board (orientation), not
+     * the mover. Null and unused on the online board and the review screen.
+     */
+    val moverColor: Color? = null,
     val selectedSquare: Int? = null,
     val legalDestinations: Set<Int> = emptySet(),
     val lastMoveFrom: Int? = null,

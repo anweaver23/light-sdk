@@ -40,6 +40,23 @@ enum class Variant {
     }
 
     /**
+     * The Lichess-style, properly-cased variant name used in a PGN `Variant` tag
+     * (e.g. "King of the Hill", "Three-check"). Distinct from [displayName], which is
+     * lowercased for the app's minimal UI.
+     */
+    val pgnName: String get() = when (this) {
+        STANDARD -> "Standard"
+        CHESS960 -> "Chess960"
+        CRAZYHOUSE -> "Crazyhouse"
+        ATOMIC -> "Atomic"
+        KING_OF_THE_HILL -> "King of the Hill"
+        THREE_CHECK -> "Three-check"
+        ANTICHESS -> "Antichess"
+        RACING_KINGS -> "Racing Kings"
+        HORDE -> "Horde"
+    }
+
+    /**
      * The variant's fixed starting FEN when it differs from standard chess, else null
      * (standard start). Lichess's board stream reports `initialFen: "startpos"` even for
      * these fixed-but-non-standard starts, so callers substitute this when they see it.

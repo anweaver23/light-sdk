@@ -134,6 +134,16 @@ sealed interface LichessActionResult {
 }
 
 /**
+ * Result of importing a PGN via `POST /api/import`. On success Lichess returns the created
+ * game's [id] and public [url]; on failure it returns an error message (surfaced verbatim so
+ * the user sees Lichess's own wording).
+ */
+sealed interface LichessImportResult {
+    data class Success(val id: String, val url: String) : LichessImportResult
+    data class Failure(val error: String) : LichessImportResult
+}
+
+/**
  * The kind of line seen on `GET /api/stream/event`. This stream is event-driven for
  * game start/finish and challenges only — it does NOT push per-move updates. The home
  * screen reacts by re-fetching the relevant list; the full payload isn't needed here.
@@ -507,6 +517,42 @@ class LichessApi(private val token: String) {
             },
         )
         return resultFrom(response)
+    }
+
+    /**
+     * Imports a game from [pgn] into the authenticated account. `POST /api/import`
+     * (form-urlencoded, field `pgn`; any OAuth token works). Returns the created game's id
+     * and public url on success. Used by the in-person (local) game screen to save a
+     * finished hot-seat game to Lichess.
+     *
+     * NOTE: Lichess's importer normalises/validates the PGN and can REJECT some inputs —
+     * certain variants it can't ingest, or malformed movetext — returning an error message.
+     * We surface that message to the user rather than crashing; the engine's [Chess.toPgn]
+     * emits a proper `Variant` tag, but acceptance is ultimately Lichess's call.
+     */
+    suspend fun importGame(pgn: String): LichessImportResult {
+        val response = client.submitForm(
+            url = "$BASE_URL/api/import",
+            formParameters = Parameters.build { append("pgn", pgn) },
+        )
+        val bodyText = response.bodyAsText()
+        if (response.status.isSuccess()) {
+            return runCatching {
+                val obj = json.parseToJsonElement(bodyText).jsonObject
+                val id = obj["id"]?.jsonPrimitive?.content
+                val url = obj["url"]?.jsonPrimitive?.content
+                    ?: id?.let { "$BASE_URL/$it" }
+                if (url != null) {
+                    LichessImportResult.Success(id ?: "", url)
+                } else {
+                    LichessImportResult.Failure("Lichess accepted the game but returned no link.")
+                }
+            }.getOrElse { LichessImportResult.Failure("Couldn't read Lichess's response.") }
+        }
+        val error = runCatching {
+            json.parseToJsonElement(bodyText).jsonObject["error"]?.jsonPrimitive?.content
+        }.getOrNull() ?: bodyText.ifBlank { "HTTP ${response.status.value}" }
+        return LichessImportResult.Failure(error)
     }
 
     private suspend fun postAction(url: String): LichessActionResult = resultFrom(client.post(url))

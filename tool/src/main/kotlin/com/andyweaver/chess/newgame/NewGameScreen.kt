@@ -9,12 +9,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.lifecycle.viewModelScope
+import com.andyweaver.chess.board.LocalGameScreen
 import com.andyweaver.chess.lichess.LichessActionResult
 import com.andyweaver.chess.lichess.LichessApi
 import com.andyweaver.chess.lichess.LichessUser
@@ -70,9 +72,21 @@ class NewGameViewModel(
     private val api: LichessApi,
     private val settings: ChessSettings,
     private val accountKey: String,
+    // When launched from home's in-person entry, start on the in-person options directly.
+    startInPerson: Boolean = false,
 ) : LightViewModel<Unit>() {
 
     enum class Step { OPTIONS, VARIANT, OPPONENT, USERNAME, DONE }
+
+    /** Online (Lichess) vs. in-person hot-seat play on this one device. */
+    enum class Mode(val label: String) { ONLINE("Online"), IN_PERSON("In person") }
+
+    /**
+     * In-person board orientation. [ACROSS] keeps the board fixed and rotates
+     *      * the far side's pieces for a player sitting opposite; [SIDE_BY_SIDE] flips the board after each move so the
+     * player to move is always at the bottom. Passed to [LocalGameScreen].
+     */
+    enum class PlayMode(val label: String) { ACROSS("Across"), SIDE_BY_SIDE("Side by side") }
 
     enum class Side(val label: String, val apiValue: String) {
         RANDOM("Random", "random"),
@@ -94,11 +108,16 @@ class NewGameViewModel(
     }
 
     data class Options(
+        val mode: Mode = Mode.ONLINE,
+        val playMode: PlayMode = PlayMode.SIDE_BY_SIDE,
         val days: Int = 2,
         val rated: Boolean = false,
         val side: Side = Side.RANDOM,
         val variant: Variant = Variant.STANDARD,
     )
+
+    /** One-shot request to open the in-person board with a chosen variant/orientation. */
+    data class LocalGameRequest(val variantKey: String, val across: Boolean)
 
     sealed class Friends {
         object Loading : Friends()
@@ -115,10 +134,39 @@ class NewGameViewModel(
         val error: String? = null,
     )
 
-    private val _uiState = MutableStateFlow(UiState())
+    private val _uiState = MutableStateFlow(
+        UiState(options = Options(mode = if (startInPerson) Mode.IN_PERSON else Mode.ONLINE)),
+    )
     val uiState: StateFlow<UiState> = _uiState
 
+    // One-shot: set when the user starts an in-person game, consumed by the screen to
+    // navigate to LocalGameScreen (mirrors HomeScreen's openGame pattern).
+    private val _startLocal = MutableStateFlow<LocalGameRequest?>(null)
+    val startLocal: StateFlow<LocalGameRequest?> = _startLocal
+
     // ----- options -----
+
+    fun cycleMode() = _uiState.update {
+        val values = Mode.entries
+        val next = values[(it.options.mode.ordinal + 1) % values.size]
+        it.copy(options = it.options.copy(mode = next))
+    }
+
+    fun cyclePlayMode() = _uiState.update {
+        val values = PlayMode.entries
+        val next = values[(it.options.playMode.ordinal + 1) % values.size]
+        it.copy(options = it.options.copy(playMode = next))
+    }
+
+    fun startLocalGame() {
+        val opts = _uiState.value.options
+        _startLocal.value = LocalGameRequest(
+            variantKey = opts.variant.apiValue,
+            across = opts.playMode == PlayMode.ACROSS,
+        )
+    }
+
+    fun consumeStartLocal() { _startLocal.value = null }
 
     fun cycleDays() = _uiState.update {
         val next = DAYS_OPTIONS[(DAYS_OPTIONS.indexOf(it.options.days) + 1) % DAYS_OPTIONS.size]
@@ -229,18 +277,27 @@ class NewGameScreen(
     sealedActivity: SealedLightActivity,
     private val token: String,
     private val accountKey: String,
+    private val startInPerson: Boolean = false,
 ) : LightScreen<Unit, NewGameViewModel>(sealedActivity) {
 
     override val viewModelClass: Class<NewGameViewModel>
         get() = NewGameViewModel::class.java
 
     override fun createViewModel(): NewGameViewModel =
-        NewGameViewModel(LichessApi(token), ChessSettings(lightContext.dataStore), accountKey)
+        NewGameViewModel(LichessApi(token), ChessSettings(lightContext.dataStore), accountKey, startInPerson)
 
     @Composable
     override fun Content() {
         val themeColors by LightThemeController.colors.collectAsState()
         val state by viewModel.uiState.collectAsState()
+        val startLocal by viewModel.startLocal.collectAsState()
+
+        // Starting an in-person game jumps to the local (hot-seat) board.
+        LaunchedEffect(startLocal) {
+            val req = startLocal ?: return@LaunchedEffect
+            viewModel.consumeStartLocal()
+            navigateTo({ sa -> LocalGameScreen(sa, req.variantKey, req.across, token) })
+        }
 
         LightTheme(colors = themeColors) {
             Box(
@@ -278,24 +335,36 @@ class NewGameScreen(
 
     @Composable
     private fun OptionsStep(options: NewGameViewModel.Options) {
+        val inPerson = options.mode == NewGameViewModel.Mode.IN_PERSON
         Column(modifier = Modifier.fillMaxSize()) {
             LightTopBar(
                 leftButton = LightBarButton.LightIcon(icon = LightIcons.BACK, onClick = { goBack() }),
-                center = LightTopBarCenter.Text("New daily game"),
+                center = LightTopBarCenter.Text(if (inPerson) "New in-person game" else "New daily game"),
                 modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
             )
             LightScrollView(modifier = Modifier.weight(1f).fillMaxWidth()) {
-                val days = options.days
-                OptionRow("Time per move", "$days ${if (days == 1) "day" else "days"}") { viewModel.cycleDays() }
-                OptionRow("Mode", if (options.rated) "Rated" else "Casual") { viewModel.toggleRated() }
-                OptionRow("Your side", options.side.label) { viewModel.cycleSide() }
-                // Nine variants — open a picker rather than cycling one at a time.
-                OptionRow("Variant", options.variant.label) { viewModel.goToVariant() }
+                // Online vs in-person pinned at the top; it swaps which options follow.
+                OptionRow("Mode", options.mode.label) { viewModel.cycleMode() }
+                if (inPerson) {
+                    OptionRow("Play mode", options.playMode.label) { viewModel.cyclePlayMode() }
+                    // Nine variants — open a picker rather than cycling one at a time.
+                    OptionRow("Variant", options.variant.label) { viewModel.goToVariant() }
+                } else {
+                    val days = options.days
+                    OptionRow("Time per move", "$days ${if (days == 1) "day" else "days"}") { viewModel.cycleDays() }
+                    OptionRow("Rating", if (options.rated) "Rated" else "Casual") { viewModel.toggleRated() }
+                    OptionRow("Your side", options.side.label) { viewModel.cycleSide() }
+                    OptionRow("Variant", options.variant.label) { viewModel.goToVariant() }
+                }
             }
             LightBottomBar(
                 items = listOf(
                     null,
-                    LightBarButton.Text(text = "NEXT", onClick = { viewModel.goToOpponents() }),
+                    if (inPerson) {
+                        LightBarButton.Text(text = "START GAME", onClick = { viewModel.startLocalGame() })
+                    } else {
+                        LightBarButton.Text(text = "NEXT", onClick = { viewModel.goToOpponents() })
+                    },
                 ),
             )
         }
