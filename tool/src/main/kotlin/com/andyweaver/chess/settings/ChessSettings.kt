@@ -13,6 +13,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import java.util.UUID
 
 /**
  * Combined snapshot of all persisted chess settings, for callers (e.g. Compose
@@ -50,6 +51,24 @@ data class PendingSeek(
     val side: String,
     val createdAt: Long,
     val variant: String = "standard",
+)
+
+/**
+ * Tracks that a newly-appeared game id was matched (by [reconcileSeeks]'s heuristic)
+ * to a specific consumed [seek]. Kept around — instead of discarding the seek
+ * outright — so that if [gameId] later disappears from the ongoing-games list while
+ * it was still early (an abort before either side really moved, which Lichess
+ * re-queues the original seek for), we can revive a fresh [PendingSeek] with the same
+ * terms. [lastObservedPly] is the highest ply count we've seen for [gameId] across
+ * polls (see [reconcileSeeks]); once a game has reached real moves (>= 2 plies) and
+ * then disappears, it was a legitimately finished game, not a re-queued seek, so no
+ * revival happens.
+ */
+@Serializable
+data class SeekMatch(
+    val gameId: String,
+    val seek: PendingSeek,
+    val lastObservedPly: Int = 0,
 )
 
 /**
@@ -132,6 +151,7 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
             if (username != null) {
                 prefs.remove(pendingSeeksKey(username))
                 prefs.remove(knownGamesKey(username))
+                prefs.remove(seekMatchesKey(username))
             }
         }
     }
@@ -161,28 +181,90 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
     }
 
     /**
-     * Clears seeks that have likely been matched. Since correspondence seeks aren't
-     * listable/cancelable via the API, we infer a match when a game id appears that we
-     * haven't seen for this account before: each newly-appeared game clears one (oldest)
-     * pending seek. The first call for an account only records the baseline.
+     * Clears seeks that have likely been matched, and revives ones whose match turned
+     * out to be an early abort. Since correspondence seeks aren't listable/cancelable
+     * via the API, we infer a match when a game id appears that we haven't seen for
+     * this account before: each newly-appeared game consumes one (oldest) pending
+     * seek — but instead of discarding that seek, we remember the (gameId, seek)
+     * pairing as a [SeekMatch] so a later disappearance can be reasoned about.
+     *
+     * [currentGames] maps each currently-ongoing game id to its ply count (moves
+     * played so far), or null if it couldn't be determined (e.g. an unparseable FEN);
+     * see `HomeScreenViewModel`'s `plyCount()` helper (derived from the FEN's active
+     * color + fullmove number, no extra API call).
+     *
+     * Known limitation this specifically handles: a seek can match into a game that
+     * the opponent then ABORTS before either side has moved (Lichess allows this).
+     * The aborted game vanishes from the ongoing-games list, and Lichess silently
+     * re-queues the original seek, later producing an unrelated new game id. Without
+     * tracking (gameId -> seek) pairs, that would either double-clear a marker that
+     * was never re-added, or (worse) require guessing — so we track the pairing and
+     * only permanently drop it once we've observed >= 2 plies (mirrors
+     * `BoardViewModel.canAbort`'s own "< 2 plies" abort-eligibility threshold) at some
+     * point before the game disappeared. If it disappears having stayed under that
+     * threshold, we treat it as an abort and restore a fresh [PendingSeek] with the
+     * same terms (new local id/timestamp — the original's id was never a server id).
+     * A game reaching >= 2 plies and then disappearing is a legitimately finished game
+     * (resign/checkmate/draw), so its match record is just dropped, no revival.
+     *
+     * The first call for an account only records the baseline (nothing to diff against
+     * yet), matching the original behavior.
      */
-    suspend fun reconcileSeeks(account: String, currentGameIds: Set<String>) {
+    suspend fun reconcileSeeks(account: String, currentGames: Map<String, Int?>) {
         dataStore.edit { prefs ->
+            val currentGameIds = currentGames.keys
             val known = prefs[knownGamesKey(account)]
             if (known == null) {
                 prefs[knownGamesKey(account)] = currentGameIds
                 return@edit
             }
             val newlyAppeared = currentGameIds - known
-            val seeks = prefs[pendingSeeksKey(account)] ?: emptySet()
-            if (newlyAppeared.isNotEmpty() && seeks.isNotEmpty()) {
-                val oldestIds = seeks.mapNotNull { decodeSeek(it) }
-                    .sortedBy { it.createdAt }
-                    .take(newlyAppeared.size)
-                    .map { it.id }
-                    .toSet()
-                prefs[pendingSeeksKey(account)] = seeks.filterNot { decodeSeek(it)?.id in oldestIds }.toSet()
+            val disappeared = known - currentGameIds
+
+            var seeks = prefs[pendingSeeksKey(account)] ?: emptySet()
+            var matches = (prefs[seekMatchesKey(account)] ?: emptySet()).mapNotNull { decodeMatch(it) }
+
+            // Refresh the last-observed ply for matches whose game is still around.
+            matches = matches.map { m ->
+                val ply = currentGames[m.gameId]
+                if (ply != null) m.copy(lastObservedPly = maxOf(m.lastObservedPly, ply)) else m
             }
+
+            // Matches whose game just disappeared: revive the seek if it never really
+            // started (an early abort), otherwise drop the match — it finished for real.
+            val goneMatches = matches.filter { it.gameId in disappeared }
+            if (goneMatches.isNotEmpty()) {
+                for (m in goneMatches) {
+                    if (m.lastObservedPly < 2) {
+                        val revived = m.seek.copy(id = UUID.randomUUID().toString(), createdAt = System.currentTimeMillis())
+                        seeks = seeks + json.encodeToString(revived)
+                    }
+                }
+                matches = matches.filterNot { it.gameId in disappeared }
+            }
+
+            // Newly-appeared games consume the oldest pending seeks — but instead of
+            // discarding them, remember the pairing as a tracked match (see above).
+            // Pairing order is arbitrary (Lichess gives us no way to know which seek
+            // matched which game) but deterministic, matching the original heuristic.
+            if (newlyAppeared.isNotEmpty() && seeks.isNotEmpty()) {
+                val oldestSeeks = seeks.mapNotNull { decodeSeek(it) }.sortedBy { it.createdAt }
+                val newGameIds = newlyAppeared.sorted()
+                val pairCount = minOf(oldestSeeks.size, newGameIds.size)
+                for (i in 0 until pairCount) {
+                    val seek = oldestSeeks[i]
+                    val gameId = newGameIds[i]
+                    matches = matches + SeekMatch(
+                        gameId = gameId,
+                        seek = seek,
+                        lastObservedPly = currentGames[gameId] ?: 0,
+                    )
+                    seeks = seeks.filterNot { decodeSeek(it)?.id == seek.id }.toSet()
+                }
+            }
+
+            prefs[pendingSeeksKey(account)] = seeks
+            prefs[seekMatchesKey(account)] = matches.map { json.encodeToString(it) }.toSet()
             prefs[knownGamesKey(account)] = currentGameIds
         }
     }
@@ -190,8 +272,12 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
     private fun decodeSeek(raw: String): PendingSeek? =
         runCatching { json.decodeFromString<PendingSeek>(raw) }.getOrNull()
 
+    private fun decodeMatch(raw: String): SeekMatch? =
+        runCatching { json.decodeFromString<SeekMatch>(raw) }.getOrNull()
+
     private fun pendingSeeksKey(account: String) = stringSetPreferencesKey("chess_pending_seeks_$account")
     private fun knownGamesKey(account: String) = stringSetPreferencesKey("chess_known_games_$account")
+    private fun seekMatchesKey(account: String) = stringSetPreferencesKey("chess_seek_matches_$account")
 
     private object Keys {
         val NOTIFICATIONS_ENABLED = booleanPreferencesKey("chess_notifications_enabled")

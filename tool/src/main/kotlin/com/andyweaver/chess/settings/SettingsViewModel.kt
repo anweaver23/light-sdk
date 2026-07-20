@@ -4,6 +4,7 @@ import androidx.lifecycle.viewModelScope
 import com.thelightphone.sdk.LightViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.NonCancellable
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
@@ -43,6 +44,13 @@ class SettingsViewModel(private val settings: ChessSettings) : LightViewModel<Un
         }
     }
 
+    // Whether the "log out?" confirmation is showing.
+    private val _confirmingLogOut = MutableStateFlow(false)
+    val confirmingLogOut: StateFlow<Boolean> = _confirmingLogOut
+
+    fun requestLogOut() { _confirmingLogOut.value = true }
+    fun cancelLogOut() { _confirmingLogOut.value = false }
+
     /**
      * Log out: clear the stored token/username (and that user's local seek partitions),
      * then invoke [onComplete] (used to pop back to home, which now shows the login gate).
@@ -52,7 +60,8 @@ class SettingsViewModel(private val settings: ChessSettings) : LightViewModel<Un
      * [viewModelScope], so calling `goBack()` up front (as the caller used to) would kill
      * the clear before it ran — leaving the user still logged in.
      */
-    fun logOut(onComplete: () -> Unit) {
+    fun confirmLogOut(onComplete: () -> Unit) {
+        _confirmingLogOut.value = false
         viewModelScope.launch {
             withContext(NonCancellable + Dispatchers.IO) {
                 val username = settings.session.first()?.username

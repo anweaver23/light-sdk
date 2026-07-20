@@ -66,10 +66,11 @@ class ReviewViewModel(
     // Open on the game's final position; the user steps/skips backward from there.
     private var viewIndex = replay?.positions?.lastIndex ?: 0
 
-    private val _uiState = MutableStateFlow(buildState())
-    val uiState: StateFlow<BoardUiState> = _uiState.asStateFlow()
-
     // One-shot slide to play into the next state (see BoardViewModel.buildStepAnim).
+    // Declared (and populated for the opening state, below) BEFORE `_uiState` so the
+    // very first `buildState()` call can see an animation for the game's last move —
+    // property initializers run top-to-bottom, so if this stayed below `_uiState` (as
+    // it did before) it would still be null when `buildState()` first ran.
     private var pendingAnim: AnimatedMove? = null
     private var animCounter = 0L
 
@@ -84,6 +85,25 @@ class ReviewViewModel(
         animCounter += 1
         return AnimatedMove(slides = slides, id = animCounter)
     }
+
+    private val _uiState = MutableStateFlow(
+        run {
+            val lastIndex = replay?.positions?.lastIndex ?: 0
+            // Arrival animation for opening on the final move: same short start delay as
+            // the live board's arrival slide (see ARRIVAL_ANIM_DELAY_MS) so the eye
+            // registers the pre-move position before it starts sliding — without it the
+            // slide plays instantly on screen entry and is easy to miss.
+            if (lastIndex >= 1) {
+                pendingAnim = buildStepAnim(lastIndex - 1, lastIndex)?.copy(startDelayMs = ARRIVAL_ANIM_DELAY_MS)
+            }
+            val initial = buildState()
+            // One-shot, same as pushState: don't let a later buildState() call (e.g.
+            // stepToStart/stepToEnd, which call it directly with no framing) see this.
+            pendingAnim = null
+            initial
+        },
+    )
+    val uiState: StateFlow<BoardUiState> = _uiState.asStateFlow()
 
     // Push a new state built with [pendingAnim] set for the [old]→[viewIndex] step, then
     // clear it so it's a one-shot.
@@ -134,8 +154,8 @@ class ReviewViewModel(
         }
 
         val status = Chess.status(pos)
-        val inCheck = status is GameStatus.Check || status is GameStatus.Checkmate
-        val checkedKing = if (inCheck) pos.kingSquare(pos.sideToMove).takeIf { it >= 0 } else null
+        val checkedKing = if (status is GameStatus.Check) pos.kingSquare(pos.sideToMove).takeIf { it >= 0 } else null
+        val checkmateKing = if (status is GameStatus.Checkmate) pos.kingSquare(pos.sideToMove).takeIf { it >= 0 } else null
 
         // Material at the position under review (updates as the user steps/scrolls).
         val material = computeMaterial(positions.first(), pos, variant, myColor)
@@ -147,6 +167,7 @@ class ReviewViewModel(
             lastMoveFrom = lastFrom,
             lastMoveTo = lastTo,
             checkedKingSquare = checkedKing,
+            checkmateKingSquare = checkmateKing,
             canStepBack = idx > 0,
             canStepForward = idx < positions.lastIndex,
             variant = variant,

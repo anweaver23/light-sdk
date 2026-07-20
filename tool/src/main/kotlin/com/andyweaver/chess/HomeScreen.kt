@@ -1,11 +1,17 @@
 package com.andyweaver.chess
 
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.input.TextFieldState
@@ -19,6 +25,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.lifecycle.viewModelScope
@@ -48,6 +55,7 @@ import com.thelightphone.sdk.SealedLightActivity
 import com.thelightphone.sdk.SimpleLightScreen
 import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightBottomBar
+import com.thelightphone.sdk.ui.LightIcon
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightScrollView
 import com.thelightphone.sdk.ui.LightSurfaceScheme
@@ -61,6 +69,7 @@ import com.thelightphone.sdk.ui.LightTopBarCenter
 import com.thelightphone.sdk.ui.gridUnitsAsDp
 import com.thelightphone.sdk.ui.lightClickable
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
@@ -94,6 +103,9 @@ private const val HISTORY_ICON_SIZE_UNITS = 2.5f
 // only to pick up opponent MOVES in existing games (which the stream never pushes).
 // Correspondence is slow, so 20s is plenty and battery-cheap.
 private const val MOVE_POLL_INTERVAL_MS = 20_000L
+
+// Duration of one full rotation of the refresh icon while a manual refresh is in flight.
+private const val REFRESH_SPIN_MS = 800
 
 class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<Unit>() {
 
@@ -283,6 +295,35 @@ class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<
         pollJob?.cancel(); pollJob = null
     }
 
+    // Whether a MANUALLY-triggered refresh (top-bar button) is in flight — drives a
+    // spin on the refresh icon for exactly as long as the fetch actually takes.
+    // Background refreshes (stream/poll) don't touch this; only an explicit tap should
+    // visibly announce itself.
+    private val _refreshing = MutableStateFlow(false)
+    val refreshing: StateFlow<Boolean> = _refreshing
+
+    /**
+     * Manual refresh (top-bar button): fetch now, and restart the poll's delay from
+     * this moment — otherwise a tap right before the poll's next tick would be followed
+     * by a near-duplicate background refresh a few seconds later.
+     */
+    fun manualRefresh() {
+        val client = api ?: return
+        val user = session?.username ?: return
+        if (_refreshing.value) return
+        pollJob?.cancel()
+        pollJob = null
+        viewModelScope.launch(Dispatchers.IO) {
+            _refreshing.value = true
+            try {
+                fetchAndApply(client, user, showLoading = false)
+            } finally {
+                _refreshing.value = false
+            }
+        }
+        if (shown) startPoll()
+    }
+
     /**
      * Fetches games + challenges together. [showLoading] blanks to the spinner only when
      * there's nothing to show yet; background refreshes (stream/poll) update in place, and
@@ -292,29 +333,33 @@ class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<
         val client = api ?: return
         val user = session?.username ?: return
         if (showLoading && _state.value !is State.Loaded) _state.value = State.Loading
-        viewModelScope.launch(Dispatchers.IO) {
-            try {
-                val games = async { client.getOngoingCorrespondenceGames() }
-                val challenges = async { client.getChallenges() }
-                val c = challenges.await()
-                val gamesList = games.await()
-                // Bail if we logged out (or the client was swapped) while this request was in
-                // flight: otherwise a late response clobbers the NeedsLogin gate with stale
-                // games, leaving the user stuck on a dead snapshot they can't act on.
-                if (api !== client) return@launch
-                // Clear any pending seek that appears to have matched into a new game.
-                settings.reconcileSeeks(user, gamesList.map { it.gameId }.toSet())
-                _state.value = State.Loaded(
-                    Content(
-                        games = gamesList.sortedForList(),
-                        incoming = c.incoming,
-                        outgoing = c.outgoing,
-                    ),
-                )
-            } catch (e: Exception) {
-                if (api === client && _state.value !is State.Loaded) {
-                    _state.value = State.Error(e.message ?: "Unable to load games")
-                }
+        viewModelScope.launch(Dispatchers.IO) { fetchAndApply(client, user, showLoading) }
+    }
+
+    private suspend fun CoroutineScope.fetchAndApply(client: LichessApi, user: String, showLoading: Boolean) {
+        try {
+            val games = async { client.getOngoingCorrespondenceGames() }
+            val challenges = async { client.getChallenges() }
+            val c = challenges.await()
+            val gamesList = games.await()
+            // Bail if we logged out (or the client was swapped) while this request was in
+            // flight: otherwise a late response clobbers the NeedsLogin gate with stale
+            // games, leaving the user stuck on a dead snapshot they can't act on.
+            if (api !== client) return
+            // Clear any pending seek that appears to have matched into a new game
+            // (and revive one whose match turns out to have been an early abort —
+            // see ChessSettings.reconcileSeeks's doc for the full heuristic).
+            settings.reconcileSeeks(user, gamesList.associate { it.gameId to it.plyCount() })
+            _state.value = State.Loaded(
+                Content(
+                    games = gamesList.sortedForList(),
+                    incoming = c.incoming,
+                    outgoing = c.outgoing,
+                ),
+            )
+        } catch (e: Exception) {
+            if (api === client && _state.value !is State.Loaded) {
+                _state.value = State.Error(e.message ?: "Unable to load games")
             }
         }
     }
@@ -408,11 +453,52 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                     .fillMaxSize()
                     .background(LightThemeTokens.colors.background),
             ) {
-                // Centered title, matching LP convention.
-                LightTopBar(
-                    center = LightTopBarCenter.Text("Chess"),
-                    modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
-                )
+                // Centered title, matching LP convention; manual refresh on the right
+                // (the event stream + poll already keep the list fresh automatically,
+                // but a tap-to-refresh gives an immediate, explicit way to force it).
+                // Hand-rolled instead of LightTopBar's rightButton slot: that slot renders
+                // via the SDK's own internal button view, which takes no custom Modifier,
+                // so it can't carry a spin. This overlay reproduces its exact position
+                // (TopEnd, matching LightTopBar's own height/horizontal-padding constants).
+                Box(modifier = Modifier.fillMaxWidth()) {
+                    LightTopBar(
+                        center = LightTopBarCenter.Text("Chess"),
+                        modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
+                    )
+                    val refreshing by viewModel.refreshing.collectAsState()
+                    Box(
+                        modifier = Modifier
+                            .align(Alignment.TopEnd)
+                            .height(3f.gridUnitsAsDp())
+                            .padding(horizontal = 1f.gridUnitsAsDp()),
+                        contentAlignment = Alignment.CenterEnd,
+                    ) {
+                        if (refreshing) {
+                            val transition = rememberInfiniteTransition(label = "refresh-spin")
+                            val angle by transition.animateFloat(
+                                initialValue = 0f,
+                                targetValue = 360f,
+                                animationSpec = infiniteRepeatable(
+                                    animation = tween(REFRESH_SPIN_MS, easing = LinearEasing),
+                                ),
+                                label = "angle",
+                            )
+                            LightIcon(
+                                icon = LightIcons.REFRESH,
+                                contentDescription = "Refreshing",
+                                modifier = Modifier
+                                    .rotate(angle)
+                                    .lightClickable(onClick = { viewModel.manualRefresh() }),
+                            )
+                        } else {
+                            LightIcon(
+                                icon = LightIcons.REFRESH,
+                                contentDescription = "Refresh",
+                                modifier = Modifier.lightClickable(onClick = { viewModel.manualRefresh() }),
+                            )
+                        }
+                    }
+                }
 
                 Box(modifier = Modifier.weight(1f).fillMaxWidth()) {
                     when (val currentState = state) {
@@ -859,16 +945,10 @@ private fun GameRow(
     }
 }
 
-// Subtitle: which side you play (white/black), "their move" when waiting, and the
-// time remaining (always shown now — the toggles were removed for v1).
+// Subtitle: "their move"/time-remaining leads, then the variant name (non-standard
+// games only). Turn state is the more time-sensitive fact, so it comes first.
 private fun buildSubtitle(game: LichessGame): String {
     val parts = buildList {
-        // Show the variant name only for non-standard games, using the engine's display
-        // name — matches the board screen's subtitle (BoardViewModel). The previous check
-        // compared the Lichess key ("standard") to the enum name ("STANDARD"), which never
-        // matched, so "standard" was shown on every row.
-        val variant = Variant.fromKey(game.variant.key)
-        if (variant != Variant.STANDARD) add(variant.displayName)
         if (game.isMyTurn) {
             // `secondsLeft` from /api/account/playing is ALWAYS the account's own clock,
             // not the current mover's (verified against the board stream's wtime/btime).
@@ -881,6 +961,12 @@ private fun buildSubtitle(game: LichessGame): String {
         } else {
             add("their move")
         }
+        // Show the variant name only for non-standard games, using the engine's display
+        // name — matches the board screen's subtitle (BoardViewModel). The previous check
+        // compared the Lichess key ("standard") to the enum name ("STANDARD"), which never
+        // matched, so "standard" was shown on every row.
+        val variant = Variant.fromKey(game.variant.key)
+        if (variant != Variant.STANDARD) add(variant.displayName)
     }
     return parts.joinToString(" · ")
 }
@@ -904,6 +990,19 @@ private fun formatDuration(seconds: Int): String = when {
 }
 
 private fun plural(n: Int, unit: String): String = if (n == 1) unit else "${unit}s"
+
+// Ply count (half-moves played so far) derived from the FEN's active-color + fullmove
+// fields — no extra API call. Standard start = ply 0; after White's 1st move = ply 1;
+// after Black's 1st move (fullmove increments to 2) = ply 2. Used by
+// [ChessSettings.reconcileSeeks] to tell an early-aborted game (< 2 plies, matching
+// BoardViewModel's own canAbort threshold) from a legitimately finished one.
+private fun LichessGame.plyCount(): Int? {
+    val parts = fen.trim().split(" ")
+    if (parts.size < 6) return null
+    val activeColor = parts[1]
+    val fullmove = parts[5].toIntOrNull() ?: return null
+    return 2 * (fullmove - 1) + if (activeColor == "b") 1 else 0
+}
 
 // v1: last-move-in-subtitle removed — may re-add. Kept for reference.
 // private fun formatLastMove(fen: String, move: String): String {

@@ -3,6 +3,7 @@ package com.andyweaver.chess.settings
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -11,10 +12,12 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import com.andyweaver.chess.AboutScreen
 import com.thelightphone.sdk.LightScreen
 import com.thelightphone.sdk.SealedLightActivity
 import com.thelightphone.sdk.ui.LightBarButton
+import com.thelightphone.sdk.ui.LightBottomBar
 import com.thelightphone.sdk.ui.LightIcon
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightScrollView
@@ -57,8 +60,10 @@ class SettingsScreen(sealedActivity: SealedLightActivity) :
     override fun Content() {
         val themeColors by LightThemeController.colors.collectAsState()
         val snapshot by viewModel.snapshot.collectAsState()
+        val confirmingLogOut by viewModel.confirmingLogOut.collectAsState()
 
         LightTheme(colors = themeColors) {
+            Box(modifier = Modifier.fillMaxSize()) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -92,11 +97,49 @@ class SettingsScreen(sealedActivity: SealedLightActivity) :
                     )
                     SettingsActionRow(
                         label = "Log out",
-                        onClick = { viewModel.logOut(onComplete = { goBack() }) },
+                        onClick = { viewModel.requestLogOut() },
                     )
                 }
             }
+
+            if (confirmingLogOut) {
+                LogOutConfirmOverlay(
+                    onConfirm = { viewModel.confirmLogOut(onComplete = { goBack() }) },
+                    onCancel = { viewModel.cancelLogOut() },
+                )
+            }
+            }
         }
+    }
+}
+
+@Composable
+private fun LogOutConfirmOverlay(onConfirm: () -> Unit, onCancel: () -> Unit) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(LightThemeTokens.colors.background),
+    ) {
+        Box(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth()
+                .padding(horizontal = 1f.gridUnitsAsDp()),
+            contentAlignment = Alignment.Center,
+        ) {
+            LightText(text = "Log out?", variant = LightTextVariant.Copy, align = TextAlign.Center)
+        }
+        LightBottomBar(
+            items = listOf(
+                null,
+                LightBarButton.Text(text = "CONFIRM", onClick = onConfirm),
+                LightBarButton.LightIcon(
+                    icon = LightIcons.CLOSE,
+                    onClick = onCancel,
+                    contentDescription = "Cancel",
+                ),
+            ),
+        )
     }
 }
 

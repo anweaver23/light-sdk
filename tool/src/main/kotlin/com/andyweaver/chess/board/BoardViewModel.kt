@@ -56,6 +56,11 @@ data class PieceSlide(
 data class AnimatedMove(
     val slides: List<PieceSlide>,
     val id: Long,
+    /** Extra delay (ms) before the slide starts — used only for "arrival" animations
+     * (opening a live game/review on its last move) so the eye registers the pre-move
+     * position before it moves. Zero (immediate) for every other animation: manual
+     * step/scrub, a live opponent move landing, or the user's own staged move. */
+    val startDelayMs: Int = 0,
 )
 
 /**
@@ -105,7 +110,10 @@ data class BoardUiState(
     val legalDestinations: Set<Int> = emptySet(),
     val lastMoveFrom: Int? = null,
     val lastMoveTo: Int? = null,
+    /** Live check only (not checkmate) — draws the marching-ants dashed border. */
     val checkedKingSquare: Int? = null,
+    /** Checkmate only — draws no border; the king itself renders turned sideways. */
+    val checkmateKingSquare: Int? = null,
     /** When true, the promotion picker is shown; render the four choices in [myColor]. */
     val promotionActive: Boolean = false,
     val mode: BottomMode = BottomMode.BROWSE,
@@ -229,6 +237,26 @@ class BoardViewModel(
 
     private val myColorString = if (myColor == Color.WHITE) "white" else "black"
 
+    // A one-shot animation to play into the next state, and a counter to key it. Declared
+    // here (BEFORE init{}) rather than down in the "history browsing" section below,
+    // because property initializers/init blocks run in textual declaration order — if
+    // these stayed below init{}, their `= null` / `= 0L` initializers would run AFTER
+    // init{} and silently wipe out the seed-time arrival animation init{} builds.
+    private var pendingAnim: AnimatedMove? = null
+    private var animCounter = 0L
+
+    // The UCI of the last move whose arrival animation has already been shown, and the
+    // exact AnimatedMove (same id) that showed it — set ONLY when an arrival animation
+    // actually plays (seed or resetView), never eagerly. Guards applyState's resetView
+    // branch against re-animating the SAME move a second time once the real GameFull
+    // arrives: when re-emitting the "already shown" case, it must re-emit THIS SAME
+    // AnimatedMove object (same id), not null — ChessBoard keys its Animatable off
+    // anim?.id, so flipping animatingMove to null (a different key) resets/aborts
+    // whatever's mid-flight instead of just "not starting a new one". Re-emitting the
+    // same id is a harmless no-op once the slide has already finished.
+    private var arrivalAnimatedUci: String? = null
+    private var lastArrivalAnim: AnimatedMove? = null
+
     init {
         // Seed the displayed board from the game's current FEN (passed by the home
         // screen) so the FIRST render shows the real position instead of the standard
@@ -237,6 +265,27 @@ class BoardViewModel(
         if (currentFen != null) {
             replay = runCatching { Chess.replay("", currentFen, variant) }.getOrElse { Chess.replay("", null, variant) }
             viewIndex = replay.positions.lastIndex
+            // If the home row also seeded a last move, show ITS arrival animation from
+            // the very first frame instead of a static already-arrived position — the
+            // seeded state has no move list yet, so buildStepAnim can't be used; build
+            // the slide directly from the seeded destination board. Doesn't handle
+            // castling specially (a plain single-piece slide guess) — fine, since this
+            // is superseded within about one network round-trip once the real GameFull
+            // arrives and applyState rebuilds the animation from the authoritative replay.
+            if (seededLastFrom != null && seededLastTo != null) {
+                val piece = replay.positions.last().board.getOrNull(seededLastTo)
+                if (piece != null) {
+                    animCounter += 1
+                    val anim = AnimatedMove(
+                        slides = listOf(PieceSlide(seededLastFrom, seededLastTo, piece)),
+                        id = animCounter,
+                        startDelayMs = ARRIVAL_ANIM_DELAY_MS,
+                    )
+                    pendingAnim = anim
+                    lastArrivalAnim = anim
+                    arrivalAnimatedUci = seededLastMove
+                }
+            }
         }
         // Keep the confirm-moves preference current; defaults to true until loaded.
         viewModelScope.launch { settings.confirmMoves.collect { confirmMoves = it } }
@@ -339,14 +388,14 @@ class BoardViewModel(
         }
 
         // Our optimistic pending move has landed (or a new move arrived) -> release it.
-        if (pendingMove != null) {
+        val pendingLanded = pendingMove != null && run {
             val last = replay.steps.lastOrNull()
-            if ((last != null && last.move.toUci() == pendingMove!!.toUci()) ||
+            (last != null && last.move.toUci() == pendingMove!!.toUci()) ||
                 newPositions.size > oldPositions.size
-            ) {
-                pendingMove = null
-                awaitingServer = false
-            }
+        }
+        if (pendingLanded) {
+            pendingMove = null
+            awaitingServer = false
         }
 
         // Any change in ply count means the board moved under any selection.
@@ -354,14 +403,44 @@ class BoardViewModel(
             clearSelection()
         }
 
+        pendingAnim = when {
+            // Already animated at staging time (Fix 1) — re-animating here would yo-yo
+            // the piece back to its origin and re-slide, since the static board already
+            // shows the destination from the optimistic display.
+            pendingLanded -> null
+            // First connection to the stream (screen just opened/foregrounded, or a
+            // reconnect after backgrounding): animate the arrival of the last move —
+            // but only if it's not the SAME move the seed state (or a previous
+            // GameFull) already animated, or we'd re-trigger a redundant/stuttering
+            // second slide for a move already shown. A genuinely newer last move (e.g.
+            // one landed between the home screen's snapshot and the board opening, or
+            // while backgrounded) still animates normally.
+            resetView -> {
+                val newLastUci = replay.steps.lastOrNull()?.move?.toUci()
+                if (newLastUci != null && newLastUci == arrivalAnimatedUci) {
+                    // Same move already shown (seed, or an earlier connect) — re-emit the
+                    // SAME AnimatedMove (see the field doc above) so this doesn't reset an
+                    // in-flight slide.
+                    lastArrivalAnim
+                } else {
+                    arrivalAnimatedUci = newLastUci
+                    val anim = buildStepAnim(newPositions.lastIndex - 1, newPositions.lastIndex)
+                        ?.copy(startDelayMs = ARRIVAL_ANIM_DELAY_MS)
+                    lastArrivalAnim = anim
+                    anim
+                }
+            }
+            // A move arrived live while browsing the latest position (the opponent's move).
+            wasAtLatest && newPositions.size == oldPositions.size + 1 ->
+                buildStepAnim(oldPositions.lastIndex, newPositions.lastIndex)
+            else -> null
+        }
+
         recompute()
     }
 
     // ----- history browsing -----
-
-    // A one-shot animation to play into the next state, and a counter to key it.
-    private var pendingAnim: AnimatedMove? = null
-    private var animCounter = 0L
+    // (pendingAnim/animCounter now declared above, before init{} — see that comment.)
 
     /**
      * The slide to animate for a single-step transition [oldIndex] → [newIndex]. Only
@@ -376,6 +455,28 @@ class BoardViewModel(
         val step = replay.steps.getOrNull(minOf(oldIndex, newIndex)) ?: return null
         if (step.move.isDrop) return null
         val slides = stepSlides(step, replay.positions[newIndex].board, forward = delta == 1)
+        if (slides.isEmpty()) return null
+        animCounter += 1
+        return AnimatedMove(slides = slides, id = animCounter)
+    }
+
+    /**
+     * The slide(s) to animate for a move just staged by the user, built directly from
+     * the pre-move [before] position and the [move] (it isn't in the replay yet, so
+     * [stepSlides]/a [MoveRecord] don't apply). Drops have no board start square and
+     * don't animate, matching [stepSlides]'s drop handling.
+     */
+    private fun buildMoveAnim(before: Position, move: Move): AnimatedMove? {
+        if (move.isDrop) return null
+        val slides = if (move.isCastle) {
+            val (kingTo, rookFrom, rookTo) = MoveGenerator.castleSquares(before, move)
+            listOfNotNull(
+                before.pieceAt(move.from)?.let { PieceSlide(move.from, kingTo, it) },
+                before.pieceAt(rookFrom)?.let { PieceSlide(rookFrom, rookTo, it) },
+            )
+        } else {
+            listOfNotNull(before.pieceAt(move.from)?.let { PieceSlide(move.from, move.to, it) })
+        }
         if (slides.isEmpty()) return null
         animCounter += 1
         return AnimatedMove(slides = slides, id = animCounter)
@@ -550,6 +651,7 @@ class BoardViewModel(
     // Stage a move: hold it for confirmation, or submit immediately if confirm-moves is off.
     private fun stage(move: Move) {
         pendingMove = move
+        pendingAnim = buildMoveAnim(replay.finalPosition, move)
         if (confirmMoves) {
             awaitingServer = false
             recompute()
@@ -731,9 +833,14 @@ class BoardViewModel(
         // Don't reveal check/checkmate for a move the user hasn't confirmed yet.
         val moveUnconfirmed = pendingMove != null && !awaitingServer
         val displayStatus = Chess.status(displayPosition)
-        val inCheck = !moveUnconfirmed &&
-            (displayStatus is GameStatus.Check || displayStatus is GameStatus.Checkmate)
-        val checkedKing = if (inCheck) {
+        val isCheck = !moveUnconfirmed && displayStatus is GameStatus.Check
+        val isCheckmate = !moveUnconfirmed && displayStatus is GameStatus.Checkmate
+        val checkedKing = if (isCheck) {
+            displayPosition.kingSquare(displayPosition.sideToMove).takeIf { it >= 0 }
+        } else {
+            null
+        }
+        val checkmateKing = if (isCheckmate) {
             displayPosition.kingSquare(displayPosition.sideToMove).takeIf { it >= 0 }
         } else {
             null
@@ -777,6 +884,7 @@ class BoardViewModel(
             lastMoveFrom = lastFrom,
             lastMoveTo = lastTo,
             checkedKingSquare = checkedKing,
+            checkmateKingSquare = checkmateKing,
             promotionActive = pendingPromotion != null,
             mode = mode,
             canStepBack = viewIndex > 0,

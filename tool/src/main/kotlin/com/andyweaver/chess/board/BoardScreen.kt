@@ -1,7 +1,13 @@
 package com.andyweaver.chess.board
 
 import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -33,8 +39,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.PathEffect
+import androidx.compose.ui.graphics.drawscope.Stroke
 // v1: PGN export disabled — may re-add
 // import android.content.ClipData
 // import androidx.compose.ui.platform.ClipEntry
@@ -46,6 +56,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.andyweaver.chess.engine.Color as EngineColor
@@ -83,8 +94,22 @@ private val BOARD_LIGHT = Color(0xFF5B5B5B)
 private val MARK_SHADE = Color(0xFFB7B7B7)
 private val DOT_OUTLINE = Color(0x8C000000)
 
-private val CHECK_FILL = Color(0x59C0392B)          // muted red — king in check
-private val GOAL_OUTLINE = Color(0xFFCC3B3B)        // red — variant goal squares (KotH centre, Racing Kings rank 8)
+// Monochrome only — no colour accents. Check and the variant goal-square outline both
+// reuse MARK_SHADE via a dashed border (see [DashedRegionBorder]); checkmate uses no
+// border at all (see CHECKMATE_KING_ROTATION).
+private const val DASH_STROKE_WIDTH_DP = 2f
+private const val DASH_ON_DP = 6f
+private const val DASH_GAP_DP = 4f
+
+// Check border "marches" continuously (dash phase cycles) to read as live/urgent —
+// one full dash+gap cycle per this duration. The goal-square border is stationary
+// (phase 0, no animation) since it's just marking fixed squares, not an ongoing threat.
+private const val CHECK_MARCH_MS = 600
+
+// The checkmated king turns onto its side — same pace as a normal move slide
+// (MOVE_ANIM_MS), just a rotation instead of a translation. No border is drawn for
+// checkmate (that's the live-check-only dashed border above); this alone signals it.
+private const val CHECKMATE_KING_ROTATION = 90f
 
 // Skip-to-start/end bar height, in grid units. The nav arrows render inside a 2f
 // box but the visible glyph is padded within it, so a full-2f bar looks taller
@@ -96,6 +121,12 @@ private const val PIECE_SCALE = 0.82f
 
 // Duration of a piece slide when stepping/scrubbing between positions (ms).
 private const val MOVE_ANIM_MS = 180
+
+// Extra pause before an "arrival" slide starts (opening a live game/review on its last
+// move) — long enough to register as a deliberate beat, not sluggish. Internal (not
+// private) so BoardViewModel/ReviewViewModel, which build the arrival AnimatedMoves,
+// can set it via AnimatedMove.copy(startDelayMs = ARRIVAL_ANIM_DELAY_MS).
+internal const val ARRIVAL_ANIM_DELAY_MS = 250
 
 private const val SCRUB_SENSITIVITY = 0.7f
 
@@ -306,21 +337,49 @@ private fun BottomControls(state: BoardUiState, viewModel: BoardViewModel) {
         }
 
         BottomMode.PENDING -> {
-            LightBottomBar(
-                items = listOf(
-                    null,
-                    LightBarButton.Text(
-                        text = "CONFIRM",
-                        onClick = { viewModel.confirmPendingMove() },
-                    ),
-                    LightBarButton.LightIcon(
-                        icon = LightIcons.CLOSE,
-                        onClick = { viewModel.cancelPendingMove() },
-                        contentDescription = "Cancel move",
-                    ),
-                ),
+            PendingBar(
+                onConfirm = { viewModel.confirmPendingMove() },
+                onCancel = { viewModel.cancelPendingMove() },
             )
         }
+    }
+}
+
+/**
+ * The CONFIRM/cancel bar shown while a move is staged. Hand-rolled instead of
+ * [LightBottomBar] (which this reproduces for `[null, Text("CONFIRM"), LightIcon(CLOSE)]`)
+ * so its footprint exactly matches the browse-mode bars ([MaterialBottomBar] /
+ * [CrazyhousePocketBar]) — `LightBottomBar` adds a 1-grid-unit top margin on top of its
+ * 4-unit height, so swapping between it and the browse bars visibly shrank/grew the
+ * board each time a move was staged/cancelled.
+ */
+@Composable
+private fun PendingBar(onConfirm: () -> Unit, onCancel: () -> Unit) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(4f.gridUnitsAsDp())
+            .padding(horizontal = 1f.gridUnitsAsDp()),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        LightIcon(icon = LightIcons.SPACER, contentDescription = null)
+        Box(
+            modifier = Modifier.lightClickable(onClick = onConfirm),
+            contentAlignment = Alignment.Center,
+        ) {
+            LightText(
+                text = "CONFIRM",
+                variant = LightTextVariant.Fine,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+        }
+        LightIcon(
+            icon = LightIcons.CLOSE,
+            contentDescription = "Cancel move",
+            modifier = Modifier.lightClickable(onClick = onCancel),
+        )
     }
 }
 
@@ -627,7 +686,12 @@ internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
         val anim = state.animatingMove
         val progress = remember(anim?.id) { Animatable(if (anim != null) 0f else 1f) }
         LaunchedEffect(anim?.id) {
-            if (anim != null) progress.animateTo(1f, animationSpec = tween(MOVE_ANIM_MS))
+            if (anim != null) {
+                progress.animateTo(
+                    1f,
+                    animationSpec = tween(MOVE_ANIM_MS, delayMillis = anim.startDelayMs),
+                )
+            }
         }
         val sliding = anim != null && progress.value < 1f
         val hidden: Set<Int> = if (sliding) anim.slides.mapTo(HashSet()) { it.endSquare } else emptySet()
@@ -670,7 +734,72 @@ internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
                     }
                 }
             }
+
+            // Check: a single square, dashed border whose dashes continuously "march"
+            // (phase cycles) to read as live/ongoing. Checkmate shows no border at all —
+            // just the sideways king (see SquareCell) — so this only fires for a live check.
+            state.checkedKingSquare?.let { sq ->
+                val (r, c) = squareToRowCol(sq, state.flipped)
+                val marchTransition = rememberInfiniteTransition(label = "check-march")
+                val phase by marchTransition.animateFloat(
+                    initialValue = 0f,
+                    targetValue = DASH_ON_DP + DASH_GAP_DP,
+                    animationSpec = infiniteRepeatable(tween(CHECK_MARCH_MS, easing = LinearEasing)),
+                    label = "check-march-phase",
+                )
+                DashedRegionBorder(
+                    modifier = Modifier
+                        .offset(x = squareSize * c, y = squareSize * r)
+                        .size(squareSize),
+                    phase = phase,
+                )
+            }
+
+            // Variant goal squares (KotH centre, Racing Kings rank 8): ONE combined,
+            // stationary dashed border around the whole highlighted region — not one per
+            // square. The highlighted squares always form a single axis-aligned rect (a
+            // 2x2 block or a full rank), so their bounding box IS that region.
+            if (state.goalSquares.isNotEmpty()) {
+                val cells = state.goalSquares.map { squareToRowCol(it, state.flipped) }
+                val minRow = cells.minOf { it.first }
+                val maxRow = cells.maxOf { it.first }
+                val minCol = cells.minOf { it.second }
+                val maxCol = cells.maxOf { it.second }
+                DashedRegionBorder(
+                    modifier = Modifier
+                        .offset(x = squareSize * minCol, y = squareSize * minRow)
+                        .size(
+                            width = squareSize * (maxCol - minCol + 1),
+                            height = squareSize * (maxRow - minRow + 1),
+                        ),
+                    phase = 0f,
+                )
+            }
         }
+    }
+}
+
+/**
+ * A dashed rectangular stroke over the region [modifier] sizes/positions — used for the
+ * live-check king square (animated [phase], marching ants) and the combined variant
+ * goal-square region (fixed [phase] = 0, stationary). Monochrome ([MARK_SHADE]) only.
+ */
+@Composable
+private fun DashedRegionBorder(modifier: Modifier, phase: Float) {
+    Canvas(modifier = modifier) {
+        val strokeWidthPx = DASH_STROKE_WIDTH_DP.dp.toPx()
+        drawRect(
+            color = MARK_SHADE,
+            topLeft = Offset(strokeWidthPx / 2, strokeWidthPx / 2),
+            size = Size(size.width - strokeWidthPx, size.height - strokeWidthPx),
+            style = Stroke(
+                width = strokeWidthPx,
+                pathEffect = PathEffect.dashPathEffect(
+                    floatArrayOf(DASH_ON_DP.dp.toPx(), DASH_GAP_DP.dp.toPx()),
+                    phase,
+                ),
+            ),
+        )
     }
 }
 
@@ -705,7 +834,7 @@ internal const val MATERIAL_CELL_UNITS = 1.6f
 //   • within a group   → MATERIAL_PIECE_WIDTH_UNITS (the per-piece "fan increment")
 //   • between groups    → MATERIAL_GROUP_GAP_UNITS  (lower this to pull groups together)
 private const val MATERIAL_PIECE_WIDTH_UNITS = 0.48f
-private const val MATERIAL_GROUP_GAP_UNITS = 0.9f
+private const val MATERIAL_GROUP_GAP_UNITS = 1.2f
 // Count-badge diameter (grid units), pinned to the gameplay pocket size so it reads
 // the same whether the piece glyph is at pocket size (play) or material size (review).
 private const val POCKET_BADGE_DIAMETER_UNITS = MY_POCKET_CELL_UNITS * 0.5f
@@ -1008,34 +1137,45 @@ private fun SquareCell(
         if (isSelected || isLastMove) {
             Box(Modifier.matchParentSize().border(squareSize * 0.04f, MARK_SHADE))
         }
-        if (square == state.checkedKingSquare) {
-            Box(Modifier.matchParentSize().background(CHECK_FILL))
-        }
+        // Check (not checkmate — that's the sideways king below, no border at all) is
+        // drawn as a single rotating dashed border at the ChessBoard level (one overlay,
+        // not per-square), so nothing to draw here.
         // hidePiece: this square is the landing square of an in-flight slide; the sliding
         // overlay draws the piece instead so it isn't shown twice.
-        if (!hidePiece) piece?.let { PieceGlyph(piece = it, squareSize = squareSize) }
+        if (!hidePiece) {
+            piece?.let {
+                // Animates 0->90 the moment this square becomes the checkmated king's
+                // square, and back on undo (stepping out of the mate position) — driven
+                // by animateFloatAsState so it always eases toward the current target
+                // rather than snapping, the same MOVE_ANIM_MS pace as a normal slide.
+                val angle by animateFloatAsState(
+                    targetValue = if (square == state.checkmateKingSquare) CHECKMATE_KING_ROTATION else 0f,
+                    animationSpec = tween(MOVE_ANIM_MS),
+                    label = "checkmate-king-angle",
+                )
+                PieceGlyph(piece = it, squareSize = squareSize, rotationDegrees = angle)
+            }
+        }
         if (square in state.legalDestinations || square in state.dropTargets) {
             // A drop always targets an empty square, so it reads as the non-capture marker.
             LegalMarker(isCapture = square in state.legalDestinations && piece != null, squareSize = squareSize)
         }
-        // Variant goal squares (KotH centre, Racing Kings rank 8): a red outline, drawn
-        // on top so it stays visible over pieces and highlights.
-        if (square in state.goalSquares) {
-            Box(Modifier.matchParentSize().border(0.18f.gridUnitsAsDp(), GOAL_OUTLINE))
-        }
+        // Variant goal squares are drawn as a single combined dashed border at the
+        // ChessBoard level, not per-square — nothing to draw here.
     }
 }
 
 @Composable
-private fun PieceGlyph(piece: Piece, squareSize: Dp) {
+private fun PieceGlyph(piece: Piece, squareSize: Dp, rotationDegrees: Float = 0f) {
     // Custom piece art (vector drawables): the white/black variants bake in a fill
     // plus a contrasting outline stroke, so a piece reads on a same-coloured square
     // without any runtime tint. Rendered Fit-inside a square box so it stays centred.
+    // [rotationDegrees] is used only for the checkmated king (turned sideways).
     Image(
         painter = painterResource(pieceDrawable(piece)),
         contentDescription = null,
         contentScale = ContentScale.Fit,
-        modifier = Modifier.size(squareSize * PIECE_SCALE),
+        modifier = Modifier.size(squareSize * PIECE_SCALE).rotate(rotationDegrees),
     )
 }
 
