@@ -21,10 +21,6 @@ shadow layer was removed; outline shades were adjusted; a lighter-outline `_bank
 added for the material/pocket bars). These modifications are likewise licensed
 **AGPL-3.0-or-later**. The corresponding source for these assets is this repository.
 
-> Note: because these bundled assets are AGPL-3.0-or-later, distributing the app carries that
-> set's AGPL obligations for the artwork — the full corresponding source must remain publicly
-> available (this repo) and this notice must be retained. See "Open decision" below.
-
 ## Lichess
 
 Games, challenges, seeks, and live play are provided by **Lichess** (<https://lichess.org>) via
