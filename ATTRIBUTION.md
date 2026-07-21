@@ -60,14 +60,3 @@ licensed **GNU AGPL-3.0-or-later** ([`tool/LICENSE`](./tool/LICENSE) ·
 This repository is a fork of the Light Phone SDK. The SDK modules themselves (`sdk/`, `plugin/`,
 `builder/`, `examples/`, `lint-rules/`) are the work of The Light Phone and remain under their
 MIT license ([`LICENSE`](./LICENSE)) — they are not covered by the app's AGPL license.
-
-## Piece-set license — decision
-
-**Resolved: keep the "pixel" set and comply with the AGPL.** The whole Chess app is therefore
-licensed AGPL-3.0-or-later (see "This app" above). Because the tool source is already public
-(a Light build requirement), the "corresponding source available" obligation is met; this
-attribution and the full AGPL license text ([`LICENSES/AGPL-3.0.txt`](./LICENSES/AGPL-3.0.txt))
-are retained with every distribution.
-
-These credits are also surfaced to end users in the app under **Settings → About**, so people
-who only install the APK still see the attribution, not just readers of this repository.
