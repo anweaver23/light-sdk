@@ -69,7 +69,6 @@ import com.thelightphone.sdk.ui.LightTopBarCenter
 import com.thelightphone.sdk.ui.gridUnitsAsDp
 import com.thelightphone.sdk.ui.lightClickable
 import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
@@ -82,6 +81,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.supervisorScope
 
 // Opponent name is one step above the subtitle in the type scale.
 private val NAME_VARIANT = LightTextVariant.Subheading
@@ -336,12 +336,19 @@ class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<
         viewModelScope.launch(Dispatchers.IO) { fetchAndApply(client, user, showLoading) }
     }
 
-    private suspend fun CoroutineScope.fetchAndApply(client: LichessApi, user: String, showLoading: Boolean) {
+    private suspend fun fetchAndApply(client: LichessApi, user: String, showLoading: Boolean) {
         try {
-            val games = async { client.getOngoingCorrespondenceGames() }
-            val challenges = async { client.getChallenges() }
-            val c = challenges.await()
-            val gamesList = games.await()
+            // supervisorScope: a failure in EITHER parallel request is delivered ONLY to its
+            // own await() (caught below), not propagated up the Job tree. With a plain
+            // async/coroutineScope, a child ConnectException reaches the parent coroutine
+            // regardless of the try/catch around await() and hits the uncaught-exception
+            // handler — crashing the app the moment a startup fetch fails (e.g. no/flaky
+            // network). A network failure must degrade to the error state, never a crash.
+            val (c, gamesList) = supervisorScope {
+                val games = async { client.getOngoingCorrespondenceGames() }
+                val challenges = async { client.getChallenges() }
+                challenges.await() to games.await()
+            }
             // Bail if we logged out (or the client was swapped) while this request was in
             // flight: otherwise a late response clobbers the NeedsLogin gate with stale
             // games, leaving the user stuck on a dead snapshot they can't act on.

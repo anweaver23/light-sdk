@@ -74,19 +74,17 @@ import kotlin.math.roundToInt
  * - Across: the board stays fixed (White at the bottom) and the far side's pieces are
  *   drawn rotated 180° (via [BoardUiState.acrossMode]) to read upright to a player opposite.
  *
- * Moves apply IMMEDIATELY (no confirm step — both players are present). When the game
- * ends, the user is offered a one-tap upload of the finished game to Lichess (see the
- * upload dialog). NOTE: a finished local game is NOT persisted — once this screen is left,
- * it can no longer be uploaded (out of scope for v1; would require persisting local games).
+ * Moves apply IMMEDIATELY (no confirm step — both players are present). Uploading the
+ * finished game to Lichess is offered ONLY through the menu ("Upload to Lichess") — there
+ * is no auto-prompt at game end. NOTE: a finished local game is NOT persisted — once this
+ * screen is left, it can no longer be uploaded (out of scope for v1; would require
+ * persisting local games).
  */
 class LocalGameViewModel(
     private val api: LichessApi,
     private val settings: ChessSettings,
     variantKey: String,
     initialAcross: Boolean,
-    // False when playing logged out (no token) — the game can't be uploaded, so the
-    // auto-prompt is suppressed and the menu row hidden.
-    private val canUpload: Boolean,
 ) : LightViewModel<Unit>() {
 
     private val variant: Variant = Variant.fromKey(variantKey)
@@ -118,9 +116,6 @@ class LocalGameViewModel(
     private var showLegalMoves = true
 
     private var outcome: GameOutcome = GameOutcome.Ongoing
-    // Ensures the auto-upload prompt fires only once per finished game (not on every
-    // subsequent recompute), while the menu row stays available for the rest of the session.
-    private var autoPromptShown = false
 
     // One-shot slide for the next state (see ReviewViewModel — same one-shot discipline:
     // set before buildState(), cleared after, so a later plain buildState() doesn't replay it).
@@ -284,14 +279,8 @@ class LocalGameViewModel(
         // Immediate forward slide (no arrival delay) for the move just played.
         pendingAnim = buildStepAnim(oldIndex, viewIndex)
         outcome = Chess.outcome(replay)
-        // Terminal display follows the LATEST line. If the (possibly new) line is no longer
-        // over, re-arm the prompt so a fresh ending re-prompts; fire it once per new ending.
-        if (!isOver()) {
-            autoPromptShown = false
-        } else if (canUpload && !autoPromptShown) {
-            autoPromptShown = true
-            _dialog.value = Dialog.NameEntry
-        }
+        // No auto-prompt on game end: uploading to Lichess is offered ONLY via the menu
+        // ("Upload to Lichess"), so a finished game doesn't jump straight into the name form.
         clearSelection()
         _uiState.value = buildState()
         pendingAnim = null
@@ -357,7 +346,6 @@ class LocalGameViewModel(
         replay = Chess.replay(emptyList<String>(), startFen, variant)
         viewIndex = 0
         outcome = GameOutcome.Ongoing
-        autoPromptShown = false
         menuOpen = false
         pendingAnim = null
         clearSelection()
@@ -511,6 +499,7 @@ class LocalGameViewModel(
             myAdvantage = material.myAdvantage,
             opponentAdvantage = material.opponentAdvantage,
             viewFraction = if (positions.size > 1) viewIndex.toFloat() / positions.lastIndex else 1f,
+            totalPlies = positions.lastIndex,
             animatingMove = pendingAnim,
         )
     }
@@ -581,7 +570,6 @@ class LocalGameScreen(
             settings = ChessSettings(lightContext.dataStore),
             variantKey = variantKey,
             initialAcross = across,
-            canUpload = token.isNotBlank(),
         )
 
     @Composable
@@ -746,7 +734,7 @@ private fun LocalCrazyhouseBottomBar(
         modifier = Modifier
             .fillMaxWidth()
             .height(4f.gridUnitsAsDp())
-            .moveScrubX(currentFraction = state.viewFraction, onSeek = { viewModel.seekToFraction(it) })
+            .moveScrubX(currentFraction = state.viewFraction, totalPlies = state.totalPlies, onSeek = { viewModel.seekToFraction(it) })
             .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {

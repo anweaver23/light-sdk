@@ -128,7 +128,18 @@ private const val MOVE_ANIM_MS = 180
 // can set it via AnimatedMove.copy(startDelayMs = ARRIVAL_ANIM_DELAY_MS).
 internal const val ARRIVAL_ANIM_DELAY_MS = 350
 
-private const val SCRUB_SENSITIVITY = 0.7f
+// Move scrubbing advances a FIXED number of moves per unit of drag, INDEPENDENT of the
+// game's length — so a 200-move game scrubs at the same feel as a 20-move one. (The old
+// mapping put the whole game under one bar-width swipe, which got unusably twitchy in long
+// games: a tiny finger movement jumped many moves.)
+//
+// Calibration, as one speed knob plus a reference span:
+//   • a drag of SCRUB_SWEEP_FRACTION of the bar's width advances SCRUB_SWEEP_PLIES moves.
+// That fixes the rate (moves per pixel). A game longer than SCRUB_SWEEP_PLIES just needs
+// more than one sweep to cross; a shorter one, less. Tune SCRUB_SWEEP_FRACTION for overall
+// speed (higher = slower/finer) — Andy's starting point is 0.75.
+private const val SCRUB_SWEEP_FRACTION = 0.75f
+private const val SCRUB_SWEEP_PLIES = 40f
 
 /**
  * The live board screen for one Lichess correspondence game.
@@ -444,7 +455,7 @@ internal fun MaterialReviewBottomBar(
         modifier = Modifier
             .fillMaxWidth()
             .height(4f.gridUnitsAsDp())
-            .moveScrubX(currentFraction = state.viewFraction, onSeek = onSeek)
+            .moveScrubX(currentFraction = state.viewFraction, totalPlies = state.totalPlies, onSeek = onSeek)
             .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -488,7 +499,7 @@ internal fun CrazyhouseReviewBottomBar(
         modifier = Modifier
             .fillMaxWidth()
             .height(4f.gridUnitsAsDp())
-            .moveScrubX(currentFraction = state.viewFraction, onSeek = onSeek)
+            .moveScrubX(currentFraction = state.viewFraction, totalPlies = state.totalPlies, onSeek = onSeek)
             .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -519,15 +530,19 @@ internal fun CrazyhouseReviewBottomBar(
 }
 
 /**
- * This modifier when applied to an object enables Long-press-then-drag to scrub through move history.
- * The long press arms it (so quick taps on the arrows still work); horizontal position across the
- * position then maps 0→1 across all moves. [onSeek] receives that fraction.
+ * Long-press-then-drag to scrub through move history. The long press arms it (so quick taps
+ * on the arrows still work); horizontal drag then advances the game at a FIXED moves-per-pixel
+ * rate (see [SCRUB_SWEEP_FRACTION]/[SCRUB_SWEEP_PLIES]) — so the feel is the same regardless
+ * of how many moves the game has. [totalPlies] is the game's move count (0 = nothing to
+ * scrub); [onSeek] receives the resulting 0→1 position fraction.
  */
 internal fun Modifier.moveScrubX(
     currentFraction: Float,
+    totalPlies: Int,
     onSeek: (Float) -> Unit
 ): Modifier = composed {
     val currentFractionState by rememberUpdatedState(currentFraction)
+    val totalPliesState by rememberUpdatedState(totalPlies)
     val onSeekState by rememberUpdatedState(onSeek)
 
     pointerInput(Unit) {
@@ -545,9 +560,15 @@ internal fun Modifier.moveScrubX(
             },
             onDrag = { change, _ ->
                 change.consume()
-                val deltaX = change.position.x - startX
-                // Add the relative movement (delta / width) to our starting fraction
-                onSeekState((startFraction + deltaX / (width * SCRUB_SENSITIVITY)).coerceIn(0f, 1f))
+                val plies = totalPliesState
+                if (plies > 0) {
+                    val deltaX = change.position.x - startX
+                    // Constant rate: SCRUB_SWEEP_PLIES moves per (width * SCRUB_SWEEP_FRACTION)
+                    // px, converted to a position fraction by dividing by the game's own ply
+                    // count — so the drag distance per move is the same in a short game as a long one.
+                    val movesMoved = deltaX * SCRUB_SWEEP_PLIES / (width * SCRUB_SWEEP_FRACTION)
+                    onSeekState((startFraction + movesMoved / plies).coerceIn(0f, 1f))
+                }
             },
         )
     }
@@ -1020,7 +1041,7 @@ internal fun CrazyhousePocketBar(
         modifier = Modifier
             .fillMaxWidth()
             .height(4f.gridUnitsAsDp())
-            .moveScrubX(currentFraction = state.viewFraction, onSeek = onSeek)
+            .moveScrubX(currentFraction = state.viewFraction, totalPlies = state.totalPlies, onSeek = onSeek)
             .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -1061,7 +1082,7 @@ internal fun MaterialBottomBar(
         modifier = Modifier
             .fillMaxWidth()
             .height(4f.gridUnitsAsDp())
-            .moveScrubX(currentFraction = state.viewFraction, onSeek = onSeek)
+            .moveScrubX(currentFraction = state.viewFraction, totalPlies = state.totalPlies, onSeek = onSeek)
             .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {

@@ -18,6 +18,7 @@ import io.ktor.http.Parameters
 import io.ktor.http.isSuccess
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.utils.io.readLine
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.Serializable
@@ -478,7 +479,7 @@ class LichessApi(private val token: String) {
         rated: Boolean = false,
         color: String = "random",
         variant: String = "standard",
-    ): LichessActionResult {
+    ): LichessActionResult = safeAction {
         val response = client.submitForm(
             url = "$BASE_URL/api/challenge/$opponent",
             formParameters = Parameters.build {
@@ -488,7 +489,7 @@ class LichessApi(private val token: String) {
                 if (color != "random") append("color", color)
             },
         )
-        return resultFrom(response)
+        resultFrom(response)
     }
 
     /**
@@ -505,7 +506,7 @@ class LichessApi(private val token: String) {
         color: String = "random",
         variant: String = "standard",
         ratingRange: String? = null,
-    ): LichessActionResult {
+    ): LichessActionResult = safeAction {
         val response = client.submitForm(
             url = "$BASE_URL/api/board/seek",
             formParameters = Parameters.build {
@@ -516,7 +517,7 @@ class LichessApi(private val token: String) {
                 if (!ratingRange.isNullOrBlank()) append("ratingRange", ratingRange)
             },
         )
-        return resultFrom(response)
+        resultFrom(response)
     }
 
     /**
@@ -530,14 +531,14 @@ class LichessApi(private val token: String) {
      * We surface that message to the user rather than crashing; the engine's [Chess.toPgn]
      * emits a proper `Variant` tag, but acceptance is ultimately Lichess's call.
      */
-    suspend fun importGame(pgn: String): LichessImportResult {
+    suspend fun importGame(pgn: String): LichessImportResult = try {
         val response = client.submitForm(
             url = "$BASE_URL/api/import",
             formParameters = Parameters.build { append("pgn", pgn) },
         )
         val bodyText = response.bodyAsText()
         if (response.status.isSuccess()) {
-            return runCatching {
+            runCatching {
                 val obj = json.parseToJsonElement(bodyText).jsonObject
                 val id = obj["id"]?.jsonPrimitive?.content
                 val url = obj["url"]?.jsonPrimitive?.content
@@ -548,14 +549,38 @@ class LichessApi(private val token: String) {
                     LichessImportResult.Failure("Lichess accepted the game but returned no link.")
                 }
             }.getOrElse { LichessImportResult.Failure("Couldn't read Lichess's response.") }
+        } else {
+            val error = runCatching {
+                json.parseToJsonElement(bodyText).jsonObject["error"]?.jsonPrimitive?.content
+            }.getOrNull() ?: bodyText.ifBlank { "HTTP ${response.status.value}" }
+            LichessImportResult.Failure(error)
         }
-        val error = runCatching {
-            json.parseToJsonElement(bodyText).jsonObject["error"]?.jsonPrimitive?.content
-        }.getOrNull() ?: bodyText.ifBlank { "HTTP ${response.status.value}" }
-        return LichessImportResult.Failure(error)
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        // A thrown network error (no connectivity, DNS/TLS, timeout) would otherwise escape
+        // the caller's launch{} and crash the app — surface it as a failure instead.
+        LichessImportResult.Failure(e.message ?: "Couldn't reach Lichess")
     }
 
-    private suspend fun postAction(url: String): LichessActionResult = resultFrom(client.post(url))
+    private suspend fun postAction(url: String): LichessActionResult = safeAction { resultFrom(client.post(url)) }
+
+    /**
+     * Runs a board/challenge action, turning ANY failure — including a thrown network error
+     * (no connectivity, DNS/TLS failure, timeout) — into [LichessActionResult.Failure] so the
+     * method honours its Success/Failure contract instead of throwing. Without this, a network
+     * exception escapes the caller's `viewModelScope.launch { … }` and reaches the coroutine
+     * uncaught-exception handler, crashing the app. [CancellationException] is rethrown so
+     * coroutine cancellation (e.g. leaving the screen mid-request) still works normally.
+     */
+    private suspend fun safeAction(block: suspend () -> LichessActionResult): LichessActionResult =
+        try {
+            block()
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            LichessActionResult.Failure(e.message ?: "Network error")
+        }
 
     private suspend fun resultFrom(response: HttpResponse): LichessActionResult {
         val bodyText = response.bodyAsText()

@@ -262,6 +262,12 @@ data class BoardUiState(
     val myClockLabel: String? = null,
     val opponentClockLabel: String? = null,
     val viewFraction: Float = 1f,
+    /**
+     * Total plies in the game (== the last position index, i.e. the number of moves
+     * played). Used by the move-scrub gesture to advance a FIXED number of moves per unit
+     * of drag regardless of game length. Zero when there are no moves yet.
+     */
+    val totalPlies: Int = 0,
     /** A one-shot piece slide to play for the transition into this position (or null). */
     val animatingMove: AnimatedMove? = null,
     val message: String? = null,
@@ -521,11 +527,25 @@ class BoardViewModel(
             // one landed between the home screen's snapshot and the board opening, or
             // while backgrounded) still animates normally.
             resetView -> {
-                val newLastUci = replay.steps.lastOrNull()?.move?.toUci()
-                if (newLastUci != null && newLastUci == arrivalAnimatedUci) {
-                    // Same move already shown (seed, or an earlier connect) — re-emit the
-                    // SAME AnimatedMove (see the field doc above) so this doesn't reset an
-                    // in-flight slide.
+                val lastStep = replay.steps.lastOrNull()
+                val newLastUci = lastStep?.move?.toUci()
+                val alreadyShown = newLastUci != null && newLastUci == arrivalAnimatedUci
+                // The seed animation (built in init{} from the home row's FEN + last-move
+                // UCI) can only ever draw a PLAIN slide: it has no move list, so a capture's
+                // pre-move board — the thing that keeps the captured piece visible until the
+                // capturer lands — can't be reconstructed there (we don't know what was
+                // taken). Once the authoritative GameFull arrives we CAN build that capture
+                // slide, so upgrade to it even for the SAME move the seed already showed —
+                // giving a live game the same captured-piece visibility as the review screen.
+                // Only matters for captures; a non-capture's seed slide already matches what
+                // buildStepAnim produces, so those still re-emit unchanged (no reset).
+                val seedNeedsCaptureUpgrade = alreadyShown &&
+                    lastArrivalAnim?.preMoveBoard == null &&
+                    lastStep != null && isCaptureMove(lastStep.before, lastStep.move)
+                if (alreadyShown && !seedNeedsCaptureUpgrade) {
+                    // Same move already shown at full quality (seed, or an earlier connect) —
+                    // re-emit the SAME AnimatedMove (see the field doc above) so this doesn't
+                    // reset an in-flight slide.
                     lastArrivalAnim
                 } else {
                     arrivalAnimatedUci = newLastUci
@@ -1035,6 +1055,7 @@ class BoardViewModel(
             myAdvantage = material.myAdvantage,
             opponentAdvantage = material.opponentAdvantage,
             viewFraction = if (positions.size > 1) viewIndex.toFloat() / positions.lastIndex else 1f,
+            totalPlies = positions.lastIndex,
             animatingMove = pendingAnim,
             message = message,
         )

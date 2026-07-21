@@ -196,6 +196,7 @@ class ReviewViewModel(
             myClockLabel = clockLabelFor(myColor == EngineColor.WHITE, idx),
             opponentClockLabel = clockLabelFor(myColor != EngineColor.WHITE, idx),
             viewFraction = if (positions.size > 1) viewIndex.toFloat() / positions.lastIndex else 1f,
+            totalPlies = positions.lastIndex,
             animatingMove = pendingAnim,
         )
     }
