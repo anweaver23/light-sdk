@@ -4,6 +4,16 @@ Correspondence chess for the Light Phone III. It pulls your ongoing Lichess corr
 
 No blitz, no bullet, no timer. Just your correspondence games, waiting until you have a minute.
 
+## Installing
+
+Community tools aren't fully wired into LightOS yet, so for now this is a sideload.
+
+**Just want to try it?** Get the latest APK from the [Releases](../../releases) page and install it over [adb](https://developer.android.com/tools/adb):
+
+```
+adb install chess-<version>.apk
+```
+
 ## You need a Lichess account for online play
 
 This is a client for [Lichess](https://lichess.org). It has no accounts of its own, no email, no password to manage here. You sign in with a Lichess account you already have. If you don't have one, make one at lichess.org first (it's free), then come back. **You are able to play in-person or over-the-board without logging in!**
@@ -44,16 +54,6 @@ This is a focused client, not the whole site. A few things worth knowing up fron
 - **You can review any game, including timed ones.** Playing is correspondence-only, but reviewing isn't. Any finished game in your Lichess history opens for review, including your blitz and rapid games.
 - **Your friends list is read-only.** The app shows the players you follow on Lichess so you can challenge them in a tap, but you can't follow or unfollow anyone from here. Do that on lichess.org.
 - **No move notifications yet.** The app won't buzz you when it's your turn, so check in when you feel like it. Push notifications are on the list for later.
-
-## Installing
-
-Community tools aren't fully wired into LightOS yet, so for now this is a sideload.
-
-**Just want to try it?** Get the latest APK from the [Releases](../../releases) page and install it over [adb](https://developer.android.com/tools/adb):
-
-```
-adb install chess-<version>.apk
-```
 
 ## Privacy
 
