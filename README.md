@@ -6,8 +6,9 @@ No blitz, no bullet, no timer. Just your correspondence games, waiting until you
 
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/3d08abb8-ab25-4cf2-9cfd-a34efb1fd5a5" width="500"/></td>
-    <td><img src="https://github.com/user-attachments/assets/abac89f9-5f08-42be-b037-25327f8a8c33" width="500"/></td>
+    <td><img src="https://github.com/user-attachments/assets/3d08abb8-ab25-4cf2-9cfd-a34efb1fd5a5" width="330"/></td>
+    <td><img src="https://github.com/user-attachments/assets/abac89f9-5f08-42be-b037-25327f8a8c33" width="330"/></td>
+    <td><img src="https://github.com/user-attachments/assets/a8b2fd6a-db4a-4c14-b561-32f9cecb559c" width="330"/></td>
   </tr>
 </table>
 
