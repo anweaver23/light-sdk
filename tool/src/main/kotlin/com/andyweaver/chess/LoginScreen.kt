@@ -101,8 +101,8 @@ fun LoginPane(
             LightBottomBar(
                 items = listOf(
                     // Bottom-left: play without an account. Bottom-right: the login path.
-                    LightBarButton.Text(text = "IN PERSON", onClick = onStartInPerson),
-                    LightBarButton.Text(text = "ENTER TOKEN", onClick = { entering = true }),
+                    LightBarButton.Text(text = "PLAY", onClick = onStartInPerson),
+                    LightBarButton.Text(text = "LOGIN", onClick = { entering = true }),
                 ),
             )
         }

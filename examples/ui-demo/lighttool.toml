@@ -4,4 +4,6 @@ label = "Light UI Demo"
 versionCode = 1
 versionName = "1.0"
 permissions = ["android.permission.CAMERA"]
-serverPackage = "com.lightos"
+# change if you run this on an LP3!
+# serverPackage = "com.lightos"
+serverPackage = "com.thelightphone.sdk.emulator"
