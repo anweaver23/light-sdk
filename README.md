@@ -8,7 +8,7 @@ No blitz, no bullet, no timer. Just your correspondence games, waiting until you
 
 Community tools aren't fully wired into LightOS yet, so for now this is a sideload.
 
-**Just want to try it?** Get the latest APK from the [Releases](../releases) page and install it over [adb](https://developer.android.com/tools/adb):
+**Just want to try it?** Get the latest APK from the [Releases](https://github.com/anweaver23/light-sdk/releases) page and install it over [adb](https://developer.android.com/tools/adb):
 
 ```
 adb install chess-<version>.apk
