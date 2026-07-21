@@ -365,7 +365,7 @@ class NewGameScreen(
                 items = listOf(
                     null,
                     if (inPerson) {
-                        LightBarButton.Text(text = "START GAME", onClick = { viewModel.startLocalGame() })
+                        LightBarButton.Text(text = "START", onClick = { viewModel.startLocalGame() })
                     } else {
                         LightBarButton.Text(text = "NEXT", onClick = { viewModel.goToOpponents() })
                     },
