@@ -21,10 +21,6 @@ shadow layer was removed; outline shades were adjusted; a lighter-outline `_bank
 added for the material/pocket bars). These modifications are likewise licensed
 **AGPL-3.0-or-later**. The corresponding source for these assets is this repository.
 
-> Note: because these bundled assets are AGPL-3.0-or-later, distributing the app carries that
-> set's AGPL obligations for the artwork — the full corresponding source must remain publicly
-> available (this repo) and this notice must be retained. See "Open decision" below.
-
 ## Lichess
 
 Games, challenges, seeks, and live play are provided by **Lichess** (<https://lichess.org>) via
@@ -60,14 +56,3 @@ licensed **GNU AGPL-3.0-or-later** ([`tool/LICENSE`](./tool/LICENSE) ·
 This repository is a fork of the Light Phone SDK. The SDK modules themselves (`sdk/`, `plugin/`,
 `builder/`, `examples/`, `lint-rules/`) are the work of The Light Phone and remain under their
 MIT license ([`LICENSE`](./LICENSE)) — they are not covered by the app's AGPL license.
-
-## Piece-set license — decision
-
-**Resolved: keep the "pixel" set and comply with the AGPL.** The whole Chess app is therefore
-licensed AGPL-3.0-or-later (see "This app" above). Because the tool source is already public
-(a Light build requirement), the "corresponding source available" obligation is met; this
-attribution and the full AGPL license text ([`LICENSES/AGPL-3.0.txt`](./LICENSES/AGPL-3.0.txt))
-are retained with every distribution.
-
-These credits are also surfaced to end users in the app under **Settings → About**, so people
-who only install the APK still see the attribution, not just readers of this repository.
