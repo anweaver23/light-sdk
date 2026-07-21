@@ -1,12 +1,12 @@
 # Chess for Light Phone
 
-Correspondence chess for the Light Phone III. It pulls your ongoing Lichess games into a clean, minimal screen that fits how the phone is meant to be used: you glance at it a few times a day, make your move, and put it down.
+Correspondence chess for the Light Phone III. It pulls your ongoing Lichess correspondence games into a clean, minimal screen that fits how the phone is meant to be used: you glance at it a few times a day, make your move, and put it down.
 
-It's not a live chess client. No blitz, no bullet, no clock staring back at you. Just your correspondence games, waiting until you have a minute.
+No blitz, no bullet, no timer. Just your correspondence games, waiting until you have a minute.
 
-## You need a Lichess account
+## You need a Lichess account for online play
 
-This is a client for [Lichess](https://lichess.org). It has no accounts of its own, no email, no password to manage here. You sign in with a Lichess account you already have. If you don't have one, make one at lichess.org first (it's free), then come back.
+This is a client for [Lichess](https://lichess.org). It has no accounts of its own, no email, no password to manage here. You sign in with a Lichess account you already have. If you don't have one, make one at lichess.org first (it's free), then come back. **You are able to play in-person or over-the-board without logging in!**
 
 ## Signing in
 
@@ -16,7 +16,7 @@ The Light Phone can't open a web browser, so there's no "Log in with Lichess" bu
 
    **[Create your token](https://lichess.org/account/oauth/token/create?scopes[]=board:play&scopes[]=challenge:read&scopes[]=challenge:write&scopes[]=follow:read&description=Light+Phone+Chess)**
 
-   It comes pre-filled with the exact permissions the app needs, nothing extra:
+   It comes pre-filled with the exact permissions the app needs, nothing more:
    - Play games with the board API
    - Read incoming challenges
    - Create, accept, decline challenges
@@ -31,17 +31,17 @@ The token lives only on your phone. Logging out deletes it, and you can revoke i
 
 - See all your correspondence games at once, the ones waiting on you first.
 - Make a move by tapping the piece and its destination, with a confirm step so you don't send the wrong one by accident.
-- Start a game: challenge a friend, challenge someone by username, or seek a random opponent. Set the days per move, rated or casual, your color, and the variant.
+- Start a game: challenge a friend, challenge someone by username, or seek a random opponent. Set the days per move, rated or casual, your color, and the **variant**.
 - Accept or decline challenges people send you.
 - Step through any finished game move by move to review it.
 - Variants: Standard, Crazyhouse, Chess960, King of the Hill, Three-check, Antichess, Atomic, Horde, and Racing Kings.
 
 ## How it's different from lichess.org
 
-This is a focused client, not the whole site, and that's the point. A few things worth knowing up front:
+This is a focused client, not the whole site. A few things worth knowing up front:
 
-- **Correspondence games only.** You can only start and play correspondence games, the ones measured in days per move. But if your opponent is online and you both stay on the board, their moves come through live as they play them, so a correspondence game can turn into something close to real time when you both happen to be around.
-- **You can review any game, including timed ones.** Playing is correspondence-only, but reviewing isn't. Any finished game in your Lichess history opens for review, including your blitz and rapid games, with the clocks shown.
+- **Correspondence games only.** You can only start and play correspondence games (or daily games), the ones measured in days per move. But if your opponent is online and you both stay on the board, their moves come through live as they play them, so a correspondence game can turn into something close to real time when you both happen to be around.
+- **You can review any game, including timed ones.** Playing is correspondence-only, but reviewing isn't. Any finished game in your Lichess history opens for review, including your blitz and rapid games.
 - **Your friends list is read-only.** The app shows the players you follow on Lichess so you can challenge them in a tap, but you can't follow or unfollow anyone from here. Do that on lichess.org.
 - **No move notifications yet.** The app won't buzz you when it's your turn, so check in when you feel like it. Push notifications are on the list for later.
 
@@ -49,15 +49,11 @@ This is a focused client, not the whole site, and that's the point. A few things
 
 Community tools aren't fully wired into LightOS yet, so for now this is a sideload.
 
-**Just want to try it?** Grab the latest APK from the [Releases](../../releases) page and install it over [adb](https://developer.android.com/tools/adb):
+**Just want to try it?** Get the latest APK from the [Releases](../../releases) page and install it over [adb](https://developer.android.com/tools/adb):
 
 ```
 adb install chess-<version>.apk
 ```
-
-Heads-up: on current retail LightOS a self-signed community tool may not show up in the Toolbox grid until Light's tool distribution goes live — that frictionless install path is still to come.
-
-**Building it yourself** needs Android Studio, JDK 17, and the [Light SDK](https://github.com/lightphone/light-sdk) setup — including a GitHub token with `read:packages` in `local.properties`, since the SDK's keyboard component is a private package. The app lives in the `tool/` module; build with `./gradlew :tool:assembleDebug`.
 
 ## Privacy
 
