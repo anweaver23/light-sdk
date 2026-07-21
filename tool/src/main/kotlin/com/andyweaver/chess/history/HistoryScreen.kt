@@ -39,7 +39,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-private const val PAGE_SIZE = 20
+private const val PAGE_SIZE = 10
 private const val EDGE_PADDING_UNITS = 1f
 private val NAME_VARIANT = LightTextVariant.Subheading
 private val SUBTITLE_VARIANT = LightTextVariant.Detail
