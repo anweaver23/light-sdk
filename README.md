@@ -4,11 +4,16 @@ Correspondence chess for the Light Phone III. It pulls your ongoing Lichess corr
 
 No blitz, no bullet, no timer. Just your correspondence games, waiting until you have a minute.
 
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/3d08abb8-ab25-4cf2-9cfd-a34efb1fd5a5" width="500"/></td>
+    <td><img src="https://github.com/user-attachments/assets/abac89f9-5f08-42be-b037-25327f8a8c33" width="500"/></td>
+  </tr>
+</table>
+
 ## Installing
 
-Community tools aren't fully wired into LightOS yet, so for now this is a sideload.
-
-**Just want to try it?** Get the latest APK from the [Releases](https://github.com/anweaver23/light-sdk/releases) page and install it over [adb](https://developer.android.com/tools/adb):
+Get the latest APK from the [Releases](https://github.com/anweaver23/light-sdk/releases) page and install it over [adb](https://developer.android.com/tools/adb):
 
 ```
 adb install chess-<version>.apk
@@ -16,11 +21,14 @@ adb install chess-<version>.apk
 
 ## You need a Lichess account for online play
 
-This is a client for [Lichess](https://lichess.org). It has no accounts of its own, no email, no password to manage here. You sign in with a Lichess account you already have. If you don't have one, make one at lichess.org first (it's free), then come back. **You are able to play in-person or over-the-board without logging in!**
+This is a client for [Lichess](https://lichess.org). It has no accounts of its own, no email, no password to manage here. You sign in with a Lichess account you already have. If you don't have one, make one at lichess.org first (it's free), then come back. **You are able to play in-person without logging in!**
 
 ## Signing in
 
-The Light Phone can't open a web browser, so there's no "Log in with Lichess" button. Instead you make a personal access token on another device and type it into the app once.
+Create a Lichess personal access token on another device and type it into the app once.
+
+<img width="944" height="856" alt="image" src="https://github.com/user-attachments/assets/3c08566a-3557-4a69-a81b-8d1f614a3c35" />
+
 
 1. On your computer or phone, open this link (you'll need to be logged in to Lichess):
 
