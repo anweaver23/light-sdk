@@ -1,0 +1,27 @@
+Chess for Light Phone III
+Copyright (C) 2026 Andy Weaver
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+The full license text is also bundled at ../LICENSES/AGPL-3.0.txt.
+
+------------------------------------------------------------------------
+
+Scope: this AGPL license covers the Chess application in this `tool/`
+directory, including the chess piece artwork, which is derived from the
+AGPL "pixel" set (see ../ATTRIBUTION.md for the full third-party credits).
+
+This repository is a fork of the Light Phone SDK. The surrounding SDK
+modules (sdk/, plugin/, builder/, examples/, lint-rules/) are the work of
+The Light Phone and remain under their MIT license (see ../LICENSE); they
+are NOT covered by this AGPL license.

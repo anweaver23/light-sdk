@@ -47,9 +47,21 @@ This is a focused client, not the whole site, and that's the point. A few things
 
 ## Installing
 
-Community tools aren't fully wired into LightOS yet, so for now this is a sideload: build the APK and install it with `adb`. Once Light's tool distribution goes live, it'll be installable on the phone directly.
+Community tools aren't fully wired into LightOS yet, so for now this is a sideload.
 
-To build it yourself you'll need Android Studio and the [Light SDK](https://github.com/lightphone/light-sdk) setup. The app lives in the `tool/` module.
+**Just want to try it?** Grab the latest APK from the [Releases](../../releases) page and install it over [adb](https://developer.android.com/tools/adb):
+
+```
+adb install chess-<version>.apk
+```
+
+Heads-up: on current retail LightOS a self-signed community tool may not show up in the Toolbox grid until Light's tool distribution goes live — that frictionless install path is still to come.
+
+**Building it yourself** needs Android Studio, JDK 17, and the [Light SDK](https://github.com/lightphone/light-sdk) setup — including a GitHub token with `read:packages` in `local.properties`, since the SDK's keyboard component is a private package. The app lives in the `tool/` module; build with `./gradlew :tool:assembleDebug`.
+
+## Privacy
+
+There's nothing here that watches you. No analytics, no telemetry, no ads, no accounts of its own. The app talks only to [Lichess](https://lichess.org), using the personal token you provide, and stores that token only on your phone. Logging out deletes it.
 
 ## Credits
 
@@ -58,3 +70,13 @@ Powered by [Lichess](https://lichess.org).
 Piece art is the "pixel" set by therealqtpi, from Lichess, used under the AGPL. Full credits and third-party licenses are in [ATTRIBUTION.md](./ATTRIBUTION.md).
 
 Built on the [Light Phone SDK](https://github.com/lightphone/light-sdk).
+
+## License
+
+The Chess app (everything in [`tool/`](./tool)) is © 2026 Andy Weaver, licensed **GNU AGPL-3.0-or-later** ([`tool/LICENSE`](./tool/LICENSE)) — the copyleft comes from the bundled AGPL piece art. See [ATTRIBUTION.md](./ATTRIBUTION.md) for the full breakdown.
+
+This repository is a fork of the Light Phone SDK; the SDK modules (`sdk/`, `plugin/`, `builder/`, `examples/`, `lint-rules/`) are The Light Phone's own work under their MIT license (root [`LICENSE`](./LICENSE)).
+
+## Not affiliated
+
+This is an independent, unofficial project. It is not affiliated with, authorized by, or endorsed by The Light Phone, Inc. or Lichess. "Light Phone" and "Lichess" belong to their respective owners; they're used here only to describe what the app works with.

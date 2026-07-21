@@ -52,20 +52,22 @@ All Apache License 2.0 unless noted ([`LICENSES/Apache-2.0.txt`](./LICENSES/Apac
 
 ## This app
 
-App code © 2026 Andy Weaver. The repository scaffolding is under the MIT License
-([`LICENSE`](./LICENSE)).
+The Chess application — everything under [`tool/`](./tool) — is **© 2026 Andy Weaver** and
+licensed **GNU AGPL-3.0-or-later** ([`tool/LICENSE`](./tool/LICENSE) ·
+[`LICENSES/AGPL-3.0.txt`](./LICENSES/AGPL-3.0.txt)). The copyleft follows from the bundled
+"pixel" piece art above; the corresponding source is this public repository.
 
-## Open decision (piece set license)
+This repository is a fork of the Light Phone SDK. The SDK modules themselves (`sdk/`, `plugin/`,
+`builder/`, `examples/`, `lint-rules/`) are the work of The Light Phone and remain under their
+MIT license ([`LICENSE`](./LICENSE)) — they are not covered by the app's AGPL license.
 
-The "pixel" set is **AGPL-3.0-or-later**. Two viable paths for going public:
+## Piece-set license — decision
 
-1. **Keep it and comply.** The tool source is already public (a Light requirement), so the
-   "corresponding source available" obligation is met; retain this attribution + the AGPL text,
-   and treat the piece assets (and their modifications) as AGPL-licensed. Simple and legitimate.
-2. **Swap to a permissive set** (CC0 / public-domain, or CC-BY, or MIT) if you'd rather avoid any
-   copyleft on the artwork. Keeps the same pixel look with fewer obligations, at the cost of
-   re-importing a different set.
+**Resolved: keep the "pixel" set and comply with the AGPL.** The whole Chess app is therefore
+licensed AGPL-3.0-or-later (see "This app" above). Because the tool source is already public
+(a Light build requirement), the "corresponding source available" obligation is met; this
+attribution and the full AGPL license text ([`LICENSES/AGPL-3.0.txt`](./LICENSES/AGPL-3.0.txt))
+are retained with every distribution.
 
-TODO before public release: surface these credits to end users too — an in-app "About / Credits"
-screen in Settings (and/or ship this text as a bundled asset), since the installed APK's users
-should see the attribution, not just readers of the repo.
+These credits are also surfaced to end users in the app under **Settings → About**, so people
+who only install the APK still see the attribution, not just readers of this repository.
