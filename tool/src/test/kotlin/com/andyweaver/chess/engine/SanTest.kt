@@ -12,6 +12,21 @@ class SanTest {
     }
 
     @Test
+    fun chess960CastlingSanUsesTheKingsSideNotTheRookSquare() {
+        // Chess960 encodes castling king-ONTO-ROOK, so move.to is the rook's square. Reading
+        // its file directly called every h-file kingside castle "O-O-O", which no Lichess
+        // SAN token matches — the review replay died at the castle.
+        val fen = "r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2R w KQkq - 0 1"
+        val pos = Position.fromFen(fen, Variant.CHESS960)
+        fun san960(uci: String) = San.of(pos, Move.fromUci(uci, pos)!!)
+        assertEquals("O-O", san960("e1h1"), "king onto the h-file rook is kingside")
+        assertEquals("O-O-O", san960("e1a1"), "king onto the a-file rook is queenside")
+        // The standard encoding (king to the g/c file) still reads the same way.
+        assertEquals("O-O", san(fen, "e1g1"))
+        assertEquals("O-O-O", san(fen, "e1c1"))
+    }
+
+    @Test
     fun pawnPushAndPieceMove() {
         assertEquals("e4", san(Position.START_FEN, "e2e4"))
         assertEquals("Nf3", san(Position.START_FEN, "g1f3"))

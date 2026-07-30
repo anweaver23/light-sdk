@@ -39,6 +39,7 @@ import com.andyweaver.chess.lichess.LichessActionResult
 import com.andyweaver.chess.lichess.LichessApi
 import com.andyweaver.chess.lichess.LichessChallenge
 import com.andyweaver.chess.lichess.LichessGame
+import com.andyweaver.chess.lichess.LichessPerf
 import com.andyweaver.chess.lichess.nameWithRating
 import com.andyweaver.chess.newgame.EDGE_UNITS
 import com.andyweaver.chess.newgame.NewGameScreen
@@ -164,6 +165,13 @@ class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<
     private val _state = MutableStateFlow<State>(State.Loading)
     val state: StateFlow<State> = _state
 
+    // The logged-in account's own correspondence rating, shown small next to the "Chess"
+    // title (per-session, fetched once when the client is (re)built — not part of the
+    // regular games/challenges refresh cycle). Null until loaded or if unavailable
+    // (e.g. a brand-new account with no correspondence perf yet).
+    private val _ownRating = MutableStateFlow<LichessPerf?>(null)
+    val ownRating: StateFlow<LichessPerf?> = _ownRating
+
     init {
         // React to login/logout: (re)build the client for a new session, or gate to login.
         viewModelScope.launch {
@@ -176,14 +184,29 @@ class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<
                     api = null
                     loginTokenState.clearText()
                     _state.value = State.NeedsLogin
+                    _ownRating.value = null
                 } else if (tokenChanged) {
                     stopLive()
                     api?.close()
                     api = LichessApi(s.token)
                     _state.value = State.Loading
+                    _ownRating.value = null
+                    loadOwnRating()
                     if (shown) startLive()
                 }
             }
+        }
+    }
+
+    private fun loadOwnRating() {
+        val client = api ?: return
+        viewModelScope.launch(Dispatchers.IO) {
+            val perf = try {
+                client.getOwnCorrespondenceRating()
+            } catch (_: Exception) {
+                null
+            }
+            if (api === client) _ownRating.value = perf
         }
     }
 
@@ -433,6 +456,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
         val pendingSeeks by viewModel.pendingSeeks.collectAsState()
         val openGame by viewModel.openGame.collectAsState()
         val loginError by viewModel.loginError.collectAsState()
+        val ownRating by viewModel.ownRating.collectAsState()
 
         // The pending challenge/seek whose detail popup is open, if any.
         var detail by remember { mutableStateOf<PendingDetail?>(null) }
@@ -471,10 +495,27 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                 // so it can't carry a spin. This overlay reproduces its exact position
                 // (TopEnd, matching LightTopBar's own height/horizontal-padding constants).
                 Box(modifier = Modifier.fillMaxWidth()) {
+                    // No LightTopBarCenter variant renders a single inline "title + rating"
+                    // line (Text is title-only, TwoLineDetail stacks two lines) — so the
+                    // center slot is left empty and a NameWithRating-style Row is drawn on
+                    // top instead, matching the topbar's own centered layout by hand.
                     LightTopBar(
-                        center = LightTopBarCenter.Text("Chess"),
+                        center = null,
                         modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
                     )
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(3f.gridUnitsAsDp()),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        NameWithRating(
+                            name = "Chess",
+                            rating = ownRating?.rating,
+                            nameVariant = LightTextVariant.Fine,
+                            prov = ownRating?.prov == true,
+                        )
+                    }
                     val refreshing by viewModel.refreshing.collectAsState()
                     Box(
                         modifier = Modifier
@@ -487,7 +528,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                             val transition = rememberInfiniteTransition(label = "refresh-spin")
                             val angle by transition.animateFloat(
                                 initialValue = 0f,
-                                targetValue = 360f,
+                                targetValue = -360f,
                                 animationSpec = infiniteRepeatable(
                                     animation = tween(REFRESH_SPIN_MS, easing = LinearEasing),
                                 ),
@@ -688,6 +729,7 @@ private fun IncomingChallengeRow(
         dimmed = false,
         name = challenge.challenger?.displayName ?: "Someone",
         rating = challenge.challenger?.ratingOrNull,
+        prov = challenge.challenger?.provOrNull ?: false,
         subtitle = "challenge · ${challengeTerms(challenge)}",
         onClick = onClick,
     )
@@ -705,6 +747,7 @@ private fun OutgoingChallengeRow(
         dimmed = true,
         name = challenge.destUser?.displayName ?: "Open challenge",
         rating = challenge.destUser?.ratingOrNull,
+        prov = challenge.destUser?.provOrNull ?: false,
         subtitle = "waiting · ${challengeTerms(challenge)}",
         onClick = onClick,
     )
@@ -736,6 +779,7 @@ private fun PendingRow(
     rating: Int?,
     subtitle: String,
     onClick: () -> Unit,
+    prov: Boolean = false,
 ) {
     Row(
         modifier = Modifier
@@ -757,7 +801,7 @@ private fun PendingRow(
         Column(modifier = Modifier.weight(1f)) {
             if (dimmed) {
                 LightText(
-                    text = nameWithRating(name, rating),
+                    text = nameWithRating(name, rating, prov),
                     variant = NAME_VARIANT,
                     lighten = true,
                     maxLines = 1,
@@ -767,6 +811,7 @@ private fun PendingRow(
                 NameWithRating(
                     name = name,
                     rating = rating,
+                    prov = prov,
                     nameVariant = NAME_VARIANT,
                     modifier = Modifier.fillMaxWidth(),
                 )
@@ -847,7 +892,13 @@ private fun detailLines(detail: PendingDetail): List<Pair<String, String>> = whe
     is PendingDetail.Incoming -> {
         val c = detail.challenge
         buildList {
-            add("From" to nameWithRating(c.challenger?.displayName ?: "Someone", c.challenger?.ratingOrNull))
+            add(
+                "From" to nameWithRating(
+                    c.challenger?.displayName ?: "Someone",
+                    c.challenger?.ratingOrNull,
+                    c.challenger?.provOrNull ?: false,
+                ),
+            )
             add("Variant" to Variant.fromKey(c.variant.key).displayName)
             c.timeControl?.daysPerTurn?.let { add("Time" to "$it ${plural(it, "day")}/turn") }
             add("Mode" to if (c.rated) "rated" else "casual")
@@ -858,7 +909,12 @@ private fun detailLines(detail: PendingDetail): List<Pair<String, String>> = whe
     is PendingDetail.Outgoing -> {
         val c = detail.challenge
         buildList {
-            add("To" to (c.destUser?.let { nameWithRating(it.displayName, it.ratingOrNull) } ?: "Open challenge"))
+            add(
+                "To" to (
+                    c.destUser?.let { nameWithRating(it.displayName, it.ratingOrNull, it.provOrNull) }
+                        ?: "Open challenge"
+                    ),
+            )
             add("Variant" to Variant.fromKey(c.variant.key).displayName)
             c.timeControl?.daysPerTurn?.let { add("Time" to "$it ${plural(it, "day")}/turn") }
             add("Mode" to if (c.rated) "rated" else "casual")

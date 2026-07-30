@@ -25,6 +25,10 @@ fun NameWithRating(
     rating: Int?,
     modifier: Modifier = Modifier,
     nameVariant: LightTextVariant = LightTextVariant.Subheading,
+    // Lichess's "?" marker for a not-yet-established rating. Only meaningful where the
+    // caller actually has the provisional flag (e.g. the following list's `perfs` block) —
+    // defaults to false where it isn't available (flat game/challenge ratings).
+    prov: Boolean = false,
 ) {
     Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
         LightText(
@@ -36,7 +40,7 @@ fun NameWithRating(
         )
         if (rating != null) {
             LightText(
-                text = " · $rating",
+                text = " · $rating${if (prov) "?" else ""}",
                 variant = nameVariant,
                 maxLines = 1,
             )

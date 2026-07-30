@@ -18,6 +18,7 @@ import com.andyweaver.chess.engine.Color as EngineColor
 import com.andyweaver.chess.engine.GameStatus
 import com.andyweaver.chess.engine.PieceType
 import com.andyweaver.chess.engine.Replay
+import com.andyweaver.chess.engine.SanReplay
 import com.andyweaver.chess.engine.Variant
 import com.thelightphone.sdk.LightScreen
 import com.thelightphone.sdk.LightViewModel
@@ -41,8 +42,9 @@ import kotlin.math.roundToInt
  * Read-only replay of a finished game for the history screen. Reuses the board
  * renderer ([ChessBoard]) and browse controls ([MaterialReviewBottomBar] /
  * [CrazyhouseReviewBottomBar]); no live stream and no move-making. Opens on the
- * final position so the user steps backward through the game. Unsupported variants
- * (SAN that the engine can't parse) surface a short message instead of a board.
+ * final position so the user steps backward through the game. SAN the engine can't
+ * follow truncates the replay (see [truncationNote]) rather than discarding it; only a
+ * game where NOTHING parsed falls back to a short message instead of a board.
  */
 class ReviewViewModel(
     movesSan: String,
@@ -57,11 +59,37 @@ class ReviewViewModel(
 
     // Replay under the game's own variant. Fall back to the variant's fixed start FEN
     // when the export omits initialFen (Lichess reports "startpos" for Racing Kings /
-    // Horde, whose start isn't standard).
-    private val replay: Replay? = runCatching {
-        Chess.replaySan(movesSan, initialFen ?: variant.startFen, variant)
+    // Horde, whose start isn't standard) — and treat a literal "startpos"/blank the same
+    // way, since that's what the board stream sends and Position.fromFen can't parse it.
+    private val startFen: String? =
+        initialFen?.takeUnless { it == "startpos" || it.isBlank() } ?: variant.startFen
+
+    // LENIENT: an unmatched SAN token stops the replay but keeps everything before it,
+    // so one move our generator disagrees with (a variant quirk, a disambiguation
+    // difference) no longer throws away the whole game. runCatching still covers a
+    // start FEN we can't parse at all, which leaves nothing to show.
+    private val sanReplay: SanReplay? = runCatching {
+        Chess.replaySanLenient(movesSan, startFen, variant)
     }.getOrNull()
-    val parseFailed: Boolean get() = replay == null
+
+    private val replay: Replay? = sanReplay?.replay
+
+    /**
+     * Nothing at all could be read: either the start position failed to parse, or the
+     * very first move did. (A game with no moves is NOT a failure — it reviews as the
+     * starting position.)
+     */
+    val parseFailed: Boolean
+        get() = sanReplay == null || (sanReplay.truncated && sanReplay.movesReplayed == 0)
+
+    /**
+     * Set when the replay stopped early: "first N of M moves", shown as one quiet line
+     * under the top bar so the user knows the game is only partly here. Null otherwise.
+     */
+    val truncationNote: String?
+        get() = sanReplay
+            ?.takeIf { it.truncated && it.movesReplayed > 0 }
+            ?.let { "first ${it.movesReplayed} of ${it.totalTokens} moves" }
 
     // Open on the game's final position; the user steps/skips backward from there.
     private var viewIndex = replay?.positions?.lastIndex ?: 0
@@ -278,6 +306,20 @@ class ReviewScreen(
                     center = LightTopBarCenter.TwoLineDetail(line1 = title, line2 = resultLine),
                 )
 
+                // Partly-readable game: one quiet line saying how far we got, rather than
+                // silently showing a truncated game (or, as before, refusing the whole one).
+                viewModel.truncationNote?.let { note ->
+                    LightText(
+                        text = note,
+                        variant = LightTextVariant.Fine,
+                        align = TextAlign.Center,
+                        lighten = true,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 0.5f.gridUnitsAsDp()),
+                    )
+                }
+
                 when {
                     viewModel.parseFailed -> {
                         Box(
@@ -299,7 +341,7 @@ class ReviewScreen(
                         // Same layout as the live Crazyhouse board: opponent reserves above
                         // the board, mine in the bottom bar — but with all four browse
                         // arrows, so the reserves pack tight to fit alongside them.
-                        ReadOnlyPocketBar(
+                        TopPocketBar(
                             pocket = state.opponentPocket,
                             color = state.myColor.opposite,
                             verticalPadUnits = 0.15f,

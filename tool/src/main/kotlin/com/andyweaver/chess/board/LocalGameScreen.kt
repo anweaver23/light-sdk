@@ -115,6 +115,14 @@ class LocalGameViewModel(
     private var menuOpen = false
     private var showLegalMoves = true
 
+    // "Are you sure you want to exit?" overlay — in-person games have no server copy, so
+    // leaving mid-game silently loses progress (unlike the online board, whose game lives
+    // safely on Lichess regardless of when you back out). confirmingExit shows the overlay;
+    // exitConfirmed is set right before letting the SECOND back-navigation through, mirroring
+    // the two-step "confirm then proceed" pattern goBack()/onBackPressed() require.
+    private var confirmingExit = false
+    private var exitConfirmed = false
+
     private var outcome: GameOutcome = GameOutcome.Ongoing
 
     // One-shot slide for the next state (see ReviewViewModel — same one-shot discipline:
@@ -399,7 +407,23 @@ class LocalGameViewModel(
         _dialog.value != null && _dialog.value !is Dialog.Uploading -> { _dialog.value = null; true }
         menuOpen -> { menuOpen = false; render(); true }
         pendingPromotion != null -> { cancelPromotion(); true }
+        exitConfirmed -> false
+        moves.isNotEmpty() && !isOver() -> { confirmingExit = true; render(); true }
         else -> false
+    }
+
+    /** User chose "exit anyway" on the confirmation overlay: dismiss it and let the NEXT
+     *  back-navigation (triggered by the caller right after this) proceed instead of
+     *  re-prompting. */
+    fun confirmExit() {
+        confirmingExit = false
+        exitConfirmed = true
+        render()
+    }
+
+    fun cancelExit() {
+        confirmingExit = false
+        render()
     }
 
     override fun onCleared() {
@@ -434,7 +458,14 @@ class LocalGameViewModel(
         // Orientation is stable while browsing: side-by-side keeps the player to move at the
         // LATEST position at the bottom; across keeps White at the bottom and rotates the
         // far side's pieces instead (acrossMode).
-        val flipped = if (across) false else latest.sideToMove == EngineColor.BLACK
+        //
+        // Racing Kings inverts this: both sides start on the SAME side of the board (no
+        // "opposing armies"), so the normal side-by-side/across assumption is backwards —
+        // side-by-side must stay put (there's no far side to rotate into view), while across
+        // needs the whole-board flip instead (there's no "far player's pieces" to rotate
+        // individually — see the RACING_KINGS guard on rotationDegrees in BoardScreen.kt).
+        val flipsAfterEachMove = if (variant == Variant.RACING_KINGS) across else !across
+        val flipped = if (flipsAfterEachMove) latest.sideToMove == EngineColor.BLACK else false
         // Material/pocket banks are tied to the fixed BOTTOM/TOP of the board (derived from
         // orientation), NOT the mover — so each side's captured pieces / reserves stay put
         // instead of swapping top↔bottom every move. In side-by-side bottom == the mover
@@ -487,6 +518,7 @@ class LocalGameViewModel(
             canStepForward = idx < positions.lastIndex,
             terminal = over,
             menuOpen = menuOpen,
+            confirmingExit = confirmingExit,
             variant = variant,
             myPocket = pos.pocket.forColor(bottomColor),
             opponentPocket = pos.pocket.forColor(topColor),
@@ -633,6 +665,13 @@ class LocalGameScreen(
                         across = state.acrossMode,
                         canUpload = token.isNotBlank(),
                         viewModel = viewModel,
+                    )
+                }
+
+                if (state.confirmingExit) {
+                    LocalExitConfirmationOverlay(
+                        onConfirm = { viewModel.confirmExit(); goBack() },
+                        onCancel = { viewModel.cancelExit() },
                     )
                 }
 
@@ -851,6 +890,45 @@ private fun LocalMenuOverlay(across: Boolean, canUpload: Boolean, viewModel: Loc
                     icon = LightIcons.CLOSE,
                     onClick = { viewModel.closeMenu() },
                     contentDescription = "Close menu",
+                ),
+            ),
+        )
+    }
+}
+
+/**
+ * "Are you sure you want to exit?" for the in-person game — mirrors the online board's
+ * ConfirmationOverlay visual (full-screen message + CONFIRM/✕ bottom bar), since this
+ * game has no server copy and backing out mid-game silently loses all progress.
+ */
+@Composable
+private fun LocalExitConfirmationOverlay(onConfirm: () -> Unit, onCancel: () -> Unit) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(LightThemeTokens.colors.background),
+    ) {
+        Box(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth()
+                .padding(horizontal = 1f.gridUnitsAsDp()),
+            contentAlignment = Alignment.Center,
+        ) {
+            LightText(
+                text = "Exit this game? You'll lose progress.",
+                variant = LightTextVariant.Copy,
+                align = TextAlign.Center,
+            )
+        }
+        LightBottomBar(
+            items = listOf(
+                null,
+                LightBarButton.Text(text = "CONFIRM", onClick = onConfirm),
+                LightBarButton.LightIcon(
+                    icon = LightIcons.CLOSE,
+                    onClick = onCancel,
+                    contentDescription = "Cancel",
                 ),
             ),
         )

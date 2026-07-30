@@ -37,6 +37,26 @@ data class Replay(
 }
 
 /**
+ * The result of a lenient SAN replay (see [Chess.replaySanLenient]): the [replay] built
+ * from every token that matched, plus what stopped it. [unmatchedToken] is null when the
+ * whole list replayed; otherwise it's the first token no legal move's SAN matched, and
+ * [replay] holds only the moves BEFORE it.
+ */
+data class SanReplay(
+    val replay: Replay,
+    /** Number of SAN tokens in the input. */
+    val totalTokens: Int,
+    /** The first token that matched no legal move, or null if all of them did. */
+    val unmatchedToken: String?,
+) {
+    /** Moves successfully replayed (== [totalTokens] unless [truncated]). */
+    val movesReplayed: Int get() = replay.steps.size
+
+    /** True when the replay stopped early — the game is only partly viewable. */
+    val truncated: Boolean get() = unmatchedToken != null
+}
+
+/**
  * Top-level facade for the board screen. Everything the UI needs is reachable
  * from here; the lower-level types ([Position], [MoveGenerator], [San], etc.) are
  * public too for anyone who wants them.
@@ -187,6 +207,19 @@ object Chess {
         // Tag the variant even when starting from the standard position (e.g. Crazyhouse
         // or Atomic games that begin from "startpos").
         val initial = if (parsed.variant != variant) parsed.copy(variant = variant) else parsed
+        return replayFrom(initial, uciMoves)
+    }
+
+    /**
+     * As [replay], but starting from an already-built [initial] [Position] instead of a
+     * FEN — the position carries its own variant, so none is passed.
+     *
+     * Use this whenever the start position is one we already hold in memory (the analysis
+     * sandbox snapshots the live board this way): [Position.toFen] emits only the six
+     * standard FEN fields, so a FEN round-trip would silently DROP the Crazyhouse pocket
+     * and the `~` promoted-piece marks that [Position.fromFen] can otherwise read back.
+     */
+    fun replayFrom(initial: Position, uciMoves: List<String>): Replay {
         var current = initial
         val steps = ArrayList<MoveRecord>(uciMoves.size)
         for (uci in uciMoves) {
@@ -222,7 +255,10 @@ object Chess {
      * `moves` field (e.g. "e4 e5 Nf3"). Each token is matched against the legal moves of
      * the current position by generated SAN (check/mate/annotation suffixes ignored), so
      * it handles disambiguation, captures, castling, and promotion. Produces the same
-     * [Replay] as [replay]. Used by the game-history review screen.
+     * [Replay] as [replay].
+     *
+     * STRICT: use [replaySanLenient] for viewing a game the user actually played — one
+     * token our SAN generator happens to disagree with should not discard the whole game.
      *
      * @throws IllegalArgumentException if a token matches no legal move (e.g. an
      * unsupported variant).
@@ -232,6 +268,36 @@ object Chess {
 
     /** As [replaySan], but taking an already-split list of SAN tokens. */
     fun replaySan(sanMoves: List<String>, startFen: String? = null, variant: Variant = Variant.STANDARD): Replay {
+        val result = replaySanLenient(sanMoves, startFen, variant)
+        result.unmatchedToken?.let {
+            throw IllegalArgumentException("Unrecognized SAN '$it' in ${result.replay.finalPosition.toFen()}")
+        }
+        return result.replay
+    }
+
+    /**
+     * Viewer-lenient [replaySan]: replays as far as the tokens match and RETURNS the
+     * prefix instead of throwing on the first token it can't match.
+     *
+     * Games come from Lichess and are already legal there, so an unmatched token means
+     * OUR SAN generator or move generator disagrees with scalachess for that position —
+     * a variant quirk, a disambiguation difference, and so on. Throwing the whole
+     * timeline away for it leaves the user with nothing (see [SanReplay.truncated]);
+     * showing the moves that did parse at least lets them review most of the game. Same
+     * rationale as [replayFrom] deliberately not re-checking legality.
+     */
+    fun replaySanLenient(
+        sanMoves: String,
+        startFen: String? = null,
+        variant: Variant = Variant.STANDARD,
+    ): SanReplay = replaySanLenient(splitMoves(sanMoves), startFen, variant)
+
+    /** As [replaySanLenient], but taking an already-split list of SAN tokens. */
+    fun replaySanLenient(
+        sanMoves: List<String>,
+        startFen: String? = null,
+        variant: Variant = Variant.STANDARD,
+    ): SanReplay {
         val parsed = startFen?.let { Position.fromFen(it, variant) } ?: Position.START
         val initial = if (parsed.variant != variant) parsed.copy(variant = variant) else parsed
         var current = initial
@@ -240,7 +306,7 @@ object Chess {
             val target = normalizeSan(token)
             val move = MoveGenerator.legalMoves(current)
                 .firstOrNull { normalizeSan(San.of(current, it)) == target }
-                ?: throw IllegalArgumentException("Unrecognized SAN '$token' in ${current.toFen()}")
+                ?: return SanReplay(Replay(initial, steps), sanMoves.size, token)
             val after = MoveGenerator.applyMove(current, move)
             steps.add(
                 MoveRecord(
@@ -254,7 +320,7 @@ object Chess {
             )
             current = after
         }
-        return Replay(initial, steps)
+        return SanReplay(Replay(initial, steps), sanMoves.size, unmatchedToken = null)
     }
 
     // Strip check/mate/annotation glyphs so SAN comparison is on the core move only.

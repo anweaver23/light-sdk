@@ -72,6 +72,23 @@ data class SeekMatch(
 )
 
 /**
+ * How much of one game's chat the user has already seen: [count] is a HIGH-WATER MARK
+ * over the message list returned by `GET /api/board/game/{gameId}/chat` (plus anything
+ * streamed on top of it), i.e. "the first [count] messages are read".
+ *
+ * An integer index is used rather than a timestamp because the chat endpoint returns an
+ * ordered, append-only list and carries NO timestamps at all — there is nothing else to
+ * compare against. [updatedAt] is only used to evict the oldest markers once the store
+ * grows past [ChessSettings.MAX_CHAT_READ_MARKS].
+ */
+@Serializable
+data class ChatReadMark(
+    val gameId: String,
+    val count: Int,
+    val updatedAt: Long = 0,
+)
+
+/**
  * DataStore(Preferences)-backed repository for chess-app settings. Mirrors the
  * pattern used by [com.thelightphone.sdk.LightPushManager] and the weather
  * example's `WeatherViewModel` (a `DataStore<Preferences>` obtained from
@@ -143,11 +160,16 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
         }
     }
 
-    /** Logs out: clears the token/username and that user's per-account seek partitions. */
+    /**
+     * Logs out: clears the token/username, that user's per-account seek partitions, and
+     * the per-game chat read markers (which are keyed by game id, not by account, so they
+     * would otherwise linger and mis-mark another account's games as already read).
+     */
     suspend fun clearSession(username: String?) {
         dataStore.edit { prefs ->
             prefs.remove(Keys.AUTH_TOKEN)
             prefs.remove(Keys.AUTH_USERNAME)
+            prefs.remove(Keys.CHAT_READ_MARKS)
             if (username != null) {
                 prefs.remove(pendingSeeksKey(username))
                 prefs.remove(knownGamesKey(username))
@@ -269,6 +291,50 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
         }
     }
 
+    // ----- per-game chat read markers (drives the persistent unread badge) -----
+
+    /**
+     * How many of [gameId]'s chat messages have already been read (0 if the chat was
+     * never opened). The board screen counts opponent messages positioned AFTER this
+     * index as unread, which is what makes the badge survive an app restart — an
+     * in-memory counter would reset to zero every launch and could never reflect
+     * messages that arrived while the app was closed.
+     */
+    fun chatReadCount(gameId: String): Flow<Int> =
+        dataStore.data.map { prefs -> readChatMarks(prefs).firstOrNull { it.gameId == gameId }?.count ?: 0 }
+
+    /**
+     * Records that the first [count] messages of [gameId] are read. Monotonic — a lower
+     * [count] than the stored one is ignored, so a chat history that momentarily comes
+     * back short (a failed/partial fetch) can never resurrect already-read messages.
+     *
+     * Called only when the chat panel is opened or closed, never per streamed message,
+     * to keep DataStore writes rare.
+     *
+     * Pruning: rather than reconciling against the ongoing-games list (which would
+     * couple this to the home screen's refresh), the store simply keeps the
+     * [MAX_CHAT_READ_MARKS] most recently touched games and drops the rest. Evicting a
+     * marker for a long-untouched game is harmless — worst case its chat shows as
+     * unread once more.
+     */
+    suspend fun setChatReadCount(gameId: String, count: Int) {
+        dataStore.edit { prefs ->
+            val marks = readChatMarks(prefs)
+            val existing = marks.firstOrNull { it.gameId == gameId }
+            if (existing != null && existing.count >= count) return@edit
+            val updated = (marks.filterNot { it.gameId == gameId } + ChatReadMark(gameId, count, System.currentTimeMillis()))
+                .sortedByDescending { it.updatedAt }
+                .take(MAX_CHAT_READ_MARKS)
+            prefs[Keys.CHAT_READ_MARKS] = updated.map { json.encodeToString(it) }.toSet()
+        }
+    }
+
+    private fun readChatMarks(prefs: Preferences): List<ChatReadMark> =
+        (prefs[Keys.CHAT_READ_MARKS] ?: emptySet()).mapNotNull { decodeChatMark(it) }
+
+    private fun decodeChatMark(raw: String): ChatReadMark? =
+        runCatching { json.decodeFromString<ChatReadMark>(raw) }.getOrNull()
+
     private fun decodeSeek(raw: String): PendingSeek? =
         runCatching { json.decodeFromString<PendingSeek>(raw) }.getOrNull()
 
@@ -285,6 +351,7 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
         val SHOW_LEGAL_MOVES = booleanPreferencesKey("chess_show_legal_moves")
         val AUTH_TOKEN = stringPreferencesKey("chess_auth_token")
         val AUTH_USERNAME = stringPreferencesKey("chess_auth_username")
+        val CHAT_READ_MARKS = stringSetPreferencesKey("chess_chat_read_marks")
         // v1: removed — may re-add
         // val SHOW_TIME_REMAINING = booleanPreferencesKey("chess_show_time_remaining")
         // val SHOW_LAST_MOVE = booleanPreferencesKey("chess_show_last_move")
@@ -292,5 +359,8 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
 
     private companion object {
         val json = Json { ignoreUnknownKeys = true }
+
+        /** Cap on stored chat read markers; the least-recently-touched are evicted. */
+        const val MAX_CHAT_READ_MARKS = 200
     }
 }

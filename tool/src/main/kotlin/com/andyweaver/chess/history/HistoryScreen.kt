@@ -47,6 +47,16 @@ private val SUBTITLE_VARIANT = LightTextVariant.Detail
 // Statuses that mean the game is still in progress.
 private val ONGOING_STATUSES = setOf("created", "started")
 
+// Lichess's own `/api/games/user` order (and our `until` pagination cursor) is
+// createdAt-descending (game START time), but each row's relative-time LABEL shows
+// lastMoveAt (last activity/finish time) — see HistoryRow. Those can diverge (an old
+// game finished recently, or vice versa), producing a list that visually looks
+// out of order against its own labels. Re-sort each fetched page for DISPLAY by
+// lastMoveAt descending (most recently active first, matching what the label says)
+// while leaving the createdAt-based pagination cursor untouched.
+private fun List<LichessArchivedGame>.sortedByLastMoveDesc(): List<LichessArchivedGame> =
+    sortedByDescending { it.lastMoveAt }
+
 class HistoryViewModel(private val token: String) : LightViewModel<Unit>() {
 
     sealed class State {
@@ -81,8 +91,15 @@ class HistoryViewModel(private val token: String) : LightViewModel<Unit>() {
             try {
                 if (username.isEmpty()) username = api.getAccountUsername()
                 val page = api.getUserGames(username, PAGE_SIZE)
+                // Pagination cursor is createdAt-based (matches the Lichess API's own
+                // ordering/`until` semantics) — computed from the RAW page, before the
+                // display sort below.
                 oldestCreatedAt = page.lastOrNull()?.createdAt
-                _state.value = State.Loaded(page, loadingMore = false, endReached = page.size < PAGE_SIZE)
+                _state.value = State.Loaded(
+                    page.sortedByLastMoveDesc(),
+                    loadingMore = false,
+                    endReached = page.size < PAGE_SIZE,
+                )
             } catch (e: Exception) {
                 _state.value = State.Error(e.message ?: "Couldn't load games")
             } finally {
@@ -102,9 +119,11 @@ class HistoryViewModel(private val token: String) : LightViewModel<Unit>() {
                 val page = api.getUserGames(username, PAGE_SIZE, until = until)
                 val existingIds = current.games.mapTo(HashSet()) { it.id }
                 val fresh = page.filterNot { it.id in existingIds }
+                // Cursor stays createdAt-based (the API's own pagination semantics), taken
+                // from the raw fetched page before the display re-sort below.
                 oldestCreatedAt = fresh.lastOrNull()?.createdAt ?: oldestCreatedAt
                 _state.value = State.Loaded(
-                    games = current.games + fresh,
+                    games = (current.games + fresh).sortedByLastMoveDesc(),
                     loadingMore = false,
                     endReached = fresh.isEmpty(),
                 )
@@ -207,7 +226,7 @@ class HistoryScreen(
                 movesSan = game.moves,
                 initialFen = game.initialFen,
                 myColorName = mySide,
-                title = "vs ${nameWithRating(oppName, opp.rating)}",
+                title = "vs ${nameWithRating(oppName, opp.rating, opp.provisional)}",
                 // No color indicator — material makes your side clear enough.
                 result = resultText(game, iAmWhite),
                 variant = Variant.fromKey(game.variant ?: "standard"),
@@ -254,6 +273,7 @@ private fun HistoryRow(game: LichessArchivedGame, username: String, onClick: () 
             name = oppName,
             rating = opp.rating,
             nameVariant = NAME_VARIANT,
+            prov = opp.provisional,
             modifier = Modifier.fillMaxWidth(),
         )
         LightText(text = subtitle, variant = SUBTITLE_VARIANT, lighten = true)

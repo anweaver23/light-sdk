@@ -22,6 +22,7 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
@@ -62,6 +63,8 @@ data class BoardPlayer(
     val name: String? = null,
     val title: String? = null,
     val rating: Int? = null,
+    /** Lichess's "?" marker (GameEventPlayer.provisional in the OpenAPI spec). */
+    val provisional: Boolean = false,
 )
 
 /** Clock config for a board game (milliseconds). Absent for correspondence games. */
@@ -115,11 +118,46 @@ sealed interface BoardStreamEvent {
         /** Draw-offer flags. */
         val wdraw: Boolean = false,
         val bdraw: Boolean = false,
+        /** Takeback-offer flags (mirrors wdraw/bdraw). */
+        val wtakeback: Boolean = false,
+        val btakeback: Boolean = false,
     ) : BoardStreamEvent
 
-    /** A `chatLine`, `opponentGone`, or any line that could not be parsed; safe to skip. */
+    /**
+     * A chat message posted to the game's "player" or "spectator" room. Only "player"
+     * room lines are surfaced by [BoardViewModel] (spectator chat is ignored).
+     */
+    @Serializable
+    data class ChatLine(
+        val room: String = "player",
+        val username: String = "",
+        val text: String = "",
+    ) : BoardStreamEvent
+
+    /** An `opponentGone`, or any line that could not be parsed; safe to skip. */
     data object Unknown : BoardStreamEvent
 }
+
+/**
+ * The literal Lichess account that authors system announcements in the player chat
+ * ("Takeback sent", "Draw offer accepted", …). Those lines are shown like any other
+ * message but are NOT treated as opponent messages for unread-count purposes.
+ */
+const val SYSTEM_CHAT_USER = "lichess"
+
+/**
+ * One message of a game's PLAYER chat, from `GET /api/board/game/{gameId}/chat`.
+ *
+ * NOTE the field name: this endpoint calls the author [user], whereas the board
+ * stream's `chatLine` event calls the same thing `username`
+ * (see [BoardStreamEvent.ChatLine]) — they are NOT interchangeable.
+ * The endpoint returns only the player room, so there is no `room` field to filter on.
+ */
+@Serializable
+data class LichessChatMessage(
+    val text: String = "",
+    val user: String = "",
+)
 
 /** The game's variant, e.g. `key = "standard" | "horde" | "chess960" | "atomic" | …`. */
 @Serializable
@@ -159,9 +197,10 @@ data class LichessPerf(
 )
 
 /**
- * A Lichess user as it appears in various payloads. Challenge user objects carry [name]
- * plus a flat [rating]; the `/api/rel/following` stream carries [username] and nests
- * ratings under [perfs]. [displayName] and [ratingOrNull] normalise across both shapes.
+ * A Lichess user as it appears in various payloads. Challenge user objects (`ChallengeUser`
+ * in the OpenAPI spec) carry [name] plus a flat [rating] AND a flat [provisional] flag; the
+ * `/api/rel/following` stream carries [username] and nests ratings (and provisional-ness)
+ * under [perfs]. [displayName]/[ratingOrNull]/[provOrNull] normalise across both shapes.
  */
 @Serializable
 data class LichessUser(
@@ -170,17 +209,26 @@ data class LichessUser(
     val username: String? = null,
     val online: Boolean = false,
     val rating: Int? = null,
+    /** Flat provisional flag, present on challenge user payloads. */
+    val provisional: Boolean = false,
     val perfs: Map<String, LichessPerf>? = null,
 ) {
     val displayName: String get() = name ?: username ?: id ?: "?"
 
     /** Flat rating if present (challenges), else the correspondence perf (following). */
     val ratingOrNull: Int? get() = rating ?: perfs?.get(CORRESPONDENCE_SPEED)?.rating
+
+    /**
+     * Whether the shown rating is provisional (Lichess's "?" marker): the flat
+     * [provisional] flag (challenges) or, failing that, the correspondence perf's own
+     * flag (`/api/rel/following`).
+     */
+    val provOrNull: Boolean get() = provisional || (perfs?.get(CORRESPONDENCE_SPEED)?.prov ?: false)
 }
 
-/** Formats "name · 1500", or just the name when the rating is unknown. */
-fun nameWithRating(name: String, rating: Int?): String =
-    if (rating != null) "$name · $rating" else name
+/** Formats "name · 1500", or "name · 1500?" when [prov] (provisional). */
+fun nameWithRating(name: String, rating: Int?, prov: Boolean = false): String =
+    if (rating != null) "$name · $rating${if (prov) "?" else ""}" else name
 
 /** Time-control block of a challenge; [daysPerTurn] is set for correspondence. */
 @Serializable
@@ -224,13 +272,19 @@ private data class ChallengesResponse(
 )
 
 @Serializable
-private data class AccountResponse(val id: String? = null, val username: String? = null)
+private data class AccountResponse(
+    val id: String? = null,
+    val username: String? = null,
+    val perfs: Map<String, LichessPerf>? = null,
+)
 
 /** One side of an archived game (`players.white` / `players.black`). */
 @Serializable
 data class ArchivedPlayer(
     val user: LichessUser? = null,
     val rating: Int? = null,
+    /** Lichess's "?" marker (GamePlayerUser.provisional in the OpenAPI spec). */
+    val provisional: Boolean = false,
 )
 
 @Serializable
@@ -338,6 +392,16 @@ class LichessApi(private val token: String) {
     }
 
     /**
+     * The authenticated account's own correspondence rating (and provisional flag),
+     * or null if `/api/account` doesn't carry a `perfs.correspondence` block (e.g. a
+     * brand-new account with no correspondence games yet). `GET /api/account`.
+     */
+    suspend fun getOwnCorrespondenceRating(): LichessPerf? {
+        val resp: AccountResponse = client.get("$BASE_URL/api/account").body()
+        return resp.perfs?.get(CORRESPONDENCE_SPEED)
+    }
+
+    /**
      * A page of [username]'s games, newest first, across all speeds/variants.
      * `GET /api/games/user/{username}` (NDJSON). Pass [until] (epoch-ms) to fetch games
      * created strictly before it — use the oldest game's `createdAt` from the previous
@@ -437,6 +501,7 @@ class LichessApi(private val token: String) {
         when (obj["type"]?.jsonPrimitive?.content) {
             "gameFull" -> json.decodeFromJsonElement(BoardStreamEvent.GameFull.serializer(), obj)
             "gameState" -> json.decodeFromJsonElement(BoardStreamEvent.GameState.serializer(), obj)
+            "chatLine" -> json.decodeFromJsonElement(BoardStreamEvent.ChatLine.serializer(), obj)
             else -> BoardStreamEvent.Unknown
         }
     } catch (_: Exception) {
@@ -465,6 +530,70 @@ class LichessApi(private val token: String) {
      */
     suspend fun handleDraw(gameId: String, accept: Boolean): LichessActionResult =
         postAction("$BASE_URL/api/board/game/$gameId/draw/${if (accept) "yes" else "no"}")
+
+    /**
+     * Offers/accepts ([accept] = true) or declines ([accept] = false) a takeback.
+     * `POST /api/board/game/{gameId}/takeback/{yes|no}`.
+     */
+    suspend fun takeback(gameId: String, accept: Boolean): LichessActionResult =
+        postAction("$BASE_URL/api/board/game/$gameId/takeback/${if (accept) "yes" else "no"}")
+
+    /**
+     * Posts a chat message to the game's "player" room. `POST /api/board/game/{gameId}/chat`
+     * (form-urlencoded: `room=player&text=...`).
+     */
+    suspend fun sendChatMessage(gameId: String, text: String): LichessActionResult = safeAction {
+        val response = client.submitForm(
+            url = "$BASE_URL/api/board/game/$gameId/chat",
+            formParameters = Parameters.build {
+                append("room", "player")
+                append("text", text)
+            },
+        )
+        resultFrom(response)
+    }
+
+    /**
+     * The messages already posted in the game's PLAYER chat, oldest first.
+     * `GET /api/board/game/{gameId}/chat` (`board:play`).
+     *
+     * This is the only way to see messages sent BEFORE the board stream was opened —
+     * the stream's `chatLine` events are live-only and never replay history, and
+     * `gameFull` carries no chat at all. Only the private 2-player room is returned
+     * (the public spectator chat is a different endpoint, `/api/game/{id}/chat`), so
+     * no room filtering is needed here.
+     *
+     * Returns an empty list on any failure rather than throwing — chat is strictly
+     * supplementary to the board, so a chat fetch must never break opening a game.
+     */
+    suspend fun getChatMessages(gameId: String): List<LichessChatMessage> = try {
+        val response = client.get("$BASE_URL/api/board/game/$gameId/chat")
+        if (response.status.isSuccess()) parseChatMessages(response.bodyAsText()) else emptyList()
+    } catch (e: CancellationException) {
+        throw e
+    } catch (_: Exception) {
+        emptyList()
+    }
+
+    /**
+     * The OpenAPI spec declares this response as `application/x-ndjson` but types it as a
+     * JSON *array* (`PlayerGameChat`), and Lichess in practice sends the array. Parse
+     * whichever we actually get: a leading `[` means one JSON array, otherwise fall back
+     * to one object per line. A single unparseable line is skipped, never fatal.
+     */
+    private fun parseChatMessages(body: String): List<LichessChatMessage> {
+        val trimmed = body.trim()
+        if (trimmed.isEmpty()) return emptyList()
+        if (trimmed.startsWith("[")) {
+            return runCatching {
+                json.decodeFromString(ListSerializer(LichessChatMessage.serializer()), trimmed)
+            }.getOrDefault(emptyList())
+        }
+        return trimmed.lineSequence()
+            .filter { it.isNotBlank() }
+            .mapNotNull { runCatching { json.decodeFromString(LichessChatMessage.serializer(), it) }.getOrNull() }
+            .toList()
+    }
 
     /**
      * Creates a correspondence challenge to [opponent]. `POST /api/challenge/{username}`

@@ -175,6 +175,29 @@ class VariantTest {
         assertNull(after.enPassantTarget, "first-rank double push is not a valid en-passant target")
     }
 
+    @Test
+    fun hordeBlackMayCastle() {
+        // Only WHITE is the kingless horde — Black keeps a full standard army AND its
+        // castling rights (Lichess's Horde start FEN ends in "kq"). Castling used to be
+        // switched off for the whole variant, which stranded Black's king and broke the
+        // review replay at the first O-O.
+        val pos = Position.fromFen("r3k2r/pppppppp/8/8/8/8/PPPPPPPP/PPPPPPPP b kq - 0 1", Variant.HORDE)
+        val dests = MoveGenerator.legalDestinations(pos, sq("e8"))
+        assertTrue(sq("g8") in dests, "black kingside castle")
+        assertTrue(sq("c8") in dests, "black queenside castle")
+        val san = MoveGenerator.legalMoves(pos).map { San.of(pos, it) }
+        assertTrue("O-O" in san && "O-O-O" in san, "castling SAN is generated: $san")
+    }
+
+    @Test
+    fun hordeWhiteHasNoCastlingToGenerate() {
+        // The horde has no king at all, so the castling branch is simply never reached —
+        // re-enabling castling for the variant can't invent a white castle.
+        val pos = Position.fromFen("r3k2r/pppppppp/8/8/8/8/PPPPPPPP/PPPPPPPP w kq - 0 1", Variant.HORDE)
+        assertEquals(-1, pos.kingSquare(Color.WHITE))
+        assertTrue(MoveGenerator.legalMoves(pos).none { it.isCastle }, "no white castling in Horde")
+    }
+
     // ----- hardening: Chess960 perft + off-corner castling rights -----------
 
     private fun perft(pos: Position, depth: Int): Long {

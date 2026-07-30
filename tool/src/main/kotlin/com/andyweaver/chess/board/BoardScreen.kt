@@ -11,7 +11,11 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
+import androidx.compose.foundation.text.input.clearText
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -24,6 +28,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
@@ -32,8 +37,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.composed
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -69,14 +77,17 @@ import com.andyweaver.chess.lichess.LichessApi
 import com.andyweaver.chess.settings.ChessSettings
 import com.thelightphone.sdk.LightScreen
 import com.thelightphone.sdk.SealedLightActivity
+import com.thelightphone.sdk.rememberKeyboardOptions
 import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightBottomBar
 import com.thelightphone.sdk.ui.LightFullscreenModal
 import com.thelightphone.sdk.ui.LightIcon
 import com.thelightphone.sdk.ui.LightIconConfiguration
 import com.thelightphone.sdk.ui.LightIcons
+import com.thelightphone.sdk.ui.LightScrollBarPosition
 import com.thelightphone.sdk.ui.LightScrollView
 import com.thelightphone.sdk.ui.LightText
+import com.thelightphone.sdk.ui.LightTextInputEditor
 import com.thelightphone.sdk.ui.LightTextVariant
 import com.thelightphone.sdk.ui.LightTheme
 import com.thelightphone.sdk.ui.LightThemeController
@@ -85,6 +96,7 @@ import com.thelightphone.sdk.ui.LightTopBar
 import com.thelightphone.sdk.ui.LightTopBarCenter
 import com.thelightphone.sdk.ui.gridUnitsAsDp
 import com.thelightphone.sdk.ui.lightClickable
+import com.thelightphone.sdk.ui.scrollBarGutterUnits
 
 private val BOARD_DARK = Color(0xFF1B1B1B)
 private val BOARD_LIGHT = Color(0xFF5B5B5B)
@@ -140,6 +152,24 @@ internal const val ARRIVAL_ANIM_DELAY_MS = 350
 // speed (higher = slower/finer) — Andy's starting point is 0.75.
 private const val SCRUB_SWEEP_FRACTION = 0.75f
 private const val SCRUB_SWEEP_PLIES = 40f
+
+// Chat: the small text size shared by a message's sender name and by Lichess's own
+// system notes, both of which are also drawn dimmed (`lighten`). The message BODY
+// stays at Copy — only the surrounding labels shrink.
+private val CHAT_NAME_VARIANT = LightTextVariant.Detail
+
+// Chat feed rhythm, in grid units. A single Arrangement.spacedBy can't express this —
+// the gap depends on what the item ABOVE was — so each item draws its own top Spacer
+// (see chatGapUnits). All four are pure spacing; tune freely.
+//   • different speakers  — the normal beat between two people's messages
+//   • same speaker        — consecutive messages from one person read as one block
+//                           (the repeated sender name is also suppressed, see below)
+//   • around system       — breathing room above/below a run of Lichess's own notes
+//   • between system      — inside such a run, tight so it reads as one block
+private const val CHAT_GAP_NEW_SPEAKER_UNITS = 1.75f
+private const val CHAT_GAP_SAME_SPEAKER_UNITS = 0.45f
+private const val CHAT_GAP_AROUND_SYSTEM_UNITS = 2.25f
+private const val CHAT_GAP_BETWEEN_SYSTEM_UNITS = 0.9f
 
 /**
  * The live board screen for one Lichess correspondence game.
@@ -211,22 +241,66 @@ class BoardScreen(
                     .background(LightThemeTokens.colors.background),
             ) {
                 Column(modifier = Modifier.fillMaxSize()) {
-                    LightTopBar(
-                        leftButton = LightBarButton.LightIcon(
-                            icon = LightIcons.BACK,
-                            onClick = { goBack() },
-                            contentDescription = "Back",
-                        ),
-                        center = LightTopBarCenter.TwoLineDetail(
-                            line1 = state.opponentName,
-                            line2 = state.subtitle,
-                        ),
-                        rightButton = LightBarButton.LightIcon(
-                            icon = LightIcons.ELLIPSES,
-                            onClick = { viewModel.openMenu() },
-                            contentDescription = "Menu",
-                        ),
-                    )
+                    // Hand-rolled rightButton instead of LightTopBar's own slot: that slot
+                    // renders via an SDK-internal button view that takes no custom Modifier,
+                    // so it can't carry the unread-count badge (see HomeScreen's manual
+                    // refresh icon for the same workaround). This Box reproduces
+                    // LightTopBar's own rightButton position (TopEnd).
+                    Box(modifier = Modifier.fillMaxWidth()) {
+                        LightTopBar(
+                            leftButton = LightBarButton.LightIcon(
+                                icon = LightIcons.BACK,
+                                onClick = { goBack() },
+                                contentDescription = "Back",
+                            ),
+                            // Analysis sandbox: the title is replaced with the literal
+                            // "Analysis" (no opponent name/subtitle) so it's unmistakable
+                            // that moves here are local-only and not being sent to Lichess.
+                            center = if (state.analysisActive) {
+                                LightTopBarCenter.Text("Analysis")
+                            } else {
+                                LightTopBarCenter.TwoLineDetail(
+                                    line1 = state.opponentName,
+                                    line2 = state.subtitle,
+                                )
+                            },
+                        )
+                        // The whole control (icon AND its unread badge) is dropped in the
+                        // analysis sandbox: every action behind it — resign, draw, abort,
+                        // takeback, chat — targets the real Lichess game and is meaningless
+                        // on a local branch. Back-press exits analysis, which brings it
+                        // straight back (unread counts keep accruing underneath).
+                        if (!state.analysisActive) {
+                            Box(
+                                modifier = Modifier
+                                    .align(Alignment.TopEnd)
+                                    .height(3f.gridUnitsAsDp())
+                                    .padding(horizontal = 1f.gridUnitsAsDp()),
+                                contentAlignment = Alignment.CenterEnd,
+                            ) {
+                                Box {
+                                    LightIcon(
+                                        icon = LightIcons.ELLIPSES,
+                                        contentDescription = "Menu",
+                                        modifier = Modifier.lightClickable(onClick = {
+                                            // Unread messages take priority: tapping the menu
+                                            // icon opens chat directly rather than the action
+                                            // menu (chat is still reachable from the menu's
+                                            // "Chat" row when there's nothing unread).
+                                            if (state.unreadChatCount > 0) viewModel.openChat() else viewModel.openMenu()
+                                        }),
+                                    )
+                                    if (state.unreadChatCount > 0) {
+                                        CountBadge(
+                                            count = state.unreadChatCount,
+                                            diameter = 1.4f.gridUnitsAsDp(),
+                                            modifier = Modifier.align(Alignment.TopEnd),
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
 
                     if (state.unsupportedVariant != null) {
                         // Variant we can't render faithfully yet — say so plainly
@@ -246,12 +320,20 @@ class BoardScreen(
                         }
                     } else {
                         if (state.variant == Variant.CRAZYHOUSE) {
-                            // Opponent's reserves above the board (read-only), hugged tight
-                            // to the board so it can grow toward the bottom bar.
-                            ReadOnlyPocketBar(
+                            // Opponent's reserves above the board, hugged tight to the board
+                            // so it can grow toward the bottom bar. Read-only during a live
+                            // game; in analysis it becomes tappable on the opponent's turn
+                            // (the bars never swap position — only which one is interactive).
+                            TopPocketBar(
                                 pocket = state.opponentPocket,
                                 color = state.myColor.opposite,
                                 verticalPadUnits = 0.15f,
+                                selectedDrop = if (state.opponentPocketTappable) state.selectedDrop else null,
+                                onTap = if (state.opponentPocketTappable) {
+                                    { type -> viewModel.onPocketTap(type, state.myColor.opposite) }
+                                } else {
+                                    null
+                                },
                             )
                             Box(
                                 modifier = Modifier
@@ -260,7 +342,11 @@ class BoardScreen(
                                     .padding(horizontal = 0.5f.gridUnitsAsDp()),
                                 contentAlignment = Alignment.Center,
                             ) {
-                                ChessBoard(state = state, onSquareTap = viewModel::onSquareTap)
+                                ChessBoard(
+                                    state = state,
+                                    onSquareTap = viewModel::onSquareTap,
+                                    onLongPress = { viewModel.onBoardLongPress() },
+                                )
                             }
                         } else {
                             // Opponent's captured pieces align to the board's left edge (the
@@ -276,7 +362,11 @@ class BoardScreen(
                                     )
                                 },
                             ) {
-                                ChessBoard(state = state, onSquareTap = viewModel::onSquareTap)
+                                ChessBoard(
+                                    state = state,
+                                    onSquareTap = viewModel::onSquareTap,
+                                    onLongPress = { viewModel.onBoardLongPress() },
+                                )
                             }
                         }
                         // My material/reserves live in the bottom bar next to the browse
@@ -287,7 +377,9 @@ class BoardScreen(
                 }
 
                 if (state.promotionActive) {
-                    PromotionOverlay(myColor = state.myColor, viewModel = viewModel)
+                    // In analysis either side may move, so the picker must use the
+                    // ACTUAL mover's color (moverColor), not the fixed myColor.
+                    PromotionOverlay(myColor = state.moverColor ?: state.myColor, viewModel = viewModel)
                 }
 
                 if (state.menuOpen) {
@@ -295,8 +387,14 @@ class BoardScreen(
                         showGameActions = !state.terminal,
                         canOfferDraw = state.canOfferDraw,
                         canAbort = state.canAbort,
+                        canRequestTakeback = state.canRequestTakeback,
+                        showAnalysisOption = !state.analysisActive,
                         viewModel = viewModel,
                     )
+                }
+
+                if (state.chatOpen) {
+                    ChatOverlay(state = state, viewModel = viewModel)
                 }
 
                 state.confirmation?.let { confirmation ->
@@ -309,6 +407,14 @@ class BoardScreen(
                     state.confirmation == null && !state.promotionActive
                 ) {
                     DrawOfferOverlay(viewModel = viewModel)
+                }
+
+                // Opponent offered a takeback: prompt to accept/decline (unless another
+                // overlay is up).
+                if (state.incomingTakebackOffer && !state.incomingDrawOffer && !state.menuOpen &&
+                    state.confirmation == null && !state.promotionActive
+                ) {
+                    TakebackOfferOverlay(viewModel = viewModel)
                 }
 
                 state.message?.let { message ->
@@ -329,7 +435,13 @@ private fun BottomControls(state: BoardUiState, viewModel: BoardViewModel) {
                 // room for the (tappable) inventory.
                 CrazyhousePocketBar(
                     state = state,
-                    onTap = viewModel::onPocketTap,
+                    // Mine is the interactive bar except in analysis on the opponent's turn,
+                    // when the top bar takes over — see TopPocketBar's call site above.
+                    onTap = if (state.opponentPocketTappable) {
+                        null
+                    } else {
+                        { type -> viewModel.onPocketTap(type, state.myColor) }
+                    },
                     onBack = { viewModel.stepBack() },
                     onForward = { viewModel.stepForward() },
                     onSeek = { viewModel.seekToFraction(it) },
@@ -690,7 +802,16 @@ private fun RotatedClock(text: String, modifier: Modifier) {
 }
 
 @Composable
-internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
+internal fun ChessBoard(
+    state: BoardUiState,
+    onSquareTap: (Int) -> Unit,
+    // Long-press anywhere on the board enters the analysis sandbox — or, if it's already
+    // open, resets it back to the snapshot (see BoardViewModel.onBoardLongPress; the
+    // ActionMenuOverlay "Analysis" row is the other entry point). Defaults to a no-op so
+    // ReviewScreen and LocalGameScreen — which don't offer analysis — need no changes at
+    // their call sites.
+    onLongPress: () -> Unit = {},
+) {
     BoxWithConstraints(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
@@ -743,6 +864,7 @@ internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
                                 state = state,
                                 board = boardToRender,
                                 onSquareTap = onSquareTap,
+                                onLongPress = onLongPress,
                                 hidePiece = square in hidden,
                                 moveSettled = !sliding,
                             )
@@ -767,10 +889,14 @@ internal fun ChessBoard(state: BoardUiState, onSquareTap: (Int) -> Unit) {
                     ) {
                         // Across-table mode rotates the far side's (Black) pieces 180° so
                         // the sliding overlay matches the static board (see [SquareCell]).
+                        // Racing Kings starts everyone on the SAME side (no "far player's
+                        // row"), so it never applies per-piece rotation — see [BoardUiState].
                         PieceGlyph(
                             piece = s.piece,
                             squareSize = squareSize,
-                            rotationDegrees = if (state.acrossMode && s.piece.color == EngineColor.BLACK) 180f else 0f,
+                            rotationDegrees = if (state.acrossMode && state.variant != Variant.RACING_KINGS &&
+                                s.piece.color == EngineColor.BLACK
+                            ) 180f else 0f,
                         )
                     }
                 }
@@ -937,7 +1063,12 @@ internal fun MaterialRow(
  * browse arrows. Must be called from a horizontal layout scope.
  */
 @Composable
-internal fun MaterialFan(captured: List<PieceType>, capturedColor: EngineColor, advantage: Int, cellUnits: Float) {
+internal fun MaterialFan(
+    captured: List<PieceType>,
+    capturedColor: EngineColor,
+    advantage: Int,
+    cellUnits: Float,
+) {
     val cell = cellUnits.gridUnitsAsDp()
     Row(verticalAlignment = Alignment.CenterVertically) {
         // Groups advance by MATERIAL_GROUP_GAP_UNITS (center-to-center); the negative gap
@@ -990,18 +1121,22 @@ private fun CapturedStack(type: PieceType, color: EngineColor, count: Int, cell:
 }
 
 /**
- * A read-only, centered row of reserves — used for the opponent's pocket above the
- * board during play (at [OPP_POCKET_CELL_UNITS]) and for both sides' pockets stacked
- * above the browse bar in Crazyhouse review (at [MATERIAL_CELL_UNITS]). The count
- * badges stay a fixed size ([POCKET_BADGE_DIAMETER_UNITS]) regardless of glyph size.
+ * The centered row of the OPPONENT's reserves shown above the board (at
+ * [OPP_POCKET_CELL_UNITS] during play, [MATERIAL_CELL_UNITS] in review). Read-only by
+ * default — [onTap] is only ever non-null in the analysis sandbox, where the user plays
+ * both sides and this becomes the interactive bar on the opponent's turn (see
+ * [BoardUiState.opponentPocketTappable]). The count badges stay a fixed size
+ * ([POCKET_BADGE_DIAMETER_UNITS]) regardless of glyph size.
  */
 @Composable
-internal fun ReadOnlyPocketBar(
+internal fun TopPocketBar(
     pocket: Map<PieceType, Int>,
     color: EngineColor,
     cellUnits: Float = OPP_POCKET_CELL_UNITS,
     verticalPadUnits: Float = 0.4f,
     badgeOffsetUnits: Float = 0f,
+    selectedDrop: PieceType? = null,
+    onTap: ((PieceType) -> Unit)? = null,
 ) {
     Row(
         modifier = Modifier
@@ -1017,8 +1152,8 @@ internal fun ReadOnlyPocketBar(
                 color = color,
                 count = pocket[type] ?: 0,
                 cell = cellUnits.gridUnitsAsDp(),
-                selected = false,
-                onTap = null,
+                selected = type == selectedDrop,
+                onTap = onTap?.let { tap -> { tap(type) } },
                 badgeOffsetUnits = badgeOffsetUnits,
             )
         }
@@ -1028,11 +1163,13 @@ internal fun ReadOnlyPocketBar(
 /**
  * Crazyhouse bottom bar: the player's reserves centered between a back arrow (left
  * edge) and a forward arrow (right edge). Tap a reserve piece to pick it up to drop.
+ * [onTap] is null when this bar isn't the interactive one — in analysis on the
+ * opponent's turn the top bar takes over (see [BoardUiState.opponentPocketTappable]).
  */
 @Composable
 internal fun CrazyhousePocketBar(
     state: BoardUiState,
-    onTap: (PieceType) -> Unit,
+    onTap: ((PieceType) -> Unit)?,
     onBack: () -> Unit,
     onForward: () -> Unit,
     onSeek: (Float) -> Unit,
@@ -1057,8 +1194,8 @@ internal fun CrazyhousePocketBar(
                     color = state.myColor,
                     count = state.myPocket[type] ?: 0,
                     cell = MY_POCKET_CELL_UNITS.gridUnitsAsDp(),
-                    selected = type == state.selectedDrop,
-                    onTap = { onTap(type) },
+                    selected = onTap != null && type == state.selectedDrop,
+                    onTap = onTap?.let { tap -> { tap(type) } },
                 )
             }
         }
@@ -1176,6 +1313,7 @@ private fun SquareCell(
     // board while an Atomic capture slide is in flight (see [ChessBoard]).
     board: List<Piece?>,
     onSquareTap: (Int) -> Unit,
+    onLongPress: () -> Unit = {},
     hidePiece: Boolean = false,
     // False while a move slide is in flight — the checkmate king only turns sideways once
     // the mating move has landed, so the rotation reads as a beat AFTER the move, not during.
@@ -1196,7 +1334,18 @@ private fun SquareCell(
         modifier = Modifier
             .size(squareSize)
             .background(background)
-            .lightClickable { onSquareTap(square) },
+            // A single gesture recognizer handles both: quick tap moves/selects as
+            // before, long-press enters the analysis sandbox. Using one
+            // combinedClickable (instead of a plain lightClickable plus a separate
+            // pointerInput long-press detector) avoids two competing recognizers on
+            // the same pointer input — the standard Compose way to layer tap +
+            // long-press on the same target.
+            .combinedClickable(
+                interactionSource = null,
+                indication = null,
+                onLongClick = onLongPress,
+                onClick = { onSquareTap(square) },
+            ),
         contentAlignment = Alignment.Center,
     ) {
         if (isSelected || isLastMove) {
@@ -1223,8 +1372,12 @@ private fun SquareCell(
                 // Across-table mode (in-person game): the far side's pieces (Black, since
                 // the board stays unflipped) are turned 180° to read upright to the player
                 // opposite. Added to the checkmate rotation so a mated Black king still
-                // turns sideways relative to that player. Zero (unchanged) off across mode.
-                val acrossRotation = if (state.acrossMode && it.color == EngineColor.BLACK) 180f else 0f
+                // turns sideways relative to that player. Zero (unchanged) off across mode,
+                // and always zero for Racing Kings (both sides start on the same side, so
+                // there's no "far player's row" to rotate).
+                val acrossRotation = if (state.acrossMode && state.variant != Variant.RACING_KINGS &&
+                    it.color == EngineColor.BLACK
+                ) 180f else 0f
                 PieceGlyph(piece = it, squareSize = squareSize, rotationDegrees = angle + acrossRotation)
             }
         }
@@ -1394,10 +1547,221 @@ private fun DrawOfferOverlay(viewModel: BoardViewModel) {
 }
 
 @Composable
+private fun TakebackOfferOverlay(viewModel: BoardViewModel) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(LightThemeTokens.colors.background),
+    ) {
+        Box(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth()
+                .padding(horizontal = 1f.gridUnitsAsDp()),
+            contentAlignment = Alignment.Center,
+        ) {
+            LightText(
+                text = "Opponent requests a takeback",
+                variant = LightTextVariant.Copy,
+                align = TextAlign.Center,
+            )
+        }
+        LightBottomBar(
+            items = listOf(
+                null,
+                LightBarButton.Text(text = "ACCEPT", onClick = { viewModel.acceptIncomingTakeback() }),
+                LightBarButton.LightIcon(
+                    icon = LightIcons.CLOSE,
+                    onClick = { viewModel.declineIncomingTakeback() },
+                    contentDescription = "Decline takeback",
+                ),
+            ),
+        )
+    }
+}
+
+/**
+ * In-game chat: a simple message list (most-recent at the bottom) plus a "Message" action
+ * that opens a full-screen [LightTextInputEditor] to compose and send one. The list is the
+ * game's full player-room history — [BoardViewModel] fetches it from Lichess on open (the
+ * board stream only ever delivers messages sent while it is connected), so nothing is lost
+ * across restarts. Opening this panel marks everything in it read.
+ */
+@Composable
+private fun ChatOverlay(state: BoardUiState, viewModel: BoardViewModel) {
+    var composing by remember { mutableStateOf(false) }
+
+    if (composing) {
+        val textState = rememberTextFieldState("")
+        val keyboardOptions = rememberKeyboardOptions()
+        LightTextInputEditor(
+            // Titled with who you're writing to. The RAW handle, not the top bar's
+            // "name · rating" display form; falls back to that only in the brief
+            // window before gameFull has landed.
+            title = state.opponentUsername ?: state.opponentName,
+            state = textState,
+            onSubmit = {
+                viewModel.sendChat(it.toString())
+                textState.clearText()
+                composing = false
+            },
+            onBack = { composing = false },
+            keyboardOptionsFlow = keyboardOptions,
+            submitLabel = "SEND",
+            singleLine = true,
+            modifier = Modifier.fillMaxSize(),
+        )
+    } else {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(LightThemeTokens.colors.background),
+        ) {
+            LightTopBar(
+                leftButton = LightBarButton.LightIcon(
+                    icon = LightIcons.BACK,
+                    onClick = { viewModel.closeChat() },
+                    contentDescription = "Back",
+                ),
+                center = LightTopBarCenter.Text("Chat"),
+                modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
+            )
+            // Most-recent-first: the list is oldest-first, so the newest message is at the
+            // BOTTOM — but a scroll view opens at offset 0, i.e. on the OLDEST. Drive the
+            // scroll position ourselves (LightScrollView takes a ScrollState) so the feed
+            // opens on, and stays pinned to, the newest message.
+            val scrollState = rememberScrollState()
+            LaunchedEffect(state.chatMessages.size) {
+                // maxValue is only correct once the new content has been laid out, so
+                // observe it rather than reading it immediately: the first emission after
+                // a message lands is the one that actually reaches the bottom.
+                snapshotFlow { scrollState.maxValue }.collect { scrollState.scrollTo(it) }
+            }
+            // BoxWithConstraints must sit OUTSIDE the scroll view: inside a verticalScroll
+            // the height constraint is infinite, so it could not report a viewport height.
+            // The height it gives us lets the feed bottom-anchor (below) while still
+            // scrolling normally once it outgrows the viewport.
+            BoxWithConstraints(modifier = Modifier.weight(1f).fillMaxWidth()) {
+                val viewportHeight = maxHeight
+                LightScrollView(
+                    modifier = Modifier.fillMaxSize(),
+                    scrollState = scrollState,
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .heightIn(min = viewportHeight)
+                            .padding(horizontal = 1f.gridUnitsAsDp()),
+                        // Short conversations sit just above the compose button rather than
+                        // hanging off the top bar. (Spacer(weight)/Modifier.weight can't do
+                        // this — there is no "remaining" height inside a scrollable column.)
+                        verticalArrangement = Arrangement.Bottom,
+                    ) {
+                        if (state.chatMessages.isEmpty()) {
+                            LightText(text = "No messages yet.", variant = LightTextVariant.Detail)
+                        }
+                        // LightScrollView permanently reserves a scrollbar gutter on the
+                        // right (`padding(end = scrollBarGutterUnits(...))`, 2 grid units for
+                        // the default Outside position — whether or not the bar is showing).
+                        // With symmetric 1-unit padding that makes our content box sit LEFT
+                        // of the screen's true centre by half the gutter, so a centred system
+                        // line lands ~1 grid unit (40px at 1080) left of centre. Shift just
+                        // that line back by half the gutter; Compose forbids negative padding,
+                        // hence offset. Derived from the SDK's own value, not hardcoded.
+                        // (Switching the whole view to LightScrollBarPosition.Inside would
+                        // also centre it, but then the scrollbar overlays the right-aligned
+                        // messages — worse, so only the system line moves.)
+                        val systemCenteringOffset =
+                            (scrollBarGutterUnits(LightScrollBarPosition.Outside) / 2f).gridUnitsAsDp()
+                        state.chatMessages.forEachIndexed { index, msg ->
+                            val previous = state.chatMessages.getOrNull(index - 1)
+                            val gapUnits = chatGapUnits(previous, msg)
+                            if (gapUnits > 0f) {
+                                Spacer(modifier = Modifier.height(gapUnits.gridUnitsAsDp()))
+                            }
+                            if (msg.system) {
+                                // Lichess's own announcements ("Takeback sent", …): no sender
+                                // label at all, centred, and rendered in the same small dimmed
+                                // treatment as a sender name so they read as a note rather than
+                                // as someone's message.
+                                LightText(
+                                    text = msg.text,
+                                    variant = CHAT_NAME_VARIANT,
+                                    lighten = true,
+                                    align = TextAlign.Center,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .offset(x = systemCenteringOffset),
+                                )
+                            } else {
+                                // Mine on the right, the opponent's on the left.
+                                val mine = !msg.fromOpponent
+                                Column(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    horizontalAlignment = if (mine) Alignment.End else Alignment.Start,
+                                ) {
+                                    // Consecutive messages from one person are one block: the
+                                    // name is drawn once, at the top. Anything in between —
+                                    // including a system note — breaks the run, so the name
+                                    // reappears on the next message.
+                                    if (!sameSpeaker(previous, msg)) {
+                                        LightText(
+                                            text = msg.username,
+                                            variant = CHAT_NAME_VARIANT,
+                                            lighten = true,
+                                        )
+                                    }
+                                    LightText(text = msg.text, variant = LightTextVariant.Copy)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            LightBottomBar(
+                items = listOf(
+                    null,
+                    LightBarButton.LightIcon(
+                        icon = LightIcons.COMPOSE_MESSAGE,
+                        onClick = { composing = true },
+                        contentDescription = "New message",
+                    ),
+                ),
+            )
+        }
+    }
+}
+
+/**
+ * Space (grid units) above [current], decided by the item immediately before it — see the
+ * CHAT_GAP_* constants. Null [previous] means it is the first item, which needs no gap.
+ */
+private fun chatGapUnits(previous: ChatMessage?, current: ChatMessage): Float = when {
+    previous == null -> 0f
+    previous.system && current.system -> CHAT_GAP_BETWEEN_SYSTEM_UNITS
+    // Either entering or leaving a run of system notes.
+    previous.system || current.system -> CHAT_GAP_AROUND_SYSTEM_UNITS
+    sameSpeaker(previous, current) -> CHAT_GAP_SAME_SPEAKER_UNITS
+    else -> CHAT_GAP_NEW_SPEAKER_UNITS
+}
+
+/**
+ * True when both are real (non-system) messages from the same person — which both tightens
+ * the gap and suppresses the repeated sender name.
+ */
+private fun sameSpeaker(previous: ChatMessage?, current: ChatMessage): Boolean =
+    previous != null &&
+        !previous.system &&
+        !current.system &&
+        previous.fromOpponent == current.fromOpponent &&
+        previous.username == current.username
+
+@Composable
 private fun ActionMenuOverlay(
     showGameActions: Boolean,
     canOfferDraw: Boolean,
     canAbort: Boolean,
+    canRequestTakeback: Boolean,
+    showAnalysisOption: Boolean,
     viewModel: BoardViewModel,
 ) {
     Column(
@@ -1410,12 +1774,20 @@ private fun ActionMenuOverlay(
             modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
         )
         LightScrollView(modifier = Modifier.weight(1f).fillMaxWidth()) {
+            // Also reachable straight from the menu icon when there's an unread badge
+            // or by long pressing anywhere on the chess board.
+            MenuRow("Chat") { viewModel.openChat() }
+            // Local sandbox — any legal move from here, never sent to Lichess. Hidden
+            // while already active, back is the exit path).
+            if (showAnalysisOption) MenuRow("Analysis") { viewModel.enterAnalysis() }
             if (showGameActions) {
+                // Lichess requires at least one move played before a takeback makes sense.
+                if (canRequestTakeback) MenuRow("Request takeback") { viewModel.requestTakeback() }
+                // Lichess only allows a draw offer once both players have moved.
+                if (canOfferDraw) MenuRow("Offer draw") { viewModel.requestDraw() }
                 MenuRow("Resign") { viewModel.requestResign() }
                 // Lichess only allows aborting before both players have moved.
                 if (canAbort) MenuRow("Abort game") { viewModel.requestAbort() }
-                // Lichess only allows a draw offer once both players have moved.
-                if (canOfferDraw) MenuRow("Offer draw") { viewModel.requestDraw() }
             }
             // v1: PGN export disabled — may re-add
             // // SDK has no sanctioned email/share hook (raw intents are blocked), so PGN export is
@@ -1452,6 +1824,7 @@ private fun ConfirmationOverlay(confirmation: Confirmation, viewModel: BoardView
         Confirmation.RESIGN -> "Resign this game?"
         Confirmation.ABORT -> "Abort this game?"
         Confirmation.DRAW -> "Offer a draw?"
+        Confirmation.TAKEBACK -> "Request a takeback?"
     }
     Column(
         modifier = Modifier
@@ -1477,6 +1850,7 @@ private fun ConfirmationOverlay(confirmation: Confirmation, viewModel: BoardView
                             Confirmation.RESIGN -> viewModel.confirmResign()
                             Confirmation.ABORT -> viewModel.confirmAbort()
                             Confirmation.DRAW -> viewModel.confirmDraw()
+                            Confirmation.TAKEBACK -> viewModel.confirmTakeback()
                         }
                     },
                 ),

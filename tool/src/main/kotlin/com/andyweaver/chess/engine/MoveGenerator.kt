@@ -297,11 +297,18 @@ object MoveGenerator {
     }
 
     // Castling generation, Chess960-aware (works for standard positions too: the
-    // castling rook is the outermost own rook on that side of the king). No castling
-    // in Antichess (king not royal), Racing Kings, or Horde.
+    // castling rook is the outermost own rook on that side of the king). No castling in
+    // Antichess (king not royal) or Racing Kings (no rooks/rights in its start position).
+    //
+    // HORDE DOES CASTLE: only WHITE is the kingless horde — Black has a full standard
+    // army, and Lichess's own Horde start FEN carries "kq" rights (see Variant.startFen).
+    // Excluding Horde here meant Black's O-O never appeared in legalMoves, so a live Horde
+    // game offered Black no castling at all and reviewing one stopped dead at that token
+    // (verified against a real Lichess Horde game — see ReplayTest). White never reaches
+    // this function anyway: it's only called from the KING branch of pseudoLegalMoves.
     private fun castlingMoves(position: Position, kingSquare: Int, out: MutableList<Move>) {
         when (position.variant) {
-            Variant.ANTICHESS, Variant.RACING_KINGS, Variant.HORDE -> return
+            Variant.ANTICHESS, Variant.RACING_KINGS -> return
             else -> {}
         }
         val side = position.sideToMove

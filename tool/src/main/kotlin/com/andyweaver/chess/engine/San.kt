@@ -23,7 +23,12 @@ object San {
             ?: throw IllegalArgumentException("No piece on ${Square.name(move.from)} for SAN")
 
         val core = if (move.isCastle) {
-            if (Square.file(move.to) == 6) "O-O" else "O-O-O"
+            // Chess960 encodes castling as king-ONTO-ROOK, so move.to is the rook's square,
+            // not the g/c file — reading the file directly called a kingside castle with the
+            // rook anywhere but g1/g8 "O-O-O" (i.e. every ordinary h-file rook), which no
+            // Lichess SAN token would ever match. castleSquares resolves both encodings.
+            val (kingTo, _, _) = MoveGenerator.castleSquares(position, move)
+            if (Square.file(kingTo) == 6) "O-O" else "O-O-O"
         } else {
             buildCore(position, move, mover, enPassantSuffix)
         }

@@ -539,6 +539,7 @@ class NewGameScreen(
             NameWithRating(
                 name = user.displayName,
                 rating = user.ratingOrNull,
+                prov = user.provOrNull,
                 nameVariant = LightTextVariant.Subheading,
                 modifier = Modifier.weight(1f),
             )

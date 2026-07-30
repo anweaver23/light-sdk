@@ -16,6 +16,7 @@ import com.andyweaver.chess.engine.Variant
 import com.andyweaver.chess.lichess.BoardStreamEvent
 import com.andyweaver.chess.lichess.LichessActionResult
 import com.andyweaver.chess.lichess.LichessApi
+import com.andyweaver.chess.lichess.SYSTEM_CHAT_USER
 import com.andyweaver.chess.lichess.nameWithRating
 import com.andyweaver.chess.settings.ChessSettings
 import com.thelightphone.sdk.LightViewModel
@@ -25,6 +26,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
@@ -32,7 +34,41 @@ import kotlin.math.roundToInt
 enum class BottomMode { BROWSE, PENDING }
 
 /** A destructive/irreversible action awaiting a CONFIRM/✕ overlay. */
-enum class Confirmation { RESIGN, DRAW, ABORT }
+enum class Confirmation { RESIGN, DRAW, ABORT, TAKEBACK }
+
+/**
+ * One in-game chat message (the "player" room only). [fromOpponent] drives the unread
+ * count; [system] marks Lichess's own announcements ("Takeback sent", …), which are
+ * shown in the list but are never [fromOpponent].
+ */
+data class ChatMessage(
+    val username: String,
+    val text: String,
+    val fromOpponent: Boolean,
+    val system: Boolean = false,
+)
+
+/**
+ * Splices the server's chat [history] together with whatever has already arrived live on
+ * the stream ([current]), so a message delivered by BOTH paths isn't shown twice.
+ *
+ * Chat is append-only and both sides observe the same ordering, so [history] and [current]
+ * are prefixes of one conversation. The merge is therefore just "whichever reaches further
+ * wins": [history] is authoritative up to its own length, and anything [current] holds
+ * beyond that arrived after the fetch snapshot and is appended.
+ *
+ * Idempotent, and — unlike matching on content overlap — correct when re-fetching after
+ * sending. That case is what made the previous approach duplicate the entire conversation:
+ * the refetched [history] contained the just-sent messages while [current] did not, so no
+ * suffix-of-history matched any prefix-of-current at any length and both were concatenated.
+ *
+ * Residual race: a message arriving live in the window between the server composing the
+ * history response and it landing here can't be told apart from one already inside it, so
+ * it's dropped. It returns on the next fetch (every `onScreenShow`), and the window is
+ * sub-second on a screen that has only just opened.
+ */
+internal fun mergeChatHistory(history: List<ChatMessage>, current: List<ChatMessage>): List<ChatMessage> =
+    history + current.drop(history.size)
 
 /**
  * One piece slide. [startSquare] is where the overlay piece begins, [endSquare] where it
@@ -182,6 +218,12 @@ internal fun threeCheckCounts(positions: List<Position>, uptoIndex: Int, variant
  */
 data class BoardUiState(
     val opponentName: String = "Opponent",
+    /**
+     * The opponent's RAW Lichess username, without the " · rating" suffix [opponentName]
+     * carries. Null until the board stream's gameFull arrives. Used where the bare handle
+     * is wanted (the chat compose screen's title).
+     */
+    val opponentUsername: String? = null,
     val subtitle: String = "",
     val board: List<Piece?> = Chess.startPosition.board,
     val myColor: Color = Color.WHITE,
@@ -218,12 +260,19 @@ data class BoardUiState(
     val terminal: Boolean = false,
     val menuOpen: Boolean = false,
     val confirmation: Confirmation? = null,
+    /** Local (in-person, pass-and-play) game only: "are you sure?" overlay before letting a
+     *  back-press with moves already played navigate away and lose progress. */
+    val confirmingExit: Boolean = false,
     /** Lichess only allows offering a draw after both players have moved. */
     val canOfferDraw: Boolean = false,
     /** Lichess only allows aborting before both players have moved. */
     val canAbort: Boolean = false,
     /** The opponent has offered a draw and we haven't responded yet. */
     val incomingDrawOffer: Boolean = false,
+    /** Lichess only allows requesting a takeback after at least one move has been played. */
+    val canRequestTakeback: Boolean = false,
+    /** The opponent has offered a takeback and we haven't responded yet. */
+    val incomingTakebackOffer: Boolean = false,
     /** Non-null when the game is a variant our engine doesn't recognise yet
      * (the display name to show on the "not supported" screen instead of a board). */
     val unsupportedVariant: String? = null,
@@ -232,6 +281,15 @@ data class BoardUiState(
     /** Crazyhouse reserves the player may drop, and the opponent's, as type→count. */
     val myPocket: Map<PieceType, Int> = emptyMap(),
     val opponentPocket: Map<PieceType, Int> = emptyMap(),
+    /**
+     * Crazyhouse in ANALYSIS only: true when it is the OPPONENT's turn in the sandbox
+     * line, so the top (opponent) reserve bar is the interactive one and the bottom (mine)
+     * is read-only. The bars themselves never swap sides — bottom is always mine, top
+     * always the opponent's — so the board doesn't visually jump mid-line; only which one
+     * accepts taps follows the side to move. Always false in a live game and on the
+     * review screen, where only my own bar is ever tappable.
+     */
+    val opponentPocketTappable: Boolean = false,
     /** A pocket piece the player has picked up to drop (Crazyhouse), if any. */
     val selectedDrop: PieceType? = null,
     /** Legal squares for the [selectedDrop]. */
@@ -271,6 +329,23 @@ data class BoardUiState(
     /** A one-shot piece slide to play for the transition into this position (or null). */
     val animatingMove: AnimatedMove? = null,
     val message: String? = null,
+    /**
+     * True while the board is showing the local analysis sandbox instead of the live
+     * game (see [BoardViewModel.enterAnalysis]) — [BoardScreen] swaps the top-bar title to
+     * "Analysis" while this is set. The live game/stream keeps running underneath; nothing
+     * played here is ever submitted to Lichess.
+     */
+    val analysisActive: Boolean = false,
+    /** In-game chat messages ("player" room only), oldest first. */
+    val chatMessages: List<ChatMessage> = emptyList(),
+    /** True while the chat panel is open (drives [BoardScreen]'s overlay and unread reset). */
+    val chatOpen: Boolean = false,
+    /**
+     * Opponent messages the user hasn't seen: everything past the read mark persisted in
+     * [ChessSettings], so this survives an app restart and covers messages that arrived
+     * while the app was closed (not just ones streamed this session).
+     */
+    val unreadChatCount: Int = 0,
 )
 
 /**
@@ -319,6 +394,26 @@ class BoardViewModel(
     // Seeded from the home row so the top bar shows the real name on first paint
     // (no "Opponent" flash); reconciled from gameFull when the stream arrives.
     private var opponentName: String = seededOpponentName?.takeIf { it.isNotBlank() } ?: "Opponent"
+    // The opponent's raw handle (no rating suffix), learned from gameFull. Not seeded —
+    // the home row only hands us the formatted "name · rating" display string.
+    private var opponentUsernameRaw: String? = null
+    // My own raw (non-display) Lichess username, used to tell an incoming chatLine (and a
+    // history entry) apart from our own messages. Learned from gameFull's white/black
+    // player block, but ALSO resolved eagerly from the saved login session — the chat
+    // history fetch can complete before gameFull arrives, and without a username every
+    // history entry would be misattributed to the opponent (and counted unread).
+    private var myUsernameRaw: String? = null
+    // The full player-room conversation, oldest first: seeded from the chat history
+    // endpoint (the stream never replays history) and appended to by live chatLine events.
+    private val chatMessages = mutableListOf<ChatMessage>()
+    private var chatOpen: Boolean = false
+    private var unreadChatCount: Int = 0
+    // High-water mark of messages already read, mirroring ChessSettings' persisted value
+    // so the badge survives an app restart. Derived, not incremented: unreadChatCount is
+    // always recomputed as "opponent messages after this index" (see refreshUnread).
+    private var chatReadCount: Int = 0
+    private var chatReadLoaded: Boolean = false
+    private var chatHistoryJob: Job? = null
     private var unsupportedVariant: String? = null
     // Seeded from the home row; corrected from gameFull when the stream arrives.
     private var variant: Variant = seededVariant
@@ -334,8 +429,48 @@ class BoardViewModel(
     // Set true once we accept/decline an incoming offer, to hide the prompt until
     // the stream reflects the change; reset when the offer clears.
     private var drawResponsePending: Boolean = false
+    private var opponentOfferedTakeback: Boolean = false
+    // Mirrors drawResponsePending for the takeback flow.
+    private var takebackResponsePending: Boolean = false
     private var menuOpen: Boolean = false
     private var confirmation: Confirmation? = null
+
+    // ----- analysis sandbox (a separate local branch, parallel to the live game) -----
+    // Entered via the action menu or a long-press on the board (see BoardScreen's
+    // ChessBoard long-press). Snapshots the currently DISPLAYED position (whatever
+    // viewIndex the user is browsing) into its own local Replay and lets them play ANY
+    // legal move from there using the engine only — no confirm step, no submission to
+    // Lichess. The live stream keeps running underneath (handleEvent/applyState are
+    // untouched by this), so leaving analysis returns to a fully up-to-date live game.
+    private var analysisActive: Boolean = false
+    private var analysisMoves: MutableList<String> = mutableListOf()
+    // The snapshotted real-game position the sandbox branches from. Held as a Position
+    // (not a FEN) so Crazyhouse pockets and promoted-piece marks survive the snapshot —
+    // Position.toFen() emits only the six standard fields (see Chess.replayFrom).
+    private var analysisBase: Position = Chess.startPosition
+    private var analysisReplay: Replay = Chess.replayFrom(Chess.startPosition, emptyList())
+    // The REAL game's last-move highlight at the moment analysis was entered. Shown
+    // whenever the sandbox is sitting on its base position (index 0) — on entry, after a
+    // long-press reset, and when the user steps all the way back — so entering analysis
+    // doesn't blank the highlight the live board was just showing. Null when the live
+    // board wasn't showing one (viewing the game's own start position).
+    private var analysisBaseLastFrom: Int? = null
+    private var analysisBaseLastTo: Int? = null
+    // Which position of the analysis branch is on screen — lets the user step/scrub back
+    // through their own analysis moves and then play a DIFFERENT move from there, which
+    // truncates the line at that point and appends the new move (see applyAnalysisMove).
+    private var analysisViewIndex: Int = 0
+    private var analysisSelectedSquare: Int? = null
+    private var analysisLegalDests: Set<Int> = emptySet()
+    private var analysisSelectedDrop: PieceType? = null
+    private var analysisDropTargets: Set<Int> = emptySet()
+    private var analysisPendingPromotion: Pair<Int, Int>? = null
+    // One-shot slide for an analysis move, cleared right after each render (unlike the
+    // live game's `pendingAnim`, analysis has no background stream re-triggering
+    // recomputes, so it's safe to null it immediately — same discipline as
+    // LocalGameViewModel/ReviewViewModel).
+    private var analysisPendingAnim: AnimatedMove? = null
+    private var analysisAnimCounter = 0L
     private var message: String? = null
     private var confirmMoves: Boolean = true
     private var showLegalMoves: Boolean = true
@@ -410,6 +545,11 @@ class BoardViewModel(
     override fun onScreenShow(screen: SimpleLightScreen<Unit>) {
         super.onScreenShow(screen)
         startStream()
+        // Fires on first show AND on every return/app-resume, mirroring how the home
+        // screen re-fetches. The stream is closed while backgrounded and drops any
+        // messages sent in the meantime, so re-reading the history here is what catches
+        // them up — no polling loop needed.
+        loadChatHistory()
     }
 
     override fun onScreenHide(screen: SimpleLightScreen<Unit>) {
@@ -464,13 +604,121 @@ class BoardViewModel(
                     .takeIf { event.variant.key.lowercase() !in KNOWN_VARIANTS }
                 val opp = if (myColor == Color.WHITE) event.black else event.white
                 val oppName = opp.name?.takeIf { it.isNotBlank() } ?: "Opponent"
-                opponentName = nameWithRating(oppName, opp.rating)
+                opponentName = nameWithRating(oppName, opp.rating, opp.provisional)
+                opponentUsernameRaw = opp.name?.takeIf { it.isNotBlank() }
+                val me = if (myColor == Color.WHITE) event.white else event.black
+                myUsernameRaw = me.name
                 applyState(event.state, resetView = true)
             }
 
             is BoardStreamEvent.GameState -> applyState(event, resetView = false)
 
+            is BoardStreamEvent.ChatLine -> handleChatLine(event)
+
             BoardStreamEvent.Unknown -> Unit
+        }
+    }
+
+    private fun handleChatLine(event: BoardStreamEvent.ChatLine) {
+        if (event.room != "player") return // ignore spectator chat
+        chatMessages += chatMessage(event.username, event.text)
+        // While the panel is open the message is seen the moment it lands, so advance the
+        // read mark in memory rather than counting it unread; it's persisted on close.
+        if (chatOpen) chatReadCount = chatMessages.size
+        refreshUnread()
+        recompute()
+    }
+
+    /**
+     * Loads the messages posted BEFORE the stream opened. The board stream's `chatLine`
+     * events are live-only — they never replay history, and `gameFull` carries none — so
+     * without this fetch every message vanished on app restart and anything the opponent
+     * sent while we were away was invisible.
+     *
+     * Runs concurrently with (not before) the board stream so chat never delays the board.
+     * That means a message can race in via BOTH paths, which [mergeChatHistory] resolves.
+     */
+    private fun loadChatHistory() {
+        if (chatHistoryJob?.isActive == true) return
+        chatHistoryJob = viewModelScope.launch {
+            if (!chatReadLoaded) {
+                chatReadCount = settings.chatReadCount(gameId).first()
+                chatReadLoaded = true
+            }
+            if (myUsernameRaw == null) myUsernameRaw = settings.session.first()?.username
+            val history = api.getChatMessages(gameId).map { chatMessage(it.user, it.text) }
+            val merged = mergeChatHistory(history, chatMessages.toList())
+            chatMessages.clear()
+            chatMessages += merged
+            // Messages that arrive while the panel is already open count as seen.
+            if (chatOpen) chatReadCount = chatMessages.size
+            refreshUnread()
+            recompute()
+        }
+    }
+
+    /**
+     * Builds a [ChatMessage], classifying the author. Lichess posts its own system
+     * announcements ("Takeback sent", "Draw offer accepted") into the player room under
+     * the literal user "lichess"; those are shown but must not be [ChatMessage.fromOpponent],
+     * or the unread badge would light up for the user's own takeback/draw actions.
+     */
+    private fun chatMessage(username: String, text: String): ChatMessage {
+        val system = username.equals(SYSTEM_CHAT_USER, ignoreCase = true)
+        return ChatMessage(
+            username = username,
+            text = text,
+            fromOpponent = !system && !username.equals(myUsernameRaw, ignoreCase = true),
+            system = system,
+        )
+    }
+
+    /** Unread = opponent messages sitting past the read high-water mark. */
+    private fun refreshUnread() {
+        unreadChatCount = chatMessages.drop(chatReadCount).count { it.fromOpponent }
+    }
+
+    /**
+     * Marks everything currently loaded as read, in memory and in DataStore, so the badge
+     * clears and STAYS cleared across restarts. Only called on chat open/close — never per
+     * streamed message — to keep DataStore writes rare.
+     */
+    private fun markChatRead() {
+        chatReadCount = chatMessages.size
+        chatReadLoaded = true
+        unreadChatCount = 0
+        val count = chatReadCount
+        viewModelScope.launch { settings.setChatReadCount(gameId, count) }
+    }
+
+    /** Opens the chat panel and clears the unread count. */
+    fun openChat() {
+        menuOpen = false
+        chatOpen = true
+        markChatRead()
+        recompute()
+        // Cheap re-check in case the stream dropped messages while it was down.
+        loadChatHistory()
+    }
+
+    fun closeChat() {
+        chatOpen = false
+        markChatRead()
+        recompute()
+    }
+
+    /** Sends a chat message to the game's "player" room. Ignores blank text. */
+    fun sendChat(text: String) {
+        val trimmed = text.trim()
+        if (trimmed.isEmpty()) return
+        viewModelScope.launch {
+            when (val res = api.sendChatMessage(gameId, trimmed)) {
+                LichessActionResult.Success -> Unit // the stream echoes it back as a chatLine
+                is LichessActionResult.Failure -> {
+                    message = "Couldn't send message: ${res.error}"
+                    recompute()
+                }
+            }
         }
     }
 
@@ -483,6 +731,9 @@ class BoardViewModel(
         opponentOfferedDraw = if (myColor == Color.WHITE) state.bdraw else state.wdraw
         // Offer withdrawn/resolved -> allow the prompt to show again next time.
         if (!opponentOfferedDraw) drawResponsePending = false
+
+        opponentOfferedTakeback = if (myColor == Color.WHITE) state.btakeback else state.wtakeback
+        if (!opponentOfferedTakeback) takebackResponsePending = false
 
         // Re-derive the whole timeline from the authoritative move list.
         replay = try {
@@ -626,6 +877,7 @@ class BoardViewModel(
     }
 
     fun stepBack() {
+        if (analysisActive) { analysisStepBack(); return }
         if (pendingMove != null || pendingPromotion != null) return
         if (viewIndex > 0) {
             val old = viewIndex
@@ -637,6 +889,7 @@ class BoardViewModel(
     }
 
     fun stepForward() {
+        if (analysisActive) { analysisStepForward(); return }
         if (pendingMove != null || pendingPromotion != null) return
         if (viewIndex < replay.positions.lastIndex) {
             val old = viewIndex
@@ -668,6 +921,7 @@ class BoardViewModel(
 
     /** Scrub to a position by fraction of the whole game (0 = start, 1 = latest). */
     fun seekToFraction(fraction: Float) {
+        if (analysisActive) { analysisSeekToFraction(fraction); return }
         if (pendingMove != null || pendingPromotion != null) return
         val last = replay.positions.lastIndex
         if (last <= 0) return
@@ -684,6 +938,7 @@ class BoardViewModel(
     // ----- move interaction -----
 
     fun onSquareTap(square: Int) {
+        if (analysisActive) { onAnalysisSquareTap(square); return }
         val positions = replay.positions
         // Read-only while a move is pending/in-flight, while picking a promotion
         // piece, while reviewing history, when the game is over, or when not our turn.
@@ -722,8 +977,16 @@ class BoardViewModel(
         recompute()
     }
 
-    /** Crazyhouse: pick up (or put back) a pocket piece to drop. */
-    fun onPocketTap(type: PieceType) {
+    /**
+     * Crazyhouse: pick up (or put back) a pocket piece to drop. [color] is the side whose
+     * reserves were tapped — always [myColor] in a live game (only my bar is interactive),
+     * but in analysis either bar can be the interactive one, since the user plays BOTH
+     * sides there (see [BoardUiState.opponentPocketTappable]). A tap on the side that is
+     * NOT to move is inert rather than dropping the wrong colour's piece.
+     */
+    fun onPocketTap(type: PieceType, color: Color) {
+        if (analysisActive) { onAnalysisPocketTap(type, color); return }
+        if (color != myColor) return
         if (pendingMove != null || pendingPromotion != null) return
         if (viewIndex != replay.positions.lastIndex) return
         if (isTerminal()) return
@@ -761,12 +1024,14 @@ class BoardViewModel(
 
     /** User picked a promotion piece from the picker. */
     fun choosePromotion(type: PieceType) {
+        if (analysisActive) { chooseAnalysisPromotion(type); return }
         val (from, to) = pendingPromotion ?: return
         pendingPromotion = null
         commitMove(from, to, promotion = type)
     }
 
     fun cancelPromotion() {
+        if (analysisActive) { cancelAnalysisPromotion(); return }
         pendingPromotion = null
         clearSelection()
         recompute()
@@ -837,15 +1102,320 @@ class BoardViewModel(
         }
     }
 
+    // ----- analysis sandbox -----
+
+    /**
+     * Enter the analysis sandbox: snapshot the currently DISPLAYED position (whatever
+     * the user is browsing, live latest or a past step) as a fresh local branch, and let
+     * them play any legal move against the engine only. Blocked while a live move is
+     * staged/awaiting a promotion choice, same as browsing.
+     */
+    fun enterAnalysis() {
+        if (pendingMove != null || pendingPromotion != null) return
+        menuOpen = false
+        snapshotAnalysis()
+        analysisActive = true
+        recompute()
+    }
+
+    /**
+     * Long-press while already in analysis: throw the sandbox line away and start over
+     * from a fresh snapshot of the live game. Explicit rather than relying on
+     * [enterAnalysis] being re-entrant, so the reset can't be broken by an unrelated
+     * change to the entry path. Both share [snapshotAnalysis], so the reset restores the
+     * real game's last-move highlight exactly like a first entry does.
+     */
+    fun resetAnalysis() {
+        if (!analysisActive) return
+        menuOpen = false
+        snapshotAnalysis()
+        recompute()
+    }
+
+    /** Long-press on the board: enter the sandbox, or reset it if it's already open. */
+    fun onBoardLongPress() {
+        if (analysisActive) resetAnalysis() else enterAnalysis()
+    }
+
+    // Snapshot the live game's currently displayed position as the sandbox's base, and
+    // wipe every piece of branch state. Also captures the live board's CURRENT last-move
+    // highlight (the same from/to recompute() would render at this viewIndex) so the
+    // sandbox's base position keeps showing it instead of starting blank.
+    private fun snapshotAnalysis() {
+        // Keep the base as a Position (no FEN round-trip) — see analysisBase.
+        analysisBase = replay.positions.getOrElse(viewIndex) { replay.finalPosition }
+            .let { if (it.variant != variant) it.copy(variant = variant) else it }
+        analysisMoves = mutableListOf()
+        analysisReplay = Chess.replayFrom(analysisBase, emptyList())
+        analysisViewIndex = 0
+        // Mirrors recompute()'s own last-move derivation (pendingMove can't be set here —
+        // enterAnalysis is blocked while a move is staged).
+        when {
+            viewIndex > 0 -> {
+                val step = replay.steps[viewIndex - 1]
+                analysisBaseLastFrom = step.move.from
+                analysisBaseLastTo = step.move.to
+            }
+            // Seed-only state (no move list yet): the home row's last move.
+            replay.steps.isEmpty() -> {
+                analysisBaseLastFrom = seededLastFrom
+                analysisBaseLastTo = seededLastTo
+            }
+            // Viewing the game's own start position — no last move to show.
+            else -> {
+                analysisBaseLastFrom = null
+                analysisBaseLastTo = null
+            }
+        }
+        clearAnalysisSelection()
+        analysisPendingPromotion = null
+        analysisPendingAnim = null
+    }
+
+    /** Back-press while in analysis just leaves the sandbox — see [onBackPressed]. */
+    fun exitAnalysis() {
+        analysisActive = false
+        clearAnalysisSelection()
+        analysisPendingPromotion = null
+        analysisPendingAnim = null
+        recompute()
+    }
+
+    /**
+     * The analysis position currently on screen — where the side to move may play. A move
+     * from here truncates the line (see [applyAnalysisMove]), so this is the position all
+     * the analysis tap handlers read, NOT the tip.
+     */
+    private fun analysisViewed(): Position {
+        val positions = analysisReplay.positions
+        return positions[analysisViewIndex.coerceIn(0, positions.lastIndex)]
+    }
+
+    // Browse the analysis branch's own move history — mirrors stepBack/stepForward for
+    // the live game. Unlike the live game, browsing back here is not read-only: playing a
+    // move from a past analysis position forks the line (truncate-and-replace).
+    private fun analysisStepBack() {
+        if (analysisPendingPromotion != null) return
+        if (analysisViewIndex > 0) {
+            val old = analysisViewIndex
+            analysisViewIndex--
+            analysisPendingAnim = buildAnalysisStepAnim(old, analysisViewIndex)
+            clearAnalysisSelection()
+            recompute()
+        }
+    }
+
+    private fun analysisStepForward() {
+        if (analysisPendingPromotion != null) return
+        if (analysisViewIndex < analysisReplay.positions.lastIndex) {
+            val old = analysisViewIndex
+            analysisViewIndex++
+            analysisPendingAnim = buildAnalysisStepAnim(old, analysisViewIndex)
+            clearAnalysisSelection()
+            recompute()
+        }
+    }
+
+    private fun analysisSeekToFraction(fraction: Float) {
+        if (analysisPendingPromotion != null) return
+        val last = analysisReplay.positions.lastIndex
+        if (last <= 0) return
+        val target = (fraction.coerceIn(0f, 1f) * last).roundToInt().coerceIn(0, last)
+        if (target != analysisViewIndex) {
+            val old = analysisViewIndex
+            analysisViewIndex = target
+            analysisPendingAnim = buildAnalysisStepAnim(old, target)
+            clearAnalysisSelection()
+            recompute()
+        }
+    }
+
+    private fun onAnalysisSquareTap(square: Int) {
+        if (analysisPendingPromotion != null) return
+        // Moves are played from the VIEWED position, not the tip: stepping back and
+        // playing something different truncates the line there and continues from it
+        // (see applyAnalysisMove) — the standard lightweight-analysis behaviour.
+        val pos = analysisViewed()
+
+        val drop = analysisSelectedDrop
+        if (drop != null) {
+            if (square in analysisDropTargets) commitAnalysisDrop(drop, square) else clearAnalysisSelectionAndRecompute()
+            return
+        }
+
+        val piece = pos.pieceAt(square)
+        val selected = analysisSelectedSquare
+
+        if (selected == null) {
+            if (piece != null && piece.color == pos.sideToMove) selectAnalysis(square, pos)
+            return
+        }
+
+        when {
+            square == selected -> clearAnalysisSelectionAndRecompute()
+            square in analysisLegalDests -> makeAnalysisMove(pos, selected, square)
+            piece != null && piece.color == pos.sideToMove -> selectAnalysis(square, pos)
+            else -> clearAnalysisSelectionAndRecompute()
+        }
+    }
+
+    private fun selectAnalysis(square: Int, pos: Position) {
+        analysisSelectedSquare = square
+        analysisLegalDests = Chess.legalDestinations(pos, square)
+        recompute()
+    }
+
+    private fun onAnalysisPocketTap(type: PieceType, color: Color) {
+        if (analysisPendingPromotion != null) return
+        // Drops, like board moves, come from the VIEWED position — the pocket shown is
+        // that position's, so dropping from a stepped-back position forks the line there.
+        val pos = analysisViewed()
+        // The two bars stay put (bottom = me, top = opponent) so the board never jumps
+        // mid-line; instead the INTERACTIVE one follows the side to move. A tap on the
+        // other bar is inert — never a silent wrong-colour drop.
+        if (color != pos.sideToMove) return
+        if (pos.pocket.count(pos.sideToMove, type) <= 0) return
+        if (analysisSelectedDrop == type) {
+            clearAnalysisSelectionAndRecompute()
+            return
+        }
+        clearAnalysisSelection()
+        analysisSelectedDrop = type
+        analysisDropTargets = Chess.legalDropSquares(pos, type)
+        recompute()
+    }
+
+    private fun commitAnalysisDrop(type: PieceType, square: Int) {
+        clearAnalysisSelection()
+        applyAnalysisMove(Move(from = square, to = square, drop = type))
+    }
+
+    private fun makeAnalysisMove(pos: Position, from: Int, to: Int) {
+        val isPromotion = pos.pieceAt(from)?.type == PieceType.PAWN &&
+            (Square.rank(to) == 0 || Square.rank(to) == 7)
+        if (isPromotion) {
+            analysisPendingPromotion = from to to
+            clearAnalysisSelection()
+            recompute()
+            return
+        }
+        commitAnalysisMove(pos, from, to, promotion = null)
+    }
+
+    private fun chooseAnalysisPromotion(type: PieceType) {
+        val (from, to) = analysisPendingPromotion ?: return
+        analysisPendingPromotion = null
+        // analysisViewIndex can't move while a promotion is pending (the step/scrub
+        // handlers bail on analysisPendingPromotion), so the viewed position is still the
+        // one the pawn was picked up from — including when that's mid-line (a fork).
+        commitAnalysisMove(analysisViewed(), from, to, promotion = type)
+    }
+
+    private fun cancelAnalysisPromotion() {
+        analysisPendingPromotion = null
+        clearAnalysisSelection()
+        recompute()
+    }
+
+    private fun commitAnalysisMove(pos: Position, from: Int, to: Int, promotion: PieceType?) {
+        val suffix = when (promotion) {
+            PieceType.QUEEN -> "q"
+            PieceType.ROOK -> "r"
+            PieceType.BISHOP -> "b"
+            PieceType.KNIGHT -> "n"
+            else -> ""
+        }
+        val uci = Square.name(from) + Square.name(to) + suffix
+        val move = Chess.parseUci(uci, pos)
+        clearAnalysisSelection()
+        if (move == null) {
+            recompute()
+            return
+        }
+        applyAnalysisMove(move)
+    }
+
+    // Apply a legal move to the analysis branch (engine-only, never submitted to
+    // Lichess), rebuild its local replay, and animate the move exactly like the
+    // in-person local game — a one-shot slide, nulled right after this render.
+    //
+    // TRUNCATE-AND-REPLACE: the move is played from the VIEWED position, so anything
+    // after it is discarded before appending — the new move becomes the tip. (Position
+    // index i == "after i moves", so analysisViewIndex indexes analysisMoves directly;
+    // when already at the tip, analysisViewIndex == analysisMoves.size and the truncation
+    // is a no-op.) This is a single line, not a variation tree: there's no UI to navigate
+    // siblings, and the app's whole ethos is against adding one. Every derived value
+    // (canStepBack/Forward, viewFraction, totalPlies, the scrub mapping, material and
+    // pockets) is recomputed from the shortened-then-extended replay in recomputeAnalysis,
+    // so nothing can be left pointing past the new tip.
+    private fun applyAnalysisMove(move: Move) {
+        val oldIndex = analysisViewIndex
+        if (oldIndex < analysisMoves.size) analysisMoves.subList(oldIndex, analysisMoves.size).clear()
+        analysisMoves.add(move.toUci())
+        analysisReplay = Chess.replayFrom(analysisBase, analysisMoves)
+        analysisViewIndex = analysisReplay.positions.lastIndex
+        // Always a single forward step from where the user was (oldIndex + 1 == the new
+        // tip after truncation), so the fork animates like any other move.
+        analysisPendingAnim = buildAnalysisStepAnim(oldIndex, analysisViewIndex)
+        clearAnalysisSelection()
+        recompute()
+    }
+
+    // Bidirectional version of the forward-only original — stepping/scrubbing backward
+    // through the analysis branch's own history needs the reverse slide too (mirrors
+    // buildStepAnim for the live/local games).
+    private fun buildAnalysisStepAnim(oldIndex: Int, newIndex: Int): AnimatedMove? {
+        val delta = newIndex - oldIndex
+        if (delta != 1 && delta != -1) return null
+        val step = analysisReplay.steps.getOrNull(minOf(oldIndex, newIndex)) ?: return null
+        if (step.move.isDrop) return null
+        if (isCaptureMove(step.before, step.move)) {
+            if (delta == 1) {
+                analysisAnimCounter += 1
+                return captureSlideAnim(step.before, step.after, step.move, analysisAnimCounter)
+            }
+            if (step.before.variant == Variant.ATOMIC) return null
+        }
+        val slides = stepSlides(step, analysisReplay.positions[newIndex].board, forward = delta == 1)
+        if (slides.isEmpty()) return null
+        analysisAnimCounter += 1
+        return AnimatedMove(slides = slides, id = analysisAnimCounter)
+    }
+
+    private fun clearAnalysisSelection() {
+        analysisSelectedSquare = null
+        analysisLegalDests = emptySet()
+        analysisSelectedDrop = null
+        analysisDropTargets = emptySet()
+    }
+
+    private fun clearAnalysisSelectionAndRecompute() {
+        clearAnalysisSelection()
+        recompute()
+    }
+
     // ----- menu / confirmations -----
 
-    fun openMenu() { menuOpen = true; recompute() }
+    // No-op in the analysis sandbox: every menu action targets the real Lichess game, so
+    // the menu is hidden there (BoardScreen drops the icon entirely). Guarded here too so
+    // the overlay can't be re-opened by any other path while analysis is active.
+    fun openMenu() { if (analysisActive) return; menuOpen = true; recompute() }
     fun closeMenu() { menuOpen = false; recompute() }
 
     fun requestResign() { menuOpen = false; confirmation = Confirmation.RESIGN; recompute() }
     fun requestAbort() { menuOpen = false; confirmation = Confirmation.ABORT; recompute() }
     fun requestDraw() { menuOpen = false; confirmation = Confirmation.DRAW; recompute() }
+    fun requestTakeback() { menuOpen = false; confirmation = Confirmation.TAKEBACK; recompute() }
     fun cancelConfirmation() { confirmation = null; recompute() }
+
+    // This screen only ever backs a real, streamed Lichess (online) game — back should go
+    // straight home with no confirmation (unlike the local pass-and-play screen, which
+    // confirms because it would silently lose in-person progress). Analysis still takes
+    // priority: back just leaves the sandbox and returns to the live game view.
+    override fun onBackPressed(): Boolean {
+        if (analysisActive) { exitAnalysis(); return true }
+        return false
+    }
 
     fun confirmResign() {
         confirmation = null
@@ -902,6 +1472,37 @@ class BoardViewModel(
         }
     }
 
+    fun confirmTakeback() {
+        confirmation = null
+        recompute()
+        viewModelScope.launch {
+            when (val res = api.takeback(gameId, accept = true)) {
+                LichessActionResult.Success -> { message = "Takeback requested"; recompute() }
+                is LichessActionResult.Failure -> { message = "Couldn't request takeback: ${res.error}"; recompute() }
+            }
+        }
+    }
+
+    // ----- responding to an incoming takeback offer -----
+
+    fun acceptIncomingTakeback() = respondToTakeback(accept = true, failNote = "Couldn't accept takeback")
+    fun declineIncomingTakeback() = respondToTakeback(accept = false, failNote = "Couldn't decline takeback")
+
+    private fun respondToTakeback(accept: Boolean, failNote: String) {
+        if (takebackResponsePending) return
+        takebackResponsePending = true
+        recompute() // hides the prompt immediately
+        viewModelScope.launch {
+            val res = api.takeback(gameId, accept = accept)
+            if (res is LichessActionResult.Failure) {
+                takebackResponsePending = false
+                message = "$failNote: ${res.error}"
+                recompute()
+            }
+            // On success the stream reflects the resolution (move list shrinks, or offer cleared).
+        }
+    }
+
     // ----- PGN export -----
     // v1: PGN export disabled — may re-add
     // fun copyPgn() { menuOpen = false; recompute(); fetchPgn(PgnDelivery.CLIPBOARD) }
@@ -948,6 +1549,10 @@ class BoardViewModel(
     }
 
     private fun recompute() {
+        if (analysisActive) {
+            recomputeAnalysis()
+            return
+        }
         val positions = replay.positions
         viewIndex = viewIndex.coerceIn(0, positions.lastIndex)
         val latest = replay.finalPosition
@@ -1011,6 +1616,10 @@ class BoardViewModel(
         // Lichess only allows aborting before both players have moved (< 2 plies).
         val canAbort = !terminal && replay.steps.size < 2
         val incomingDrawOffer = opponentOfferedDraw && !drawResponsePending && !terminal
+        // At least one move must have been played to take one back; the server enforces
+        // the finer-grained "it must be your opponent's move you're taking back" rule.
+        val canRequestTakeback = !terminal && replay.steps.isNotEmpty()
+        val incomingTakebackOffer = opponentOfferedTakeback && !takebackResponsePending && !terminal
 
         // Compare against the variant's canonical starting complement (not
         // replay.positions.first()) so material is stable from the very first seeded
@@ -1022,6 +1631,7 @@ class BoardViewModel(
 
         _uiState.value = BoardUiState(
             opponentName = opponentName,
+            opponentUsername = opponentUsernameRaw,
             subtitle = subtitle,
             board = displayPosition.board,
             myColor = myColor,
@@ -1042,6 +1652,8 @@ class BoardViewModel(
             canOfferDraw = canOfferDraw,
             canAbort = canAbort,
             incomingDrawOffer = incomingDrawOffer,
+            canRequestTakeback = canRequestTakeback,
+            incomingTakebackOffer = incomingTakebackOffer,
             unsupportedVariant = unsupportedVariant,
             variant = variant,
             myPocket = displayPosition.pocket.forColor(myColor),
@@ -1058,10 +1670,112 @@ class BoardViewModel(
             totalPlies = positions.lastIndex,
             animatingMove = pendingAnim,
             message = message,
+            chatMessages = chatMessages.toList(),
+            chatOpen = chatOpen,
+            unreadChatCount = unreadChatCount,
         )
         // NOTE: pendingAnim is intentionally NOT nulled here — it persists so unrelated
         // recomputes re-emit the same id (a UI no-op), rather than flipping it to null and
         // resetting an in-flight slide. See the pendingAnim declaration for the full why.
+    }
+
+    // Renders the analysis sandbox: a completely local, engine-only branch (see
+    // `analysisReplay`), shown at `analysisViewIndex` — the user can step/scrub back
+    // through the moves THEY'VE played in the sandbox (BottomMode stays BROWSE, same as
+    // the live/local games), and play a different move from any of them, which forks the
+    // line there (see applyAnalysisMove). The live game's `subtitle`/draw/takeback/abort
+    // affordances are all irrelevant here (they'd operate on the real Lichess game), so
+    // they're zeroed/hidden — as is the action menu itself (BoardScreen hides its icon
+    // while `analysisActive`); `analysisActive = true` is also what tells BoardScreen to
+    // swap the top-bar title.
+    private fun recomputeAnalysis() {
+        val positions = analysisReplay.positions
+        val idx = analysisViewIndex.coerceIn(0, positions.lastIndex)
+        val pos = positions[idx]
+
+        val status = Chess.status(pos)
+        val isCheck = status is GameStatus.Check
+        val isCheckmate = status is GameStatus.Checkmate
+        val checkedKing = if (isCheck) pos.kingSquare(pos.sideToMove).takeIf { it >= 0 } else null
+        val checkmateKing = if (isCheckmate) pos.kingSquare(pos.sideToMove).takeIf { it >= 0 } else null
+
+        var lastFrom: Int? = null
+        var lastTo: Int? = null
+        if (idx > 0) {
+            val step = analysisReplay.steps[idx - 1]
+            lastFrom = step.move.from
+            lastTo = step.move.to
+        } else {
+            // Sitting on the snapshot the sandbox branched from (on entry, after a
+            // long-press reset, or having stepped all the way back): show the REAL
+            // game's last move, the highlight the live board was showing when analysis
+            // was entered. Consistent with the codebase's backward-step convention —
+            // stepping back out of a move re-reveals the indicators on the move before it.
+            lastFrom = analysisBaseLastFrom
+            lastTo = analysisBaseLastTo
+        }
+
+        // Material stays relative to the FIXED bottom side (myColor) exactly like the
+        // live board — the board's orientation doesn't change in analysis, only who is
+        // allowed to move (either side, via `pos.sideToMove` in the tap handlers above).
+        val material = computeMaterial(referenceStart(), pos, analysisReplay.initial.variant, myColor)
+
+        _uiState.value = BoardUiState(
+            opponentName = opponentName,
+            opponentUsername = opponentUsernameRaw,
+            subtitle = "",
+            board = pos.board,
+            myColor = myColor,
+            flipped = myColor == Color.BLACK,
+            moverColor = pos.sideToMove,
+            selectedSquare = analysisSelectedSquare,
+            legalDestinations = if (showLegalMoves) analysisLegalDests else emptySet(),
+            lastMoveFrom = lastFrom,
+            lastMoveTo = lastTo,
+            checkedKingSquare = checkedKing,
+            checkmateKingSquare = checkmateKing,
+            promotionActive = analysisPendingPromotion != null,
+            mode = BottomMode.BROWSE,
+            canStepBack = idx > 0,
+            canStepForward = idx < positions.lastIndex,
+            terminal = status.isTerminal,
+            // The action menu is meaningless in the sandbox (resign/draw/takeback/abort/
+            // chat all act on the real Lichess game), so it's force-closed here as well as
+            // being unreachable — openMenu() no-ops and BoardScreen hides the icon.
+            menuOpen = false,
+            confirmation = null,
+            canOfferDraw = false,
+            canAbort = false,
+            incomingDrawOffer = false,
+            canRequestTakeback = false,
+            incomingTakebackOffer = false,
+            unsupportedVariant = null,
+            variant = analysisReplay.initial.variant,
+            myPocket = pos.pocket.forColor(myColor),
+            opponentPocket = pos.pocket.forColor(myColor.opposite),
+            // Either side may move in the sandbox, so the tappable bar follows the side to
+            // move rather than always being mine (which would drop the wrong colour).
+            opponentPocketTappable = pos.sideToMove != myColor,
+            selectedDrop = analysisSelectedDrop,
+            dropTargets = if (showLegalMoves) analysisDropTargets else emptySet(),
+            goalSquares = goalSquaresFor(analysisReplay.initial.variant),
+            checkCounts = threeCheckCounts(positions, idx, analysisReplay.initial.variant),
+            myCaptured = material.myCaptured,
+            opponentCaptured = material.opponentCaptured,
+            myAdvantage = material.myAdvantage,
+            opponentAdvantage = material.opponentAdvantage,
+            viewFraction = if (positions.size > 1) idx.toFloat() / positions.lastIndex else 1f,
+            totalPlies = positions.lastIndex,
+            animatingMove = analysisPendingAnim,
+            message = null,
+            analysisActive = true,
+            chatMessages = chatMessages.toList(),
+            chatOpen = chatOpen,
+            unreadChatCount = unreadChatCount,
+        )
+        // Analysis has no background stream re-triggering recomputes, so — unlike the
+        // live game's pendingAnim — it's safe to null this immediately (one-shot).
+        analysisPendingAnim = null
     }
 
     // The variant's canonical starting position, used as the stable reference for the
