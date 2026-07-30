@@ -23,12 +23,20 @@ import com.thelightphone.sdk.LightViewModel
 import com.thelightphone.sdk.SimpleLightScreen
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
+
+/**
+ * How long to wait for the stream to confirm a draw/takeback offer actually landed before
+ * assuming Lichess silently dropped it (see [BoardViewModel.verifyOwnOfferLanded]). The event
+ * stream reflects a real offer within about a second in practice; this leaves generous room.
+ */
+private const val OWN_OFFER_CONFIRM_TIMEOUT_MS = 5_000L
 
 /** Which set of controls the bottom bar shows. */
 enum class BottomMode { BROWSE, PENDING }
@@ -584,6 +592,14 @@ class BoardViewModel(
     private var opponentOfferedTakeback: Boolean = false
     // Mirrors drawResponsePending for the takeback flow.
     private var takebackResponsePending: Boolean = false
+    // Our own offer, mirrored the same way as the opponent's: read straight off the
+    // stream's wdraw/bdraw (never set optimistically from the request), since Lichess's
+    // draw/takeback endpoints return 200 even when the offer is silently dropped server-side
+    // (a 20-ply-per-side cooldown on draws, exponential backoff after declined takebacks,
+    // both invisible to the API caller). This is the only reliable "did it actually land"
+    // signal — see confirmDraw/confirmTakeback and verifyOwnOfferLanded.
+    private var myOfferedDraw: Boolean = false
+    private var myOfferedTakeback: Boolean = false
     private var menuOpen: Boolean = false
     private var confirmation: Confirmation? = null
 
@@ -843,9 +859,11 @@ class BoardViewModel(
         opponentOfferedDraw = if (myColor == Color.WHITE) state.bdraw else state.wdraw
         // Offer withdrawn/resolved -> allow the prompt to show again next time.
         if (!opponentOfferedDraw) drawResponsePending = false
+        myOfferedDraw = if (myColor == Color.WHITE) state.wdraw else state.bdraw
 
         opponentOfferedTakeback = if (myColor == Color.WHITE) state.btakeback else state.wtakeback
         if (!opponentOfferedTakeback) takebackResponsePending = false
+        myOfferedTakeback = if (myColor == Color.WHITE) state.wtakeback else state.btakeback
 
         // Re-derive the whole timeline from the authoritative move list.
         replay = try {
@@ -1000,6 +1018,7 @@ class BoardViewModel(
 
     fun onSquareTap(square: Int) {
         if (analysisActive) { onAnalysisSquareTap(square); return }
+        if (offerAwaitingResponse()) return
         val positions = replay.positions
         // Read-only while a move is pending/in-flight, while picking a promotion
         // piece, while reviewing history, when the game is over, or when not our turn.
@@ -1047,6 +1066,7 @@ class BoardViewModel(
      */
     fun onPocketTap(type: PieceType, color: Color) {
         if (analysisActive) { onAnalysisPocketTap(type, color); return }
+        if (offerAwaitingResponse()) return
         if (color != myColor) return
         if (pendingMove != null || pendingPromotion != null) return
         if (viewIndex != replay.positions.lastIndex) return
@@ -1435,12 +1455,25 @@ class BoardViewModel(
     fun requestTakeback() { menuOpen = false; confirmation = Confirmation.TAKEBACK; recompute() }
     fun cancelConfirmation() { confirmation = null; recompute() }
 
+    /**
+     * An incoming draw/takeback offer we haven't answered yet. While one is outstanding it
+     * owns the top bar (see BoardScreen), and both move entry and navigating away are
+     * blocked until it is accepted or declined.
+     */
+    private fun offerAwaitingResponse(): Boolean =
+        ((opponentOfferedDraw && !drawResponsePending) ||
+            (opponentOfferedTakeback && !takebackResponsePending)) &&
+            !isTerminal()
+
     // This screen only ever backs a real, streamed Lichess (online) game — back should go
     // straight home with no confirmation (unlike the local pass-and-play screen, which
     // confirms because it would silently lose in-person progress). Analysis still takes
-    // priority: back just leaves the sandbox and returns to the live game view.
+    // priority: back just leaves the sandbox and returns to the live game view. An
+    // unanswered offer consumes the press — the top bar drops its back button for the same
+    // reason, so there is nothing to navigate away with until the offer is resolved.
     override fun onBackPressed(): Boolean {
         if (analysisActive) { exitAnalysis(); return true }
+        if (offerAwaitingResponse()) return true
         return false
     }
 
@@ -1473,8 +1506,35 @@ class BoardViewModel(
         recompute()
         viewModelScope.launch {
             when (val res = api.handleDraw(gameId, accept = true)) {
-                LichessActionResult.Success -> { message = "Draw offer sent"; recompute() }
+                // A 200 here does NOT mean Lichess actually registered the offer — it
+                // silently no-ops (still 200) if this side offered within the last 20
+                // plies. The subtitle only ever reads "Draw offered" once the stream's
+                // own wdraw/bdraw confirms it; verifyOwnOfferLanded catches the silent-
+                // drop case and tells the user instead of leaving them guessing.
+                LichessActionResult.Success -> verifyOwnOfferLanded(isDraw = true)
                 is LichessActionResult.Failure -> { message = "Couldn't offer draw: ${res.error}"; recompute() }
+            }
+        }
+    }
+
+    /**
+     * Lichess's draw/takeback endpoints return 200 even when the offer is silently dropped
+     * server-side (draw cooldown, exponential takeback-decline backoff — both invisible to
+     * the API response). Give the stream a window to confirm via [myOfferedDraw]/
+     * [myOfferedTakeback]; if it hasn't by then, say so rather than letting the UI imply an
+     * offer went out that the opponent will never see.
+     */
+    private fun verifyOwnOfferLanded(isDraw: Boolean) {
+        viewModelScope.launch {
+            delay(OWN_OFFER_CONFIRM_TIMEOUT_MS)
+            val landed = if (isDraw) myOfferedDraw else myOfferedTakeback
+            if (!landed && !isTerminal()) {
+                message = if (isDraw) {
+                    "Lichess didn't register the draw offer — offers are limited to about once every 20 moves."
+                } else {
+                    "Lichess didn't register the takeback request."
+                }
+                recompute()
             }
         }
     }
@@ -1504,7 +1564,7 @@ class BoardViewModel(
         recompute()
         viewModelScope.launch {
             when (val res = api.takeback(gameId, accept = true)) {
-                LichessActionResult.Success -> { message = "Takeback requested"; recompute() }
+                LichessActionResult.Success -> verifyOwnOfferLanded(isDraw = false)
                 is LichessActionResult.Failure -> { message = "Couldn't request takeback: ${res.error}"; recompute() }
             }
         }
@@ -1624,11 +1684,18 @@ class BoardViewModel(
             // variant) would be a guess sitting under the opponent's name.
             !boardReady -> ""
             terminal -> resultSubtitle(latest)
+            // Our own outstanding offer takes over the whole subtitle rather than sharing
+            // it with the turn indicator — these only read true once the stream itself
+            // confirms the offer (see myOfferedDraw/myOfferedTakeback), so this can never
+            // show for an offer Lichess silently dropped (draw cooldown, declined-takeback
+            // backoff, etc.). Draw wins if somehow both are outstanding, matching the
+            // incoming-offer precedence elsewhere.
+            myOfferedDraw -> "draw offered"
+            myOfferedTakeback -> "takeback requested"
             else -> buildString {
                 // Lead with the variant name for non-standard games, before the turn.
                 if (variant != Variant.STANDARD) append("${variant.displayName} · ")
                 append(if (isMyTurn) "your move" else "their move")
-                if (opponentOfferedDraw) append(" · draw offered")
             }
         }
 
@@ -1639,8 +1706,7 @@ class BoardViewModel(
         // Lichess only allows aborting before both players have moved (< 2 plies).
         val canAbort = !terminal && replay.steps.size < 2
         val incomingDrawOffer = opponentOfferedDraw && !drawResponsePending && !terminal
-        // At least one move must have been played to take one back; the server enforces
-        // the finer-grained "it must be your opponent's move you're taking back" rule.
+        // At least one move must have been played to take one back
         val canRequestTakeback = !terminal && replay.steps.isNotEmpty()
         val incomingTakebackOffer = opponentOfferedTakeback && !takebackResponsePending && !terminal
 

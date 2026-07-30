@@ -164,14 +164,13 @@ private fun SettingsToggleRow(
             variant = ROW_LABEL_VARIANT,
             modifier = Modifier.weight(1f),
         )
-        // Light's toggle assets are swapped vs convention: TOGGLE_STATE_OFF is the filled
-        // knob on the RIGHT (what reads as "on") and TOGGLE_STATE_ON is the empty knob on
-        // the LEFT ("off"). So we deliberately use TOGGLE_STATE_OFF for enabled and
-        // TOGGLE_STATE_ON for disabled to get the conventional on=filled-right /
-        // off=empty-left look. (Renamed from TOGGLE_OFF/TOGGLE_ON in the 2026-07 SDK icon
-        // cleanup — re-verify the visual on-device, as that pass may have un-swapped them.)
+        // Light's toggle assets (ic_toggle_state_on/off_white) were fixed upstream in the
+        // 2026-07 SDK sync — TOGGLE_STATE_ON is now the filled knob on the RIGHT and
+        // TOGGLE_STATE_OFF the empty knob on the LEFT, the conventional mapping. Verified
+        // on-device: this straight mapping now reads correctly (the old TOGGLE_STATE_OFF-
+        // for-enabled workaround would double-invert it post-fix).
         LightIcon(
-            icon = if (enabled) LightIcons.TOGGLE_STATE_OFF else LightIcons.TOGGLE_STATE_ON,
+            icon = if (enabled) LightIcons.TOGGLE_STATE_ON else LightIcons.TOGGLE_STATE_OFF,
             contentDescription = if (enabled) "$label: on" else "$label: off",
         )
     }

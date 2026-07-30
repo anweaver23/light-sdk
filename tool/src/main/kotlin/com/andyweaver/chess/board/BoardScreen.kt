@@ -32,6 +32,7 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -240,63 +241,130 @@ class BoardScreen(
                     .background(LightThemeTokens.colors.background),
             ) {
                 Column(modifier = Modifier.fillMaxSize()) {
+                    // An unresolved draw/takeback offer takes the top bar over entirely,
+                    // leaving the board and the browse bar below it live so the position can
+                    // still be stepped through while deciding. A draw offer wins if both are
+                    // somehow outstanding; another overlay owning the screen defers the
+                    // prompt, which resurfaces as soon as that closes.
+                    val offerSuppressed = state.menuOpen ||
+                        state.confirmation != null ||
+                        state.promotionActive
+                    val drawOffer = state.incomingDrawOffer && !offerSuppressed
+                    val takebackOffer = state.incomingTakebackOffer &&
+                        !state.incomingDrawOffer &&
+                        !offerSuppressed
+                    val offerActive = drawOffer || takebackOffer
+
                     // Hand-rolled rightButton instead of LightTopBar's own slot: that slot
                     // renders via an SDK-internal button view that takes no custom Modifier,
                     // so it can't carry the unread-count badge (see HomeScreen's manual
-                    // refresh icon for the same workaround). This Box reproduces
-                    // LightTopBar's own rightButton position (TopEnd).
+                    // refresh icon for the same workaround), nor a pair of buttons. This Box
+                    // reproduces LightTopBar's own rightButton position (TopEnd).
                     Box(modifier = Modifier.fillMaxWidth()) {
-                        LightTopBar(
-                            leftButton = LightBarButton.LightIcon(
-                                icon = LightIcons.BACK,
-                                onClick = { goBack() },
-                                contentDescription = "Back",
-                            ),
-                            // Analysis sandbox: the title is replaced with the literal
-                            // "Analysis" (no opponent name/subtitle) so it's unmistakable
-                            // that moves here are local-only and not being sent to Lichess.
-                            center = if (state.analysisActive) {
-                                LightTopBarCenter.Text("Analysis")
-                            } else {
-                                LightTopBarCenter.TwoLineDetail(
-                                    line1 = state.opponentName,
-                                    line2 = state.subtitle,
-                                )
-                            },
-                        )
-                        // The whole control (icon AND its unread badge) is dropped in the
-                        // analysis sandbox: every action behind it — resign, draw, abort,
-                        // takeback, chat — targets the real Lichess game and is meaningless
-                        // on a local branch. Back-press exits analysis, which brings it
-                        // straight back (unread counts keep accruing underneath). It is
-                        // likewise withheld until the board is ready: every one of those
-                        // actions (and whether it is even offered) depends on game state we
-                        // don't have yet.
-                        if (!state.analysisActive && state.boardReady) {
-                            Box(
+                        if (offerActive) {
+                            // An unresolved offer replaces the whole top bar (no back button —
+                            // it has to be answered; BoardViewModel.onBackPressed consumes the
+                            // hardware press the same way) with one plain row reusing the SDK
+                            // bar's own height/padding/text-size constants so it reads as the
+                            // same top bar, just with different content.
+                            Row(
                                 modifier = Modifier
-                                    .align(Alignment.TopEnd)
+                                    .fillMaxWidth()
                                     .height(3f.gridUnitsAsDp())
-                                    .padding(horizontal = 1f.gridUnitsAsDp()),
-                                contentAlignment = Alignment.CenterEnd,
+                                    .padding(start = 2f.gridUnitsAsDp(), top = 0.5f.gridUnitsAsDp(), end = 2f.gridUnitsAsDp()),
+                                verticalAlignment = Alignment.CenterVertically,
                             ) {
-                                Box {
-                                    LightIcon(
-                                        icon = LightIcons.ELLIPSES,
-                                        contentDescription = "Menu",
-                                        modifier = Modifier.lightClickable(onClick = {
-                                            // Unread messages take priority: tapping the menu
-                                            // icon opens chat directly rather than the action
-                                            // menu (chat is still reachable from the menu's
-                                            // "Chat" row when there's nothing unread).
-                                            if (state.unreadChatCount > 0) viewModel.openChat() else viewModel.openMenu()
-                                        }),
+                                LightText(
+                                    text = if (drawOffer) "ACCEPT DRAW" else "ACCEPT TAKEBACK",
+                                    variant = LightTextVariant.Fine,
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis,
+                                    modifier = Modifier.weight(1f),
+                                )
+                                LightIcon(
+                                    icon = LightIcons.ACCEPT,
+                                    contentDescription = if (drawOffer) "Accept draw" else "Accept takeback",
+                                    modifier = Modifier.lightClickable(
+                                        onClick = {
+                                            if (drawOffer) {
+                                                viewModel.acceptIncomingDraw()
+                                            } else {
+                                                viewModel.acceptIncomingTakeback()
+                                            }
+                                        },
+                                    ),
+                                )
+                                Spacer(modifier = Modifier.width(2f.gridUnitsAsDp()))
+                                LightIcon(
+                                    icon = LightIcons.CLOSE,
+                                    contentDescription = if (drawOffer) "Decline draw" else "Decline takeback",
+                                    modifier = Modifier.lightClickable(
+                                        onClick = {
+                                            if (drawOffer) {
+                                                viewModel.declineIncomingDraw()
+                                            } else {
+                                                viewModel.declineIncomingTakeback()
+                                            }
+                                        },
+                                    ),
+                                )
+                            }
+                        } else {
+                            LightTopBar(
+                                leftButton = LightBarButton.LightIcon(
+                                    icon = LightIcons.BACK,
+                                    onClick = { goBack() },
+                                    contentDescription = "Back",
+                                ),
+                                // Analysis sandbox: the title is replaced with the literal
+                                // "Analysis" (no opponent name/subtitle) so it's unmistakable
+                                // that moves here are local-only and not being sent to Lichess.
+                                center = if (state.analysisActive) {
+                                    LightTopBarCenter.Text("Analysis")
+                                } else {
+                                    LightTopBarCenter.TwoLineDetail(
+                                        line1 = state.opponentName,
+                                        line2 = state.subtitle,
                                     )
-                                    if (state.unreadChatCount > 0) {
-                                        CountBadge(
-                                            count = state.unreadChatCount,
-                                            diameter = 1.4f.gridUnitsAsDp(),
-                                            modifier = Modifier.align(Alignment.TopEnd),
+                                },
+                            )
+                            // The whole control (icon AND its unread badge) is dropped in the
+                            // analysis sandbox: every action behind it — resign, draw, abort,
+                            // takeback, chat — targets the real Lichess game and is meaningless
+                            // on a local branch. Back-press exits analysis, which brings it
+                            // straight back (unread counts keep accruing underneath). It is
+                            // likewise withheld until the board is ready: every one of those
+                            // actions (and whether it is even offered) depends on game state we
+                            // don't have yet.
+                            if (!state.analysisActive && state.boardReady) {
+                                val hasUnreadChat = state.unreadChatCount > 0
+                                Box(
+                                    modifier = Modifier
+                                        .align(Alignment.TopEnd)
+                                        .height(3f.gridUnitsAsDp())
+                                        .padding(horizontal = 1f.gridUnitsAsDp()),
+                                    contentAlignment = Alignment.CenterEnd,
+                                ) {
+                                    // Unread messages take priority: the menu glyph itself is
+                                    // replaced by a "mark_chat_unread" icon (rather than a badge on
+                                    // top of it), and tapping it opens chat directly instead of the
+                                    // action menu (chat is still reachable from the menu's "Chat"
+                                    // row once there's nothing unread, which reverts the icon back
+                                    // to the plain menu ellipses).
+                                    if (hasUnreadChat) {
+                                        Icon(
+                                            painter = painterResource(R.drawable.ic_chat_unread_white),
+                                            contentDescription = "Unread chat messages",
+                                            tint = LightThemeTokens.colors.content,
+                                            modifier = Modifier
+                                                .size(2f.gridUnitsAsDp())
+                                                .lightClickable(onClick = { viewModel.openChat() }),
+                                        )
+                                    } else {
+                                        LightIcon(
+                                            icon = LightIcons.ELLIPSES,
+                                            contentDescription = "Menu",
+                                            modifier = Modifier.lightClickable(onClick = { viewModel.openMenu() }),
                                         )
                                     }
                                 }
@@ -417,22 +485,6 @@ class BoardScreen(
 
                 state.confirmation?.let { confirmation ->
                     ConfirmationOverlay(confirmation = confirmation, viewModel = viewModel)
-                }
-
-                // Opponent offered a draw: prompt to accept/decline (unless another
-                // overlay is up).
-                if (state.incomingDrawOffer && !state.menuOpen &&
-                    state.confirmation == null && !state.promotionActive
-                ) {
-                    DrawOfferOverlay(viewModel = viewModel)
-                }
-
-                // Opponent offered a takeback: prompt to accept/decline (unless another
-                // overlay is up).
-                if (state.incomingTakebackOffer && !state.incomingDrawOffer && !state.menuOpen &&
-                    state.confirmation == null && !state.promotionActive
-                ) {
-                    TakebackOfferOverlay(viewModel = viewModel)
                 }
 
                 state.message?.let { message ->
@@ -1520,74 +1572,6 @@ private fun PromotionOverlay(myColor: EngineColor, viewModel: BoardViewModel) {
                     icon = LightIcons.CLOSE,
                     onClick = { viewModel.cancelPromotion() },
                     contentDescription = "Cancel promotion",
-                ),
-            ),
-        )
-    }
-}
-
-@Composable
-private fun DrawOfferOverlay(viewModel: BoardViewModel) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(LightThemeTokens.colors.background),
-    ) {
-        Box(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth()
-                .padding(horizontal = 1f.gridUnitsAsDp()),
-            contentAlignment = Alignment.Center,
-        ) {
-            LightText(
-                text = "Opponent offers a draw",
-                variant = LightTextVariant.Copy,
-                align = TextAlign.Center,
-            )
-        }
-        LightBottomBar(
-            items = listOf(
-                null,
-                LightBarButton.Text(text = "ACCEPT", onClick = { viewModel.acceptIncomingDraw() }),
-                LightBarButton.LightIcon(
-                    icon = LightIcons.CLOSE,
-                    onClick = { viewModel.declineIncomingDraw() },
-                    contentDescription = "Decline draw",
-                ),
-            ),
-        )
-    }
-}
-
-@Composable
-private fun TakebackOfferOverlay(viewModel: BoardViewModel) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(LightThemeTokens.colors.background),
-    ) {
-        Box(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth()
-                .padding(horizontal = 1f.gridUnitsAsDp()),
-            contentAlignment = Alignment.Center,
-        ) {
-            LightText(
-                text = "Opponent requests a takeback",
-                variant = LightTextVariant.Copy,
-                align = TextAlign.Center,
-            )
-        }
-        LightBottomBar(
-            items = listOf(
-                null,
-                LightBarButton.Text(text = "ACCEPT", onClick = { viewModel.acceptIncomingTakeback() }),
-                LightBarButton.LightIcon(
-                    icon = LightIcons.CLOSE,
-                    onClick = { viewModel.declineIncomingTakeback() },
-                    contentDescription = "Decline takeback",
                 ),
             ),
         )
