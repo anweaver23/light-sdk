@@ -185,10 +185,11 @@ class BoardScreen(
     private val gameId: String,
     private val token: String,
     private val myColorName: String,
-    private val currentFen: String? = null,
+    // Chrome only: the opponent's display name from the home row, so the top bar reads
+    // correctly while the board itself waits for the authoritative game state. The BOARD
+    // is never seeded — see BoardUiState.boardReady.
     private val seededOpponentName: String? = null,
     private val seededVariant: Variant = Variant.STANDARD,
-    private val seededLastMove: String? = null,
 ) : LightScreen<Unit, BoardViewModel>(sealedActivity) {
 
     override val viewModelClass: Class<BoardViewModel>
@@ -205,10 +206,8 @@ class BoardScreen(
             settings = ChessSettings(lightContext.dataStore),
             gameId = gameId,
             myColor = color,
-            currentFen = currentFen,
             seededOpponentName = seededOpponentName,
             seededVariant = seededVariant,
-            seededLastMove = seededLastMove,
         )
     }
 
@@ -269,8 +268,11 @@ class BoardScreen(
                         // analysis sandbox: every action behind it — resign, draw, abort,
                         // takeback, chat — targets the real Lichess game and is meaningless
                         // on a local branch. Back-press exits analysis, which brings it
-                        // straight back (unread counts keep accruing underneath).
-                        if (!state.analysisActive) {
+                        // straight back (unread counts keep accruing underneath). It is
+                        // likewise withheld until the board is ready: every one of those
+                        // actions (and whether it is even offered) depends on game state we
+                        // don't have yet.
+                        if (!state.analysisActive && state.boardReady) {
                             Box(
                                 modifier = Modifier
                                     .align(Alignment.TopEnd)
@@ -302,7 +304,23 @@ class BoardScreen(
                         }
                     }
 
-                    if (state.unsupportedVariant != null) {
+                    if (!state.boardReady) {
+                        // Nothing is drawn until the stream's authoritative game state has
+                        // landed. Entering on a guessed position — the home row's post-move
+                        // FEN — is what made the arrival animation of a capture play wrong
+                        // and then play again once the real move list arrived (a post-move
+                        // FEN cannot say what was captured). The wait is one round trip; the
+                        // top bar and back button stay live throughout.
+                        Box(
+                            modifier = Modifier
+                                .weight(1f)
+                                .fillMaxWidth()
+                                .padding(horizontal = 1.5f.gridUnitsAsDp()),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            LightText(text = "Loading…", variant = LightTextVariant.Copy)
+                        }
+                    } else if (state.unsupportedVariant != null) {
                         // Variant we can't render faithfully yet — say so plainly
                         // rather than showing a wrong/desynced board. Back still works.
                         Box(
@@ -356,7 +374,7 @@ class BoardScreen(
                                 topBank = { inset ->
                                     MaterialRow(
                                         captured = state.opponentCaptured,
-                                        capturedColor = state.myColor,
+                                        capturedColor = state.materialBottom,
                                         advantage = state.opponentAdvantage,
                                         startPad = inset,
                                     )
@@ -582,7 +600,7 @@ internal fun MaterialReviewBottomBar(
         ) {
             MaterialFan(
                 captured = state.myCaptured,
-                capturedColor = state.myColor.opposite,
+                capturedColor = state.materialBottom.opposite,
                 advantage = state.myAdvantage,
                 cellUnits = MATERIAL_CELL_UNITS,
             )
@@ -887,16 +905,13 @@ internal fun ChessBoard(
                             .size(squareSize),
                         contentAlignment = Alignment.Center,
                     ) {
-                        // Across-table mode rotates the far side's (Black) pieces 180° so
-                        // the sliding overlay matches the static board (see [SquareCell]).
-                        // Racing Kings starts everyone on the SAME side (no "far player's
-                        // row"), so it never applies per-piece rotation — see [BoardUiState].
+                        // The in-person game rotates pieces (across-table, or the whole
+                        // board as a rigid unit) — resolved by the shared [pieceRotation]
+                        // so a piece mid-slide matches the static board it lands on.
                         PieceGlyph(
                             piece = s.piece,
                             squareSize = squareSize,
-                            rotationDegrees = if (state.acrossMode && state.variant != Variant.RACING_KINGS &&
-                                s.piece.color == EngineColor.BLACK
-                            ) 180f else 0f,
+                            rotationDegrees = state.pieceRotation(s.piece),
                         )
                     }
                 }
@@ -1233,7 +1248,7 @@ internal fun MaterialBottomBar(
         ) {
             MaterialFan(
                 captured = state.myCaptured,
-                capturedColor = state.myColor.opposite,
+                capturedColor = state.materialBottom.opposite,
                 advantage = state.myAdvantage,
                 cellUnits = MATERIAL_CELL_UNITS,
             )
@@ -1369,16 +1384,15 @@ private fun SquareCell(
                     animationSpec = tween(MOVE_ANIM_MS),
                     label = "checkmate-king-angle",
                 )
-                // Across-table mode (in-person game): the far side's pieces (Black, since
-                // the board stays unflipped) are turned 180° to read upright to the player
-                // opposite. Added to the checkmate rotation so a mated Black king still
-                // turns sideways relative to that player. Zero (unchanged) off across mode,
-                // and always zero for Racing Kings (both sides start on the same side, so
-                // there's no "far player's row" to rotate).
-                val acrossRotation = if (state.acrossMode && state.variant != Variant.RACING_KINGS &&
-                    it.color == EngineColor.BLACK
-                ) 180f else 0f
-                PieceGlyph(piece = it, squareSize = squareSize, rotationDegrees = angle + acrossRotation)
+                // The in-person game's piece rotation: across-table (only the far side's
+                // pieces turn) or rigid (the whole board turned, so every piece does) —
+                // see [pieceRotation]. Zero everywhere else. ADDED to the checkmate
+                // rotation, so a mated king still turns sideways relative to its reader.
+                PieceGlyph(
+                    piece = it,
+                    squareSize = squareSize,
+                    rotationDegrees = angle + state.pieceRotation(it),
+                )
             }
         }
         if (square in state.legalDestinations || square in state.dropTargets) {

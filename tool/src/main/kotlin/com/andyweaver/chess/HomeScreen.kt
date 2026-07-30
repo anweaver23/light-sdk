@@ -595,15 +595,17 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                                             game = game,
                                             onClick = {
                                                 navigateTo({ sa ->
+                                                    // Only chrome is carried over (the
+                                                    // opponent's name and the variant); the
+                                                    // board waits for the game stream —
+                                                    // see BoardUiState.boardReady.
                                                     BoardScreen(
                                                         sa,
                                                         game.gameId,
                                                         viewModel.token.orEmpty(),
                                                         game.color,
-                                                        game.fen,
                                                         nameWithRating(game.opponent.username, game.opponent.rating),
                                                         Variant.fromKey(game.variant.key),
-                                                        game.lastMove,
                                                     )
                                                 })
                                             },

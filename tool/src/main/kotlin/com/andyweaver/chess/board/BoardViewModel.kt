@@ -183,6 +183,39 @@ internal fun captureSlideAnim(before: Position, after: Position, move: Move, id:
 }
 
 /**
+ * The [AnimatedMove] for a single-step transition [oldIndex] → [newIndex] along [replay]'s
+ * timeline. This is the ONE place the "what slides, over which board" decision lives —
+ * shared by the live board, its analysis sandbox, the review screen and the in-person
+ * game, each of which supplies its own monotonically increasing [id].
+ *
+ * Only ADJACENT positions animate; a multi-step jump (skip-to-start/end, a long scrub)
+ * snaps. Returns null when there is nothing to slide: a non-adjacent transition, a
+ * Crazyhouse drop (no board origin to slide from), or a BACKWARD step out of an Atomic
+ * capture (the exploded pieces can't be un-exploded mid-slide, so it snaps).
+ *
+ * Forward captures delegate to [captureSlideAnim], which renders the pre-move board for
+ * the duration so the captured piece stays visible until the capturer lands. Everything
+ * else uses [stepSlides] — one slide, or TWO for a castle (king + rook, in standard and
+ * Chess960 alike).
+ *
+ * Pure: no view-model state is read or written, which is what makes it unit-testable
+ * without Compose (see BoardAnimationTest).
+ */
+internal fun stepAnim(replay: Replay, oldIndex: Int, newIndex: Int, id: Long): AnimatedMove? {
+    val delta = newIndex - oldIndex
+    if (delta != 1 && delta != -1) return null
+    val step = replay.steps.getOrNull(minOf(oldIndex, newIndex)) ?: return null
+    if (step.move.isDrop) return null
+    if (isCaptureMove(step.before, step.move)) {
+        if (delta == 1) return captureSlideAnim(step.before, step.after, step.move, id)
+        if (step.before.variant == Variant.ATOMIC) return null
+    }
+    val slides = stepSlides(step, replay.positions[newIndex].board, forward = delta == 1)
+    if (slides.isEmpty()) return null
+    return AnimatedMove(slides = slides, id = id)
+}
+
+/**
  * Three-check only: how many times each colour has BEEN checked, counted over the
  * positions actually shown (index 0..[uptoIndex]). A position whose side to move is in
  * check means the move that produced it delivered a check to that side. Empty for every
@@ -202,6 +235,62 @@ internal fun threeCheckCounts(positions: List<Position>, uptoIndex: Int, variant
     return mapOf(Color.WHITE to white, Color.BLACK to black)
 }
 
+/**
+ * The line the analysis sandbox starts from: the real game's ENTIRE authoritative move
+ * list, based at the game's own initial position, sitting at the index the user was
+ * viewing when they entered analysis. See [analysisSeed].
+ */
+internal data class AnalysisSeed(
+    val base: Position,
+    val moves: List<String>,
+    val replay: Replay,
+    val viewIndex: Int,
+)
+
+/**
+ * Seeds the analysis sandbox from the live [game] replay and the [entryIndex] being
+ * viewed. The sandbox timeline IS the game's history, so stepping back walks the real
+ * game all the way to its start and the user can branch from ANY point of it — which is
+ * the whole point of the feature. (Branching itself is [forkLine]: truncate at the viewed
+ * index, append the new move.)
+ *
+ * Basing on the game's own initial [Position] — not a snapshot of one position — is also
+ * what keeps Crazyhouse pockets and `~` promoted marks correct: they are re-derived by
+ * replaying, rather than having to survive a [Position.toFen] round trip that drops them.
+ *
+ * The rebuild is skipped entirely in the normal case, where the seed base IS the game's
+ * initial position and the game's own replay is already exactly the line wanted; only a
+ * variant-tag correction needs [Chess.replayFrom], and a rebuild that somehow threw falls
+ * back to the game's replay rather than taking the screen down.
+ */
+internal fun analysisSeed(game: Replay, variant: Variant, entryIndex: Int): AnalysisSeed {
+    val base = game.initial.let { if (it.variant != variant) it.copy(variant = variant) else it }
+    val moves = game.steps.map { it.move.toUci() }
+    val replay = if (base == game.initial) {
+        game
+    } else {
+        runCatching { Chess.replayFrom(base, moves) }.getOrDefault(game)
+    }
+    return AnalysisSeed(
+        base = base,
+        moves = moves,
+        replay = replay,
+        viewIndex = entryIndex.coerceIn(0, replay.positions.lastIndex),
+    )
+}
+
+/**
+ * Truncate-and-replace: the analysis line that results from playing [uci] at the position
+ * [atIndex]. Everything after that point is discarded — position index i means "after i
+ * moves", so [atIndex] indexes [moves] directly, and playing from the tip
+ * ([atIndex] == moves.size) is a plain append.
+ *
+ * A single line, not a variation tree: there is no UI to navigate siblings, and the app's
+ * whole ethos is against adding one.
+ */
+internal fun forkLine(moves: List<String>, atIndex: Int, uci: String): List<String> =
+    moves.take(atIndex) + uci
+
 // v1: PGN export disabled — may re-add
 // /** How a fetched PGN should be delivered (performed in the UI layer). */
 // enum class PgnDelivery { CLIPBOARD, SHARE }
@@ -217,6 +306,17 @@ internal fun threeCheckCounts(positions: List<Position>, uptoIndex: Int, variant
  * while a move is pending, is the latest position with the pending move applied).
  */
 data class BoardUiState(
+    /**
+     * False while the LIVE board is still waiting for the authoritative game state (the
+     * board stream's `gameFull`), i.e. before [board] and [animatingMove] mean anything.
+     * [BoardScreen] draws a quiet "Loading…" instead of a board until this flips, so the
+     * screen is only ever entered once everything needed to render it — and to animate the
+     * last move correctly — is actually known.
+     *
+     * Defaults to TRUE because it is a live-stream concern only: the review screen and the
+     * in-person game build their whole timeline synchronously and are ready on construction.
+     */
+    val boardReady: Boolean = true,
     val opponentName: String = "Opponent",
     /**
      * The opponent's RAW Lichess username, without the " · rating" suffix [opponentName]
@@ -227,15 +327,46 @@ data class BoardUiState(
     val subtitle: String = "",
     val board: List<Piece?> = Chess.startPosition.board,
     val myColor: Color = Color.WHITE,
+    /**
+     * Pins the material banks to a fixed side, independent of [myColor]. Null (the default)
+     * means they follow [myColor], which is what every screen but one wants.
+     *
+     * Racing Kings in across seating turns the whole board as a rigid unit on every move, so
+     * [myColor] alternates — and the banks, which are fixed chrome outside the board, would
+     * otherwise swap which colour they show twice per round. Pinning them keeps each side's
+     * captures where the players left them.
+     */
+    val materialColor: Color? = null,
     val flipped: Boolean = false,
     /**
-     * "Across the table" rendering for the in-person (local) game: the board stays
-     * unflipped (White at the bottom) and the far side's pieces (Black) are drawn rotated
-     * 180° so they read upright to a player sitting opposite. Additive to every existing
-     * behaviour — default false, so the live board and review are completely unaffected —
-     * and combines ADDITIVELY with the checkmate-king rotation (see [SquareCell]/[ChessBoard]).
+     * "Across the table" SEATING for the in-person (local) game: the two players face
+     * each other with the device between them. For every variant but Racing Kings this
+     * also means the board stays unflipped (White at the bottom) and the far side's
+     * pieces (Black) are drawn rotated 180° so they read upright to the player opposite.
+     * Additive to every existing behaviour — default false, so the live board and review
+     * are completely unaffected — and combines ADDITIVELY with the checkmate-king
+     * rotation (see [SquareCell]/[ChessBoard]).
+     *
+     * Also drives the off-board chrome (the top material bank / pocket fan), which is
+     * about where the players SIT and so stays across-treated even when
+     * [rigidPieceRotation] takes over the pieces themselves.
      */
     val acrossMode: Boolean = false,
+    /**
+     * Non-null when the board and every piece on it turn as ONE RIGID UNIT — literally
+     * like turning the phone around. The value is the rotation, in degrees, applied
+     * uniformly to EVERY piece drawn on the board; never per colour, never per side.
+     *
+     * Set only by the in-person game for Racing Kings, where both armies start on the
+     * SAME side of the board: there is no "far player's row" to rotate on its own, so
+     * across mode flips the whole board after each move (see [LocalGameViewModel]) and
+     * the pieces have to flip with it — otherwise the player opposite is handed a board
+     * turned toward them with upside-down pieces. Side-by-side never flips, so it is 0°.
+     *
+     * When set it fully governs piece rotation and [acrossMode]'s per-colour rotation
+     * does not apply — see [pieceRotation], the single place both schemes are resolved.
+     */
+    val rigidPieceRotation: Float? = null,
     /**
      * In-person (local) game only: the side to move at the currently VIEWED position — the
      * player who can move right now (Task B lets you fork from a past position). Drives the
@@ -349,6 +480,29 @@ data class BoardUiState(
 )
 
 /**
+ * How far a [piece] drawn ON THE BOARD is rotated, in degrees. Two mutually exclusive
+ * schemes, both of them in-person-game concerns (always 0° online, where there is only
+ * ever one viewer):
+ *  • RIGID — the whole board was turned as a unit, so every piece shares
+ *    [BoardUiState.rigidPieceRotation] (Racing Kings across the table);
+ *  • ACROSS — the board is fixed and only the far player's pieces (Black, since the board
+ *    stays unflipped) are turned 180° to read upright to them.
+ *
+ * The static squares and the sliding overlay both go through this, so a piece mid-slide
+ * always carries exactly the rotation it will have once it lands (otherwise it pops).
+ * The checkmated king's sideways turn is added on top by the caller, not here.
+ */
+internal fun BoardUiState.pieceRotation(piece: Piece): Float =
+    rigidPieceRotation ?: if (acrossMode && piece.color == Color.BLACK) 180f else 0f
+
+/**
+ * Whose captures the BOTTOM material bank shows (the top bank shows the opposite). Follows
+ * [myColor] unless [materialColor] pins it — see that field for why Racing Kings does.
+ */
+internal val BoardUiState.materialBottom: Color
+    get() = materialColor ?: myColor
+
+/**
  * Backs [BoardScreen]. Streams one Lichess board game while the screen is
  * visible/foregrounded, exposes a single [BoardUiState] to render, and drives all
  * move/resign/draw/PGN interactions.
@@ -363,14 +517,12 @@ class BoardViewModel(
     private val settings: ChessSettings,
     private val gameId: String,
     private val myColor: Color,
-    currentFen: String? = null,
     seededOpponentName: String? = null,
     seededVariant: Variant = Variant.STANDARD,
-    seededLastMove: String? = null,
 ) : LightViewModel<Unit>() {
 
     private val _uiState = MutableStateFlow(
-        BoardUiState(myColor = myColor, flipped = myColor == Color.BLACK),
+        BoardUiState(boardReady = false, myColor = myColor, flipped = myColor == Color.BLACK),
     )
     val uiState: StateFlow<BoardUiState> = _uiState.asStateFlow()
 
@@ -380,6 +532,11 @@ class BoardViewModel(
     // val pgnEvent: StateFlow<PgnEvent?> = _pgnEvent.asStateFlow()
 
     // ----- internal game/render state (all mutated on the Main thread) -----
+    // False until the stream's gameFull has landed and `replay` holds the authoritative
+    // timeline. Nothing board-shaped is rendered before that (see BoardUiState.boardReady),
+    // so the screen never paints a guessed position and the arrival animation below is
+    // always built from real data. Latching: a later reconnect doesn't blank the board.
+    private var boardReady: Boolean = false
     private var initialFen: String? = null
     private var replay: Replay = Chess.replay("")
     private var viewIndex: Int = 0
@@ -420,11 +577,6 @@ class BoardViewModel(
     // Crazyhouse: a pocket piece picked up to drop, and its legal target squares.
     private var selectedDrop: PieceType? = null
     private var dropTargets: Set<Int> = emptySet()
-    // Last-move highlight seeded from the home row's UCI, so the highlight paints on
-    // the very first frame instead of popping in when the stream's move list arrives.
-    // Used only while the replay has no moves of its own (the seed-only state).
-    private val seededLastFrom: Int? = seededLastMove?.takeIf { it.length >= 4 }?.let { Square.fromName(it.substring(0, 2)) }
-    private val seededLastTo: Int? = seededLastMove?.takeIf { it.length >= 4 }?.let { Square.fromName(it.substring(2, 4)) }
     private var opponentOfferedDraw: Boolean = false
     // Set true once we accept/decline an incoming offer, to hide the prompt until
     // the stream reflects the change; reset when the offer clears.
@@ -437,29 +589,27 @@ class BoardViewModel(
 
     // ----- analysis sandbox (a separate local branch, parallel to the live game) -----
     // Entered via the action menu or a long-press on the board (see BoardScreen's
-    // ChessBoard long-press). Snapshots the currently DISPLAYED position (whatever
-    // viewIndex the user is browsing) into its own local Replay and lets them play ANY
-    // legal move from there using the engine only — no confirm step, no submission to
-    // Lichess. The live stream keeps running underneath (handleEvent/applyState are
-    // untouched by this), so leaving analysis returns to a fully up-to-date live game.
+    // ChessBoard long-press). Seeds its own local Replay with the real game's WHOLE move
+    // list (see analysisSeed), positioned wherever the user was viewing, and lets them
+    // play ANY legal move from ANY point of it using the engine only — no confirm step,
+    // no submission to Lichess. The live stream keeps running underneath
+    // (handleEvent/applyState are untouched by this), so leaving analysis returns to a
+    // fully up-to-date live game.
     private var analysisActive: Boolean = false
     private var analysisMoves: MutableList<String> = mutableListOf()
-    // The snapshotted real-game position the sandbox branches from. Held as a Position
-    // (not a FEN) so Crazyhouse pockets and promoted-piece marks survive the snapshot —
+    // The position the sandbox line is based at: the real GAME's initial position. Held as
+    // a Position (not a FEN) so Crazyhouse pockets and promoted-piece marks are exact —
     // Position.toFen() emits only the six standard fields (see Chess.replayFrom).
     private var analysisBase: Position = Chess.startPosition
     private var analysisReplay: Replay = Chess.replayFrom(Chess.startPosition, emptyList())
-    // The REAL game's last-move highlight at the moment analysis was entered. Shown
-    // whenever the sandbox is sitting on its base position (index 0) — on entry, after a
-    // long-press reset, and when the user steps all the way back — so entering analysis
-    // doesn't blank the highlight the live board was just showing. Null when the live
-    // board wasn't showing one (viewing the game's own start position).
-    private var analysisBaseLastFrom: Int? = null
-    private var analysisBaseLastTo: Int? = null
-    // Which position of the analysis branch is on screen — lets the user step/scrub back
-    // through their own analysis moves and then play a DIFFERENT move from there, which
-    // truncates the line at that point and appends the new move (see applyAnalysisMove).
+    // Which position of the analysis branch is on screen — the user can step/scrub back
+    // through the real game's history AND their own analysis moves, and play a DIFFERENT
+    // move from any of them, which truncates the line there and appends the new move
+    // (see applyAnalysisMove).
     private var analysisViewIndex: Int = 0
+    // Where analysis was entered from, so a long-press reset returns to that same point
+    // rather than to the game's start (see resetAnalysis).
+    private var analysisEntryIndex: Int = 0
     private var analysisSelectedSquare: Int? = null
     private var analysisLegalDests: Set<Int> = emptySet()
     private var analysisSelectedDrop: PieceType? = null
@@ -486,53 +636,10 @@ class BoardViewModel(
     // recompute during an arrival slide would flip the key to null, reset the Animatable,
     // and flash the piece from destination back to origin. Each genuine transition
     // (step/move/live-move/arrival) overwrites it with a new id; everything else leaves it.
-    // Declared BEFORE init{} so init{}'s seed-time arrival animation isn't wiped by a
-    // late `= null` initializer (property initializers run in textual order).
     private var pendingAnim: AnimatedMove? = null
     private var animCounter = 0L
 
-    // The UCI of the last move whose arrival animation has already been shown, and the
-    // exact AnimatedMove (same id) that showed it — set ONLY when an arrival animation
-    // actually plays (seed or resetView), never eagerly. Guards applyState's resetView
-    // branch against re-animating the SAME move a second time once the real GameFull
-    // arrives: when re-emitting the "already shown" case, it must re-emit THIS SAME
-    // AnimatedMove object (same id), not null — ChessBoard keys its Animatable off
-    // anim?.id, so flipping animatingMove to null (a different key) resets/aborts
-    // whatever's mid-flight instead of just "not starting a new one". Re-emitting the
-    // same id is a harmless no-op once the slide has already finished.
-    private var arrivalAnimatedUci: String? = null
-    private var lastArrivalAnim: AnimatedMove? = null
-
     init {
-        // Seed the displayed board from the game's current FEN (passed by the home
-        // screen) so the FIRST render shows the real position instead of the standard
-        // start — avoids a start-position flash before the live stream arrives. When
-        // gameFull lands it reconciles from the authoritative move list as usual.
-        if (currentFen != null) {
-            replay = runCatching { Chess.replay("", currentFen, variant) }.getOrElse { Chess.replay("", null, variant) }
-            viewIndex = replay.positions.lastIndex
-            // If the home row also seeded a last move, show ITS arrival animation from
-            // the very first frame instead of a static already-arrived position — the
-            // seeded state has no move list yet, so buildStepAnim can't be used; build
-            // the slide directly from the seeded destination board. Doesn't handle
-            // castling specially (a plain single-piece slide guess) — fine, since this
-            // is superseded within about one network round-trip once the real GameFull
-            // arrives and applyState rebuilds the animation from the authoritative replay.
-            if (seededLastFrom != null && seededLastTo != null) {
-                val piece = replay.positions.last().board.getOrNull(seededLastTo)
-                if (piece != null) {
-                    animCounter += 1
-                    val anim = AnimatedMove(
-                        slides = listOf(PieceSlide(seededLastFrom, seededLastTo, piece)),
-                        id = animCounter,
-                        startDelayMs = ARRIVAL_ANIM_DELAY_MS,
-                    )
-                    pendingAnim = anim
-                    lastArrivalAnim = anim
-                    arrivalAnimatedUci = seededLastMove
-                }
-            }
-        }
         // Keep the confirm-moves preference current; defaults to true until loaded.
         viewModelScope.launch { settings.confirmMoves.collect { confirmMoves = it } }
         // Show-legal-moves affects rendering directly, so re-render on change.
@@ -725,6 +832,11 @@ class BoardViewModel(
     private fun applyState(state: BoardStreamEvent.GameState, resetView: Boolean) {
         val oldPositions = replay.positions
         val wasAtLatest = viewIndex == oldPositions.lastIndex
+        // resetView == "this came from a gameFull", i.e. the authoritative game state.
+        // The FIRST one releases the readiness gate; later ones (a stream reconnect after
+        // backgrounding) find the board already ready and must not re-run the arrival slide.
+        val firstReady = resetView && !boardReady
+        if (resetView) boardReady = true
 
         streamStatus = state.status
         streamWinner = state.winner
@@ -770,83 +882,32 @@ class BoardViewModel(
             // the piece back to its origin and re-slide, since the static board already
             // shows the destination from the optimistic display.
             pendingLanded -> null
-            // First connection to the stream (screen just opened/foregrounded, or a
-            // reconnect after backgrounding): animate the arrival of the last move —
-            // but only if it's not the SAME move the seed state (or a previous
-            // GameFull) already animated, or we'd re-trigger a redundant/stuttering
-            // second slide for a move already shown. A genuinely newer last move (e.g.
-            // one landed between the home screen's snapshot and the board opening, or
-            // while backgrounded) still animates normally.
-            resetView -> {
-                val lastStep = replay.steps.lastOrNull()
-                val newLastUci = lastStep?.move?.toUci()
-                val alreadyShown = newLastUci != null && newLastUci == arrivalAnimatedUci
-                // The seed animation (built in init{} from the home row's FEN + last-move
-                // UCI) can only ever draw a PLAIN slide: it has no move list, so a capture's
-                // pre-move board — the thing that keeps the captured piece visible until the
-                // capturer lands — can't be reconstructed there (we don't know what was
-                // taken). Once the authoritative GameFull arrives we CAN build that capture
-                // slide, so upgrade to it even for the SAME move the seed already showed —
-                // giving a live game the same captured-piece visibility as the review screen.
-                // Only matters for captures; a non-capture's seed slide already matches what
-                // buildStepAnim produces, so those still re-emit unchanged (no reset).
-                val seedNeedsCaptureUpgrade = alreadyShown &&
-                    lastArrivalAnim?.preMoveBoard == null &&
-                    lastStep != null && isCaptureMove(lastStep.before, lastStep.move)
-                if (alreadyShown && !seedNeedsCaptureUpgrade) {
-                    // Same move already shown at full quality (seed, or an earlier connect) —
-                    // re-emit the SAME AnimatedMove (see the field doc above) so this doesn't
-                    // reset an in-flight slide.
-                    lastArrivalAnim
-                } else {
-                    arrivalAnimatedUci = newLastUci
-                    val anim = buildStepAnim(newPositions.lastIndex - 1, newPositions.lastIndex)
-                        ?.copy(startDelayMs = ARRIVAL_ANIM_DELAY_MS)
-                    lastArrivalAnim = anim
-                    anim
-                }
-            }
-            // A move arrived live while browsing the latest position (the opponent's move).
+            // THE arrival animation: played exactly once, at the moment the board becomes
+            // ready, from the authoritative replay — so a capture keeps the captured piece
+            // on screen and a castle slides both king and rook. The screen opens on the
+            // PRE-move position, holds for a beat, then slides the last move in.
+            firstReady ->
+                buildStepAnim(newPositions.lastIndex - 1, newPositions.lastIndex)
+                    ?.copy(startDelayMs = ARRIVAL_ANIM_DELAY_MS)
+            // A move landed while we were watching the latest position: the opponent's
+            // move arriving live, or (on a reconnect) the one move played while the app
+            // was backgrounded. More than one move behind isn't adjacent, so it snaps.
             wasAtLatest && newPositions.size == oldPositions.size + 1 ->
                 buildStepAnim(oldPositions.lastIndex, newPositions.lastIndex)
-            else -> null
+            // Anything else (a draw/takeback offer, a reconnect with no new move) is not a
+            // transition: leave whatever is in flight alone. Nulling here would flip the
+            // key ChessBoard's Animatable is remembered on and ABORT a running slide.
+            else -> pendingAnim
         }
 
         recompute()
     }
 
     // ----- history browsing -----
-    // (pendingAnim/animCounter now declared above, before init{} — see that comment.)
 
-    /**
-     * The slide to animate for a single-step transition [oldIndex] → [newIndex]. Only
-     * adjacent steps animate (multi-step jumps and drops snap). Forward: from→to.
-     * Backward: to→from (reverse) — the moved piece slides back home. The overlay piece
-     * is taken from the DESTINATION position at the landing square, which is exactly the
-     * square the static board will hide during the slide.
-     */
-    private fun buildStepAnim(oldIndex: Int, newIndex: Int): AnimatedMove? {
-        val delta = newIndex - oldIndex
-        if (delta != 1 && delta != -1) return null
-        val step = replay.steps.getOrNull(minOf(oldIndex, newIndex)) ?: return null
-        if (step.move.isDrop) return null
-        // Captures: forward, slide the capturer in over the pre-move board so the captured
-        // piece stays visible until it lands (Atomic then clears the region on settle) —
-        // see captureSlideAnim. Backward out of an Atomic capture can't cleanly reverse (the
-        // exploded pieces would reappear), so it snaps; a normal backward capture uses the
-        // regular reverse slide below (the earlier position already shows the captured piece).
-        if (isCaptureMove(step.before, step.move)) {
-            if (delta == 1) {
-                animCounter += 1
-                return captureSlideAnim(step.before, step.after, step.move, animCounter)
-            }
-            if (step.before.variant == Variant.ATOMIC) return null
-        }
-        val slides = stepSlides(step, replay.positions[newIndex].board, forward = delta == 1)
-        if (slides.isEmpty()) return null
-        animCounter += 1
-        return AnimatedMove(slides = slides, id = animCounter)
-    }
+    /** The live game's slide for a single-step transition — see the shared [stepAnim]. */
+    private fun buildStepAnim(oldIndex: Int, newIndex: Int): AnimatedMove? =
+        stepAnim(replay, oldIndex, newIndex, ++animCounter)
 
     /**
      * The slide(s) to animate for a move just staged by the user, built directly from
@@ -1105,30 +1166,33 @@ class BoardViewModel(
     // ----- analysis sandbox -----
 
     /**
-     * Enter the analysis sandbox: snapshot the currently DISPLAYED position (whatever
-     * the user is browsing, live latest or a past step) as a fresh local branch, and let
-     * them play any legal move against the engine only. Blocked while a live move is
-     * staged/awaiting a promotion choice, same as browsing.
+     * Enter the analysis sandbox: seed a local branch with the real game's whole move
+     * list, positioned on the currently DISPLAYED position (whatever the user is
+     * browsing, live latest or a past step), and let them play any legal move against
+     * the engine only. Because the game's own history is in the line, they can also step
+     * back BEHIND the point they entered on — all the way to the game's start — and
+     * branch from anywhere in it. Blocked while a live move is staged/awaiting a
+     * promotion choice, same as browsing.
      */
     fun enterAnalysis() {
         if (pendingMove != null || pendingPromotion != null) return
         menuOpen = false
-        snapshotAnalysis()
+        seedAnalysis(viewIndex)
         analysisActive = true
         recompute()
     }
 
     /**
      * Long-press while already in analysis: throw the sandbox line away and start over
-     * from a fresh snapshot of the live game. Explicit rather than relying on
+     * from the live game — back at the position analysis was ENTERED on, not the game's
+     * start (unless that is where they entered). Explicit rather than relying on
      * [enterAnalysis] being re-entrant, so the reset can't be broken by an unrelated
-     * change to the entry path. Both share [snapshotAnalysis], so the reset restores the
-     * real game's last-move highlight exactly like a first entry does.
+     * change to the entry path.
      */
     fun resetAnalysis() {
         if (!analysisActive) return
         menuOpen = false
-        snapshotAnalysis()
+        seedAnalysis(analysisEntryIndex)
         recompute()
     }
 
@@ -1137,36 +1201,18 @@ class BoardViewModel(
         if (analysisActive) resetAnalysis() else enterAnalysis()
     }
 
-    // Snapshot the live game's currently displayed position as the sandbox's base, and
-    // wipe every piece of branch state. Also captures the live board's CURRENT last-move
-    // highlight (the same from/to recompute() would render at this viewIndex) so the
-    // sandbox's base position keeps showing it instead of starting blank.
-    private fun snapshotAnalysis() {
-        // Keep the base as a Position (no FEN round-trip) — see analysisBase.
-        analysisBase = replay.positions.getOrElse(viewIndex) { replay.finalPosition }
-            .let { if (it.variant != variant) it.copy(variant = variant) else it }
-        analysisMoves = mutableListOf()
-        analysisReplay = Chess.replayFrom(analysisBase, emptyList())
-        analysisViewIndex = 0
-        // Mirrors recompute()'s own last-move derivation (pendingMove can't be set here —
-        // enterAnalysis is blocked while a move is staged).
-        when {
-            viewIndex > 0 -> {
-                val step = replay.steps[viewIndex - 1]
-                analysisBaseLastFrom = step.move.from
-                analysisBaseLastTo = step.move.to
-            }
-            // Seed-only state (no move list yet): the home row's last move.
-            replay.steps.isEmpty() -> {
-                analysisBaseLastFrom = seededLastFrom
-                analysisBaseLastTo = seededLastTo
-            }
-            // Viewing the game's own start position — no last move to show.
-            else -> {
-                analysisBaseLastFrom = null
-                analysisBaseLastTo = null
-            }
-        }
+    // Seed the sandbox from the live game's authoritative timeline (see analysisSeed),
+    // sitting at [entryIndex], and wipe every piece of branch state. The last-move
+    // highlight needs no special casing any more: the sandbox's own timeline now carries
+    // the real game's moves, so recomputeAnalysis derives it from the line like any
+    // other position.
+    private fun seedAnalysis(entryIndex: Int) {
+        val seed = analysisSeed(replay, variant, entryIndex)
+        analysisBase = seed.base
+        analysisMoves = seed.moves.toMutableList()
+        analysisReplay = seed.replay
+        analysisViewIndex = seed.viewIndex
+        analysisEntryIndex = seed.viewIndex
         clearAnalysisSelection()
         analysisPendingPromotion = null
         analysisPendingAnim = null
@@ -1339,19 +1385,16 @@ class BoardViewModel(
     // Lichess), rebuild its local replay, and animate the move exactly like the
     // in-person local game — a one-shot slide, nulled right after this render.
     //
-    // TRUNCATE-AND-REPLACE: the move is played from the VIEWED position, so anything
-    // after it is discarded before appending — the new move becomes the tip. (Position
-    // index i == "after i moves", so analysisViewIndex indexes analysisMoves directly;
-    // when already at the tip, analysisViewIndex == analysisMoves.size and the truncation
-    // is a no-op.) This is a single line, not a variation tree: there's no UI to navigate
-    // siblings, and the app's whole ethos is against adding one. Every derived value
-    // (canStepBack/Forward, viewFraction, totalPlies, the scrub mapping, material and
+    // TRUNCATE-AND-REPLACE (see forkLine): the move is played from the VIEWED position, so
+    // anything after it is discarded before appending — the new move becomes the tip. Since
+    // the line is seeded with the REAL game's history, that viewed position can be any
+    // point of the actual game, so this is also how the user branches off it. Every derived
+    // value (canStepBack/Forward, viewFraction, totalPlies, the scrub mapping, material and
     // pockets) is recomputed from the shortened-then-extended replay in recomputeAnalysis,
     // so nothing can be left pointing past the new tip.
     private fun applyAnalysisMove(move: Move) {
         val oldIndex = analysisViewIndex
-        if (oldIndex < analysisMoves.size) analysisMoves.subList(oldIndex, analysisMoves.size).clear()
-        analysisMoves.add(move.toUci())
+        analysisMoves = forkLine(analysisMoves, oldIndex, move.toUci()).toMutableList()
         analysisReplay = Chess.replayFrom(analysisBase, analysisMoves)
         analysisViewIndex = analysisReplay.positions.lastIndex
         // Always a single forward step from where the user was (oldIndex + 1 == the new
@@ -1361,26 +1404,10 @@ class BoardViewModel(
         recompute()
     }
 
-    // Bidirectional version of the forward-only original — stepping/scrubbing backward
-    // through the analysis branch's own history needs the reverse slide too (mirrors
-    // buildStepAnim for the live/local games).
-    private fun buildAnalysisStepAnim(oldIndex: Int, newIndex: Int): AnimatedMove? {
-        val delta = newIndex - oldIndex
-        if (delta != 1 && delta != -1) return null
-        val step = analysisReplay.steps.getOrNull(minOf(oldIndex, newIndex)) ?: return null
-        if (step.move.isDrop) return null
-        if (isCaptureMove(step.before, step.move)) {
-            if (delta == 1) {
-                analysisAnimCounter += 1
-                return captureSlideAnim(step.before, step.after, step.move, analysisAnimCounter)
-            }
-            if (step.before.variant == Variant.ATOMIC) return null
-        }
-        val slides = stepSlides(step, analysisReplay.positions[newIndex].board, forward = delta == 1)
-        if (slides.isEmpty()) return null
-        analysisAnimCounter += 1
-        return AnimatedMove(slides = slides, id = analysisAnimCounter)
-    }
+    // The same slide logic ([stepAnim]) applied to the sandbox's own branch — stepping,
+    // scrubbing and forking all animate exactly like the live game.
+    private fun buildAnalysisStepAnim(oldIndex: Int, newIndex: Int): AnimatedMove? =
+        stepAnim(analysisReplay, oldIndex, newIndex, ++analysisAnimCounter)
 
     private fun clearAnalysisSelection() {
         analysisSelectedSquare = null
@@ -1574,12 +1601,6 @@ class BoardViewModel(
                 lastFrom = step.move.from
                 lastTo = step.move.to
             }
-            // Seed-only state (no move list yet): use the last move passed by the home
-            // row so the highlight doesn't flash in when the stream arrives.
-            replay.steps.isEmpty() -> {
-                lastFrom = seededLastFrom
-                lastTo = seededLastTo
-            }
         }
 
         // Don't reveal check/checkmate for a move the user hasn't confirmed yet.
@@ -1598,10 +1619,12 @@ class BoardViewModel(
             null
         }
 
-        val subtitle = if (terminal) {
-            resultSubtitle(latest)
-        } else {
-            buildString {
+        val subtitle = when {
+            // Nothing authoritative is known yet — anything here (whose turn it is, the
+            // variant) would be a guess sitting under the opponent's name.
+            !boardReady -> ""
+            terminal -> resultSubtitle(latest)
+            else -> buildString {
                 // Lead with the variant name for non-standard games, before the turn.
                 if (variant != Variant.STANDARD) append("${variant.displayName} · ")
                 append(if (isMyTurn) "your move" else "their move")
@@ -1621,15 +1644,14 @@ class BoardViewModel(
         val canRequestTakeback = !terminal && replay.steps.isNotEmpty()
         val incomingTakebackOffer = opponentOfferedTakeback && !takebackResponsePending && !terminal
 
-        // Compare against the variant's canonical starting complement (not
-        // replay.positions.first()) so material is stable from the very first seeded
-        // frame: during the seed-only state the replay's "first" position IS the
-        // current position, which would otherwise read as zero captures and then
-        // flash to the real count when the move list streams in. Every non-fromPosition
-        // game has identical starting piece counts to this reference, so no flash.
+        // Compare against the variant's canonical starting complement rather than
+        // replay.positions.first(), which for a game resumed from a custom FEN is not the
+        // real start. Every non-fromPosition game has identical starting piece counts to
+        // this reference, so the count is the same either way.
         val material = computeMaterial(referenceStart(), displayPosition, variant, myColor)
 
         _uiState.value = BoardUiState(
+            boardReady = boardReady,
             opponentName = opponentName,
             opponentUsername = opponentUsernameRaw,
             subtitle = subtitle,
@@ -1681,9 +1703,10 @@ class BoardViewModel(
 
     // Renders the analysis sandbox: a completely local, engine-only branch (see
     // `analysisReplay`), shown at `analysisViewIndex` — the user can step/scrub back
-    // through the moves THEY'VE played in the sandbox (BottomMode stays BROWSE, same as
-    // the live/local games), and play a different move from any of them, which forks the
-    // line there (see applyAnalysisMove). The live game's `subtitle`/draw/takeback/abort
+    // through the whole line, which is the REAL game's history followed by the moves
+    // they've played in the sandbox (BottomMode stays BROWSE, same as the live/local
+    // games), and play a different move from any of them, which forks the line there
+    // (see applyAnalysisMove). The live game's `subtitle`/draw/takeback/abort
     // affordances are all irrelevant here (they'd operate on the real Lichess game), so
     // they're zeroed/hidden — as is the action menu itself (BoardScreen hides its icon
     // while `analysisActive`); `analysisActive = true` is also what tells BoardScreen to
@@ -1699,20 +1722,18 @@ class BoardViewModel(
         val checkedKing = if (isCheck) pos.kingSquare(pos.sideToMove).takeIf { it >= 0 } else null
         val checkmateKing = if (isCheckmate) pos.kingSquare(pos.sideToMove).takeIf { it >= 0 } else null
 
+        // Straight out of the sandbox's own timeline, which now carries the real game's
+        // history (see analysisSeed): entering analysis keeps showing the highlight for
+        // the move that led to the position entered on, and stepping back re-reveals each
+        // move as it's undone (the codebase's backward-step convention) — through the real
+        // game's moves as readily as the user's own. Index 0 is the GAME's start position,
+        // which genuinely has no last move.
         var lastFrom: Int? = null
         var lastTo: Int? = null
         if (idx > 0) {
             val step = analysisReplay.steps[idx - 1]
             lastFrom = step.move.from
             lastTo = step.move.to
-        } else {
-            // Sitting on the snapshot the sandbox branched from (on entry, after a
-            // long-press reset, or having stepped all the way back): show the REAL
-            // game's last move, the highlight the live board was showing when analysis
-            // was entered. Consistent with the codebase's backward-step convention —
-            // stepping back out of a move re-reveals the indicators on the move before it.
-            lastFrom = analysisBaseLastFrom
-            lastTo = analysisBaseLastTo
         }
 
         // Material stays relative to the FIXED bottom side (myColor) exactly like the

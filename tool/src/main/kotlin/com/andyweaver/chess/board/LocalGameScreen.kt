@@ -74,6 +74,11 @@ import kotlin.math.roundToInt
  * - Across: the board stays fixed (White at the bottom) and the far side's pieces are
  *   drawn rotated 180° (via [BoardUiState.acrossMode]) to read upright to a player opposite.
  *
+ * Racing Kings is the exception, because both armies start on the SAME side: there is no
+ * far row to rotate on its own, so the two modes swap over. Side-by-side keeps the board
+ * still, and across flips it after each move AND rotates every piece with it, so the board
+ * turns as one rigid unit toward whoever is on move (see [BoardUiState.rigidPieceRotation]).
+ *
  * Moves apply IMMEDIATELY (no confirm step — both players are present). Uploading the
  * finished game to Lichess is offered ONLY through the menu ("Upload to Lichess") — there
  * is no auto-prompt at game end. NOTE: a finished local game is NOT persisted — once this
@@ -296,25 +301,9 @@ class LocalGameViewModel(
 
     // ----- history browsing -----
 
-    private fun buildStepAnim(oldIndex: Int, newIndex: Int): AnimatedMove? {
-        val delta = newIndex - oldIndex
-        if (delta != 1 && delta != -1) return null
-        val step = replay.steps.getOrNull(minOf(oldIndex, newIndex)) ?: return null
-        if (step.move.isDrop) return null
-        // Captures: forward slides the capturer in over the pre-move board (captured piece
-        // stays visible until it lands); Atomic backward snaps; normal backward reverse-slides.
-        if (isCaptureMove(step.before, step.move)) {
-            if (delta == 1) {
-                animCounter += 1
-                return captureSlideAnim(step.before, step.after, step.move, animCounter)
-            }
-            if (step.before.variant == Variant.ATOMIC) return null
-        }
-        val slides = stepSlides(step, replay.positions[newIndex].board, forward = delta == 1)
-        if (slides.isEmpty()) return null
-        animCounter += 1
-        return AnimatedMove(slides = slides, id = animCounter)
-    }
+    /** The in-person game's slide for a single-step transition — see the shared [stepAnim]. */
+    private fun buildStepAnim(oldIndex: Int, newIndex: Int): AnimatedMove? =
+        stepAnim(replay, oldIndex, newIndex, ++animCounter)
 
     private fun pushState(old: Int) {
         pendingAnim = buildStepAnim(old, viewIndex)
@@ -463,9 +452,20 @@ class LocalGameViewModel(
         // "opposing armies"), so the normal side-by-side/across assumption is backwards —
         // side-by-side must stay put (there's no far side to rotate into view), while across
         // needs the whole-board flip instead (there's no "far player's pieces" to rotate
-        // individually — see the RACING_KINGS guard on rotationDegrees in BoardScreen.kt).
+        // individually).
         val flipsAfterEachMove = if (variant == Variant.RACING_KINGS) across else !across
         val flipped = if (flipsAfterEachMove) latest.sideToMove == EngineColor.BLACK else false
+        // …and because that flip turns the board toward whoever is on move, the PIECES have
+        // to turn with it: board + pieces rotate as one rigid unit, exactly like picking the
+        // phone up and turning it around. So in Racing Kings across mode every piece shares
+        // one rotation (180° while flipped, 0° otherwise) — never a per-colour one. Null for
+        // every other variant, which keeps the per-colour across rotation, and null in
+        // side-by-side, which never flips. See [BoardUiState.rigidPieceRotation].
+        val rigidPieceRotation = if (variant == Variant.RACING_KINGS && across) {
+            if (flipped) 180f else 0f
+        } else {
+            null
+        }
         // Material/pocket banks are tied to the fixed BOTTOM/TOP of the board (derived from
         // orientation), NOT the mover — so each side's captured pieces / reserves stay put
         // instead of swapping top↔bottom every move. In side-by-side bottom == the mover
@@ -489,10 +489,16 @@ class LocalGameViewModel(
         val checkedKing = if (status is GameStatus.Check) pos.kingSquare(pos.sideToMove).takeIf { it >= 0 } else null
         val checkmateKing = if (status is GameStatus.Checkmate) pos.kingSquare(pos.sideToMove).takeIf { it >= 0 } else null
 
-        // Material is computed RELATIVE TO the bottom side (== [BoardUiState.myColor]): the
-        // bars derive their capturedColor from myColor, so the bottom bank shows what the
-        // bottom player has captured and the top bank (rendered in the top bar) the top's.
-        val material = computeMaterial(referenceStart(), pos, variant, bottomColor)
+        // Material is computed RELATIVE TO whichever side the banks are showing, and the bars
+        // derive their capturedColor from exactly the same value ([BoardUiState.materialBottom]),
+        // so the two can never disagree.
+        //
+        // Normally that side IS the bottom of the board. Racing Kings in across seating is the
+        // exception: the board turns as a rigid unit every move, so bottomColor alternates and
+        // the banks would swap colour twice a round. Pin them to White — the unflipped
+        // orientation — so each side's captures stay put while the board turns underneath.
+        val materialColor = if (rigidPieceRotation != null) EngineColor.WHITE else null
+        val material = computeMaterial(referenceStart(), pos, variant, materialColor ?: bottomColor)
 
         // The whose-turn indicator is intentionally dropped (side-by-side makes it obvious;
         // across players alternate in person). Only the game-over text is surfaced — the
@@ -506,6 +512,8 @@ class LocalGameViewModel(
             myColor = bottomColor,
             flipped = flipped,
             acrossMode = across,
+            rigidPieceRotation = rigidPieceRotation,
+            materialColor = materialColor,
             moverColor = mover,
             selectedSquare = selectedSquare,
             legalDestinations = if (showLegalMoves) legalDests else emptySet(),
@@ -742,7 +750,7 @@ private fun LocalTopBar(
                     Box(modifier = if (state.acrossMode) Modifier.rotate(180f) else Modifier) {
                         MaterialFan(
                             captured = state.opponentCaptured,
-                            capturedColor = state.myColor,
+                            capturedColor = state.materialBottom,
                             advantage = state.opponentAdvantage,
                             cellUnits = MATERIAL_CELL_UNITS,
                         )
