@@ -333,7 +333,7 @@ class ReviewScreen(
                             topRightLabel = state.opponentClockLabel,
                             bottomRightLabel = state.myClockLabel,
                         ) {
-                            ChessBoard(state = state, onSquareTap = {})
+                            ChessBoard(state = state, onSquareTap = null)
                         }
                         CrazyhouseReviewBottomBar(
                             state = state,
@@ -363,7 +363,7 @@ class ReviewScreen(
                             topRightLabel = state.opponentClockLabel,
                             bottomRightLabel = state.myClockLabel,
                         ) {
-                            ChessBoard(state = state, onSquareTap = {})
+                            ChessBoard(state = state, onSquareTap = null)
                         }
 
                         MaterialReviewBottomBar(

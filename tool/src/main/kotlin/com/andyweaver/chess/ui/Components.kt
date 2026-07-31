@@ -1,12 +1,58 @@
 package com.andyweaver.chess.ui
 
+import androidx.compose.foundation.gestures.awaitEachGesture
+import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.text.style.TextOverflow
 import com.thelightphone.sdk.ui.LightText
 import com.thelightphone.sdk.ui.LightTextVariant
+import com.thelightphone.sdk.ui.LocalHapticsEnabled
+
+/**
+ * Which Compose haptic the board's tap feedback uses. `VirtualKey` is the platform's
+ * "tapped a key/target" haptic, the closest analogue to the SDK's own 45ms one-shot.
+ * Single knob: swap for `KeyboardTap` (lighter) or `Confirm` (heavier) if the LP3's
+ * slow motor reads wrong on-device.
+ */
+private val TAP_HAPTIC = HapticFeedbackType.VirtualKey
+
+/**
+ * Fires a tap haptic on finger-DOWN, matching LightOS's own timing.
+ *
+ * Almost everything in this app taps through the SDK's `Modifier.lightClickable`, which
+ * already does this. The exception is a board square, which layers tap and long-press on
+ * ONE `combinedClickable` recognizer (see `SquareCell`) and so can't route through the
+ * SDK's clickable — and `combinedClickable` exposes no down callback. This supplies it as
+ * a passive observer: it consumes nothing, so it coexists with whatever recognizer is
+ * chained after it. That's exactly how `lightClickable` itself is built (a `pointerInput`
+ * down-watcher paired with `.clickable`).
+ *
+ * Uses Compose's [LocalHapticFeedback] rather than the SDK's `LightHapticFeedback`, whose
+ * only entry point needs an Android `Context` — which tool code cannot legally obtain
+ * (`LocalContext` and `android.content.Context` are both blocked by the plugin's source
+ * scan). Gated on [LocalHapticsEnabled] so it honours the device-wide LightOS haptics
+ * preference, same as `lightClickable`.
+ */
+@Composable
+fun Modifier.tapHaptic(enabled: Boolean = true): Modifier {
+    val active = enabled && LocalHapticsEnabled.current
+    val haptics = LocalHapticFeedback.current
+    if (!active) return this
+    return this.pointerInput(Unit) {
+        awaitEachGesture {
+            // Fire on finger-down like LightOS, and don't require the event to be
+            // unconsumed — this only observes, it never claims the gesture.
+            awaitFirstDown(requireUnconsumed = false)
+            haptics.performHapticFeedback(TAP_HAPTIC)
+        }
+    }
+}
 
 /**
  * A player's name with their Elo rendered right after it, at the SAME size and

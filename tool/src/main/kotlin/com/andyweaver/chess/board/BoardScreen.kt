@@ -76,6 +76,7 @@ import com.andyweaver.chess.engine.Variant
 import com.andyweaver.chess.R
 import com.andyweaver.chess.lichess.LichessApi
 import com.andyweaver.chess.settings.ChessSettings
+import com.andyweaver.chess.ui.tapHaptic
 import com.thelightphone.sdk.LightScreen
 import com.thelightphone.sdk.SealedLightActivity
 import com.thelightphone.sdk.rememberKeyboardOptions
@@ -874,7 +875,10 @@ private fun RotatedClock(text: String, modifier: Modifier) {
 @Composable
 internal fun ChessBoard(
     state: BoardUiState,
-    onSquareTap: (Int) -> Unit,
+    // Null for a READ-ONLY board (ReviewScreen): the squares then get no tap recognizer
+    // and — the reason this is nullable rather than a `{}` no-op — no tap haptic either,
+    // since a haptic on a tap that can never do anything reads as a broken control.
+    onSquareTap: ((Int) -> Unit)?,
     // Long-press anywhere on the board enters the analysis sandbox — or, if it's already
     // open, resets it back to the snapshot (see BoardViewModel.onBoardLongPress; the
     // ActionMenuOverlay "Analysis" row is the other entry point). Defaults to a no-op so
@@ -1379,7 +1383,8 @@ private fun SquareCell(
     // The board to draw the piece from — usually [state.board], but the pre-explosion
     // board while an Atomic capture slide is in flight (see [ChessBoard]).
     board: List<Piece?>,
-    onSquareTap: (Int) -> Unit,
+    // Null on a read-only board — see [ChessBoard].
+    onSquareTap: ((Int) -> Unit)?,
     onLongPress: () -> Unit = {},
     hidePiece: Boolean = false,
     // False while a move slide is in flight — the checkmate king only turns sideways once
@@ -1401,17 +1406,28 @@ private fun SquareCell(
         modifier = Modifier
             .size(squareSize)
             .background(background)
+            // combinedClickable routes taps through Compose rather than the SDK's
+            // lightClickable, so it brings no LP haptic of its own (only Compose's
+            // built-in long-press one). tapHaptic adds the finger-down tap haptic back,
+            // as a passive observer that doesn't compete for the gesture.
+            .tapHaptic(enabled = onSquareTap != null)
             // A single gesture recognizer handles both: quick tap moves/selects as
             // before, long-press enters the analysis sandbox. Using one
             // combinedClickable (instead of a plain lightClickable plus a separate
             // pointerInput long-press detector) avoids two competing recognizers on
             // the same pointer input — the standard Compose way to layer tap +
             // long-press on the same target.
-            .combinedClickable(
-                interactionSource = null,
-                indication = null,
-                onLongClick = onLongPress,
-                onClick = { onSquareTap(square) },
+            .then(
+                if (onSquareTap == null) {
+                    Modifier
+                } else {
+                    Modifier.combinedClickable(
+                        interactionSource = null,
+                        indication = null,
+                        onLongClick = onLongPress,
+                        onClick = { onSquareTap(square) },
+                    )
+                },
             ),
         contentAlignment = Alignment.Center,
     ) {
