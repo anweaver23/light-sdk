@@ -12,6 +12,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
 import androidx.compose.foundation.text.input.clearText
 import androidx.compose.foundation.rememberScrollState
@@ -31,6 +32,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -67,7 +69,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import kotlin.math.floor
+import kotlin.math.roundToInt
 import com.andyweaver.chess.engine.Color as EngineColor
 import com.andyweaver.chess.engine.Piece
 import com.andyweaver.chess.engine.PieceType
@@ -76,6 +81,8 @@ import com.andyweaver.chess.engine.Variant
 import com.andyweaver.chess.R
 import com.andyweaver.chess.lichess.LichessApi
 import com.andyweaver.chess.settings.ChessSettings
+import com.andyweaver.chess.settings.MoveStepSpeed
+import com.andyweaver.chess.ui.holdRepeat
 import com.andyweaver.chess.ui.tapHaptic
 import com.thelightphone.sdk.LightScreen
 import com.thelightphone.sdk.SealedLightActivity
@@ -173,6 +180,12 @@ private const val CHAT_GAP_SAME_SPEAKER_UNITS = 0.45f
 private const val CHAT_GAP_AROUND_SYSTEM_UNITS = 2.25f
 private const val CHAT_GAP_BETWEEN_SYSTEM_UNITS = 0.9f
 
+// Fraction of the text column a single chat message may occupy before it wraps. Tunable:
+// lower reads as more obviously "one side", higher wastes less line. 0.8 leaves roughly a
+// fifth of the width clear on the opposite side, which is enough to read the alignment at a
+// glance without making longer messages ragged.
+private const val CHAT_MESSAGE_MAX_WIDTH_FRACTION = 0.8f
+
 /**
  * The live board screen for one Lichess correspondence game.
  *
@@ -254,7 +267,13 @@ class BoardScreen(
                     val takebackOffer = state.incomingTakebackOffer &&
                         !state.incomingDrawOffer &&
                         !offerSuppressed
-                    val offerActive = drawOffer || takebackOffer
+                    // A threefold claim ranks below both real offers: those are the
+                    // opponent waiting on an answer, this is only an opportunity.
+                    val claimDraw = state.claimDrawAvailable &&
+                        !state.incomingDrawOffer &&
+                        !state.incomingTakebackOffer &&
+                        !offerSuppressed
+                    val offerActive = drawOffer || takebackOffer || claimDraw
 
                     // Hand-rolled rightButton instead of LightTopBar's own slot: that slot
                     // renders via an SDK-internal button view that takes no custom Modifier,
@@ -276,7 +295,11 @@ class BoardScreen(
                                 verticalAlignment = Alignment.CenterVertically,
                             ) {
                                 LightText(
-                                    text = if (drawOffer) "ACCEPT DRAW" else "ACCEPT TAKEBACK",
+                                    text = when {
+                                        drawOffer -> "ACCEPT DRAW"
+                                        takebackOffer -> "ACCEPT TAKEBACK"
+                                        else -> "CLAIM DRAW"
+                                    },
                                     variant = LightTextVariant.Fine,
                                     maxLines = 1,
                                     overflow = TextOverflow.Ellipsis,
@@ -284,13 +307,17 @@ class BoardScreen(
                                 )
                                 LightIcon(
                                     icon = LightIcons.ACCEPT,
-                                    contentDescription = if (drawOffer) "Accept draw" else "Accept takeback",
+                                    contentDescription = when {
+                                        drawOffer -> "Accept draw"
+                                        takebackOffer -> "Accept takeback"
+                                        else -> "Claim draw"
+                                    },
                                     modifier = Modifier.lightClickable(
                                         onClick = {
-                                            if (drawOffer) {
-                                                viewModel.acceptIncomingDraw()
-                                            } else {
-                                                viewModel.acceptIncomingTakeback()
+                                            when {
+                                                drawOffer -> viewModel.acceptIncomingDraw()
+                                                takebackOffer -> viewModel.acceptIncomingTakeback()
+                                                else -> viewModel.confirmClaimDraw()
                                             }
                                         },
                                     ),
@@ -298,13 +325,19 @@ class BoardScreen(
                                 Spacer(modifier = Modifier.width(2f.gridUnitsAsDp()))
                                 LightIcon(
                                     icon = LightIcons.CLOSE,
-                                    contentDescription = if (drawOffer) "Decline draw" else "Decline takeback",
+                                    contentDescription = when {
+                                        drawOffer -> "Decline draw"
+                                        takebackOffer -> "Decline takeback"
+                                        else -> "Dismiss draw claim"
+                                    },
                                     modifier = Modifier.lightClickable(
                                         onClick = {
-                                            if (drawOffer) {
-                                                viewModel.declineIncomingDraw()
-                                            } else {
-                                                viewModel.declineIncomingTakeback()
+                                            when {
+                                                drawOffer -> viewModel.declineIncomingDraw()
+                                                takebackOffer -> viewModel.declineIncomingTakeback()
+                                                // Permanent for this game — see
+                                                // ChessSettings.declinedDrawClaim.
+                                                else -> viewModel.dismissClaimDraw()
                                             }
                                         },
                                     ),
@@ -438,13 +471,23 @@ class BoardScreen(
                         } else {
                             // Opponent's captured pieces align to the board's left edge (the
                             // board is centered, so [inset] is the gap to that edge).
+                            // Horde's collapsed pawn badge is a pocket-sized glyph, so the
+                            // bank needs its taller reservation or the badge is clipped.
+                            val topBankUnits =
+                                if (collapsesHordePawns(state.variant, state.materialBottom)) {
+                                    HORDE_BANK_HEIGHT_UNITS
+                                } else {
+                                    2f
+                                }
                             CenteredBoard(
-                                reservedUnits = 2f,
+                                reservedUnits = topBankUnits,
                                 topBank = { inset ->
                                     MaterialRow(
                                         captured = state.opponentCaptured,
                                         capturedColor = state.materialBottom,
                                         advantage = state.opponentAdvantage,
+                                        variant = state.variant,
+                                        heightUnits = topBankUnits,
                                         startPad = inset,
                                     )
                                 },
@@ -466,13 +509,18 @@ class BoardScreen(
                 if (state.promotionActive) {
                     // In analysis either side may move, so the picker must use the
                     // ACTUAL mover's color (moverColor), not the fixed myColor.
-                    PromotionOverlay(myColor = state.moverColor ?: state.myColor, viewModel = viewModel)
+                    PromotionOverlay(
+                        myColor = state.moverColor ?: state.myColor,
+                        variant = state.variant,
+                        viewModel = viewModel,
+                    )
                 }
 
                 if (state.menuOpen) {
                     ActionMenuOverlay(
                         showGameActions = !state.terminal,
                         canOfferDraw = state.canOfferDraw,
+                        claimDrawAvailable = state.claimDrawAvailable,
                         canAbort = state.canAbort,
                         canRequestTakeback = state.canRequestTakeback,
                         showAnalysisOption = !state.analysisActive,
@@ -607,8 +655,8 @@ internal fun BrowseBar(
             enabled = canStepBack,
             onClick = onSkipStart,
         )
-        NavArrow(LightIcons.BACK, "Previous move", canStepBack, onBack)
-        NavArrow(LightIcons.ARROW_RIGHT, "Next move", canStepForward, onForward)
+        NavArrow(LightIcons.BACK, "Previous move", canStepBack, onClick = onBack)
+        NavArrow(LightIcons.ARROW_RIGHT, "Next move", canStepForward, onClick = onForward)
         // Skip-to-end: an ARROW_RIGHT arrow with a vertical bar immediately to its RIGHT.
         SkipControl(
             barSide = BarSide.TRAILING,
@@ -644,7 +692,7 @@ internal fun MaterialReviewBottomBar(
     ) {
         SkipControl(BarSide.LEADING, LightIcons.BACK, "First move", state.canStepBack, onSkipStart)
         Spacer(Modifier.width(1f.gridUnitsAsDp()))
-        NavArrow(LightIcons.BACK, "Previous move", state.canStepBack, onBack)
+        NavArrow(LightIcons.BACK, "Previous move", state.canStepBack, state.moveStepIntervalMs, onBack)
         Row(
             modifier = Modifier
                 .weight(1f),
@@ -656,9 +704,10 @@ internal fun MaterialReviewBottomBar(
                 capturedColor = state.materialBottom.opposite,
                 advantage = state.myAdvantage,
                 cellUnits = MATERIAL_CELL_UNITS,
+                variant = state.variant,
             )
         }
-        NavArrow(LightIcons.ARROW_RIGHT, "Next move", state.canStepForward, onForward)
+        NavArrow(LightIcons.ARROW_RIGHT, "Next move", state.canStepForward, state.moveStepIntervalMs, onForward)
         Spacer(Modifier.width(1f.gridUnitsAsDp()))
         SkipControl(BarSide.TRAILING, LightIcons.ARROW_RIGHT, "Last move", state.canStepForward, onSkipEnd)
     }
@@ -688,7 +737,7 @@ internal fun CrazyhouseReviewBottomBar(
     ) {
         SkipControl(BarSide.LEADING, LightIcons.BACK, "First move", state.canStepBack, onSkipStart)
         Spacer(Modifier.width(1f.gridUnitsAsDp()))
-        NavArrow(LightIcons.BACK, "Previous move", state.canStepBack, onBack)
+        NavArrow(LightIcons.BACK, "Previous move", state.canStepBack, state.moveStepIntervalMs, onBack)
         Row(
             modifier = Modifier.weight(1f),
             horizontalArrangement = Arrangement.Center,
@@ -706,7 +755,7 @@ internal fun CrazyhouseReviewBottomBar(
                 )
             }
         }
-        NavArrow(LightIcons.ARROW_RIGHT, "Next move", state.canStepForward, onForward)
+        NavArrow(LightIcons.ARROW_RIGHT, "Next move", state.canStepForward, state.moveStepIntervalMs, onForward)
         Spacer(Modifier.width(1f.gridUnitsAsDp()))
         SkipControl(BarSide.TRAILING, LightIcons.ARROW_RIGHT, "Last move", state.canStepForward, onSkipEnd)
     }
@@ -788,19 +837,41 @@ private fun SkipControl(
     }
 }
 
+/**
+ * A browse arrow: tap to step one move, press and hold to keep stepping every
+ * [repeatIntervalMs] (the "Move step speed" setting, via [BoardUiState.moveStepIntervalMs]).
+ */
 @Composable
 internal fun NavArrow(
     icon: LightIconConfiguration,
     contentDescription: String,
     enabled: Boolean,
+    repeatIntervalMs: Long = MoveStepSpeed.DEFAULT.intervalMs,
     onClick: () -> Unit,
 ) {
+    // Holding the arrow keeps stepping. The lift that ends a repeat run would otherwise
+    // also register as a click and step one extra move, so swallow exactly that one.
+    var repeated by remember { mutableStateOf(false) }
     LightIcon(
         icon = icon,
         contentDescription = contentDescription,
         modifier = Modifier
             .alpha(if (enabled) 1f else 0.3f)
-            .then(if (enabled) Modifier.lightClickable(onClick = onClick) else Modifier),
+            .holdRepeat(
+                enabled = enabled,
+                intervalMs = repeatIntervalMs,
+                onRepeatStarted = { repeated = true },
+                onRepeat = onClick,
+            )
+            .then(
+                if (enabled) {
+                    Modifier.lightClickable {
+                        if (repeated) repeated = false else onClick()
+                    }
+                } else {
+                    Modifier
+                },
+            ),
     )
 }
 
@@ -918,13 +989,109 @@ internal fun ChessBoard(
         // the overlay draws them from the destination board.
         val captureSliding = sliding && anim.preMoveBoard != null
         val boardToRender = if (captureSliding) anim.preMoveBoard else state.board
-        val hidden: Set<Int> = when {
+        val slideHidden: Set<Int> = when {
             !sliding -> emptySet()
             captureSliding -> emptySet()
             else -> anim.slides.mapTo(HashSet()) { it.endSquare }
         }
 
-        Box(modifier = Modifier.size(edge)) {
+        // ---- Drag-and-drop (opt-in; BoardUiState.dragEnabled, default false) ----------
+        //
+        // A drag is NOT a second move path. It issues exactly the two `onSquareTap` calls
+        // the user would otherwise make — the origin on pick-up, the destination on
+        // release — so legality, legal-move highlighting, the promotion picker, the
+        // CONFIRM staging step, Crazyhouse drops, analysis mode and every read-only /
+        // not-your-turn guard come along unchanged from the tap path, with no view-model
+        // involvement at all. Releasing on the origin, or on an illegal square, therefore
+        // behaves exactly as that second tap does today (deselect / reselect / nothing).
+        //
+        // WHERE the recognizer lives: ONE detectDragGestures on the whole board Box, not
+        // one per SquareCell. A drag inherently crosses cell boundaries, so a per-cell
+        // recognizer would need the pointer handed between siblings; and the
+        // offset -> square conversion a board-level recognizer needs is the same maths
+        // required to resolve the drop target anyway.
+        //
+        // WHY it coexists with SquareCell's combinedClickable (tap + long-press-to-analysis)
+        // and with Modifier.tapHaptic:
+        //  * detectDragGestures takes the down with requireUnconsumed = false (the child's
+        //    tap detector consumes it first, on the Main pass) and then engages only after
+        //    touch slop. A STATIONARY press is never touched by this recognizer at all, so
+        //    a plain tap and a stationary long press behave byte-for-byte as before.
+        //  * Once slop is crossed, onDrag consumes every move change. The child's
+        //    waitForUpOrCancellation re-checks consumption on the Final pass, which runs
+        //    parent -> child, so it cancels its pending tap: a drag cannot also fire a tap
+        //    on release.
+        //  * A long press that matures FIRST wins outright — detectTapGestures consumes
+        //    everything until up, which cancels this recognizer's slop detection, so
+        //    press-hold-then-move still enters analysis rather than dragging.
+        //  * tapHaptic is a non-consuming awaitFirstDown observer, so it is unaffected in
+        //    either direction (and a drag still gives the same pick-up haptic as a tap).
+        // Nothing here touches the bottom bars, so moveScrubX is untouched.
+        val density = LocalDensity.current
+        val squarePx = with(density) { squareSize.toPx() }
+        val dragActive = state.dragEnabled && onSquareTap != null
+        // Origin square of the in-flight drag (null = not dragging) and the finger's
+        // current position, in board-local px.
+        var dragFrom by remember { mutableStateOf<Int?>(null) }
+        var dragPos by remember { mutableStateOf(Offset.Zero) }
+        val currentState by rememberUpdatedState(state)
+        val currentTap by rememberUpdatedState(onSquareTap)
+
+        val dragModifier = if (!dragActive) {
+            Modifier
+        } else {
+            // Keyed on the square size only: `state.flipped` and the tap callback are read
+            // through rememberUpdatedState so an in-person board flipping mid-game (or a
+            // fresh method reference each recomposition) doesn't restart the recognizer.
+            Modifier.pointerInput(squarePx) {
+                detectDragGestures(
+                    onDragStart = { offset ->
+                        val s = currentState
+                        val from = squareAtOffset(offset, squarePx, s.flipped)
+                        val piece = from?.let { s.board.getOrNull(it) }
+                        if (from == null || piece == null) {
+                            // Nothing to pick up. The gesture still runs (and still
+                            // consumes, cancelling the underlying tap) but performs no
+                            // taps — a swipe starting on an empty square is inert rather
+                            // than clearing the selection mid-flight.
+                            dragFrom = null
+                        } else {
+                            dragFrom = from
+                            dragPos = offset
+                            // The pick-up tap — skipped when this square is ALREADY the
+                            // selection, because tapping an already-selected square
+                            // deselects it (BoardViewModel.onSquareTap) and the first of
+                            // the two taps has effectively already happened.
+                            if (s.selectedSquare != from) currentTap?.invoke(from)
+                        }
+                    },
+                    onDrag = { change, _ ->
+                        change.consume()
+                        dragPos = change.position
+                    },
+                    onDragEnd = {
+                        // Nothing was picked up (drag began off a piece) — no second tap.
+                        if (dragFrom == null) return@detectDragGestures
+                        dragFrom = null
+                        // Released off the board edge = cancel (the pick-up selection
+                        // stays, exactly as a single tap would leave it). Otherwise this
+                        // is the second tap; the view model already knows the origin from
+                        // the pick-up tap, so only the destination is needed.
+                        squareAtOffset(dragPos, squarePx, currentState.flipped)
+                            ?.let { to -> currentTap?.invoke(to) }
+                    },
+                    onDragCancel = { dragFrom = null },
+                )
+            }
+        }
+
+        val draggingFrom = if (dragActive) dragFrom else null
+        // The dragged piece is drawn by the follow-the-finger overlay below, so hide it
+        // from its origin square — same mechanism the move-slide overlay uses.
+        val hidden: Set<Int> =
+            if (draggingFrom != null) slideHidden + draggingFrom else slideHidden
+
+        Box(modifier = Modifier.size(edge).then(dragModifier)) {
             Column(modifier = Modifier.fillMaxSize()) {
                 // Row 0 is the top of the screen; map (row, col) -> engine square per
                 // the user's orientation (their back rank at the bottom).
@@ -968,6 +1135,32 @@ internal fun ChessBoard(
                             piece = s.piece,
                             squareSize = squareSize,
                             rotationDegrees = state.pieceRotation(s.piece),
+                        )
+                    }
+                }
+            }
+
+            // The dragged piece follows the finger, centred under it. Same structure as
+            // the move-slide overlay above (offset Box + PieceGlyph), with its origin
+            // square in `hidden` so the piece isn't drawn twice. The offset is read in the
+            // layout-phase lambda so a drag move re-lays-out without recomposing.
+            if (draggingFrom != null) {
+                boardToRender.getOrNull(draggingFrom)?.let { dragged ->
+                    Box(
+                        modifier = Modifier
+                            .offset {
+                                IntOffset(
+                                    (dragPos.x - squarePx / 2f).roundToInt(),
+                                    (dragPos.y - squarePx / 2f).roundToInt(),
+                                )
+                            }
+                            .size(squareSize),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        PieceGlyph(
+                            piece = dragged,
+                            squareSize = squareSize,
+                            rotationDegrees = state.pieceRotation(dragged),
                         )
                     }
                 }
@@ -1059,6 +1252,18 @@ private fun DashedRegionBorder(modifier: Modifier, phaseFraction: Float = 0f) {
     }
 }
 
+/**
+ * Map a board-local pixel [offset] to an engine square, or null if it falls outside the
+ * 8x8 grid (a drag released past the board's edge). [squarePx] is one square's edge in px.
+ */
+private fun squareAtOffset(offset: Offset, squarePx: Float, flipped: Boolean): Int? {
+    if (squarePx <= 0f) return null
+    val col = floor(offset.x / squarePx).toInt()
+    val row = floor(offset.y / squarePx).toInt()
+    if (row !in 0..7 || col !in 0..7) return null
+    return squareAt(row, col, flipped)
+}
+
 // Map an engine square (0..63) to its (row, col) grid cell for the current orientation
 // — the inverse of [squareAt]. Row 0 is the top of the screen.
 private fun squareToRowCol(square: Int, flipped: Boolean): Pair<Float, Float> {
@@ -1097,6 +1302,23 @@ private const val POCKET_BADGE_DIAMETER_UNITS = MY_POCKET_CELL_UNITS * 0.5f
 private const val MATERIAL_HALO_SCALE = 1.2f
 
 
+// Horde collapses its captured pawns into a single Crazyhouse-style reserve glyph, so it
+// uses the pocket cell size, and the bank it lives in has to reserve a little more height
+// than the fanned bar's 2 units.
+internal const val HORDE_BANK_HEIGHT_UNITS = 2.8f
+
+/**
+ * Should this side's captures collapse to one pawn glyph with a count badge?
+ *
+ * Only in Horde, and only for the side capturing FROM the horde — the horde is 36 pawns,
+ * so fanning them out is a wall of identical glyphs that says nothing. White IS the horde,
+ * so white captured pieces are exactly that side's haul; the black player's own pieces
+ * (captured BY the horde) are a normal mixed set and keep the fan. Keying off the captured
+ * colour rather than the viewer means this reads the same from either seat.
+ */
+internal fun collapsesHordePawns(variant: Variant, capturedColor: EngineColor): Boolean =
+    variant == Variant.HORDE && capturedColor == EngineColor.WHITE
+
 /**
  * A material row hugging one board edge (non-Crazyhouse): the pieces one side has
  * captured (drawn in [capturedColor]), same types fanned/overlapped like a hand of
@@ -1109,6 +1331,7 @@ internal fun MaterialRow(
     captured: List<PieceType>,
     capturedColor: EngineColor,
     advantage: Int,
+    variant: Variant = Variant.STANDARD,
     cellUnits: Float = MATERIAL_CELL_UNITS,
     heightUnits: Float = 2f,
     startPad: Dp = Dp.Unspecified,
@@ -1124,7 +1347,13 @@ internal fun MaterialRow(
         horizontalArrangement = Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        MaterialFan(captured = captured, capturedColor = capturedColor, advantage = advantage, cellUnits = cellUnits)
+        MaterialFan(
+            captured = captured,
+            capturedColor = capturedColor,
+            advantage = advantage,
+            cellUnits = cellUnits,
+            variant = variant,
+        )
     }
 }
 
@@ -1139,15 +1368,33 @@ internal fun MaterialFan(
     capturedColor: EngineColor,
     advantage: Int,
     cellUnits: Float,
+    variant: Variant = Variant.STANDARD,
 ) {
     val cell = cellUnits.gridUnitsAsDp()
+    // In Horde the pawns collapse into one badged glyph, but anything else this side
+    // captured still fans normally — horde pawns CAN promote, so a queen or rook can
+    // legitimately show up here and must not be miscounted as a pawn.
+    val collapsePawns = collapsesHordePawns(variant, capturedColor)
+    val pawnCount = if (collapsePawns) captured.count { it == PieceType.PAWN } else 0
+    val fanned = if (collapsePawns) captured.filter { it != PieceType.PAWN } else captured
     Row(verticalAlignment = Alignment.CenterVertically) {
+        if (pawnCount > 0) {
+            PocketPiece(
+                type = PieceType.PAWN,
+                color = capturedColor,
+                count = pawnCount,
+                cell = MY_POCKET_CELL_UNITS.gridUnitsAsDp(),
+                selected = false,
+                onTap = null,
+                horizontalPadUnits = 0f,
+            )
+        }
         // Groups advance by MATERIAL_GROUP_GAP_UNITS (center-to-center); the negative gap
         // vs the cell width overlaps adjacent group boxes so groups can be pulled tight.
         Row(horizontalArrangement = Arrangement.spacedBy(MATERIAL_GROUP_GAP_UNITS.gridUnitsAsDp() - cell)) {
             // The list is ordered by type, so distinct() gives the groups in display order.
-            captured.distinct().forEach { type ->
-                CapturedStack(type = type, color = capturedColor, count = captured.count { it == type }, cell = cell)
+            fanned.distinct().forEach { type ->
+                CapturedStack(type = type, color = capturedColor, count = fanned.count { it == type }, cell = cell)
             }
         }
         if (advantage > 0) {
@@ -1253,7 +1500,7 @@ internal fun CrazyhousePocketBar(
             .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        NavArrow(LightIcons.BACK, "Previous move", state.canStepBack, onBack)
+        NavArrow(LightIcons.BACK, "Previous move", state.canStepBack, state.moveStepIntervalMs, onBack)
         Row(
             modifier = Modifier.weight(1f),
             horizontalArrangement = Arrangement.Center,
@@ -1270,7 +1517,7 @@ internal fun CrazyhousePocketBar(
                 )
             }
         }
-        NavArrow(LightIcons.ARROW_RIGHT, "Next move", state.canStepForward, onForward)
+        NavArrow(LightIcons.ARROW_RIGHT, "Next move", state.canStepForward, state.moveStepIntervalMs, onForward)
     }
 }
 
@@ -1294,7 +1541,7 @@ internal fun MaterialBottomBar(
             .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        NavArrow(LightIcons.BACK, "Previous move", state.canStepBack, onBack)
+        NavArrow(LightIcons.BACK, "Previous move", state.canStepBack, state.moveStepIntervalMs, onBack)
         Row(
             modifier = Modifier
                 .weight(1f)
@@ -1307,9 +1554,10 @@ internal fun MaterialBottomBar(
                 capturedColor = state.materialBottom.opposite,
                 advantage = state.myAdvantage,
                 cellUnits = MATERIAL_CELL_UNITS,
+                variant = state.variant,
             )
         }
-        NavArrow(LightIcons.ARROW_RIGHT, "Next move", state.canStepForward, onForward)
+        NavArrow(LightIcons.ARROW_RIGHT, "Next move", state.canStepForward, state.moveStepIntervalMs, onForward)
     }
 }
 
@@ -1552,9 +1800,9 @@ private fun LegalMarker(isCapture: Boolean, squareSize: Dp) {
 }
 
 @Composable
-private fun PromotionOverlay(myColor: EngineColor, viewModel: BoardViewModel) {
+private fun PromotionOverlay(myColor: EngineColor, variant: Variant, viewModel: BoardViewModel) {
     // Order the offered pieces by usefulness: queen first.
-    val choices = listOf(PieceType.QUEEN, PieceType.ROOK, PieceType.BISHOP, PieceType.KNIGHT)
+    val choices = variant.promotionChoices
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -1568,16 +1816,25 @@ private fun PromotionOverlay(myColor: EngineColor, viewModel: BoardViewModel) {
             modifier = Modifier.weight(1f).fillMaxWidth(),
             contentAlignment = Alignment.Center,
         ) {
-            Row(horizontalArrangement = Arrangement.spacedBy(1f.gridUnitsAsDp())) {
-                val cell = 6f.gridUnitsAsDp()
-                choices.forEach { type ->
-                    Box(
-                        modifier = Modifier
-                            .size(cell)
-                            .lightClickable { viewModel.choosePromotion(type) },
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        PieceGlyph(piece = Piece(myColor, type), squareSize = cell)
+            val cell = 6f.gridUnitsAsDp()
+            // Four choices fill the width exactly at this cell size, so Antichess's fifth
+            // (the king) has to wrap rather than shrink every target to fit.
+            Column(
+                verticalArrangement = Arrangement.spacedBy(1f.gridUnitsAsDp()),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                choices.chunked(if (choices.size > 4) 3 else 4).forEach { row ->
+                    Row(horizontalArrangement = Arrangement.spacedBy(1f.gridUnitsAsDp())) {
+                        row.forEach { type ->
+                            Box(
+                                modifier = Modifier
+                                    .size(cell)
+                                    .lightClickable { viewModel.choosePromotion(type) },
+                                contentAlignment = Alignment.Center,
+                            ) {
+                                PieceGlyph(piece = Piece(myColor, type), squareSize = cell)
+                            }
+                        }
                     }
                 }
             }
@@ -1657,6 +1914,17 @@ private fun ChatOverlay(state: BoardUiState, viewModel: BoardViewModel) {
             // scrolling normally once it outgrows the viewport.
             BoxWithConstraints(modifier = Modifier.weight(1f).fillMaxWidth()) {
                 val viewportHeight = maxHeight
+                // Cap how wide a single message may get. Left/right alignment is the ONLY cue
+                // for who said what (there are no bubbles), and a message spanning the full
+                // width destroys that cue entirely. Measured against the real text column —
+                // maxWidth less the feed Column's horizontal padding and the scrollbar gutter
+                // LightScrollView permanently reserves — so the fraction means what it says.
+                // Read here rather than inside the scroll view's content lambda, where the
+                // BoxWithConstraints receiver is no longer the implicit one.
+                val chatMessageMaxWidth = (
+                    maxWidth - (2f + scrollBarGutterUnits(LightScrollBarPosition.Outside))
+                        .gridUnitsAsDp()
+                    ) * CHAT_MESSAGE_MAX_WIDTH_FRACTION
                 LightScrollView(
                     modifier = Modifier.fillMaxSize(),
                     scrollState = scrollState,
@@ -1724,7 +1992,18 @@ private fun ChatOverlay(state: BoardUiState, viewModel: BoardViewModel) {
                                             lighten = true,
                                         )
                                     }
-                                    LightText(text = msg.text, variant = LightTextVariant.Copy)
+                                    // widthIn, NOT fillMaxWidth: a short message keeps its
+                                    // intrinsic width (so the alignment above still places it),
+                                    // and only a long one is capped — which is the whole point,
+                                    // since a full-width message gives no visual cue as to
+                                    // whose it is. Because a wrapped message DOES end up
+                                    // exactly this wide, `align` then right-justifies my own
+                                    // lines so the block reads as one right-hand column.
+                                    LightText(
+                                        text = msg.text,
+                                        variant = LightTextVariant.Copy,
+                                        modifier = Modifier.widthIn(max = chatMessageMaxWidth),
+                                    )
                                 }
                             }
                         }
@@ -1773,6 +2052,7 @@ private fun sameSpeaker(previous: ChatMessage?, current: ChatMessage): Boolean =
 private fun ActionMenuOverlay(
     showGameActions: Boolean,
     canOfferDraw: Boolean,
+    claimDrawAvailable: Boolean,
     canAbort: Boolean,
     canRequestTakeback: Boolean,
     showAnalysisOption: Boolean,
@@ -1798,7 +2078,13 @@ private fun ActionMenuOverlay(
                 // Lichess requires at least one move played before a takeback makes sense.
                 if (canRequestTakeback) MenuRow("Request takeback") { viewModel.requestTakeback() }
                 // Lichess only allows a draw offer once both players have moved.
-                if (canOfferDraw) MenuRow("Offer draw") { viewModel.requestDraw() }
+                // With a threefold on the board, `draw/yes` no longer OFFERS — lila ends
+                // the game outright — so the row must not keep saying "Offer draw".
+                if (claimDrawAvailable) {
+                    MenuRow("Claim draw") { viewModel.requestClaimDraw() }
+                } else if (canOfferDraw) {
+                    MenuRow("Offer draw") { viewModel.requestDraw() }
+                }
                 MenuRow("Resign") { viewModel.requestResign() }
                 // Lichess only allows aborting before both players have moved.
                 if (canAbort) MenuRow("Abort game") { viewModel.requestAbort() }
@@ -1839,6 +2125,7 @@ private fun ConfirmationOverlay(confirmation: Confirmation, viewModel: BoardView
         Confirmation.ABORT -> "Abort this game?"
         Confirmation.DRAW -> "Offer a draw?"
         Confirmation.TAKEBACK -> "Request a takeback?"
+        Confirmation.CLAIM_DRAW -> "Claim a draw by repetition?"
     }
     Column(
         modifier = Modifier
@@ -1865,6 +2152,7 @@ private fun ConfirmationOverlay(confirmation: Confirmation, viewModel: BoardView
                             Confirmation.ABORT -> viewModel.confirmAbort()
                             Confirmation.DRAW -> viewModel.confirmDraw()
                             Confirmation.TAKEBACK -> viewModel.confirmTakeback()
+                            Confirmation.CLAIM_DRAW -> viewModel.confirmClaimDraw()
                         }
                     },
                 ),

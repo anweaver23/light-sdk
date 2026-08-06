@@ -202,6 +202,51 @@ class BoardAnimationTest {
         assertEquals(Piece(Color.WHITE, PieceType.ROOK), assertNotNull(anim.slideAt("f1", "h1")).piece)
     }
 
+    // ----- promotion --------------------------------------------------------
+
+    // A pawn is what crosses the board; the promoted piece only exists once it lands.
+    // Reading the slide's piece off the DESTINATION board (which is what every other move
+    // wants) slid a fully-formed queen instead, so the promotion was over before the
+    // animation began.
+
+    @Test
+    fun promotionSlidesThePawnNotThePromotedPiece() {
+        val anim = assertNotNull(arrival(replay("a7a8q", "4k3/P7/8/8/8/8/8/4K3 w - - 0 1")))
+        assertEquals(setOf("a7a8"), anim.paths())
+        assertEquals(Piece(Color.WHITE, PieceType.PAWN), anim.slides.single().piece)
+    }
+
+    @Test
+    fun capturePromotionSlidesThePawnAndKeepsTheCapturedPieceVisible() {
+        val anim = assertNotNull(arrival(replay("a7b8q", "1r2k3/P7/8/8/8/8/8/4K3 w - - 0 1")))
+        assertEquals(setOf("a7b8"), anim.paths())
+        assertEquals(Piece(Color.WHITE, PieceType.PAWN), anim.slides.single().piece)
+        // Capture rules still apply: the pre-move board is rendered so the taken rook stays
+        // put until the pawn lands, with the mover lifted off its origin.
+        val pre = assertNotNull(anim.preMoveBoard)
+        assertEquals(Piece(Color.BLACK, PieceType.ROOK), pre[sq("b8")])
+        assertNull(pre[sq("a7")])
+    }
+
+    @Test
+    fun promotionToAKnightAlsoSlidesThePawn() {
+        // Underpromotion goes down the same path — nothing may key off "queen".
+        val anim = assertNotNull(arrival(replay("a7a8n", "4k3/P7/8/8/8/8/8/4K3 w - - 0 1")))
+        assertEquals(Piece(Color.WHITE, PieceType.PAWN), anim.slides.single().piece)
+    }
+
+    @Test
+    fun steppingBackOutOfAPromotionSlidesThePawnHome() {
+        // The backward case never needed a special case — its destination board is the
+        // earlier position, where the piece is already a pawn. Locked down so the forward
+        // fix can't be "simplified" into breaking it.
+        val r = replay("a7a8q", "4k3/P7/8/8/8/8/8/4K3 w - - 0 1")
+        val last = r.positions.lastIndex
+        val anim = assertNotNull(stepAnim(r, last, last - 1, id = 1L))
+        assertEquals(setOf("a8a7"), anim.paths())
+        assertEquals(Piece(Color.WHITE, PieceType.PAWN), anim.slides.single().piece)
+    }
+
     // ----- id plumbing ------------------------------------------------------
 
     @Test

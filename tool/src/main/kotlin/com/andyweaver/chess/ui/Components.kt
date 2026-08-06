@@ -4,10 +4,13 @@ import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.input.pointer.pointerInput
+import kotlinx.coroutines.withTimeoutOrNull
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.text.style.TextOverflow
 import com.thelightphone.sdk.ui.LightText
@@ -50,6 +53,73 @@ fun Modifier.tapHaptic(enabled: Boolean = true): Modifier {
             // unconsumed — this only observes, it never claims the gesture.
             awaitFirstDown(requireUnconsumed = false)
             haptics.performHapticFeedback(TAP_HAPTIC)
+        }
+    }
+}
+
+/**
+ * How long a browse arrow must be held before it starts repeat-stepping.
+ *
+ * Deliberately BELOW Compose's ~500ms long-press timeout, which is what arms the bottom
+ * bar's move-scrub drag: holding an arrow should read as "step faster", and a hold that
+ * turns into a drag hands over to the scrub (see [holdRepeat], which bails out on slop).
+ */
+private const val HOLD_REPEAT_START_MS = 400L
+
+/**
+ * Press-and-hold to repeat [onRepeat] every [intervalMs], for the board and review browse
+ * arrows. The single tap stays with the caller's own `lightClickable`; this only adds what
+ * happens if the finger stays down.
+ *
+ * Coexisting with move-scrubbing is the whole difficulty, and is why this is a passive
+ * observer that consumes nothing:
+ *  - a quick tap ends before [HOLD_REPEAT_START_MS], so nothing repeats and the ordinary
+ *    click runs;
+ *  - a hold that stays put repeats, and the parent bar's `detectDragGesturesAfterLongPress`
+ *    emits nothing without an actual drag;
+ *  - a hold that MOVES past touch slop abandons repeating, leaving the gesture to the
+ *    parent's scrub — so the two never fight over the same finger.
+ *
+ * [onRepeatStarted] lets the caller suppress the click that would otherwise fire when the
+ * finger finally lifts after a repeat run.
+ */
+@Composable
+fun Modifier.holdRepeat(
+    enabled: Boolean,
+    intervalMs: Long,
+    onRepeatStarted: () -> Unit = {},
+    onRepeat: () -> Unit,
+): Modifier {
+    if (!enabled) return this
+    val currentRepeat by rememberUpdatedState(onRepeat)
+    val currentStarted by rememberUpdatedState(onRepeatStarted)
+    val currentInterval by rememberUpdatedState(intervalMs)
+    return this.pointerInput(Unit) {
+        val slop = viewConfiguration.touchSlop
+        awaitEachGesture {
+            // requireUnconsumed = false: the chained clickable claims the gesture, and this
+            // only watches it.
+            val down = awaitFirstDown(requireUnconsumed = false)
+            val origin = down.position
+            var repeating = false
+            while (true) {
+                // No event within the deadline means the finger is still down and still
+                // still — i.e. the hold matured, so step once and re-arm at the interval.
+                val event = withTimeoutOrNull(
+                    if (repeating) currentInterval else HOLD_REPEAT_START_MS,
+                ) { awaitPointerEvent() }
+                if (event == null) {
+                    if (!repeating) {
+                        repeating = true
+                        currentStarted()
+                    }
+                    currentRepeat()
+                    continue
+                }
+                val change = event.changes.firstOrNull { it.id == down.id } ?: break
+                if (!change.pressed) break
+                if ((change.position - origin).getDistance() > slop) break
+            }
         }
     }
 }

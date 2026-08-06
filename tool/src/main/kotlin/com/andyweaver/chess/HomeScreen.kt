@@ -41,11 +41,14 @@ import com.andyweaver.chess.lichess.LichessChallenge
 import com.andyweaver.chess.lichess.LichessGame
 import com.andyweaver.chess.lichess.LichessPerf
 import com.andyweaver.chess.lichess.nameWithRating
+import com.andyweaver.chess.lichess.userMessage
 import com.andyweaver.chess.newgame.EDGE_UNITS
 import com.andyweaver.chess.newgame.NewGameScreen
 import com.andyweaver.chess.newgame.ROW_VERTICAL_UNITS
 import com.andyweaver.chess.ui.NameWithRating
 import com.andyweaver.chess.settings.ChessSettings
+import com.andyweaver.chess.settings.ConfiguredAccount
+import com.andyweaver.chess.settings.LocalAccounts
 import com.andyweaver.chess.settings.PendingSeek
 import com.andyweaver.chess.settings.Session
 import com.andyweaver.chess.settings.SettingsScreen
@@ -56,6 +59,7 @@ import com.thelightphone.sdk.SealedLightActivity
 import com.thelightphone.sdk.SimpleLightScreen
 import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightBottomBar
+import com.thelightphone.sdk.ui.LightFullscreenModal
 import com.thelightphone.sdk.ui.LightIcon
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightScrollView
@@ -108,7 +112,10 @@ private const val MOVE_POLL_INTERVAL_MS = 20_000L
 // Duration of one full rotation of the refresh icon while a manual refresh is in flight.
 private const val REFRESH_SPIN_MS = 800
 
-class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<Unit>() {
+class HomeScreenViewModel(
+    private val settings: ChessSettings,
+    private val configuredAccounts: List<ConfiguredAccount> = emptyList(),
+) : LightViewModel<Unit>() {
 
     /** Everything the home list renders: active games plus pending challenges both ways. */
     data class Content(
@@ -185,6 +192,7 @@ class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<
                     loginTokenState.clearText()
                     _state.value = State.NeedsLogin
                     _ownRating.value = null
+                    autoLogin()
                 } else if (tokenChanged) {
                     stopLive()
                     api?.close()
@@ -266,18 +274,72 @@ class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<
         if (_loggingIn.value) return
         _loggingIn.value = true
         viewModelScope.launch(Dispatchers.IO) {
-            val probe = LichessApi(token)
-            val name = try {
-                probe.getAccountUsername().takeIf { it.isNotBlank() }
-            } catch (_: Exception) {
-                null
-            } finally {
-                probe.close()
-            }
+            val name = validateToken(token)
             if (name == null) {
                 _loginError.value = "That token didn't work. Check it (and its scopes) and try again."
             } else {
                 settings.saveSession(token, name)
+            }
+            _loggingIn.value = false
+        }
+    }
+
+    /** The username [token] belongs to per `GET /api/account`, or null if it isn't usable. */
+    private suspend fun validateToken(token: String): String? {
+        val probe = LichessApi(token)
+        return try {
+            probe.getAccountUsername().takeIf { it.isNotBlank() }
+        } catch (_: Exception) {
+            null
+        } finally {
+            probe.close()
+        }
+    }
+
+    // Auto-login is attempted at most once per ViewModel: saving the session re-emits on
+    // settings.session, and a later logout must actually land on the login screen rather
+    // than being immediately undone.
+    private var autoLoginAttempted = false
+
+    /**
+     * With a local accounts config present (see [com.andyweaver.chess.settings.LocalAccounts]),
+     * log straight in as the first configured account instead of showing the login gate.
+     * Persisting the session re-emits on `settings.session`, which then takes the same
+     * `tokenChanged` branch a manual login would. A missing config, or a token that no longer
+     * validates, simply leaves the login gate in place.
+     */
+    private fun autoLogin() {
+        val account = configuredAccounts.firstOrNull() ?: return
+        if (autoLoginAttempted || _loggingIn.value) return
+        autoLoginAttempted = true
+        _loggingIn.value = true
+        viewModelScope.launch(Dispatchers.IO) {
+            val name = validateToken(account.token)
+            if (name != null) settings.saveSession(account.token, name)
+            _loggingIn.value = false
+        }
+    }
+
+    /** Whether the title tap can toggle accounts (needs 2 configured locally). */
+    val canSwitchAccount: Boolean get() = configuredAccounts.size >= 2
+
+    /**
+     * Cycles to the next locally-configured account. Goes through the same
+     * [ChessSettings.saveSession] path as a login, so everything downstream (client rebuild,
+     * seek partitions, rating) reacts exactly as it does on a normal login.
+     */
+    fun switchAccount() {
+        if (!canSwitchAccount) return
+        if (_loggingIn.value) return
+        val currentIdx = configuredAccounts.indexOfFirst { it.username == session?.username }
+        val next = configuredAccounts[if (currentIdx == -1) 0 else (currentIdx + 1) % configuredAccounts.size]
+        _loggingIn.value = true
+        viewModelScope.launch(Dispatchers.IO) {
+            val name = validateToken(next.token)
+            if (name != null) {
+                settings.saveSession(next.token, name)
+            } else {
+                _loginError.value = "Couldn't switch to ${next.username}: its token no longer works."
             }
             _loggingIn.value = false
         }
@@ -389,7 +451,7 @@ class HomeScreenViewModel(private val settings: ChessSettings) : LightViewModel<
             )
         } catch (e: Exception) {
             if (api === client && _state.value !is State.Loaded) {
-                _state.value = State.Error(e.message ?: "Unable to load games")
+                _state.value = State.Error(e.userMessage())
             }
         }
     }
@@ -447,7 +509,11 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
         get() = HomeScreenViewModel::class.java
 
     override fun createViewModel(): HomeScreenViewModel =
-        HomeScreenViewModel(ChessSettings(lightContext.dataStore))
+        HomeScreenViewModel(
+            ChessSettings(lightContext.dataStore),
+            // Tiny (≤ 2 entries), optional, private-storage file — cheap enough to read inline.
+            LocalAccounts.load(lightContext.filesDir),
+        )
 
     @Composable
     override fun Content() {
@@ -506,7 +572,16 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(3f.gridUnitsAsDp()),
+                            .height(3f.gridUnitsAsDp())
+                            // Tappable ONLY with a local multi-account config; otherwise the
+                            // title stays completely inert (no click target, no ripple).
+                            .let { m ->
+                                if (viewModel.canSwitchAccount) {
+                                    m.lightClickable(onClick = { viewModel.switchAccount() })
+                                } else {
+                                    m
+                                }
+                            },
                         contentAlignment = Alignment.Center,
                     ) {
                         NameWithRating(
@@ -689,6 +764,10 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
                     onClose = { detail = null },
                 )
             }
+
+            // Login errors normally live inside LoginPane, but a failed account switch
+            // happens while already logged in — surface it here so it isn't silent.
+            loginError?.let { LightFullscreenModal(message = it, onClose = { viewModel.dismissLoginError() }) }
             }
           }
         }
@@ -962,7 +1041,9 @@ private fun seekTerms(seek: PendingSeek): String {
         Variant.fromKey(seek.variant).takeIf { it != Variant.STANDARD }?.let { add(it.displayName) }
         add("${seek.days} ${plural(seek.days, "day")}/turn")
         add(if (seek.rated) "rated" else "casual")
-        if (seek.side != "random") add(seek.side)
+        // No side: Lichess's correspondence seek endpoint has no `color` parameter at all
+        // (it binds one and discards it), so a seek is always a coin flip and the app no
+        // longer offers the choice. PendingSeek.side is kept only for old stored seeks.
     }
     return parts.joinToString(" · ")
 }

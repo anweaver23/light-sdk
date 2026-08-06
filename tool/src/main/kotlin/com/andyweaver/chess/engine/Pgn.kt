@@ -16,9 +16,22 @@ object Pgn {
     /** Column width the movetext is wrapped at, per the PGN export-format convention. */
     private const val MOVETEXT_WRAP = 80
 
-    fun export(replay: Replay, tags: Map<String, String> = emptyMap()): String {
+    /**
+     * [resultOverride] forces the result token ("1-0" / "0-1" / "1/2-1/2"), for outcomes the
+     * engine cannot derive from the moves alone — a resignation or an agreed draw. Without
+     * it such a game exports "*", which Lichess imports as unfinished. PGN carries the
+     * result TWICE (the `Result` tag and the movetext terminator) and this covers both.
+     */
+    fun export(
+        replay: Replay,
+        tags: Map<String, String> = emptyMap(),
+        resultOverride: String? = null,
+    ): String {
         val variant = replay.initial.variant
-        val resultToken = resultToken(GameStatusEvaluator.outcome(replay.positions, variant))
+        // Pass the moves, not just the positions: repetition detection needs them, and
+        // without them a game that ended by fivefold would export the wrong result token.
+        val resultToken = resultOverride
+            ?: resultToken(GameStatusEvaluator.outcome(replay.positions, variant, replay.steps))
 
         // Seven Tag Roster, in the mandated order, with local-game defaults. Unknown values
         // use the PGN placeholders ("?" and "????.??.??") so callers who don't supply a date

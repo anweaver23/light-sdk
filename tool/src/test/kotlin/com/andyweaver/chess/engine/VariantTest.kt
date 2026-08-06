@@ -252,6 +252,75 @@ class VariantTest {
         assertFalse(sq("f4") in dests, "a move that doesn't resolve check or win is illegal")
     }
 
+    // ----- variant-aware "dead position" -------------------------------------
+
+    // The standard insufficient-material test was being applied to EVERY variant by
+    // GameStatusEvaluator.status(). On the live board that made the position terminal,
+    // which locked the user out of a game Lichess was still running.
+
+    @Test
+    fun antichessKingVersusKingIsNotADraw() {
+        // The whole reason this bug bit: in Antichess the king is an ordinary non-royal
+        // piece and the goal is to LOSE everything, so K vs K has real play left.
+        val pos = Position.fromFen("4k3/8/8/8/8/8/8/4K3 w - - 0 1", Variant.ANTICHESS)
+        val status = Chess.status(pos)
+        assertFalse(status.isTerminal, "antichess K vs K is a live position, not a dead one")
+        assertTrue(MoveGenerator.legalMoves(pos).isNotEmpty())
+    }
+
+    @Test
+    fun standardKingVersusKingIsStillADraw() {
+        // The guard must not disable the rule where it genuinely applies.
+        val pos = Position.fromFen("4k3/8/8/8/8/8/8/4K3 w - - 0 1", Variant.STANDARD)
+        assertEquals(GameStatus.Draw(DrawReason.INSUFFICIENT_MATERIAL), Chess.status(pos))
+    }
+
+    @Test
+    fun noVariantWithANonMateWinConditionClaimsADeadPosition() {
+        // Each of these can still be won from bare kings — by walking to the centre,
+        // racing to rank 8, exploding a king, dropping reserves back on, or wiping out the
+        // horde — so none of them may report a material draw.
+        //
+        // Three-check is deliberately NOT in this list: it is the one variant that keeps a
+        // (narrowed) rule, drawing when nothing but kings remain, because no check can ever
+        // be delivered again. See threeCheckDrawsOnlyWhenNothingButKingsRemain.
+        val fen = "4k3/8/8/8/8/8/8/4K3 w - - 0 1"
+        for (variant in listOf(
+            Variant.KING_OF_THE_HILL, Variant.RACING_KINGS,
+            Variant.ATOMIC, Variant.CRAZYHOUSE, Variant.HORDE, Variant.ANTICHESS,
+        )) {
+            val status = Chess.status(Position.fromFen(fen, variant))
+            assertFalse(
+                status is GameStatus.Draw,
+                "$variant must not claim an insufficient-material draw",
+            )
+        }
+    }
+
+    // ----- Antichess king promotion -------------------------------------------
+
+    @Test
+    fun onlyAntichessOffersTheKingAsAPromotion() {
+        assertEquals(
+            listOf(PieceType.QUEEN, PieceType.ROOK, PieceType.BISHOP, PieceType.KNIGHT, PieceType.KING),
+            Variant.ANTICHESS.promotionChoices,
+        )
+        for (variant in Variant.entries.filter { it != Variant.ANTICHESS }) {
+            assertFalse(PieceType.KING in variant.promotionChoices, "$variant can't promote to a king")
+        }
+    }
+
+    @Test
+    fun antichessPromotionToKingIsGeneratedAndPlayable() {
+        // The engine already generated and parsed these; the picker just never offered
+        // one, so the move was unreachable. Locks both halves down.
+        val pos = Position.fromFen("8/P7/8/8/8/8/8/4k3 w - - 0 1", Variant.ANTICHESS)
+        val promos = MoveGenerator.legalMoves(pos).filter { it.to == sq("a8") }.mapNotNull { it.promotion }
+        assertTrue(PieceType.KING in promos, "king promotion is legal in antichess")
+        val after = Chess.replay("a7a8k", pos.toFen(), Variant.ANTICHESS).finalPosition
+        assertEquals(Piece(Color.WHITE, PieceType.KING), after.pieceAt(sq("a8")))
+    }
+
     @Test
     fun antichessEnPassantCaptureIsForced() {
         // The only available capture is en passant (exd6); it must be forced.

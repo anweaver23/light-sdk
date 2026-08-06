@@ -91,6 +91,16 @@ class SettingsScreen(sealedActivity: SealedLightActivity) :
                         enabled = snapshot.showLegalMoves,
                         onClick = { viewModel.toggleShowLegalMoves() },
                     )
+                    SettingsToggleRow(
+                        label = "Drag pieces",
+                        enabled = snapshot.dragAndDrop,
+                        onClick = { viewModel.toggleDragAndDrop() },
+                    )
+                    SettingsOptionRow(
+                        label = "Move step speed",
+                        value = snapshot.moveStepSpeed.label,
+                        onClick = { viewModel.cycleMoveStepSpeed() },
+                    )
                     SettingsActionRow(
                         label = "About",
                         onClick = { navigateTo(::AboutScreen) },
@@ -173,6 +183,37 @@ private fun SettingsToggleRow(
             icon = if (enabled) LightIcons.TOGGLE_STATE_ON else LightIcons.TOGGLE_STATE_OFF,
             contentDescription = if (enabled) "$label: on" else "$label: off",
         )
+    }
+}
+
+/**
+ * A tap-to-cycle settings row: label on the left, the current preset dimmed on the right.
+ * Deliberately identical in shape to `NewGameScreen`'s `OptionRow` (same label variant,
+ * same `lighten = true` value) so the two screens' option rows read as one system, while
+ * keeping this screen's own padding constants.
+ */
+@Composable
+private fun SettingsOptionRow(
+    label: String,
+    value: String,
+    onClick: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .lightClickable(onClick = onClick)
+            .padding(
+                horizontal = EDGE_PADDING_UNITS.gridUnitsAsDp(),
+                vertical = ROW_VERTICAL_PADDING_UNITS.gridUnitsAsDp(),
+            ),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        LightText(
+            text = label,
+            variant = ROW_LABEL_VARIANT,
+            modifier = Modifier.weight(1f),
+        )
+        LightText(text = value, variant = ROW_LABEL_VARIANT, lighten = true)
     }
 }
 

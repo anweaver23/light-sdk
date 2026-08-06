@@ -48,11 +48,46 @@ class OutcomeTest {
     }
 
     @Test
-    fun standardSeventyFiveMoveRuleIsDraw() {
-        // K+R vs K, plenty of legal moves, but the halfmove clock has hit 150.
+    fun standardMoveRuleDrawsAtOneHundredHalfMoves() {
+        // K+R vs K with plenty of legal moves, but the halfmove clock has hit 100.
+        // Lichess auto-draws HERE, at the 50-move mark — scalachess's
+        // `Variant.fiftyMoves` is `halfMoveClock >= 100` and feeds `autoDraw` directly.
+        // (This file previously asserted 150, on the mistaken belief that Lichess follows
+        // FIDE in only permitting a *claim* at 50 and auto-drawing at 75.)
         assertEquals(
-            decided(null, OutcomeReason.SEVENTY_FIVE_MOVE_RULE),
-            outcomeOf("4k3/8/8/8/8/8/8/R3K3 w - - 150 1", Variant.STANDARD),
+            decided(null, OutcomeReason.FIFTY_MOVE_RULE),
+            outcomeOf("4k3/8/8/8/8/8/8/R3K3 w - - 100 1", Variant.STANDARD),
+        )
+        assertEquals(
+            GameOutcome.Ongoing,
+            outcomeOf("4k3/8/8/8/8/8/8/R3K3 w - - 99 1", Variant.STANDARD),
+            "one half-move short must still be live",
+        )
+    }
+
+    @Test
+    fun crazyhouseHasNoMoveRuleDrawAtAll() {
+        // `Crazyhouse.fiftyMoves = false`. It also counts only castling as irreversible,
+        // so the clock barely ever resets — applying the rule would end ordinary games
+        // mid-play, with the game still live on Lichess.
+        assertEquals(
+            GameOutcome.Ongoing,
+            outcomeOf("4k3/8/8/8/8/8/8/R3K3 w - - 300 1", Variant.CRAZYHOUSE),
+        )
+    }
+
+    @Test
+    fun threeCheckDrawsOnlyWhenNothingButKingsRemain() {
+        // scalachess narrows insufficient material to `kingsOnly` here: with any other
+        // material a third check is still reachable, so the game is live.
+        assertEquals(
+            decided(null, OutcomeReason.INSUFFICIENT_MATERIAL),
+            outcomeOf("4k3/8/8/8/8/8/8/4K3 w - - 0 1", Variant.THREE_CHECK),
+        )
+        assertEquals(
+            GameOutcome.Ongoing,
+            outcomeOf("4k3/8/8/8/8/8/8/4KB2 w - - 0 1", Variant.THREE_CHECK),
+            "K+B can still deliver checks, so it is not dead",
         )
     }
 
@@ -101,12 +136,37 @@ class OutcomeTest {
     }
 
     @Test
+    fun racingKingsBlackStillHasItsMatchingMoveToPlay() {
+        // White king on a8; Black (to move) CAN reach the 8th rank with Kc8. The game is
+        // NOT over yet — Black has to actually play it, and might not.
+        //
+        // This previously returned the draw immediately, which called the game a ply early
+        // at its most decisive moment. scalachess's `RacingKings.specialEnd` for Black to
+        // move is `reachedGoal(White) && legalMoves.filter(reachesGoal).isEmpty` — i.e. it
+        // ends only when Black CANNOT match.
+        assertEquals(
+            GameOutcome.Ongoing,
+            outcomeOf("K7/1k6/8/8/8/8/8/8 b - - 0 1", Variant.RACING_KINGS),
+        )
+    }
+
+    @Test
     fun racingKingsSimultaneousFinishIsDraw() {
-        // White king on a8; Black king on b7 can reach the 8th rank immediately (Kc8),
-        // so the first-move-compensation rule makes it a draw.
+        // Black took its matching move: both kings are home and it is White to move.
+        // That is `specialDraw` — the first-move-compensation draw.
         assertEquals(
             decided(null, OutcomeReason.RACING_KINGS_FINISH),
-            outcomeOf("K7/1k6/8/8/8/8/8/8 b - - 0 1", Variant.RACING_KINGS),
+            outcomeOf("K1k5/8/8/8/8/8/8/8 w - - 0 1", Variant.RACING_KINGS),
+        )
+    }
+
+    @Test
+    fun racingKingsBlackDeclinesTheDrawAndLoses() {
+        // Black had the matching move available and played something else, so White is
+        // home alone with White to move: exactly one king on rank 8 → White wins.
+        assertEquals(
+            decided(Color.WHITE, OutcomeReason.RACING_KINGS_FINISH),
+            outcomeOf("K7/8/2k5/8/8/8/8/8 w - - 0 1", Variant.RACING_KINGS),
         )
     }
 

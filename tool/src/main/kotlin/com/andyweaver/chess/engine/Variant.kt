@@ -68,6 +68,20 @@ enum class Variant {
         else -> null
     }
 
+    /**
+     * The piece types a pawn may promote to, in the order a picker should offer them
+     * (most useful first).
+     *
+     * Antichess is the exception: the king is an ordinary, non-royal piece there, so it is
+     * a legal — and sometimes best — promotion choice. [MoveGenerator] has always generated
+     * those moves and [Move.fromUci] has always parsed them, but no promotion picker
+     * offered the king, so the move was unreachable from the UI.
+     */
+    val promotionChoices: List<PieceType> get() {
+        val standard = listOf(PieceType.QUEEN, PieceType.ROOK, PieceType.BISHOP, PieceType.KNIGHT)
+        return if (this == ANTICHESS) standard + PieceType.KING else standard
+    }
+
     companion object {
         /** Maps a Lichess variant key (e.g. "kingOfTheHill") to a [Variant]; unknown → [STANDARD]. */
         fun fromKey(key: String): Variant = when (key.lowercase()) {

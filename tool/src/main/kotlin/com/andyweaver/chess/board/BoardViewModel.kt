@@ -10,6 +10,7 @@ import com.andyweaver.chess.engine.MoveRecord
 import com.andyweaver.chess.engine.Piece
 import com.andyweaver.chess.engine.PieceType
 import com.andyweaver.chess.engine.Position
+import com.andyweaver.chess.engine.Repetition
 import com.andyweaver.chess.engine.Replay
 import com.andyweaver.chess.engine.Square
 import com.andyweaver.chess.engine.Variant
@@ -17,8 +18,10 @@ import com.andyweaver.chess.lichess.BoardStreamEvent
 import com.andyweaver.chess.lichess.LichessActionResult
 import com.andyweaver.chess.lichess.LichessApi
 import com.andyweaver.chess.lichess.SYSTEM_CHAT_USER
+import com.andyweaver.chess.lichess.userMessage
 import com.andyweaver.chess.lichess.nameWithRating
 import com.andyweaver.chess.settings.ChessSettings
+import com.andyweaver.chess.settings.MoveStepSpeed
 import com.thelightphone.sdk.LightViewModel
 import com.thelightphone.sdk.SimpleLightScreen
 import kotlinx.coroutines.CancellationException
@@ -42,7 +45,7 @@ private const val OWN_OFFER_CONFIRM_TIMEOUT_MS = 5_000L
 enum class BottomMode { BROWSE, PENDING }
 
 /** A destructive/irreversible action awaiting a CONFIRM/✕ overlay. */
-enum class Confirmation { RESIGN, DRAW, ABORT, TAKEBACK }
+enum class Confirmation { RESIGN, DRAW, ABORT, TAKEBACK, CLAIM_DRAW }
 
 /**
  * One in-game chat message (the "player" room only). [fromOpponent] drives the unread
@@ -122,13 +125,23 @@ data class AnimatedMove(
  * Castling yields two slides (king + rook, using the true king destination even in
  * Chess960 where the move records the rook square); other moves yield one. Drops yield
  * none (handled by the caller). Shared by the board and review view models.
+ *
+ * Promotion is the one case where the landing piece is NOT what travels: reading the
+ * destination board would slide a fully-formed queen across the board, when what actually
+ * moved was a pawn. The overlay therefore carries the pre-move mover, and the promoted
+ * piece appears when the static board is revealed on settle — the pawn "becomes" the queen
+ * as it lands. A BACKWARD step needs no special case: its destination board is the earlier
+ * position, whose piece is already the pawn.
  */
 internal fun stepSlides(step: MoveRecord, newBoard: List<Piece?>, forward: Boolean): List<PieceSlide> {
     val move = step.move
     fun slide(from: Int, to: Int): PieceSlide? {
         val start = if (forward) from else to
         val land = if (forward) to else from
-        val piece = newBoard.getOrNull(land) ?: return null
+        val promoting = forward && move.promotion != null
+        val piece = (if (promoting) step.before.pieceAt(move.from) else null)
+            ?: newBoard.getOrNull(land)
+            ?: return null
         return PieceSlide(startSquare = start, endSquare = land, piece = piece)
     }
     if (move.isCastle) {
@@ -174,10 +187,16 @@ internal fun isCaptureMove(before: Position, move: Move): Boolean {
  * state once the slide settles. This is what keeps the captured piece visible during an
  * arrival replay's start delay (and covers Atomic, whose whole capture region clears on
  * settle). The overlay piece is the one that ends up on the target ([after]'s piece there),
- * or the mover if the target ends empty (an Atomic explosion). [id] is supplied by the caller.
+ * or the mover if the target ends empty (an Atomic explosion). A capture-promotion is the
+ * exception, and takes the mover for the same reason [stepSlides] does: a pawn is what
+ * crosses the board, and it becomes the promoted piece only once it lands.
+ * [id] is supplied by the caller.
  */
 internal fun captureSlideAnim(before: Position, after: Position, move: Move, id: Long): AnimatedMove? {
-    val piece = after.board.getOrNull(move.to) ?: before.pieceAt(move.from) ?: return null
+    val piece = (if (move.promotion != null) before.pieceAt(move.from) else null)
+        ?: after.board.getOrNull(move.to)
+        ?: before.pieceAt(move.from)
+        ?: return null
     // The mover is lifted off its origin so the static board doesn't draw it twice; the
     // overlay slide draws it travelling to the capture square. The captured piece stays on
     // the pre-move board (on the target, or behind it for en passant) until the slide ends.
@@ -465,6 +484,17 @@ data class BoardUiState(
      * of drag regardless of game length. Zero when there are no moves yet.
      */
     val totalPlies: Int = 0,
+    /**
+     * Interval between repeats when a browse arrow is held down, from the "Move step
+     * speed" setting. Screens publish this via [LocalMoveStepIntervalMs] so every arrow
+     * picks it up without threading it through each bottom-bar composable.
+     */
+    val moveStepIntervalMs: Long = MoveStepSpeed.DEFAULT.intervalMs,
+    /**
+     * Drag-to-move is enabled (the "Drag pieces" setting). Tap-to-move is ALWAYS available
+     * and unaffected by this; dragging is purely additive. Default false — opt-in.
+     */
+    val dragEnabled: Boolean = false,
     /** A one-shot piece slide to play for the transition into this position (or null). */
     val animatingMove: AnimatedMove? = null,
     val message: String? = null,
@@ -477,6 +507,12 @@ data class BoardUiState(
     val analysisActive: Boolean = false,
     /** In-game chat messages ("player" room only), oldest first. */
     val chatMessages: List<ChatMessage> = emptyList(),
+    /**
+     * A threefold repetition is on the board and the user hasn't answered the prompt yet.
+     * Like an incoming offer, this OWNS the top bar and must be answered — see
+     * [BoardViewModel.claimDrawPromptVisible].
+     */
+    val claimDrawAvailable: Boolean = false,
     /** True while the chat panel is open (drives [BoardScreen]'s overlay and unread reset). */
     val chatOpen: Boolean = false,
     /**
@@ -586,6 +622,13 @@ class BoardViewModel(
     private var selectedDrop: PieceType? = null
     private var dropTargets: Set<Int> = emptySet()
     private var opponentOfferedDraw: Boolean = false
+
+    // Threefold state. `dismissed` is seeded from DataStore (see ChessSettings) so a prompt
+    // declined earlier doesn't re-block the game when the screen is reopened; `submitted`
+    // suppresses the prompt between sending a claim and the stream confirming the game over,
+    // so it can't be fired twice.
+    private var claimDrawDismissed: Boolean = false
+    private var claimSubmitted: Boolean = false
     // Set true once we accept/decline an incoming offer, to hide the prompt until
     // the stream reflects the change; reset when the offer clears.
     private var drawResponsePending: Boolean = false
@@ -640,6 +683,8 @@ class BoardViewModel(
     private var message: String? = null
     private var confirmMoves: Boolean = true
     private var showLegalMoves: Boolean = true
+    private var moveStepSpeed: MoveStepSpeed = MoveStepSpeed.DEFAULT
+    private var dragEnabled: Boolean = false
 
     private var streamJob: Job? = null
 
@@ -660,6 +705,13 @@ class BoardViewModel(
         viewModelScope.launch { settings.confirmMoves.collect { confirmMoves = it } }
         // Show-legal-moves affects rendering directly, so re-render on change.
         viewModelScope.launch { settings.showLegalMoves.collect { showLegalMoves = it; recompute() } }
+        // Read once, not collected: this only ever goes false→true, and it is written by
+        // this same view model. Collecting would be a needless recompute on every write.
+        viewModelScope.launch {
+            if (settings.declinedDrawClaim(gameId).first()) { claimDrawDismissed = true; recompute() }
+        }
+        viewModelScope.launch { settings.moveStepSpeed.collect { moveStepSpeed = it; recompute() } }
+        viewModelScope.launch { settings.dragAndDrop.collect { dragEnabled = it; recompute() } }
         recompute()
     }
 
@@ -699,7 +751,9 @@ class BoardViewModel(
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                message = e.message ?: "Connection lost"
+                // The stream reconnects with backoff internally; reaching here means it
+                // gave up, so this is worth showing.
+                message = e.userMessage()
                 recompute()
             }
         }
@@ -1453,7 +1507,87 @@ class BoardViewModel(
     fun requestAbort() { menuOpen = false; confirmation = Confirmation.ABORT; recompute() }
     fun requestDraw() { menuOpen = false; confirmation = Confirmation.DRAW; recompute() }
     fun requestTakeback() { menuOpen = false; confirmation = Confirmation.TAKEBACK; recompute() }
+    fun requestClaimDraw() { menuOpen = false; confirmation = Confirmation.CLAIM_DRAW; recompute() }
     fun cancelConfirmation() { confirmation = null; recompute() }
+
+    // ----- threefold repetition -----
+
+    /**
+     * Should the blocking "CLAIM DRAW" prompt be shown?
+     *
+     * True when the same position has occurred three times, it's OUR move, the game is
+     * live, and the user hasn't already dismissed the prompt for this game. Threefold is
+     * never automatic on Lichess (only fivefold is, and Lichess applies that itself), so
+     * this is purely an offer to the user.
+     *
+     * Restricted to our own turn deliberately: a claim technically works on either turn,
+     * but in correspondence the opponent's turn can last days, and this prompt blocks the
+     * screen.
+     *
+     * Computed from our own replay because **the board stream does not expose it** — the
+     * `gameState` event carries only moves, clocks, status, winner and the draw/takeback
+     * flags. lila's own web client receives a `threefold` flag on move events; it is not
+     * mirrored into the Board API.
+     */
+    private fun claimDrawPromptVisible(): Boolean =
+        !isTerminal() &&
+            !claimDrawDismissed &&
+            !claimSubmitted &&
+            replay.finalPosition.sideToMove == myColor &&
+            Repetition.isThreefold(replay)
+
+    /** Dismisses the prompt for good — see [ChessSettings.declinedDrawClaim] for why it persists. */
+    fun dismissClaimDraw() {
+        claimDrawDismissed = true
+        recompute()
+        viewModelScope.launch { settings.recordDeclinedDrawClaim(gameId) }
+    }
+
+    /**
+     * Claims the draw. There is no dedicated claim endpoint: `POST …/draw/yes` doubles as
+     * one, because lila's `Drawer.yes` matches the threefold case BEFORE the offer case and
+     * ends the game outright.
+     *
+     * Two consequences drive the code below:
+     *  • Success is the game ENDING, not a `wdraw`/`bdraw` flag appearing — so unlike
+     *    [confirmDraw] this can't verify itself by watching the offer flags.
+     *  • The claim can be silently dropped. It travels through `BotPlayer.offerDraw`, which
+     *    gates on `playerCanOfferDraw || opponent.isOfferingDraw` and knows nothing about
+     *    threefold — so a claim made within ~20 plies of your own last draw offer, or while
+     *    you already have one outstanding, never reaches `Drawer` at all. The HTTP response
+     *    is still `200 {"ok":true}`, exactly like the offer case we already handle.
+     */
+    fun confirmClaimDraw() {
+        confirmation = null
+        claimSubmitted = true
+        recompute()
+        viewModelScope.launch {
+            when (val res = api.handleDraw(gameId, accept = true)) {
+                is LichessActionResult.Failure -> {
+                    claimSubmitted = false
+                    message = "Couldn't claim draw: ${res.error}"
+                    recompute()
+                }
+                else -> verifyClaimLanded()
+            }
+        }
+    }
+
+    /**
+     * A successful claim ends the game, so give the stream a moment and then check whether
+     * it actually did. If the game is still live the claim was swallowed by the offer
+     * cooldown (see [confirmClaimDraw]) and the user needs to be told, rather than being
+     * left staring at a board they think is drawn.
+     */
+    private suspend fun verifyClaimLanded() {
+        delay(OWN_OFFER_CONFIRM_TIMEOUT_MS)
+        if (isTerminal()) return
+        claimSubmitted = false
+        message = "Lichess didn't register the draw claim — this can happen within " +
+            "20 moves of your own last draw offer. The repetition is still on the board, " +
+            "so you can try again."
+        recompute()
+    }
 
     /**
      * An incoming draw/takeback offer we haven't answered yet. While one is outstanding it
@@ -1461,9 +1595,12 @@ class BoardViewModel(
      * blocked until it is accepted or declined.
      */
     private fun offerAwaitingResponse(): Boolean =
-        ((opponentOfferedDraw && !drawResponsePending) ||
+        (((opponentOfferedDraw && !drawResponsePending) ||
             (opponentOfferedTakeback && !takebackResponsePending)) &&
-            !isTerminal()
+            !isTerminal()) ||
+            // The threefold prompt is blocking in the same way: it owns the top bar, and
+            // the game can't be left until it is claimed or dismissed.
+            claimDrawPromptVisible()
 
     // This screen only ever backs a real, streamed Lichess (online) game — back should go
     // straight home with no confirmation (unlike the local pass-and-play screen, which
@@ -1493,8 +1630,14 @@ class BoardViewModel(
         confirmation = null
         recompute()
         viewModelScope.launch {
+            // Record BEFORE the POST. Lichess re-queues a correspondence seek when the
+            // OPPONENT aborts, but not when we do — and the home screen's 20s poll can see
+            // the game vanish before this call returns, so the marker has to already be
+            // there for reconcileSeeks to suppress a bogus seek revival.
+            settings.recordSelfAbort(gameId)
             val res = api.abortGame(gameId)
             if (res is LichessActionResult.Failure) {
+                settings.forgetSelfAbort(gameId)
                 message = "Couldn't abort: ${res.error}"
                 recompute()
             }
@@ -1630,10 +1773,29 @@ class BoardViewModel(
         recompute()
     }
 
-    private fun isTerminal(): Boolean {
-        val engine = Chess.status(replay.finalPosition)
-        return engine.isTerminal || streamStatus.lowercase() !in LIVE_STATUSES
-    }
+    /**
+     * Is the ONLINE game over? Lichess decides, full stop.
+     *
+     * This used to be `engine.isTerminal || stream-says-over`, which let the local engine
+     * veto a game Lichess was still running: any rule where our engine is stricter than
+     * lichess's own (scalachess) froze the board with no way back in, while the game sat
+     * live in the user's active games. A real instance: Antichess reaching King vs King,
+     * which the standard dead-position test called a draw and Antichess emphatically does
+     * not (see [GameStatusEvaluator.status]). That specific rule is now fixed, but the
+     * general hazard isn't — we reimplement nine variants' rules and only need to be
+     * stricter ONCE to lock somebody out of a real game.
+     *
+     * So the stream is the sole authority, and the engine's opinion is not consulted. The
+     * only cost is that your own checkmating move reads as "game over" when the stream
+     * confirms it (typically well under a second) rather than the instant you confirm it —
+     * an opponent's mate already arrives with its status in the same message. That is a
+     * trade the other direction is not worth.
+     *
+     * NOTE this applies to online play only. The in-person game has no server, so there
+     * the engine IS the authority — see [LocalGameViewModel], which uses the variant-aware
+     * [Chess.outcome] rather than this.
+     */
+    private fun isTerminal(): Boolean = streamStatus.lowercase() !in LIVE_STATUSES
 
     private fun recompute() {
         if (analysisActive) {
@@ -1709,6 +1871,7 @@ class BoardViewModel(
         // At least one move must have been played to take one back
         val canRequestTakeback = !terminal && replay.steps.isNotEmpty()
         val incomingTakebackOffer = opponentOfferedTakeback && !takebackResponsePending && !terminal
+        val claimDraw = claimDrawPromptVisible()
 
         // Compare against the variant's canonical starting complement rather than
         // replay.positions.first(), which for a game resumed from a custom FEN is not the
@@ -1731,6 +1894,7 @@ class BoardViewModel(
             checkedKingSquare = checkedKing,
             checkmateKingSquare = checkmateKing,
             promotionActive = pendingPromotion != null,
+            claimDrawAvailable = claimDraw,
             mode = mode,
             canStepBack = viewIndex > 0,
             canStepForward = viewIndex < positions.lastIndex,
@@ -1756,6 +1920,8 @@ class BoardViewModel(
             opponentAdvantage = material.opponentAdvantage,
             viewFraction = if (positions.size > 1) viewIndex.toFloat() / positions.lastIndex else 1f,
             totalPlies = positions.lastIndex,
+            moveStepIntervalMs = moveStepSpeed.intervalMs,
+            dragEnabled = dragEnabled,
             animatingMove = pendingAnim,
             message = message,
             chatMessages = chatMessages.toList(),
@@ -1853,6 +2019,8 @@ class BoardViewModel(
             opponentAdvantage = material.opponentAdvantage,
             viewFraction = if (positions.size > 1) idx.toFloat() / positions.lastIndex else 1f,
             totalPlies = positions.lastIndex,
+            moveStepIntervalMs = moveStepSpeed.intervalMs,
+            dragEnabled = dragEnabled,
             animatingMove = analysisPendingAnim,
             message = null,
             analysisActive = true,
@@ -1911,8 +2079,13 @@ class BoardViewModel(
             }
         }
         // No winner → drawn / aborted / not yet resolved.
+        // Only trust the ENGINE's stalemate/draw as evidence of a draw where the variant
+        // actually draws that way. In Antichess a stalemated side WINS, so reading the
+        // engine's Stalemate as "draw" would state the opposite of the result; with no
+        // winner from the stream we'd rather say nothing specific than say it backwards.
+        val engineDrawsOnStalemate = variant != Variant.ANTICHESS
         return when {
-            s == "stalemate" || engine is GameStatus.Stalemate -> "stalemate · draw"
+            s == "stalemate" || (engineDrawsOnStalemate && engine is GameStatus.Stalemate) -> "stalemate · draw"
             s == "draw" || engine is GameStatus.Draw -> "draw"
             s == "aborted" -> "game aborted"
             else -> "game over"

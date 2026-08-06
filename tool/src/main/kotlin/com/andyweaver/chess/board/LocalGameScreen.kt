@@ -38,6 +38,7 @@ import com.andyweaver.chess.engine.Variant
 import com.andyweaver.chess.lichess.LichessApi
 import com.andyweaver.chess.lichess.LichessImportResult
 import com.andyweaver.chess.settings.ChessSettings
+import com.andyweaver.chess.settings.MoveStepSpeed
 import com.thelightphone.sdk.LightScreen
 import com.thelightphone.sdk.LightViewModel
 import com.thelightphone.sdk.SealedLightActivity
@@ -119,6 +120,10 @@ class LocalGameViewModel(
 
     private var menuOpen = false
     private var showLegalMoves = true
+    private var moveStepSpeed: MoveStepSpeed = MoveStepSpeed.DEFAULT
+    // NOTE: read by buildState(), so it MUST stay declared above _uiState (whose initializer
+    // calls buildState() during construction).
+    private var dragEnabled = false
 
     // "Are you sure you want to exit?" overlay — in-person games have no server copy, so
     // leaving mid-game silently loses progress (unlike the online board, whose game lives
@@ -133,6 +138,23 @@ class LocalGameViewModel(
     // One-shot slide for the next state (see ReviewViewModel — same one-shot discipline:
     // set before buildState(), cleared after, so a later plain buildState() doesn't replay it).
     private var pendingAnim: AnimatedMove? = null
+    private var lastAnim: AnimatedMove? = null
+
+    /**
+     * The animation the UI is told about. NEVER goes back to null once set — it is only
+     * ever REPLACED by a newer slide.
+     *
+     * [ChessBoard] keys its `Animatable` on `animatingMove?.id`, so emitting null after a
+     * real id is a KEY CHANGE: it resets the animation instead of merely declining to start
+     * one, killing whatever is in flight. Any recompose from an unrelated source — a
+     * settings flow emitting, a stream event — would otherwise abort the slide, which is
+     * exactly how the review screen's arrival animation broke. Re-emitting the SAME object
+     * is a no-op once it has finished and non-destructive while it is still running.
+     */
+    private fun latchAnim(fresh: AnimatedMove?): AnimatedMove? {
+        if (fresh != null) lastAnim = fresh
+        return lastAnim
+    }
     private var animCounter = 0L
 
     private val _uiState = MutableStateFlow(buildState())
@@ -149,6 +171,23 @@ class LocalGameViewModel(
 
     private val _dialog = MutableStateFlow<Dialog?>(null)
     val dialog: StateFlow<Dialog?> = _dialog.asStateFlow()
+
+    /**
+     * A human decision that ends the game outright — the in-person equivalents of the online
+     * board's resign / agree-draw actions. There is no server to arbitrate, so the engine is
+     * simply told the result (see [outcomeForEndAction]); because the game can be uploaded to
+     * Lichess afterwards, getting the winner right here IS the recorded result.
+     *
+     * Both resignations are offered explicitly rather than "resign" meaning "the side to
+     * move": either player may act at any time, and with two humans sharing one screen an
+     * implicit subject would be ambiguous.
+     */
+    enum class EndAction { AGREE_DRAW, WHITE_RESIGNS, BLACK_RESIGNS }
+
+    // The pending end-game confirmation, if any. Kept off BoardUiState (like [dialog]) so
+    // the board state stays a pure render of the position; the screen collects it directly.
+    private val _endConfirmation = MutableStateFlow<EndAction?>(null)
+    val endConfirmation: StateFlow<EndAction?> = _endConfirmation.asStateFlow()
 
     /** Which player-name field the full-screen editor is currently editing (null = the form). */
     enum class NameField { WHITE, BLACK }
@@ -168,6 +207,8 @@ class LocalGameViewModel(
 
     init {
         viewModelScope.launch { settings.showLegalMoves.collect { showLegalMoves = it; render() } }
+        viewModelScope.launch { settings.moveStepSpeed.collect { moveStepSpeed = it; render() } }
+        viewModelScope.launch { settings.dragAndDrop.collect { dragEnabled = it; render() } }
     }
 
     // ----- convenience -----
@@ -345,9 +386,34 @@ class LocalGameViewModel(
         outcome = GameOutcome.Ongoing
         menuOpen = false
         pendingAnim = null
+        // The one place clearing the latch IS right: a new game should cancel any slide
+        // still in flight from the old one, rather than let it play out over a fresh board.
+        lastAnim = null
         clearSelection()
+        _endConfirmation.value = null
         _dialog.value = null
         _editingName.value = null
+        render()
+    }
+
+    // ----- ending the game by agreement / resignation -----
+
+    /** Menu tap: close the menu and ask for confirmation — these ends are irreversible. */
+    fun requestEndGame(action: EndAction) {
+        if (isOver()) return
+        menuOpen = false
+        _endConfirmation.value = action
+        render()
+    }
+
+    fun cancelEndGame() { _endConfirmation.value = null }
+
+    /** Applies the confirmed end. The engine's own verdict is overridden from here on. */
+    fun confirmEndGame() {
+        val action = _endConfirmation.value ?: return
+        _endConfirmation.value = null
+        if (isOver()) { render(); return }
+        outcome = outcomeForEndAction(action)
         render()
     }
 
@@ -374,13 +440,20 @@ class LocalGameViewModel(
             val date = runCatching {
                 java.text.SimpleDateFormat("yyyy.MM.dd", java.util.Locale.US).format(java.util.Date())
             }.getOrNull()
+            // [Pgn.export] derives the result from the ENGINE's verdict on the move list,
+            // which by construction cannot know about a resignation or an agreed draw (see
+            // [EndAction]) — it would export "*" and Lichess would import the game as
+            // unfinished. This view model holds the authoritative outcome, so pass it as an
+            // explicit override; Pgn applies it to both the Result tag and the movetext
+            // terminator.
+            val token = pgnResultToken(outcome)
             val tags = buildMap {
                 put("Event", "Casual Game")
                 put("White", white)
                 put("Black", black)
                 if (date != null) put("Date", date)
             }
-            val pgn = Chess.toPgn(replay, tags)
+            val pgn = Chess.toPgn(replay, tags, resultOverride = token)
             _dialog.value = when (val res = api.importGame(pgn)) {
                 is LichessImportResult.Success -> Dialog.UploadDone(res.url)
                 is LichessImportResult.Failure -> Dialog.UploadError(res.error)
@@ -394,6 +467,7 @@ class LocalGameViewModel(
         // Editing a name → back to the name form; otherwise dismiss the dialog / menu / promotion.
         _editingName.value != null -> { _editingName.value = null; true }
         _dialog.value != null && _dialog.value !is Dialog.Uploading -> { _dialog.value = null; true }
+        _endConfirmation.value != null -> { _endConfirmation.value = null; true }
         menuOpen -> { menuOpen = false; render(); true }
         pendingPromotion != null -> { cancelPromotion(); true }
         exitConfirmed -> false
@@ -540,7 +614,9 @@ class LocalGameViewModel(
             opponentAdvantage = material.opponentAdvantage,
             viewFraction = if (positions.size > 1) viewIndex.toFloat() / positions.lastIndex else 1f,
             totalPlies = positions.lastIndex,
-            animatingMove = pendingAnim,
+            moveStepIntervalMs = moveStepSpeed.intervalMs,
+            dragEnabled = dragEnabled,
+            animatingMove = latchAnim(pendingAnim),
         )
     }
 
@@ -557,13 +633,16 @@ class LocalGameViewModel(
             OutcomeReason.CHECKMATE -> "checkmate · $wins"
             OutcomeReason.STALEMATE -> if (winner == null) "draw · stalemate" else "$wins · stalemate"
             OutcomeReason.INSUFFICIENT_MATERIAL -> "draw · insufficient material"
-            OutcomeReason.SEVENTY_FIVE_MOVE_RULE -> "draw · 75-move rule"
+            OutcomeReason.FIFTY_MOVE_RULE -> "draw · 50-move rule"
             OutcomeReason.KING_IN_CENTER -> "$wins · king in the center"
             OutcomeReason.THREE_CHECKS -> "$wins · three checks"
             OutcomeReason.RACING_KINGS_FINISH -> if (winner == null) "draw · kings home" else "$wins · king home"
             OutcomeReason.ATOMIC_KING_EXPLODED -> "$wins · king explosion"
             OutcomeReason.ANTICHESS_NO_PIECES -> "$wins · no pieces left"
             OutcomeReason.HORDE_DESTROYED -> "$wins · horde destroyed"
+            OutcomeReason.FIVEFOLD_REPETITION -> "draw · fivefold repetition"
+            OutcomeReason.RESIGNATION -> "$wins · resignation"
+            OutcomeReason.DRAW_AGREED -> "draw · agreed"
         }
     }
 
@@ -591,6 +670,30 @@ class LocalGameViewModel(
             val lower = upper.lowercase()
             return "$lower/pppppppp/8/8/8/8/PPPPPPPP/$upper w KQkq - 0 1"
         }
+    }
+}
+
+/**
+ * The result of a human-decided end to an in-person game. A resignation hands the win to
+ * the OTHER colour; an agreed draw has no winner, which is what makes [Pgn]'s result token
+ * (a function of the winner alone) come out right.
+ */
+internal fun outcomeForEndAction(action: LocalGameViewModel.EndAction): GameOutcome = when (action) {
+    LocalGameViewModel.EndAction.AGREE_DRAW ->
+        GameOutcome.Decided(null, OutcomeReason.DRAW_AGREED)
+    LocalGameViewModel.EndAction.WHITE_RESIGNS ->
+        GameOutcome.Decided(EngineColor.BLACK, OutcomeReason.RESIGNATION)
+    LocalGameViewModel.EndAction.BLACK_RESIGNS ->
+        GameOutcome.Decided(EngineColor.WHITE, OutcomeReason.RESIGNATION)
+}
+
+/** The PGN result token for a decided [outcome], or null while the game is still running. */
+internal fun pgnResultToken(outcome: GameOutcome): String? = when (outcome) {
+    is GameOutcome.Ongoing -> null
+    is GameOutcome.Decided -> when (outcome.winner) {
+        EngineColor.WHITE -> "1-0"
+        EngineColor.BLACK -> "0-1"
+        null -> "1/2-1/2"
     }
 }
 
@@ -665,21 +768,39 @@ class LocalGameScreen(
                 }
 
                 if (state.promotionActive) {
-                    LocalPromotionOverlay(myColor = mover, viewModel = viewModel)
+                    LocalPromotionOverlay(myColor = mover, variant = state.variant, viewModel = viewModel)
                 }
 
                 if (state.menuOpen) {
                     LocalMenuOverlay(
                         across = state.acrossMode,
                         canUpload = token.isNotBlank(),
+                        canEndGame = !state.terminal,
                         viewModel = viewModel,
                     )
                 }
 
                 if (state.confirmingExit) {
-                    LocalExitConfirmationOverlay(
+                    LocalConfirmationOverlay(
+                        message = "Exit this game? You'll lose progress.",
                         onConfirm = { viewModel.confirmExit(); goBack() },
                         onCancel = { viewModel.cancelExit() },
+                    )
+                }
+
+                // Ending the game by agreement / resignation. Sits after the exit overlay so
+                // an exit prompt (which can only be raised while no other overlay is up) wins
+                // if both were somehow set.
+                val endConfirmation by viewModel.endConfirmation.collectAsState()
+                endConfirmation?.let { action ->
+                    LocalConfirmationOverlay(
+                        message = when (action) {
+                            LocalGameViewModel.EndAction.AGREE_DRAW -> "End this game as a draw?"
+                            LocalGameViewModel.EndAction.WHITE_RESIGNS -> "White resigns? Black wins."
+                            LocalGameViewModel.EndAction.BLACK_RESIGNS -> "Black resigns? White wins."
+                        },
+                        onConfirm = { viewModel.confirmEndGame() },
+                        onCancel = { viewModel.cancelEndGame() },
                     )
                 }
 
@@ -748,11 +869,14 @@ private fun LocalTopBar(
                     contentAlignment = if (state.acrossMode) Alignment.CenterEnd else Alignment.CenterStart,
                 ) {
                     Box(modifier = if (state.acrossMode) Modifier.rotate(180f) else Modifier) {
+                        // Same Horde collapse as online. The bar is 3 units tall and already
+                        // hosts pocket-sized Crazyhouse glyphs, so the badge fits as-is.
                         MaterialFan(
                             captured = state.opponentCaptured,
                             capturedColor = state.materialBottom,
                             advantage = state.opponentAdvantage,
                             cellUnits = MATERIAL_CELL_UNITS,
+                            variant = state.variant,
                         )
                     }
                 }
@@ -785,7 +909,7 @@ private fun LocalCrazyhouseBottomBar(
             .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        NavArrow(LightIcons.BACK, "Previous move", state.canStepBack) { viewModel.stepBack() }
+        NavArrow(LightIcons.BACK, "Previous move", state.canStepBack, state.moveStepIntervalMs) { viewModel.stepBack() }
         Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
             LocalPocketFan(
                 pocket = state.myPocket,
@@ -795,7 +919,7 @@ private fun LocalCrazyhouseBottomBar(
                 rotated = false,
             )
         }
-        NavArrow(LightIcons.ARROW_RIGHT, "Next move", state.canStepForward) { viewModel.stepForward() }
+        NavArrow(LightIcons.ARROW_RIGHT, "Next move", state.canStepForward, state.moveStepIntervalMs) { viewModel.stepForward() }
     }
 }
 
@@ -830,8 +954,8 @@ private fun LocalPocketFan(
 }
 
 @Composable
-private fun LocalPromotionOverlay(myColor: EngineColor, viewModel: LocalGameViewModel) {
-    val choices = listOf(PieceType.QUEEN, PieceType.ROOK, PieceType.BISHOP, PieceType.KNIGHT)
+private fun LocalPromotionOverlay(myColor: EngineColor, variant: Variant, viewModel: LocalGameViewModel) {
+    val choices = variant.promotionChoices
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -845,16 +969,25 @@ private fun LocalPromotionOverlay(myColor: EngineColor, viewModel: LocalGameView
             modifier = Modifier.weight(1f).fillMaxWidth(),
             contentAlignment = Alignment.Center,
         ) {
-            Row(horizontalArrangement = Arrangement.spacedBy(1f.gridUnitsAsDp())) {
-                val cell = 6f.gridUnitsAsDp()
-                choices.forEach { type ->
-                    Box(
-                        modifier = Modifier
-                            .size(cell)
-                            .lightClickable { viewModel.choosePromotion(type) },
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        PieceGlyph(piece = Piece(myColor, type), squareSize = cell)
+            val cell = 6f.gridUnitsAsDp()
+            // Four choices fill the width exactly at this cell size, so Antichess's fifth
+            // (the king) has to wrap rather than shrink every target to fit.
+            Column(
+                verticalArrangement = Arrangement.spacedBy(1f.gridUnitsAsDp()),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                choices.chunked(if (choices.size > 4) 3 else 4).forEach { row ->
+                    Row(horizontalArrangement = Arrangement.spacedBy(1f.gridUnitsAsDp())) {
+                        row.forEach { type ->
+                            Box(
+                                modifier = Modifier
+                                    .size(cell)
+                                    .lightClickable { viewModel.choosePromotion(type) },
+                                contentAlignment = Alignment.Center,
+                            ) {
+                                PieceGlyph(piece = Piece(myColor, type), squareSize = cell)
+                            }
+                        }
                     }
                 }
             }
@@ -872,7 +1005,12 @@ private fun LocalPromotionOverlay(myColor: EngineColor, viewModel: LocalGameView
 }
 
 @Composable
-private fun LocalMenuOverlay(across: Boolean, canUpload: Boolean, viewModel: LocalGameViewModel) {
+private fun LocalMenuOverlay(
+    across: Boolean,
+    canUpload: Boolean,
+    canEndGame: Boolean,
+    viewModel: LocalGameViewModel,
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -887,6 +1025,20 @@ private fun LocalMenuOverlay(across: Boolean, canUpload: Boolean, viewModel: Loc
             // new-game rows; tapping it toggles and closes the menu.
             LocalOptionRow(label = "Play mode", value = if (across) "Across" else "Side by side") {
                 viewModel.togglePlayMode()
+            }
+            // Game-ending actions. Hidden once the game is already decided (same gate style
+            // as canUpload); each one confirms before taking effect — they're irreversible
+            // and the result they set is what gets uploaded to Lichess.
+            if (canEndGame) {
+                LocalMenuRow("Agree draw") {
+                    viewModel.requestEndGame(LocalGameViewModel.EndAction.AGREE_DRAW)
+                }
+                LocalMenuRow("White resigns") {
+                    viewModel.requestEndGame(LocalGameViewModel.EndAction.WHITE_RESIGNS)
+                }
+                LocalMenuRow("Black resigns") {
+                    viewModel.requestEndGame(LocalGameViewModel.EndAction.BLACK_RESIGNS)
+                }
             }
             LocalMenuRow("New game") { viewModel.newGame() }
             // Upload needs a logged-in token; hidden entirely when playing logged out.
@@ -905,12 +1057,17 @@ private fun LocalMenuOverlay(across: Boolean, canUpload: Boolean, viewModel: Loc
 }
 
 /**
- * "Are you sure you want to exit?" for the in-person game — mirrors the online board's
- * ConfirmationOverlay visual (full-screen message + CONFIRM/✕ bottom bar), since this
- * game has no server copy and backing out mid-game silently loses all progress.
+ * The in-person game's confirmation overlay — mirrors the online board's
+ * ConfirmationOverlay visual (full-screen [message] + CONFIRM/✕ bottom bar). Used for
+ * exiting mid-game (this game has no server copy, so backing out loses all progress) and
+ * for the irreversible game-ending actions (see [LocalGameViewModel.EndAction]).
  */
 @Composable
-private fun LocalExitConfirmationOverlay(onConfirm: () -> Unit, onCancel: () -> Unit) {
+private fun LocalConfirmationOverlay(
+    message: String,
+    onConfirm: () -> Unit,
+    onCancel: () -> Unit,
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -924,7 +1081,7 @@ private fun LocalExitConfirmationOverlay(onConfirm: () -> Unit, onCancel: () -> 
             contentAlignment = Alignment.Center,
         ) {
             LightText(
-                text = "Exit this game? You'll lose progress.",
+                text = message,
                 variant = LightTextVariant.Copy,
                 align = TextAlign.Center,
             )

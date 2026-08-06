@@ -89,10 +89,26 @@ object Chess {
      * Authoritative, variant-aware [GameOutcome] for a game — whether it is over and, if
      * so, who won and why. Use this for the LOCAL two-human game mode where there is no
      * Lichess stream to report the result. Some variants (Three-check) need the move
-     * history, so this takes the whole [replay].
+     * history, so this takes the whole [replay] — as does the fivefold-repetition auto-draw,
+     * whose comparison window starts at the last irreversible MOVE.
      */
     fun outcome(replay: Replay): GameOutcome =
-        GameStatusEvaluator.outcome(replay.positions, replay.initial.variant)
+        GameStatusEvaluator.outcome(replay.positions, replay.initial.variant, replay.steps)
+
+    /**
+     * How many times the position at [index] (default: the current one) has occurred in
+     * [replay] — see [Repetition] for what "the same position" means per variant.
+     */
+    fun repetitionCount(replay: Replay, index: Int = replay.positions.lastIndex): Int =
+        Repetition.count(replay, index)
+
+    /**
+     * Is a threefold-repetition draw CLAIMABLE at [index]? Lichess does not auto-draw on
+     * threefold (only fivefold, which [outcome] reports as
+     * [OutcomeReason.FIVEFOLD_REPETITION]), so this is purely an offer for the UI to make.
+     */
+    fun canClaimThreefold(replay: Replay, index: Int = replay.positions.lastIndex): Boolean =
+        Repetition.isThreefold(replay, index)
 
     /**
      * Export [replay] as a PGN string (Seven Tag Roster + movetext + result token), with a
@@ -100,7 +116,11 @@ object Chess {
      * from a non-standard position. Provide [tags] to override any default (e.g. player
      * names, event, date). See [Pgn].
      */
-    fun toPgn(replay: Replay, tags: Map<String, String> = emptyMap()): String = Pgn.export(replay, tags)
+    fun toPgn(
+        replay: Replay,
+        tags: Map<String, String> = emptyMap(),
+        resultOverride: String? = null,
+    ): String = Pgn.export(replay, tags, resultOverride)
 
     /** True if the side to move is in check (variant-aware). */
     fun isInCheck(position: Position): Boolean = MoveGenerator.inCheck(position, position.sideToMove)

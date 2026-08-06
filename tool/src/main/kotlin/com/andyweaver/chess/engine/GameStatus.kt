@@ -29,7 +29,7 @@ sealed class GameStatus {
 
 enum class DrawReason {
     INSUFFICIENT_MATERIAL,
-    SEVENTY_FIVE_MOVE_RULE,
+    FIFTY_MOVE_RULE,
 }
 
 /**
@@ -77,8 +77,8 @@ enum class OutcomeReason {
     /** K vs K and similar dead positions. Draw. (Not applied to Crazyhouse — material can re-enter via drops.) */
     INSUFFICIENT_MATERIAL,
 
-    /** 150 half-moves without a pawn move or capture (Lichess's 75-move auto-draw). Draw. */
-    SEVENTY_FIVE_MOVE_RULE,
+    /** 100 half-moves without a pawn move or capture — Lichess's auto-draw. Draw. */
+    FIFTY_MOVE_RULE,
 
     /** King of the Hill: a king reached a centre square (d4/e4/d5/e5). Win. */
     KING_IN_CENTER,
@@ -97,6 +97,28 @@ enum class OutcomeReason {
 
     /** Horde: the horde (White) has been completely captured — Black wins. */
     HORDE_DESTROYED,
+
+    /**
+     * The same position occurred five times — Lichess's automatic repetition draw. Draw.
+     * See [Repetition] for what "the same position" means per variant.
+     */
+    FIVEFOLD_REPETITION,
+
+    /**
+     * A player resigned. The OTHER side is the [GameOutcome.Decided.winner].
+     *
+     * Nothing in the engine ever produces this — it is a human decision, reported by the
+     * in-person game controller when a player picks "White resigns" / "Black resigns".
+     */
+    RESIGNATION,
+
+    /**
+     * Both players agreed to a draw. Draw (winner is null).
+     *
+     * Like [RESIGNATION] this is never produced by the engine; the in-person game
+     * controller reports it when the players pick "Agree draw".
+     */
+    DRAW_AGREED,
 }
 
 object GameStatusEvaluator {
@@ -107,10 +129,9 @@ object GameStatusEvaluator {
      * move-count rule. Threefold repetition is not tracked here (it needs move
      * history — see [Chess.replay] callers if needed).
      *
-     * The move-count draw uses the FIDE **75-move rule** (150 half-moves), not the
-     * classic 50-move rule — Lichess auto-draws a game at 75 moves without a pawn
-     * push or capture, but only *permits a claim* at 50 (a claim this app has no UI
-     * for). Using 50 here would freeze a still-live Lichess game as "over" locally.
+     * Repetition is not tracked here (it needs move history). Note that Lichess
+     * auto-draws only on FIVEfold; threefold is merely claimable, so a client must never
+     * end a game on it.
      */
     fun status(position: Position): GameStatus {
         val inCheck = MoveGenerator.inCheck(position, position.sideToMove)
@@ -119,11 +140,11 @@ object GameStatusEvaluator {
         if (!hasMoves) {
             return if (inCheck) GameStatus.Checkmate else GameStatus.Stalemate
         }
-        if (isInsufficientMaterial(position)) {
+        if (isDeadPosition(position)) {
             return GameStatus.Draw(DrawReason.INSUFFICIENT_MATERIAL)
         }
-        if (position.halfmoveClock >= 150) {
-            return GameStatus.Draw(DrawReason.SEVENTY_FIVE_MOVE_RULE)
+        if (usesMoveRuleDraw(position.variant) && position.halfmoveClock >= MOVE_RULE_HALFMOVES) {
+            return GameStatus.Draw(DrawReason.FIFTY_MOVE_RULE)
         }
         return if (inCheck) GameStatus.Check else GameStatus.Ongoing
     }
@@ -142,8 +163,20 @@ object GameStatusEvaluator {
      *
      * Does NOT replace [status] — that single-position snapshot API is untouched and still
      * drives the board/review screens' check/mate/draw rendering.
+     *
+     * [steps] are the moves that produced [positions] (i.e. [Replay.steps]) and are needed
+     * ONLY for the fivefold-repetition auto-draw: repetition's comparison window starts at
+     * the last IRREVERSIBLE move, which cannot be inferred from the positions alone (the
+     * half-move clock is not a substitute — castling is irreversible for repetition yet
+     * doesn't reset the clock, and Crazyhouse's clock rules differ again). It defaults to
+     * empty, which simply means "no repetition detection" for callers that don't have the
+     * moves to hand; [Chess.outcome] always passes them.
      */
-    fun outcome(positions: List<Position>, variant: Variant): GameOutcome {
+    fun outcome(
+        positions: List<Position>,
+        variant: Variant,
+        steps: List<MoveRecord> = emptyList(),
+    ): GameOutcome {
         val pos = positions.lastOrNull() ?: return GameOutcome.Ongoing
         val toMove = pos.sideToMove
         val justMoved = toMove.opposite
@@ -154,13 +187,13 @@ object GameStatusEvaluator {
             Variant.STANDARD, Variant.CHESS960 -> {
                 standardTermination(pos, hasMoves, inCheck, justMoved)
                     ?: if (isInsufficientMaterial(pos)) GameOutcome.Decided(null, OutcomeReason.INSUFFICIENT_MATERIAL)
-                    else seventyFiveMoveOr(pos, GameOutcome.Ongoing)
+                    else autoDrawOr(pos, positions, steps, variant, GameOutcome.Ongoing)
             }
 
             Variant.CRAZYHOUSE -> {
                 // No insufficient-material draw: captured material can re-enter via drops.
                 standardTermination(pos, hasMoves, inCheck, justMoved)
-                    ?: seventyFiveMoveOr(pos, GameOutcome.Ongoing)
+                    ?: autoDrawOr(pos, positions, steps, variant, GameOutcome.Ongoing)
             }
 
             Variant.ATOMIC -> {
@@ -172,7 +205,7 @@ object GameStatusEvaluator {
                 // is subtle (a bare king can never be mated but can be exploded), so it is NOT
                 // claimed here — an otherwise-quiet position is left Ongoing.
                 standardTermination(pos, hasMoves, inCheck, justMoved)
-                    ?: seventyFiveMoveOr(pos, GameOutcome.Ongoing)
+                    ?: autoDrawOr(pos, positions, steps, variant, GameOutcome.Ongoing)
             }
 
             Variant.KING_OF_THE_HILL -> {
@@ -180,26 +213,21 @@ object GameStatusEvaluator {
                 pos.kingSquare(Color.WHITE).let { if (it in CENTER_SQUARES) return GameOutcome.Decided(Color.WHITE, OutcomeReason.KING_IN_CENTER) }
                 pos.kingSquare(Color.BLACK).let { if (it in CENTER_SQUARES) return GameOutcome.Decided(Color.BLACK, OutcomeReason.KING_IN_CENTER) }
                 standardTermination(pos, hasMoves, inCheck, justMoved)
-                    ?: seventyFiveMoveOr(pos, GameOutcome.Ongoing)
+                    ?: autoDrawOr(pos, positions, steps, variant, GameOutcome.Ongoing)
             }
 
             Variant.THREE_CHECK -> {
-                // Count checks delivered across the game. A position whose side-to-move is in
-                // check means the side that just moved delivered a check. (Position doesn't store
-                // check counts, so this counts from the replay — accurate for a game played from
-                // the start; a mid-game FEN carrying prior checks would not be reflected.)
-                var whiteChecks = 0
-                var blackChecks = 0
-                for (i in 1 until positions.size) {
-                    val p = positions[i]
-                    if (MoveGenerator.inCheck(p, p.sideToMove)) {
-                        if (p.sideToMove == Color.BLACK) whiteChecks++ else blackChecks++
-                    }
-                }
+                // Count checks delivered across the game — see [checkCounts]. Position doesn't
+                // store check counts, so they come from the replay: accurate for a game played
+                // from the start; a mid-game FEN carrying prior checks would not be reflected.
+                val (whiteChecks, blackChecks) = checkCounts(positions)
                 if (whiteChecks >= 3) return GameOutcome.Decided(Color.WHITE, OutcomeReason.THREE_CHECKS)
                 if (blackChecks >= 3) return GameOutcome.Decided(Color.BLACK, OutcomeReason.THREE_CHECKS)
                 standardTermination(pos, hasMoves, inCheck, justMoved)
-                    ?: seventyFiveMoveOr(pos, GameOutcome.Ongoing)
+                    // Kings-only is the only dead position here — with any other material a
+                    // third check is still reachable. See [isDeadPosition].
+                    ?: if (isKingsOnly(pos)) GameOutcome.Decided(null, OutcomeReason.INSUFFICIENT_MATERIAL)
+                    else autoDrawOr(pos, positions, steps, variant, GameOutcome.Ongoing)
             }
 
             Variant.RACING_KINGS -> {
@@ -207,23 +235,34 @@ object GameStatusEvaluator {
                 val bk = pos.kingSquare(Color.BLACK)
                 val whiteOn8 = wk >= 0 && Square.rank(wk) == 7
                 val blackOn8 = bk >= 0 && Square.rank(bk) == 7
+                // Black gets a matching final ply, so reaching rank 8 does NOT end the game
+                // on the spot. Mirrors scalachess `RacingKings.specialEnd`/`specialDraw`:
+                //   • White to move: over iff exactly ONE king is home (that side wins);
+                //     both home is the compensation DRAW.
+                //   • Black to move: White is home and Black cannot match it → White wins.
+                //     If Black CAN still reach rank 8, the game continues — Black has to
+                //     actually play it, and may instead throw the draw away.
+                // Declaring the draw as soon as Black *could* finish (what this did before)
+                // calls the game a ply early, at its single most decisive moment.
                 when {
-                    // Both kings home on the 8th → the first-move-compensation draw.
-                    whiteOn8 && blackOn8 -> GameOutcome.Decided(null, OutcomeReason.RACING_KINGS_FINISH)
-                    blackOn8 -> GameOutcome.Decided(Color.BLACK, OutcomeReason.RACING_KINGS_FINISH)
-                    whiteOn8 -> {
-                        // White reached the 8th. If Black is to move and can also reach the 8th
-                        // rank immediately, it's a draw; otherwise White wins.
-                        val blackCanFinish = toMove == Color.BLACK && MoveGenerator.legalMoves(pos).any { m ->
+                    toMove == Color.WHITE && whiteOn8 && blackOn8 ->
+                        GameOutcome.Decided(null, OutcomeReason.RACING_KINGS_FINISH)
+                    toMove == Color.WHITE && whiteOn8 ->
+                        GameOutcome.Decided(Color.WHITE, OutcomeReason.RACING_KINGS_FINISH)
+                    toMove == Color.WHITE && blackOn8 ->
+                        GameOutcome.Decided(Color.BLACK, OutcomeReason.RACING_KINGS_FINISH)
+                    toMove == Color.BLACK && whiteOn8 -> {
+                        val blackCanMatch = MoveGenerator.legalMoves(pos).any { m ->
                             val k = MoveGenerator.applyMove(pos, m).kingSquare(Color.BLACK)
                             k >= 0 && Square.rank(k) == 7
                         }
-                        if (blackCanFinish) GameOutcome.Decided(null, OutcomeReason.RACING_KINGS_FINISH)
+                        if (blackCanMatch) autoDrawOr(pos, positions, steps, variant, GameOutcome.Ongoing)
                         else GameOutcome.Decided(Color.WHITE, OutcomeReason.RACING_KINGS_FINISH)
                     }
                     // No check is ever legal, so "no moves" is always a stalemate = draw.
+                    // Checked AFTER the goal cases, so a finish is never reported as one.
                     !hasMoves -> GameOutcome.Decided(null, OutcomeReason.STALEMATE)
-                    else -> seventyFiveMoveOr(pos, GameOutcome.Ongoing)
+                    else -> autoDrawOr(pos, positions, steps, variant, GameOutcome.Ongoing)
                 }
             }
 
@@ -235,7 +274,7 @@ object GameStatusEvaluator {
                 if (!hasMoves) return GameOutcome.Decided(toMove, OutcomeReason.STALEMATE)
                 // A dead position (e.g. bishops locked on opposite colours) is a draw on Lichess,
                 // but detecting it reliably is non-trivial, so it's left Ongoing rather than guessed.
-                seventyFiveMoveOr(pos, GameOutcome.Ongoing)
+                autoDrawOr(pos, positions, steps, variant, GameOutcome.Ongoing)
             }
 
             Variant.HORDE -> {
@@ -244,7 +283,7 @@ object GameStatusEvaluator {
                 // stalemate on either side is a draw.
                 if (countPieces(pos, Color.WHITE) == 0) return GameOutcome.Decided(Color.BLACK, OutcomeReason.HORDE_DESTROYED)
                 standardTermination(pos, hasMoves, inCheck, justMoved)
-                    ?: seventyFiveMoveOr(pos, GameOutcome.Ongoing)
+                    ?: autoDrawOr(pos, positions, steps, variant, GameOutcome.Ongoing)
             }
         }
     }
@@ -264,8 +303,136 @@ object GameStatusEvaluator {
         }
     }
 
-    private fun seventyFiveMoveOr(pos: Position, fallback: GameOutcome): GameOutcome =
-        if (pos.halfmoveClock >= 150) GameOutcome.Decided(null, OutcomeReason.SEVENTY_FIVE_MOVE_RULE) else fallback
+    /**
+     * Is this a dead position — no one can win, so the game ends now?
+     *
+     * The standard material test applies to standard rules ONLY. Applying it elsewhere
+     * declares a live game over, and on the board screen that LOCKS THE USER OUT of a game
+     * Lichess is still happily running. Each variant below overrides the rule in
+     * scalachess, and for the same reason: the win condition isn't checkmate, so bare
+     * material doesn't mean a dead game.
+     *  • Antichess — the king is an ordinary, non-royal piece and the goal is to LOSE
+     *    everything, so King vs King is a perfectly normal position. This is what wrongly
+     *    froze a live Antichess game.
+     *  • Crazyhouse — captured material comes back via drops; nothing is ever dead.
+     *  • Horde — White has no king at all; a lone bishop vs a bare king read as a draw.
+     *  • Atomic — a bare king can't be mated but CAN be exploded.
+     *  • King of the Hill / Racing Kings — a lone king still has a game to play: walk to
+     *    the centre, race to rank 8.
+     *  • Three-check — you can still win by checking three times, so scalachess narrows the
+     *    rule to kings-only (`ThreeCheck.isInsufficientMaterial = position.kingsOnly`),
+     *    which is the one case where no check can ever be delivered again.
+     *
+     * Where scalachess has a bespoke test we don't reproduce (Atomic's closed positions,
+     * Horde's fortress test, Antichess's blocked opposite-coloured bishops), this returns
+     * false and the game is left running. That errs toward under-terminating, which is the
+     * safe direction: online, Lichess ends the game and tells us.
+     */
+    private fun isDeadPosition(position: Position): Boolean = when (position.variant) {
+        Variant.STANDARD, Variant.CHESS960 -> isInsufficientMaterial(position)
+        Variant.THREE_CHECK -> isKingsOnly(position)
+        Variant.ANTICHESS, Variant.CRAZYHOUSE, Variant.HORDE, Variant.ATOMIC,
+        Variant.KING_OF_THE_HILL, Variant.RACING_KINGS,
+        -> false
+    }
+
+    /** Nothing but the two kings left — no check can ever be delivered again. */
+    private fun isKingsOnly(pos: Position): Boolean =
+        (0 until Square.COUNT).all { pos.pieceAt(it)?.type?.let { t -> t == PieceType.KING } ?: true }
+
+    /**
+     * Half-moves without a pawn move or capture before the game auto-draws: **100**, i.e.
+     * the 50-move rule.
+     *
+     * Verified against scalachess `Variant.fiftyMoves` (`halfMoveClock >= HalfMoveClock(100)`),
+     * which feeds `autoDraw` directly. An earlier version of this file used 150 on the
+     * belief that Lichess only auto-draws at 75 moves and merely permits a *claim* at 50 —
+     * that is FIDE's rule, not Lichess's. Lichess ends the game itself at 100 half-moves.
+     */
+    const val MOVE_RULE_HALFMOVES = 100
+
+    /**
+     * Does this variant have a move-count draw at all? Every one does except **Crazyhouse**,
+     * which disables it outright (`Crazyhouse.fiftyMoves = false`). That is not a detail:
+     * Crazyhouse also treats only castling as irreversible, so the half-move clock barely
+     * ever resets and would sail past any threshold in an ordinary game — applying the rule
+     * there ends live games mid-play.
+     */
+    private fun usesMoveRuleDraw(variant: Variant): Boolean = variant != Variant.CRAZYHOUSE
+
+    private fun moveRuleDrawOr(pos: Position, fallback: GameOutcome): GameOutcome =
+        if (usesMoveRuleDraw(pos.variant) && pos.halfmoveClock >= MOVE_RULE_HALFMOVES) {
+            GameOutcome.Decided(null, OutcomeReason.FIFTY_MOVE_RULE)
+        } else {
+            fallback
+        }
+
+    /**
+     * The automatic draws that apply once no variant win condition has fired: the move-count
+     * rule, then **fivefold repetition**. Both sit in the same place in scalachess's
+     * `Position.status` precedence chain (checkmate → variant end → stalemate → autoDraw), so
+     * this is deliberately the LAST thing consulted, never ahead of a variant win.
+     *
+     * Threefold is NOT here: Lichess only lets a player *claim* it (see [Repetition]).
+     */
+    private fun autoDrawOr(
+        pos: Position,
+        positions: List<Position>,
+        steps: List<MoveRecord>,
+        variant: Variant,
+        fallback: GameOutcome,
+    ): GameOutcome {
+        val moveRule = moveRuleDrawOr(pos, fallback)
+        if (moveRule !== fallback) return moveRule
+        // Repetition needs the moves (for the irreversible-move window); without them the
+        // caller has opted out. See [outcome]'s `steps` parameter.
+        if (steps.size == positions.size - 1 &&
+            Repetition.count(positions, steps, variant, positions.lastIndex) >= 5
+        ) {
+            return GameOutcome.Decided(null, OutcomeReason.FIVEFOLD_REPETITION)
+        }
+        return fallback
+    }
+
+    /**
+     * Checks delivered across a game's [positions] prefix up to [upTo], as
+     * `(byWhite, byBlack)`. A position whose side-to-move is in check means the side that
+     * just moved delivered one.
+     *
+     * Used by the Three-check win condition AND by [Repetition] (check counts are part of
+     * position identity in that variant), so it lives here once rather than twice.
+     */
+    fun checkCounts(positions: List<Position>, upTo: Int = positions.lastIndex): Pair<Int, Int> {
+        var white = 0
+        var black = 0
+        for (i in 1..minOf(upTo, positions.lastIndex)) {
+            val p = positions[i]
+            if (MoveGenerator.inCheck(p, p.sideToMove)) {
+                if (p.sideToMove == Color.BLACK) white++ else black++
+            }
+        }
+        return white to black
+    }
+
+    /**
+     * [checkCounts] evaluated at every index `0..upTo` in one pass — what [Repetition] needs
+     * to compare the check tallies of two positions within a game without re-scanning the
+     * prefix for each candidate.
+     */
+    internal fun checkCountPrefix(positions: List<Position>, upTo: Int): List<Pair<Int, Int>> {
+        val out = ArrayList<Pair<Int, Int>>(upTo + 1)
+        var white = 0
+        var black = 0
+        out.add(white to black)
+        for (i in 1..minOf(upTo, positions.lastIndex)) {
+            val p = positions[i]
+            if (MoveGenerator.inCheck(p, p.sideToMove)) {
+                if (p.sideToMove == Color.BLACK) white++ else black++
+            }
+            out.add(white to black)
+        }
+        return out
+    }
 
     private fun countPieces(pos: Position, color: Color): Int {
         var n = 0

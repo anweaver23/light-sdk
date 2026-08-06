@@ -3,11 +3,16 @@ package com.andyweaver.chess.lichess
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.engine.okhttp.OkHttp
+import io.ktor.client.plugins.HttpResponseValidator
+import io.ktor.client.plugins.HttpTimeout
+import io.ktor.client.plugins.HttpTimeoutConfig
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
+import io.ktor.client.plugins.timeout
 import io.ktor.client.request.get
 import io.ktor.client.request.header
 import io.ktor.client.request.parameter
+import io.ktor.client.request.HttpRequestBuilder
 import io.ktor.client.request.forms.submitForm
 import io.ktor.client.request.post
 import io.ktor.client.request.prepareGet
@@ -19,6 +24,7 @@ import io.ktor.http.isSuccess
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.utils.io.readLine
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.Serializable
@@ -29,6 +35,26 @@ import kotlinx.serialization.json.jsonPrimitive
 
 private const val CORRESPONDENCE_SPEED = "correspondence"
 private const val BASE_URL = "https://lichess.org"
+
+/** Connect timeout for every request, streaming or not — a TCP+TLS handshake is quick or broken. */
+private const val REST_CONNECT_TIMEOUT_MS = 15_000L
+
+/** Whole-call and read timeout for ordinary (small, bounded) REST calls. */
+private const val REST_REQUEST_TIMEOUT_MS = 15_000L
+
+/**
+ * Read timeout for a long-lived NDJSON stream. Lichess sends a keep-alive newline roughly
+ * every 6 seconds, so this is ~10 keep-alives of slack — enough to ride out mobile jitter
+ * while still noticing a genuinely dead socket within a minute.
+ */
+private const val STREAM_SOCKET_TIMEOUT_MS = 60_000L
+
+/**
+ * Whole-call timeout for the bulk NDJSON reads (games export, following list). These use
+ * the streaming client for its generous read timeout, but they DO terminate, so they get a
+ * finite per-request cap rather than the streams' infinite one.
+ */
+private const val BULK_REQUEST_TIMEOUT_MS = 60_000L
 
 @Serializable
 data class LichessOpponent(
@@ -169,7 +195,16 @@ data class BoardVariant(
 /** Result of a board action (move/resign/draw). Lichess returns `{"ok":true}` or `{"error":"..."}`. */
 sealed interface LichessActionResult {
     data object Success : LichessActionResult
-    data class Failure(val error: String) : LichessActionResult
+
+    /**
+     * @param error a message already fit to show a user (see [userMessage] — raw Ktor
+     *   internals never reach here).
+     * @param offline true when the request never made it to Lichess (no connection,
+     *   DNS/TLS failure, timeout) as opposed to Lichess actively rejecting it. Lets the
+     *   UI say "you're offline" instead of implying the move was refused. Defaults to
+     *   false so existing `Failure("…")` construction still compiles.
+     */
+    data class Failure(val error: String, val offline: Boolean = false) : LichessActionResult
 }
 
 /**
@@ -342,13 +377,58 @@ class LichessApi(private val token: String) {
         coerceInputValues = true
     }
 
-    private val client = HttpClient(OkHttp) {
+    /**
+     * TWO clients, because streaming and ordinary REST want opposite timeout regimes and a
+     * single client cannot express both.
+     *
+     * The trap: on the OkHttp engine Ktor's `requestTimeoutMillis` maps to OkHttp's
+     * *callTimeout*, which covers reading the body — so any finite global value would
+     * guillotine a long-lived NDJSON stream mid-game. And `socketTimeoutMillis` maps to
+     * OkHttp's read timeout, which defaults to 10s when [HttpTimeout] isn't installed at
+     * all; since Lichess only sends keep-alive newlines about every 6s, that default was
+     * killing board/event streams on any jitter. (It's also the source of the user-visible
+     * "Socket timeout has expired [url=…, socket_timeout=unknown] ms" — `unknown` renders
+     * precisely because no HttpTimeout config existed to name a value.)
+     *
+     * Two clients rather than one-with-per-request-overrides: the streams are the unusual
+     * case but they're also the ones that must never be capped, and per-request overrides
+     * are easy to forget on a newly added REST call — this way the safe default (finite)
+     * applies unless a call deliberately opts into [streamClient].
+     */
+    private fun buildClient(timeouts: HttpTimeoutConfig.() -> Unit) = HttpClient(OkHttp) {
         install(ContentNegotiation) {
             json(json)
         }
+        install(HttpTimeout, timeouts)
         defaultRequest {
             header("Authorization", "Bearer $token")
         }
+        // ONE central place to feed Connectivity, instead of instrumenting ~20 call sites.
+        // A response arriving at all — even a 404 or 429 — proves the network works, so
+        // only *thrown* transport failures count against us (Connectivity.reportFailure
+        // ignores anything that isn't a transport failure).
+        HttpResponseValidator {
+            validateResponse { Connectivity.reportSuccess() }
+            handleResponseExceptionWithRequest { cause, _ -> Connectivity.reportFailure(cause) }
+        }
+    }
+
+    /** Short, bounded calls: fail fast so the UI can say something rather than hang. */
+    private val client = buildClient {
+        connectTimeoutMillis = REST_CONNECT_TIMEOUT_MS
+        requestTimeoutMillis = REST_REQUEST_TIMEOUT_MS
+        socketTimeoutMillis = REST_REQUEST_TIMEOUT_MS
+    }
+
+    /**
+     * Long-lived NDJSON reads. Generous socket timeout (comfortably longer than Lichess's
+     * ~6s keep-alive cadence) and NO overall request timeout, since a healthy board stream
+     * legitimately stays open for the whole time the screen is visible.
+     */
+    private val streamClient = buildClient {
+        connectTimeoutMillis = REST_CONNECT_TIMEOUT_MS
+        requestTimeoutMillis = HttpTimeoutConfig.INFINITE_TIMEOUT_MS
+        socketTimeoutMillis = STREAM_SOCKET_TIMEOUT_MS
     }
 
     suspend fun getOngoingCorrespondenceGames(): List<LichessGame> {
@@ -357,20 +437,97 @@ class LichessApi(private val token: String) {
     }
 
     /**
+     * A self-healing NDJSON stream over [url].
+     *
+     * Reconnects with exponential backoff + jitter (see [reconnectDelayMillis]) on any
+     * transient failure, including a clean EOF — Lichess routinely closes long-lived
+     * streams and a silently-ended stream is exactly the "board went dead mid-game" bug.
+     * A 429 waits the full minute Lichess asks for; 401/403/400/404 are fatal and rethrown
+     * so a dead token can't be retried forever. [CancellationException] always propagates
+     * untouched (the SDK cancels these on screen hide / app pause).
+     *
+     * Gives up after [MAX_RECONNECT_ATTEMPTS] *consecutive* failures and rethrows the last
+     * cause, so the existing `catch` at the call sites still surfaces an error. A
+     * connection that survived [STREAM_STABLE_MS] resets that counter — otherwise a server
+     * that accepts and instantly drops us would retry forever.
+     *
+     * @param onStatus optional progress signal ([StreamStatus.Connected] /
+     *   [StreamStatus.Reconnecting] / [StreamStatus.GaveUp]) so a caller can tell
+     *   "reconnecting" from "gave up". Deliberately a callback rather than extra Flow
+     *   elements, to keep the emitted type unchanged for existing collectors.
+     */
+    private fun <T> ndjsonStream(
+        url: String,
+        onStatus: ((StreamStatus) -> Unit)?,
+        request: HttpRequestBuilder.() -> Unit = {},
+        parse: (String) -> T,
+    ): Flow<T> = flow {
+        var attempt = 0
+        // An exception thrown by the COLLECTOR must never be mistaken for a connection
+        // failure: swallowing it and emitting again trips Kotlin's "flow exception
+        // transparency is violated" check. Tracked by identity and rethrown below.
+        var downstreamFailure: Throwable? = null
+        while (true) {
+            var connectedAt = 0L
+            val failure: Throwable? = try {
+                streamClient.prepareGet(url, request).execute { response ->
+                    if (!response.status.isSuccess()) {
+                        throw LichessHttpException(response.status.value, "HTTP ${response.status.value}")
+                    }
+                    connectedAt = System.currentTimeMillis()
+                    onStatus?.invoke(StreamStatus.Connected)
+                    val channel = response.bodyAsChannel()
+                    while (true) {
+                        val line = channel.readLine() ?: break
+                        if (line.isNotBlank()) {
+                            val value = parse(line)
+                            try {
+                                emit(value)
+                            } catch (t: Throwable) {
+                                downstreamFailure = t
+                                throw t
+                            }
+                        }
+                    }
+                }
+                null // clean EOF — Lichess closed the stream; reconnect rather than end silently.
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Throwable) {
+                e
+            }
+
+            if (failure != null) {
+                if (failure === downstreamFailure) throw failure
+                Connectivity.reportFailure(failure)
+                if (!isRetryableStreamFailure(failure)) {
+                    onStatus?.invoke(StreamStatus.GaveUp(failure))
+                    throw failure
+                }
+            }
+            // A connection that stayed up long enough counts as healthy: start the backoff
+            // curve over rather than escalating for an unrelated, much later drop.
+            if (connectedAt != 0L && System.currentTimeMillis() - connectedAt >= STREAM_STABLE_MS) attempt = 0
+            attempt++
+            if (attempt > MAX_RECONNECT_ATTEMPTS) {
+                onStatus?.invoke(StreamStatus.GaveUp(failure))
+                throw failure ?: LichessHttpException(0, "Lost connection to the Lichess stream")
+            }
+            val wait = reconnectDelayMillis(attempt, failure)
+            onStatus?.invoke(StreamStatus.Reconnecting(attempt, wait, failure))
+            delay(wait)
+        }
+    }
+
+    /**
      * Streams account events as a cold [Flow]: `GET /api/stream/event`. Emits on game
      * start/finish and challenge in/cancel/decline only (never per-move). Like
      * [streamBoardGame], the connection opens on collection and closes when the collector
-     * stops — collect it only while the home screen is foregrounded.
+     * stops — collect it only while the home screen is foregrounded. Reconnects itself; see
+     * [ndjsonStream].
      */
-    fun streamEvents(): Flow<AccountEventType> = flow {
-        client.prepareGet("$BASE_URL/api/stream/event").execute { response ->
-            val channel = response.bodyAsChannel()
-            while (true) {
-                val line = channel.readLine() ?: break
-                if (line.isNotBlank()) emit(parseEventType(line))
-            }
-        }
-    }
+    fun streamEvents(onStatus: ((StreamStatus) -> Unit)? = null): Flow<AccountEventType> =
+        ndjsonStream("$BASE_URL/api/stream/event", onStatus) { parseEventType(it) }
 
     private fun parseEventType(line: String): AccountEventType = try {
         when (json.parseToJsonElement(line).jsonObject["type"]?.jsonPrimitive?.content) {
@@ -413,7 +570,10 @@ class LichessApi(private val token: String) {
         // already advertises application/json; adding x-ndjson on top yields an Accept
         // ordering that makes Lichess return PGN instead. application/json returns one JSON
         // object per line, which we parse below. (Body is read manually, not via CN.)
-        client.prepareGet("$BASE_URL/api/games/user/$username") {
+        // streamClient: this is a streaming export that can take a while to drain, so it
+        // needs the generous socket timeout — but it terminates, so cap the whole call.
+        streamClient.prepareGet("$BASE_URL/api/games/user/$username") {
+            timeout { requestTimeoutMillis = BULK_REQUEST_TIMEOUT_MS }
             header("Accept", "application/json")
             parameter("max", max)
             // Per-move clock times, used by the review screen (non-correspondence games).
@@ -460,7 +620,10 @@ class LichessApi(private val token: String) {
      */
     suspend fun getFollowing(): List<LichessUser> {
         val users = mutableListOf<LichessUser>()
-        client.prepareGet("$BASE_URL/api/rel/following").execute { response ->
+        // streamClient for the same reason as getUserGames: a drained NDJSON body, capped.
+        streamClient.prepareGet("$BASE_URL/api/rel/following") {
+            timeout { requestTimeoutMillis = BULK_REQUEST_TIMEOUT_MS }
+        }.execute { response ->
             val channel = response.bodyAsChannel()
             while (true) {
                 val line = channel.readLine() ?: break
@@ -483,18 +646,12 @@ class LichessApi(private val token: String) {
      * stops (completes or cancels) — collect it only while the board screen is visible. The body is
      * read line by line and never fully buffered. Blank lines (keep-alives) are skipped; lines that
      * fail to parse are emitted as [BoardStreamEvent.Unknown] rather than aborting the stream.
+     *
+     * Self-healing: a dropped connection reconnects with backoff (see [ndjsonStream]). Each
+     * reconnect replays `gameFull` from Lichess, so the view model resynchronises for free.
      */
-    fun streamBoardGame(gameId: String): Flow<BoardStreamEvent> = flow {
-        client.prepareGet("$BASE_URL/api/board/game/stream/$gameId").execute { response ->
-            val channel = response.bodyAsChannel()
-            while (true) {
-                val line = channel.readLine() ?: break
-                if (line.isNotBlank()) {
-                    emit(parseBoardEvent(line))
-                }
-            }
-        }
-    }
+    fun streamBoardGame(gameId: String, onStatus: ((StreamStatus) -> Unit)? = null): Flow<BoardStreamEvent> =
+        ndjsonStream("$BASE_URL/api/board/game/stream/$gameId", onStatus) { parseBoardEvent(it) }
 
     private fun parseBoardEvent(line: String): BoardStreamEvent = try {
         val obj = json.parseToJsonElement(line).jsonObject
@@ -625,14 +782,17 @@ class LichessApi(private val token: String) {
      * Creates a correspondence seek — a request to be matched with a random opponent.
      * `POST /api/board/seek` (form-urlencoded, `board:play`). For correspondence the call
      * returns immediately with a seek id (the seek then waits in the background), so unlike
-     * a real-time seek we do not hold the connection open. [days] is one of 1,2,3,5,7,10,14;
-     * [color] "white" | "black" | "random" (omitted when random). [ratingRange] like
-     * "1500-1800", or null for any.
+     * a real-time seek we do not hold the connection open. [days] is one of 1,2,3,5,7,10,14.
+     * [ratingRange] is absolute and inclusive, like "1500-1800" (min strictly < max, or
+     * Lichess 400s), or null for any.
+     *
+     * NOTE deliberately no `color`: the correspondence branch of this endpoint doesn't
+     * accept one (lila's `Seek.make` takes no colour param), so anything sent is bound
+     * and silently discarded — offering the choice would be a lie.
      */
     suspend fun seekCorrespondence(
         days: Int,
         rated: Boolean = false,
-        color: String = "random",
         variant: String = "standard",
         ratingRange: String? = null,
     ): LichessActionResult = safeAction {
@@ -642,7 +802,6 @@ class LichessApi(private val token: String) {
                 append("rated", rated.toString())
                 append("days", days.toString())
                 append("variant", variant)
-                if (color != "random") append("color", color)
                 if (!ratingRange.isNullOrBlank()) append("ratingRange", ratingRange)
             },
         )
@@ -689,7 +848,8 @@ class LichessApi(private val token: String) {
     } catch (e: Exception) {
         // A thrown network error (no connectivity, DNS/TLS, timeout) would otherwise escape
         // the caller's launch{} and crash the app — surface it as a failure instead.
-        LichessImportResult.Failure(e.message ?: "Couldn't reach Lichess")
+        Connectivity.reportFailure(e)
+        LichessImportResult.Failure(e.userMessage())
     }
 
     private suspend fun postAction(url: String): LichessActionResult = safeAction { resultFrom(client.post(url)) }
@@ -701,6 +861,10 @@ class LichessApi(private val token: String) {
      * exception escapes the caller's `viewModelScope.launch { … }` and reaches the coroutine
      * uncaught-exception handler, crashing the app. [CancellationException] is rethrown so
      * coroutine cancellation (e.g. leaving the screen mid-request) still works normally.
+     *
+     * The failure is CLASSIFIED before being stringified: a transport failure sets
+     * [LichessActionResult.Failure.offline] and gets a friendly message, so callers can
+     * distinguish "you're offline" from "Lichess said no" instead of showing raw Ktor text.
      */
     private suspend fun safeAction(block: suspend () -> LichessActionResult): LichessActionResult =
         try {
@@ -708,7 +872,8 @@ class LichessApi(private val token: String) {
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            LichessActionResult.Failure(e.message ?: "Network error")
+            val offline = Connectivity.reportFailure(e)
+            LichessActionResult.Failure(e.userMessage(), offline = offline)
         }
 
     private suspend fun resultFrom(response: HttpResponse): LichessActionResult {
@@ -731,5 +896,8 @@ class LichessApi(private val token: String) {
     //         header("Accept", "application/x-chess-pgn")
     //     }.bodyAsText()
 
-    fun close() = client.close()
+    fun close() {
+        client.close()
+        streamClient.close()
+    }
 }

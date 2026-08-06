@@ -17,6 +17,7 @@ import com.andyweaver.chess.engine.Variant
 import com.andyweaver.chess.lichess.LichessApi
 import com.andyweaver.chess.lichess.LichessArchivedGame
 import com.andyweaver.chess.lichess.nameWithRating
+import com.andyweaver.chess.lichess.userMessage
 import com.andyweaver.chess.ui.NameWithRating
 import com.thelightphone.sdk.LightScreen
 import com.thelightphone.sdk.LightViewModel
@@ -101,7 +102,7 @@ class HistoryViewModel(private val token: String) : LightViewModel<Unit>() {
                     endReached = page.size < PAGE_SIZE,
                 )
             } catch (e: Exception) {
-                _state.value = State.Error(e.message ?: "Couldn't load games")
+                _state.value = State.Error(e.userMessage())
             } finally {
                 loading = false
             }

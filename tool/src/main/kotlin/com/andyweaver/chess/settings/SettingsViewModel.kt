@@ -31,6 +31,18 @@ class SettingsViewModel(private val settings: ChessSettings) : LightViewModel<Un
     fun toggleConfirmMoves() = toggle(snapshot.value.confirmMoves, settings::setConfirmMoves)
 
     fun toggleShowLegalMoves() = toggle(snapshot.value.showLegalMoves, settings::setShowLegalMoves)
+    fun toggleDragAndDrop() = toggle(snapshot.value.dragAndDrop, settings::setDragAndDrop)
+
+    /**
+     * Advances the "Move step speed" row to the next preset (Slow → Normal → Fast → Slow),
+     * matching the tap-to-cycle option rows in the new-game flow.
+     */
+    fun cycleMoveStepSpeed() {
+        val next = snapshot.value.moveStepSpeed.next
+        viewModelScope.launch(Dispatchers.IO) {
+            settings.setMoveStepSpeed(next)
+        }
+    }
 
     // v1: removed — may re-add
     // fun toggleShowTimeRemaining() = toggle(snapshot.value.showTimeRemaining, settings::setShowTimeRemaining)
