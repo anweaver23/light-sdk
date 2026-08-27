@@ -39,8 +39,12 @@ private val TAP_HAPTIC = HapticFeedbackType.VirtualKey
  * Uses Compose's [LocalHapticFeedback] rather than the SDK's `LightHapticFeedback`, whose
  * only entry point needs an Android `Context` — which tool code cannot legally obtain
  * (`LocalContext` and `android.content.Context` are both blocked by the plugin's source
- * scan). Gated on [LocalHapticsEnabled] so it honours the device-wide LightOS haptics
- * preference, same as `lightClickable`.
+ * scan).
+ *
+ * Gated on [LocalHapticsEnabled], same as `lightClickable` — but note that inside this app
+ * that flag is not purely LightOS's: `ChessTheme` re-provides it as "LightOS's value OR our
+ * own fallback", which is what makes haptics work at all on a build Light hasn't signed. See
+ * [AppHaptics].
  */
 @Composable
 fun Modifier.tapHaptic(enabled: Boolean = true): Modifier {

@@ -15,7 +15,6 @@ import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.gestures.detectDragGestures
-import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
 import androidx.compose.foundation.text.input.clearText
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.input.rememberTextFieldState
@@ -85,6 +84,7 @@ import com.andyweaver.chess.R
 import com.andyweaver.chess.lichess.LichessApi
 import com.andyweaver.chess.settings.ChessSettings
 import com.andyweaver.chess.settings.MoveStepSpeed
+import com.andyweaver.chess.ui.ChessTheme
 import com.andyweaver.chess.ui.holdRepeat
 import com.andyweaver.chess.ui.tapHaptic
 import com.thelightphone.sdk.LightScreen
@@ -269,7 +269,7 @@ class BoardScreen(
         //     viewModel.onPgnDelivered("PGN copied to clipboard")
         // }
 
-        LightTheme(colors = themeColors) {
+        ChessTheme(colors = themeColors) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()

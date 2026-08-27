@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import com.andyweaver.chess.ui.ChessTheme
 import com.thelightphone.sdk.LightScreen
 import com.thelightphone.sdk.LightViewModel
 import com.thelightphone.sdk.SealedLightActivity
@@ -46,7 +47,7 @@ class AboutScreen(sealedActivity: SealedLightActivity) :
     override fun Content() {
         val themeColors by LightThemeController.colors.collectAsState()
 
-        LightTheme(colors = themeColors) {
+        ChessTheme(colors = themeColors) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()

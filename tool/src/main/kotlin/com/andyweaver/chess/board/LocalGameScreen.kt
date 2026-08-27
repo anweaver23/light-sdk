@@ -20,6 +20,7 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.lifecycle.viewModelScope
+import com.andyweaver.chess.ui.ChessTheme
 import com.thelightphone.sdk.rememberKeyboardOptions
 import com.thelightphone.sdk.ui.LightTextField
 import com.thelightphone.sdk.ui.LightTextInputEditor
@@ -725,7 +726,7 @@ class LocalGameScreen(
         val state by viewModel.uiState.collectAsState()
         val dialog by viewModel.dialog.collectAsState()
 
-        LightTheme(colors = themeColors) {
+        ChessTheme(colors = themeColors) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()

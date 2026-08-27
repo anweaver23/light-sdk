@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import com.andyweaver.chess.AboutScreen
+import com.andyweaver.chess.ui.ChessTheme
 import com.thelightphone.sdk.LightScreen
 import com.thelightphone.sdk.SealedLightActivity
 import com.thelightphone.sdk.ui.LightBarButton
@@ -62,7 +63,7 @@ class SettingsScreen(sealedActivity: SealedLightActivity) :
         val snapshot by viewModel.snapshot.collectAsState()
         val confirmingLogOut by viewModel.confirmingLogOut.collectAsState()
 
-        LightTheme(colors = themeColors) {
+        ChessTheme(colors = themeColors) {
             Box(modifier = Modifier.fillMaxSize()) {
             Column(
                 modifier = Modifier
@@ -100,6 +101,11 @@ class SettingsScreen(sealedActivity: SealedLightActivity) :
                         label = "Scrub bar",
                         enabled = snapshot.scrubBar,
                         onClick = { viewModel.toggleScrubBar() },
+                    )
+                    SettingsToggleRow(
+                        label = "Haptic feedback",
+                        enabled = snapshot.hapticFeedback,
+                        onClick = { viewModel.toggleHaptics() },
                     )
                     SettingsOptionRow(
                         label = "Move step speed",

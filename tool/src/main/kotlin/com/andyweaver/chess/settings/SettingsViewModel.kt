@@ -1,6 +1,7 @@
 package com.andyweaver.chess.settings
 
 import androidx.lifecycle.viewModelScope
+import com.andyweaver.chess.ui.AppHaptics
 import com.thelightphone.sdk.LightViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.NonCancellable
@@ -19,6 +20,14 @@ import kotlinx.coroutines.withContext
  */
 class SettingsViewModel(private val settings: ChessSettings) : LightViewModel<Unit>() {
 
+    init {
+        // Keep the app-wide haptics fallback in step the moment the toggle flips, without
+        // waiting on whichever other screen's collector happens to be alive.
+        viewModelScope.launch {
+            settings.hapticFeedback.collect { AppHaptics.fallbackEnabled = it }
+        }
+    }
+
     val snapshot: StateFlow<ChessSettingsSnapshot> = settings.snapshot.stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(5_000),
@@ -33,6 +42,7 @@ class SettingsViewModel(private val settings: ChessSettings) : LightViewModel<Un
     fun toggleShowLegalMoves() = toggle(snapshot.value.showLegalMoves, settings::setShowLegalMoves)
     fun toggleDragAndDrop() = toggle(snapshot.value.dragAndDrop, settings::setDragAndDrop)
     fun toggleScrubBar() = toggle(snapshot.value.scrubBar, settings::setScrubBar)
+    fun toggleHaptics() = toggle(snapshot.value.hapticFeedback, settings::setHapticFeedback)
 
     /**
      * Advances the "Move step speed" row to the next preset (Slow → Normal → Fast → Slow),

@@ -27,6 +27,7 @@ data class ChessSettingsSnapshot(
     val dragAndDrop: Boolean = false,
     val moveStepSpeed: MoveStepSpeed = MoveStepSpeed.DEFAULT,
     val scrubBar: Boolean = true,
+    val hapticFeedback: Boolean = true,
     // v1: removed — may re-add
     // val showTimeRemaining: Boolean = true,
     // val showLastMove: Boolean = true,
@@ -279,6 +280,16 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
      */
     val scrubBar: Flow<Boolean> = booleanFlow(Keys.SCRUB_BAR, default = true)
 
+    /**
+     * Supply our own tap haptics when LightOS's are unavailable.
+     *
+     * Defaults ON because on any build Light hasn't signed, LightOS's haptics are
+     * unconditionally suppressed and this is the only thing that makes the app buzz at all
+     * — see [com.andyweaver.chess.ui.AppHaptics] for the full chain and the trade-off. Off
+     * defers strictly to LightOS.
+     */
+    val hapticFeedback: Flow<Boolean> = booleanFlow(Keys.HAPTIC_FEEDBACK, default = true)
+
     /** How fast a held-down browse arrow repeat-steps through moves. */
     val moveStepSpeed: Flow<MoveStepSpeed> =
         dataStore.data.map { prefs -> MoveStepSpeed.fromKey(prefs[Keys.MOVE_STEP_SPEED]) }
@@ -312,13 +323,15 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
             )
         },
         scrubBar,
-    ) { base, scrub -> base.copy(scrubBar = scrub) }
+        hapticFeedback,
+    ) { base, scrub, haptics -> base.copy(scrubBar = scrub, hapticFeedback = haptics) }
 
     suspend fun setNotificationsEnabled(enabled: Boolean) = setBoolean(Keys.NOTIFICATIONS_ENABLED, enabled)
     suspend fun setConfirmMoves(enabled: Boolean) = setBoolean(Keys.CONFIRM_MOVES, enabled)
     suspend fun setShowLegalMoves(enabled: Boolean) = setBoolean(Keys.SHOW_LEGAL_MOVES, enabled)
     suspend fun setDragAndDrop(enabled: Boolean) = setBoolean(Keys.DRAG_AND_DROP, enabled)
     suspend fun setScrubBar(enabled: Boolean) = setBoolean(Keys.SCRUB_BAR, enabled)
+    suspend fun setHapticFeedback(enabled: Boolean) = setBoolean(Keys.HAPTIC_FEEDBACK, enabled)
 
     suspend fun setMoveStepSpeed(speed: MoveStepSpeed) {
         dataStore.edit { prefs -> prefs[Keys.MOVE_STEP_SPEED] = speed.key }
@@ -599,6 +612,7 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
         val SHOW_LEGAL_MOVES = booleanPreferencesKey("chess_show_legal_moves")
         val DRAG_AND_DROP = booleanPreferencesKey("chess_drag_and_drop")
         val SCRUB_BAR = booleanPreferencesKey("chess_scrub_bar")
+        val HAPTIC_FEEDBACK = booleanPreferencesKey("chess_haptic_feedback")
         val MOVE_STEP_SPEED = stringPreferencesKey("chess_move_step_speed")
         val SELF_ABORTS = stringSetPreferencesKey("chess_self_aborts")
         val AUTH_TOKEN = stringPreferencesKey("chess_auth_token")

@@ -35,6 +35,7 @@ import com.andyweaver.chess.engine.Square
 import com.andyweaver.chess.engine.Variant
 import com.andyweaver.chess.settings.ChessSettings
 import com.andyweaver.chess.settings.MoveStepSpeed
+import com.andyweaver.chess.ui.ChessTheme
 import com.thelightphone.sdk.LightScreen
 import com.thelightphone.sdk.LightViewModel
 import com.thelightphone.sdk.SealedLightActivity
@@ -716,7 +717,7 @@ class ReviewScreen(
         val themeColors by LightThemeController.colors.collectAsState()
         val state by viewModel.uiState.collectAsState()
 
-        LightTheme(colors = themeColors) {
+        ChessTheme(colors = themeColors) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()

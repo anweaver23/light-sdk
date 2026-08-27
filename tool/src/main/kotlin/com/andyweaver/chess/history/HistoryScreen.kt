@@ -18,6 +18,7 @@ import com.andyweaver.chess.lichess.LichessApi
 import com.andyweaver.chess.lichess.LichessArchivedGame
 import com.andyweaver.chess.lichess.nameWithRating
 import com.andyweaver.chess.lichess.userMessage
+import com.andyweaver.chess.ui.ChessTheme
 import com.andyweaver.chess.ui.NameWithRating
 import com.thelightphone.sdk.LightScreen
 import com.thelightphone.sdk.LightViewModel
@@ -157,7 +158,7 @@ class HistoryScreen(
         val themeColors by LightThemeController.colors.collectAsState()
         val state by viewModel.state.collectAsState()
 
-        LightTheme(colors = themeColors) {
+        ChessTheme(colors = themeColors) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()

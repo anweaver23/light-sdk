@@ -45,6 +45,8 @@ import com.andyweaver.chess.lichess.userMessage
 import com.andyweaver.chess.newgame.EDGE_UNITS
 import com.andyweaver.chess.newgame.NewGameScreen
 import com.andyweaver.chess.newgame.ROW_VERTICAL_UNITS
+import com.andyweaver.chess.ui.AppHaptics
+import com.andyweaver.chess.ui.ChessTheme
 import com.andyweaver.chess.ui.NameWithRating
 import com.andyweaver.chess.settings.ChessSettings
 import com.andyweaver.chess.settings.ConfiguredAccount
@@ -180,6 +182,12 @@ class HomeScreenViewModel(
     val ownRating: StateFlow<LichessPerf?> = _ownRating
 
     init {
+        // The app-wide haptics fallback (see ui/Haptics.kt). Collected here because Home is
+        // the root screen and so outlives every other one — SettingsViewModel collects it too,
+        // for instant effect when the toggle flips.
+        viewModelScope.launch {
+            settings.hapticFeedback.collect { AppHaptics.fallbackEnabled = it }
+        }
         // React to login/logout: (re)build the client for a new session, or gate to login.
         viewModelScope.launch {
             settings.session.collect { s ->
@@ -534,7 +542,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeSc
             navigateTo({ sa -> BoardScreen(sa, open.gameId, viewModel.token.orEmpty(), open.color) })
         }
 
-        LightTheme(colors = themeColors) {
+        ChessTheme(colors = themeColors) {
           Box(modifier = Modifier.fillMaxSize().background(LightThemeTokens.colors.background)) {
             if (state is HomeScreenViewModel.State.NeedsLogin) {
                 // No stored session — gate to the login screen.

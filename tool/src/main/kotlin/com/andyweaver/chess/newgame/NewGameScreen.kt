@@ -20,6 +20,7 @@ import com.andyweaver.chess.board.LocalGameScreen
 import com.andyweaver.chess.lichess.LichessActionResult
 import com.andyweaver.chess.lichess.LichessApi
 import com.andyweaver.chess.lichess.LichessUser
+import com.andyweaver.chess.ui.ChessTheme
 import com.andyweaver.chess.ui.NameWithRating
 import com.andyweaver.chess.settings.ChessSettings
 import com.andyweaver.chess.settings.PendingSeek
@@ -439,7 +440,7 @@ class NewGameScreen(
             navigateTo({ sa -> LocalGameScreen(sa, req.variantKey, req.across, token) })
         }
 
-        LightTheme(colors = themeColors) {
+        ChessTheme(colors = themeColors) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
