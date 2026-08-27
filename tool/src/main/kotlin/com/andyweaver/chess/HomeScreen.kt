@@ -181,6 +181,13 @@ class HomeScreenViewModel(
     private val _ownRating = MutableStateFlow<LichessPerf?>(null)
     val ownRating: StateFlow<LichessPerf?> = _ownRating
 
+    /**
+     * Ongoing game ids as of the last successful fetch, or null when there is no baseline
+     * yet (fresh login, or the very first fetch — where every id looks "new" and nothing
+     * has actually ended). Used only to notice a game LEAVING the list; see [fetchAndApply].
+     */
+    private var knownOngoingIds: Set<String>? = null
+
     init {
         // The app-wide haptics fallback (see ui/Haptics.kt). Collected here because Home is
         // the root screen and so outlives every other one — SettingsViewModel collects it too,
@@ -200,6 +207,7 @@ class HomeScreenViewModel(
                     loginTokenState.clearText()
                     _state.value = State.NeedsLogin
                     _ownRating.value = null
+                    knownOngoingIds = null
                     autoLogin()
                 } else if (tokenChanged) {
                     stopLive()
@@ -207,6 +215,7 @@ class HomeScreenViewModel(
                     api = LichessApi(s.token)
                     _state.value = State.Loading
                     _ownRating.value = null
+                    knownOngoingIds = null
                     loadOwnRating()
                     if (shown) startLive()
                 }
@@ -450,6 +459,25 @@ class HomeScreenViewModel(
             // (and revive one whose match turns out to have been an early abort —
             // see ChessSettings.reconcileSeeks's doc for the full heuristic).
             settings.reconcileSeeks(user, gamesList.associate { it.gameId to it.plyCount() })
+            // A game LEAVING the ongoing list is the one thing that can change our own
+            // correspondence rating while the app is open, so it's the trigger for
+            // re-reading it — otherwise the rating beside the "Chess" title kept whatever
+            // it was at login, and only an account switch (which rebuilds the client) ever
+            // refreshed it.
+            //
+            // Derived from the list we already fetched rather than driven off the stream's
+            // gameFinish event, because that costs no extra request AND covers the case the
+            // event cannot: the stream is stopped while the board screen is up (see
+            // onScreenHide), so a game finishing on the board — the usual way one ends —
+            // pushes no event this view model ever sees. Comparing against the pre-board
+            // baseline catches it on the refresh that runs when Home comes back.
+            //
+            // An abort or a casual game also ends up here and changes no rating; a wasted
+            // request in that case is cheaper than missing a real update.
+            val ongoingIds = gamesList.mapTo(mutableSetOf()) { it.gameId }
+            val ended = aGameEnded(knownOngoingIds, ongoingIds)
+            knownOngoingIds = ongoingIds
+            if (ended) loadOwnRating()
             _state.value = State.Loaded(
                 Content(
                     games = gamesList.sortedForList(),
@@ -509,6 +537,18 @@ class HomeScreenViewModel(
                 .thenBy { it.secondsLeft ?: Int.MAX_VALUE },
         )
 }
+
+/**
+ * Whether a game has LEFT the ongoing list since the previous fetch — the signal that our
+ * own correspondence rating may have moved. [previous] is null when there is no baseline
+ * yet, which must NOT count as an ending: on the very first fetch after login every id is
+ * unfamiliar and nothing has actually finished.
+ *
+ * Only disappearances matter. Games appearing, or the whole list being unchanged, cannot
+ * change a rating.
+ */
+internal fun aGameEnded(previous: Set<String>?, current: Set<String>): Boolean =
+    previous != null && previous.any { it !in current }
 
 @InitialScreen
 class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeScreenViewModel>(sealedActivity) {
