@@ -61,13 +61,7 @@ fun Modifier.tapHaptic(enabled: Boolean = true): Modifier {
     }
 }
 
-/**
- * How long a browse arrow must be held before it starts repeat-stepping.
- *
- * Deliberately BELOW Compose's ~500ms long-press timeout, which is what arms the bottom
- * bar's move-scrub drag: holding an arrow should read as "step faster", and a hold that
- * turns into a drag hands over to the scrub (see [holdRepeat], which bails out on slop).
- */
+/** How long a browse arrow must be held before it starts repeat-stepping. */
 private const val HOLD_REPEAT_START_MS = 400L
 
 /**
@@ -75,17 +69,28 @@ private const val HOLD_REPEAT_START_MS = 400L
  * arrows. The single tap stays with the caller's own `lightClickable`; this only adds what
  * happens if the finger stays down.
  *
- * Coexisting with move-scrubbing is the whole difficulty, and is why this is a passive
- * observer that consumes nothing:
- *  - a quick tap ends before [HOLD_REPEAT_START_MS], so nothing repeats and the ordinary
- *    click runs;
- *  - a hold that stays put repeats, and the parent bar's `detectDragGesturesAfterLongPress`
- *    emits nothing without an actual drag;
- *  - a hold that MOVES past touch slop abandons repeating, leaving the gesture to the
- *    parent's scrub — so the two never fight over the same finger.
+ * A hold repeats until the finger LIFTS. Moving it neither stops the repeat nor delays it.
+ * Getting that right took two goes, and both failure modes are worth remembering:
  *
- * [onRepeatStarted] lets the caller suppress the click that would otherwise fire when the
- * finger finally lifts after a repeat run.
+ *  1. It used to abandon the repeat outright as soon as the finger crossed touch slop
+ *     (~25px), because the same long press also armed the bottom bar's move-scrub and one
+ *     of them had to yield. On the phone that made holding an arrow unusable — a thumb
+ *     resting on a target drifts a few pixels without meaning to, and stepping would just
+ *     stop. Scrubbing has since moved to its own bar beside the board, so nothing competes
+ *     for this finger and there is nothing left to yield to.
+ *  2. Simply deleting that slop check was NOT enough, which is not obvious. The repeat was
+ *     driven by `withTimeoutOrNull(...) { awaitPointerEvent() }` — i.e. it fired when no
+ *     pointer event had arrived for a while. A finger that keeps moving emits a steady
+ *     stream of move events, so the timeout never expired and the repeat never started at
+ *     all. "Held still" and "held" are different things, and only the second is wanted.
+ *
+ * So the schedule is now kept on the WALL CLOCK ([nextFireAt]): pointer events are read only
+ * to notice the finger lifting, and consuming one no longer pushes the next step back.
+ *
+ * Still a passive observer that consumes nothing, so the chained `lightClickable` keeps
+ * working: a quick tap ends before [HOLD_REPEAT_START_MS], so nothing repeats and the
+ * ordinary click runs. [onRepeatStarted] lets the caller suppress the click that would
+ * otherwise fire when the finger finally lifts after a repeat run.
  */
 @Composable
 fun Modifier.holdRepeat(
@@ -99,30 +104,33 @@ fun Modifier.holdRepeat(
     val currentStarted by rememberUpdatedState(onRepeatStarted)
     val currentInterval by rememberUpdatedState(intervalMs)
     return this.pointerInput(Unit) {
-        val slop = viewConfiguration.touchSlop
         awaitEachGesture {
             // requireUnconsumed = false: the chained clickable claims the gesture, and this
             // only watches it.
             val down = awaitFirstDown(requireUnconsumed = false)
-            val origin = down.position
             var repeating = false
+            // When the next step is due, on the wall clock — NOT a per-event timeout, so a
+            // moving finger can't push it back. See the KDoc.
+            var nextFireAt = System.currentTimeMillis() + HOLD_REPEAT_START_MS
             while (true) {
-                // No event within the deadline means the finger is still down and still
-                // still — i.e. the hold matured, so step once and re-arm at the interval.
-                val event = withTimeoutOrNull(
-                    if (repeating) currentInterval else HOLD_REPEAT_START_MS,
-                ) { awaitPointerEvent() }
+                val remaining = nextFireAt - System.currentTimeMillis()
+                // Wait for a pointer event, but no longer than the step is due for. Null
+                // means the deadline won: the hold has matured, so step and schedule again.
+                val event =
+                    if (remaining <= 0L) null else withTimeoutOrNull(remaining) { awaitPointerEvent() }
                 if (event == null) {
                     if (!repeating) {
                         repeating = true
                         currentStarted()
                     }
                     currentRepeat()
+                    nextFireAt = System.currentTimeMillis() + currentInterval
                     continue
                 }
+                // Ends only on lift, or on the pointer vanishing (cancellation) — never on
+                // movement.
                 val change = event.changes.firstOrNull { it.id == down.id } ?: break
                 if (!change.pressed) break
-                if ((change.position - origin).getDistance() > slop) break
             }
         }
     }

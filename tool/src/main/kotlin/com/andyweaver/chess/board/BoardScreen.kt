@@ -786,7 +786,8 @@ internal fun CrazyhouseReviewBottomBar(
  * This REPLACED a long-press-then-drag scrub on the bottom bars. That could not be made to
  * work: the same long press armed both the scrub and the arrows' press-and-hold repeat, so
  * holding an arrow to step and letting the finger drift even slightly abandoned the repeat
- * and started scrubbing (see Modifier.holdRepeat, which bails out on slop by design).
+ * and started scrubbing. With the scrub moved off the bars, `Modifier.holdRepeat` no longer
+ * has anything to yield to and so no longer stops on movement at all.
  *
  * The drag is RELATIVE, at the same fixed moves-per-pixel rate the old gesture used
  * ([SCRUB_SWEEP_FRACTION]/[SCRUB_SWEEP_PLIES]) — a drag of a given distance covers the same
