@@ -32,6 +32,7 @@ class SettingsViewModel(private val settings: ChessSettings) : LightViewModel<Un
 
     fun toggleShowLegalMoves() = toggle(snapshot.value.showLegalMoves, settings::setShowLegalMoves)
     fun toggleDragAndDrop() = toggle(snapshot.value.dragAndDrop, settings::setDragAndDrop)
+    fun toggleScrubBar() = toggle(snapshot.value.scrubBar, settings::setScrubBar)
 
     /**
      * Advances the "Move step speed" row to the next preset (Slow → Normal → Fast → Slow),

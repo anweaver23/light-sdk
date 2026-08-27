@@ -124,6 +124,8 @@ class LocalGameViewModel(
     // NOTE: read by buildState(), so it MUST stay declared above _uiState (whose initializer
     // calls buildState() during construction).
     private var dragEnabled = false
+    // Declared ABOVE _uiState: buildState() reads it during construction.
+    private var scrubBarEnabled = true
 
     // "Are you sure you want to exit?" overlay — in-person games have no server copy, so
     // leaving mid-game silently loses progress (unlike the online board, whose game lives
@@ -209,6 +211,7 @@ class LocalGameViewModel(
         viewModelScope.launch { settings.showLegalMoves.collect { showLegalMoves = it; render() } }
         viewModelScope.launch { settings.moveStepSpeed.collect { moveStepSpeed = it; render() } }
         viewModelScope.launch { settings.dragAndDrop.collect { dragEnabled = it; render() } }
+        viewModelScope.launch { settings.scrubBar.collect { scrubBarEnabled = it; render() } }
     }
 
     // ----- convenience -----
@@ -616,6 +619,7 @@ class LocalGameViewModel(
             totalPlies = positions.lastIndex,
             moveStepIntervalMs = moveStepSpeed.intervalMs,
             dragEnabled = dragEnabled,
+            scrubBarEnabled = scrubBarEnabled,
             animatingMove = latchAnim(pendingAnim),
         )
     }
@@ -742,12 +746,12 @@ class LocalGameScreen(
                     if (state.variant == Variant.CRAZYHOUSE) {
                         // No read-only pocket row above the board any more — the top player's
                         // pocket lives in the top bar (LocalTopBar), so the board can grow.
-                        Box(
-                            modifier = Modifier
-                                .weight(1f)
-                                .fillMaxWidth()
-                                .padding(horizontal = 0.5f.gridUnitsAsDp()),
-                            contentAlignment = Alignment.Center,
+                        // CenteredBoard rather than a bare centred Box: its own side padding
+                        // is the same 0.5 units this used, and it exposes the gutters the
+                        // scrub bar lives in.
+                        CenteredBoard(
+                            reservedUnits = 0f,
+                            scrubBar = scrubBarSlot(state) { viewModel.seekToFraction(it) },
                         ) {
                             ChessBoard(
                                 state = state,
@@ -758,7 +762,10 @@ class LocalGameScreen(
                     } else {
                         // reservedUnits = 0f and no topBank: the top player's material now
                         // lives in the top bar, so the board takes the full remaining height.
-                        CenteredBoard(reservedUnits = 0f) {
+                        CenteredBoard(
+                            reservedUnits = 0f,
+                            scrubBar = scrubBarSlot(state) { viewModel.seekToFraction(it) },
+                        ) {
                             ChessBoard(
                                 state = state,
                                 onSquareTap = { square, animate -> viewModel.onSquareTap(square, animate) },
@@ -768,7 +775,6 @@ class LocalGameScreen(
                             state = state,
                             onBack = { viewModel.stepBack() },
                             onForward = { viewModel.stepForward() },
-                            onSeek = { viewModel.seekToFraction(it) },
                         )
                     }
                 }
@@ -911,7 +917,6 @@ private fun LocalCrazyhouseBottomBar(
         modifier = Modifier
             .fillMaxWidth()
             .height(4f.gridUnitsAsDp())
-            .moveScrubX(currentFraction = state.viewFraction, totalPlies = state.totalPlies, onSeek = { viewModel.seekToFraction(it) })
             .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {

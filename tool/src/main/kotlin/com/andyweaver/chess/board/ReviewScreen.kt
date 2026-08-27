@@ -349,6 +349,8 @@ class ReviewViewModel(
     // the same ordering trap `pendingAnim` documents just below.
     private var moveStepSpeed: MoveStepSpeed = MoveStepSpeed.DEFAULT
     private var dragEnabled: Boolean = false
+    // Declared ABOVE _uiState: buildState() reads it during construction.
+    private var scrubBarEnabled: Boolean = true
 
     // One-shot slide to play into the next state (see BoardViewModel.buildStepAnim).
     // Declared (and populated for the opening state, below) BEFORE `_uiState` so the
@@ -408,6 +410,9 @@ class ReviewViewModel(
             }
             viewModelScope.launch {
                 prefs.dragAndDrop.collect { dragEnabled = it; render() }
+            }
+            viewModelScope.launch {
+                prefs.scrubBar.collect { scrubBarEnabled = it; render() }
             }
         }
     }
@@ -582,6 +587,7 @@ class ReviewViewModel(
             totalPlies = positions.lastIndex,
             moveStepIntervalMs = moveStepSpeed.intervalMs,
             dragEnabled = dragEnabled,
+            scrubBarEnabled = scrubBarEnabled,
             animatingMove = latchAnim(a.consumeAnim()),
             analysisActive = true,
         )
@@ -642,6 +648,7 @@ class ReviewViewModel(
             totalPlies = positions.lastIndex,
             moveStepIntervalMs = moveStepSpeed.intervalMs,
             dragEnabled = dragEnabled,
+            scrubBarEnabled = scrubBarEnabled,
             animatingMove = latchAnim(pendingAnim),
         )
     }
@@ -808,6 +815,7 @@ class ReviewScreen(
                                 reservedUnits = 0f,
                                 topRightLabel = state.opponentClockLabel,
                                 bottomRightLabel = state.myClockLabel,
+                                scrubBar = scrubBarSlot(state) { viewModel.seekToFraction(it) },
                             ) {
                                 ChessBoard(
                                     state = state,
@@ -823,7 +831,6 @@ class ReviewScreen(
                                     onForward = { viewModel.stepForward() },
                                     onSkipStart = { viewModel.stepToStart() },
                                     onSkipEnd = { viewModel.stepToEnd() },
-                                    onSeek = { viewModel.seekToFraction(it) },
                                     onPocketTap = if (state.opponentPocketTappable) {
                                         null
                                     } else {
@@ -837,7 +844,6 @@ class ReviewScreen(
                                     onForward = { viewModel.stepForward() },
                                     onSkipStart = { viewModel.stepToStart() },
                                     onSkipEnd = { viewModel.stepToEnd() },
-                                    onSeek = { viewModel.seekToFraction(it) },
                                 )
                             }
                         }
@@ -869,6 +875,7 @@ class ReviewScreen(
                                 },
                                 topRightLabel = state.opponentClockLabel,
                                 bottomRightLabel = state.myClockLabel,
+                                scrubBar = scrubBarSlot(state) { viewModel.seekToFraction(it) },
                             ) {
                                 ChessBoard(
                                     state = state,
@@ -885,7 +892,6 @@ class ReviewScreen(
                                 onForward = { viewModel.stepForward() },
                                 onSkipStart = { viewModel.stepToStart() },
                                 onSkipEnd = { viewModel.stepToEnd() },
-                                onSeek = { viewModel.seekToFraction(it) },
                             )
                         }
                     }
@@ -1032,14 +1038,12 @@ private fun CrazyhouseAnalysisBottomBar(
     onForward: () -> Unit,
     onSkipStart: () -> Unit,
     onSkipEnd: () -> Unit,
-    onSeek: (Float) -> Unit,
     onPocketTap: ((PieceType) -> Unit)?,
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .height(4f.gridUnitsAsDp())
-            .moveScrubX(currentFraction = state.viewFraction, totalPlies = state.totalPlies, onSeek = onSeek)
             .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {

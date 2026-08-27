@@ -26,6 +26,7 @@ data class ChessSettingsSnapshot(
     val showLegalMoves: Boolean = true,
     val dragAndDrop: Boolean = false,
     val moveStepSpeed: MoveStepSpeed = MoveStepSpeed.DEFAULT,
+    val scrubBar: Boolean = true,
     // v1: removed — may re-add
     // val showTimeRemaining: Boolean = true,
     // val showLastMove: Boolean = true,
@@ -266,6 +267,18 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
      */
     val dragAndDrop: Flow<Boolean> = booleanFlow(Keys.DRAG_AND_DROP, default = false)
 
+    /**
+     * Show the vertical move-scrub bar in the gutter beside the board.
+     *
+     * OFF means there is no scrubbing anywhere — the browse arrows are the only way
+     * through the move list. There is deliberately no third "scrub on the bottom bar"
+     * mode: that was the original design and it fought the arrows' own press-and-hold
+     * repeat, since both were armed by the same long press. Barely sliding a finger while
+     * holding an arrow to step would abandon the repeat and start scrubbing instead. The
+     * side bar has no such overlap — it is a separate target that needs no arming.
+     */
+    val scrubBar: Flow<Boolean> = booleanFlow(Keys.SCRUB_BAR, default = true)
+
     /** How fast a held-down browse arrow repeat-steps through moves. */
     val moveStepSpeed: Flow<MoveStepSpeed> =
         dataStore.data.map { prefs -> MoveStepSpeed.fromKey(prefs[Keys.MOVE_STEP_SPEED]) }
@@ -273,30 +286,39 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
     // val showTimeRemaining: Flow<Boolean> = booleanFlow(Keys.SHOW_TIME_REMAINING, default = true)
     // val showLastMove: Flow<Boolean> = booleanFlow(Keys.SHOW_LAST_MOVE, default = true)
 
-    /** All settings combined into one snapshot flow. */
+    /**
+     * All settings combined into one snapshot flow.
+     *
+     * Nested rather than flat because `combine` is only overloaded up to five flows; the
+     * sixth and beyond fold in with `copy`.
+     */
     val snapshot: Flow<ChessSettingsSnapshot> = combine(
-        notificationsEnabled,
-        confirmMoves,
-        showLegalMoves,
-        dragAndDrop,
-        moveStepSpeed,
-    ) { notifications, confirm, showLegal, drag, stepSpeed ->
-        ChessSettingsSnapshot(
-            notificationsEnabled = notifications,
-            confirmMoves = confirm,
-            showLegalMoves = showLegal,
-            dragAndDrop = drag,
-            moveStepSpeed = stepSpeed,
-            // v1: removed — may re-add
-            // showTimeRemaining = showTime,
-            // showLastMove = showLast,
-        )
-    }
+        combine(
+            notificationsEnabled,
+            confirmMoves,
+            showLegalMoves,
+            dragAndDrop,
+            moveStepSpeed,
+        ) { notifications, confirm, showLegal, drag, stepSpeed ->
+            ChessSettingsSnapshot(
+                notificationsEnabled = notifications,
+                confirmMoves = confirm,
+                showLegalMoves = showLegal,
+                dragAndDrop = drag,
+                moveStepSpeed = stepSpeed,
+                // v1: removed — may re-add
+                // showTimeRemaining = showTime,
+                // showLastMove = showLast,
+            )
+        },
+        scrubBar,
+    ) { base, scrub -> base.copy(scrubBar = scrub) }
 
     suspend fun setNotificationsEnabled(enabled: Boolean) = setBoolean(Keys.NOTIFICATIONS_ENABLED, enabled)
     suspend fun setConfirmMoves(enabled: Boolean) = setBoolean(Keys.CONFIRM_MOVES, enabled)
     suspend fun setShowLegalMoves(enabled: Boolean) = setBoolean(Keys.SHOW_LEGAL_MOVES, enabled)
     suspend fun setDragAndDrop(enabled: Boolean) = setBoolean(Keys.DRAG_AND_DROP, enabled)
+    suspend fun setScrubBar(enabled: Boolean) = setBoolean(Keys.SCRUB_BAR, enabled)
 
     suspend fun setMoveStepSpeed(speed: MoveStepSpeed) {
         dataStore.edit { prefs -> prefs[Keys.MOVE_STEP_SPEED] = speed.key }
@@ -576,6 +598,7 @@ class ChessSettings(private val dataStore: DataStore<Preferences>) {
         val CONFIRM_MOVES = booleanPreferencesKey("chess_confirm_moves")
         val SHOW_LEGAL_MOVES = booleanPreferencesKey("chess_show_legal_moves")
         val DRAG_AND_DROP = booleanPreferencesKey("chess_drag_and_drop")
+        val SCRUB_BAR = booleanPreferencesKey("chess_scrub_bar")
         val MOVE_STEP_SPEED = stringPreferencesKey("chess_move_step_speed")
         val SELF_ABORTS = stringSetPreferencesKey("chess_self_aborts")
         val AUTH_TOKEN = stringPreferencesKey("chess_auth_token")

@@ -96,6 +96,11 @@ class SettingsScreen(sealedActivity: SealedLightActivity) :
                         enabled = snapshot.dragAndDrop,
                         onClick = { viewModel.toggleDragAndDrop() },
                     )
+                    SettingsToggleRow(
+                        label = "Scrub bar",
+                        enabled = snapshot.scrubBar,
+                        onClick = { viewModel.toggleScrubBar() },
+                    )
                     SettingsOptionRow(
                         label = "Move step speed",
                         value = snapshot.moveStepSpeed.label,

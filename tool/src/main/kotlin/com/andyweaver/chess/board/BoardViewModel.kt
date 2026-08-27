@@ -495,6 +495,13 @@ data class BoardUiState(
      * and unaffected by this; dragging is purely additive. Default false — opt-in.
      */
     val dragEnabled: Boolean = false,
+    /**
+     * Show the vertical move-scrub bar in the gutter beside the board (the "Scrub bar"
+     * setting). When off there is no scrubbing at all and the browse arrows are the only
+     * way through the move list. Defaults to false so a state built without it — a test,
+     * or a screen that has no move history to scrub — shows nothing.
+     */
+    val scrubBarEnabled: Boolean = false,
     /** A one-shot piece slide to play for the transition into this position (or null). */
     val animatingMove: AnimatedMove? = null,
     val message: String? = null,
@@ -685,6 +692,7 @@ class BoardViewModel(
     private var showLegalMoves: Boolean = true
     private var moveStepSpeed: MoveStepSpeed = MoveStepSpeed.DEFAULT
     private var dragEnabled: Boolean = false
+    private var scrubBarEnabled: Boolean = true
 
     private var streamJob: Job? = null
 
@@ -712,6 +720,7 @@ class BoardViewModel(
         }
         viewModelScope.launch { settings.moveStepSpeed.collect { moveStepSpeed = it; recompute() } }
         viewModelScope.launch { settings.dragAndDrop.collect { dragEnabled = it; recompute() } }
+        viewModelScope.launch { settings.scrubBar.collect { scrubBarEnabled = it; recompute() } }
         recompute()
     }
 
@@ -1922,6 +1931,7 @@ class BoardViewModel(
             totalPlies = positions.lastIndex,
             moveStepIntervalMs = moveStepSpeed.intervalMs,
             dragEnabled = dragEnabled,
+            scrubBarEnabled = scrubBarEnabled,
             animatingMove = pendingAnim,
             message = message,
             chatMessages = chatMessages.toList(),
@@ -2021,6 +2031,7 @@ class BoardViewModel(
             totalPlies = positions.lastIndex,
             moveStepIntervalMs = moveStepSpeed.intervalMs,
             dragEnabled = dragEnabled,
+            scrubBarEnabled = scrubBarEnabled,
             animatingMove = analysisPendingAnim,
             message = null,
             analysisActive = true,

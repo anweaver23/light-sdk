@@ -12,6 +12,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.gestures.awaitEachGesture
+import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
 import androidx.compose.foundation.text.input.clearText
@@ -24,6 +26,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
@@ -155,12 +158,30 @@ internal const val ARRIVAL_ANIM_DELAY_MS = 350
 // games: a tiny finger movement jumped many moves.)
 //
 // Calibration, as one speed knob plus a reference span:
-//   • a drag of SCRUB_SWEEP_FRACTION of the bar's width advances SCRUB_SWEEP_PLIES moves.
+//   • a drag of SCRUB_SWEEP_FRACTION of the track's length advances SCRUB_SWEEP_PLIES moves.
 // That fixes the rate (moves per pixel). A game longer than SCRUB_SWEEP_PLIES just needs
 // more than one sweep to cross; a shorter one, less. Tune SCRUB_SWEEP_FRACTION for overall
 // speed (higher = slower/finer) — Andy's starting point is 0.75.
 private const val SCRUB_SWEEP_FRACTION = 0.75f
 private const val SCRUB_SWEEP_PLIES = 40f
+
+// ---- The vertical move-scrub bar (MoveScrubBar) --------------------------------------
+// Drawn in the gutter beside the board, so it costs the board no space: the board is a
+// fixed square centred by two equal-weight gutters (see CenteredBoard), and this occupies
+// the right one. Andy's call over the alternative of scrubbing on the bottom bar, which
+// fought the browse arrows' press-and-hold repeat for the same finger.
+
+/** Width of the drawn track. The TOUCHABLE width is the whole gutter — see [MoveScrubBar]. */
+private val SCRUB_TRACK_WIDTH = 3.dp
+
+/** Gap between the board's edge and the track. */
+private const val SCRUB_TRACK_GAP_UNITS = 0.4f
+
+/** Height of the thumb marking the current position. */
+private const val SCRUB_THUMB_HEIGHT_UNITS = 1.6f
+
+/** Track brightness. The thumb draws at full [MARK_SHADE]; the track sits behind it. */
+private const val SCRUB_TRACK_ALPHA = 0.35f
 
 // Chat: the small text size shared by a message's sender name and by Lichess's own
 // system notes, both of which are also drawn dimmed (`lighten`). The message BODY
@@ -455,12 +476,12 @@ class BoardScreen(
                                     null
                                 },
                             )
-                            Box(
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .fillMaxWidth()
-                                    .padding(horizontal = 0.5f.gridUnitsAsDp()),
-                                contentAlignment = Alignment.Center,
+                            // CenteredBoard rather than a bare centred Box: its own side
+                            // padding is the same 0.5 units this used, and it exposes the
+                            // gutters the scrub bar lives in.
+                            CenteredBoard(
+                                reservedUnits = 0f,
+                                scrubBar = scrubBarSlot(state) { viewModel.seekToFraction(it) },
                             ) {
                                 ChessBoard(
                                     state = state,
@@ -491,6 +512,7 @@ class BoardScreen(
                                         startPad = inset,
                                     )
                                 },
+                                scrubBar = scrubBarSlot(state) { viewModel.seekToFraction(it) },
                             ) {
                                 ChessBoard(
                                     state = state,
@@ -563,7 +585,6 @@ private fun BottomControls(state: BoardUiState, viewModel: BoardViewModel) {
                     },
                     onBack = { viewModel.stepBack() },
                     onForward = { viewModel.stepForward() },
-                    onSeek = { viewModel.seekToFraction(it) },
                 )
             } else {
                 // Standard: the bottom bar carries my captured pieces (left-aligned)
@@ -573,7 +594,6 @@ private fun BottomControls(state: BoardUiState, viewModel: BoardViewModel) {
                     state = state,
                     onBack = { viewModel.stepBack() },
                     onForward = { viewModel.stepForward() },
-                    onSeek = { viewModel.seekToFraction(it) },
                 )
             }
         }
@@ -680,13 +700,11 @@ internal fun MaterialReviewBottomBar(
     onForward: () -> Unit,
     onSkipStart: () -> Unit,
     onSkipEnd: () -> Unit,
-    onSeek: (Float) -> Unit,
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .height(4f.gridUnitsAsDp())
-            .moveScrubX(currentFraction = state.viewFraction, totalPlies = state.totalPlies, onSeek = onSeek)
             .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -725,13 +743,11 @@ internal fun CrazyhouseReviewBottomBar(
     onForward: () -> Unit,
     onSkipStart: () -> Unit,
     onSkipEnd: () -> Unit,
-    onSeek: (Float) -> Unit,
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .height(4f.gridUnitsAsDp())
-            .moveScrubX(currentFraction = state.viewFraction, totalPlies = state.totalPlies, onSeek = onSeek)
             .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -762,46 +778,106 @@ internal fun CrazyhouseReviewBottomBar(
 }
 
 /**
- * Long-press-then-drag to scrub through move history. The long press arms it (so quick taps
- * on the arrows still work); horizontal drag then advances the game at a FIXED moves-per-pixel
- * rate (see [SCRUB_SWEEP_FRACTION]/[SCRUB_SWEEP_PLIES]) — so the feel is the same regardless
- * of how many moves the game has. [totalPlies] is the game's move count (0 = nothing to
- * scrub); [onSeek] receives the resulting 0→1 position fraction.
+ * The vertical move-scrub bar: a dim full-height track with a thumb marking the position
+ * currently on the board. Touch anywhere along it and drag to move through the game; no
+ * long-press arming, because unlike the bottom bar it is a target of its own with nothing
+ * else competing for the finger.
+ *
+ * This REPLACED a long-press-then-drag scrub on the bottom bars. That could not be made to
+ * work: the same long press armed both the scrub and the arrows' press-and-hold repeat, so
+ * holding an arrow to step and letting the finger drift even slightly abandoned the repeat
+ * and started scrubbing (see Modifier.holdRepeat, which bails out on slop by design).
+ *
+ * The drag is RELATIVE, at the same fixed moves-per-pixel rate the old gesture used
+ * ([SCRUB_SWEEP_FRACTION]/[SCRUB_SWEEP_PLIES]) — a drag of a given distance covers the same
+ * number of moves in a 200-move game as in a 20-move one. It deliberately does NOT jump to
+ * an absolute position under the finger: that makes the sensitivity depend on game length,
+ * which is exactly what the fixed-rate mapping was introduced to fix.
+ *
+ * Sized by the caller to the board's own height, so the track spans exactly the board.
+ * Renders nothing when there is nothing to scrub (a game with no moves yet).
  */
-internal fun Modifier.moveScrubX(
-    currentFraction: Float,
-    totalPlies: Int,
-    onSeek: (Float) -> Unit
-): Modifier = composed {
-    val currentFractionState by rememberUpdatedState(currentFraction)
-    val totalPliesState by rememberUpdatedState(totalPlies)
-    val onSeekState by rememberUpdatedState(onSeek)
+/**
+ * The [MoveScrubBar] slot for [CenteredBoard], or null when the "Scrub bar" setting is off.
+ *
+ * Nullability matters beyond just skipping the draw: [CenteredBoard] uses it to decide which
+ * gutter the review clocks go in, so "off" has to be distinguishable from "on but empty".
+ * Deliberately keyed on the SETTING ONLY — not on whether the game has any moves yet — so
+ * the clocks can't hop from one side to the other when the first move lands. An enabled bar
+ * with nothing to scrub simply draws nothing.
+ */
+internal fun scrubBarSlot(
+    state: BoardUiState,
+    onSeek: (Float) -> Unit,
+): (@Composable () -> Unit)? =
+    if (state.scrubBarEnabled) {
+        { MoveScrubBar(state, onSeek) }
+    } else {
+        null
+    }
 
-    pointerInput(Unit) {
-        val width = size.width.toFloat()
-        if (width <= 0f) return@pointerInput
+@Composable
+internal fun MoveScrubBar(
+    state: BoardUiState,
+    onSeek: (Float) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    if (!state.scrubBarEnabled || state.totalPlies <= 0) return
 
-        var startX = 0f
-        var startFraction = 0f
+    val currentFraction by rememberUpdatedState(state.viewFraction)
+    val totalPlies by rememberUpdatedState(state.totalPlies)
+    val currentSeek by rememberUpdatedState(onSeek)
+    val thumbHeight = SCRUB_THUMB_HEIGHT_UNITS.gridUnitsAsDp()
 
-        detectDragGesturesAfterLongPress(
-            onDragStart = { offset ->
-                // Capture the baseline at the moment the long-press is recognized
-                startX = offset.x
-                startFraction = currentFractionState
+    BoxWithConstraints(
+        // The whole gutter is touchable even though only a thin track is drawn — a 3dp
+        // hit target would be unusable. Height comes from the caller (the board's edge).
+        modifier = modifier
+            // fillMaxSize, not just height: the drawn track is 3dp wide, which would be an
+            // unusable hit target, so the recognizer takes the whole gutter.
+            .fillMaxSize()
+            .pointerInput(Unit) {
+                val length = size.height.toFloat()
+                if (length <= 0f) return@pointerInput
+
+                var startY = 0f
+                var startFraction = 0f
+                detectDragGestures(
+                    onDragStart = { offset ->
+                        startY = offset.y
+                        startFraction = currentFraction
+                    },
+                    onDrag = { change, _ ->
+                        change.consume()
+                        val plies = totalPlies
+                        if (plies > 0) {
+                            // Downward drag advances the game: the thumb tracks the finger,
+                            // and later moves sit lower on the track.
+                            val deltaY = change.position.y - startY
+                            val movesMoved = deltaY * SCRUB_SWEEP_PLIES / (length * SCRUB_SWEEP_FRACTION)
+                            currentSeek((startFraction + movesMoved / plies).coerceIn(0f, 1f))
+                        }
+                    },
+                )
             },
-            onDrag = { change, _ ->
-                change.consume()
-                val plies = totalPliesState
-                if (plies > 0) {
-                    val deltaX = change.position.x - startX
-                    // Constant rate: SCRUB_SWEEP_PLIES moves per (width * SCRUB_SWEEP_FRACTION)
-                    // px, converted to a position fraction by dividing by the game's own ply
-                    // count — so the drag distance per move is the same in a short game as a long one.
-                    val movesMoved = deltaX * SCRUB_SWEEP_PLIES / (width * SCRUB_SWEEP_FRACTION)
-                    onSeekState((startFraction + movesMoved / plies).coerceIn(0f, 1f))
-                }
-            },
+    ) {
+        val travel = maxHeight - thumbHeight
+        Box(
+            modifier = Modifier
+                .align(Alignment.CenterStart)
+                .padding(start = SCRUB_TRACK_GAP_UNITS.gridUnitsAsDp())
+                .width(SCRUB_TRACK_WIDTH)
+                .fillMaxHeight()
+                .background(MARK_SHADE.copy(alpha = SCRUB_TRACK_ALPHA)),
+        )
+        Box(
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .padding(start = SCRUB_TRACK_GAP_UNITS.gridUnitsAsDp())
+                .offset(y = travel * state.viewFraction.coerceIn(0f, 1f))
+                .width(SCRUB_TRACK_WIDTH)
+                .height(thumbHeight)
+                .background(MARK_SHADE),
         )
     }
 }
@@ -887,10 +963,15 @@ internal fun ColumnScope.CenteredBoard(
     reservedUnits: Float,
     topBank: @Composable (inset: Dp) -> Unit = {},
     bottomBank: @Composable (inset: Dp) -> Unit = {},
-    // Optional review clocks: shown rotated 90° in the inset at the board's right edge —
+    // Optional review clocks: shown rotated 90° in the inset beside the board —
     // opponent's near the top, mine near the bottom — without shifting the centered board.
     topRightLabel: String? = null,
     bottomRightLabel: String? = null,
+    // The move-scrub bar (see [MoveScrubBar]), sized to the board's height. It takes the
+    // RIGHT gutter, which is also where the clocks would go, so when it's present the
+    // clocks move to the LEFT gutter rather than being drawn over. Both gutters are the
+    // same width, so the clocks read identically either side; the board never moves.
+    scrubBar: (@Composable () -> Unit)? = null,
     board: @Composable () -> Unit,
 ) {
     BoxWithConstraints(
@@ -909,20 +990,36 @@ internal fun ColumnScope.CenteredBoard(
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center,
             ) {
-                // Equal-weight side gutters keep the fixed-size board centered; the right
-                // gutter also carries the rotated clocks, flush to the board's edge.
+                // Equal-weight side gutters keep the fixed-size board centered; the
+                // gutters also carry the rotated clocks and the scrub bar, flush to the
+                // board's edge. Both gutter Boxes are `height(edge)`, so anything in them
+                // spans exactly the board.
+                val clocksOnLeft = scrubBar != null
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Spacer(modifier = Modifier.weight(1f))
+                    Box(modifier = Modifier.weight(1f).height(edge)) {
+                        if (clocksOnLeft) {
+                            // Mirrored: flush to the board's edge means End on this side.
+                            topRightLabel?.let {
+                                RotatedClock(it, Modifier.align(Alignment.TopEnd).padding(end = 0.2f.gridUnitsAsDp(), top = 1f.gridUnitsAsDp()))
+                            }
+                            bottomRightLabel?.let {
+                                RotatedClock(it, Modifier.align(Alignment.BottomEnd).padding(end = 0.2f.gridUnitsAsDp(), bottom = 0.5f.gridUnitsAsDp()))
+                            }
+                        }
+                    }
                     Box(modifier = Modifier.size(edge)) { board() }
                     Box(modifier = Modifier.weight(1f).height(edge)) {
-                        topRightLabel?.let {
-                            RotatedClock(it, Modifier.align(Alignment.TopStart).padding(start = 0.2f.gridUnitsAsDp(), top = 1f.gridUnitsAsDp()))
-                        }
-                        bottomRightLabel?.let {
-                            RotatedClock(it, Modifier.align(Alignment.BottomStart).padding(start = 0.2f.gridUnitsAsDp(), bottom = 0.5f.gridUnitsAsDp()))
+                        scrubBar?.invoke()
+                        if (!clocksOnLeft) {
+                            topRightLabel?.let {
+                                RotatedClock(it, Modifier.align(Alignment.TopStart).padding(start = 0.2f.gridUnitsAsDp(), top = 1f.gridUnitsAsDp()))
+                            }
+                            bottomRightLabel?.let {
+                                RotatedClock(it, Modifier.align(Alignment.BottomStart).padding(start = 0.2f.gridUnitsAsDp(), bottom = 0.5f.gridUnitsAsDp()))
+                            }
                         }
                     }
                 }
@@ -952,10 +1049,14 @@ internal fun ChessBoard(
     onSquareTap: ((Int, Boolean) -> Unit)?,
     // Long-press anywhere on the board enters the analysis sandbox — or, if it's already
     // open, resets it back to the snapshot (see BoardViewModel.onBoardLongPress; the
-    // ActionMenuOverlay "Analysis" row is the other entry point). Defaults to a no-op so
-    // ReviewScreen and LocalGameScreen — which don't offer analysis — need no changes at
-    // their call sites.
-    onLongPress: () -> Unit = {},
+    // ActionMenuOverlay "Analysis" row is the other entry point).
+    //
+    // NULLABLE, not a `{}` default, because it is what decides whether the squares get a
+    // gesture recognizer at all. The review board passes a real handler while passing
+    // onSquareTap = null (it's read-only until analysis opens), and a `{}` default would
+    // have left no way to tell "offers analysis" from "offers nothing" — which is exactly
+    // why long-press-to-analysis silently did nothing in reviews.
+    onLongPress: (() -> Unit)? = null,
 ) {
     BoxWithConstraints(
         modifier = Modifier.fillMaxSize(),
@@ -1026,7 +1127,7 @@ internal fun ChessBoard(
         //    press-hold-then-move still enters analysis rather than dragging.
         //  * tapHaptic is a non-consuming awaitFirstDown observer, so it is unaffected in
         //    either direction (and a drag still gives the same pick-up haptic as a tap).
-        // Nothing here touches the bottom bars, so moveScrubX is untouched.
+        // Nothing here touches the gutter, so the scrub bar is untouched.
         val density = LocalDensity.current
         val squarePx = with(density) { squareSize.toPx() }
         val dragActive = state.dragEnabled && onSquareTap != null
@@ -1034,6 +1135,20 @@ internal fun ChessBoard(
         // current position, in board-local px.
         var dragFrom by remember { mutableStateOf<Int?>(null) }
         var dragPos by remember { mutableStateOf(Offset.Zero) }
+        // Where the finger actually LANDED, which is NOT what detectDragGestures reports.
+        // Its onDragStart fires with the position at the moment touch slop was exceeded
+        // (`onDragStart.invoke(drag.position)`), i.e. already ~25px along the swipe. A
+        // square is only ~100px, so picking up a piece near a square edge and dragging
+        // toward its neighbour resolved the ORIGIN to that neighbour — grabbing the wrong
+        // piece, or an empty square, which makes the whole drag inert. That is the
+        // "sometimes hard to grab the piece" symptom: the grab box was effectively the
+        // square offset a quarter-square in the drag's own direction.
+        //
+        // Recorded here by a passive observer that consumes nothing (the same construction
+        // Modifier.tapHaptic uses), so it coexists with the drag recognizer and the
+        // squares' combinedClickable instead of competing for the gesture. The grab box is
+        // then exactly the square under the finger — no enlargement needed.
+        var downPos by remember { mutableStateOf(Offset.Zero) }
         val currentState by rememberUpdatedState(state)
         val currentTap by rememberUpdatedState(onSquareTap)
 
@@ -1043,11 +1158,16 @@ internal fun ChessBoard(
             // Keyed on the square size only: `state.flipped` and the tap callback are read
             // through rememberUpdatedState so an in-person board flipping mid-game (or a
             // fresh method reference each recomposition) doesn't restart the recognizer.
-            Modifier.pointerInput(squarePx) {
+            Modifier.pointerInput(Unit) {
+                awaitEachGesture {
+                    downPos = awaitFirstDown(requireUnconsumed = false).position
+                }
+            }.pointerInput(squarePx) {
                 detectDragGestures(
-                    onDragStart = { offset ->
+                    onDragStart = {
                         val s = currentState
-                        val from = squareAtOffset(offset, squarePx, s.flipped)
+                        // downPos, not the callback's offset — see above.
+                        val from = squareAtOffset(downPos, squarePx, s.flipped)
                         val piece = from?.let { s.board.getOrNull(it) }
                         if (from == null || piece == null) {
                             // Nothing to pick up. The gesture still runs (and still
@@ -1057,7 +1177,7 @@ internal fun ChessBoard(
                             dragFrom = null
                         } else {
                             dragFrom = from
-                            dragPos = offset
+                            dragPos = downPos
                             // The pick-up tap — skipped when this square is ALREADY the
                             // selection, because tapping an already-selected square
                             // deselects it (BoardViewModel.onSquareTap) and the first of
@@ -1490,13 +1610,11 @@ internal fun CrazyhousePocketBar(
     onTap: ((PieceType) -> Unit)?,
     onBack: () -> Unit,
     onForward: () -> Unit,
-    onSeek: (Float) -> Unit,
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .height(4f.gridUnitsAsDp())
-            .moveScrubX(currentFraction = state.viewFraction, totalPlies = state.totalPlies, onSeek = onSeek)
             .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -1531,13 +1649,11 @@ internal fun MaterialBottomBar(
     state: BoardUiState,
     onBack: () -> Unit,
     onForward: () -> Unit,
-    onSeek: (Float) -> Unit,
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .height(4f.gridUnitsAsDp())
-            .moveScrubX(currentFraction = state.viewFraction, totalPlies = state.totalPlies, onSeek = onSeek)
             .padding(horizontal = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -1633,7 +1749,8 @@ private fun SquareCell(
     board: List<Piece?>,
     // Null on a read-only board — see [ChessBoard].
     onSquareTap: ((Int, Boolean) -> Unit)?,
-    onLongPress: () -> Unit = {},
+    // Null when this board offers no analysis sandbox — see [ChessBoard].
+    onLongPress: (() -> Unit)? = null,
     hidePiece: Boolean = false,
     // False while a move slide is in flight — the checkmate king only turns sideways once
     // the mating move has landed, so the rotation reads as a beat AFTER the move, not during.
@@ -1665,15 +1782,20 @@ private fun SquareCell(
             // pointerInput long-press detector) avoids two competing recognizers on
             // the same pointer input — the standard Compose way to layer tap +
             // long-press on the same target.
+            //
+            // Installed when EITHER taps or long-press is offered: a read-only review
+            // board still needs the recognizer so long-press can open analysis, even
+            // though its onClick is a no-op (and tapHaptic above stays off, so a tap
+            // that does nothing still feels like nothing).
             .then(
-                if (onSquareTap == null) {
+                if (onSquareTap == null && onLongPress == null) {
                     Modifier
                 } else {
                     Modifier.combinedClickable(
                         interactionSource = null,
                         indication = null,
                         onLongClick = onLongPress,
-                        onClick = { onSquareTap(square, true) },
+                        onClick = { onSquareTap?.invoke(square, true) },
                     )
                 },
             ),
