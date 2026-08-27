@@ -1070,8 +1070,8 @@ class BoardViewModel(
 
     // ----- move interaction -----
 
-    fun onSquareTap(square: Int) {
-        if (analysisActive) { onAnalysisSquareTap(square); return }
+    fun onSquareTap(square: Int, animate: Boolean = true) {
+        if (analysisActive) { onAnalysisSquareTap(square, animate); return }
         if (offerAwaitingResponse()) return
         val positions = replay.positions
         // Read-only while a move is pending/in-flight, while picking a promotion
@@ -1085,7 +1085,7 @@ class BoardViewModel(
         // Crazyhouse: a pocket piece is picked up — this tap chooses where to drop it.
         val drop = selectedDrop
         if (drop != null) {
-            if (square in dropTargets) commitDrop(drop, square) else clearSelectionAndRecompute()
+            if (square in dropTargets) commitDrop(drop, square, animate) else clearSelectionAndRecompute()
             return
         }
 
@@ -1099,7 +1099,7 @@ class BoardViewModel(
 
         when {
             square == selected -> clearSelectionAndRecompute()
-            square in legalDests -> makeMove(selected, square)
+            square in legalDests -> makeMove(selected, square, animate)
             piece != null && piece.color == myColor -> select(square, latest)
             else -> clearSelectionAndRecompute()
         }
@@ -1138,12 +1138,12 @@ class BoardViewModel(
         recompute()
     }
 
-    private fun commitDrop(type: PieceType, square: Int) {
+    private fun commitDrop(type: PieceType, square: Int, animate: Boolean = true) {
         clearSelection()
-        stage(Move(from = square, to = square, drop = type))
+        stage(Move(from = square, to = square, drop = type), animate = animate)
     }
 
-    private fun makeMove(from: Int, to: Int) {
+    private fun makeMove(from: Int, to: Int, animate: Boolean = true) {
         val latest = replay.finalPosition
         val isPromotion = latest.pieceAt(from)?.type == PieceType.PAWN &&
             (Square.rank(to) == 0 || Square.rank(to) == 7)
@@ -1154,15 +1154,15 @@ class BoardViewModel(
             recompute()
             return
         }
-        commitMove(from, to, promotion = null)
+        commitMove(from, to, promotion = null, animate = animate)
     }
 
     /** User picked a promotion piece from the picker. */
-    fun choosePromotion(type: PieceType) {
-        if (analysisActive) { chooseAnalysisPromotion(type); return }
+    fun choosePromotion(type: PieceType, animate: Boolean = true) {
+        if (analysisActive) { chooseAnalysisPromotion(type, animate); return }
         val (from, to) = pendingPromotion ?: return
         pendingPromotion = null
-        commitMove(from, to, promotion = type)
+        commitMove(from, to, promotion = type, animate = animate)
     }
 
     fun cancelPromotion() {
@@ -1172,7 +1172,7 @@ class BoardViewModel(
         recompute()
     }
 
-    private fun commitMove(from: Int, to: Int, promotion: PieceType?) {
+    private fun commitMove(from: Int, to: Int, promotion: PieceType?, animate: Boolean = true) {
         val latest = replay.finalPosition
         val suffix = when (promotion) {
             PieceType.QUEEN -> "q"
@@ -1188,13 +1188,13 @@ class BoardViewModel(
             recompute()
             return
         }
-        stage(move)
+        stage(move, animate = animate)
     }
 
     // Stage a move: hold it for confirmation, or submit immediately if confirm-moves is off.
-    private fun stage(move: Move) {
+    private fun stage(move: Move, animate: Boolean = true) {
         pendingMove = move
-        pendingAnim = buildMoveAnim(replay.finalPosition, move)
+        pendingAnim = if (animate) buildMoveAnim(replay.finalPosition, move) else null
         if (confirmMoves) {
             awaitingServer = false
             recompute()
@@ -1350,7 +1350,7 @@ class BoardViewModel(
         }
     }
 
-    private fun onAnalysisSquareTap(square: Int) {
+    fun onAnalysisSquareTap(square: Int, animate: Boolean = true) {
         if (analysisPendingPromotion != null) return
         // Moves are played from the VIEWED position, not the tip: stepping back and
         // playing something different truncates the line there and continues from it
@@ -1359,7 +1359,7 @@ class BoardViewModel(
 
         val drop = analysisSelectedDrop
         if (drop != null) {
-            if (square in analysisDropTargets) commitAnalysisDrop(drop, square) else clearAnalysisSelectionAndRecompute()
+            if (square in analysisDropTargets) commitAnalysisDrop(drop, square, animate) else clearAnalysisSelectionAndRecompute()
             return
         }
 
@@ -1373,7 +1373,7 @@ class BoardViewModel(
 
         when {
             square == selected -> clearAnalysisSelectionAndRecompute()
-            square in analysisLegalDests -> makeAnalysisMove(pos, selected, square)
+            square in analysisLegalDests -> makeAnalysisMove(pos, selected, square, animate)
             piece != null && piece.color == pos.sideToMove -> selectAnalysis(square, pos)
             else -> clearAnalysisSelectionAndRecompute()
         }
@@ -1405,12 +1405,12 @@ class BoardViewModel(
         recompute()
     }
 
-    private fun commitAnalysisDrop(type: PieceType, square: Int) {
+    private fun commitAnalysisDrop(type: PieceType, square: Int, animate: Boolean = true) {
         clearAnalysisSelection()
-        applyAnalysisMove(Move(from = square, to = square, drop = type))
+        applyAnalysisMove(Move(from = square, to = square, drop = type), animate = animate)
     }
 
-    private fun makeAnalysisMove(pos: Position, from: Int, to: Int) {
+    private fun makeAnalysisMove(pos: Position, from: Int, to: Int, animate: Boolean = true) {
         val isPromotion = pos.pieceAt(from)?.type == PieceType.PAWN &&
             (Square.rank(to) == 0 || Square.rank(to) == 7)
         if (isPromotion) {
@@ -1419,16 +1419,16 @@ class BoardViewModel(
             recompute()
             return
         }
-        commitAnalysisMove(pos, from, to, promotion = null)
+        commitAnalysisMove(pos, from, to, promotion = null, animate = animate)
     }
 
-    private fun chooseAnalysisPromotion(type: PieceType) {
+    private fun chooseAnalysisPromotion(type: PieceType, animate: Boolean = true) {
         val (from, to) = analysisPendingPromotion ?: return
         analysisPendingPromotion = null
         // analysisViewIndex can't move while a promotion is pending (the step/scrub
-        // handlers bail on analysisPendingPromotion), so the viewed position is still the
+        // handlers bails on analysisPendingPromotion), so the viewed position is still the
         // one the pawn was picked up from — including when that's mid-line (a fork).
-        commitAnalysisMove(analysisViewed(), from, to, promotion = type)
+        commitAnalysisMove(analysisViewed(), from, to, promotion = type, animate = animate)
     }
 
     private fun cancelAnalysisPromotion() {
@@ -1437,7 +1437,7 @@ class BoardViewModel(
         recompute()
     }
 
-    private fun commitAnalysisMove(pos: Position, from: Int, to: Int, promotion: PieceType?) {
+    private fun commitAnalysisMove(pos: Position, from: Int, to: Int, promotion: PieceType?, animate: Boolean = true) {
         val suffix = when (promotion) {
             PieceType.QUEEN -> "q"
             PieceType.ROOK -> "r"
@@ -1452,7 +1452,7 @@ class BoardViewModel(
             recompute()
             return
         }
-        applyAnalysisMove(move)
+        applyAnalysisMove(move, animate = animate)
     }
 
     // Apply a legal move to the analysis branch (engine-only, never submitted to
@@ -1466,14 +1466,14 @@ class BoardViewModel(
     // value (canStepBack/Forward, viewFraction, totalPlies, the scrub mapping, material and
     // pockets) is recomputed from the shortened-then-extended replay in recomputeAnalysis,
     // so nothing can be left pointing past the new tip.
-    private fun applyAnalysisMove(move: Move) {
+    private fun applyAnalysisMove(move: Move, animate: Boolean = true) {
         val oldIndex = analysisViewIndex
         analysisMoves = forkLine(analysisMoves, oldIndex, move.toUci()).toMutableList()
         analysisReplay = Chess.replayFrom(analysisBase, analysisMoves)
         analysisViewIndex = analysisReplay.positions.lastIndex
         // Always a single forward step from where the user was (oldIndex + 1 == the new
         // tip after truncation), so the fork animates like any other move.
-        analysisPendingAnim = buildAnalysisStepAnim(oldIndex, analysisViewIndex)
+        analysisPendingAnim = if (animate) buildAnalysisStepAnim(oldIndex, analysisViewIndex) else null
         clearAnalysisSelection()
         recompute()
     }

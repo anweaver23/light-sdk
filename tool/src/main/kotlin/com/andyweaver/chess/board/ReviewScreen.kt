@@ -170,13 +170,13 @@ internal class AnalysisSandbox private constructor(
 
     // ----- playing moves ----------------------------------------------------
 
-    fun onSquareTap(square: Int) {
+    fun onSquareTap(square: Int, animate: Boolean = true) {
         if (pendingPromotion != null) return
         val pos = viewed()
 
         val drop = selectedDrop
         if (drop != null) {
-            if (square in dropTargets) commitDrop(drop, square) else clearSelection()
+            if (square in dropTargets) commitDrop(drop, square, animate) else clearSelection()
             return
         }
 
@@ -190,7 +190,7 @@ internal class AnalysisSandbox private constructor(
 
         when {
             square == selected -> clearSelection()
-            square in legalDestinations -> makeMove(pos, selected, square)
+            square in legalDestinations -> makeMove(pos, selected, square, animate)
             piece != null && piece.color == pos.sideToMove -> select(square, pos)
             else -> clearSelection()
         }
@@ -215,12 +215,12 @@ internal class AnalysisSandbox private constructor(
         dropTargets = Chess.legalDropSquares(pos, type)
     }
 
-    fun choosePromotion(type: PieceType) {
+    fun choosePromotion(type: PieceType, animate: Boolean = true) {
         val (from, to) = pendingPromotion ?: return
         pendingPromotion = null
         // The view index can't move while a promotion is pending (every browse entry point
         // bails on it), so the viewed position is still the one the pawn was picked up from.
-        commitMove(viewed(), from, to, promotion = type)
+        commitMove(viewed(), from, to, promotion = type, animate = animate)
     }
 
     fun cancelPromotion() {
@@ -240,12 +240,12 @@ internal class AnalysisSandbox private constructor(
         legalDestinations = Chess.legalDestinations(pos, square)
     }
 
-    private fun commitDrop(type: PieceType, square: Int) {
+    private fun commitDrop(type: PieceType, square: Int, animate: Boolean = true) {
         clearSelection()
-        apply(Move(from = square, to = square, drop = type))
+        apply(Move(from = square, to = square, drop = type), animate = animate)
     }
 
-    private fun makeMove(pos: Position, from: Int, to: Int) {
+    private fun makeMove(pos: Position, from: Int, to: Int, animate: Boolean = true) {
         val isPromotion = pos.pieceAt(from)?.type == PieceType.PAWN &&
             (Square.rank(to) == 0 || Square.rank(to) == 7)
         if (isPromotion) {
@@ -253,10 +253,10 @@ internal class AnalysisSandbox private constructor(
             clearSelection()
             return
         }
-        commitMove(pos, from, to, promotion = null)
+        commitMove(pos, from, to, promotion = null, animate = animate)
     }
 
-    private fun commitMove(pos: Position, from: Int, to: Int, promotion: PieceType?) {
+    private fun commitMove(pos: Position, from: Int, to: Int, promotion: PieceType?, animate: Boolean = true) {
         val suffix = when (promotion) {
             PieceType.QUEEN -> "q"
             PieceType.ROOK -> "r"
@@ -266,19 +266,19 @@ internal class AnalysisSandbox private constructor(
         }
         val move = Chess.parseUci(Square.name(from) + Square.name(to) + suffix, pos)
         clearSelection()
-        if (move != null) apply(move)
+        if (move != null) apply(move, animate = animate)
     }
 
     // Truncate-and-replace, then rebuild from the base position: every derived value
     // (pockets, promoted marks, material, canStepForward…) comes out of the rebuilt replay,
     // so nothing can be left pointing past the new tip.
-    private fun apply(move: Move) {
+    private fun apply(move: Move, animate: Boolean = true) {
         val oldIndex = viewIndex
         moves = forkLine(moves, oldIndex, move.toUci())
         replay = Chess.replayFrom(base, moves)
         viewIndex = lastIndex
         // Always a single forward step from where the user was, so it animates like any move.
-        pendingAnim = stepAnim(replay, oldIndex, viewIndex, ++animCounter)
+        pendingAnim = if (animate) stepAnim(replay, oldIndex, viewIndex, ++animCounter) else null
         clearSelection()
     }
 }
@@ -468,9 +468,9 @@ class ReviewViewModel(
 
     // Board/pocket interaction exists only inside the sandbox; outside it the review board is
     // read-only and the UI passes no tap handler at all (see ChessBoard's onSquareTap).
-    fun onSquareTap(square: Int) { analysis?.let { it.onSquareTap(square); render() } }
+    fun onSquareTap(square: Int, animate: Boolean = true) { analysis?.let { it.onSquareTap(square, animate); render() } }
     fun onPocketTap(type: PieceType, color: EngineColor) { analysis?.let { it.onPocketTap(type, color); render() } }
-    fun choosePromotion(type: PieceType) { analysis?.let { it.choosePromotion(type); render() } }
+    fun choosePromotion(type: PieceType, animate: Boolean = true) { analysis?.let { it.choosePromotion(type, animate); render() } }
     fun cancelPromotion() { analysis?.let { it.cancelPromotion(); render() } }
 
     // ----- browsing -----
@@ -811,7 +811,7 @@ class ReviewScreen(
                             ) {
                                 ChessBoard(
                                     state = state,
-                                    onSquareTap = if (state.analysisActive) viewModel::onSquareTap else null,
+                                    onSquareTap = if (state.analysisActive) { square, animate -> viewModel.onSquareTap(square, animate) } else null,
                                     onLongPress = { viewModel.onBoardLongPress() },
                                 )
                             }
@@ -874,7 +874,7 @@ class ReviewScreen(
                                     state = state,
                                     // Read-only outside the sandbox: a null handler drops the tap
                                     // recognizer AND its haptic, so a dead tap doesn't buzz.
-                                    onSquareTap = if (state.analysisActive) viewModel::onSquareTap else null,
+                                    onSquareTap = if (state.analysisActive) { square, animate -> viewModel.onSquareTap(square, animate) } else null,
                                     onLongPress = { viewModel.onBoardLongPress() },
                                 )
                             }

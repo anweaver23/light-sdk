@@ -229,7 +229,7 @@ class LocalGameViewModel(
     // has no legal moves, so taps there no-op; that's what lets you step out of a finished
     // position and play a different move.
 
-    fun onSquareTap(square: Int) {
+    fun onSquareTap(square: Int, animate: Boolean = true) {
         if (pendingPromotion != null) return
         val pos = viewed()
         val mover = pos.sideToMove
@@ -237,7 +237,7 @@ class LocalGameViewModel(
         // Crazyhouse: a pocket piece is held — this tap chooses where to drop it.
         val drop = selectedDrop
         if (drop != null) {
-            if (square in dropTargets) commitDrop(drop, square) else clearSelectionAndRender()
+            if (square in dropTargets) commitDrop(drop, square, animate) else clearSelectionAndRender()
             return
         }
 
@@ -249,7 +249,7 @@ class LocalGameViewModel(
         }
         when {
             square == selected -> clearSelectionAndRender()
-            square in legalDests -> makeMove(pos, selected, square)
+            square in legalDests -> makeMove(pos, selected, square, animate)
             piece != null && piece.color == mover -> select(square, pos)
             else -> clearSelectionAndRender()
         }
@@ -273,12 +273,12 @@ class LocalGameViewModel(
         render()
     }
 
-    private fun commitDrop(type: PieceType, square: Int) {
+    private fun commitDrop(type: PieceType, square: Int, animate: Boolean = true) {
         clearSelection()
-        applyMove(Move(from = square, to = square, drop = type))
+        applyMove(Move(from = square, to = square, drop = type), animate = animate)
     }
 
-    private fun makeMove(pos: Position, from: Int, to: Int) {
+    private fun makeMove(pos: Position, from: Int, to: Int, animate: Boolean = true) {
         val isPromotion = pos.pieceAt(from)?.type == PieceType.PAWN &&
             (Square.rank(to) == 0 || Square.rank(to) == 7)
         if (isPromotion) {
@@ -287,15 +287,15 @@ class LocalGameViewModel(
             render()
             return
         }
-        commitMove(pos, from, to, promotion = null)
+        commitMove(pos, from, to, promotion = null, animate = animate)
     }
 
-    fun choosePromotion(type: PieceType) {
+    fun choosePromotion(type: PieceType, animate: Boolean = true) {
         val (from, to) = pendingPromotion ?: return
         pendingPromotion = null
         // viewIndex can't change while a promotion is pending (browse taps are guarded),
         // so the viewed position is still the one the pawn moved from.
-        commitMove(viewed(), from, to, promotion = type)
+        commitMove(viewed(), from, to, promotion = type, animate = animate)
     }
 
     fun cancelPromotion() {
@@ -304,7 +304,7 @@ class LocalGameViewModel(
         render()
     }
 
-    private fun commitMove(pos: Position, from: Int, to: Int, promotion: PieceType?) {
+    private fun commitMove(pos: Position, from: Int, to: Int, promotion: PieceType?, animate: Boolean = true) {
         val suffix = when (promotion) {
             PieceType.QUEEN -> "q"
             PieceType.ROOK -> "r"
@@ -316,13 +316,13 @@ class LocalGameViewModel(
         val move = Chess.parseUci(uci, pos)
         clearSelection()
         if (move == null) { render(); return }
-        applyMove(move)
+        applyMove(move, animate = animate)
     }
 
     // Apply a legal move from the VIEWED position, rebuild the replay, and animate the
     // arrival like the live board. A move made from a non-latest position FORKS the line:
     // the future (everything after the viewed point) is dropped before appending.
-    private fun applyMove(move: Move) {
+    private fun applyMove(move: Move, animate: Boolean = true) {
         val oldIndex = viewIndex
         // Fork: truncate the move list to the viewed point before appending. (No-op when
         // already at the latest position, where viewIndex == moves.size.)
@@ -331,7 +331,7 @@ class LocalGameViewModel(
         replay = Chess.replay(moves, startFen, variant)
         viewIndex = replay.positions.lastIndex
         // Immediate forward slide (no arrival delay) for the move just played.
-        pendingAnim = buildStepAnim(oldIndex, viewIndex)
+        pendingAnim = if (animate) buildStepAnim(oldIndex, viewIndex) else null
         outcome = Chess.outcome(replay)
         // No auto-prompt on game end: uploading to Lichess is offered ONLY via the menu
         // ("Upload to Lichess"), so a finished game doesn't jump straight into the name form.
@@ -749,14 +749,20 @@ class LocalGameScreen(
                                 .padding(horizontal = 0.5f.gridUnitsAsDp()),
                             contentAlignment = Alignment.Center,
                         ) {
-                            ChessBoard(state = state, onSquareTap = viewModel::onSquareTap)
+                            ChessBoard(
+                                state = state,
+                                onSquareTap = { square, animate -> viewModel.onSquareTap(square, animate) },
+                            )
                         }
                         LocalCrazyhouseBottomBar(state = state, mover = mover, viewModel = viewModel)
                     } else {
                         // reservedUnits = 0f and no topBank: the top player's material now
                         // lives in the top bar, so the board takes the full remaining height.
                         CenteredBoard(reservedUnits = 0f) {
-                            ChessBoard(state = state, onSquareTap = viewModel::onSquareTap)
+                            ChessBoard(
+                                state = state,
+                                onSquareTap = { square, animate -> viewModel.onSquareTap(square, animate) },
+                            )
                         }
                         MaterialBottomBar(
                             state = state,

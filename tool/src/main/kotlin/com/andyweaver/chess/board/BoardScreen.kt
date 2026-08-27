@@ -464,7 +464,7 @@ class BoardScreen(
                             ) {
                                 ChessBoard(
                                     state = state,
-                                    onSquareTap = viewModel::onSquareTap,
+                                    onSquareTap = { square, animate -> viewModel.onSquareTap(square, animate) },
                                     onLongPress = { viewModel.onBoardLongPress() },
                                 )
                             }
@@ -494,7 +494,7 @@ class BoardScreen(
                             ) {
                                 ChessBoard(
                                     state = state,
-                                    onSquareTap = viewModel::onSquareTap,
+                                    onSquareTap = { square, animate -> viewModel.onSquareTap(square, animate) },
                                     onLongPress = { viewModel.onBoardLongPress() },
                                 )
                             }
@@ -949,7 +949,7 @@ internal fun ChessBoard(
     // Null for a READ-ONLY board (ReviewScreen): the squares then get no tap recognizer
     // and — the reason this is nullable rather than a `{}` no-op — no tap haptic either,
     // since a haptic on a tap that can never do anything reads as a broken control.
-    onSquareTap: ((Int) -> Unit)?,
+    onSquareTap: ((Int, Boolean) -> Unit)?,
     // Long-press anywhere on the board enters the analysis sandbox — or, if it's already
     // open, resets it back to the snapshot (see BoardViewModel.onBoardLongPress; the
     // ActionMenuOverlay "Analysis" row is the other entry point). Defaults to a no-op so
@@ -1062,7 +1062,7 @@ internal fun ChessBoard(
                             // selection, because tapping an already-selected square
                             // deselects it (BoardViewModel.onSquareTap) and the first of
                             // the two taps has effectively already happened.
-                            if (s.selectedSquare != from) currentTap?.invoke(from)
+                            if (s.selectedSquare != from) currentTap?.invoke(from, true)
                         }
                     },
                     onDrag = { change, _ ->
@@ -1078,7 +1078,7 @@ internal fun ChessBoard(
                         // is the second tap; the view model already knows the origin from
                         // the pick-up tap, so only the destination is needed.
                         squareAtOffset(dragPos, squarePx, currentState.flipped)
-                            ?.let { to -> currentTap?.invoke(to) }
+                            ?.let { to -> currentTap?.invoke(to, false) }
                     },
                     onDragCancel = { dragFrom = null },
                 )
@@ -1632,7 +1632,7 @@ private fun SquareCell(
     // board while an Atomic capture slide is in flight (see [ChessBoard]).
     board: List<Piece?>,
     // Null on a read-only board — see [ChessBoard].
-    onSquareTap: ((Int) -> Unit)?,
+    onSquareTap: ((Int, Boolean) -> Unit)?,
     onLongPress: () -> Unit = {},
     hidePiece: Boolean = false,
     // False while a move slide is in flight — the checkmate king only turns sideways once
@@ -1673,7 +1673,7 @@ private fun SquareCell(
                         interactionSource = null,
                         indication = null,
                         onLongClick = onLongPress,
-                        onClick = { onSquareTap(square) },
+                        onClick = { onSquareTap(square, true) },
                     )
                 },
             ),
