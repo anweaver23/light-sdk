@@ -1,0 +1,335 @@
+{
+ "id": "hymns-home-church",
+ "title": "Hymns—For Home and Church",
+ "asOf": "2026-07-23 (7th English batch; 82 songs: 1001-1072 Sabbath and Weekday, 1201-1210 Easter and Christmas)",
+ "hymns": [
+  {
+   "n": 1001,
+   "title": "Come, Thou Fount of Every Blessing"
+  },
+  {
+   "n": 1002,
+   "title": "When the Savior Comes Again"
+  },
+  {
+   "n": 1003,
+   "title": "It Is Well with My Soul"
+  },
+  {
+   "n": 1004,
+   "title": "I Will Walk with Jesus"
+  },
+  {
+   "n": 1005,
+   "title": "His Eye Is on the Sparrow"
+  },
+  {
+   "n": 1006,
+   "title": "Think a Sacred Song"
+  },
+  {
+   "n": 1007,
+   "title": "As Bread Is Broken"
+  },
+  {
+   "n": 1008,
+   "title": "Bread of Life, Living Water"
+  },
+  {
+   "n": 1009,
+   "title": "Gethsemane"
+  },
+  {
+   "n": 1010,
+   "title": "Amazing Grace"
+  },
+  {
+   "n": 1011,
+   "title": "Holding Hands Around the World"
+  },
+  {
+   "n": 1012,
+   "title": "Anytime, Anywhere"
+  },
+  {
+   "n": 1013,
+   "title": "God’s Gracious Love"
+  },
+  {
+   "n": 1014,
+   "title": "My Shepherd Will Supply My Need"
+  },
+  {
+   "n": 1015,
+   "title": "Oh, the Deep, Deep Love of Jesus"
+  },
+  {
+   "n": 1016,
+   "title": "Behold the Wounds in Jesus’ Hands"
+  },
+  {
+   "n": 1017,
+   "title": "This Is the Christ"
+  },
+  {
+   "n": 1018,
+   "title": "Come, Lord Jesus"
+  },
+  {
+   "n": 1019,
+   "title": "To Love like Thee"
+  },
+  {
+   "n": 1020,
+   "title": "Softly and Tenderly Jesus Is Calling"
+  },
+  {
+   "n": 1021,
+   "title": "I Know That My Savior Loves Me"
+  },
+  {
+   "n": 1022,
+   "title": "Faith in Every Footstep"
+  },
+  {
+   "n": 1023,
+   "title": "Standing on the Promises"
+  },
+  {
+   "n": 1024,
+   "title": "I Have Faith in the Lord Jesus Christ"
+  },
+  {
+   "n": 1025,
+   "title": "Take My Heart and Let It Be Consecrated"
+  },
+  {
+   "n": 1026,
+   "title": "Holy Places"
+  },
+  {
+   "n": 1027,
+   "title": "Welcome Home"
+  },
+  {
+   "n": 1028,
+   "title": "This Little Light of Mine"
+  },
+  {
+   "n": 1029,
+   "title": "I Can’t Count Them All"
+  },
+  {
+   "n": 1030,
+   "title": "Close as a Quiet Prayer"
+  },
+  {
+   "n": 1031,
+   "title": "Come, Hear the Word the Lord Has Spoken"
+  },
+  {
+   "n": 1032,
+   "title": "Look unto Christ"
+  },
+  {
+   "n": 1033,
+   "title": "Oh, How Great Is Our Joy"
+  },
+  {
+   "n": 1034,
+   "title": "I’m a Pioneer Too"
+  },
+  {
+   "n": 1035,
+   "title": "As I Keep the Sabbath Day"
+  },
+  {
+   "n": 1036,
+   "title": "Read the Book of Mormon and Pray"
+  },
+  {
+   "n": 1037,
+   "title": "I’m Gonna Live So God Can Use Me"
+  },
+  {
+   "n": 1038,
+   "title": "The Lord’s My Shepherd"
+  },
+  {
+   "n": 1039,
+   "title": "Because"
+  },
+  {
+   "n": 1040,
+   "title": "His Voice as the Sound"
+  },
+  {
+   "n": 1041,
+   "title": "O Lord, Who Gave Thy Life for Me"
+  },
+  {
+   "n": 1042,
+   "title": "Thou Gracious God, Whose Mercy Lends"
+  },
+  {
+   "n": 1043,
+   "title": "Help Us Remember"
+  },
+  {
+   "n": 1044,
+   "title": "How Did the Savior Minister?"
+  },
+  {
+   "n": 1045,
+   "title": "Jesus Is the Way"
+  },
+  {
+   "n": 1046,
+   "title": "Can You Count the Stars in Heaven?"
+  },
+  {
+   "n": 1047,
+   "title": "He Cares for Me"
+  },
+  {
+   "n": 1048,
+   "title": "Our Prayer to Thee"
+  },
+  {
+   "n": 1049,
+   "title": "Joseph Prayed in Faith"
+  },
+  {
+   "n": 1050,
+   "title": "Stand by Me"
+  },
+  {
+   "n": 1051,
+   "title": "This Day Is a Good Day, Lord"
+  },
+  {
+   "n": 1052,
+   "title": "Joyfully Bound"
+  },
+  {
+   "n": 1053,
+   "title": "My Covenants"
+  },
+  {
+   "n": 1054,
+   "title": "When I Am Baptized"
+  },
+  {
+   "n": 1055,
+   "title": "The Power of the Holy Ghost"
+  },
+  {
+   "n": 1056,
+   "title": "Elijah and the Still, Small Voice"
+  },
+  {
+   "n": 1057,
+   "title": "Jesus Is My Shepherd"
+  },
+  {
+   "n": 1058,
+   "title": "My Song in the Night"
+  },
+  {
+   "n": 1059,
+   "title": "This Is My Father’s World"
+  },
+  {
+   "n": 1060,
+   "title": "Build an Ark"
+  },
+  {
+   "n": 1061,
+   "title": "Love Will Bless Our Home"
+  },
+  {
+   "n": 1062,
+   "title": "Lord, Accept Our Humble Fast"
+  },
+  {
+   "n": 1063,
+   "title": "Peace, Peace, Be Still"
+  },
+  {
+   "n": 1064,
+   "title": "Great Is Thy Faithfulness"
+  },
+  {
+   "n": 1065,
+   "title": "Isaiah Said"
+  },
+  {
+   "n": 1066,
+   "title": "Fight the Good Fight"
+  },
+  {
+   "n": 1067,
+   "title": "It’s Joyful to Live the Gospel"
+  },
+  {
+   "n": 1068,
+   "title": "To God Be the Glory"
+  },
+  {
+   "n": 1069,
+   "title": "Speak to Us, Lord"
+  },
+  {
+   "n": 1070,
+   "title": "The Miracle"
+  },
+  {
+   "n": 1071,
+   "title": "What God Calls Us To"
+  },
+  {
+   "n": 1072,
+   "title": "When I Survey the Wondrous Cross"
+  },
+  {
+   "n": 1201,
+   "title": "Hail the Day That Sees Him Rise"
+  },
+  {
+   "n": 1202,
+   "title": "He Is Born, the Divine Christ Child"
+  },
+  {
+   "n": 1203,
+   "title": "What Child Is This?"
+  },
+  {
+   "n": 1204,
+   "title": "Star Bright"
+  },
+  {
+   "n": 1205,
+   "title": "Let Easter Anthems Ring"
+  },
+  {
+   "n": 1206,
+   "title": "Were You There?"
+  },
+  {
+   "n": 1207,
+   "title": "Still, Still, Still"
+  },
+  {
+   "n": 1208,
+   "title": "Go Tell It on the Mountain"
+  },
+  {
+   "n": 1209,
+   "title": "Little Baby in a Manger"
+  },
+  {
+   "n": 1210,
+   "title": "Long Ago, Within a Garden"
+  }
+ ]
+}
