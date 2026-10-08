@@ -29,7 +29,7 @@ class HomeViewModel : LightViewModel<Unit>() {
     override fun onScreenShow(screen: SimpleLightScreen<Unit>) {
         super.onScreenShow(screen)
         // Pick up anything uploaded through the Tool Manager while the tool was closed.
-        viewModelScope.launch { AppGraph.importer.importAll() }
+        AppGraph.scope.launch { AppGraph.importer.importAll() }
     }
 }
 

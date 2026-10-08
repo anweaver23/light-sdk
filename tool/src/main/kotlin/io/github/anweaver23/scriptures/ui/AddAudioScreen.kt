@@ -6,9 +6,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.thelightphone.sdk.SealedLightActivity
 import com.thelightphone.sdk.SimpleLightScreen
@@ -34,7 +31,7 @@ class AddAudioScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Un
         val pending by importer.pending.collectAsState()
         val report by importer.lastReport.collectAsState()
         val index by AppGraph.library.index.collectAsState()
-        var sorting by remember { mutableStateOf(false) }
+        val sorting by importer.busy.collectAsState()
 
         ScreenFrame(title = "Add audio", onBack = { goBack() }) {
             LightScrollView(Modifier.fillMaxSize()) {
@@ -52,16 +49,7 @@ class AddAudioScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Un
                 report?.let { Note("Last sort added ${it.imported} file${if (it.imported == 1) "" else "s"}.") }
 
                 ListRow(if (sorting) "Sorting…" else "Sort new files now") {
-                    if (!sorting) {
-                        sorting = true
-                        AppGraph.scope.launch {
-                            try {
-                                importer.importAll()
-                            } finally {
-                                sorting = false
-                            }
-                        }
-                    }
+                    if (!sorting) AppGraph.scope.launch { importer.importAll() }
                 }
 
                 if (pending.isNotEmpty()) {

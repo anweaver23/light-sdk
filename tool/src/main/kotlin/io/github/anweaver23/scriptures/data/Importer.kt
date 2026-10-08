@@ -41,6 +41,9 @@ class Importer(
     private val _pending = MutableStateFlow<List<ReviewItem>>(emptyList())
     val pending: StateFlow<List<ReviewItem>> = _pending.asStateFlow()
 
+    private val _busy = MutableStateFlow(false)
+    val busy: StateFlow<Boolean> = _busy.asStateFlow()
+
     private val _lastReport = MutableStateFlow<Report?>(null)
     val lastReport: StateFlow<Report?> = _lastReport.asStateFlow()
 
@@ -49,6 +52,15 @@ class Importer(
     private fun fileOf(item: IncomingFile) = File(folder(item.kind), item.relativePath)
 
     suspend fun importAll(): Report = mutex.withLock {
+        _busy.value = true
+        try {
+            sortInbox()
+        } finally {
+            _busy.value = false
+        }
+    }
+
+    private suspend fun sortInbox(): Report =
         withContext(Dispatchers.IO) {
             val incoming = UploadKind.entries.flatMap { kind ->
                 val dir = folder(kind).apply { mkdirs() }
@@ -74,7 +86,6 @@ class Importer(
             _pending.value = review
             Report(imported, review.size).also { _lastReport.value = it }
         }
-    }
 
     /** The user picked a target for a file the matcher couldn't place. */
     suspend fun assign(item: IncomingFile, target: Target) = mutex.withLock {

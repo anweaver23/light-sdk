@@ -57,9 +57,12 @@ class ReaderViewModel(start: Target.Chapter) : LightViewModel<Unit>() {
         _chapter.value = target
         _verses.value = null
         viewModelScope.launch {
-            _verses.value = withContext(Dispatchers.IO) {
+            val verses = withContext(Dispatchers.IO) {
                 AppGraph.bookText(target.volumeId, target.bookId).c.getOrNull(target.chapter - 1).orEmpty()
             }
+            // Quick Prev/Next taps can finish out of order; only the latest chapter wins.
+            if (_chapter.value != target) return@launch
+            _verses.value = verses
             AppGraph.progress.setLastRead(target)
         }
     }
@@ -100,9 +103,9 @@ class ReaderScreen(sealedActivity: SealedLightActivity, private val start: Targe
             title = viewModel.catalog.label(chapter),
             onBack = { goBack() },
             bottomBar = listOf(
-                LightBarButton.Text("Prev", onClick = viewModel::previous.takeIf { viewModel.hasPrevious() }),
+                LightBarButton.Text("Prev", onClick = viewModel::previous).takeIf { viewModel.hasPrevious() },
                 if (hasAudio) LightBarButton.Text("Listen", onClick = { navigateTo({ PlayerScreen(it, chapter) }) }) else null,
-                LightBarButton.Text("Next", onClick = viewModel::next.takeIf { viewModel.hasNext() }),
+                LightBarButton.Text("Next", onClick = viewModel::next).takeIf { viewModel.hasNext() },
             ),
         ) {
             // A fresh scroll position for every chapter.

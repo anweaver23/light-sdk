@@ -1,5 +1,6 @@
 package io.github.anweaver23.scriptures
 
+import android.util.Log
 import com.thelightphone.sdk.EntryPoint
 import com.thelightphone.sdk.LightEntryPoint
 import com.thelightphone.toolmanager.ClientLeafNode
@@ -31,6 +32,9 @@ object ToolEntryPoint : LightEntryPoint {
     override suspend fun onToolManagerDataUpdate() {
         super.onToolManagerDataUpdate()
         // Sort the upload right away if the tool is running; otherwise it happens on next open.
-        if (AppGraph.isReady) AppGraph.importer.importAll()
+        if (AppGraph.isReady) {
+            runCatching { AppGraph.importer.importAll() }
+                .onFailure { Log.e("Scriptures", "Sorting uploaded files failed", it) }
+        }
     }
 }

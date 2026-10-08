@@ -5,7 +5,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.thelightphone.sdk.SealedLightActivity
@@ -28,25 +27,29 @@ class TargetPickerScreen(sealedActivity: SealedLightActivity, private val mode: 
         AppGraph.init(lightContext)
     }
 
+    // Selections so far: volume id then book id, or a hymnbook id.
+    private var path by mutableStateOf(emptyList<String>())
+
+    /** Back (the top bar or the system gesture) steps up a level before leaving the picker. */
+    override fun goBack(result: Target?) {
+        if (result == null && path.isNotEmpty()) {
+            path = path.dropLast(1)
+        } else {
+            super.goBack(result)
+        }
+    }
+
     @Composable
     override fun Content() {
         val catalog = AppGraph.catalog
-        // Selections so far: volume id then book id, or a hymnbook id.
-        var path by remember { mutableStateOf(emptyList<String>()) }
-        fun back() {
-            if (path.isEmpty()) {
-                goBack()
-            } else {
-                path = path.dropLast(1)
-            }
-        }
+        val back = { goBack() }
 
         when (mode) {
             Mode.Chapter -> {
                 val volume = path.getOrNull(0)?.let(catalog.scriptures::volume)
                 val book = path.getOrNull(1)?.let(catalog.scriptures::book)
                 when {
-                    volume == null -> ScreenFrame("Pick a volume", ::back) {
+                    volume == null -> ScreenFrame("Pick a volume", back) {
                         LightScrollView(Modifier.fillMaxSize()) {
                             catalog.scriptures.volumes.forEach { v ->
                                 // D&C is a single book, so skip straight to its sections.
@@ -54,7 +57,7 @@ class TargetPickerScreen(sealedActivity: SealedLightActivity, private val mode: 
                             }
                         }
                     }
-                    book == null -> ScreenFrame(volume.title, ::back) {
+                    book == null -> ScreenFrame(volume.title, back) {
                         LightScrollView(Modifier.fillMaxSize()) {
                             volume.books.forEach { b ->
                                 ListRow(b.title) {
@@ -67,7 +70,7 @@ class TargetPickerScreen(sealedActivity: SealedLightActivity, private val mode: 
                             }
                         }
                     }
-                    else -> ScreenFrame(book.title, ::back) {
+                    else -> ScreenFrame(book.title, back) {
                         NumberGrid((1..book.chapters).toList(), isMarked = { false }) { chapter ->
                             goBack(Target.Chapter(volume.id, book.id, chapter))
                         }
@@ -77,13 +80,13 @@ class TargetPickerScreen(sealedActivity: SealedLightActivity, private val mode: 
             Mode.Hymn -> {
                 val hymnBook = path.getOrNull(0)?.let(catalog::hymnBook)
                 if (hymnBook == null) {
-                    ScreenFrame("Pick a hymnbook", ::back) {
+                    ScreenFrame("Pick a hymnbook", back) {
                         LightScrollView(Modifier.fillMaxSize()) {
                             catalog.hymnBooks.forEach { b -> ListRow(b.title) { path = listOf(b.id) } }
                         }
                     }
                 } else {
-                    ScreenFrame(hymnBook.title, ::back) {
+                    ScreenFrame(hymnBook.title, back) {
                         LightLazyScrollView(Modifier.fillMaxSize(), uniformItemHeightGridUnits = ROW_UNITS) {
                             items(hymnBook.hymns, key = { it.n }) { hymn ->
                                 ListRow("${hymn.n}  ${hymn.title}") { goBack(Target.HymnRef(hymnBook.id, hymn.n)) }

@@ -1,11 +1,13 @@
 package io.github.anweaver23.scriptures.data
 
+import android.util.Log
 import com.thelightphone.sdk.SealedLightContext
 import com.thelightphone.toolmanager.LightFileProvider
 import io.github.anweaver23.scriptures.core.BookText
 import io.github.anweaver23.scriptures.core.Catalog
 import io.github.anweaver23.scriptures.core.FileMatcher
 import java.io.File
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -18,12 +20,9 @@ object AppGraph {
     @Volatile
     private var context: SealedLightContext? = null
 
+    /** Keeps the newest screen's context, so a destroyed activity isn't held onto. */
     fun init(lightContext: SealedLightContext) {
-        if (context == null) {
-            synchronized(this) {
-                if (context == null) context = lightContext
-            }
-        }
+        context = lightContext
     }
 
     val isReady: Boolean get() = context != null
@@ -50,7 +49,11 @@ object AppGraph {
     val progress: ProgressStore by lazy { ProgressStore(ctx().dataStore) }
 
     /** For work that should finish even if the screen that started it closes (imports, file moves). */
-    val scope: CoroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
+    val scope: CoroutineScope = CoroutineScope(
+        SupervisorJob() + Dispatchers.Default + CoroutineExceptionHandler { _, e -> Log.e(TAG, "Background work failed", e) },
+    )
+
+    private const val TAG = "Scriptures"
 
     private val bookCache = object : LinkedHashMap<String, BookText>(8, 0.75f, true) {
         override fun removeEldestEntry(eldest: MutableMap.MutableEntry<String, BookText>?) = size > 4
