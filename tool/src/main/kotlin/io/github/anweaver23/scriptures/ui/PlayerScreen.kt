@@ -158,15 +158,20 @@ class PlayerViewModel(private val audio: LightAudio, private val request: Target
         if (live && (started || request == null || savedQueue.getOrNull(player.currentMediaItemIndex.value) == request)) {
             _queue.value = savedQueue
             started = true
+            // Left before the resume seek finished last time; finish it now.
+            pendingSeek?.let { seekToSaved(player, it, autoplay = true) }
             return
         }
-        if (started) return // stopped while we were away; nothing to pick back up
+        // Coming back after the session ended on its own (stopped, or idle too long): rebuild
+        // it from what was saved, but leave it paused. Only a fresh open starts playing.
+        val autoplay = !started
+        val resumeSaved = started || request == null
         started = true
 
         val index = AppGraph.library.index.value
         val queue: List<Target>
         val first: Target
-        if (request != null) {
+        if (!resumeSaved && request != null) {
             queue = queueFor(request, index)
             first = request
         } else {
@@ -191,12 +196,22 @@ class PlayerViewModel(private val audio: LightAudio, private val request: Target
         _queue.value = queue
         player.speed = _speed.value
         player.setMediaQueue(items, startIndex)
-        player.play()
-        // seekTo clamps to the known duration, which is 0 until the file has loaded.
-        val saved = progress.position(first)
+        seekToSaved(player, first, autoplay)
+    }
+
+    /** An item whose saved position hasn't been applied yet; its stored position must not be overwritten. */
+    private var pendingSeek: Target? = null
+
+    private suspend fun seekToSaved(player: LightAudioPlayer, target: Target, autoplay: Boolean) {
+        pendingSeek = target
+        // seekTo clamps to the known duration, which is 0 until setMediaQueue's prepare has loaded
+        // the file. Seeking before play() also avoids a blip from the start of the recording.
+        val saved = progress.position(target)
         if (saved > 0 && withTimeoutOrNull(10.seconds) { player.durationMs.first { it > 0 } } != null) {
             player.seekTo(saved)
         }
+        pendingSeek = null
+        if (autoplay) player.play()
     }
 
     /** Every item in the same book or hymnbook that has audio, so playback rolls on to the next one. */
@@ -236,7 +251,7 @@ class PlayerViewModel(private val audio: LightAudio, private val request: Target
 
     /** Saves on a scope of its own, for when the screen is closing and viewModelScope is going away. */
     private fun saveDetached() {
-        if (stopped) return
+        if (stopped || pendingSeek != null) return
         val target = current.value ?: return
         val queue = _queue.value
         val position = positionMs.value

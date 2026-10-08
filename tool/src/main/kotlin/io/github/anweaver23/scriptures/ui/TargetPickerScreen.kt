@@ -30,7 +30,10 @@ class TargetPickerScreen(sealedActivity: SealedLightActivity, private val mode: 
     // Selections so far: volume id then book id, or a hymnbook id.
     private var path by mutableStateOf(emptyList<String>())
 
-    /** Back (the top bar or the system gesture) steps up a level before leaving the picker. */
+    /**
+     * The top bar's back steps up a level before leaving the picker. (The system back gesture
+     * goes straight to LightActivity and closes the whole picker; the SDK doesn't route it here.)
+     */
     override fun goBack(result: Target?) {
         if (result == null && path.isNotEmpty()) {
             path = path.dropLast(1)

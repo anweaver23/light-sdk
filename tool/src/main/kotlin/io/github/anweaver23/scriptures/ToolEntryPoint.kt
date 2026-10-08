@@ -8,6 +8,7 @@ import com.thelightphone.toolmanager.ClientToolManifest
 import com.thelightphone.toolmanager.FileBrowserSpec
 import io.github.anweaver23.scriptures.core.UploadKind
 import io.github.anweaver23.scriptures.data.AppGraph
+import kotlinx.coroutines.CancellationException
 
 @EntryPoint
 object ToolEntryPoint : LightEntryPoint {
@@ -33,8 +34,13 @@ object ToolEntryPoint : LightEntryPoint {
         super.onToolManagerDataUpdate()
         // Sort the upload right away if the tool is running; otherwise it happens on next open.
         if (AppGraph.isReady) {
-            runCatching { AppGraph.importer.importAll() }
-                .onFailure { Log.e("Scriptures", "Sorting uploaded files failed", it) }
+            try {
+                AppGraph.importer.importAll()
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                Log.e("Scriptures", "Sorting uploaded files failed", e)
+            }
         }
     }
 }
