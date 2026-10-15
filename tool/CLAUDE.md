@@ -81,7 +81,8 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 
 ## Hard rules
 
-- **Copyright:** bundle only public-domain or openly licensed data, and record the source, commit/version and
+- **Copyright:** bundle only public-domain or openly licensed data (PD, CC0, CC BY; CC BY-SA is acceptable for
+  data files, as with Webster's, and its credit must appear in-app; never NonCommercial), and record the source, commit/version and
   license in a `SOURCE.md` next to the asset. Church footnotes, chapter headings, the current hymn lyrics and
   Church audio are copyrighted, so they are not bundled. Users can bring their own audio and lyrics.
 - **Only `tool/` ships.** Light's build server extracts `tool/build.gradle.kts`, `tool/lighttool.toml` and
@@ -150,7 +151,8 @@ trusted. One emulator is shared, so on-device verification happens after the mer
 
 ## Git
 
-- Branch `andy/scripture-app`. It's backed up to `anweaver23/light-scriptures` (remote `scriptures`). The
+- Branch `andy/scripture-app` tracks `scriptures/main` on `anweaver23/light-scriptures` (private for now); plain
+  `git push` works because `push.default = upstream`. The
   older `fork` remote (`anweaver23/light-sdk`) is the chess app's home.
 - SDK updates: `git checkout main && git pull --ff-only origin main`, then merge `main` into this branch.
 - Never push to `origin` (the upstream `lightphone/light-sdk`, read-only for us).

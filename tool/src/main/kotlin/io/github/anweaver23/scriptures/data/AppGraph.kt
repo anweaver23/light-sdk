@@ -6,7 +6,6 @@ import com.thelightphone.toolmanager.LightFileProvider
 import io.github.anweaver23.scriptures.core.BookText
 import io.github.anweaver23.scriptures.core.Catalog
 import io.github.anweaver23.scriptures.core.Dictionary
-import io.github.anweaver23.scriptures.core.NoDictionary
 import io.github.anweaver23.scriptures.core.OriginalLanguage
 import io.github.anweaver23.scriptures.core.FileMatcher
 import io.github.anweaver23.scriptures.core.FootnoteSource
@@ -58,8 +57,11 @@ object AppGraph {
     /** Footnotes from assets/footnotes. None are bundled yet, so every book reads as empty. */
     val footnotes: FootnoteSource by lazy { AssetFootnotes { path -> ctx().readAsset(path) } }
 
-    /** Webster's 1828. Placeholder until the bundled dictionary is wired in. */
-    val dictionary: Dictionary by lazy { NoDictionary }
+    /** Webster's 1828, read one shard at a time. Lookups block; call off the main thread. */
+    val dictionary: Dictionary by lazy {
+        val c = ctx()
+        WebsterDictionary(load = { path -> runCatching { c.readAsset(path) }.getOrNull() })
+    }
 
     /** Strong's Hebrew/Greek behind the KJV text (OT/NT only). */
     val originalLanguage: OriginalLanguage by lazy {
