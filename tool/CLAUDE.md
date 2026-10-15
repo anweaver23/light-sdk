@@ -1,0 +1,114 @@
+# Scriptures tool — project guide
+
+This file records the Scriptures tool's decisions, structure and conventions. Read it before making changes.
+Update it in the same commit as any decision or structural change. The task backlog lives in
+**GitHub issues** on `anweaver23/light-scriptures`, grouped by milestone. This file holds the *why* and the
+rules; issues hold the *what's next*.
+
+A reader for the LDS standard works and hymnbooks on the Light Phone III, with the user's own audio.
+It's a calm, intentional reading tool and not a feature-for-feature Gospel Library clone. User-facing docs are
+in `tool/README.md`.
+
+## Roadmap (phases run in order)
+
+1. **Reading:** a fully fleshed-out, refined reading experience. *(current)*
+   Home grid, bottom bar (search / bookmarks / annotations), footnote links + modal, select → highlight / note /
+   define, Webster's 1828 dictionary, Strong's Hebrew/Greek original words, then refinement.
+2. **Hymns:** audio, lyrics and sheet music support, refined.
+3. **Audio:** scripture chapter audio fully refined. Conference talks only if a legally open source exists.
+
+When an idea comes up for a later phase, open an issue in that phase's milestone rather than building it now.
+Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`, `data`, `bug`.
+
+## Decisions (newest last; add a date)
+
+- **2026-10-14 Home is a 2-column grid of book-shaped tiles:** the 5 volumes + Hymns. Bottom bar:
+  Search · Bookmarks · Annotations.
+- **2026-10-14 Bookmarks:** multiple manual bookmarks are allowed. An automatic **Continue reading** entry
+  (last chapter read) is always pinned at the top of the Bookmarks tab.
+- **2026-10-14 Annotations tab:** a plain list of highlights and notes for now. Visualization comes later (issue).
+- **2026-10-14 Footnotes are plumbing only:** the Church's footnotes are copyrighted, so we don't bundle them.
+  We build the data format, the in-text markers and the modal, and ship no footnote data. Choosing a source
+  (public-domain 1879/1920 editions, Treasury of Scripture Knowledge, OpenBible.info) is a separate issue.
+  Markers render only where data exists.
+- **2026-10-14 Define a word:** the dictionary is Webster's 1828 (public domain, and period-accurate for
+  KJV/Book of Mormon English), bundled offline. For OT/NT we also show the **original** Hebrew/Greek word
+  (Strong's). This is NOT a translation of the English word. It comes from a Strong's-tagged KJV aligned
+  word-by-word to our text, which is a separate index. Other volumes have no original-language data.
+- **2026-10-14 Word indexes are the anchor:** highlights, notes, footnotes and Strong's tags all point at
+  `(VerseRef, word index)` as produced by `core/Words.spans`. Changing the tokenizer is a data-format change.
+
+## Hard rules
+
+- **Copyright:** bundle only public-domain or openly licensed data, and record the source, commit/version and
+  license in a `SOURCE.md` next to the asset. Church footnotes, chapter headings, the current hymn lyrics and
+  Church audio are copyrighted, so they are not bundled. Users can bring their own audio and lyrics.
+- **Only `tool/` ships.** Light's build server extracts `tool/build.gradle.kts`, `tool/lighttool.toml` and
+  `tool/src/main/{kotlin,java,res,assets}/**`, then builds against its own pinned SDK. Never depend on
+  `sdk/*` edits, `local.properties`, or extra Gradle modules. New dependencies must be on the plugin
+  allowlist (`plugin/src/main/resources/.../allowed-dependencies.txt`).
+- **Banned APIs fail the build:** `LocalContext`, `android.content.Context`, `startActivity`,
+  `getSystemService`, raw Intents. Stay within the SDK (`SealedLightContext`, `LightScreen`, `LightIcons`...).
+- **Icons:** use `LightIcons` first. Add a custom vector drawable only when no Light glyph fits.
+- **Offline first:** reading, dictionary and Strong's work with no network.
+- **`serverPackage`** in `lighttool.toml` is `com.thelightphone.sdk.emulator` for local work. It must be
+  `com.lightos` for a real device or a submission.
+
+## Structure
+
+```
+src/main/kotlin/io/github/anweaver23/scriptures/
+  core/   Plain Kotlin, no Android: catalog models, Targets/VerseRef, Words tokenizer, Lexicon
+          interfaces, file matching. Everything testable on the JVM lives here.
+  data/   AppGraph (process singletons), stores (DataStore / JSON files in filesDir), asset loaders,
+          importer, audio library.
+  ui/     One file per screen or screen family. Shared bits (ScreenFrame, ListRow, Note) in Common.kt.
+  ToolEntryPoint.kt   Tool Manager folders + post-upload sorting.
+src/main/assets/   Bundled data, one folder per dataset, each with a SOURCE.md.
+scripts/           Python generators for the assets (run with `python3 -I`).
+```
+
+- **Swappable data behind interfaces.** `core/Lexicon.kt` defines `Dictionary` and `OriginalLanguage`.
+  `AppGraph` picks the implementation. Screens never read assets directly.
+- **Pure logic in `core/` with unit tests.** UI correctness that a screenshot can't show (selection ranges,
+  anchors, alignment) gets pulled into pure functions and tested.
+- **User data** (bookmarks, highlights, notes) is versioned and stored in the tool's private `filesDir`, never in
+  the Tool Manager shared dir unless it's meant for export.
+
+## Build, run, test
+
+From the **repo root** (never a subdirectory). Confirm `BUILD SUCCESSFUL`, not just the absence of errors:
+
+```
+export JAVA_HOME="C:\Program Files\Android\Android Studio\jbr"
+./gradlew :tool:assembleDebug :tool:testDebugUnitTest
+adb -s emulator-5554 install -r tool/build/outputs/apk/debug/tool-debug.apk
+adb -s emulator-5554 shell am start -n io.github.anweaver23.scriptures/com.thelightphone.sdk.LightActivity
+```
+
+- **Emulator:** if the LightOS emulator app is missing (it has vanished twice), run
+  `./gradlew :sdk:emulator:assembleDebug`, then
+  `adb install -r sdk/emulator/build/outputs/apk/debug/emulator-debug.apk` (it lands as uid 1000), then
+  `adb shell cmd package set-home-activity com.thelightphone.sdk.emulator/.MainActivity`. Next, as root, write
+  `<int name="client_filter_level" value="3" />` into
+  `/data/data/com.thelightphone.sdk.emulator/shared_prefs/light_sdk_server.xml` (All Tools).
+- **Tool Manager:** open it from the emulator toolbox, run `adb forward tcp:54449 tcp:54449`, then open the
+  URL it shows (including the `#token`) in a desktop browser.
+- **Prefix `MSYS_NO_PATHCONV=1`** to any adb command that carries a device-absolute path (Git Bash mangles it).
+- **Pass `-s <serial>`** whenever the phone and the emulator are both attached.
+- **Compose view-model trap:** fields read by a `MutableStateFlow(buildState())` initializer must be declared
+  *above* it, or they're null at construction. Unit tests don't catch this; only the emulator does.
+
+## Working with agents
+
+Parallel agents each work in their own git worktree on **disjoint files**. Shared contracts (interfaces, models,
+stub screens) are committed first so every worktree compiles. Agents don't edit `AppGraph` or another agent's
+files; the coordinator wires implementations in and merges. Every agent diff is re-read and rebuilt before it's
+trusted. One emulator is shared, so on-device verification happens after the merge.
+
+## Git
+
+- Branch `andy/scripture-app`. It's backed up to `anweaver23/light-scriptures` (remote `scriptures`). The
+  older `fork` remote (`anweaver23/light-sdk`) is the chess app's home.
+- SDK updates: `git checkout main && git pull --ff-only origin main`, then merge `main` into this branch.
+- Never push to `origin` (the upstream `lightphone/light-sdk`, read-only for us).
