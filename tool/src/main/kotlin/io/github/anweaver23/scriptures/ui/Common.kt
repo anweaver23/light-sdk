@@ -2,6 +2,7 @@ package io.github.anweaver23.scriptures.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
@@ -17,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightBottomBar
+import com.thelightphone.sdk.ui.LightIcon
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightText
 import com.thelightphone.sdk.ui.LightTextVariant
@@ -31,12 +33,17 @@ import com.thelightphone.sdk.ui.lightClickable
 /** Height of one list row, in Light grid units. Lazy lists need it to size their scroll bar. */
 const val ROW_UNITS = 3f
 
-/** Top bar, a content area that fills the middle, and an optional bottom bar. */
+/**
+ * Top bar, a content area that fills the middle, and an optional bottom bar. [bottomContent], when
+ * set, replaces [bottomBar] with a custom bar (e.g. the reader's selection actions).
+ */
 @Composable
 fun ScreenFrame(
     title: String,
     onBack: (() -> Unit)?,
     bottomBar: List<LightBarButton?>? = null,
+    rightButton: LightBarButton? = null,
+    bottomContent: (@Composable () -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     val colors by LightThemeController.colors.collectAsState()
@@ -49,6 +56,7 @@ fun ScreenFrame(
             LightTopBar(
                 leftButton = onBack?.let { LightBarButton.LightIcon(LightIcons.BACK, onClick = it) },
                 center = LightTopBarCenter.Text(title),
+                rightButton = rightButton,
             )
             Column(
                 Modifier
@@ -57,7 +65,10 @@ fun ScreenFrame(
                     .padding(horizontal = 1f.gridUnitsAsDp()),
                 content = content,
             )
-            if (bottomBar != null) LightBottomBar(items = bottomBar)
+            when {
+                bottomContent != null -> bottomContent()
+                bottomBar != null -> LightBottomBar(items = bottomBar)
+            }
         }
     }
 }
@@ -104,6 +115,72 @@ fun Note(text: String, modifier: Modifier = Modifier) {
             .fillMaxWidth()
             .padding(vertical = 0.5f.gridUnitsAsDp()),
     )
+}
+
+/** Height of [ActionBar], matching [LightBottomBar]. */
+const val ACTION_BAR_UNITS = 4f
+
+/**
+ * A bottom bar for more than three actions, which [LightBottomBar] doesn't allow with text.
+ * Items are spread evenly; each is a [LightBarButton.Text] or [LightBarButton.LightIcon].
+ */
+@Composable
+fun ActionBar(items: List<LightBarButton>) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(ACTION_BAR_UNITS.gridUnitsAsDp())
+            .padding(horizontal = 1f.gridUnitsAsDp()),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween,
+    ) {
+        items.forEach { item ->
+            val modifier = Modifier
+                .height(ACTION_BAR_UNITS.gridUnitsAsDp())
+                .lightClickable { item.onClick?.invoke() }
+                .padding(horizontal = 0.5f.gridUnitsAsDp())
+            Box(modifier, contentAlignment = Alignment.Center) {
+                when (item) {
+                    is LightBarButton.Text -> LightText(item.text, variant = LightTextVariant.Button, maxLines = 1)
+                    is LightBarButton.LightIcon -> LightIcon(item.icon, size = item.sizeUnits)
+                    is LightBarButton.Icon -> Unit
+                }
+            }
+        }
+    }
+}
+
+/** A tappable row of two or more lines; the whole row opens [onClick]. Used by the study lists. */
+@Composable
+fun StackRow(
+    title: String,
+    lines: List<Pair<String, Int>>,
+    trailing: (@Composable () -> Unit)? = null,
+    onClick: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .lightClickable(onClick = onClick)
+            .padding(vertical = 0.5f.gridUnitsAsDp()),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Column(Modifier.weight(1f)) {
+            LightText(title, variant = LightTextVariant.Copy, maxLines = 1, overflow = TextOverflow.Ellipsis)
+            lines.forEach { (text, maxLines) ->
+                LightText(
+                    text = text,
+                    variant = LightTextVariant.Fine,
+                    lighten = true,
+                    maxLines = maxLines,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
+        }
+        if (trailing != null) {
+            Box(Modifier.padding(start = 1f.gridUnitsAsDp())) { trailing() }
+        }
+    }
 }
 
 fun formatDuration(ms: Long): String {
