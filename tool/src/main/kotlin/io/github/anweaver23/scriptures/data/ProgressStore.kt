@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import io.github.anweaver23.scriptures.core.Target
+import io.github.anweaver23.scriptures.core.VerseRef
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -17,10 +18,28 @@ class ProgressStore(private val dataStore: DataStore<Preferences>) {
         prefs[LAST_READ]?.let(Target::fromKey) as? Target.Chapter
     }
 
+    /**
+     * The top verse on screen when reading stopped, as a full reference. Only meaningful when its
+     * chapter matches [lastRead]; [lastReadVerse] does that check.
+     */
+    val lastReadVerse: Flow<VerseRef?> = dataStore.data.map { prefs ->
+        val chapter = prefs[LAST_READ]?.let(Target::fromKey) as? Target.Chapter
+        val ref = prefs[LAST_READ_VERSE]?.let(VerseRef::fromKey)
+        ref?.takeIf { it.chapterTarget == chapter }
+    }
+
     val lastPlayed: Flow<Target?> = dataStore.data.map { prefs -> prefs[LAST_PLAYED]?.let(Target::fromKey) }
 
     suspend fun setLastRead(target: Target.Chapter) {
         dataStore.edit { it[LAST_READ] = target.key }
+    }
+
+    /** Records the verse at the top of the screen; also makes its chapter the last one read. */
+    suspend fun setLastReadVerse(ref: VerseRef) {
+        dataStore.edit {
+            it[LAST_READ] = ref.chapterTarget.key
+            it[LAST_READ_VERSE] = ref.key
+        }
     }
 
     suspend fun savePlayback(queue: List<Target>, current: Target, positionMs: Long) {
@@ -44,6 +63,7 @@ class ProgressStore(private val dataStore: DataStore<Preferences>) {
 
     private companion object {
         val LAST_READ = stringPreferencesKey("last_read")
+        val LAST_READ_VERSE = stringPreferencesKey("last_read_verse")
         val LAST_PLAYED = stringPreferencesKey("last_played")
         val QUEUE = stringPreferencesKey("play_queue")
     }

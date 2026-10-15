@@ -10,6 +10,7 @@ import io.github.anweaver23.scriptures.core.NoDictionary
 import io.github.anweaver23.scriptures.core.NoOriginalLanguage
 import io.github.anweaver23.scriptures.core.OriginalLanguage
 import io.github.anweaver23.scriptures.core.FileMatcher
+import io.github.anweaver23.scriptures.core.FootnoteSource
 import java.io.File
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
@@ -51,6 +52,12 @@ object AppGraph {
     }
 
     val progress: ProgressStore by lazy { ProgressStore(ctx().dataStore) }
+
+    /** Highlights, notes and bookmarks, as JSON in the private files dir. */
+    val study: StudyStore by lazy { StudyStore(File(ctx().filesDir, StudyStore.DIR)) }
+
+    /** Footnotes from assets/footnotes. None are bundled yet, so every book reads as empty. */
+    val footnotes: FootnoteSource by lazy { AssetFootnotes { path -> ctx().readAsset(path) } }
 
     /** Webster's 1828. Placeholder until the bundled dictionary is wired in. */
     val dictionary: Dictionary by lazy { NoDictionary }

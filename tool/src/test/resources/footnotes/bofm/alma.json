@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "verses": {
+    "32:21": [
+      {"word": 9, "marker": "b", "text": "Second note on the same verse.", "refs": ["nt/heb/11/1"]},
+      {"word": 3, "marker": "a", "text": "TEST FIXTURE ONLY. Not real footnote data.", "refs": ["bofm/alma/32/27", "not-a-ref", "bofm/ether/12/6"]}
+    ],
+    "32:22": [],
+    "33:1": [{"word": 0, "marker": "a", "text": "Other chapter."}],
+    "bogus": [{"word": 0, "marker": "z"}]
+  },
+  "futureField": true
+}
