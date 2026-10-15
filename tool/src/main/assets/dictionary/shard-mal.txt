@@ -1,0 +1,95 @@
+mal	MAL		as a previx, in composition, denotes ill or veil, Latin malus. [See Malady.]
+malachite	MALACHITE	n.	An oxyd of copper, combined with carbonic acid, found in solid masses of a beautiful green color. It consists of layers, in the form of nipples or needles converging towards a common center. It takes a good polish and is often manufactured into toys
+malacolite	MALACOLITE	n.	Another name for diopside, a variety of pyroxene
+malacopterygeous	MALACOPTERYGEOUS	a.	Having bony rays of fins, not sharp or pointed at the extremity; as a fish
+malacostomous	MALACOSTOMOUS	a.	Having soft jaws without teeth; as a fish
+maladministration	MALADMINISTRATION	n.	[See Mal and Administer.] Bad management of public affairs; vicious or defective conduct in administration, or the performance of official duties, particularly of executive and ministerial duties, prescribed by law; as the maladministration of a king, or of any chief magistrate.
+malady	MALADY	n.	Any sickness or disease of the human body; any distemper from impaired, defective or morbid organic functions; more particularly, a lingering or deep seated disorder or indisposition. It may be applied to any animal body, but is, I believe, rarely or never applied to plants. The maladies of the body may prove medicines to the mind.	Defect or corruption of the heart; depravity; moral disorder or corruption of moral principles. Depravity of heart is a moral malady	Disorder of the understanding or mind.
+malaga	MALAGA	n.	A species of wine imported from malaga in Spain.
+malanders	MALANDERS	n.	A dry scab on the pastern of a horse.
+malapert	MALAPERT	a.	Saucy; quick, with impudence; sprightly, without respect or decency; bold; forward. Are you growing malapert?
+malapertly	MALAPERTLY	adv.	Saucily; with impudence.
+malapertness	MALAPERTNESS	n.	Sauciness; impudent pertness or forwardness; sprightliness of reply without decency.
+malapropos	MALAPROPOS	adv.	Unsuitably.
+malar	MALAR	a.	Pertaining to the cheek
+malate	MALATE	n.	A salt formed by the malic acid, the acid of apples, combined with a base
+malaxate	MALAXATE	v.t.	To soften; to knead to softness.
+malaxation	MALAXATION	n.	The act of moistening and softening; or the forming of ingredients into a mass for pills or plasters. [Little used.]
+malconformation	MALCONFORMATION	n.	Ill form; disproportion of parts.
+malcontent	MALCONTENT	n.	A discontented subject of government; one who murmurs at the laws and administration, or who manifests his uneasiness by overt acts, as in sedition or insurrection
+malcontented	MALCONTENTED	a.	Discontented with the laws or the administration of government; uneasy; dissatisfied with the government. The famous malcontent earl of Leicester.
+malcontentedly	MALCONTENTEDLY	adv.	With discontent.
+malcontentedness	MALCONTENTEDNESS	n.	Discontentedness with the government; dissatisfaction; want of attachment to the government, manifested by overt acts.
+male	MALE	a.	Pertaining to the sex that procreates young, and applied to animals of all kinds; as a male child; a male beast, fish, or fowl.	Denoting the sex of a plant which produces the fecundating dust, or a flower or plant that bears the stamens only, without pistils.	Denoting the screw whose threads enter the grooves or channels of the corresponding or female screw.
+male	MALE	n.	Among animals, one of the sex whose office is to beget young; a he-animal.	In botany, a plant of flower which produces stamens only, without pistils.	In mechanics, the screw whose threads enter the grooves or channels of the corresponding part or female screw.
+maledicency	MALEDICENCY	n.	Evil speaking; reproachful language; proneness to reproach. [Little used.]
+maledicent	MALEDICENT	a.	Speaking reproachfully; slanderous. [Little used.]
+malediction	MALEDICTION	n.	Evil speaking; denunciation of evil; a cursing; curse or execration
+malefaction	MALEFACTION	n.	A criminal deed; a crime; an offense against the laws. [Little used.]
+malefactor	MALEFACTOR	n.	One who commits a crime; one guilty of violating the laws, in such a manner as to subject him to public prosecution and punishment, particularly to capital punishment; a criminal
+malefice	MALEFICE	n.	An evil deed; artifice; enchantment. [Not in use.]
+maleficiate	MALEFICIATE	v.t.	To bewitch. [Not in use.]
+maleficiation	MALEFICIATION	n.	A bewitching. [Not in use.]
+maleficience	MALEFICIENCE	n.	The doing of evil, harm or mischief
+maleficient	MALEFICIENT	a.	Doing evil, harm or mischief.
+malengine	MALENGINE	n.	Guile; deceit. [Not in use.]
+malet	MALET	n.	A little bag or budget; a portmanteau. [Not used.]
+malevolence	MALEVOLENCE	n.	Ill will, personal hatred; evil disposition towards another; enmity of heart; inclination to injure others. It expresses less than malignity
+malevolent	MALEVOLENT	a.	Having an evil disposition towards another or others; wishing evil to others; ill disposed, or disposed to injure others. A malevolent heart rejoices in the misfortunes of others.	Unfavorable; unpropitious; bringing calamity.
+malevolently	MALEVOLENTLY	adv.	With ill will or enmity; with the wish or design to injure.
+malevolous	MALEVOLOUS	a.	Malevolent. [Not in use.]
+malfeasance	MALFEASANCE	n.	Evil doing; wrong; illegal deed.
+malformation	MALFORMATION	n.	Ill or wrong formation; irregular or anomalous formation or structure of parts
+malic	MALIC	a.	Pertaining to apples; drawn from the juice of apples; as malic acid
+malice	MALICE	n.	Extreme enmity of heart, or malevolence; a disposition to injure others without cause, from mere personal gratification or from a spirit of revenge; unprovoked malignity or spite. --Nor set down aught in malice
+malice	MALICE	v.t.	To regard with extreme ill will. [Not used.]
+malicious	MALICIOUS	a.	Harboring ill will or enmity without provocation; malevolent in the extreme; malignant in heart. I grant him bloody, Sudden, malicious smacking of every sin That has a name.	Proceeding from extreme hatred or ill will; dictated by malice; as a malicious report.
+maliciously	MALICIOUSLY	adv.	With malice; with extreme enmity or ill will; with deliberate intention to injure.
+maliciousness	MALICIOUSNESS	n.	The quality of being malicious; extreme enmity or disposition to injure; malignity.
+malign	MALIGN	a.	Having a very evil disposition towards others; harboring violent hatred or enmity; malicious; as malign spirits.	Unfavorable; pernicious; tending to injure; as a malign aspect of planets.	Malignant; pernicious; as a malign ulcer.
+malign	MALIGN	v.t.	To regard with envy or malice; to treat with extreme enmity; to injure maliciously. The people practice mischief against private men, whom they malign by stealing their goods and murdering them.	To traduce; to defame.
+malign	MALIGN	v.i.	To entertain malice.
+malignancy	MALIGNANCY	n.	[See Malignant.] Extreme malevolence; bitter enmity; malice; as malignancy of heart.	Unfavorableness; unpropitiousness; as the malignancy of the aspect of planets. The malignancy of my fate might distemper yours.	Virulence; tendency to mortification or to a fatal issue; as the malignancy of an ulcer or of a fever.
+malignant	MALIGNANT	a.	Malicious; having extreme malevolence or enmity; as a malignant heart.	Unpropitious; exerting pernicious influence; as malignant start.	Virulent; as a malignant ulcer.	Dangerous to life; as a malignant fever.	Extremely heinous; as the malignant nature of sin.
+malignant	MALIGNANT	n.	A man of extreme enmity or evil intentions. [Not used.]
+malignantly	MALIGNANTLY	adv.	Maliciously; with extreme malevolence.	With pernicious influence.
+maligner	MALIGNER	n.	One who regards or treats another with enmity; a traducer; a defamer.
+malignity	MALIGNITY	n.	Extreme enmity, or evil dispositions of heart towards another; malice without provocation, or malevolence with baseness of heart; deep rooted spite	Virulence; destructive tendency; as the malignity of an ulcer or disease.	Extreme evilness of nature; as the malignity of fraud.	Extreme sinfulness; enormity or heinousness; as the malignity of sin.
+malignly	MALIGNLY	adv.	With extreme ill will.	Unpropitiously; perniciously.
+malison	MALISON	n.	Malediction. [Not in use.]
+malkin	MALKIN	n.	A mop; also, a low maid-servant.
+mall	MALL	n.	A large heavy wooden beetle; an instrument for driving any thing with force.	A blow.
+mall	MALL	n.	A public walk; a level shaded walk.
+mall	MALL	v.t.	To beat with a mall; to beat with something heavy; to bruise.
+mallard	MALLARD	n.	A species of duck of the genus Anas.
+malleability	MALLEABILITY	n.	That quality of bodies which renders them susceptible of extension by beating. It is opposed to friability or brittleness
+malleable	MALLEABLE	a.	That may be drawn out and extended by beating; capable of extension by the hammer; a quality of metals, particularly of gold
+malleableness	MALLEABLENESS	n.	Malleability, which see.
+malleate	MALLEATE	v.t.	To hammer; to draw into a plate or leaf by beating.
+malleation	MALLEATION	n.	The act of beating into a plate or leaf, as a metal; extension by beating.
+mallet	MALLET	n.	A wooden hammer or instrument for beating, or for driving pins; particularly used in carpentry, for driving the chisel
+mallow	MALLOW	n.	A plant of the genus Malva; so called form its emollient qualities. Marsh-mallows, a plant of the genus Althaea
+malmsey	MALMSEY	n.	The name of a species of grape, and also of a kind of wine
+malpractice	MALPRACTICE	n.	Evil practice; illegal or immoral conduct; practice contrary to established rules
+malt	MALT	n.	Barley steeped in water, fermented and dried in a kiln, and thus prepared for brewing into ale or beer.
+malt	MALT	v.t.	To make into malt; as, to malt barley.
+malt	MALT	v.i.	To become malt To house it green will make it malt worse.
+malt-drink	MALT-DRINK		MALT'-LIQUOR, noun A liquor prepared for drink by an infusion of malt; as beer, ale, porter, etc.
+malt-dust	MALT-DUST	n.	The grains or remains of malt. Malt-dust is an enricher of barren land.
+malt-floor	MALT-FLOOR	n.	A floor for drying malt.
+malt-horse	MALT-HORSE	n.	A horse employed in grinding malt; hence, a dull fellow.
+maltalent	MALTALENT	n.	Ill humor. [Not in use.]
+maltdrink	malt-drink
+maltdust	malt-dust
+maltfloor	malt-floor
+maltha	MALTHA	n.	A variety of bitumen, viscid and tenacious, like pitch; unctuous to the touch and exhaling a bituminous odor.
+malthorse	malt-horse
+maltman	MALTMAN		MALTRE'AT, verb transitive [mal and treat.] To treat ill; to abuse; to treat roughly, rudely, or with unkindness.
+maltreat	MALTREAT	v.t.	To treat ill; to abuse; to treat roughly, rudely, or with unkindness
+maltreated	MALTREATED	pp.	Ill treated; abused.
+maltreating	MALTREATING	ppr.	Abusing; treating unkindly.
+maltreatment	MALTREATMENT	n.	Ill treatment; ill usage; abuse.
+maltster	MALTSTER	n.	A man whose occupation is to make malt.
+maltworm	MALTWORM	n.	A tipler
+malvaceous	MALVACEOUS	a.	Pertaining to mallows
+malversation	MALVERSATION	n.	Evil conduct; improper or wicked behavior; mean artifices, or fraudulent tricks

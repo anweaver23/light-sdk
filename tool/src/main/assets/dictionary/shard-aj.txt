@@ -1,0 +1,9 @@
+ajava	AJAVA	n.	The seed of a plant brought from Malabar, said to be an excellent carminative, and very useful in the colic.
+ajuga	AJUGA	n.	Bugle, a genus of plants.
+ajuru-catinga	AJURU-CATINGA	n.	A species of American parrot, of a green color, with eyes of a fiery red, encircled with white.
+ajuru-curau	AJURU-CURAU	n.	An American parrot, of a lively green color, with a blue crown; the throat, and sides of the head, of a fine yellow.
+ajuru-para	AJURU-PARA	n.	A small parrot of America, of a beautiful green, with the beak, legs and circlets of the eyes white.
+ajurucatinga	ajuru-catinga
+ajurucurau	ajuru-curau
+ajurupara	ajuru-para
+ajutage	AJUTAGE	n.	A tube fitted to the mouth of a vessel, through which the water of a fountain is to be played.

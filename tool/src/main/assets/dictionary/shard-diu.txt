@@ -1,0 +1,8 @@
+diuretic	DIURETIC	a.	Having the power to provoke urine; tending to produce discharges of urine
+diuretic	DIURETIC	n.	A medicine that provokes urine, or increases its discharges.
+diurnal	DIURNAL	a.	Relating to a day; pertaining to the daytime; as diurnal heat; diurnal hours.	Daily; happening every day; performed in a day; as a diurnal task.	Performed in 24 hours; as the diurnal revolution of the earth.	In medicine, an epithet of diseases whose exacerbations are in the day time; as a diurnal fever.
+diurnal	DIURNAL	n.	A day-book; a journal. [See Journal, which is mostly used.]
+diurnalist	DIURNALIST	n.	A journalist. [Not in use.]
+diurnally	DIURNALLY	adv.	Daily; every day.
+diuturnal	DIUTURNAL	a.	Lasting; being of long continuance.
+diuturnity	DIUTURNITY	n.	Length of time; long duration

@@ -1,0 +1,97 @@
+dia	DIA		Greek, a prefix, denotes through.
+diabase	DIABASE	n.	Another name of greenstone.
+diabaterial	DIABATERIAL	a.	Border-passing
+diabetes	DIABETES	n.	A long continued increased quantity of urine; an excessive and morbid discharge of urine
+diabetic	DIABETIC	a.	Pertaining to diabetes.
+diabolic	DIABOLIC		DIABOLICAL, adjective [Latin, the devil.] Devilish; pertaining to the devil; hence, extremely malicious; impious; atrocious; nefarious; outrageously wicked; partaking of any quality ascribed to the devil; as a diabolical temper; a diabolical scheme or action.
+diabolical	DIABOLIC		DIABOLICAL adjective [Latin, the devil.] Devilish; pertaining to the devil; hence, extremely malicious; impious; atrocious; nefarious; outrageously wicked; partaking of any quality ascribed to the devil; as a DIABOLICAL temper; a DIABOLICAL scheme or action.
+diabolically	DIABOLICALLY	adv.	In a diabolical manner; very wickedly; nefariously.
+diabolicalness	DIABOLICALNESS	n.	The qualities of the devil.
+diabolism	DIABOLISM	n.	The actions of the devil.	Possession by the devil.
+diacaustic	DIACAUSTIC	a.	Belonging to curves formed by refraction
+diachylon	DIACHYLON	n.	An emollient plaster
+diaconal	DIACONAL	a.	Pertaining to a deacon
+diacoustic	DIACOUSTIC	a.	Pertaining to the science or doctrine of refracted sounds
+diacoustics	DIACOUSTICS	n.	The science or doctrine of refracted sounds; the consideration of the properties of sound refracted by passing through different mediums; called also diaphonics.
+diacritical	DIACRITICAL	a.	That separates or distinguishes; distinctive; as a diacritical point or mark. The short vowel is never signified by any diacritical mark
+diadelph	DIADELPH	n.	In botany, a plant whose stamens are united into two bodies or bundles by their filaments
+diadelphian	DIADELPHIAN	a.	Having its stamens united into two bodies by their filaments.
+diadem	DIADEM	n.	Anciently, a head-band or fillet worn by kings as a badge or royalty. It was made of silk, linen or wool, and tied round the temples and forehead, the ends being tied behind and let fall on the neck. It was usually white and plain; sometimes embroidered with gold, or set with pearls and precious stones.	In modern usage, the mark or badge of royalty, worn on the head; a crown; and figuratively, empire; supreme power.	A distinguished or principal ornament. A diadem of beauty. Isaiah 28:5.
+diademed	DIADEMED	a.	Adorned with a diadem; crowned; ornamented.
+diadrom	DIADROM	n.	A course or passing; a vibration; the time in which the vibration of a pendulum is performed
+diagnostic	DIAGNOSTIC	a.	Distinguishing; characteristic; indicating the nature of a disease
+diagnostic	DIAGNOSTIC	n.	The sign or symptom by which a disease is known or distinguished from others. Diagnostics are of two kinds; the adjunct, or such as are common to several diseases; and the pathognomonic, which always attend the disease, and distinguish it from all others.
+diagonal	DIAGONAL	a.	In geometry, extending from one angle to another of a quadrilateral figure, and dividing it into two equal parts.	Being in an angular direction.
+diagonal	DIAGONAL	n.	A right line drawn from angle to angle of a quadrilateral figure, as a square or parallelogram, and dividing it into two equal parts. It is sometimes called the diameter, and sometimes the diametral.
+diagonally	DIAGONALLY	adv.	In a diagonal direction.
+diagram	DIAGRAM	n.	In geometry, a figure, draught or scheme delineated for the purpose of demonstrating the properties of any figure, as a square, triangle, circle, etc. Anciently, a musical scale
+diagraphic	DIAGRAPHIC		DIAGRAPHICAL, adjective [Gr., to describe.] Descriptive.
+diagraphical	DIAGRAPHIC		DIAGRAPHICAL adjective [Gr., to describe.] Descriptive.
+dial	DIAL	n.	An instrument for measuring time, by the aid of the sun; being a plate or plain surface, on which lines are drawn in such a manner, that the shadow of a wire, or of the upper edge of another plane, erected perpendicularly on the former, may show the true time of the day. The edge of the plane, which shows the time, is called the stile of the dial and this must be parallel to the axis of the earth. The line on which this plane is erected, is called the substile; and the angle included between the substile and stile, is called the elevation or highth of the stile. A dial may be horizontal, vertical, or inclining.
+dial-plate	DIAL-PLATE	n.	The plate of a dial on which the lines are drawn, to show the hour or time of the day.
+dialect	DIALECT	n.	The form or idiom of a language, peculiar to a province, or to a kingdom or state; consisting chiefly in differences of orthography or pronunciation. The Greek language is remarkable for four dialects, the Attic, Iionic, Doric and Eolic. A dialect is the branch of a parent language, with such local alterations as time, accident and revolutions may have introduced among descendants of the same stock or family, living in separate or remote situations. But in regard to a large portion of words, many languages, which are considered as distinct, are really dialects of one common language.	Language; speech, or manner of speaking.
+dialectical	DIALECTICAL	a.	Pertaining to a dialect, or dialects; not radical.	Logical; argumental.
+dialectically	DIALECTICALLY	adv.	In the manner of dialect.
+dialectician	DIALECTICIAN	n.	A logician; a reasoner.
+dialectics	DIALECTICS	n.	That branch of logic which teaches the rules and modes of reasoning.
+dialing	DIALING	n.	The art of constructing dials, or of drawing dials on a plane. The sciateric science, or knowledge of showing the time by shadows.
+dialist	DIALIST	n.	A constructor of dials; one skilled in dialing.
+diallage	DIALLAGE	n.	A mineral, the smaragdite of Saussure, of a lamellar or foliated structure. Its subspecies are green diallage metalloidal diallage and bronzite. The metalloidal subspecies is called schillersteing, or shiller spar
+dialogism	DIALOGISM	n.	A feigned speech between two or more.
+dialogist	DIALOGIST	n.	[See Dialogue.] A speaker in a dialogue; also, a writer of dialogues.
+dialogistic	DIALOGISTIC	a.	Having the form of a dialogue.
+dialogistically	DIALOGISTICALLY	adv.	In the manner of dialogue.
+dialogize	DIALOGIZE	v.i.	[See Dialogue.] To discourse in dialogue.
+dialogue	DIALOGUE	n.	Dialog. [Gr., to dispute; to speak.]	A conversation or conference between two or more persons; particularly, a formal conversation in theatrical performances; also, an exercise in colleges and schools, in which two or more persons carry on a discourse.	A written conversation, or a composition in which two or more persons are represented as conversing on some topic; as the dialogues of Cicero de Oratore, and de Natura Deorum.
+dialogue	DIALOGUE	v.i.	To discourse together; to confer. [Not used.]
+dialogue-writer	DIALOGUE-WRITER	n.	A writer of dialogues or feigned conversations.
+dialoguewriter	dialogue-writer
+dialplate	dial-plate
+dialysis	DIALYSIS	n.	A mark in writing or printing, consisting of two points placed over one of two vowels, to dissolve a diphthong, or to show that the two vowels are to be separated in pronunciation; as, aer, mosaic.	In medicine, debility; also, a solution of continuity.
+diamantine	DIAMANTINE		for adamantine. [Not in use.]
+diameter	DIAMETER	n.	A right line passing through the center of a circle or other curvilinear figure, terminated by the circumference, and dividing the figure into two equal parts.	A right line passing through the center of a piece of timber, a rock or other object, from one side to the other; as the diameter of a tree, or of a stone.
+diametral	DIAMETRAL	a.	Diametrical, which see.
+diametrally	DIAMETRALLY	adv.	Diametrically.
+diametrical	DIAMETRICAL	a.	Describing a diameter.	Observing the direction of a diameter; direct; as diametrical opposition.
+diametrically	DIAMETRICALLY	adv.	In a diametrical direction; directly; as diametrically opposite.
+diamond	DIAMOND	n.	Dimond. [Latin, Gr. See Adamant.]	A mineral, gem or precious stone, of the most valuable kind, remarkable for its hardness, as it scratches all other minerals. When pure, the diamond is usually clear and transparent, but it is sometimes colored. In its rough state, it is commonly in the form of a roundish pebble, or of octahedral crystals. It consists of carbon, and when heated to 14 degrees Wedgewood, and exposed to a current of air, it is gradually, but completely combustible. When pure and transparent, it is said to be of the first water.	A very small printing letter.	A figure, otherwise called a rhombus.
+diamond	DIAMOND	a.	Resembling a diamond as a diamond color; or consisting of diamonds, as a diamond chain.
+diamond-mine	DIAMOND-MINE	n.	A mine in which diamonds are found.
+diamonded	DIAMONDED	a.	Having the figure of an oblique angled parallelogram, or rhombus.
+diamondmine	diamond-mine
+diander	DIANDER	n.	In botany, a plant having two stamens
+diandrian	DIANDRIAN	a.	Having two stamens.
+diapase	DIAPASON		DIAPASE noun [Gr., through all.]
+diapasm	DIAPASM	n.	A perfume
+diapason	DIAPASON		DIAPASE, noun [Gr., through all.]	In music, the octave or interval which includes all the tones.	Among musical instrument-makers, a rule or scale by which they adjust the pipes of organs, the holes of flutes, etc., in due proportion for expressing the several tones and semitones. DIAPASON-diapente, a compound consonance in a triple ratio, as 3 to 9, consisting of 9 tones and a semitone, or 19 semitones; a twelfth. DIAPASON-diatessaron, a compound concord, founded on the proportion of 8 to 3, consisting of eight tones and a semitone. DIAPASON-ditone, a compound concord, whose terms are as 10 to 4, or 5 to 2. DIAPASON-semiditone, a compound concord, whose terms are in the proportion of 12 to 5.
+diapente	DIAPENTE	n.	A fifth; an interval making the second of the concords, and with the diatessaron, an octave.	In medicine, a composition of five ingredients.
+diaper	DIAPER	n.	Figured linen cloth; a cloth wove in flowers or figures; much used for towels or napkins. Hence, a towel or napkin.
+diaper	DIAPER	v.t.	To variegate or diversify, as cloth, with figures; to flower.
+diaper	DIAPER	v.i.	To draw flowers or figures, as upon cloth. If you diaper on folds.
+diaphaned	DIAPHANED	a.	Transparent. [Little used.]
+diaphaneity	DIAPHANEITY	n.	The power of transmitting light; transparency; pellucidness
+diaphanic	DIAPHANIC	a.	Having power to transmit light; transparent
+diaphanous	DIAPHANOUS	a.	[See supra.] Having power to transmit rays of light, as glass; pellucid; transparent; clear.
+diaphoresis	DIAPHORESIS	n.	Augmented perspiration; or an elimination of the humors of the body through the pores of the skin
+diaphoretic	DIAPHORETIC	a.	Having the power to increase perspiration; sudorific; sweating
+diaphoretic	DIAPHORETIC	n.	A medicine which promotes perspiration; a sudorific. Diaphoretics differ from sudorifics; the former only increase the insensible perspiration; the latter excite the sensible discharge called sweat.
+diaphragm	DIAPHRAGM	n.	Diafram. [Gr., to break off, to defend.]	In anatomy, the midriff, a muscle separating the chest or thorax from the abdomen or lower belly.	A partition or dividing substance.
+diaporesis	DIAPORESIS	n.	In rhetoric, doubt; hesitation
+diaresis	DIARESIS		DIARESY, noun [Gr., a division; to take away.] The dissolution of a diphthong; the mark placed over one of two vowels, denoting that they are to be pronounced separately, as distinct letters.
+diaresy	DIARESIS		DIARESY noun [Gr., a division; to take away.] The dissolution of a diphthong; the mark placed over one of two vowels, denoting that they are to be pronounced separately, as distinct letters.
+diarian	DIARIAN	a.	[See Diary.] Pertaining to a diary; daily.
+diarist	DIARIST	n.	One who keeps a diary.
+diarrhea	DIARRHEA	n.	Purging or flux; a frequent and copious evacuation of excrement by stool
+diarrhetic	DIARRHETIC	a.	Promoting evacuation by stool; purgative.
+diary	DIARY	n.	An account of daily events or transactions; a journal; a register of daily occurrences or observations; as a diary of the weather. A diary fever is a fever of one day
+diaschism	DIASCHISM	n.	In music, the difference between the comma and enharmonic diesis, commonly called the lesser comma
+diaspore	DIASPORE	n.	A mineral occurring in lamellar concretions, of a pearly gray color, and infusible. A small fragment, placed in the flame of a candle, almost instantly decrepitates, and is dispersed; whence its name. It is a mineral little known
+diastaltic	DIASTALTIC	a.	Dilated; noble; bold; an epithet given by the Greeks to certain intervals in music, as the major third, major sixth and major seventh
+diastem	DIASTEM	n.	In music, a simple interval
+diastole	DIASTOLE		DIASTOLY, noun [Gr., to set or send from.]
+diastoly	DIASTOLE		DIASTOLY noun [Gr., to set or send from.]	Among physicians, a dilation of the heart, auricles and arteries; opposed to systole or contraction.	In grammar, the extension of a syllable; or a figure by which a syllable naturally short is made long.
+diastyle	DIASTYLE	n.	An edifice in which three diameters of the columns are allowed for intercolumniations
+diatessaron	DIATESSARON	n.	Among musicians, a concord or harmonic interval, composed of a greater tone, a lesser tone, and one greater semitone. Its proportion is as 4 to 3, and it is called a perfect fourth
+diatonic	DIATONIC	a.	Ascending or descending, as in sound, or from sound to sound. This epithet is given to a scale or gammut, to intervals of a certain kind, or to music composed of these intervals; as a diatonic series; a diatonic interval; diatonic melody or harmony. It is applied to ordinary music, containing only the two greater and lesser tones, and the greater semitone
+diatribe	DIATRIBE	n.	A continued discourse or disputation
+diazeutic	DIAZEUTIC	a.	A diazeutic tone, in ancient Greek music, disjoined two fourths, one on each side of it, and which, being joined to either, made a fifth. This is, in our music, from A to B

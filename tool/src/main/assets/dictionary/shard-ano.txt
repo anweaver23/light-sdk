@@ -1,0 +1,38 @@
+anodyne	ANODYNE		Any medicine which allays pain, or causes sleep, as an opiate, paregoric, narcotic, etc
+anodyne	ANODYNE	a.	Assuaging pain; causing sleep, or insensibility.
+anoint	ANOINT	v.t.	To pour oil upon; to smear or rub over with oil or unctuous substances; also to spread over, as oil. We say, the man anoints another, or the oil anoints him.	To consecrate by unction, or the use of oil. Thou shalt anoint the altar, and sanctify it. Exodus 29:7.	To smear or daub. He anointed the eyes of the blind man with clay. John 9:6.	To prepare, in allusion to the consecrating use of oil. ANOINT the shield. Isaiah 21:5. To anoint the head with oil, Psalms 23:5. seems to signify to communicate the consolations of the Holy Spirit. The use of oil in consecrations, was of high antiquity. Kings, prophets and priests were set apart or consecrated to their offices by the use of oil. Hence the peculiar application of the term anointed to Jesus Christ.
+anointed	ANOINTED	pp.	Smeared or rubbed with oil; set apart; consecrated with oil.
+anointed	ANOINTED	n.	The Messiah, or Son of God, consecrated to the great office of Redeemer; called the Lord's anointed Cyrus is also called the Lord's anointed Isaiah 45:1.
+anointer	ANOINTER	n.	One who anoints.
+anointing	ANOINTING	ppr.	Smearing with oil; pouring on oil, or other oleaginous substance; consecrating.
+anointing	ANOINTING	n.	The act of smearing with oil; a consecrating.
+anointment	ANOINTMENT	n.	The act of anointing, or state of being anointed.
+anole	ANOLE	n.	A species of lizard in the W. Indies, of a yellowish color, having several blue and green stripes running down its back.
+anomaliped	ANOMALIPED	a.	An epithet given to fowls, whose middle toe is united to the exterior by three phalanges, and to the interior by one only
+anomaliped	ANOMALIPED	n.	An anomalous footed fowl. [See the adjective.]
+anomalism	ANOMALISM	n.	An anomaly; a deviation from rule.
+anomalistic	ANOMALISTIC		ANOMALIS'TICAL, adjective Irregular; departing from common or established rules. In astronomy, the anomalistic year is the time in which the earth passes through her orbit, which is longer than the tropical year, on account of the precession of the equinoxes.
+anomalistical	ANOMALISTICAL	a.	Irregular; departing from common or established rules. In astronomy, the anomalistic year is the time in which the earth passes through her orbit, which is longer than the tropical year, on account of the precession of the equinoxes.
+anomalous	ANOMALOUS	a.	Irregular; deviating from a general rule, method or analogy; applied, in grammar, to words which deviate from the common rules of inflection; and in astronomy, to the seemingly irregular motions of the planets; but applied also generally to whatever is irregular; as, an anomalous character; anomalous pronunciation.
+anomalously	ANOMALOUSLY	adv.	Irregularly; in a manner different from common rule, method or analogy.
+anomaly	ANOMALY	n.	Irregularity; deviation from the common rule; thus oxen, the plural of ox, is an anomaly in grammar, as the regular plural would be oxes.	In astronomy, an irregularity in the motion of a planet, whereby it deviates from the aphelion or apogee.	In music, a false scale or interval.
+anomeans	ANOMEANS	n.	In church history, the pure Arians, as distinguished from the Semi-Arians
+anomia	ANOMIA	n.	A genus of bivalve shells, so called from their unequal valves; the beaked cockle
+anomite	ANOMITE	n.	A fossil shell of the genus anomia.
+anomorhomboid	ANOMORHOMBOID	n.	A genus os spars, pellucid, and crystaline, of no determinate form externally, but breaking into regular rhomboidal masses. The species are five, mostly of a white color
+anomy	ANOMY	n.	A violation of law. [Rarely used.]
+anon	ANON	adv.	Quickly; without intermission:soon; immediately. The same is he that heareth the word, and anon with joy receiveth it. Matthew 13:20.	Sometimes; now and then; at other times; accompanied with ever, ever and anon
+anonymous	ANONYMOUS		a [Latin anonymus; Gr. name. See Name.] Nameless; wanting a name; without the real name of the author; as, an anonymous pamphlet.
+anonymously	ANONYMOUSLY	adv.	Without a name.
+anoplother	ANOPLOTHER		ANOPLOTHE'RIUM, noun [Gr. a beast.] This is the name which Cuvier has given to a genus of animals, whose bones are found in the gypsum quarries near Paris; a genus now extinct.
+anoplotherium	ANOPLOTHERIUM	n.	This is the name which Cuvier has given to a genus of animals, whose bones are found in the gypsum quarries near Paris; a genus now extinct
+anopsy	ANOPSY	n.	Want of sight; invision. [Little used.]
+anorexy	ANOREXY	n.	[Gr. appetite. Want of appetite, without a lothing of food.
+another	ANOTHER	a.	Not the same; different; as, we have one form of government; France, another	One more, in addition to a former number, indefinitely; as, grant one request, they will ask another favor, another and another	Any other; any different person, indefinitely; as, 'Let another praise thee and not thy own mouth.' This word is often used without a noun, becoming a substitute for the name of the person or thing; as in the last example. It is also much used in opposition to one, as in the first and second passages cited. It is also frequently used with one, in a reciprocal sense; as, 'love one another; ' 'bear one another's burdens; ' that is, love one, or let one love another
+another-gaines	ANOTHER-GAINES	adv.	Of another kind. obsolete
+another-gates	ANOTHER-GATES	adv.	Of another sort. obsolete
+another-guise	ANOTHER-GUISE	a.	Of a different kind; different. This is a vulgar word, and usually contracted into other guess.
+anothergaines	another-gaines
+anothergates	another-gates
+anotherguise	another-guise
+anotta	ANOTTA	n.	An elegant red color, formed from the pellicles or pulp of the seeds of the bixa, a tree common in South America. This is called also Terra Orleana and Roco. The annotta is made by steeping the seeds for seven or eight days, pounding them to separate the red skins, then straining the liquor, boiling it, taking off the scum which is the coloring matter, then boiling it to a due consistence, and making it into balls.

@@ -1,0 +1,96 @@
+squab	SQUAB	a.	Fat; thick; plump; bulky. Nor the squab daughter, nor the wife were nice.	Unfledged; unfethered; as a squab pigeon.
+squab	SQUAB	n.	A young pigeon or dove. [This word is in common or general use in America, and almost the only sense in which it is used is the one here given. It is sometimes used in the sense of fat, plump.]	A kind of sofa or couch; a stuffed cushion. [Not used in America.]
+squab	SQUAB	adv.	Striking at once; with a heavy fall; plump. The eagle dropped the tortoise squab upon a rock. [Low and not used.] [The vulgar word awhap or whop, is used in a like sense in America. It is found in Chaucer.]
+squab	SQUAB	v.i.	To fall plump; to strike at one dash, or with a heavy stroke. [Not used.]
+squab-pie	SQUAB-PIE	n.	A pie made of squabs or young pigeons
+squabbish	SQUABBISH		SQUABBY, adjective Thick; fat; heavy.
+squabble	SQUABBLE	v.i.	To contend for superiority; to scuffle; to struggle; as, two persons squabble in sport.	To contend; to wrangle; to quarrel.	To debate peevishly; to dispute. If there must be disputes, it is less criminal to squabble than to murder. [Squabble is not an elegant word in any of its uses. In some of them it is low.]
+squabble	SQUABBLE	n.	A scuffle; a wrangle; a brawl; a petty quarrel.
+squabbler	SQUABBLER	n.	A contentious person; a brawler.
+squabbling	SQUABBLING	ppr.	Scuffling; contending; wrangling.
+squabby	SQUABBISH		SQUABBY adjective Thick; fat; heavy.
+squabpie	squab-pie
+squad	SQUAD	n.	A company of armed men; a party learning military exercise; any small party.
+squadron	SQUADRON	n.	In its primary sense, a square or square form; and hence, a square body of troops; a body drawn up in a square. So Milton has used the word. Those half rounding guards just met, and closing stood in squadron joind. [This sense is probably obsolete, unless in poetry.]	A body of troops, infantry or cavalry, indefinite in number.	A division of a fleet; a detachment of ships of war, employed on a particular expedition; or one third part of a naval armament.
+squadroned	SQUADRONED	a.	Formed into squadrons or squares.
+squalid	SQUALID	a.	Foul; filthy; extremely dirty. Uncombd his locks, and squalid his attire
+squalidness	SQUALIDNESS	n.	Foulness; filthiness.
+squall	SQUALL	v.i.	To cry out; to scream or cry violently; as a woman frightened, or a child in anger or distress; a, the infant squalled.
+squall	SQUALL	n.	A loud scream; a harsh cry.	A sudden gust of violent wind.
+squaller	SQUALLER	n.	A screamer; one that cries loud.
+squalling	SQUALLING	ppr.	Crying out harshly; screaming.
+squally	SQUALLY	a.	Abounding with squalls disturbed often with sudden and violent gust of wind; as squally weather.	In agriculture, broken into detached pieces; interrupted by unproductive spots. [Local.]
+squalor	SQUALOR	n.	Foulness; filthiness; coarseness
+squamiform	SQUAMIFORM	a.	Having the form or shape of scales
+squamigerous	SQUAMIGEROUS	a.	Bearing or having scales
+squamous	SQUAMOUS	a.	Scaly; covered with scales; as the squamous cones of the pine
+squander	SQUANDER	v.t.	To spend lavishly or profusely; to spend prodigally; to dissipate; to waste without economy or judgment; as, to squander an estate. They often squanderd, but they never gave. The crime of squandering health is equal to the folly.	To scatter; to disperse. Our squanderd troops he rallies. [In this application not now used.]
+squandered	SQUANDERED	pp.	Spent lavishly and without necessity or use; wasted; dissipated, as property.
+squanderer	SQUANDERER	n.	One who spends his money prodigally, without necessity or use; a spendthrift; a prodigal; a waster; a lavisher.
+squandering	SQUANDERING	ppr.	Spending lavishly; wasting.
+square	SQUARE	a.	Having four equal sides and four right angles; as a square room; a square figure.	Forming a right angle; as an instrument for striking lines square	Parallel; exactly suitable; true. Shes a most triumphant lady, if report be square to her. [Unusual.]	Having a straight front, or a frame formed with straight lines; not curving; as a man of a square frame; a square built man.	That does equal justice; exact; fair; honest; as square dealing.	Even; leaving no balance. Let us make or leave the accounts square Three square five square having three or five equal sides, etc.; an abusive use of square SQUARE root, in geometry and arithmetic. The square root of a quantity or number is that which, multiplied by itself, produces the square Thus 7 is the square root of 49, for 7 times 7 = 49. In seamens language, the yards are square when they are arranged at right angles with the mast or the keel. The yards and sails are said also to be square when they are of greater extent than usual.
+square	SQUARE	n.	A figure having four equal sides and four right angles.	An area of four sides, with houses on each side. The statue of Alexander VII. stands in the large square of the town.	The content of the side of a figure squared.	An instrument among mechanics by which they form right angles, or otherwise measure angles.	Im geometry and arithmetic, a square or square number is the product of a number multiplied by itself. Thus 64 is the square of 8, for 8 times 8 = 64.	Rule; regularity; exact proportion; justness of workmanship and conduct. They of Galatia much more out of square I have not kept my square [Not in use.]	A square body of troops; a squadron; as the brave square of war. [Not in use.]	A quaternion; four. [Not in use.]	Level; equality. We live not on the square with such as these.	In astrology, quartile; the position of planets distant ninety degrees from each other.	Rule; conformity; accord. I shall break no squares with another for a trifle. SQUAREs go. Let us see how the squares go, that is, how the game proceeds; a phrase taken from the game of chess, the chess board being formed with squares.
+square	SQUARE	v.t.	To form with four equal sides and four right angles.	To reduce to a square; to form to right angles; as, to square masons work.	To reduce to any given measure or standard. 4, To adjust; to regulate; to mold; to shape; as, to square our actions by the opinions of others; to square our lives by the precepts of the gospel.	To accommodate; to fit; as, square my trial to my strength.	To respect in quartile.	To make even, so as to leave no difference or balance; as, to square accounts; a popular phrase.	In arithmetic, to multiply a number by itself; as, to square the number.	In seamens language, to square the yards, is to place them at right angles with the mast or keel.
+square	SQUARE	v.i.	To suit; to fit; to quadrate; to accord or agree. His opinions do not square with the doctrines of philosophers.	To quarrel; to go to opposite sides. Are you such fools to square for this? [Not in use.]
+square-rigged	SQUARE-RIGGED	a.	In seamens language, a vessel is square-rigged when her principal sails are extended by yards suspended by the middle, and not by stays, gaffs, booms and lateen yards. Thus a ship and a brig are square-rigged vessels.
+square-sail	SQUARE-SAIL	n.	In seamens language, a sail extended to a yard suspended by the middle.
+squareness	SQUARENESS	n.	The state of being square; as an instrument to try the squareness of work.
+squarerigged	square-rigged
+squaresail	square-sail
+squarish	SQUARISH	a.	Nearly square.
+squarrous	SQUARROUS	a.	In botany, scurfy or ragged, or full of scales; rough; jagged. A squarrous calyx consists of scales very sidely divaricating; a squarrous leaf is divided into shreds or jags, raised above the plane of the leaf, and not parallel to it
+squash	SQUASH	v.t.	To crush; to beat or press into pulp or a flat mass
+squash	SQUASH	n.	Someting soft an deasily crushed.	[Gr.] A plant of the genus Cucurbita, and its fruit; a culinary vegetable.	Something unripe or soft; in contempt. This squash this gentleman.	A sudden fall of a heavy soft body.	A shock of soft bodies. My fall was stoppd by a terrible squash [Vulgar.]
+squat	SQUAT	v.i.	To sit down upon the hams or heels; as a human being.	To sit close to the ground; to cower; as an animal.	In Massachusetts and some other states of America, to settle on anothers land without pretense of title; a practice very common in the wilderness.
+squat	SQUAT	v.t.	To bruise or make flat by a fall. [Not in use.]
+squat	SQUAT	a.	Sitting on the hams or heels; sitting close to the ground; cowering. Him there they found, squat like a toad, close at the ear of Eve.	Short and thick, like the figure of an animal squatting. The head of the squill insect is broad and squat
+squat	SQUAT	n.	The posture of one that sits on his hams, or close to the ground.	A sudden or crushing fall. [Not in use.]	A sort of mineral.
+squatt	SQUATT	n.	Among miners, a bed of ore extending but a little distance.
+squatter	SQUATTER	n.	One that squats or sits close.	In the United States, one that settles on new land without a title.
+squeak	SQUEAK	v.t.	To utter a sharp shrill cry, usually of short duration; to cry with an acute tone, as an animal; or to make a sharp noise, as a pipe or quill, a wheel, a door and the like. Wheels squeak only when the axle tree is dry. Who can endure to hear one of the rough old Romans, squeaking through the mouth of an eunuch? Zoilus calls the companions of Ulysses, the squeaking pigs of Homer.	To break silence or secrecy for fear or pain; to speak.
+squeak	SQUEAK	n.	A sharp shrill sound suddenly uttered, either of the human voice or of any animal or instrument, such as a child utters in acute pain, or as pigs utter, or as is made by carriage wheels when dry, or by a pipe or reed.
+squeaker	SQUEAKER	n.	One that utters a sharp shrill sound.
+squeaking	SQUEAKING	ppr.	Crying with a sharp voice; making a sharp sound; as a squeaking wheel.
+squeal	SQUEAL	v.i.	[See Squall.] To cry with a sharp shrill voice. It is used of animals only, and chiefly of swine. It agrees in sense with squeak, except that squeal denotes a more continues cry than squeak, and the latter is not limited to animals. We say, a squealing hog or pig, a squealing child; but more generally a squalling child.
+squealing	SQUEALING	ppr.	Uttering a sharp shrill sound or voice; as a squealing pig.
+squeamish	SQUEAMISH	a.	Literally, having a stomach that is easily turned, or that readily nauseates any thing; hence, nice to excess in taste; fastidious; easily disgusted; apt to be offended at trifling improprieties; scrupulous. Quoth he, that honors very squeamish that takes a basting for a blemish. His muse is rustic, and perhaps too plain the men of squeamish taste to entertain
+squeamishly	SQUEAMISHLY	adv.	IN a fastidious manner; with too much niceness.
+squeamishness	SQUEAMISHNESS	n.	Excessive niceness; vicious delicacy of taste; fastidiousness; excessive scrupulousness. The thorough-paced politician must presently laugh at the squeamishness of his conscience.
+squeasiness	SQUEASINESS	n.	Nausea. [Not used.] [See Queasiness.]
+squeasy	SQUEASY	a.	Queasy; nice; squeamish; scrupulous. [Not used.] [ See Queasy.]
+squeeze	SQUEEZE	v.t.	To press between two bodies; to press closely; as, to squeeze an orange the fingers or with an instrument; to squeeze the hand in friendship.	To oppress with hardships, burdens and taxes; to harass; to crush. In a civil war, people must expect to be squeezed with the burden.	To hug; to embrace closely.	To force between close bodies; to compel or cause to pass; as, to squeeze water through felt. To squeeze out, to force out by pressure, as a liquid.
+squeeze	SQUEEZE	v.i.	To press; to urge ones way; to pass by pressing; as, to squeeze hard to get through a crowd.	To crowd. To squeeze through, to pass through by pressing and urging forward.
+squeeze	SQUEEZE	n.	Pressure; compression between bodies.	A close hug or embrace.
+squeezed	SQUEEZED	pp.	Pressed between bodies; compressed; oppressed.
+squeezing	SQUEEZING	ppr.	Pressing; compressing; crowding; oppressing.
+squeezing	SQUEEZING	n.	The act of pressing; compression; oppression.	That which is forced out by pressure; dregs. The dregs and squeezings of the brain.
+squelch	SQUELCH		SQUELSH, verb transitive To crush. [A low word and not used.]
+squelsh	SQUELCH		SQUELSH verb transitive To crush. [A low word and not used.]
+squelsh	SQUELCH	n.	A heavy fall. [Low and not used.]
+squib	SQUIB	n.	A little pipe or hollow cylinder of paper, filled with powder or combustible matter and sent into the air, burning and bursting with a crack; a cracker. Lampoons, like squibs, may make a present blaze. The making and selling of squibs is punishable.	A sarcastic speech or little censorious writing published; a petty lampoon.	A pretty fellow. [Not in use.] The squibs, in the common phrase, are called libellers.
+squib	SQUIB	v.i.	To throw squibs; to utter sarcastic or severe reflections; to contend in petty dispute; as, two members of a society squib a little in debate. [Colloquial.]
+squibbing	SQUIBBING	ppr.	Throwing squibs or severe reflections.
+squill	SQUILL	n.	A plant of the genus Scilla. It has a large acrid bulbous root like an onion, which is used in medicine.	A fish, or rather a crustaceous animal, of the genus Cancer.	An insect, called squill insect form its resemblance to the fish, having a long body covered with a crust, the head broad and squat.
+squinancy	SQUINANCY	n.	The quinsy, which see. [Squinancy is not used.]
+squint	SQUINT	a.	Looking obliquely; having the optic axes directed to different objects.	Looking with suspicion.
+squint	SQUINT	v.i.	To see obliquely. Some can squint when they will.	To have the axes of the eyes directed to different objects.	To slope; to deviate from a true line; to run obliquely.
+squint	SQUINT	v.t.	To turn the eye to an oblique position; to look indirectly; as, to squint an eye.	To form the eye to oblique vision. He gives the web and the pin, squints the eye, and make the hare-lip.
+squint-eyed	SQUINT-EYED	a.	Having eyes that squint; having oblique vision.	Oblique; indirect; malignant; as squint-eyed praise.	Looking obliquely or by side glances; as squint-eyed jealousy or envy.
+squinteyed	squint-eyed
+squintifego	SQUINTIFEGO	n.	Squinting. [A cant word and not to be used.]
+squinting	SQUINTING	ppr.	Seeing or looking obliquely; looking by side glances.
+squinting	SQUINTING	n.	The act or habit of looking obliquely.
+squintingly	SQUINTINGLY	adv.	With an oblique look; by side glances.
+squiny	SQUINY	v.i.	To look squint. [A cant word not to be used.]
+squir	SQUIR	v.t.	To throw; to thrust; to drive.
+squire	SQUIRE	n.	In Great Britain, the title of a gentleman next in rank to a knight.	In Great Britain, an attendant on a noble warrior.	An attendant at court.	In the United States, the title of magistrates and lawyers. In New-England, it is particularly given to justices of the peace and judges.	The title customarily given to gentlemen.
+squire	SQUIRE	v.t.	To attend as a squire	In colloquial language, to attend as a beau or gallant for aid and protection; as, to squire a lady to the gardens.
+squirehood	SQUIREHOOD		SQUIRESHIP, noun The rank and state of a squire.
+squirely	SQUIRELY	a.	Becoming a squire.
+squireship	SQUIREHOOD		SQUIRESHIP noun The rank and state of a squire.
+squirrel	SQUIRREL	n.	A small quadruped of the genus Sciurus, order of Glires, and class Mammalia. The squirrel has two cutting teeth in each jaw, four toes on the fore feet, and five on the hind feet. Several species are enumerated. Among these are the gray, the red, and the black squirrel These animals are remarkably nimble, running up tress and leaping from branch to branch with surprising agility. They subsist on nuts, of which they lay up a store for winter, some of them in hollow trees, others in the earth. Their flesh is delicate food
+squirrel hunt	SQUIRREL HUNT	n.	In America, the hunting and shooting of squirrels by a company of men.
+squirt	SQUIRT	v.t.	To eject or drive out of a narrow pipe or orifice, in a stream; as, to squirt water.
+squirt	SQUIRT	v.i.	To throw out words; to let fly. [Not in use.]
+squirt	SQUIRT	n.	An instrument with which a liquid is ejected in a stream with force.	A small quick stream.
+squirter	SQUIRTER	n.	One that squirts. [This word in all its forms, is vulgar.] Squirting cucumber, a sort of wild cucumber, so called from the sudden bursting of its capsules when ripe; the Momordica elaterium.

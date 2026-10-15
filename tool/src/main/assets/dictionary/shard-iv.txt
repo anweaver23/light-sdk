@@ -1,0 +1,6 @@
+ivory	IVORY	n.	The tusk of an elephant, a hard, solid substance, of a fine white color. This tooth is sometimes six or seven feet in length, hollow from the base to a certain highth, and filled with a compact medullary substance, seeming to contain a great number of glands. The ivory of Ceylon and Achem does not become yellow in wearing, and hence is preferred to that of Guinea
+ivory	IVORY	a.	Consisting of ivory; as an ivory comb.
+ivory-black	IVORY-BLACK	n.	A fine kind of soft blacking.
+ivoryblack	ivory-black
+ivy	IVY	n.	A parasitic plant of the genus Hedera, which creeps along the ground, or if it finds support, rises on trees or buildings, climbing to a great highth.
+ivyed	IVYED	a.	Overgrown with ivy.

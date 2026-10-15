@@ -1,0 +1,32 @@
+cog	COG	v.t.	To flatter; to wheedle; to seduce or draw from, by adulation or artifice.	To obtrude or thrust in, by falsehood or deception; as, to cog in a word to serve a purpose. To cog a die, to secure it so as to direct its fall; to falsify; to cheat in playing dice.
+cog	COG	v.i.	To deceive; to cheat; to lie.	To wheedle.
+cog	COG	n.	The tooth of a wheel, by which it drives another wheel or body.
+cog	COG	v.t.	To fix a cog; to furnish with cogs.
+cogency	COGENCY	n.	Force; strength; power of compelling; literally, urgency, or driving. It is used chiefly of moral subjects, and in relation to force or pressure on the mid; as the cogency of motives or arguments.
+cogenial	COGENIAL		for congenial.
+cogent	COGENT	a.	Forcible, in a physical sense; as the cogent force of nature.	Urgent; pressing on the mind; forcible; powerful; not easily resisted; as a cogent reason, or argument. The harmony of the universe furnishes cogent proofs of a deity.
+cogently	COGENTLY	adv.	With urgent force; with powerful impulse; forcibly.
+cogged	COGGED	pp.	Flattered; deceived; cheated; thrust in deceitfully; falsified; furnished with cogs.
+cogger	COGGER	n.	A flatterer, or deceiver.
+coggery	COGGERY	n.	Trick; falsehood.
+cogging	COGGING	ppr.	Wheedling; deceiving; cheating; inserting deceitfully; fixing cogs.
+cogging	COGGING	n.	Cheat; deception; fallacy.
+coggle	COGGLE	n.	A boat; a fishing boat. [See cock.]
+cogitable	COGITABLE	a.	[See Cogitate.] That may be thought on; that may be meditated on.
+cogitate	COGITATE	v.i.	To think; to meditate.
+cogitation	COGITATION	n.	The act of thinking; thought; meditation; contemplation.	Thought directed to an object; purpose.
+cogitative	COGITATIVE	a.	Thinking; having the power of thinking, or meditating; as a cogitative substance.	Given to thought, or contemplation.
+cognate	COGNATE	a.	Allied by blood; kindred by birth.	Related in origin; proceeding from the same stock; of the same family; as a cognate dialect.	Allied in the manner of formation or utterance; uttered by the same organs; as a cognate letter or round.
+cognation	COGNATION	n.	In the civil law, kindred or natural relation between males and females, both descended from the same father; as agnation is the relation between males only descended from the same stock.	Kindred; relation by descent from the same original. Pride and hardheartedness are of near cognation to ingratitude.	Relation; participation of the same nature.
+cognition	COGNITION	n.	Knowledge or certain knowledge, as from personal view or experience.
+cognitive	COGNITIVE	a.	Knowing, or apprehending by the understanding; as cognitive power.
+cognizable	COGNIZABLE	a.	That falls or may fall under judicial notice; that may be heard, tried, and determined; as, a cause or action in cognizable before the circuit court. These wrongs are cognizable by the ecclesiastical courts.	That falls or may fall under notice or observation; that may be known, perceived or apprehended. The cause of many phenomena is not cognizable by the senses.
+cognizance	COGNIZANCE	n.	Judicial notice or knowledge; the hearing, trying and determining of a cause or action in court. The court of kings bench takes cognizance of civil and criminal causes. In the United States, the district courts have cognizance of maritime causes.	Jurisdiction, or right to try and determine causes. The court of kings bench has original jurisdiction and cognizance of all actions of trespass vi et armis.	In law, an acknowledgment or confession; as in fines, the acknowledgment of the cognizor or deforciant, that the right to the land in question is in the plaintiff or cognizee, by gift or otherwise; in replevin, the acknowledgment of the defendant, that he took the goods, but alledging that he did it legally as the bailiff of another person who had a right to distrain.	A badge on the sleeve of a waterman or servant, by which he is known to belong to this or that nobleman or gentleman.	Knowledge or notice; perception; observation; as the cognizance of the senses.	Knowledge by recollection.
+cognizee	COGNIZEE	n.	In law, one to whom a fine is acknowledged, or the plaintiff in an action for the assurance of land by fine.
+cognizor	COGNIZOR	n.	One who acknowledges the right of the plaintiff or cognizee, in a fine; otherwise called the defendant or deforciant.
+cognominal	COGNOMINAL	a.	Pertaining to a surname.	Having the same name.
+cognomination	COGNOMINATION	n.	A surname; the name of a family; a name given from any accident or quality; as Alexander the Great.
+cognoscence	COGNOSCENCE	n.	[See Cognition.] Knowledge; the act or state of knowing.
+cognoscible	COGNOSCIBLE	a.	That may be known.
+cognoscitive	COGNOSCITIVE	a.	Having the power of knowing.
+coguar	COGUAR	n.	A carnivorous quadruped of America.

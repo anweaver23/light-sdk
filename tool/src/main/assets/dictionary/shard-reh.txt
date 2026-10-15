@@ -1,0 +1,13 @@
+rehabilitate	REHABILITATE	v.t.	To restore to a former capacity; to reinstate; to qualify again; to restore, as a delinquent to a former right, rank or privilege lost or forfeited; a term of the civil and canon law.
+rehabilitated	REHABILITATED	pp.	Restored to a former rank, right privilege or capacity; reinstated.
+rehabilitating	REHABILITATING	ppr.	Restoring to a former right, rank, privilege or capacity; reinstating.
+rehabilitation	REHABILITATION	n.	The act of reinstating in a former rank or capacity; restoration to former rights.
+rehear	REHEAR	v.t.; pret. and pp. reheard	To hear again; to try a second time; as, to rehear a cause in the court of king's bench
+reheard	REHEARD	pp.	Heard again.
+rehearing	REHEARING	ppr.	Hearing a second time.
+rehearing	REHEARING	n.	A second hearing.	In law, a second hearing or trial.
+rehearsal	REHEARSAL	n.	Recital; repetition of the words of another or of a written work; as the rehearsal of the Lord's prayer.	Narration; a telling or recounting, as of particulars in detail; as the rehearsal of a soldier's adventures.	The recital of a place before the public exhibition of it; as the rehearsal of a comedy.
+rehearse	REHEARSE	v.t.	To recite; to repeat the words of a passage or composition; to repeat the words of another. When the words were heard which David spoke, they rehearsed them before Saul. 1 Samuel 17:31.	To narrate or recount events or transactions. There shall they rehearse the righteous acts of the Lord. Judges 5:11. Acts 11:4.	To recite or repeat in private for experiment and improvement, before a public representation; as, to rehearse a tragedy.
+rehearsed	REHEARSED	pp.	Recited; repeated; as words; narrated.
+rehearser	REHEARSER	n.	One who recites or narrates.
+rehearsing	REHEARSING	ppr.	Reciting; repeating words; recounting; telling; narrating.

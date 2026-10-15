@@ -1,0 +1,38 @@
+sun	SUN	n.	The splendid orb or luminary which, being in or near the center of our system of worlds, gives light and heat to all the planets. The light of the sun constitutes the day, and the darkness which proceeds form its absence, or the shade of the earth, constitutes the night. Psalms 136:8.	In popular usage, a sunny place; a place where the beams of the sun fall; as, to stand in the sun that is, to stand where the direct rays of the sun fall.	Any thing eminently splendid or luminous; that which is the chief source of light or honor. The natives of America complain that the sun of their glory is set. I will never consent to put out the sun of sovereignty to posterity.	In Scripture, Christ is called the sun of righteousness, as the source of light, animation and comfort to his disciples.	The luminary or orb which constitutes the center of any system of worlds. The fixed stars are supposed to be suns in their respective systems. Under the sun in the world; on earth; a proverbial expression. There is no new thing under the sun Ecclesiastes 1:3.
+sun	SUN	v.t.	To expose to the sun's rays; to warm or dry in the light of the sun; to insolate; as, to sun cloth; to sun grain. --Then to sun thyself in open air.
+sun-beat	SUN-BEAT	a.	Struck by the sun's rays; shone brightly on
+sun-bright	SUN-BRIGHT	a.	Bright as the sun; like the sun in brightness; as a sun-bright shield; a sun-bright chariot. How and which way I may bestow myself To be regarded in her sun-bright eye
+sun-burning	SUN-BURNING	n.	The burning or tan occasioned by the rays of the sun on the skin
+sun-burnt	SUN-BURNT	a.	Discolored by the heat or rays of the sun; tanned; darkened in hue; as a sunburnt skin. Sunburnt and swarthy though she be	Scorched by the sun's rays; as a sunburnt soil.
+sun-dew	SUN-DEW	n.	A plant of the genus Drosera
+sun-dial	SUN-DIAL	n.	An instrument to show the time of day, by means of the shadow of a gnomon or style on a plate
+sun-dried	SUN-DRIED	a.	Dried in the rays of the sun
+sunbeam	SUNBEAM	n.	A ray of the sun. Truth written with a sunbeam is truth made obviously plain. Gliding through the even on a sunbeam
+sunbeat	sun-beat
+sunbright	sun-bright
+sunburning	sun-burning
+sunburnt	sun-burnt
+sunclad	SUNCLAD	a.	Clad in radiance or brightness
+sunday	SUNDAY	n.	The christian sabbath; the first day of the week, a day consecrated to rest from secular employments, and to religious worship. It is called also the Lord's day. Many pious persons however discard the use of sunday and call the day the sabbath.
+sunder	SUNDER	v.t.	To part; to separate; to divide; to disunite in almost any manner, either by rending, cutting, or breaking; as, to sunder a rope or cord; to sunder a limb or joint; to sunder friends, or the ties of friendship. The executioner sunders the head from the body at a stroke. A mountain may be sundered by an earthquake. Bring me lightning, give me thunder; --Jove may kill, but ne'er shall sunder	To expose to the sun. [Provincial in England.]
+sunder	SUNDER	n.	In sunder in tow. He cutteth the spear in sunder Psalms 46:9.
+sundered	SUNDERED	pp.	Separated; divided; parted.
+sundering	SUNDERING	ppr.	Parting; separating.
+sundew	sun-dew
+sundial	sun-dial
+sundried	sun-dried
+sundry	SUNDRY	a.	Several; divers; more than one or two. [This word, like several, is indefinite; but it usually signifies a small number, sometimes many.] I have composed sundry collects. Sundry foes the rural realm surround.
+sunfish	SUNFISH	n.	A name of the diodon, a genus of fishes of a very singular form, appearing like the fore part of the body of a very deep fish amputated in the middle. The sunfish is the Tetraodon mola of Linne	The basking shark.
+sunflower	SUNFLOWER	n.	A plant of the genus Helianthus; so called from the form and color of its flower, or from its habit of turning to the sun. The bastard sunflower is of the genus Helenium; the dwarf sunflower is of the genus Rudbeckia, and another of the genus Tetragonotheca; the little sunflower is of the genus Cistus
+sung	SUNG	pret.	and participle passive of sing. While to his harp divine Amphion sung
+sunk	SUNK	pret.	and participle passive of sink. Or toss'd by hope, or sunk by care.
+sunless	SUNLESS	a.	Destitute of the sun or its rays; shaded
+sunlike	SUNLIKE	a.	Resembling the sun
+sunny	SUNNY	a.	Like the sun; bright	Proceeding from the sun; as sunny beams.	Exposed to the rays of the sun; warmed by the direct rays of the sun; as the sunny side of a hill or building. Her blooming mountains and her sunny shores.	Colored by the sun. Her sunny locks Hang on her temples like a golden fleece.
+sunproof	SUNPROOF	a.	Impervious to the rays of the sun
+sunrise	SUNRISE		SUN'RISING, noun [sun and rise.] The first appearance of the sun above the horizon in the morning; or more generally, the time of such appearance, whether in fair or cloudy weather.	The east.
+sunrising	SUNRISING	n.	The first appearance of the sun above the horizon in the morning; or more generally, the time of such appearance, whether in fair or cloudy weather	The east.
+sunset	SUNSET		SUN'SETTING, noun [sun and set.] The descent of the sun below the horizon; or the time when the sun sets; evening.
+sunsetting	SUNSETTING	n.	The descent of the sun below the horizon; or the time when the sun sets; evening
+sunshine	SUNSHINE	n.	The light of the sun, or the place where it shines; the direct rays of the sun, or the place where they fall. But all sunshine as when his beams at noon Culminate from th' equator	A place warmed and illuminated; warmth; illumination. The man that sits within a monarch's heart, And ripens in the sunshine of his favor.
+sunshiny	SUNSHINY	a.	Bright with the rays of the sun; clear, warm or pleasant; as a sunshiny day; sunshiny weather.	Bright like the sun. --Flashing beams of that sunshiny shield.

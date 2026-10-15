@@ -1,0 +1,441 @@
+placability	PLACABILITY		PLA'CABLE, adjective [Latin placabilis, from placo, to pacify; probably formed on the root of lay. See Please.] That may be appeased or pacified; appeasable; admitting its passions or irritations to be allayed; willing to forgive. Methought I saw him placable and mild.
+placable	PLACABLE	a.	That may be appeased or pacified; appeasable; admitting its passions or irritations to be allayed; willing to forgive. Methought I saw him placable and mild
+placableness	PLACABLENESS	n.	The quality of being appeasable; susceptibility of being pacified
+placard	PLACARD	n.	Properly, a written or printed paper posted in a public place. It seems to have been formerly the name of an edict, proclamation or manifesto issued by authority, but this sense is, I believe, seldom or never annexed to the word. A placard now is an advertisement, or a libel, or a paper intended to censure public or private characters or public measures, posted in a public place. In the case of libels or papers intended to censure public or private characters, or the measures of government, these papers are usually pasted up at night for secrecy.
+placate	PLACATE	v.t.	To appease or pacify; to conciliate
+place	PLACE	n.	A particular portion of space of indefinite extent, occupied or intended to be occupied by any person or thing, and considered as the space where a person or thing does or may rest or has rested, as distinct from space in general. Look from the place where thou art. Genesis 13:3. The place where thou standest is holy ground. Exodus 3:5. Every place whereon the soles of your feet shall tread shall be yours..11. David's place was empty. 1 Samuel 20:19.	Any portion of space, as distinct from space in general. Enlargement and deliverance shall arise to the Jews from another place Esther 4:14.	Local existence. From whose face the earth and the heaven fled away, and there was found no place for them. Revelation 20:11.	Separate room or apartment. His catalogue had an especial place for sequestered divines.	Seat; residence; mansion. The Romans shall come and take away both our place and nation. John 11:6.	A portion or passage of writing or of a book. The place of the Scripture which he read was this. Acts 8:32.	Point or degree in order of proceeding; as in the first place; in the second place; in the last place Hence,	Rank; order of priority, dignity or importance. He holds the first place in society, or in the affections of the people.	Office, employment; official station. The man has a place under the government. Do you your office, or give up your place	Ground; room. There is no place of doubting but that it is the very same.	Station in life; calling; occupation; condition. All, in their several places, perform their duty.	A city, a town; a village. In what place does he reside? He arrived at this place in the mail coach. Genesis 18:24.	In military affairs, a fortified town or post; a fortress; a fort; as a strong place; a place easily defended. The place was taken by assault.	A country; a kingdom. England is the place of his birth.	Space in general. But she all place within herself confines.	Room; stead; with the sense of substitution. And Joseph said unto them, fear not; for am I in the place of God? Gen 1.	Room; kind reception. My word hath no place in you. John 8:37.	The place of the moon, in astronomy, is the part of its orbit where it is found at any given time. The place of the sun or a star, is the sign and degree of the zodiac, in which it is at any given time, or the degree of the ecliptic, reckoning from the beginning of Aries, which the star's circle of longitude cuts, and therefore coincides with the longitude of the sun or star. To take place to come; to happen; to come into actual existence or operation; as when we say, this or that event will or will not take place The perfect exemption of man from calamity can never take place in this state of existence.	To take the precedence or priority. take the place but sometimes to take place omitting the article, is to occupy the place or station of another. To have place to have a station, room or seat. Such desires can have no place in a good heart.	To have actual existence. To give place to make room or way. Give place to your superiors.	To give room; to give advantage; to yield to the influence of; to listen to. Neither give place to the devil. Ephesians 4:27.	To give way; to yield to and suffer to pass away. High place in Scripture, a mount on which sacrifices were offered.
+place	PLACE	v.t.	To put or set in a particular part of space, or in a particular part of the earth, or in something on its surface; to locate; as, to place a house by the side of a stream; to place a book on a shelf; to place a body of cavalry on each flank of any army.	To appoint, set, induct or establish in an office. Thou shalt provide out of all the people able men, such as fear God, men of truth, hating covetousness; and place such over them to be rulers of thousands, etc. Exodus 18:21. It is a high moral duty of sovereigns and supreme magistrates and councils, to place in office men of unquestionable virtue and talents.	To put or set in any particular rank, state or condition. Some men are placed in a condition of rank and opulence, others are placed in low or narrow circumstances; but in whatever sphere men are placed, contentment will insure to them a large portion of happiness.	To set; to fix; as, to place one's affections on an object; to place confidence in a friend.	To put; to invest; as, to place money in the funds or in a bank.	To put out at interest; to lend; as, to place money in good hands or in good security.
+place-man	PLACE-MAN	n.	One that has an office under a government.
+placed	PLACED	pp.	Set; fixed; located; established.
+placeman	place-man
+placenta	PLACENTA	n.	In anatomy, the substance that connects the fetus to the womb, a soft roundish mass or cake by which the circulation is carried on between the parent and the fetus.	The part of a plant or fruit to which the seeds are attached.
+placental	PLACENTAL	a.	Pertaining to the placenta.
+placentation	PLACENTATION	n.	In botany, the disposition of the cotyledons or lobes in the vegetation or germination of seeds.
+placer	PLACER	n.	One who places, locates or sets.
+placid	PLACID	a.	Gentle; quiet; undisturbed; equable; as a placid motion of the spirits.	Serene; mild; unruffled; indicating peace of mind; as a placid countenance or smile.	Calm; tranquil; serene; not stormy; as a placid sky.	Calm; quiet; unruffled; as a placid stream.
+placidly	PLACIDLY	adv.	Mildly; calmly; quietly; without disturbance or passion.
+placidness	PLACIDNESS	n.	Calmness; quiet; tranquillity; unruffled state.	Mildness; gentleness; sweetness of disposition.
+placit	PLACIT	n.	A decree or determination. [Not in use.]
+placket	PLACKET	n.	A petticoat. If this is the sense of the word in Shakespeare, it is a derivative. The word signifies the opening of the garment; but it is nearly or wholly obsolete.
+plad	PLAD	n.	A striped or variegated cloth worn by the highlanders in Scotland. It is a narrow woolen stuff worn round the waist or on the shoulders, reaching to the knees, and in cold weather to the feet. It is worn by both sexes
+plagiarism	PLAGIARISM	n.	The act of purloining another man's literary works, or introducing passages from another man's writings and putting them off as one's own; literary theft
+plagiarist	PLAGIARIST	n.	One that purloins the writings of another and puts them off as his own.
+plagiary	PLAGIARY	n.	A thief in literature; one that purloins another's writings and offers them to the public as his own.	The crime of literary theft. [Not used.]
+plagiary	PLAGIARY	a.	Stealing men; kidnapping. [Not used.]	Practicing literary theft.
+plague	PLAGUE	n.	Any thing troublesome or vexatious; but in this sense, applied to the vexations we suffer from men, and not to the unavoidable evils inflicted on us by Divine Providence. The application of the word to the latter, would now be irreverent and reproachful.	A pestilential disease; an acute, malignant and contagious disease that often prevails in Egypt, Syria and Turkey, and has at times infected the large cities of Europe with frightful mortality.	A state of misery. Psalms 38:1.	Any great natural evil or calamity; as the ten plagues of Egypt.
+plague	PLAGUE	v.t.	To infest with disease, calamity or natural evil of any kind. Thus were they plagued And worn with famine.	To vex; to tease; to harass; to trouble; to embarrass; a very general and indefinite signification. If her nature be so, That she will plague the man that loves her most--
+plagueful	PLAGUEFUL	a.	Abounding with plagues; infected with plagues.
+plaguily	PLAGUILY	adv.	Vexatiously; in a manner to vex, harass or embarrass; greatly; horribly. [In vulgar use.]
+plaguy	PLAGUY	a.	Vexatious; troublesome; tormenting. [Vulgar.]
+plaice	PLAICE		PLAID PLAIN, adjective [Latin planus; splendor. Gr. to wander.]	Smooth; even; level; flat; without elevations and depressions; not rough; as plain ground or land; a plain surface. In this sense, in philosophical writings, it is written plane.	Open; clear. Our troops beat an army in plain fight and open field.	Void of ornament; simple; as a plain dress. Plain without pomp, and rich without a show.	Artless; simple; unlearned; without disguise, cunning or affectation; without refinement; as men of the plainer sort. Genesis 25:1. Plain but pious christians--	Artless; simple; unaffected; unembellished; as a plain tale or narration.	Honestly undisguised; open; frank; sincere; unreserved. I will tell you the plain truth. Give me leave to be plain with you.	Mere; bare; as a plain knave or fool.	Evident to the understanding; clear; manifest; not obscure; as plain words or language; a plain difference; a plain argument. It is plain in the history, that Esau was never subject to Jacob.	Not much varied by modulations; as a plain song or tune.	Not high seasoned; not rich; not luxuriously dressed; as a plain diet.	Not ornamented with figures; as plain muslin.	Not dyed.	Not difficult; not embarrassing; as a plain case in law.	Easily seen or discovered; not obscure or difficult to be found; as a plain road or path. Our coarse is very plain. Psalms 27:1. A plain or plane figure, in geometry, is a uniform surface, from every point of whose perimeter right lines may be drawn to every other point in the same. A plain figure, in geometry, is a surface in which, if any two points are taken, the straight line which joins them lies wholly in that surface. A plain angle, is one contained under two lines or surfaces, in contradistinction to a solid angle.
+plaid	PLAID		see plad
+plain	PLAIN	a.	Smooth; even; level; flat; without elevations and depressions; not rough; as plain ground or land; a plain surface. In this sense, in philosophical writings, it is written plane.	Open; clear. Our troops beat an army in plain fight and open field.	Void of ornament; simple; as a plain dress. Plain without pomp, and rich without a show.	Artless; simple; unlearned; without disguise, cunning or affectation; without refinement; as men of the plainer sort. Gen. 25. Plain but pious christians--5. Artless; simple; unaffected; unembellished; as a plain tale or narration.6. Honestly undisguised; open; frank; sincere; unreserved. I will tell you the plain truth. Give me leave to be plain with you.7. Mere; bare; as a plain knave or fool.8. Evident to the understanding; clear; manifest; not obscure; as plain words or language; a plain difference; a plain argument. It is plain in the history, that Esau was never subject to Jacob.9. Not much varied by modulations; as a plain song or tune.	Not high seasoned; not rich; not luxuriously dressed; as a plain diet.	Not ornamented with figures; as plain muslin.	Not dyed.	Not difficult; not embarrassing; as a plain case in law.	Easily seen or discovered; not obscure or difficult to be found; as a plain road or path. Our coarse is very plain. Ps.27. A plain or plane figure, in geometry, is a uniform surface, from every point of whose perimeter right lines may be drawn to every other point in the same. A plain figure, in geometry, is a surface in which, if any two points are taken, the straight line which joins them lies wholly in that surface. A plain angle, is one contained under two lines or surfaces, in contradistinction to a solid angle.
+plain	PLAIN	adv.	Not obscurely; in a manner to be easily understood.	Distinctly; articulately; as, to speak plain. Mark 7.	With simplicity; artlessly; bluntly.
+plain	PLAIN	n.	Level land; usually, an open field with an even surface, or a surface little varied by inequalities; as all the plain of Jordan. Gen.13.	Field of battle.
+plain	PLAIN	v.t.	To level; to make plain or even on the surface.
+plain	PLAIN	v.i.	To lament or wail. [Not used.] [See Complain.]
+plain-dealing	PLAIN-DEALING	a.	Dealing or communicating with frankness and sincerity; honest; open; speaking and acting without art; as a plain-dealing man
+plain-dealing	PLAIN-DEALING	n.	A speaking or communicating with openness and sincerity; management without art, stratagem or disguise; sincerity.
+plain-hearted	PLAIN-HEARTED	a.	Having a sincere heart; communicating without art, reserve or hypocrisy; of a frank disposition.
+plain-heartedness	PLAIN-HEARTEDNESS	n.	Frankness of disposition; sincerity.
+plain-song	PLAIN-SONG	n.	The plain unvaried chant of churches; so called in contradistinction from the prick-song, or variegated music sung by note.
+plain-spoken	PLAIN-SPOKEN	a.	Speaking with plain, unreserved sincerity.
+plain-work	PLAIN-WORK	n.	Plain needlework, as distinguished from embroidery.
+plaindealing	plain-dealing
+plainhearted	plain-hearted
+plainheartedness	plain-heartedness
+plainly	PLAINLY	adv.	With a level surface. [Little used.]	Without cunning or disguise.	Without ornament or artificial embellishment; as, to be plainly clad.	Frankly; honestly; sincerely; as, deal plainly with me.	In earnest; fairly.	In a manner to be easily seen or comprehended. Thou shalt write on the stones all the words of this law very plainly Deuteronomy 27:8.	Evidently; clearly; not obscurely. The doctrines of grace are plainly taught in the Scriptures.
+plainness	PLAINNESS	n.	Levelness; evenness or surface.	Want of ornament; want of artificial show. So modest plainness sets off sprightly wit.	Openness; rough, blunt or unrefined frankness. Your plainness and your shortness please me well.	Artlessness; simplicity; candor; as unthinking plainness	Clearness; openness; sincerity. Seeing then we have such hope, we use great plainness of speech. 2 Corinthians 3:12.
+plainsong	plain-song
+plainspoken	plain-spoken
+plaint	PLAINT	n.	Lamentation; complaint; audible expression of sorrow. From inward grief His bursting passion into plaints thus pour'd.	Complaint; representation made of injury or wrong done. There are three just grounds of war with Spain; one of plaints; two upon defense.	In law, a private memorial tendered to a court, in which the person sets forth his cause of action.	In law, a complaint; a formal accusation exhibited by a private person against an offender for a breach of law or a public offense.
+plaintful	PLAINTFUL	a.	Complaining; expressing sorrow with an audible voice; as my plaintful tongue.
+plaintif	PLAINTIF	n.	In law, the person who commences a suit before a tribunal, for the recovery of a claim; opposed to defendant. [Prior uses this word as an adjective, in the French sense, for plaintive, but the use is not authorized.]
+plaintive	PLAINTIVE	a.	Lamenting; complaining; expressive of sorrow; as a plaintive sound or song.	Complaining; expressing sorrow or grief; repining. To sooth the sorrows of her plaintive son.
+plaintively	PLAINTIVELY	adv.	In a manner expressive of grief.
+plaintiveness	PLAINTIVENESS	n.	The quality or state of expressing grief.
+plaintless	PLAINTLESS	a.	Without complaint; unrepining.
+plainwork	plain-work
+plaise	PLAISE	n.	A fish of the genus Pleuronectes, growing to the size of eight or ten pounds or more. This fish is more flat and square than the halibut.
+plait	PLAIT	n.	A fold; a doubling; as of cloth. It is very difficult to trace out the figure of a vest through all the plaits and folding of the drapery.	A braid of hair; a tress.
+plait	PLAIT	v.t.	To fold; to double in narrow streaks; as, to plait a gown or a sleeve.	To braid; to interweave strands; as, to plait the hair.	To entangle; to involve.
+plaited	PLAITED	pp.	Folded; braided; interwoven.
+plaiter	PLAITER	n.	One that plaits or braids.
+plaiting	PLAITING	ppr.	Folding; doubling; braiding.
+plan	PLAN	n.	A draught or form; properly, the representation of any thing drawn on a plane, as a map or chart, which is a representation of some portion of land or water. But the word is applied particularly to the model of a building, showing the form, extent and divisions in miniature, and it may be applied to the draught or representation of any projected work on paper or on a plain surface; as the plan of a town or city, or of a harbor or fort. The form of a machine in miniature, is called a model.	A scheme devised; a project; the form of something to be done existing in the mind, with the several parts adjusted in idea, expressed in words or committed to writing; as the plan of a constitution of government; the plan of a treaty; the plan of an expedition.
+plan	PLAN	v.t.	To form a draught or representation of any intended work.	To scheme; to devise; to form in design; as, to plan the conquest of a country; to plan a reduction of taxes or of the national debt.
+planary	PLANARY	a.	Pertaining to a plane.
+planch	PLANCH	v.t.	[See Plank.] To plank; to cover with planks or boards.
+planched	PLANCHED	pp.	Covered or made of planks or boards.
+plancher	PLANCHER	n.	A floor.
+planchet	PLANCHET	n.	[See Plank.] A flat piece of metal or coin.
+planching	PLANCHING	n.	The laying of floors in a building; also, a floor of boards or planks.
+plane	PLANE	n.	In geometry, an even or level surface, like plain in popular language	In astronomy, an imaginary surface supposed to pass through any of the curves described on the celestial sphere; as the plane of the ecliptic; the plane of a planet's orbit; the plane of a great circle.	In mechanics. [See Plain figure.]	In joinery and cabinet work, an instrument consisting of a smooth piece of wood, with an aperture, through which passes obliquely a piece of edged steel or chisel, used in paring or smoothing boards or wood of any kind.
+plane	PLANE	v.t.	To make smooth; to pare off the inequalities of the surface of a board or other piece of wood by the use of a plane	To free from inequalities of surface.
+plane-tree	PLANE-TREE	n.	A tree of the genus Platanus. The oriental plane-tree is a native of Asia; it rises with a straight smooth branching stem to a great highth, with palmated leaves and long pendulous peduncles, sustaining several heads of small close sitting flowers. The seeds are downy, and collected into round, rough, hard balls. The occidental plane-tree which grows to a great highth, is a native of noun America; it is called also button-wood
+planed	PLANED	pp.	Made smooth with a plane; leveled.
+planet	PLANET	n.	A celestial body which revolves about the sun or other center, or a body revolving about another planet as its center. The planets which revolve about the sun as their center, are called primary planets; those which revolve about other planets as their center, and with them revolve about the sun, are called secondary planets, satellites or moons. The primary planets are named Mercury, Venus, Earth, Mars, Jupiter, Saturn and Herschell. Four smaller planets, denominated by some, asteroids, namely, Ceres, Pallas, Juno and Vesta, have recently been discovered between the orbits of Mars and Jupiter. Mars, Jupiter, Saturn and Herschell, being without the earth's orbit, are sometimes called the superior planets; Venus and Mercury, being within the earth's orbit, are called inferior planets. The planets are opake bodies which receive their light from the sun. They are so named from their motion or revolution, in distinction from the fixed stars, and are distinguished from the latter by their not twinkling
+planet-struck	PLANET-STRUCK	a.	Affected by the influence of planets; blasted.
+planetarium	PLANETARIUM	n.	An astronomical machine which, by the movement of its parts, represents the motions and orbits of the planets, agreeable to the Copernican system.
+planetary	PLANETARY	a.	Pertaining to the planets; as planetary inhabitants; planetary motions.	Consisting of planets; as a planetary system.	Under the dominion or influence of a planet; as a planetary hour. [Astrology.]	Produced by planets; as planetary plague or influence.	Having the nature of a planet; erratic or revolving. Planetary days, the days of the week as shared among the planets, each having its day, as we name the days of the week after the planets.
+planeted	PLANETED	a.	Belonging to planets.
+planetical	PLANETICAL	a.	Pertaining to planets. [Not used.]
+planetree	plane-tree
+planetstruck	planet-struck
+planifolious	PLANIFOLIOUS	a.	In botany, a planifolious flower is one made up of plain leaves, set together in circular rows round the center. [See Planipetalous.]
+planimetric	PLANIMETRIC		PLANIMET'RICAL, adjective Pertaining to the mensuration of plain surfaces.
+planimetrical	PLANIMETRICAL	a.	Pertaining to the mensuration of plain surfaces.
+planimetry	PLANIMETRY	n.	The mensuration of plain surfaces, or that part of geometry which regards lines and plain figures, without considering their highth or depth
+planipetalous	PLANIPETALOUS	a.	In botany, flat-leafed, as when the small flowers are hollow only at the bottom, but flat upwards, as in dandelion and succory
+planish	PLANISH	v.t.	To make smooth or plain; to polish; used by manufacturers
+planished	PLANISHED	pp.	Made smooth.
+planishing	PLANISHING	ppr.	Making smooth; polishing.
+planisphere	PLANISPHERE	n.	A sphere projected on a plane, in which sense, maps in which are exhibited the meridians and other circles, are planispheres
+plank	PLANK	n.	A broad piece of sawed timber, differing from a board only in being thicker. In America, broad pieces of sawed timber which are not more than an inch or an inch and a quarter thick, are called boards; like pieces from an inch and a half to three or four inches thick, are called planks. Sometimes pieces more than four inches thick are called planks.
+plank	PLANK	v.t.	To cover or lay with planks; as, to plank a floor or a ship.
+planned	PLANNED	pp.	Devised; schemed.
+planner	PLANNER	n.	One who plans or forms a plan; a projector.
+planning	PLANNING	ppr.	Scheming; devising; making a plan.
+plano-conical	PLANO-CONICAL	a.	Plain or level on one side and conical on the other
+plano-convex	PLANO-CONVEX	a.	Plain or flat on one side and convex on the other; as a plano-convex lens
+plano-subulate	PLANO-SUBULATE	a.	[See Subulate.] Smooth and awl-shaped.
+planoconical	plano-conical
+planoconvex	plano-convex
+planohorizontal	PLANOHORIZONTAL	a.	Having a level horizontal surface or position.
+planosubulate	plano-subulate
+plant	PLANT	n.	A vegetable; an organic body, destitute of sense and spontaneous motion, adhering to another body in such a manner as to draw from it its nourishment, and having the power of propagating itself by seeds; 'whose seed is in itself.' Genesis 1:1. This definition may not be perfectly correct, as it respects all plants, for some marine plants grow without being attached to any fixed body. The woody or dicotyledonous plants consist of three parts; the bark or exterior coat, which covers the wood; the wood which is hard and constitutes the principal part; and the pith or center of the stem. In monocotyledonous plants, the ligneous or fibrous parts, and the pithy or parenchymatous, are equally distributed through the whole internal substance; and in the lower plants, funguses, sea weed, etc. the substance is altogether parenchymatous. By means of proper vessels, the nourishing juices are distributed to every part of the plant In its most general sense, plant comprehends all vegetables, trees, shrubs, herbs, grasses, etc. In popular language, the word is generally applied to the smaller species of vegetables.	A sapling.	In Scripture, a child; a descendant; the inhabitant of a country. Psalms 144:12. Jeremiah 48:32.	The sole of the foot. [Little used.] Sea-plant, a plant that grows in the sea or in salt water; sea weed. Sensitive plant a plant that shrinks on being touched, the mimosa.
+plant	PLANT	v.t.	To put in the ground and cover, as seed for growth; as, to plant maiz.	To set in the ground for growth, as a young tree or a vegetable with roots.	To engender; to set the germ of any thing that may increase. It engenders choler, planteth anger.	To set; to fix. His standard planted on Laurentum's towers.	To settle; to fix the first inhabitants; to establish; as, to plant a colony.	To furnish with plants; to lay out and prepare with plants; as, to plant a garden or an orchard.	To set and direct or point; as, to plant cannon against a fort.	To introduce and establish; as, to plant christianity among the heathen. I have planted, Apollos watered, but God gave the increase. 1 Corinthians 3:7.	To unite to Christ and fix in a state of fellowship with him. Psalms 92:13.
+plant	PLANT	v.i.	To perform the act of planting.
+plant-cane	PLANT-CANE	n.	In the West Indies, the original plants of the sugar cane, produced from germs placed in the ground; or canes of the first growth, in distinction from the ratoons, or sprouts from the roots of canes which have been cut.
+plant-louse	PLANT-LOUSE	n.	An insect that infests plants; a vine fretter; the puceron.
+plantable	PLANTABLE	a.	Capable of being planted.
+plantage	PLANTAGE	n.	An herb, or herbs in general. [Not in use.]
+plantain	PLANTAIN	n.	A plant of the genus Plantago, of several species. The water plantain is of the genus Alisma
+plantain-tree	PLANTAIN-TREE	n.	A tree of the genus Musa, the most remarkable species of which are, the paradisiaca or plantain, and the sapietum or banana tree. The plantain rises with a soft stem fifteen or twenty feet high, and the fruit is a substitute for bread.
+plantaintree	plantain-tree
+plantal	PLANTAL	a.	Belonging to plants. [Not used.]
+plantation	PLANTATION	n.	The act of planting or setting in the earth for growth.	The place planted; applied to ground planted with trees, as an orchard or the like.	In the United States and the West Indies, a cultivated estate; a farm. In the United States, this word is applied to an estate, a tract of land occupied and cultivated, in those states only where the labor is performed by slaves, and where the land is more or less appropriated to the culture of tobacco, rice, indigo and cotton, that is, from Maryland to Georgia inclusive, on the Atlantic, and in the western states where the land is appropriated to the same articles or to the culture of the sugar cane. From Maryland, northward and eastward, estates in land are called farms.	An original settlement in a new country; a town or village planted. While these plantations were forming in Connecticut--	A colony.	A first planting; introduction; establishment; as the plantation of christianity in England.
+plantcane	plant-cane
+planted	PLANTED	pp.	Set in the earth for propagation; set; fixed; introduced; established.	Furnished with seeds or plants for growth; as a planted field.	Furnished with the first inhabitants; settled; as territory planted with colonists.	Filled or furnished with what is new. A man in all the world's new fashion planted [See Def.3.]
+planter	PLANTER	n.	One that plants, sets, introduces or establishes; as a planter of maiz; a planter of vines; the planters of a colony.	One that settles in a new or uncultivated territory; as the first planters in Virginia.	One who owns a plantation; used in the West Indies and southern states of America.	One that introduces and establishes. The apostles were the first planters of christianity.
+plantership	PLANTERSHIP	n.	The business of a planter, or the management of a plantation, as in the West Indies.
+planticle	PLANTICLE	n.	A young plant or plant in embryo.
+planting	PLANTING	ppr.	Setting in the earth for propagation; setting; settling; introducing; establishing.
+planting	PLANTING	n.	The act or operation of setting in the ground for propagation, as seeds, trees, shrubs, etc.
+plantlouse	plant-louse
+plash	PLASH	n.	A small collection of standing water; a puddle.	The branch of a tree partly cut or lopped and bound to other branches.
+plash	PLASH	v.i.	To dabble in water; usually splash.
+plash	PLASH	v.t.	To interweave branches; as, to plash a hedge or quicksets. [In New England, to splice.]
+plashing	PLASHING	ppr.	Cutting and interweaving, as branches in a hedge.
+plashing	PLASHING	n.	The act or operation of cutting and lopping small trees and interweaving them, as in hedges.
+plashy	PLASHY	a.	Watery; abounding with puddles.
+plasm	PLASM	n.	A mold or matrix in which any thing is cast or formed to a particular shape. [Little used.]
+plasma	PLASMA	n.	A silicious mineral of a color between grass green and leek green, occurring in angular pieces in beds, associated with common chalcedony, and among the ruins of Rome.
+plasmatic	PLASMATIC		PLASMAT'ICAL, adjective Giving shape; having the power of giving form.
+plasmatical	PLASMATICAL	a.	Giving shape; having the power of giving form.
+plaster	PLASTER	n.	A composition of lime, water and sand, well mixed into a kind of paste and used for coating walls and partitions of houses. This composition when dry becomes hard, but still retains the name of plaster plaster is sometimes made of different materials, as chalk, gypsum, etc. and is sometimes used to parget the whole surface of a building.	In pharmacy, an external application of a harder consistence than an ointment, to be spread, according to different circumstances, either on linen or leather. Plaster of Paris, a composition of several species of gypsum dug near Montmartre, near Paris in France, used in building and in casting busts and statues. In popular language, this name is applied improperly to plaster-stone, or to any species of gypsum.
+plaster	PLASTER	v.t.	To overlay with plaster as the partitions of a house, walls, etc.	To cover with plaster as a wound.	In popular language, to smooth over; to cover or conceal defects or irregularities.
+plaster-stone	PLASTER-STONE	n.	Gypsum, which see. This when pulverized is extensively used as a manure.
+plastered	PLASTERED	pp.	Overlaid with plaster.
+plasterer	PLASTERER	n.	One that overlays with plaster.	One that makes figures in plaster.
+plastering	PLASTERING	ppr.	Covering with or laying on plaster.
+plastering	PLASTERING	n.	The act or operation of overlaying with plaster.	The plaster-work of a building; a covering of plaster.
+plasterstone	plaster-stone
+plastic	PLASTIC	a.	Having the power to give form or fashion to a mass of matter; as the plastic hand of the Creator; the plastic virtue of nature
+plasticity	PLASTICITY	n.	The quality of giving form or shape to matter.
+plastron	PLASTRON	n.	[See Plaster.] A piece of leather stuffed; used by fencers to defend the body against pushes.
+plat	PLAT	v.t.	To weave; to form by texture. Matthew 27:1
+platane	PLATANE	n.	The planetree, which see
+platband	PLATBAND	n.	A border of flowers in a garden, along a wall or the side of a parterre.	In architecture, a flat square molding whose highth much exceeds its projecture, such as the faces of an architrave.	The lintel of a door or window.	A list or fillet between the flutings of a column.
+plate	PLATE	n.	A piece of metal, flat or extended in breadth.	Armor of plate composed of broad pieces, and thus distinguished from mail.	A piece of wrought silver, as a dish or other shallow vessel; hence, vessels of silver; wrought silver in general. plate by the laws of some states, is subject to a tax by the ounce.	A small shallow vessel, made of silver or other metal, or of earth glazed and baked, from which provisions are eaten at table. A wooden plate is called a trencher.	The prize given for the best horse in a race.	In architecture, the piece of timber which supports the ends of the rafters. [See Platform.]
+plate	PLATE	v.t.	To cover or overlay with plate or with metal; used particularly of silver; as plated vessels.	To arm with plate or metal for defense; as, to plate sin with gold. Why plated in habiliments of war?	To adorn with place; as a plated harness.	To beat into thin flat pieces or lamens.
+plated	PLATED	pp.	Covered or adorned with plate; armed with plate; beaten into plates.
+platen	PLATEN	n.	Among printers, the flat part of a press by which the impression is made
+platey	PLATEY	a.	Like a plate; flat.
+platform	PLATFORM	n.	The sketch of any thing horizontally delineated; the ichnography	A place laid out after any model.	In the military art, an elevation of earth or a floor of wood or stone, on which cannons are mounted to fire on an enemy.	In architecture, a row of beams or a piece of timber which supports the timber-work of a roof, and lying on the top of the wall. This in New England is called the plate.	A kind of terrace or broad smooth open walk on the top of a building, as in the oriental houses.	In ships, the orlop. [See Orlop.]	Any number of planks or other materials forming a floor for any purpose.	A plan; a scheme; ground-work.	In some of the New England states, an ecclesiastical constitution, or a plan for the government of churches; as the Cambridge or Saybrook platform Platic aspect, in astrology, a ray cast from one planet to another, not exactly, but within the orbit of its own light.
+platina	PLATINA		PLA'TING, participle present tense Overlaying with plate or with a metal; beating into thin lamens.
+plating	PLATING	ppr.	Overlaying with plate or with a metal; beating into thin lamens.
+plating	PLATING	n.	The art or operation of covering any thing with plate or with a metal, particularly of overlaying a baser metal with a thin plate of silver. The coating of silver is soldered to the metal with tin or a mixture of three parts of silver with one of brass.
+platiniferous	PLATINIFEROUS	a.	Producing patina; as platiniferous sand
+platinum	PLATINUM	n.	A metal discovered in the mines of Choco in Peru, nearly of the color of silver, but less bright, and the heaviest of the metals. Its specific gravity is to that of water as 23 to 1. It is harder than iron, undergoes no alteration in air, resists the action of acids and alkalies, is very ductile and capable of being rolled into thin plates.
+platonic	PLATONIC	a.	Pertaining to Plato the philosopher, or to his philosophy, his school or his opinions. Platonic love, is a pure spiritual affection subsisting between the sexes, unmixed with carnal desires, and regarding the mind only and its excellencies; a species of love for which Plato was a warm advocate. Platonic year, the great year, or a period of time determines by the revolution of the equinoxes, or the space of time in which the stars and constellations return to their former places in respect to the equinoxes. This revolution, which is calculated by the precession of the equinoxes, is accomplished in about 25, 000 years.
+platonically	PLATONICALLY	adv.	After the manner of Plato.
+platonism	PLATONISM	n.	The philosophy of Plato, consisting of three branches, theology, physics and mathematics. Under theology is included moral philosophy. The foundation of Plato's theology is the opinion that there are two eternal, primary, independent and incorruptible principles or causes of all things, and matter, from which all things are made. It was a fundamental maxim with him that from nothing, nothing can proceed. While therefore he held God to be the maker of the universe, he held matter, the substance of which the universe was made, to be eternal.
+platonist	PLATONIST		PLA'TONIZE, verb intransitive To adopt the opinions or philosophy of Plato.
+platonize	PLATONIZE	v.i.	To adopt the opinions or philosophy of Plato.
+platonize	PLATONIZE	v.t.	To explain on the principles of the Platonic school, or to accommodate to those principles.
+platonized	PLATONIZED	pp.	Accommodated to the philosophy of Plato.
+platonizer	PLATONIZER	n.	One that adheres to the philosophy of Plato; a follower of Plato.
+platonizing	PLATONIZING	ppr.	Adopting the principles of Plato; accommodating to the principles of the Platonic school.
+platoon	PLATOON	n.	A small square body of soldiers or musketeers, drawn out of a battalion of foot when they form a hollow square, to strengthen the angles; or a small body acting together, but separate from the main body; as, to fire by platoons.
+platter	PLATTER	n.	A large shallow dish for holding the provisions of a table	One that plats or forms by weaving. [See Plat.]
+platter-faced	PLATTER-FACED	a.	Having a broad face.
+platterfaced	platter-faced
+platting	PLATTING	n.	Work done by platting or interweaving.
+platypus	PLATYPUS	n.	A quadruped of New Holland, whose jaws are elongated into the shape of a duck's bill. The body is covered with thick hair and the feet are webbed. This animal has been arranged with the Mammalia, but it is now presumed to be oviparous; at least its breasts have not hitherto been observed.
+plaudit	PLAUDIT	n.	Applause; praise bestowed
+plausibility	PLAUSIBILITY	n.	s as z. [See Plausible.] Speciousness; superficial appearance of right.
+plausible	PLAUSIBLE	a.	s as z. [Latin plausibilis, from plaudo, to clap hands in token of approbation; laus, laudo; Eng. loud.]	That may be applauded; that may gain favor or approbation; hence, superficially pleasing; apparently right; specious; popular; as a plausible argument; a plausible pretext; a plausible doctrine.	Using specious arguments or discourse; as a plausible man.
+plausibleness	PLAUSIBLENESS	n.	Speciousness; show of right or propriety; as the plausibleness of Arminianism.
+plausibly	PLAUSIBLY	adv.	With fair show; speciously; in a matter adapted to gain favor or approbation. They could talk plausibly about what they did not understand.
+plausive	PLAUSIVE	a.	Plausible.
+play	PLAY	v.i.	To use any exercise for pleasure or recreation; to do something not as a task or for profit, but for amusement; as, to play at cricket. The people sat down to eat and to drink, and rose up to play Exodus 32:6.	To sport; to frolick; to frisk. The lamb thy riot dooms to bleed to day, Had he thy reason, would he skip and play?	To toy; to act with levity.	To trifle; to act wantonly and thoughtlessly. Men are apt to play with their healths and their lives as they do with their clothes.	To do something fanciful; to give a fanciful turn to; as, to play upon words.	To make sport, or practice sarcastic merriment. I would make use of it rather to play upon those I despise, than trifle with those I love.	To mock; to practice illusion. Art thou alive, Or is it fancy plays upon our eyesight?	To contend in a game; as, to play at cards or dice; to play for diversion; to play for money.	To practice a trick or deception. His mother played false with a smith.	To perform on an instrument of music; as, to play on a flute, a violin or a harpsichord.
+play	PLAY		my friend, and charm the charmer.	To move, or to move with alternate dilatation and contraction. The heart beats, the blood circulates, the lungs play	To operate; to act. The engines play against a fire.	To move irregularly; to wanton. Ev'n as the waving sedges play with wind. The setting sun PLAYs on their shining arms and burnish'd helmets. All fame is foreign, but of true desert, PLAYs round the head, but comes not to the heart.	To act a part on the stage; to personate a character. A lord will hear you play to-night.	To represent a standing character. Courts are theaters where some men play	To act in any particular character; as, to play the fool; to play the woman; to play the man.	To move in any manner; to move one way and another; as any part of a machine.
+play	PLAY	v.t.	To put in action or motion; as, to play cannon or a fire-engine.	To use an instrument of music; as, to play the flute or the organ.	To act a sportive part or character. Nature here Wanton'd as in her prime, and play'd at will Her virgin fancies.	To act or perform by representing a character; as, to play a comedy; to play the part of king Lear.	To act; to perform; as, to play our parts well on the stage of life.	To perform in contest for amusement or for a prize; as, to play a game at whist. To play off, to display; to show; to put in exercise; as, to play off tricks. To play on or upon, to deceive; to mock or to trifle with.	To give a fanciful turn to.
+play	PLAY	n.	Any exercise or series of actions intended for pleasure, amusement or diversion, as at cricket or quoit, or at blind man's buff.	Amusement; sport; frolic; gambols. Two gentle fawns at play	Game; gaming; practice of contending for victory, for amusement or for a prize, as at dice, cards or billiards.	Practice in any contest; as sword-play. He was resolved not to speak distinctly, knowing his best play to be in the dark. John naturally loved rough play	Action; use; employment; office. --But justifies the next who comes in play	Practice; action; manner of acting in contest or negotiation; as fair play; foul play	A dramatic composition; a comedy or tragedy; a composition in which characters are represented by dialogue and action. A play ought to be a just image of human nature.	Representation or exhibition of a comedy or tragedy; as, to be at the play He attends every play	Performance on an instrument of music.	Motion; movement, regular or irregular; as the play of a wheel or piston.	State of agitation or discussion. Many have been sav'd, and many may, Who never heard this question brought in play	Room for motion. The joints are let exactly into one another, that they have no play between them.	Liberty of acting; room for enlargement or display; scope; as, to give full play to mirth. Let the genius have free play
+play-day	PLAY-DAY		PLA'Y-PLEASURE, noun Idle amusement. [Not used.]
+play-pleasure	PLAY-PLEASURE	n.	Idle amusement. [Not used.]
+playbill	PLAYBILL	n.	A printed advertisement of a play, with the parts assigned to the actors.
+playbook	PLAYBOOK	n.	A book of dramatic compositions.
+playday	play-day
+playdebt	PLAYDEBT	n.	A debt contracted by gaming.
+played	PLAYED	pp.	Acted; performed; put in motion.
+player	PLAYER	n.	One who plays in any game or sport.	An idler.	An actor of dramatic scenes; one whose occupation is to imitate characters on the stage.	A mimic.	One who performs on an instrument of music.	A gamester.	One that acts a part in a certain manner.
+playfellow	PLAYFELLOW	n.	A companion in amusements or sports.
+playful	PLAYFUL	a.	Sportive; given to levity; as a playful child.	Indulging a sportive fancy; as a playful genius.
+playfully	PLAYFULLY	adv.	In a sportive manner.
+playfulness	PLAYFULNESS	n.	Sportiveness.
+playgame	PLAYGAME	n.	Play of children.
+playhouse	PLAYHOUSE	n.	A house appropriated to the exhibition of dramatic compositions; a theater.
+playing-day	PLAYING-DAY	n.	A day given to play or diversion; a day exempt from work.
+playingday	playing-day
+playmate	PLAYMATE	n.	A playfellow; a companion in diversions.
+playpleasure	play-pleasure
+playsome	PLAYSOME	a.	Playful; wanton.
+playsomeness	PLAYSOMENESS	n.	Playfulness; wantonness.
+plaything	PLAYTHING	n.	A toy; any thing that serves to amuse. A child knows his nurse, and by degrees the playthings of a little more advanced age.
+playwright	PLAYWRIGHT	n.	A maker of plays.
+plea	PLEA	n.	In law, that which is alleged by a party in support of his demand; but in a more limited and technical sense, the answer of the defendant to the plaintiff's declaration and demand. That which the plaintiff alleges in his declaration is answered and repelled or justified by the defendant's plea Pleas are dilatory, or pleas to the action. Dilatory pleas, are to the jurisdiction of the court, to the disability of the plaintiff, or in abatement. Pleas to the action are an answer to the merits of the complaint, which confesses or denies it. Pleas that deny the plaintiff's complaint or demand, are the general issue, which denies the whole declaration; or special pleas in bar, which state something which precludes the plaintiff's right of recovery.	A cause in court; a lawsuit, or a criminal process; as the pleas of the crown; the court of common pleas. The supreme judicial court shall have cognizance of pleas real, personal and mixed.	That which is alleged in defense or justification; an excuse; an apology; as the tyrant's plea When such occasions are, No plea must serve; 'tis cruelty to spare.	Urgent prayer or entreaty.
+pleach	PLEACH	v.t.	To bend; to interweave. [Not in use.]
+plead	PLEAD	v.i.	[See Plea.] In a general sense, to argue in support of a claim, or in defense against the claim of another.	In law, to present an answer to the declaration of a plaintiff; to deny the plaintiff's declaration and demand, or to allege facts which show that he ought not to recover in the suit. The plaintiff declares or alleges; the defendant pleads to his declaration. The king or the state prosecutes an offender, and the offender pleads not guilty, or confesses the charge.	To urge reasons for or against; to attempt to persuade one by argument or supplication; as, to plead for the life of a criminal; to plead in his favor; to plead with a judge or with a father. O that one might plead for a man with God, as a man pleadeth for his neighbor! Job 16:21.	To supplicate with earnestness.	To urge; to press by operating on the passions. Since you can love, and yet your error see, The same resistless power may plead for me.
+plead	PLEAD	v.t.	To discuss, defend and attempt to maintain by arguments or reasons offered to the tribunal or person who has the power of determining; as, to plead a cause before a court or jury. In this sense, argue is more generally used by lawyers.	To allege or adduce in proof, support or vindication. The law of nations may be pleaded in favor of the rights of embassadors.	To offer in excuse. I will neither plead my age nor sickness in excuse of faults.	To allege and offer in a legal plea or defense, or for repelling a demand in law; as, to plead usury; to plead a statute of limitations.	In Scripture, to plead the cause of the righteous, as God, is to avenge or vindicate them against enemies, or to redress their grievances. Isaiah 51:22.
+pleadable	PLEADABLE	a.	That may be pleaded; that may be alleged in proof, defense or vindication; as a right or privilege pleadable at law.
+pleaded	PLEADED	pp.	Offered or urged in defense; alleged in proof or support.
+pleader	PLEADER	n.	One who argues in a court of justice.	One that forms pleas or pleadings; as a special pleader	One that offers reasons for or against; one that attempts to maintain by arguments. So fair a pleader any cause may gain.
+pleading	PLEADING	ppr.	Offering in defense; supporting by arguments or reasons; supplicating.
+pleading	PLEADING	n.	The art of supporting by arguments, or of reasoning to persuade.
+pleadings	PLEADINGS	n.	In law, the mutual altercations between the plaintiff and defendant, or written statements of the parties in support of their claims, comprehending the declaration, count or narration of the plaintiff, the plea of the defendant in reply, the replication of the plaintiff to the defendant's plea, the defendant's rejoinder, the plaintiff's sur-rejoinder, the defendant's rebutter, the plaintiff's sur-rebutter, etc. till the question is brought to issue, that is, to rest on a single point.
+pleasance	PLEASANCE	n.	[See Please.] Gayety; pleasantry; merriment.
+pleasant	PLEASANT	a.	Pleasing; agreeable; grateful to the mind or to the senses; as a pleasant ride; a pleasant voyage; a pleasant view. Light is pleasant to the eye; an orange is pleasant to the taste; harmony is pleasant to the ear; a rose is pleasant to the smell. How good and how pleasant it is for brethren to dwell together in unity! Psalms 133:1.	Cheerful; enlivening; as pleasant society or company.	Gay; lively; humorous; sportive; as a pleasant companion.	Trifling; adapted rather to mirth than use.	Giving pleasure; gratifying. This word expresses less than delightful, to the mind, and delicious, to the taste.
+pleasantly	PLEASANTLY	adv.	In such a manner as to please or gratify.	Gayly; merrily; in good humor.	Lightly; ludicrously.
+pleasantness	PLEASANTNESS	n.	State of being pleasant or agreeable; as the pleasantness of a situation.	Cheerfulness; gayety; merriment; as the pleasantness of youth.
+pleasantry	PLEASANTRY	n.	Gayety; merriment. The harshness of reasoning is not a little softened and smoothed by the infusions of mirth and pleasantry	Sprightly saying; lively talk; effusion of humor. The grave abound in pleasantries, the dull in repartees and points of wit.
+please	PLEASE	v.t.	s as z. [Latin placere, placeo.]	To excite agreeable sensations or emotions in; to gratify; as, to please the taste; to please the mind. Their words pleased Hamor, and Shechem, Hamor's son. Genesis 34:18. Leave such to trifle with more grace than ease, Whom folly pleases, and whose follies please	To satisfy; to content. What next I bring shall please Thy wish exactly to thy heart's desire.	To prefer; to have satisfaction in; to like; to choose. Many of our most skilful painters were pleased or recommend this author to me. To be pleased in or with, to approve; to have complacency in. Matthew 3:17. To please God, is to love his character and law and perform his will, so as to become the object of his approbation. They that are in the flesh cannot please God. Romans 8:8.
+please	PLEASE	v.i.	s as z. To like; to choose; to prefer. Spirits, freed from mortal laws, with ease Assume what sexes and what shapes they please	To condescend; to comply; to be pleased; a word of ceremony. PLEASE you, lords, In sight of both our battles we may meet. The first words that I learnt were, to express my desire that he would please to give me my liberty. PLEASE expresses less gratification than delight.
+pleased	PLEASED	pp.	Gratified; affected with agreeable sensations or emotions.
+pleaseman	PLEASEMAN	n.	An officious person who courts favor servilely; a pickthank.
+pleaser	PLEASER	n.	One that pleases or gratifies; one that courts favor by humoring or flattering compliances or a show of obedience; as men-pleasers. Ephesians 6:1. Colossians 3:1.
+pleasing	PLEASING	ppr.	Gratifying; exciting agreeable sensations or emotions in.
+pleasing	PLEASING	a.	Giving pleasure or satisfaction; agreeable to the senses or to the mind; as a pleasing prospect; a pleasing reflection; pleasing manners.	Gaining approbation. 1 John 3:1.
+pleasing	PLEASING	n.	The act of gratifying.
+pleasingly	PLEASINGLY	adv.	In such a manner as to give pleasure.
+pleasingness	PLEASINGNESS	n.	The quality of giving pleasure.
+pleasurable	PLEASURABLE	a.	Pleasing; giving pleasure; affording gratification. Planting of orchards is very profitable as well as pleasurable
+pleasurableness	PLEASURABLENESS	n.	The quality of giving pleasure.
+pleasurably	PLEASURABLY	adv.	With pleasure; with gratification of the senses or the mind.
+pleasure	PLEASURE	n.	The gratification of the senses or of the mind; agreeable sensations or emotions; the excitement, relish or happiness produced by enjoyment or the expectation of good; opposed to pain. We receive pleasure from the indulgence of appetite; from the view of a beautiful landscape; from the harmony of sounds; from agreeable society; from the expectation of seeing an absent friend; from the prospect of gain or success of any kind. pleasure bodily and mental, carnal and spiritual, constitutes the whole of positive happiness, as pain constitutes the whole of misery. PLEASURE is properly positive excitement of the passions or the mind; but we give the name also to the absence of excitement, when that excitement is painful; as when we cease to labor, or repose after fatigue, or when the mind is tranquilized after anxiety or agitation. PLEASURE is susceptible of increase to any degree; but the word when unqualified, expresses less excitement or happiness than delight or joy.	Sensual or sexual gratification.	Approbation. The Lord taketh pleasure in his people. Psalms 147:10. and 149.	What the will dictates or prefers; will; choice; purpose; intention; command; as, use your pleasure Cyrus, he is my shepherd and shall perform all my pleasure Isaiah 44:28. My counsel shall stand and I will do all my pleasure Isa 46.	A favor; that which pleases. Festus, willing to do the Jews a pleasure answered Paul. Acts 25:9.	Arbitrary will or choice. He can vary his scheme at pleasure
+pleasure	PLEASURE	v.t.	To give or afford pleasure to; to please; to gratify. [A word authorized by some good writers, but superfluous and not much used.]
+pleasure-boat	PLEASURE-BOAT	n.	A boat appropriated to sailing for amusement.
+pleasure-carriage	PLEASURE-CARRIAGE	n.	A carriage for pleasure.
+pleasure-ground	PLEASURE-GROUND	n.	Ground laid out in an ornamental manner and appropriated to pleasure or amusement.
+pleasureboat	pleasure-boat
+pleasurecarriage	pleasure-carriage
+pleasureful	PLEASUREFUL	a.	Pleasant; agreeable. [Little used.]
+pleasureground	pleasure-ground
+pleasurist	PLEASURIST	n.	A person devoted to worldly pleasure. [Little used.]
+plebeian	PLEBEIAN	a.	Pertaining to the common people; vulgar; as plebeian minds; plebeian sports.	Consisting of common people; as a plebeian throng.
+plebeian	PLEBEIAN	n.	One of the common people or lower ranks of men. [Usually applied to the common people of ancient Rome.]
+plebeiance	PLEBEIANCE	n.	The common people. [Not in use.]
+pledge	PLEDGE	n.	Something put in pawn; that which is deposited with another as security for the repayment of money borrowed, or for the performance of some agreement or obligation; a pawn. A borrows ten pounds of B, and deposits his watch as a pledge that the money shall be repaid; and by repayment of the money, A redeems the pledge	Any thing given or considered as a security for the performance of an act. Thus a man gives a word or makes a promise to another, which is received as a pledge for fulfillment. The mutual affection of husband and wife is a pledge for the faithful performance of the marriage covenant. Mutual interest is the best pledge for the performance of treaties.	A surety; a hostage.	In law, a gage or security real or personal, given for the repayment of money. It is of two kinds; vadium vivum, a living pledge as when a man borrows money and grants an estate to be held by the pledgee, till the rents and profits shall refund the money, in which case the land or pledge is said to be living; or it is vadium mortuum, a dead pledge called a mortgage. [See Mortgage.]	In law, bail; surety given for the prosecution of a suit, or for the appearance of a defendant, or for restoring goods taken in distress and replevied. The distress itself is also called a pledge and the glove formerly thrown down by a champion in trial by battel, was a pledge by which the champion stipulated to encounter his antagonist in that trial.	A warrant to secure a person from injury in drinking. To put in pledge to pawn. To hold in pledge to keep as security.
+pledge	PLEDGE	v.t.	To deposit in pawn; to deposit or leave in possession of a person something which is to secure the repayment of money borrowed, or the performance of some act. [This word is applied chiefly to the depositing of goods or personal property. When real estate is given as security we usually apply the word mortgage.]	To give as a warrant or security; as, to pledge one's word or honor; to pledge one's veracity.	To secure by a pledge I accept her, And here to pledge my vow I give my hand. [Unusual.]	To invite to drink by accepting the cup or health after another. Or to warrant or be surety for a person that he shall receive no harm while drinking, or from the draught; a practice which originated among our ancestors in their rude state, and which was intended to secure the person from being stabbed while drinking, or from being poisoned by the liquor. In the first case, a by-stander pledges the person drinking; in the latter, the person drinking pledges his guest by drinking first, and then handing the cup to his guest. The latter practice is frequent among the common people in America to this day; the owner of the liquor taking the cup says to his friend, I pledge you, and drinks, then hands the cup to his guest; a remarkable instance of the power of habit, as the reason of the custom has long since ceased.
+pledged	PLEDGED	pp.	Deposited as security; given in warrant.
+pledgee	PLEDGEE	n.	The person to whom any thing is pledged.
+pledger	PLEDGER	n.	One that pledges or pawns any thing; one that warrants or secures. [Pledgor, in Blackstone, is not to be countenanced.]	One that accepts the invitation to drink after another, or that secures another by drinking.
+pledgery	PLEDGERY	n.	A pledging; suretyship. [Not in use.]
+pledget	PLEDGET	n.	In surgery, a compress or small flat tent of lint, laid over a wound to imbibe the matter discharged and keep it clean
+pledging	PLEDGING	ppr.	Depositing in pawn or as security; giving warrant for security or safety.
+pleiads	PLEIADS	n.	In astronomy, a cluster of seven stars in the neck of the constellation Taurus. The Latins called them Vergilioe, from ver, spring, because of their rising about the vernal equinox
+plenal	PLENAL	a.	[See Plenary.] Full. [Not used.]
+plenarily	PLENARILY	adv.	Fully; completely
+plenariness	PLENARINESS	n.	Fullness; completeness.
+plenarty	PLENARTY	n.	The state of a benefice when occupied.
+plenary	PLENARY	a.	Full; entire; complete; as a plenary license; plenary consent; plenary indulgence. The plenary indulgence of the pope is an entire remission of penalties to all sins
+plenary	PLENARY	n.	Decisive procedure. [Not used.]
+plenilunary	PLENILUNARY	a.	Relating to the full moon.
+plenilune	PLENILUNE	n.	The full moon. [Not used.]
+plenipotence	PLENIPOTENCE	n.	Fullness or completeness of power
+plenipotent	PLENIPOTENT	a.	Possessing full power
+plenipotentiary	PLENIPOTENTIARY	n.	A person invested with full power to transact any business; usually, an embassador or envoy to a foreign court, furnished with full power to negotiate a treaty or to transact other business.
+plenipotentiary	PLENIPOTENTIARY	a.	Containing full power; as plenipotentiary license or authority.
+plenish	PLENISH		for replenish, not used.
+plenist	PLENIST	n.	One who maintains that all space is full of matter
+plenitude	PLENITUDE	n.	Fullness; as the plenitude of space	Repletion; animal fullness; plethora; redundancy of blood and humors in the animal body.	Fullness; complete competence; as the plenitude of the pope's power.	Completeness; as the plenitude of a man's fame.
+plenteous	PLENTEOUS	a.	Abundant; copious; plentiful; sufficient for every purpose; as a plenteous supply of provisions; a plenteous crop	Yielding abundance; as a plenteous fountain. The seven plenteous years. Genesis 41:34.	Having an abundance. The Lord shall make thee plenteous in goods. Deuteronomy 28:11.	Possessing in abundance and ready to bestow liberally. Psalms 86:5. [This word is less used than plentiful.]
+plenteously	PLENTEOUSLY	adv.	In abundance; copiously; plentifully.
+plenteousness	PLENTEOUSNESS	n.	Abundance; copious supply; plenty; as the seven years of plenteousness in Egypt.
+plentiful	PLENTIFUL	a.	Copious; abundant; adequate to every purpose; as a plentiful crop of grain; a plentiful harvest; a plentiful supply of water; a plentiful fortune	Yielding abundant crops; affording ample supply; fruitful; as a plentiful year.
+plentifully	PLENTIFULLY	adv.	Copiously; abundantly; with ample supply.
+plentifulness	PLENTIFULNESS	n.	The state of being plentiful; abundance.	The quality of affording full supply.
+plenty	PLENTY	n.	Abundance; copiousness; full or adequate supply; as, we have a plenty of corn for bread; the garrison has a plenty of provisions. Its application to persons, as a plenty of buyers or sellers, is inelegant	Fruitfulness; a poetic use. The teeming clouds Descend in gladsome plenty o'er the world.
+plenty	PLENTY	a.	Plentiful; being in abundance. Where water is plenty-- If reasons were as plenty as blackberries. In every country where liquors are plenty The common sorts of fowls and the several gallinaceous species are plenty A variety of other herbs and roots which are plenty They seem formed for those countries where shrubs are plenty and water scarce. When laborers are plenty their wages will be low. In the country, where wood is more plenty they make their beams stronger. [The use of this word as an adjective seems too well authorized to be rejected. It is universal in common parlance in the United States.]
+plenum	PLENUM	n.	Fullness of matter in space
+pleonasm	PLEONASM	n.	Redundancy of words in speaking or writing; the use of more words to express ideas, than are necessary. This may be justifiable when we intend to present thoughts with particular perspicuity or force
+pleonaste	PLEONASTE	n.	A mineral, commonly considered as a variety of the spinelle ruby. [See Ceylonite.]
+pleonastic	PLEONASTIC		PLEONAS'TICAL, adjective Pertaining to pleonasm; partaking of pleonasm; redundant.
+pleonastical	PLEONASTICAL	a.	Pertaining to pleonasm; partaking of pleonasm; redundant.
+pleonastically	PLEONASTICALLY	adv.	With redundancy of words.
+plerophory	PLEROPHORY	n.	Full persuasion or confidence. [Little used.]
+plesh	PLESH		for plash, not used.
+plethora	PLETHORA	n.	Literally, fullness. In medicine, fullness of blood; excess of blood; repletion; the state of the vessels of the human body, when they are too full or overloaded with fluids
+plethoric	PLETHORIC	a.	Having a full habit of body, or the vessels overcharged with fluids.
+plethory	PLETHORY		[See Plethora.]
+plethron	PLETHRON		PLETH'RUM, noun [Gr.] A square measure used in Greece, but the contents are not certainly known. Some authors suppose it to correspond with the Roman juger, or 240 feet; others allege it to be double the Egyptian aurora, which was the square of a hundred cubits.
+plethrum	PLETHRUM	n.	A square measure used in Greece, but the contents are not certainly known. Some authors suppose it to correspond with the Roman juger, or 240 feet; others allege it to be double the Egyptian aurora, which was the square of a hundred cubits
+pleura	PLEURA	n.	In anatomy, a thin membrane which covers the inside of the thorax
+pleurisy	PLEURISY	n.	An inflammation of the pleura or membrane that covers the inside of the thorax. It is accompanied with fever, pain, difficult respiration and cough. The usual remedies are venesection, other evacuations, diluents, etc
+pleuritic	PLEURITIC		PLEURIT'ICAL, adjective Pertaining to pleurisy; as pleuritic symptoms or affections.	Diseased with pleurisy.
+pleuritical	PLEURITICAL	a.	Pertaining to pleurisy; as pleuritic symptoms or affections.	Diseased with pleurisy.
+plevin	PLEVIN	n.	A warrant of assurance.
+plexiform	PLEXIFORM	n.	In the form of net-work; complicated
+plexus	PLEXUS	n.	Any union of vessels, nerves or fibers, in the form of net-work
+pliability	PLIABILITY	n.	The quality of bending or yielding to pressure or force without rupture; flexibility; pliableness
+pliable	PLIABLE	a.	Easy to be bent; that readily yields to pressure without rupture; flexible; as, willow is a pliable plant.	Flexible in disposition; readily yielding to moral influence, arguments, persuasion or discipline; as a pliable youth.
+pliableness	PLIABLENESS	n.	Flexibility; the quality of yielding to force or to moral influence; pliability; as the pliableness of a plant or of the disposition.
+pliancy	PLIANCY	n.	Easiness to be bent; in a physical sense; as the pliancy of a rod, of cordage or of limbs	Readiness to yield to moral influence; as pliancy of temper.
+pliant	PLIANT	a.	That may be easily bent; readily yielding to force or pressure without breaking; flexible; flexile; lithe; limber; as a pliant thread.	That may be easily formed or molded to a different shape; as pliant wax.	Easily yielding to moral influence; easy to be persuaded; ductile. The will was then more ductile and pliant to right reason.
+pliantness	PLIANTNESS	n.	Flexibility.
+plica	PLICA	n.	The plica polonica is a disease of the hair, peculiar to Poland and the neighboring countries. In this disease, the hair of the head is matted or clotted by means of an acrid viscid humor which exudes from the hair
+plicate	PLICATE		PLI'CATED, adjective [Latin plicatus, plico, to fold.] Plaited; folded like a fan; as a plicate leaf.
+plicated	PLICATED	a.	Plaited; folded like a fan; as a plicate leaf
+plication	PLICATION	n.	A folding or fold
+plicature	PLICATURE	n.	A fold; a doubling
+pliers	PLIERS	n. pl.	An instrument by which any small thing is seized and bent.
+pliform	PLIFORM	a.	In the form of a fold or doubling.
+plight	PLIGHT	v.t.	To pledge; to give as security for the performance of some act; but never applied to property or goods. We say, he plighted his hand, his faith, his vows, his honor, his truth or troth. Pledge is applied to property as well as to word, faith, truth, honor, etc. To plight faith is, as it were, to deposit it in pledge for the performance of an act, on the non-performance of which, the pledge is forfeited.	To weave; to braid. [This is the primary sense of the word, Latin plico, but now obsolete.]
+plight	PLIGHT	n.	Literally, a state of being involved, [Latin plicatus, implicatus, implicitus; ] hence, perplexity, distress, or a distressed state or condition; as a miserable plight But the word by itself does not ordinarily imply distress. Hence,	Condition; state; and sometimes good case; as, to keep cattle in plight In most cases, this word is now accompanied with an adjective which determines its signification; as bad plight; miserable or wretched plight; good plight	Pledge; gage. The Lord, whose hand must take my plight	A fold [Latin plica; ] a double; a plait. All in a silken Camus, lily white, Purfled upon with many a folded plight	A garment. [Not used.]
+plighted	PLIGHTED	pp.	Pledged.
+plighter	PLIGHTER	n.	One that pledges; that which plights.
+plighting	PLIGHTING	ppr.	pli'ting; Pledging.
+plim	PLIM	v.i.	To swell. [Not in use.]
+plinth	PLINTH	n.	In architecture, a flat square member in form of a brick, which serves as the foundation of a column; being the flat square table under the molding of the base and pedestal, at the bottom of the order. Vitruvius gives the name to the abacus or upper part of the Tuscan order, from its resemblance to the plinth PLINTH of a statue, is a base, flat, round or square. PLINTH of a wall, two or three rows of bricks advanced from the wall in form of a platband; and in general, any flat high molding that serves in a front wall to mark the floors, to sustain the eaves of a wall or the larmier of a chimney
+plod	PLOD	v.i.	To travel or work slowly or with steady laborious diligence. A plodding diligence brings us sooner to our journey's end, than a fluttering way of advancing by starts. Some stupid, plodding, money-loving wight.	To study heavily with steady diligence.	To toil; to drudge.
+plodder	PLODDER	n.	A dull, heavy, laborious person.
+plodding	PLODDING	ppr.	Traveling or laboring with slow movement and steady diligence; studying closely but heavily.	adjective Industrious; diligent, but slow in contrivance or execution.
+plodding	PLODDING	n.	Slow movement or study with steadiness or persevering industry.
+plot	PLOT	n.	A plat or small extent of ground; as a garden plot It was a chosen plot of fertile land. When we mean to build, We first survey the plot	A plantation laid out.	A plan or scheme. [Qu. the next word.]	In surveying, a plan or draught of a field, farm or manor surveyed and delineated on paper.
+plot	PLOT	v.t.	To make a plan of; to delineate.
+plot	PLOT	n.	Any scheme, stratagem or plan of a complicated nature, or consisting of many parts, adapted to the accomplishment of some purpose, usually a mischievous one. A plot may be formed by a single person or by numbers. In the latter case, it is a conspiracy or an intrigue. The latter word more generally denotes a scheme directed against individuals; the former against the government. But this distinction is not always observed. O think what anxious moments pass between The birth of plots, and their last fatal periods!	In dramatic writings, the knot or intrigue; the story of a play, comprising a complication of incidents which are at last unfolded by unexpected means. If the plot or intrigue must be natural, and such as springs from the subject, the winding up of the plot must be a probable consequence of all that went before.	Contrivance; deep reach of thought; ability to plot A man of much plot
+plot	PLOT	v.i.	To form a scheme of mischief against another, or against a government or those who administer it. A traitor plots against his king. The wicked plotteth against the just. Psalms 37:1.	To contrive a plan; to scheme. The prince did plot to be secretly gone.
+plot	PLOT	v.t.	To plan; to devise; to contrive; as, to plot an unprofitable crime.
+plotted	PLOTTED	pp.	Contrived; planned.
+plotter	PLOTTER	n.	One that plots or contrives; a contriver.	A conspirator.
+plotting	PLOTTING	ppr.	Contriving; planning; forming an evil design.
+plough	PLOUGH		[See Plow.]
+plover	PLOVER	n.	The common name of several species of birds that frequent the banks of rivers and the sea shore, belonging to the genus Charadrius
+plow	PLOW	n.	In agriculture, an instrument for turning up, breaking and preparing the ground for receiving the seed. It is drawn by oxen or horses and saves the labor of digging; it is therefore the most useful instrument in agriculture. The emperor lays hold of the plow and turns up several furrows. When fern succeeds, ungrateful to the plow	Figuratively, tillage; culture of the earth; agriculture.	A joiner's instrument for grooving.
+plow	PLOW	v.t.	To trench and turn up with a plow; as, to plow the ground for wheat; to plow it into ridges.	To furrow; to divide; to run through in sailing. With speed we plow the watery wave.	To tear; to furrow.	In Scripture, to labor in any calling. He that ploweth should plow in hope. 1 Corinthians 9:10. To plow on the back, to scourge; to mangle, or to persecute and torment. Psalms 129:3. To plow with one's heifer, to deal with the wife to obtain something from the husband. Judges 14:18. To plow iniquity or wickedness, and reap it, to devise and practice it, and at last suffer the punishment of it. Job 4:8. Hosea 10:11. To plow in, to cover by plowing; as, to plow in wheat. To plow up or out, to turn out of the ground by plowing. To put one's hand to the plow and look back, is to enter on the service of Christ and afterwards abandon it. Luke 17:7. [This difference of orthography often made between the noun and verb is wholly unwarrantable, and contrary to settled analogy in our language. Such a difference is never made in changing into verbs, plot, harrow, notice, question, and most other words. See Practice.]
+plow-bote	PLOW-BOTE	n.	In English law, wood or timber allowed to a tenant for the repair of instruments of husbandry.
+plow-land	PLOW-LAND	n.	Land that is plowed, or suitable for tillage.
+plow-monday	PLOW-MONDAY	n.	The Monday after twelfth-day.
+plowbote	plow-bote
+plowboy	PLOWBOY	n.	A boy that drives or guides a team in plowing; a rustic boy.
+plowed	PLOWED	pp.	Turned up with a plow; furrowed.
+plower	PLOWER	n.	One that plows land; a cultivator.
+plowing	PLOWING	ppr.	Turning up with a plow; furrowing.
+plowing	PLOWING	n.	The operation of turning up ground with a plow; as the first and second plowing; three plowings.
+plowland	plow-land
+plowman	PLOWMAN	n.	One that plows or holds a plow. At last the robber binds the plowman and carries him off with the oxen.	A cultivator of grain; a husbandman.	A rustic; a countryman; a hardy laborer.
+plowmonday	plow-monday
+plowshare	PLOWSHARE	n.	[See Shear.] The part of a plow which cuts the ground at the bottom of the furrow, and raises the slice to the mold-board, which turns it over.
+pluck	PLUCK	v.t.	To pull with sudden force or effort, or to pull off, out or from, with a twitch. Thus we say, to pluck feathers from a fowl; to pluck hair or wool from a skin; to pluck grapes or other fruit. They pluck the fatherless from the breast. Job 24:9.	To strip by plucking; as, to pluck a fowl. They that pass by do pluck her. Psalms 80:12. The sense of this verb is modified by particles. To pluck away, to pull away, or to separate by pulling; to tear away. He shall pluck away his crop with his feathers. Leviticus 1:16. To pluck down, to pull down; to demolish; or to reduce to a lower state. To pluck off, is to pull or tear off; as, to pluck off the skin. Micah 3:2. To pluck on, to pull or draw on. PLUCK up, to tear up by the roots or from the foundation; to eradicate; to exterminate; to destroy; as, to pluck up a plant; to pluck up a nation. Jeremiah 12:14. To pluck out, to draw out suddenly or to tear out; as, to pluck out the eyes; to pluck out the hand from the bosom. Psalms 74:11. To pluck up, to resume courage; properly, to pluck up the heart. [Not elegant.]
+pluck	PLUCK	n.	The heart, liver and lights of an animal.
+plucked	PLUCKED	pp.	Pulled off; stripped of feathers or hair.
+plucker	PLUCKER	n.	One that plucks.
+plucking	PLUCKING	ppr.	Pulling off; stripping.
+plug	PLUG	n.	A stopple; any piece of pointed wood or other substance used to stop a hole, but larger than a peg or spile. Hawse-plug, in marine affairs, a plug to stop a hawse-hole. Shot-plug, a plug to stop a breach made by a cannon ball in the side of a ship.
+plug	PLUG	v.t.	To stop with a plug; to make tight by stopping a hole.
+plum	PLUM	n.	The fruit of a tree belonging to the genus Prunus. The fruit is a drupe, containing a nut or stone with prominent sutures and inclosing a kernel. The varieties of the plum are numerous and well known.	A grape dried in the sun; a raisin.	The sum of f100, 000 sterling.	A kind of play. [Dr. Johnson remarks that this word is often written improperly plumb. This is true, not only of this word, but of all words in which b follows m, as in thumb, dumb, etc.]
+plum-cake	PLUM-CAKE	n.	Cake containing raisins or currants.
+plum-porridge	PLUM-PORRIDGE	n.	Porridge with plums.
+plum-pudding	PLUM-PUDDING	n.	Pudding containing raisins or currants.
+plum-tree	PLUM-TREE	n.	A tree that produces plums.
+plumage	PLUMAGE	n.	The feathers that cover a fowl. Smit with her varying plumage spare the dove.
+plumb	PLUMB	n.	A mass of lead attached to a line, and used to ascertain a perpendicular position of buildings and the like. But the word as a noun is seldom used, except in composition. [See Plumb-line.]
+plumb	PLUMB	a.	Perpendicular, that is, standing according to a plumb-line. The post of the house or the wall is plumb [This is the common language of our mechanics.]
+plumb	PLUMB	adv.	In a perpendicular direction; in a line perpendicular to the plane of the horizon. The wall stands plumb PLUMB down he falls.	Directly; suddenly; at once; as a falling mass; usually pronounced plump. He fell plumb into the water.
+plumb	PLUMB	v.t.	To adjust by a plumb-line; to set in a perpendicular direction; as, to plumb a building or a wall.	To sound with a plummet, as the depth of water. [Little used.]
+plumb-line	PLUMB-LINE	n.	plum'-line. A line perpendicular to the plane of the horizon; or a line directed to the center of gravity in the earth.
+plumbaginous	PLUMBAGINOUS	a.	Resembling plumbago; consisting of plumbago, or partaking of its properties.
+plumbago	PLUMBAGO	n.	A mineral consisting of carbon and iron; used for pencils, etc
+plumbean	PLUMBEAN		PLUMBED, participle passive plum'med. Adjusted by a plumb-line.
+plumbed	PLUMBED	pp.	Adjusted by a plumb-line.
+plumbeous	PLUMBEOUS	a.	Consisting of lead; resembling lead.	Dull; heavy; stupid.
+plumber	PLUMBER	n.	One who works in lead.
+plumbery	PLUMBERY	n.	Works in lead; manufactures of lead; the place where lead is wrought.	The art of casting and working lead, or of making sheets and pipes of lead.
+plumbiferous	PLUMBIFEROUS	a.	Producing lead
+plumbline	plumb-line
+plumcake	plum-cake
+plume	PLUME	n.	The feather of a fowl, particularly a large feather.	A feather worn as an ornament, particularly an ostrich's feather. And his high plume that nodded o'er his head.	Pride; towering mien.	Token of honor; prize of contest. Ambitious to win from me some plume
+plume-alum	PLUME-ALUM	n.	A kind of asbestus.
+plumealum	plume-alum
+plumeless	PLUMELESS	a.	Without feathers or plumes.
+plumigerous	PLUMIGEROUS	a.	Feathered; having feathers
+plumiped	PLUMIPED	a.	Having feet covered with feathers
+plumiped	PLUMIPED	n.	A fowl that has feathers on its feet
+plummet	PLUMMET	n.	A long piece of lead attached to a line, used in sounding the depth of water.	An instrument used by carpenters, masons, etc. in adjusting erections to a perpendicular line, and with a square, to determine a horizontal line. It consists of a piece of lead fastened to a line.	Any weight.	A piece of lead used by school boys to rule their paper for writing.
+plumming	PLUMMING	n.	Among miners, the operation of finding by means of a mine dial the place where to sink an air shaft, or to bring an adit to the work, or to find which way the lode inclines.
+plumose	PLUMOSE		PLUMOS'ITY, noun The state of having feathers.
+plumosity	PLUMOSITY	n.	The state of having feathers.
+plumous	PLUMOUS	a.	In botany, a plumose bristle is one that has hairs growing on the sides of the main bristle. Plumose pappus or down is a flying crown to some seeds, composed of feathery hairs.
+plump	PLUMP	a.	Full; swelled with fat or flesh to the full size; fat; having a full skin; round; as a plump boy; a plump habit of body. The famish'd crow grows plump and round.	Full; blunt; unreserved; unqualified; as a plump lie.
+plump	PLUMP	n.	A knot; a cluster; a clump; a number of things closely united or standing together; as a plump of trees; a plump of fowls; a plump of horsemen. [This word is not now used in this sense, but the use of it formerly, is good evidence that plump is clump, with a different prefix, and both are radically one word with lump. Plumb, Latin plumbum, is the same word, a lump or mass.
+plump	PLUMP	v.t.	To swell; to extend to fullness; to dilate; to fatten. The particles of air expanding themselves, plump out the sides of the bladder. A wedding at our house will plump me up with good cheer
+plump	PLUMP	v.i.	To plunge or fall like a heavy mass or lump of dead matter; to fall suddenly or at once.	To enlarge to fullness; to be swelled.
+plump	PLUMP	adv.	Suddenly; heavily; at once, or with a sudden heavy fall.
+plumper	PLUMPER	n.	Something carried in the mouth to dilate the cheeks; any thing intended to swell out something else.	A full unqualified lie. [In vulgar use.]
+plumply	PLUMPLY	adv.	Fully; roundly; without reserve; as, to assert a thing plumply; a word in common popular use.
+plumpness	PLUMPNESS	n.	Fullness of skin; distention to roundness; as the plumpness of a boy; plumpness of the eye or cheek.
+plumporridge	plum-porridge
+plumpudding	plum-pudding
+plumpy	PLUMPY	a.	Plump; fat; jolly. [Not elegant.]
+plumtree	plum-tree
+plumule	PLUMULE	n.	In botany, the ascending scaly part of the corculum or heart of a seed; the scaly part of the embryo plant within the seed, which rises and becomes the stem or body. It extends itself into the cavity of the lobes, and is terminated by a small branch resembling a feather, from which it derives its name.
+plumy	PLUMY	a.	Feathered; covered with feathers	Adorned with plumes; as a plumy crest.
+plunder	PLUNDER	v.t.	To pillage; to spoil; to strip; to take the goods of an enemy by open force. Nebuchadnezzar plundered the temple of the Jews.	To take by pillage or open force. The enemy plundered all the goods they found. We say, he plundered the tent, or he plundered the goods of the tent. The first is the proper use of the word.	To rob, as a thief; to take from; to strip; as, the thief plundered the house; the robber plundered a man of his money and watch; pirates plunder ships and men.
+plunder	PLUNDER	n.	That which is taken from an enemy by force; pillage; prey; spoil.	That which is taken by theft, robbery or fraud.
+plundered	PLUNDERED	pp.	Pillaged; robbed.
+plunderer	PLUNDERER	n.	A hostile pillager; a spoiler.	A thief; a robber.
+plundering	PLUNDERING	ppr.	Pillaging; robbing.
+plunge	PLUNGE	v.t.	To thrust into water or other fluid substance, or into any substance that is penetrable; to immerse in a fluid; to drive into flesh, mire or earth, etc.; as, to plunge the body in water; to plunge the arm into fire or flame; to plunge a dagger into the breast.	To thrust or drive into any state in which the thing is considered as enveloped or surrounded; as, to plunge one's self into difficulties or distress; to plunge a nation into war.	To baptize by immersion.
+plunge	PLUNGE	v.i.	To pitch; to thrust or drive one's self into water or a fluid; to dive or to rush in. He plunged into the river. The troops plunged into the stream. His courser plung'd, And threw him off; the waves whelm'd over him.	To fall or rush into distress or any state or circumstances in which the person or thing is enveloped, inclosed or overwhelmed; as, to plunge into a gulf; to plunge into debt or embarrassments; to plunge into war; a body of cavalry plunged into the midst of the enemy.	To pitch or throw one's self headlong.
+plunge	PLUNGE	n.	The act of thrusting into water or any penetrable substance.	Difficulty; strait; distress; a state of being surrounded or overwhelmed with difficulties. People when put to a plunge cry out to heaven for help. And wilt thou not reach out a friendly arm, To raise me from amidst this plunge of sorrow? [In this sense, the word is now little used.]
+plunged	PLUNGED	pp.	Thrust into a fluid or other penetrable substance; immersed; involved in straits.
+plungeon	PLUNGEON	n.	A sea fowl.
+plunger	PLUNGER	n.	One that plunges; a diver.	A cylinder used as a forcer in pumps.
+plunging	PLUNGING	ppr.	Immersing; diving; rushing headlong.
+plungy	PLUNGY	a.	Wet. [Not used.]
+plunket	PLUNKET	n.	A kind of blue color.
+plural	PLURAL	a.	Containing more than one; consisting of two or more, or designating two or more; as a plural word.	In grammar, the plural number is that which designates more than one, that is, any number except one. Thus in most languages, a word in the plural number expresses two or more. But the Greek has a dual number to express two; and the plural expresses more than two.
+pluralist	PLURALIST	n.	A clerk or clergyman who holds more ecclesiastical benefices than one, with cure of souls.
+plurality	PLURALITY	n.	A number consisting of two or more of the same kind; as a plurality of gods; a plurality of worlds.	A state of being or having a greater number.	In elections, a plurality of votes is when one candidate has more votes than any other, but less than half of the whole number of votes given. It is thus distinguished from a majority, which is more than half of the whole number.	plurality of benefices, is where the same clerk is possessed of more benefices than one, with cure of souls. In this case, each benefice thus held is called a plurality
+plurally	PLURALLY	adv.	In a sense implying more than one.
+pluriliteral	PLURILITERAL	a.	Containing more letters than three
+pluriliteral	PLURILITERAL	n.	A word consisting of more letters than three.
+plurisy	PLURISY	n.	Superabundance. [Not used.]
+plus	PLUS		in algebra, a character marked thus, +, used as the sign of addition
+plush	PLUSH	n.	Shag; a species of shaggy cloth or stuff with a velvet nap on one side, composed regularly of a woof of a single thread and a double warp; the one, wool of two threads twisted, the other of goat's or camel's hair. But some plushes are made wholly of worsted; others wholly of hair.
+plusher	PLUSHER	n.	A marine fish.
+plutonian	PLUTONIAN	a.	Plutonic, which see.
+plutonian	PLUTONIAN	n.	One who maintains the origin of mountains, etc. to be from fire. The plutonian theory of the formation of rocks and mountains is opposed to the Neptunian.
+plutonic	PLUTONIC	a.	Pertaining to or designating the system of the Plutonists; as the plutonic theory
+plutonist	PLUTONIST	n.	One who adopts the theory of the formation of the world in its present state from igneous fusion.
+pluvial	PLUVIAL		PLUVIAM'ETER, noun [Latin pluvia, rain, and Gr.measure.] A rain gage, an instrument for ascertaining the quantity of water that falls in rain, or in rain and snow, in any particular climate or place.
+pluviameter	PLUVIAMETER	n.	A rain gage, an instrument for ascertaining the quantity of water that falls in rain, or in rain and snow, in any particular climate or place
+pluviametrical	PLUVIAMETRICAL	a.	Pertaining to a pluviameter; made or ascertained by a pluviameter.
+pluvious	PLUVIOUS	a.	Rainy; humid
+ply	PLY	v.t.	To lay on, to put to or on with force and repetition; to apply to closely, with continuation of efforts or urgency. And plies him with redoubled strokes. The hero from afar Plies him with darts and stones. We retain the precise sense in the phrase to lay on, to put it on him.	To employ with diligence; to apply closely and steadily; to keep busy. Her gentle wit she plies. The wearied Trojans ply their shattered oars.	To practice or perform with diligence. Their bloody task, unweari'd, still they ply	To urge; to solicit with pressing or persevering importunity. He plies the duke at morning and at night.	To urge; to press; to strain; to force.
+ply	PLY	v.i.	To bend; to yield. The willow plied and gave way to the gust.	To work steadily. He was forced to ply in the streets.	To go in haste. Thither he plies undaunted.	To busy one's self; to be steadily employed.	To endeavor to make way against the wind.
+ply	PLY	n.	A fold; a plait.	Bent; turn; direction; bias. The late learners cannot so well take the ply
+plyer	PLYER	n.	He or that which plies. In fortification, plyers denotes a kind of balance used in raising and letting down a drawbridge, consisting of timbers joined in the form of St. Andrew's cross.
+plying	PLYING	ppr.	Laying on with steadiness or repetition; applying closely; employing; performing; urging; pressing or attempting to make way against the wind.
+plying	PLYING	n.	Effort to make way against the wind.

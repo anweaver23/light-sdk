@@ -1,0 +1,360 @@
+recall	RECALL	v.t.	To call back; to take back; as, to recall words or declarations.	To revoke; to annul by a subsequent act; as, to recall a decree.	To call back; to revive in memory; as, to recall to mind what has been forgotten.	To call back from a place or mission; as, to recall a minister from a foreign court; to recall troops from India.
+recall	RECALL	n.	A calling back; revocation.	The power of calling back or revoking. 'Tis done, and since 'tis done, 'tis past recall
+recallable	RECALLABLE	a.	That may be recalled. Delegates recallable at pleasure.
+recalled	RECALLED	pp.	Called back; revoked.
+recalling	RECALLING	ppr.	Calling back; revoking.
+recant	RECANT	v.t.	To retract; to recall; to contradict a former declaration. How soon would ease recant vows made in pain, as violent as void
+recant	RECANT	v.i.	To recall words; to revoke a declaration or proposition; to unsay what has been said. Convince me I am wrong, and I will recant
+recantation	RECANTATION	n.	The act of recalling; retraction; a declaration that contradicts a former one.
+recanted	RECANTED	pp.	Recalled; retracted.
+recanter	RECANTER	n.	One that recants.
+recanting	RECANTING	ppr.	Recalling; retracting.
+recapacitate	RECAPACITATE	v.t.	To qualify again; to confer capacity on again
+recapacitated	RECAPACITATED	pp.	Capacitated again.
+recapacitating	RECAPACITATING	ppr.	Conferring capacity again.
+recapitulate	RECAPITULATE	v.t.	To repeat the principal things mentioned in a preceding discourse, argument or essay; to give a summary of the principal facts, points or arguments
+recapitulated	RECAPITULATED	pp.	Repeated in a summary.
+recapitulating	RECAPITULATING	ppr.	Repeating the principal things in a discourse or argument.
+recapitulation	RECAPITULATION	n.	The act of recapitulating.	A summary or concise statement or enumeration of the principal points or facts in a preceding discourse, argument or essay.
+recapitulatory	RECAPITULATORY	a.	Repeating again; containing recapitulation.
+recaption	RECAPTION	n.	The act of retaking; reprisal; the retaking of one's own goods, chattels, wife or children from one who has taken them and wrongfully detains them. Writ of recaption a writ to recover property taken by a second distress, pending a replevin for a former distress for the same rent or service
+recaptor	RECAPTOR	n.	One who retakes; one that takes a prize which had been previously taken
+recapture	RECAPTURE	n.	The act of retaking; particularly, the retaking of a prize or goods from a captor.	A prize retaken.
+recapture	RECAPTURE	v.t.	To retake; particularly, to retake a prize which had been previously taken.
+recaptured	RECAPTURED	pp.	Retaken.
+recapturing	RECAPTURING	ppr.	Retaking, as a prize from the captor.
+recarnify	RECARNIFY	v.t.	To convert again into flesh. [Not much used.]
+recarried	RECARRIED	pp.	Carried back or again.
+recarry	RECARRY	v.t.	To carry back
+recarrying	RECARRYING	ppr.	Carrying back.
+recast	RECAST	v.t.	To cast again; as, to recast cannon.	To throw again.	To mold anew.	To compute a second time.
+recast	RECAST	pp.	Cast again; molded anew.
+recasting	RECASTING	ppr.	Casting again; molding anew.
+recede	RECEDE	v.i.	To move back; to retreat; to withdraw. Like the hollow roar of tides receding from th' insulted shore. All bodies moved circularly, endeavor to recede from the center.	To withdraw a claim or pretension; to desist from; to relinquish what had been proposed or asserted; as, to recede from a demand; to recede from terms or propositions.
+recede	RECEDE	v.t.	To cede back; to grant or yield to a former possessor; as, to recede conquered territory
+receded	RECEDED	pp.	Ceded back; regranted.
+receding	RECEDING	ppr.	Withdrawing; retreating; moving back.	Ceding back; regranting.
+receipt	RECEIPT		RECE'IT, noun rece't. [Latin receptus. This word wought to follow the analogy of conceit, deceit, from Latin conceptus, deceptus, and be written without p, receit.]	The act of receiving; as the receit of a letter.	The place of receiving; as the receit of custom. Matthew 9:9.	Reception; as the receit of blessings or mercies.	Reception; welcome; as the kind receit of a friend. obsolete [In this sense, reception is now used.]	Recipe; prescription of ingredients for any composition, as of medicines, etc.	In commerce, a writing acknowledging the taking of money or goods. A receit of money may be in part or in full payment of a debt, and it operates as an acquittance or discharge of the debt either in part or in full. A receit of goods makes the receiver liable to account for the same, according to the nature of the transaction, or the tenor of the writing. It is customary for sheriffs to deliver goods taken in execution, to some person who gives his receit for them, with a promise to redeliver them to the sheriff at or before the time of sale.
+receipt	RECEIPT		RECEIT, verb transitive rece't. To give a receit for; as, to receit goods delivered by a sheriff.
+receit	RECEIT	n.	The act of receiving; as the receit of a letter.	The place of receiving; as the receit of custom. Matt. 9.	Reception; as the receit of blessings or mercies.	Reception; welcome; as the kind receit of a friend. Obs.[In this sense, reception is now used.]	Recipe; prescription of ingredients for any composition, as of medicines, &c.	In commerce, a writing acknowledging the taking of money or goods. A receit of money may be in part or in full payment of a debt, and it operates as an acquittance or discharge of the debt either in part or in full. A receit of goods makes the receiver liable to account for the same, according to the nature of the transaction, or the tenor of the writing. It is customary for sheriffs to deliver goods taken in execution, to some person who gives his receit for them, with a promise to redeliver them to the sheriff at or before the time of sale.
+receivable	RECEIVABLE	a.	That may be received.
+receivableness	RECEIVABLENESS	n.	Capability of being received.
+receive	RECEIVE	v.t.	To take, as a thing offered or sent; to accept. He had the offer of a donation, but he would not receive it.	To take as due or as a reward. He received the money on the day it was payable. He received ample compensation.	To take or obtain from another in any manner, and either good or evil. Shall we receive good at the hand of God, and shall we not receive evil? Job 2:10.	To take, as a thing communicated; as, to receive a wound by a shot; to receive a disease by contagion. The idea of a solidity we receive by our touch.	To take or obtain intellectually; as, to receive an opinion or notion from others.	To embrace. Receive with meekness the engrafted word. James 1:7.	To allow; to hold; to retain; as a custom long received.	To admit. Thou shalt guide me with thy counsel, and afterward receive me to glory. Psalms 73:24.	To welcome; to lodge and entertain; as a guest. They kindled a fire and received us every one, because of the present rain and because of the cold. Acts 28:2.	To admit into membership or fellowship. Him that is weak in the faith, receive ye. Romans 14:1.	To take in or on; to hold; to contain. The brazen altar was too little to receive the burnt-offering. 1 Kings 8:64.	To be endowed with. Ye shall receive power after that the Holy Spirit has come upon you. Acts 1:8.	To take into a place or state. After the Lord had spoken to them, he was received up into heaven. Mark 16:19.	To take or have as something ascribed; as, to receive praise or blame. Revelation 4:11. Revelation 5:12.	To bear with or suffer. 2 Corinthians 11:4.	To believe in. John 1:11.	To accept or admit officially or in an official character. The minister was received by the emperor or court.	To take stolen goods from a thief, knowing them to be stolen.
+received	RECEIVED	pp.	Taken; accepted; admitted; embraced; entertained; believed.
+receivedness	RECEIVEDNESS	n.	General allowance or belief; as the receivedness of an opinion.
+receiver	RECEIVER	n.	One who takes or receives in any manner.	An officer appointed to receive public money; a treasurer.	One who takes stolen goods from a thief, knowing them to be stolen, and incurs the guilt of partaking in the crime.	A vessel for receiving and containing the product of distillation.	The vessel of an air pump, for containing the thing on which an experiment is to be made.	One who partakes of the sacrament.
+receiving	RECEIVING	ppr.	Taking; accepting; admitting; embracing; believing; entertaining.
+recelebrate	RECELEBRATE	v.t.	To celebrate again
+recelebrated	RECELEBRATED	pp.	Celebrated anew.
+recelebrating	RECELEBRATING	ppr.	Celebrating anew.
+recelebration	RECELEBRATION	n.	A renewed celebration.
+recency	RECENCY	n.	Newness; new state; late origin; as the recency of a wound or tumor.	Lateness in time; freshness; as the recency of a transaction.
+recense	RECENSE	v.t.	To review; to revise
+recension	RECENSION	n.	Review; examination; enumeration
+recent	RECENT	a.	New; being of late origin or existence. The ancients believed some parts of Egypt to be recent and formed by the mud discharged into the sea by the Nile.	Late; modern; as great and worthy men ancient or recent [Modern is now used.]	Fresh; lately received; as recent news or intelligence.	Late; of late occurrence; as a recent event or transaction.	Fresh; not long dismissed, released or parted from; as Ulysses, recent from the storms.
+recently	RECENTLY	adv.	Newly; lately; freshly; not long since; as advices recently received; a torn recently built or repaired; an isle recently discovered.
+recentness	RECENTNESS	n.	Newness; freshness; lateness of origin or occurrence; as the recentness of alluvial land; the recentness of news or of events.
+receptacle	RECEPTACLE	n.	A place or vessel into which something is received or in which it is contained, as a vat, a tun, a hollow in the earth, etc. The grave is the common receptacle of the dead.	In botany, one of the parts of the fructification; the base by which the other parts of the fructification are connected. A proper receptacle belongs to one fructification only; a common receptacle connects several florets or distinct fructifications. The receptacle of the fructification is common both to the flower and the fruit, or it embraces the corol and germ. The receptacle of the flower, is the base to which the parts of the flower, exclusive of the germ, are fixed. The receptacle of the fruit, is the base of the fruit only. The receptacle of the seeds, is the base to which the seeds are fixed.	In anatomy, the receptacle of the chyle is situated on the left side of the upper verteber of the loins, under the aorta and the vessels of the left kidney.
+receptacular	RECEPTACULAR	a.	In botany, pertaining to the receptacle or growing on it, as the nectary.
+receptary	RECEPTARY	n.	Thing received. [Not in use.]
+receptibility	RECEPTIBILITY	n.	The possibility of receiving.
+reception	RECEPTION	n.	The act of receiving; in a general sense; as the reception of food into the stomach, or of air into the lungs.	The state of being received.	Admission of any thing sent or communicated; as the reception of a letter; the reception of sensation or ideas.	Readmission. All hope is lost of my reception into grace.	Admission of entrance for holding or containing; as a sheath fitted for the reception of a sword; a channel for the reception of water.	A receiving or manner of receiving for entertainment; entertainment. The guests were well pleased with their reception Nothing displeases more than a cold reception	A receiving officially; as the reception of an envoy by a foreign court.	Opinion generally admitted. Philosophers who have quitted the popular doctrines of their countries, have fallen into as extravagant opinions, as even common reception countenanced. [Not in use.]	Recovery. [Not in use.]
+receptive	RECEPTIVE	a.	Having the quality of receiving or admitting what is communicated. Imaginary space is receptive of all bodies.
+receptivity	RECEPTIVITY	n.	The state or quality of being receptive.
+receptory	RECEPTORY	a.	Generally or popularly admitted or received. [Not in use.]
+recess	RECESS	n.	A withdrawing or retiring; a moving back; as the recess of the tides.	A withdrawing from public business or notice; retreat; retirement. My recess hath given them confidence that I may be conquered. And every neighboring grove sacred to soft recess and gentle love.	Departure.	Place of retirement or secrecy; private abode. This happy place, our sweet recess	State of retirement; as lords in close recess In the recess of the jury, they are to consider their evidence.	Remission or suspension of business or procedure; as, the house of representatives had a recess of half an hour.	Privacy; seclusion from the world or from company. Good verse recess and solitude requires.	Secret or abstruse part; as the difficulties and recesses of science.	A withdrawing from any point; removal to a distance.	An abstract or registry of the resolutions of the imperial diet. [Not in use.]	The retiring of the shore of the sea or of a lake from the general line of the shore, forming a bay.
+recession	RECESSION	n.	The act of withdrawing, retiring or retreating.	The act of receding from a claim, or of relaxing a demand.	A cession or granting back; as the recession of conquered territory to its former sovereign.
+rechange	RECHANGE	v.t.	To change again
+rechanged	RECHANGED	pp.	Changed again.
+rechanging	RECHANGING	ppr.	Changing again.
+recharge	RECHARGE	v.t.	To charge or accuse in return.	To attack again; to attack anew.
+recharged	RECHARGED	pp.	Accused in return; attacked anew.
+recharging	RECHARGING	ppr.	Accusing in return; attacking anew.
+recheat	RECHEAT	n.	Among hunters, a lesson which the huntsman winds on the horn when the hounds have lost the game, to call them back from pursuing a counter scent.
+recheat	RECHEAT	v.t.	To blow the recheat
+rechoose	RECHOOSE	v.t.	To choose a second time.
+rechosen	RECHOSEN	pp.	or adjective recho'zn. Re-elected; chosen again.
+recidivation	RECIDIVATION	n.	A falling back; a backsliding. [Not much used.]
+recidivous	RECIDIVOUS	a.	Subject to backslide. [Little used.]
+recipe	RECIPE	n.	A medical prescription; a direction of medicines to be taken by a patient
+recipient	RECIPIENT	n.	A receiver; the person or thing that receives; he or that to which any thing is communicated.	The receiver of a still.
+reciprocal	RECIPROCAL	a.	Acting in vicissitude or return; alternate. Corruption is reciprocal to generation.	Mutual; done by each to the other; as reciprocal love; reciprocal benefits or favors; reciprocal duties; reciprocal aid.	Mutually interchangeable. These two rules will render a definition reciprocal with the thing defined. Reciprocal terms, in logic, those terms that have the same signification, and consequently are convertible and may be used for each other. Reciprocal quantities, in mathematics, are those which, multiplied together, produce unity. Reciprocal figures, in geometry, are those which have the antecedents and consequents of the same ratio in both figures. Reciprocal ratio, is the ratio between the reciprocals of two quantities; as, the reciprocal ratio of 4 to 9, is that of 1/4 to 1/9.
+reciprocal	RECIPROCAL	n.	The reciprocal of any quantity, is unity divided by that quantity. Thus the reciprocal of 4 is 1/4.
+reciprocally	RECIPROCALLY	adv.	Mutually; interchangeably; in such a manner that each affects the other and is equally affected by it. These two particles do reciprocally affect each other with the same force.
+reciprocalness	RECIPROCALNESS	n.	Mutual return; alternateness.
+reciprocate	RECIPROCATE	v.i.	To act interchangeably; to alternate. One brawny smith the puffing bellows plies, and draws and blows reciprocating air
+reciprocate	RECIPROCATE	v.t.	To exchange; to interchange; to give and return mutually; as, to reciprocate favors.
+reciprocated	RECIPROCATED	pp.	Mutually given and returned; interchanged.
+reciprocating	RECIPROCATING	ppr.	Interchanging; each giving or doing to the other the same thing.
+reciprocation	RECIPROCATION	n.	Interchange of acts; a mutual giving and returning; as the reciprocation of kindnesses.	Alternation; as the reciprocation of the sea in the flow and ebb of tides.	Regular return or alternation of two symptoms or diseases.
+reciprocity	RECIPROCITY	n.	Reciprocal obligation or right; equal mutual rights or benefits to be yielded or enjoyed. The commissioners offered to negotiate a treaty on principles of reciprocity
+recision	RECISION	n.	s as z. [Latin recisio, from recido, to cut off; re and caedo.] The act of cutting off.
+recital	RECITAL	n.	Rehearsal; the repetition of the words of another or of a writing; as the recital of a deed; the recital of testimony.	Narration; a telling of the particulars of an adventure or of a series of events.	Enumeration.
+recitation	RECITATION	n.	Rehearsal; repetition of words.	In colleges and schools, the rehersal of a lesson by pupils before their instructor.
+recitative	RECITATIVE	a.	[See recite.] Reciting; rehearsing; pertaining to musical pronunciation.
+recitative	RECITATIVE	n.	a kind of musical pronunciation, such as that in which the several parts of the liturgy are rehearsed in churches, or that of actors on the stage, when they express some action or passion, relate some event or reveal some design. In recitative the composer and the performer endeavor to imitate the inflections, accent and emphasis of natural speech. [Note. The natural and proper English accent of this word is on the second syllable. The foreign accent may well be discarded.]
+recitatively	RECITATIVELY	adv.	In the manner of recitative.
+recite	RECITE	v.t.	To rehearse; to repeat the words of another or of a writing; as, to recite the words of an author or of a deed or covenant.	In writing, to copy; as, the words of a deed are recited in the pleading.	To tell over; to relate; to narrate; as to recite past events; to recite the particulars of a voyage.	To rehearse, as a lesson to an instructor.	To enumerate.
+recite	RECITE	v.i.	To rehearse a lesson. The class will recite at eleven o'clock.
+recite	RECITE		for recital. [Not in use.]
+recited	RECITED	pp.	Rehearsed; told; repeated; narrated.
+reciter	RECITER	n.	One that recites or rehearses; a narrator.
+reciting	RECITING	ppr.	Rehearsing; telling; repeating narrating.
+reck	RECK	v.i.	To care; to mind; to rate at much; as we say, to reckon much of; followed by of. obsolete Thou's but a lazy loorde, and recks much of thy swinke. I reck as little what betideth me, as much I wish all good befortune you. Of night or loneliness it recks me not
+reck	RECK	v.t.	To heed; to regard; to care for. This son of mine not recking danger. [This verb is obsolete unless in poetry. We observe the primary sense and application in the phrase, 'it recks me not, ' that is, it does not strain or distress me; it does not rack my mind. To reck danger is a derivative form of expression, and a deviation from the proper sense of the verb.]
+reckless	RECKLESS	a.	Careless; heedless; mindless. I made the king reckless as them diligent.
+recklessness	RECKLESSNESS	n.	Heedlessness; carelessness; negligence. [These words, formerly disused, have been recently revived.]
+reckon	RECKON	v.t.	To count; to number; that is, to tell the particulars. The priest shall reckon to him the money, according to the years that remain, even to the year of jubilee, and it shall be abated. Leviticus 27:18. I reckoned above two hundred and fifty on the outside of the church.	To esteem; to account; to repute. Romans 8:18. For him I reckon not in high estate.	To repute; to set in the number or rank of. He was reckoned among the transgressors. Luke 22:37.	To assign in an account. rom. 4.	to compute; to calculate.
+reckon	RECKON	v.i.	To reason with one's self and conclude from arguments. I reckoned till morning, that as a lion, so will he break all my bones. Isaiah 38:13.	To charge to account; with on. I call posterity into the debt, and reckon on her head.	To pay a penalty; to be answerable; with for. If they fall in their bounden duty, they shall reckon for it one day.	To reckon with, to state an account with another, compare it with his account, ascertain the amount of each and the balance which one owes to the other. In this manner the countrymen of New England who have mutual dealings, reckon with each other at the end of each year, or as often as they think fit. After a long time the lord of those servants cometh, and reckoneth with them. Matthew 25:19.	To call to punishment. God suffers the most grievous sins of particular persons to go unpunished in this world, because his justice will have another opportunity to meet and reckon with them. To reckon on or upon, to lay stress or dependence on. He reckons on the support of his friends.
+reckoned	RECKONED	pp.	Counted; numbered; esteemed; reputed; computed; set or assigned to in account.
+reckoner	RECKONER	n.	One who reckons or computes. RECKONERs without their host must reckon twice.
+reckoning	RECKONING	ppr.	Counting; computing; esteeming; reputing; stating an account mutually.
+reckoning	RECKONING	n.	The act of counting or computing; calculation.	An account of time.	A statement of accounts with another; a statement and comparison of accounts mutually for adjustment; as in the proverb, 'short reckonings make long friends.' The way to make reckonings even, is to make them often.	The charges or account made by a host. A coin would have a nobler use than to pay a reckoning	Account taken. 2 Kings 22:7.	Esteem; account; estimation. You make no further reckoning of the beauty, than of an outward fading benefit nature bestowed.	In navigation, an account of the ship's course and distance calculated from the log-board without the aid of celestial observation. This account from the log-board, is called the dead reckoning
+reckoning-book	RECKONING-BOOK	n.	a book in which money received and expended is entered.
+reckoningbook	reckoning-book
+reclaim	RECLAIM	v.t.	To claim back; to demand to have returned. The vender may reclaim the goods.	To call back from error, wandering or transgression, to the observance of moral rectitude; to reform; to bring back to correct deportment or course of life. It is the intention of Providence in its various expressions of goodness, to reclaim mankind.	To reduce to the state desired. Much labor is requir'd in trees, to tame their wild disorder, and in ranks reclaim	To call back; to restrain. Or is her tow'ring flight reclaim'd by seas from Icarus' downfall nam'd?	To recall; to cry out against. The headstrong horses hurried Octavius along, and were deaf to his reclaiming them. [Unusual.]	To reduce from a wild to a tame or domestic state; to tame; to make gentle; as, to reclaim a hawk, an eagle or a wild beast.	To demand or challenge; to make a claim; a French use.	To recover.	In ancient customs, to pursue and recall, as a vassal.	To encroach on what has been taken from one; to attempt to recover possession. A tract of land [Holland snatched from an element perpetually reclaiming its prior occupancy.
+reclaim	RECLAIM	v.i.	To cry out; to exclaim.
+reclaimable	RECLAIMABLE	a.	That may be reclaimed, reformed or tamed.
+reclaimant	RECLAIMANT	n.	One that opposes, contradicts or remonstrates against.
+reclaimed	RECLAIMED	pp.	Recalled from a vicious life; reformed; tamed; domesticated; recovered.
+reclaiming	RECLAIMING	ppr.	Recalling to a regular course of life; reforming; recovering; taking; demanding.
+reclamation	RECLAMATION	n.	Recovery.	Demand; challenge of something to be restored; claim made.
+reclinate	RECLINATE	a.	In botany, reclined, as a leaf; bend downwards, so that the point of the leaf is lower than the base. A reclinate stem is one that bends in an arch towards the earth
+reclination	RECLINATION	n.	That act of leaning or reclining.
+recline	RECLINE	v.t.	To lean back; to lean to one side or sideways; as, to recline the head on a pillow, or on the bosom of another, or on the arm. The mother reclin'd her dying head upon his breast
+recline	RECLINE	v.i.	To lean; to rest or repose; as, to recline on a couch.
+recline	RECLINE	a.	Leaning; being in a leaning posture. They sat recline on the soft downy bank damask'd with flowers. [Little used.]
+reclined	RECLINED	pp.	Inclined back or sideways.
+reclining	RECLINING	ppr.	Leaning back or sideways; resting; lying.
+reclose	RECLOSE	v.t.	s as z. [re and close.] To close or shut again.
+reclosed	RECLOSED	pp.	Closed again.
+reclosing	RECLOSING	ppr.	Closing again.
+reclude	RECLUDE	v.t.	To open. [Little used.]
+recluse	RECLUSE	a.	Shut up; sequestered; retired from the world or from public notice; solitary; as a recluse monk or hermit; a recluse life. I all the live-long day consume in meditation deep, recluse from human converse.
+recluse	RECLUSE	n.	A person who live in retirement or seclusion from intercourse with the world; as a hermit or monk.	A person who confines himself to a cell in a monastery.
+reclusely	RECLUSELY	adv.	In retirement or seclusion from society.
+recluseness	RECLUSENESS	n.	Retirement; seclusion from society.
+reclusion	RECLUSION	n.	s as z. A state of retirement from the world; seclusion.
+reclusive	RECLUSIVE	a.	Affording retirement from society.
+recoagulation	RECOAGULATION	n.	A second coagulation
+recoct	RECOCT	a.	New vamped. [Not used.]
+recognition	RECOGNITION	n.	reconish'on or recognish'on. [Latin recognitio.]	Acknowledgment; formal avowal; as the recognition of a final concord on a writ of covenant.	Acknowledgment; memorial.	Acknowledgment; solemn avowal by which a thing is owned or declared to belong to, or by which the remembrance of it is revived. The lives of such saints had, at the time of their yearly memorials, solemn recognition in the church of God.	Knowledge confessed or avowed; as the recognition of a thing present; memory of it as passed.
+recognitor	RECOGNITOR	n.	One of a jury upon assize.
+recognizable	RECOGNIZABLE	a.	That may be recognized or acknowledged
+recognizance	RECOGNIZANCE	n.	Acknowledgment of a person or thing; avowal; profession; as the recognizance of christians, by which they avow their belief in their religion.	In law, an obligation of record which a man enters into before some court of record or magistrate duly authorized, with condition to do some particular act, as to appear at the assizes, to keep the peace or pay a debt. This recognizance differs from a bond, as it does not create a new debt, but it is the acknowledgment of a former debt or record. This is witnessed by the record only, and not by the party's seal. There is also a recognizance in the nature of a statute staple, acknowledged before either of the chief justices or their substitutes, the mayor of the staple at Westminster and the recorder of London, which is to be enrolled and certified into chancery.	The verdict of a jury impaneled upon assize.
+recognize	RECOGNIZE	v.t.	To recollect or recover the knowledge of, either with an avowal of that knowledge or not. We recognize a person at a distance, when we recollect that we have seen him before, or that we have formerly known him. We recognize his features or his voice. Speak, vassal; recognize thy sovereign queen.	To review; to re-examine.
+recognize	RECOGNIZE	v.i.	To enter an obligation of record before a proper tribunal. A B recognized in the sum of twenty pounds.
+recognized	RECOGNIZED	pp.	Acknowledged; recollected as known; bound by recognizance.
+recognizee	RECOGNIZEE	n.	The person to whom a recognizance is made.
+recognizing	RECOGNIZING	ppr.	Acknowledging; recollecting as known; entering a recognizance.
+recognizor	RECOGNIZOR	n.	One who enters into a recognizance.
+recoil	RECOIL	v.i.	To move or start back; to roll back; as, a cannon recoils when fired; waves recoil from the shore.	To fall back; to retire.	To rebound; as, the blow recoils.	To retire; to flow back; as, the blood recoils with horror at the sight.	To start back; to shrink. Nature recoils at the bloody deed.	To return. The evil will recoil upon his own head.
+recoil	RECOIL	v.t.	To drive back. [Not used.]
+recoil	RECOIL	n.	A starting or falling back; as the recoil of fire-arms; the recoil of nature of the blood.
+recoiling	RECOILING	ppr.	Starting or falling back; retiring; shrinking.
+recoiling	RECOILING	n.	The act of starting or falling back; a shrinking; revolt.
+recoilingly	RECOILINGLY	adv.	With starting back or retrocession.
+recoin	RECOIN	v.t.	To coin again; as, to recoin gold or silver
+recoinage	RECOINAGE	n.	The act of coining anew.	That which is coined anew.
+recoined	RECOINED	pp.	Coined again.
+recoining	RECOINING	ppr.	Coining anew.
+recollect	RECOLLECT	v.t.	To collect again; applied to ideas that have escaped from the memory; to recover or call back ideas to the memory. I recollect what was said at a former interview; or I cannot recollect what was said.	To recover or recall the knowledge of; to bring back to the mind or memory. I met a man whom I thought I had seen before, but I could not recollect his name or the place where I had seen him. I do not recollect you, sir.	To recover resolution or composure of mind. The Tyrian queen admir'd his fortunes, more admir'd the man, then recollected stood. [In this sense, collected is more generally used.]
+recollected	RECOLLECTED	pp.	Recalled to the memory.
+recollecting	RECOLLECTING	ppr.	Recovering to the memory.
+recollection	RECOLLECTION	n.	The act of recalling to the memory, as ideas that have escaped; or the operation by which ideas that have escaped; or the operation by which ideas are recalled to the memory or revived in the mind. recollection differs from remembrance, as it is the consequence of volition, or an effort of the mind to revive ideas; whereas remembrance implies no such volition. We often remember things without any voluntary effort. recollection is called also reminiscence.	The power of recalling ideas to the mind, or the period within which things can be recollected; remembrance. The events mentioned are not within my recollection	In popular language, recollection is used as synonymous with remembrance.
+recollective	RECOLLECTIVE	a.	Having the power of recollecting.
+recollet	RECOLLET	n.	A monk of a reformed order of Franciscans.
+recombination	RECOMBINATION	n.	Combination a second time.
+recombine	RECOMBINE	v.t.	To combine again. If we recombine these two elastic fluids
+recombined	RECOMBINED	pp.	Combined anew.
+recombining	RECOMBINING	ppr.	Combining again.
+recomfort	RECOMFORT	v.t.	To comfort again; to console anew.	To give new strength.
+recomforted	RECOMFORTED	pp.	Comforted again.
+recomforting	RECOMFORTING	ppr.	Comforting again.
+recomfortless	RECOMFORTLESS	a.	Without comfort. [Not used.]
+recommence	RECOMMENCE	v.t.	To commence again; to begin anew
+recommenced	RECOMMENCED	pp.	Commenced anew.
+recommencing	RECOMMENCING	ppr.	Beginning again.
+recommend	RECOMMEND	v.t.	To praise to another; to offer or commend to another's notice, confidence or kindness by favorable representations. Maecenas recommended Virgil and Horace to Augustus. [In this sense, commend, though less common, is the preferable word.]	To make acceptable. A decent boldness ever meets with friends, succeeds, and ev'n a stranger recommends.	To commit with prayers. Paul chose Silas and departed, being recommended by the brethren to the grace of God. Acts 15:40. [Commend here is much to be preferred.]
+recommendable	RECOMMENDABLE	a.	That may be recommended; worthy of recommendation or praise.
+recommendation	RECOMMENDATION	n.	The act of recommending or of commending; the act of representing in a favorable manner for the purpose of procuring the notice, confidence or civilities of another. We introduce a friend to a stranger by a recommendation of his virtues or accomplishments.	That which procures a kind or favorable reception. The best recommendation of a man to favor is politeness. Misfortune is a recommendation to our pity.
+recommendatory	RECOMMENDATORY	a.	That commends to another; that recommends.
+recommended	RECOMMENDED	pp.	Praised; commended to another.
+recommender	RECOMMENDER	n.	One who commends.
+recommending	RECOMMENDING	ppr.	Praising to another; commending.
+recommission	RECOMMISSION	v.t.	To commission again. Officers whose time of service had expired, were to be recommissioned
+recommissioned	RECOMMISSIONED	pp.	Commissioned again.
+recommissioning	RECOMMISSIONING	ppr.	Commissioning again.
+recommit	RECOMMIT	v.t.	To commit again; as, to recommit persons to prison.	To refer again to a committee; as, to recommit a bill to the same committee.
+recommitment	RECOMMITMENT	n.	A second or renewed commitment; a renewed reference to a committee.
+recommitted	RECOMMITTED	pp.	Committed anew; referred again.
+recommitting	RECOMMITTING	ppr.	Committing again; referring again to a committee.
+recommunicate	RECOMMUNICATE	v.i.	To communicate again
+recompact	RECOMPACT	v.t.	To join anew. Repair and recompact my scatter'd body
+recompensation	RECOMPENSATION	n.	Recompense. [Not used.]
+recompense	RECOMPENSE	v.t.	To compensate; to make return of an equivalent for any thing given, done or suffered; as, to recompense a person for services, for fidelity or for sacrifices of time, for loss or damages. The word is followed by the person or the service. We recompense a person for his services, or we recompense his kindness. It is usually found more easy to neglect than to recompense a favor.	To require; to repay; to return an equivalent; in a bad sense. Recompense to no man evil for evil. Romans 12:17.	To make an equivalent return in profit or produce. The labor of man is recompensed by the fruits of the earth.	To compensate; to make amends by any thing equivalent. Solyman - said he would find occasion for them to recompense that disgrace.	To make restitution or an equivalent return for. Numbers 5:7.
+recompense	RECOMPENSE	n.	An equivalent returned for any thing given, done or suffered; compensation; reward; amends; as a recompense for services, for damages, for loss, etc.	Requital; return of evil or suffering or other equivalent; as a punishment. To me belongeth vengeance and recompense Deuteronomy 32:35. And every transgression and disobedience received a just recompense of reward. Hebrews 2:2.
+recompensed	RECOMPENSED	pp.	Rewarded; requited.
+recompensing	RECOMPENSING	ppr.	Rewarding; compensating; requiting.
+recompilement	RECOMPILEMENT	n.	New compilation or digest; as a recompilement of laws
+recompose	RECOMPOSE	v.t.	s as z. [re and compose.]	To quiet anew; to compose or tranquilize that which is ruffled or disturbed; as, to recompose the mind.	To compose anew; to form or adjust again. We produced a lovely purple which we can destroy or recompose at pleasure.
+recomposed	RECOMPOSED	pp.	Quieted again after agitation; formed anew; composed a second time.
+recomposing	RECOMPOSING	ppr.	Rendering tranquil after agitation; forming or adjusting anew.
+recomposition	RECOMPOSITION	n.	Composition renewed.
+reconcilable	RECONCILABLE	a.	Capable of being reconciled; capable of renewed friendship. The parties are not reconcilable	That may be made to agree to be consistent; consistent. The different accounts of the numbers of ships are reconcilable	Capable of being adjusted; as, the difference between the parties is reconcilable
+reconcilableness	RECONCILABLENESS	n.	The quality of being reconcilable; consistency; as the reconcilableness of parts of Scripture which apparently disagree.	Possibility of being restored to friendship and harmony.
+reconcile	RECONCILE	v.t.	To conciliate anew; to call back into union and friendship the affections which have been alienated; to restore to friendship or favor after estrangement; as, to reconcile men or parties that have been at variance. Go thy way; first be reconciled to thy brother - Matthew 5:24. We pray you in Christ's stead, be ye reconciled to God. 2 Corinthians 5:18. Ephesians 2:16. Colossians 1:20.	To bring to acquiescence, content or quiet submission; with to; as, to reconcile one's self to afflictions. It is our duty to be reconciled to the dispensations of Providence.	To make consistent or congruous; to bring to agreement or suitableness; followed by with or to. The great men among the ancients understood how to reconcile manual labor with affairs of state. Some figures monstrous and misshap'd appear, considered singly, or beheld too near; which but proportion'd to their light and place, due distance reconciles to form and grace.	To adjust; to settle; as, to reconcile differences or quarrels.
+reconciled	RECONCILED	pp.	Brought into friendship from a state of disagreement or enmity; made consistent; adjusted.
+reconcilement	RECONCILEMENT	n.	Reconciliation; renewal of friendship. Animosities sometimes make reconcilement impracticable.	Friendship renewed. No cloud of anger shall remain, but peace assured and reconcilement
+reconciler	RECONCILER	n.	One who reconciles; one who brings parties at variance into renewed friendship.	One who discovers the consistence of proposition.
+reconciliation	RECONCILIATION	n.	The act of reconciling parties at variance; renewal of friendship after disagreement or enmity. Reconciliation and friendship with God, really form the basis of all rational and true enjoyment.	In Scripture, the means by which sinners are reconciled and brought into a state of favor with God, after natural estrangement or enmity; the atonement; expiation. Seventy weeks are determined upon thy people and upon thy holy city, to finish the transgression and to make an end of sin, and to make reconciliation for iniquity. Daniel 9:24. Hebrews 2:17.	Agreement of things seemingly opposite, different or inconsistent.
+reconciliatory	RECONCILIATORY	a.	Able or tending to reconcile.
+reconciling	RECONCILING	ppr.	Bringing into favor and friendship after variance; bringing to content or satisfaction; showing to be consistent; adjusting; making to agree.
+recondensation	RECONDENSATION	n.	The act of recondensing.
+recondense	RECONDENSE	v.t.	To condense again
+recondensed	RECONDENSED	pp.	Condensed anew.
+recondensing	RECONDENSING	ppr.	Condensing again.
+recondite	RECONDITE	a.	Secret; hidden from the view or intellect; abstruse; as recondite causes of things.	Profound; dealing in things abstruse; as recondite studies.
+reconditory	RECONDITORY	n.	A repository; a store-house or magazine. [Little used.]
+reconduct	RECONDUCT	v.i.	To conduct back or again
+reconducted	RECONDUCTED	pp.	Conducted back or again.
+reconducting	RECONDUCTING	ppr.	Conducting back or again.
+reconfirm	RECONFIRM	v.t.	To confirm anew
+reconjoin	RECONJOIN	v.t.	To join or conjoin anew
+reconjoined	RECONJOINED	pp.	Joined again.
+reconjoining	RECONJOINING	ppr.	Joining anew.
+reconnoiter	RECONNOITER	v.t.	To view; to survey; to examine by the eye; particularly in military affairs, to examine the state of an enemy's army or camp, or the ground for military operations.
+reconnoitered	RECONNOITERED	pp.	Viewed; examined by personal observation.
+reconnoitering	RECONNOITERING	ppr.	Viewing; examining by personal observation.
+reconquer	RECONQUER	v.t.	To conquer again; to recover by conquest.	To recover; to regain.
+reconquered	RECONQUERED	pp.	Conquered again; regained.
+reconquering	RECONQUERING	ppr.	Conquering again; recovering.
+reconsecrate	RECONSECRATE	v.t.	To consecrate anew
+reconsecrated	RECONSECRATED	pp.	Consecrated again.
+reconsecrating	RECONSECRATING	ppr.	Consecrating again.
+reconsecration	RECONSECRATION	n.	A renewed consecration.
+reconsider	RECONSIDER	v.t.	To consider again; to turn in the mind again; to review.	To annul; to take into consideration a second time and rescind; as, to reconsider a motion in a legislative body; to reconsider a vote. The vote has been reconsidered, that is, rescinded.
+reconsideration	RECONSIDERATION	n.	A renewed consideration or review in the mind.	A second consideration; annulment; recision.
+reconsidered	RECONSIDERED	pp.	Considered again; rescinded.
+reconsidering	RECONSIDERING	ppr.	Considering again; rescinding.
+reconsolate	RECONSOLATE	v.t.	To console or comfort again. [Not in use.]
+reconvene	RECONVENE	v.t.	To convene or call together again
+reconvene	RECONVENE	v.i.	To assemble or come together again.
+reconvened	RECONVENED	pp.	Assembled anew.
+reconvening	RECONVENING	ppr.	Assembling anew.
+reconversion	RECONVERSION	n.	A second conversion
+reconvert	RECONVERT	v.t.	To convert again
+reconverted	RECONVERTED	pp.	Converted again.
+reconverting	RECONVERTING	ppr.	Converting again.
+reconvey	RECONVEY	v.t.	To convey back or to its former place; as, to reconvey goods.	To transfer back to a former owner; as, to reconvey an estate.
+reconveyed	RECONVEYED	pp.	Conveyed back; transferred to a former owner.
+reconveying	RECONVEYING	ppr.	Conveying back; transferring to a former owner.
+record	RECORD	v.t.	To register; to enroll; to write or enter in a book or on parchment, for the purpose of preserving authentic or correct evidence of a thing; as, to record the proceedings of a court; to record a deed or lease; to record historical events.	To imprint deeply on the mind or memory; as, to record the sayings of another in the heart.	To cause to be remembered. So ev'n and morn recorded the third day.	To recite; to repeat. [Not in use.]	To call to mind. [Not in use.]
+record	RECORD	v.i.	To sing or repeat a tune. [Not in use.]
+record	RECORD	n.	A register; an authentic or official copy of any writing, or account of any facts and proceedings, entered in a book for preservation; or the book containing such copy or account; as the records of statutes or of judicial courts; the records of a town or parish. Records are properly the registers of official transactions, made by officers appointed for the purpose, or by the officer whose proceedings are directed by law to be recorded.	Authentic memorial; as the records of past ages. Court of record is a court whose acts and judicial proceedings are enrolled on parchment or in books for a perpetual memorial; and their records are the highest evidence of facts, and their truth cannot be called in question. Debt of record is a debt which appears to be due by the evidence of a court of record as upon a judgment or a recognizance. Trial by record is where a matter of record is pleaded and the opposite party pleads that there is no such record In this case, the trial is by inspection of the record itself, no other evidence being admissible.
+recordation	RECORDATION	n.	Remembrance. [Not in use.]
+recorded	RECORDED	pp.	Registered; officially entered in a book or on parchment; imprinted on the memory.
+recorder	RECORDER	n.	A person whose official duty is to register writings or transactions; one who enrolls or records.	An officer of a city who is keeper of the rolls or records, or who is invested with judicial powers.	Formerly, a kind of flute, flageolet or wind instrument. The figures of recorders, flutes and pipes are straight; but the recorder hath a less bore and a greater above and below.
+recording	RECORDING	ppr.	Registering; enrolling; imprinting on the memory.
+recouch	RECOUCH	v.i.	To retire again to a lodge, as lions
+recount	RECOUNT	v.t.	To relate in detail; to recite; to tell or narrate the particulars; to rehearse. Say from these glorious seeds what harvest flows, recount our blessings, and compare our woes
+recounted	RECOUNTED	pp.	Related or told in detail; recited.
+recounting	RECOUNTING	ppr.	Relating in a series; narrating.
+recountment	RECOUNTMENT	n.	Relation in detail; recital. [Little used.]
+recoured	RECOURED		for recovered or recured. [Not used.]
+recourse	RECOURSE	n.	Literally, a running back; a return	Return; a new attack. [Not in use.]	A going to with a request or application, as for aid or protection. Children have recourse to their parents for assistance.	Application of efforts, art or labor. The general had recourse to stratagem to effect his purpose. Our last recourse is therefore to our art.	Access. [Little used.]	Frequent passage.
+recourse	RECOURSE	v.i.	To return. [Not used.]
+recourseful	RECOURSEFUL	a.	Moving alternately. [Not in use.]
+recover	RECOVER	v.t.	To regain; to get or obtain that which was lost; as, to recover stolen goods; to recover a town or territory which an enemy had taken; to recover sight or senses; to recover health or strength after sickness. David recovered all that the Amalekites had carried away. 1 Samuel 30:8.	To restore from sickness; as, to recover one from leprosy. 2 Kings 5:3.	To revive from apparent death; as, to recover a drowned man.	To regain by reparation; to repair the loss of, or to repair an injury done by neglect; as, to recover lost time. Good men have lapses and failings to lament and recover	To regain a former state by liberation from capture or possession. That they may recover themselves out of the snare of the devil. 2 Timothy 2:26.	To gain as a compensation; to obtain in return for injury or debt; as, to recover damages in trespass; to recover debt and cost in a suit at law.	To reach; to come to. The forest is not three leagues off; if we recover that, we're sure enough.	To obtain title to by judgment in a court of law; as, to recover lands in ejectment or common recovery.
+recover	RECOVER	v.i.	To regain health after sickness; to grow well; followed by of or from. Go, inquire of Beelzebub, the god of Ekron, whether I shall recover of this disease. 2 Kings 1:2.	To regain a former state or condition after misfortune; as, to recover from a state of poverty or depression.	To obtain a judgment in law; to succeed in a lawsuit. The plaintiff has recovered in his suit.
+recoverable	RECOVERABLE	a.	That may be regained or recovered. Goods lost or sunk in the ocean are not recoverable	That may be restored from sickness.	That may be brought back to a former condition. A prodigal course is like the sun's, but not like his recoverable	That may be obtained from a debtor or possessor. The debt is recoverable
+recovered	RECOVERED	pp.	Regained; restored obtained by judicial decision.
+recoveree	RECOVEREE	n.	In law, the tenant or person against whom a judgment is obtained in common recovery.
+recovering	RECOVERING	ppr.	Regaining; obtaining in return or by judgment in law; regaining health.
+recoveror	RECOVEROR	n.	In law, the demandant or person who obtains a judgment in his favor in common recovery.
+recovery	RECOVERY	n.	The act of regaining, retaking or obtaining possession of anything lost. The crusades were intended for the recovery of the holy land from the Saracens. We offer a reward for the recovery of stolen goods.	Restoration from sickness or apparent death. The patient has a slow recovery from a fever. recovery from a pulmonary affection is seldom to be expected. Directions are given for the recovery of drowned persons.	The capacity of being restored to health. The patient is past recovery	The obtaining of right to something by a verdict and judgment of court from an opposing party in a suit; as the recovery of debt, damages and costs by a plaintiff; the recovery of cost by a defendant; the recovery of land in ejectment. Common recovery in law, is a species of assurance by matter of record, or a suit or action, actual or fictitious, by which lands are recovered against the tenant of the freehold; which recovery binds all persons, and vests an absolute fee simple in the recoveror.
+recreant	RECREANT	a.	Crying for mercy, as a combatant in the trial by battle; yielding; hence, cowardly; mean spirited.	Apostate; false. Who for so many benefits receiv'd, turn'd recreant to God, ingrate and false.
+recreant	RECREANT	n.	One who yields in combat and cries craven; one who begs for mercy; hence, a mean spirited, cowardly wretch.
+recreate	RECREATE	v.t.	To refresh after toil; to reanimate, as languid spirits or exhausted strength; to amuse or divert in weariness. Painters when they work on white grounds, place before them colors mixed with blue and green, to recreate their eyes. St. John is said to have recreated himself with sporting with a tame partridge.	To gratify; to delight. These ripe fruits recreate the nostrils with their aromatic scent.	To relieve; to revive; as, to recreate the lungs with fresh air.
+recreate	RECREATE	v.i.	To take recreation.
+recreated	RECREATED	pp.	Refreshed; diverted; amused; gratified.
+recreating	RECREATING	ppr.	Refreshing after toil; reanimating the spirits or strength; diverting; amusing.
+recreation	RECREATION	n.	Refreshment of the strength and spirits after toil; amusement; diversion.	Relief from toil or pain; amusement in sorrow or distress.
+recreative	RECREATIVE	a.	Refreshing; giving new vigor or animation; giving relief after labor or pain; amusing; diverting. Choose such sports as are recreative and healthful. Let the music be recreative
+recreatively	RECREATIVELY	adv.	With recreation or diversion.
+recreativeness	RECREATIVENESS	n.	The quality of being refreshing or diverting.
+recrement	RECREMENT	n.	Superfluous matter separated from that which is useful; dross; scoria; spume; as the recrement of ore or of the blood
+recremental	RECREMENTAL		RECREMENTI'TIAL, RECREMENTI'TIOUS, adjective Drossy; consisting of superfluous matter separated from that which is valuable.
+recrementitious	RECREMENTITIOUS	a.	Drossy; consisting of superfluous matter separated from that which is valuable.
+recriminate	RECRIMINATE	v.i.	To return one accusation with another. It is not my business to recriminate	To charge an accuser with the like crime.
+recriminate	RECRIMINATE	v.t.	To accuse in return.
+recriminating	RECRIMINATING	ppr.	Returning one accusation with another.
+recrimination	RECRIMINATION	n.	The return of one accusation with another.	In law, an accusation brought by the accused against the accuser upon the same fact.
+recriminator	RECRIMINATOR	n.	He that accuses the accuser of a like crime.
+recriminatory	RECRIMINATORY	a.	Retorting accusation.
+recross	RECROSS	v.t.	To cross a second time.
+recrossed	RECROSSED	pp.	Crossed a second time.
+recrossing	RECROSSING	ppr.	Crossing a second time.
+recrudescence	RECRUDESCENCE		RECRUDES'CENCY, noun [from Latin recrudescens; re and crudesco, to grow raw; crudus, raw.] The state of becoming sore again.
+recrudescency	RECRUDESCENCY	n.	The state of becoming sore again
+recrudescent	RECRUDESCENT	a.	Growing raw, sore or painful again.
+recruit	RECRUIT	v.t.	To repair by fresh supplies any thing wasted. We say, food recruits the flesh; fresh air and exercise recruit the spirits. Her cheeks glow the bright, recruiting their color.	To supply with new men any deficiency of troops; as, to recruit an army.
+recruit	RECRUIT	v.i.	To gain new supplies of any thing wasted; to gain flesh, health, spirits, etc.; as, lean cattle recruit in fresh pastures.	To gain new supplies of men; to raise new soldiers.
+recruit	RECRUIT	n.	The supply of any thing wasted; chiefly, a new raised soldier to supply the deficiency of an army.
+recruited	RECRUITED	pp.	Furnished with new supplies of what is wasted.
+recruiting	RECRUITING	ppr.	Furnishing with fresh supplies; raising new soldiers for an army.
+recruiting	RECRUITING	n.	The business of raising new soldiers to supply the loss of men in an army.
+recruitment	RECRUITMENT	n.	The act or business of raising new supplies of men for an army.
+recrystalize	RECRYSTALIZE	v.i.	To crystalize a second time.
+rectangle	RECTANGLE	n.	A right angled parallelogram.	In arithmetic, the product of two lines multiplied into each other.
+rectangled	RECTANGLED	a.	Having right angles, or angles of ninety degrees.
+rectangular	RECTANGULAR	a.	Right angled; having angles of ninety degrees.
+rectangularly	RECTANGULARLY	adv.	with or at right angles.
+rectifiable	RECTIFIABLE	a.	that may be rectified; capable of being corrected or set right; as a rectifiable mistake
+rectification	RECTIFICATION	n.	The act or operation of correcting, amending or setting right that which is wrong or erroneous; as the retification of errors, mistakes or abuses.	In chimistry, the process of refining or purifying any substance by repeated distiliation, which separates the grosser parts; as the rectification of spirits or sulphuric acid.
+rectified	RECTIFIED	pp.	Corrected; set or made right; refined by repeated distiliation or sublimation.
+rectifier	RECTIFIER	n.	One that corrects or amends.	One who refines a substance by repeated distiliation.	An instrument that shows the variations of the compass, and rectifies the course of a ship.
+rectify	RECTIFY	v.t.	To make right; to correct that which is wrong, erroneous or false; to amend; as, to rectify errors, mistakes or abuses; to rectify the will, the judgment, opinions; to rectify disorders.	In chimistry, to refine by repeated distiliation or sublimation, by which the fine parts of a substance are separated from the grosser; as, to rectify spirit or wine.	To rectify the globe, is to bring the sun's place in the ecliptic on the globe to the brass meridian.
+rectifying	RECTIFYING	ppr.	Correcting; amending; refining by repeated distiliation or sublimation.
+rectilineal	RECTILINEAL		RECTILIN'EAR, adjective [Latin rectus, right, and linea, line.] Right lined; consisting of a right line or of right lines; straight; as a rectilinear figure or course; a rectilinear side or way.
+rectilinear	RECTILINEAR	a.	Right lined; consisting of a right line or of right lines; straight; as a rectilinear figure or course; a rectilinear side or way
+rectilineous	RECTILINEOUS	a.	Rectilinear. obsolete
+rectitude	RECTITUDE	n.	In morality, rightness of principle or practice; uprightness of mind; exact conformity to truth, or to the rules prescribed for moral conduct, either by divine or human laws. rectitude of mind is the disposition to act in conformity to any known standard of right, truth or justice; rectitude of conduct is the actual conformity to such standard. Perfect rectitude belongs only to the Supreme Being. The more nearly the rectitude of men approaches to the standard of the divine law, the more exalted and dignified is their character. Want of rectitude is not only sinful, but debasing. There is a sublimity in conscious rectitude - in comparison with which the treasures of earth are not worth naming
+rector	RECTOR	n.	A ruler or governor. God is the supreme rector of the world. [This application of the word is unusual.]	A clergyman who has the charge and cure of a parish, and has the tithes, etc.; or the parson of an unimpropriated parish.	The chief elective officer of some universities, as in France and Scotland. The same title was formerly given to the president of a college in New England, but it is now in disuse. In Scotland, it is still the title of the head master of a principal school.	The superior officer or chief of a convent or religious house; and among the Jesuits, the superior of a house that is a seminary or college.
+rectoral	RECTORAL		RECTO'RIAL, adjective Pertaining to a rector.
+rectorial	RECTORIAL	a.	Pertaining to a rector.
+rectorship	RECTORSHIP	n.	The office or rank of a rector.
+rectory	RECTORY	n.	A parish church, parsonage or spiritual living, with all its rights, tithes and glebes.	A rector's mansion or parsonage house.
+rectress	RECTRESS		REC'TRIX, noun [Latin rectrix.] A governess.
+rectrix	RECTRIX	n.	A governess
+rectum	RECTUM	n.	In anatomy, the third and last of the large intestines
+recubation	RECUBATION	n.	The act of lying or leaning. [Little used.]
+recule	RECULE	v.i.	To recoil. [Not used. See Recoil.]
+recumb	RECUMB	v.i.	To lean; to recline; to repose
+recumbence	RECUMBENCE	n.	The act of reposing or resting in confidence
+recumbency	RECUMBENCY	n.	The posture of leaning, reclining or lying.	Rest; repose; idle state.
+recumbent	RECUMBENT	a.	Leaning; reclining; as the recumbent posture of the Romans at their meals.	Reposing; inactive; idle.
+recuperation	RECUPERATION	n.	Recovery, as of any thing lost
+recuperative	RECUPERATIVE		RECU'PERATORY, adjective Tending to recovery; pertaining to recovery.
+recuperatory	RECUPERATORY	a.	Tending to recovery; pertaining to recovery.
+recur	RECUR	v.i.	To return to the thought or mind. When any word has been used to signify an idea, the old idea will recur in the mind, when the word is heard.	To resort; to have recourse. If to avoid succession in eternal existence, they recur to the punctum stans of the schools, they will very little help us to a more positive idea of infinite duration.
+recure	RECURE	v.t.	To cure; to recover. [Not in use.]
+recure	RECURE	n.	Cure; recovery. [Not in use.]
+recureless	RECURELESS	a.	Incapable of cure or remedy. [Not in use.]
+recurrence	RECURRENCE		RECUR'RENCY, noun [See Recur.]	Return; as the recurrence of error.	Resort; the having recourse.
+recurrency	RECURRENCY	n.	Return; as the recurrence of error.	Resort; the having recourse.
+recurrent	RECURRENT	a.	Returning from time to time; as recurrent pains of a disease.	In crystallography, a recurrent crystal is one whose faces, being counted in annular ranges from one extremity to the other, furnish two different numbers which succeed each other times, as 4, 8, 4, 8, 4.	In anatomy, the recurrent nerve is a branch of the par vagum, given off in the upper part of the thorax, which is reflected and runs up along the trachea to the larynx.
+recursion	RECURSION	n.	Return. [Little used.]
+recurvate	RECURVATE	v.t.	To bend back
+recurvate	RECURVATE	a.	In botany, bent, bowed or curved downwards; as a recurvate leaf.	Bent outward; as a recurvate prickle, awn, petiole, calyx or corol.
+recurvation	RECURVATION		RECURVE, verb transitive recurv'. [Latin recurvo, supra.] To bend back.
+recurve	RECURVE	v.t.	To bend back
+recurved	RECURVED	pp.	Bent back or downwards; as a recurved leaf.
+recurviroster	RECURVIROSTER	n.	A fowl whose beak or bill bends upwards, as the avoset
+recurvity	RECURVITY	n.	A bending or flexure backwards.
+recurvous	RECURVOUS	a.	Bent backwards
+recusancy	RECUSANCY	n.	Non-conformity. [See Recusant.]
+recusant	RECUSANT	a.	s as z. [Latin recusans, recuso, to refuse; re and the root of causa, signifying to drive. The primary sense is to repel or drive back.] Refusing to acknowledge the supremacy of the king, or to conform to the established rites of the church; as a recusant lord.
+recusant	RECUSANT	n.	In English history, a person who refuses to acknowledge the supremacy of the king in matters of religion; as a popish recusant who acknowledges the supremacy of the pope.	One who refuses communion with the church of England; a non-conformist. All that are recusants of holy rites.
+recusation	RECUSATION	n.	Refusal.	In law, the act of refusing a judge, or challenging that he shall not try the cause, on account of his supposed partiality. [This practice is now obsolete.]
+recuse	RECUSE	v.t.	s as z. [Latin recuso.] To refuse or reject, as a judge; to challenge that the judge shall not try the cause. [The practice and the word are obsolete.]

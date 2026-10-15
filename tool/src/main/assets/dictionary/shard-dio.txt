@@ -1,0 +1,14 @@
+diocesan	DIOCESAN	a.	[See Diocese. The accent on the first and on the third syllable is nearly equal. The accent given to this word int he English books is wrong, almost to ridiculousness.] Pertaining to a diocese.
+diocesan	DIOCESAN	n.	A bishop; one in possession of a diocese, and having the ecclesiastical jurisdiction over it.
+diocese	DIOCESE	n.	The circuit or extent of a bishops jurisdiction; an ecclesiastical division of a kingdom or state, subject to the authority of a bishop. In England there are two provinces or circuits of archbishops jurisdiction, Canterbury and York. The province of Canterbury contains twenty-one dioceses, and that of York three, besides the isle of Man. Every diocese is divided into archdeaconries, of which there are sixty; and each archdeaconry, into rural deaneries; and every deanery, into parishes. A diocese was originally a division of the Roman empire for the purpose of civil government, a prefecture. But the term is now exclusively appropriated to ecclesiastical jurisdiction
+dioctahedral	DIOCTAHEDRAL	a.	In crystalography, having the form of an octahedral prism with tetrahedral summits
+diodon	DIODON	n.	The sun-fish; a genus of fishes of a singular form, appearing like the fore part of the body of a deep fish amputated in the middle.
+diomede	DIOMEDE	n.	An aquatic fowl of the webfooted kind, about the size of a common domestic hen, but its neck and legs much longer.
+diopside	DIOPSIDE	n.	A rare mineral, regarded by Hauy as a variety of augite, and called by Jameson a subspecies of oblique-edged augite, occurring in prismatic crystals, of a vitreous luster, and of a pale green, or a greenish or yellowish white. The variety with four-sided prims has been called Mussite, from Mussa in Piedmont. It resembles the Sahlite
+dioptase	DIOPTASE	n.	Emerald copper ore, a translucent mineral, occurring crystalized in six-sided prisms.
+dioptric	DIOPTRIC		DIOPTRICAL, adjective [Gr., to see through; to see.]
+dioptrical	DIOPTRIC		DIOPTRICAL adjective [Gr., to see through; to see.]	Affording a medium for the sight; assisting the sight in the view of distant objects; as a dioptric glass.	Pertaining to dioptrics, or the science of refracted light.
+dioptrics	DIOPTRICS	n.	That part of optics which treats of the refractions of light passing through different mediums, as through air, water or glass.
+diorism	DIORISM	n.	Definition. [Rarely used.]
+dioristic	DIORISTIC	a.	Distinguishing; defining. [Rarely used.]
+dioristically	DIORISTICALLY	adv.	In a distinguishing manner. [Rarely used.]

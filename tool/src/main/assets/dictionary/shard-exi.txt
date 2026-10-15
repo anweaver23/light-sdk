@@ -1,0 +1,27 @@
+exiccate	EXICCATE		EXICCATION. [See Exsiccate.]
+exiccation	EXICCATE		EXICCATION [See Exsiccate.]
+exigence	EXIGENCE		EX'IGENCY, noun [Latin exigens from exigo, to exact; ex and ago, to drive.]	Demand; urgency; urgent need or want. We speak of the exigence of the case; the exigence of the times, or of business.	Pressing necessity; distress; any case which demands immediate action, supply or remedy. A wise man adapts his measures to his exigencies. In the present exigency, no time is to be lost.
+exigency	EXIGENCY	n.	Demand; urgency; urgent need or want. We speak of the exigence of the case; the exigence of the times, or of business.	Pressing necessity; distress; any case which demands immediate action, supply or remedy. A wise man adapts his measures to his exigencies. In the present exigency, no time is to be lost.
+exigent	EXIGENT	n.	Pressing business; occasion that calls for immediate help. [Not used.] See Exigence.]	In law, a writ which lies where the defendant is not to be found, or after a return of non est inventus on former writs; the exigent or exigi facias then issues, which requires the sheriff to cause the defendant to be proclaimed or exacted, in five county courts successively, to render himself; and if he does not, he is outlawed.	End; extremity. [Not used.]
+exigenter	EXIGENTER	n.	An officer in the court of Common Pleas in England who makes out exigents and proclamations, in cases of outlawry.
+exigible	EXIGIBLE	a.	[See Exigence.] That may be exacted; demandable; requirable.
+exiguity	EXIGUITY	n.	Smallness; slenderness. [Little used.]
+exiguous	EXIGUOUS	a.	Small; slender; minute; diminutive. [Little used.]
+exile	EXILE	n.	Banishment; the state of being expelled from one's native country or place of residence by authority, and forbid to return, either for a limited time or for perpetuity.	An abandonment of one's country, or removal to a foreign country for residence, through fear, disgust or resentment, or for any cause distinct from business, is called a voluntary exile as is also a separation from one's country and friends by distress or necessity.	The person banished, or expelled from his country by authority; also, one who abandons his country and resides in another; or one who is separated from his country and friends by necessity.
+exile	EXILE	v.t.	To banish, as a person from his country or from a particular jurisdiction by authority, with a prohibition of return; to drive away, expel or transport from one's country.	To drive from one's country by misfortune, necessity or distress. To exile one's self, is to quit one's country with a view not to return
+exile	EXILE	a.	eg'zil, [Latin exilis.] Slender; thin; fine.
+exiled	EXILED	pp.	Banished; expelled from one's country by authority.
+exilement	EXILEMENT	n.	Banishment.
+exiling	EXILING	ppr.	Banishing; expelling from one's country by law, edict or sentence; voluntarily departing from one's country, and residing in another.
+exilition	EXILITION	n.	A sudden springing or leaping out. [Little used.]
+exility	EXILITY	n.	Slenderness; fineness; thinness
+eximious	EXIMIOUS	a.	Excellent. [Little used.]
+exinanite	EXINANITE	v.t.	To make empty; to weaken. [Not used.]
+exinanition	EXINANITION	n.	An emptying or evacuation; hence, privation; loss; destitution. [Little used.]
+exist	EXIST	v.i.	To be; to have an essence or real being; applicable to matter or body, and to spiritual substances. A supreme being and first cause of all other beings must have existed from eternity, for no being can have created himself.	To live; to have life or animation. Men cannot exist in water, nor fishes on land.	To remain; to endure; to continue in being. How long shall national enmities exist?
+existence	EXISTENCE	n.	The state of being or having essence; as the existence of body and of soul in union; the separate existence of the soul; immortal existence; temporal existence	Life; animation.	Continued being; duration; continuation. We speak of the existence of troubles or calamities, or of happiness. During the existence of national calamities, our pious ancestors always had recourse to prayer for divine aid.
+existent	EXISTENT	a.	Being; having being, essence or existence. The eyes and mind are fastened on objects which have no real being, as if they were truly existent
+existential	EXISTENTIAL	a.	Having existence.
+exit	EXIT	n.	Literally, he goes out or departs. Hence	The departure of a player from the state, when he has performed his part. This is also a term set in a play, to mark the time of an actor's quitting the state.	Any departure; the act of quitting the state of action or of life; death; decease.	A way of departure; passage out of a place.	A going out; departure.
+exitial	EXITIAL		EXITIOUS, adjective [Latin exitialis.] Destructive to a life.
+exitious	EXITIOUS	a.	Destructive to a life

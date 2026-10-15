@@ -1,0 +1,6 @@
+fog	FOG	n.	A dense watery vapor, exhaled from the earth, or from rivers and lakes, or generated in the atmosphere near the earth. it differs from mist, which is rain in very small drops.	A cloud of dust or smoke.
+fog	FOG	n.	After-grass; a second growth of grass; but it signifies also long grass that remains on land. Dead grass, remaining on land during winter, is called in New England, the old tore.
+fogbank	FOGBANK	n.	At sea, an appearance in hazy weather sometimes resembling land at a distance, but which vanishes as it is approached.
+foggage	FOGGAGE	n.	Rank grass not consumed or mowed in summer.
+fogginess	FOGGINESS	n.	The state of being foggy; a state of the air filled with watery exhalations
+foggy	FOGGY	a.	Filled or abounding with fog or watery exhalations; as a foggy atmosphere; a foggy morning.	Cloudy; misty; damp with humid vapors.	Producing frequent fogs; as a foggy climate.	Dull; stupid; clouded in understanding.

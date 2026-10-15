@@ -1,0 +1,34 @@
+psalm	PSALM	n.	A sacred song or hymn; a song composed on a divine subject and in praise of God. The most remarkable psalms are those composed by David and other Jewish saints, a collection of one hundred and fifty of which constitutes a canonical book of the Old Testament, called Psalms, or the book of Psalms. The word is also applied to sacred songs composed by modern poets, being versifications of the scriptural psalms, or of these with other parts of Scripture, composed for the use of churches; as the Psalms of Tate and Brady, of Watts, etc
+psalmist	PSALMIST	n.	A writer or composer of sacred songs; a title particularly applied to David and the other authors of the scriptural psalms.	In the church of Rome, a clerk, precentor, singer or leader of music in the church.
+psalmlography	PSALMLOGRAPHY	n.	The act or practice of writing psalms or sacred songs and hymns
+psalmody	PSALMODY	n.	The act, practice or art of singing sacred songs. psalmody has always been considered an important part of public worship.
+psalmographer	PSALMOGRAPHER		PSALMOG'RAPHIST, noun [See Psalmography.] A writer of psalms or divine songs and hymns.
+psalmographist	PSALMOGRAPHIST	n.	[See Psalmography.] A writer of psalms or divine songs and hymns.
+psalter	PSALTER	n.	The book of Psalms; often applied to a book containing the Psalms separately printed.	In Romish countries, a large chaplet or rosary, consisting of a hundred and fifty beads, according to the number of the psalms.
+psaltery	PSALTERY	n.	An instrument of music used by the Hebrews, the form of which is not now known. That which is now used is a flat instrument in form of a trapezium or triangle truncated at the top, strung with thirteen chords of wire, mounted on two bridges at the sides, and struck with a plectrum or crooked stick. Praise the Lord with harp; sing to him with the psaltery and an instrument of ten strings. Psalms 33:2
+psammite	PSAMMITE	n.	A species of micaceous sandstone
+pseudo	PSEUDO		Gr. false, a prefix signifying false, counterfeit or spurious.
+pseudo-apostle	PSEUDO-APOSTLE	n.	A false apostle; one who falsely pretends to be an apostle.
+pseudo-china	PSEUDO-CHINA	n.	The false China root, a plant of the genus Smilax, found in America.
+pseudo-galena	PSEUDO-GALENA	n.	False galena or black jack.
+pseudo-metallic	PSEUDO-METALLIC	a.	pseudo-metallic luster is that which is perceptible only when held towards the light; as in minerals.
+pseudo-tinea	PSEUDO-TINEA	n.	In natural history, the name of a remarkable species of insect or larva, resembling a moth. It feeds on wax, and is a terrible enemy to bees, as it enters the hive and sometimes compels the bees to abandon it, being covered with a coat that is impervious to their stings.
+pseudo-volcanic	PSEUDO-VOLCANIC	a.	Pertaining to or produced by a pseudo-volcano.
+pseudo-volcano	PSEUDO-VOLCANO	n.	A volcano that emits smoke and sometimes flame, but no lava; also, a burning mine of coal.
+pseudoapostle	pseudo-apostle
+pseudochina	pseudo-china
+pseudogalena	pseudo-galena
+pseudograph	PSEUDOGRAPH		PSEUDOG'RAPHY, noun [Gr. false, and writing.] False writing.
+pseudography	PSEUDOGRAPHY	n.	False writing
+pseudology	PSEUDOLOGY	n.	Falsehood of speech
+pseudometallic	pseudo-metallic
+pseudomorphous	PSEUDOMORPHOUS	a.	Not having the true form. A pseudomorphous mineral is one which has received its form from some extraneous cause, not from natural crystallization
+pseudotinea	pseudo-tinea
+pseudovolcanic	pseudo-volcanic
+pseudovolcano	pseudo-volcano
+pshaw	PSHAW	exclam.	An expression of contempt, disdain or dislike.
+psoas	PSOAS	n.	The name of two inside muscles of the loins
+psora	PSORA	n.	The itch
+psychologic	PSYCHOLOGIC		PSYCHOLOG'ICAL, adjective Pertaining to a treatise on the soul, or to the study of the soul of man.
+psychological	PSYCHOLOGICAL	a.	Pertaining to a treatise on the soul, or to the study of the soul of man.
+psychology	PSYCHOLOGY	n.	A discourse or treatise on the human soul; or the doctrine of the nature and properties of the soul

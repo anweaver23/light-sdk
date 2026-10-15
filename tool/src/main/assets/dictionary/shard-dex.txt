@@ -1,0 +1,8 @@
+dexter	DEXTER	a.	Right, as opposed to left; a term used in heraldry, to denote the right side of a shield or coat of arms; as, bend-dexter; dexter-point
+dexterity	DEXTERITY	n.	Readiness of limbs; adroitness; activity; expertness; skill; that readiness in performing an action, which proceeds from experience or practice, united with activity or quick motion. We say, a man handles an instrument, or eludes a thrust, with dexterity	Readiness of mind or mental faculties, as in contrivance, or inventing means to accomplish a purpose; promptness in devising expedients; quickness and skill in managing or conducting a scheme of operations. We say, a negotiation is conducted with dexterity
+dextral	DEXTRAL	a.	Right, as opposed to left.
+dextrality	DEXTRALITY	n.	The state of being on the right side.
+dextrorsal	DEXTRORSAL	a.	Rising from right to left, as a spiral line or helix.
+dextrous	DEXTROUS	a.	Ready and expert in the use of the body and limbs; skillful and active in manual employment; adroit; as a dextrous hand; a dextrous workman.	Ready in the use of the mental faculties; prompt in contrivance and management; expert; quick at inventing expedients; as a dextrous manager.	Skillful; artful; done with dexterity; as dextrous management.
+dextrously	DEXTROUSLY	adv.	With dexterity; expertly; skillfully; artfully; adroitly; promptly.
+dextrousness	DEXTROUSNESS	n.	Dexterity; adroitness.

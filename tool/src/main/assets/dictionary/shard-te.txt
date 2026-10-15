@@ -1,0 +1,505 @@
+tea	TEA	n.	The leaves of the tea-tree as dried and imported. There are several kinds of tea as imperial tea hyson and young hyson, called green teas; souchong and bohea, called black teas, etc.	Any infusion or decoction of vegetables; as sage tea; camomile tea etc.
+tea-board	TEA-BOARD	n.	A board to put tea furniture on
+tea-canister	TEA-CANISTER	n.	A canister or box in which tea is kept
+tea-cup	TEA-CUP	n.	A small cup in which tea is drank
+tea-drinker	TEA-DRINKER	n.	One who drinks much tea
+tea-plant	TEA-PLANT	n.	The tea-tree.
+tea-pot	TEA-POT	n.	A vessel with a spout, in which tea is made, and from which it is poured into tea-cups
+tea-saucer	TEA-SAUCER	n.	A small saucer in which a tea-cup is set
+tea-spoon	TEA-SPOON	n.	A small spoon used in drinking tea and coffee
+tea-table	TEA-TABLE	n.	A table on which tea furniture is set, or at which tea is drank
+tea-tree	TEA-TREE	n.	The tree or plant that produces the leaves which are imported and called tea. The generic name given to it by Linne, is thea. It is a native of China, Japan and Tonquin, but has recently been introduced into S. America
+teaboard	tea-board
+teacanister	tea-canister
+teach	TEACH	v.t.; pret. and pp. taught	To instruct; to inform; to communicate to another the knowledge of that of which he was before ignorant. He will teach us of his ways, and we will walk in his paths. Isaiah 2:3. Lord, teach us to pray, as John also taught his disciples. Luke 11:1.	To deliver any doctrine, art, principles or words for instruction. One sect of ancient philosophers taught the doctrines of stoicism, another those of epicureanism. In vain they worship me, teaching for doctrines the commandments of men. Matthew 15:1.	To tell; to give intelligence.	To instruct, or to practice the business of an instructor; to use or follow the employment of a preceptor; as, a man teaches school for a livelihood.	To show; to exhibit so as to impress on the mind. If some men teach wicked things, it must be that others may practice them.	To accustom; to make familiar. They have taught their tongue to speak lies. Jeremiah 9:20.	To inform or admonish; to give previous notice to. For he taught his disciples, and said--Mark 9:1.	To suggest to the mind. For the Holy Spirit shall teach you in that same hour what ye ought to say. Luke 12:12.	To signify or give notice. He teacheth with his fingers. Proverbs 6:13.	To counsel and direct. Habakkuk 2:19.
+teach	TEACH	v.i.	To practice giving instruction; to perform the business of a preceptor. The heads thereof judge for reward, and the priests thereof teach for hire. Micah 3:11.
+teach	TEACH	n.	In sugar works, the last boiler.
+teachable	TEACHABLE	a.	That may be taught; apt to learn; also, readily receiving instruction; docile. We ought to bring our minds free, unbiased and teachable to learn our religion from the word of God.
+teachableness	TEACHABLENESS	n.	The quality of being capable of receiving instruction; more generally, a willingness or readiness to be informed and instructed; docility; aptness to learn.
+teacher	TEACHER	n.	One who teaches or instructs.	An instructor; a preceptor; a tutor; one whose business or occupation is to instruct others.	One who instructs others in religion; a preacher; a minister of the gospel. The teachers in all the churches assembled themselves.	One who preaches without regular ordination.
+teaching	TEACHING	ppr.	Instructing; informing.
+teaching	TEACHING	n.	The act or business of instructing.	Instruction.
+teacup	tea-cup
+tead	TEAD		TEAGUE, noun teeg. An Irishman; in contempt.
+teadrinker	tea-drinker
+teague	TEAGUE	n.	An Irishman; in contempt.
+teak	TEAK		TEAL, noun An aquatic fowl of the genus Anas, the smallest of the duck kind.
+teal	TEAL	n.	An aquatic fowl of the genus Anas, the smallest of the duck kind.
+team	TEAM	n.	Two or more horses, oxen or other beasts harnessed together to the same vehicle for drawing, as to a coach, chariot, wagon, cart, sled, sleigh and the like. It has been a great question whether teams of horses or oxen are most advantageously employed in agriculture. In land free from stones and stumps and of easy tillage, it is generally agreed that horses are preferable for teams.	Any number passing in a line; a long line. Like a long team of snowy swans on high. [This is the primary sense, but is rarely used.]
+team-work	TEAM-WORK	n.	Work done by a team, as distinguished from personal labor
+teamster	TEAMSTER	n.	One who drives a team
+teamwork	team-work
+teaplant	tea-plant
+teapot	tea-pot
+tear	TEAR	n.	Tears are the limpid fluid secreted by the lacrymal gland, and appearing in the eyes, or flowing from them. A tear in the singular, is a drop or a small quantity of that fluid. Tears are excited by passions, particularly by grief. This fluid is also called forth by any injury done to the eye. It serves to moisten the cornea and preserve its transparency, and to remove any dust or fine substance that enters the eye and gives pain.	Something in the form of a transparent drop of fluid matter.
+tear	TEAR	v.t.	To separate by violence or pulling; to rend; to lacerate; as, to tear cloth; to tear a garment, to tear the skin or flesh. We use tear and rip in different senses. To tear is to rend or separate the texture of cloth; to rip is to open a seam, to separate parts sewed together.	To wound; to lacerate. The women beat their breasts, their cheeks they tear	To rend; to break; to form fissures by any violence; as, torrents tear the ground.	To divide by violent measures; to shatter; to rend; as a state or government torn by factions.	To pull with violence; as, to tear the hair.	To remove by violence; to break up. Or on rough seas from their foundation torn.	To make a violent rent. In the midst, a tearing groan did break The name of Antony. To tear from, to separate and take away by force; as an isle torn from its possessor. The hand of fate Has torn thee from me. To tear off, to pull off by violence; to strip. To tear out, to pull or draw out by violence; as, to tear out the eyes. To tear up, to rip up; to remove from a fixed state by violence; as, to tear up a floor; to tear up the foundations of government or order.
+tear	TEAR	v.i.	To rave; to rage; to rant; to move and act with turbulent violence; as a mad bull.
+tear	TEAR	n.	A rent; a fissure. [Little used.]
+tear-falling	TEAR-FALLING	a.	Shedding tears; tender; as tear-falling pity
+tearer	TEARER	n.	One who tears or rends any thing.	One that rages or raves with violence.
+tearfalling	tear-falling
+tearful	TEARFUL	a.	Abounding with tears; weeping; shedding tears; as tearful eyes
+tearing	TEARING	ppr.	Rending; pulling apart; lacerating; violent; raging
+tearless	TEARLESS	a.	Shedding no tears; without tears; unfeeling.
+teasaucer	tea-saucer
+tease	TEASE	v.t.	To comb or card, as wool or flax.	To scratch, as cloth in dressing, for the purpose of raising a nap.	To vex with importunity or impertinence; to harass, annoy, disturb or irritate by petty requests, or by jests and raillery. Parents are often teased by their children into unreasonable compliances. My friends tease me about him, because he has no estate.
+teased	TEASED	pp.	Vexed; irritated or annoyed.
+teasel	TEASEL	n.	A plant of the genus Dipsacus, one kind of which bears a large burr which is used for raising a nap on woolen cloth. Hence,	The burr of the plant.
+teaseler	TEASELER	n.	One who uses the teasel for raising a nap on cloth.
+teaser	TEASER	n.	One that teases or vexes.
+teasing	TEASING	ppr.	Combing; carding; scratching for the purpose of raising a nap; vexing with importunity.
+teaspoon	tea-spoon
+teat	TEAT		TEATHE, noun The soil or fertility left on lands by feeding them. [Local.]
+teatable	tea-table
+teathe	TEATHE	n.	The soil or fertility left on lands by feeding them. [Local.]
+teathe	TEATHE	v.t.	To feed and enrich by live stock. [Local.]
+teatree	tea-tree
+techily	TECHILY	adv.	Peevishly; fretfully; forwardly
+techiness	TECHINESS	n.	Peevishness; fretfulness.
+technical	TECHNICAL	a.	Pertaining to art or the arts. A technical word is a word that belongs properly or exclusively to an art; as the verb to smelt, belongs to metallurgy. So we say, technical phrases, technical language. Every artificer has his technical terms.	Belonging to a particular profession; as, the words of an indictment must be technical It is of the utmost importance clearly to understand the technical terms used by the eastern theologians.
+technicality	TECHNICALITY	n.	The quality or state of being technical or peculiar to the arts.
+technically	TECHNICALLY	adv.	In a technical manner; according to the signification of terms of art or the professions.
+technicalness	TECHNICALNESS		TECH'NICS, noun The doctrine of arts in general; such branches of learning as respect the arts.
+technics	TECHNICS	n.	The doctrine of arts in general; such branches of learning as respect the arts.
+technological	TECHNOLOGICAL	a.	Pertaining to technology.	Pertaining to the arts; as technological institutes.
+technologist	TECHNOLOGIST	n.	One who discourses or treats of arts, or of the terms of art.
+technology	TECHNOLOGY	n.	A description of arts; or a treatise on the arts.	An explanation of the terms of the arts.
+techy	TECHY	a.	Peevish; fretful; irritable. [More correctly touchy.]
+tecnnic	TECNNIC		TECTON'IC, adjective [Gr. to fabricate.] Pertaining to building.
+tectonic	TECTONIC	a.	Pertaining to building
+ted	TED	v.t.	A spread; tedu, to distend. Among farmers, to spread; to turn new mowed grass from the swath, and scatter it for drying. [Local.]
+tedded	TEDDED	pp.	Spread from the swath; as tedded grass.
+tedder	TEDDER	n.	A rope or chain by which an animal is tied that he may feed on the ground to the extent of the rope and no further. Hence the popular saying, a person has gone to the length of his tedder	That by which one is restrained.
+tedder	TEDDER	v.t.	To tie with a tedder; to permit to feed to the length of a rope or chain.	To restrain to certain limits. Te deum, a hymn to be sung in churches or on occasions of joy; so called from the first words. Te deum was sung at St. Paul's after the victory.
+tede	TEDE	n.	A torch; a flambeau. [Not in use.]
+tedious	TEDIOUS	a.	Wearisome; tiresome from continuance, prolixity, or slowness which causes prolixity. We say, a man is tedious in relating a story; a minister is tedious in his sermon. We say also, a discourse is tedious when it wearies by its length or dullness.	Slow; as a tedious course.
+tediously	TEDIOUSLY	adv.	In such a manner as to weary.
+tediousnes	TEDIOUSNES	n.	Wearisomeness by length of continuance or by prolixity; as the tediousness of an oration or argument.	Prolixity; length.	Tiresomeness; quality of wearying; as the tediousness of delay.	Slowness that wearies.
+tedium	TEDIUM	n.	Irksomeness; wearisomeness
+teek	TEEK	n.	A tree of the East Indies, which furnishes an abundance of ship timber. The generic name given to it by Linne, is Tectona.
+teem	TEEM	v.i.	To bring forth, as young. If she must teem Create her child of spleen--	To be pregnant; to conceive; to engender young. TEEMing buds and cheerful greens appear.	To be full; to be charged; as a breeding animal; to be prolific. Every head teems with politics.	To bring forth; to produce, particularly in abundance. The earth teems with fruits; the sea teems with fishes.
+teem	TEEM	v.t.	To produce; to bring forth. What's the newest grief? Each minute teems a new one. [This transitive sense is not common.]	To pour. [Not in use.]
+teemer	TEEMER	n.	One that brings forth young.
+teemful	TEEMFUL	a.	Brimful.
+teeming	TEEMING	ppr.	Producing young.
+teemless	TEEMLESS	a.	Not fruitful or prolific; barren; as the teemless earth.
+teen	TEEN	n.	Grief; sorrow. [Not in use.]
+teen	TEEN	v.t.	To excite; to provoke., [Not in use.]
+teens	TEENS	n.	The years of one's age reckoned by the termination teen. These years begin with thirteen, and end with nineteen. Miss is in her teens
+teeth	TEETH	pl.	of tooth, which see. In the teeth directly; in direct opposition; in front. Nor strive with all the tempest in my teeth
+teeth	TEETH	v.i.	To breed teeth
+teething	TEETHING	ppr.	Breeding teeth; undergoing dentition.
+teething	TEETHING	n.	The operation or process of the first growth of teeth, or the process by which they make their way through the gums, called dentition.
+tegular	TEGULAR	a.	Pertaining to a tile; resembling a tile; consisting of tiles
+tegularly	TEGULARLY	adv.	In the manner of tiles on a roof.
+tegument	TEGUMENT	n.	A cover or covering; seldom used except in reference to the covering of a living body. [See Integument.]
+teh-hee	TEH-HEE	v.i.	To laugh. [A cant word.]
+tehhee	TEHHEE		a sound made in laughing.
+teil	TEIL		TEIL-TREE, noun [Latin tilia.] The lime tree, otherwise called the linden.
+teil-tree	TEIL-TREE	n.	The lime tree, otherwise called the linden
+teiltree	teil-tree
+teint	TEINT	n.	Color; tinge. [See Tint.]
+telary	TELARY	a.	Pertaining to a web	Spinning webs; as a telary spider. [Little used.]
+telegraph	TELEGRAPH	n.	A machine for communicating intelligence from a distance by various signals or movements previously agreed on; which signals represent letters, words or ideas which can be transmitted form one station to another, as far as the signals can be seen. This machine was invented by the French about the year 1793 or 1794, and is now adopted by other nations
+telegraphic	TELEGRAPHIC	a.	Pertaining to the telegraph; made by a telegraph; as telegraphic movements or signals; telegraphic art.	Communicated by a telegraph; as telegraphic intelligence.
+teleology	TELEOLOGY	n.	The science of the final causes of things
+telescope	TELESCOPE	n.	An optical instrument employed in viewing distant objects, as the heavenly bodies. It assists the eye chiefly in two ways; first, by enlarging the visual angle under which a distant object is seen, and thus magnifying that object; and secondly, by collecting and conveying to the eye a larger beam of light than would enter the naked organ, and thus rendering objects distinct and visible which would otherwise be indistinct or invisible. Its essential parts are the object glass, which collects the beam of light and forms an image of the object, and the eye glass, which is a microscope by which the image is magnified
+telescope-shell	TELESCOPE-SHELL	n.	In conchology, a species of turbo with place, striated and numerous spires.
+telescopeshell	telescope-shell
+telescopic	TELESCOPIC		TELESCOP'ICAL, adjective Pertaining to a telescope; performed by a telescope; as a telescopic view.	Seen or discoverable only by a telescope; as telescopic stars.
+telescopical	TELESCOPICAL	a.	Pertaining to a telescope; performed by a telescope; as a telescopic view.	Seen or discoverable only by a telescope; as telescopic stars.
+telesia	TELESIA	n.	Sapphire.
+telesm	TELESM	n.	A kind of amulet or magical charm.
+telesmatic	TELESMATIC		TELESMAT'ICAL, adjective Pertaining to telesms; magical.
+telesmatical	TELESMATICAL	a.	Pertaining to telesms; magical.
+telestic	TELESTIC	n.	A poem in which the final letters of the lines make a name
+tell	TELL	v.t.; pret. and pp. told	To utter; to express in words; to communicate to others. I will not eat till I have told my errand. Genesis 24:23.	To relate; to narrate; to rehearse particulars; as, to tell a story. Genesis 37:16. And not a man appears to tell their fate.	To teach; to inform; to make known; to show by words. tell us the way. Why didst thou not tell me that she was thy wife? Gen 12.	To discover; to disclose; to betray. They will tell it to the inhabitants of this land. Numbers 14:14.	To count; to number. Look now towards heaven, and tell the stars. Gen 15.	To relate in confession; to confess or acknowledge. TELL me now what thou hast done. Joshua 7:19.	To publish. TELL it not in Gath. 2 Samuel 1:4.	To unfold; to interpret; to explain. Ezekiel 24:19.	To make excuses. Tush, never tell me. [Not elegant.]	To make known. Our feelings tell us how long they ought to have submitted.	To discover; to find; to discern. The colors are so blended that I cannot tell where one ends and the other begins.
+tell	TELL		though equivalent in some respects to speak and say, has not always the same application. We say, to tell this, that or what, to tell a story, to tell a word, to tell truth or falsehood, to tell a number, to tell the reasons, to tell something or nothing; but we never say, to tell a speech, discourse or oration, or to tell an argument or a lesson. It is much used in commands. tell me the whole story; tell me all you know, or all that was said. tell has frequently the sense of narrate; which speak and say have not.
+tell	TELL	v.i.	To give an account; to make report. --That I may publish with the voice of thanksgiving, and tell of all thy wondrous works. Psalms 36:1. To tell of To tell on - to inform. You must not disobey; I will tell of you if you do. This is a common popular use of the word. To tell on, is quite vulgar as well as improper.
+tell-tale	TELL-TALE	a.	Telling tales; babbling.
+tell-tale	TELL-TALE	n.	One who officiously communicates information of the private concerns of individuals; one who tells that which prudence should suppress, and which if told, often does mischief among neighbors	A movable piece of ivory or lead on a chamber organ, that gives notice when the wind is exhausted.	In seamanship, a small piece of wood, traversing in a groove across the front of the poop deck, and which, by communicating with a small barrel on the axis of the steering wheel, indicates the situation of the helm.
+teller	TELLER	n.	One that tells, relates or communicates the knowledge of something.	One who numbers.	In the exchequer of England, there are four officers called tellers, whose business is to receive all moneys due to the crown, and throw down a bill through a pipe into the tally-court, where it is received by the auditor's clerks, who write the words of the bill on a tally, and deliver it to be entered by the clerk of the pell. The tally is then split by the two deputy chamberlains, who have their seals, and while the senior deputy reads the one part, the junior examines the other with the other two clerks. [This word is supposed to be from tally, being in ancient records written tallier.]
+tellinite	TELLINITE	n.	Petrified or fossil shells of the genus Tellina
+telltale	tell-tale
+tellurate	TELLURATE	n.	A compound of tellurium and a base.
+tellureted	TELLURETED	a.	tellureted hydrogen is hydrogen combined with tellurium in a gaseous form.
+tellurium	TELLURIUM	n.	A metal recently discovered by Klaproth, combined with gold and silver in the ores, and received from the bannat of Temeswar. The ores are denominated native, graphic, yellow, and black. The native tellurium is of a color between tin and silver, and sometimes inclines to a steel gray. The graphic tellurium is stell gray; but sometimes white, yellow or lead gray. These ores are found massive or crystallized.
+temachis	TEMACHIS	n.	A genus of fossils of the class of gypsums, softer than others, and of a bright glittering hue
+temerarious	TEMERARIOUS	a.	Rash; headstrong; unreasonably adventurous; despising danger; as temerarious folly.	Careless; heedless; done at random; as the temerarious dash of an unguided pen. [This word is not much used.]
+temerariously	TEMERARIOUSLY	adv.	Rashly; with excess of boldness.
+temerity	TEMERITY	n.	Rashness; unreasonable contempt of danger; as the temerity of a commander in war.	Extreme boldness. The figures are bold even to temerity
+temin	TEMIN	n.	A money of account in Algiers, equivalent to 2 carubes, or 29 aspers, about 34 cents, or 17d sterling.
+temper	TEMPER	v.t.	To mix so that one part qualifies the other; to bring to a moderate state; as, to temper justice with mercy.	To compound; to form by mixture; to qualify, as by an ingredient; or in general, to mix, unite or combine two or more things so as to reduce the excess of the qualities of either, and bring the whole to the desired consistence or state. Thou shalt make it a perfume, a confection after the art of the apothecary, tempered together, pure and holy. Exodus 30:35.	To unite in due proportion; to render symmetrical; to adjust, as parts to each other. God hath tempered the body together. 1 Corinthians 12:24.	To accommodate; to modify. Thy sustenance serving to the appetite of the eater, tempered itself to every man's liking.	To soften; to mollify; to assuage; to soothe; to calm; to reduce any violence or excess. Solon--labored to temper the warlike courages of the Athenians with sweet delights of learning. Woman! nature made thee To temper man; we had been brutes without you.	To form to a proper degree of hardness; as, to temper iron or steel. The temper'd metals clash, and yield a silver sound.	To govern; a Latinism. [Not in use.]	In music, to modify or amend a false or imperfect concord by transferring to it a part of the beauty of a perfect one, that is, by dividing the tones.
+temper	TEMPER	n.	Due mixture of different qualities; or the state of any compound substance which results from the mixture of various ingredients; as the temper of mortar.	Constitution of body. [In this sense we more generally use temperament.]	Disposition of mind; the constitution of the mind, particularly with regard to the passions and affections; as a calm temper; a hasty temper; a fretful temper This is applicable to beasts as well as to man. Remember with what mild And gracious temper he both heard and judg'd.	Calmness of mind; moderation. Restore yourselves unto your tempers, fathers. To fall with dignity, with temper rise.	Heat of mind or passion; irritation. The boy showed a great deal of temper when I reproved him. So we say, a man of violent temper when we speak of his irritability. [This use of the word is common, though a deviation from its original and genuine meaning.]	The state of a metal, particularly as to its hardness; as the temper of iron or steel.	Middle course; mean or medium.	In sugar works, white lime or other substance stirred into a clarifier filled with cane-juice, to neutralize the super abundant acid.
+temperament	TEMPERAMENT	n.	Constitution; state with respect to the predominance of any quality; as the temperament of the body. Bodies are denominated hot and cold, in proportion to the present temperament of that part of our body to which they are applied.	Medium; due mixture of different qualities. The common law--has reduced the kingdom to its just state and temperament	In music, temperament is an operation which, by means of a slight alteration in the intervals, causes the difference between two contiguous sounds to disappear, and makes each of them appear identical with the other. Temperament is the accommodation or adjustment of the imperfect sounds, by transferring a part of their defects to the more perfect ones, to remedy in part the false intervals of instruments of fixed sounds, as the organ, harpsichord, forte piano, etc. The harshness of a given concord increases with the temperament
+temperamental	TEMPERAMENTAL	a.	Constitutional. [Not much used.]
+temperance	TEMPERANCE	n.	Moderation; particularly, habitual moderation in regard to the indulgence of the natural appetites and passions; restrained or moderate indulgence; as temperance in eating and drinking; temperance in the indulgence of joy or mirth. temperance in eating and drinking is opposed to gluttony and drunkenness, and in other indulgences, to excess.	Patience; calmness; sedateness; moderation of passion. He calm'd his wrath with goodly temperance [Unusual.]
+temperate	TEMPERATE	a.	Moderate; not excessive; as temperate heat; a temperate climate; temperate air	Moderate in the indulgence of the appetites and passions; as temperate in eating and drinking; temperate in pleasures; temperate in speech. Be sober and temperate and you will be healthy.	Cool; calm; not marked with passion; not violent; as a temperate discourse or address; temperate language.	Proceeding from temperance; as temperate sleep.	Free from ardent passion. She is not hot, but temperate as the morn. Temperate zone, the space on the earth between the tropics and the polar circles, where the heat is less than in the tropics, and the cold less than in the polar circles.
+temperately	TEMPERATELY	adv.	Moderately; without excess or extravagance.	Calmly; without violence of passion; as, to reprove one temperately	With moderate force. Winds that temperately blow.
+temperateness	TEMPERATENESS	n.	Moderation; freedom from excess; as the temperateness of the weather or of a climate.	Calmness; coolness of mind.
+temperative	TEMPERATIVE	a.	Having the power or quality of tempering.
+temperature	TEMPERATURE	n.	In physics, the state of a body with regard to heat or cold, as indicated by the thermometer; or the degree of free caloric which a body possesses, when compared with other bodies. When a body applied to another, either excites the sensation of heat, or expands that body, we say it is of a higher temperature; that is, it possesses more free caloric. When it excites the sensation of cold, or contracts another body, it is said to be of a lower temperature Thus we speak of the temperature of air, of water, of a climate, etc.; two countries of the same temperature	Constitution; state; degree of any quality. Memory depends upon the consistence and temperature of the brain.	Moderation; freedom from immoderate passions. In that proud port, which her so goodly graceth, Most goodly temperature you may descry. [Not in use.]
+tempered	TEMPERED	pp.	Duly mixed or modified; reduced to a proper state; softened; allayed; hardened.	Adjusted by musical temperament.	adjective Disposed; as a well tempered good tempered or bad tempered man.
+tempering	TEMPERING	ppr.	Mixing and qualifying; qualifying by mixture; softening; mollifying; reducing to a state of moderation; hardening.
+tempest	TEMPEST	n.	An extensive current of wind, rushing with great velocity and violence; a storm of extreme violence. We usually apply the word to a steady wind of long continuance; but we say also of a tornado, it blew a tempest The currents of wind are named, according to their respective degrees of force or rapidity, a breeze, a gale, a storm, a tempest; but gale is also used as synonymous with storm, and storm with tempest Gust is usually applied to a sudden blast of short duration. A tempest may or may not be attended with rain, snow or hail. We, caught in a fiery tempest shall be hurl'd Each on his rock transfix'd--	A violent tumult or commotion; as a popular or political tempest; the tempest of war.	Perturbation; violent agitation; as a tempest of the passions.
+tempest	TEMPEST	v.t.	To disturb as by a tempest of the passions. [Little used.]
+tempest-beaten	TEMPEST-BEATEN	a.	Beaten or shattered with storms
+tempest-tost	TEMPEST-TOST	a.	Tossed or driven about by tempests
+tempestbeaten	tempest-beaten
+tempestivity	TEMPESTIVITY	n.	Seasonableness. [Not in use.]
+tempesttost	tempest-tost
+tempestuous	TEMPESTUOUS	a.	Very story; turbulent; rough with wind; as tempestuous weather; a tempestuous night.	Blowing with violence; as a tempestuous wind.
+tempestuously	TEMPESTUOUSLY	adv.	With great violence of wind or great commotion; turbulently.
+tempestuousness	TEMPESTUOUSNESS	n.	Storminess; the state of being tempestuous or disturbed by violent winds; as the tempestuousness of the winter or of weather.
+templar	TEMPLAR	n.	A student of the law.	Templars, knights of the Temple, a religious military order, first established at Jerusalem in favor of pilgrims traveling to the Holy Land. The order originated with some persons who, in 1118, devoted themselves to the service of God, promising to live in perpetual chastity, obedience and poverty, after the manner of canons. In 1228, this order was confirmed in the council of Troyes, and subjected to a rule of discipline. It flourished, became immensely rich, and its members became so insolent and vicious, that the order was suppressed by the council of Vienne, in 1312.
+temple	TEMPLE	n.	A public edifice erected in honor of some deity. Among pagans, a building erected to some pretended deity, and in which the people assembled to worship. Originally, temples were open places, as the Stonehenge in England. In Rome, some of the temples were open, and called sacella; others were roofed, and called oedes. The most celebrated of the ancient pagan temples were that of Belus in Babylon, that of Vulcan at Memphis, that of Jupiter at Thebes, that of Diana at Ephesus, that of Apollo in Miletus, that of Jupiter Olympius in Athens, and that of Apollo at Delphi. The most celebrated and magnificent temple erected to the true God, was that built by Solomon in Jerusalem. In Scripture, the tabernacle is sometimes called by this name. 1 Samuel 1:9-3.	A church; an edifice erected among christians as a place of public worship. Can he whose life is a perpetual insult to the authority of God, enter with any pleasure a temple consecrated to devotion and sanctified by prayer?	A place in which the divine presence specially resides; the church as a collective body. Ephesians 2:21.	In England, the Temples are two inns of court, thus called because anciently the dwellings of the knights Templars. They are called the Inner and the Middle temple
+temple	TEMPLE	n.	Literally, the fall of the head; the part where the head slopes from the top.	In anatomy, the anterior and lateral part of the head, where the skull is covered by the temporal muscles.
+temple	TEMPLE	v.t.	To build a temple for; to appropriate a temple to. [Little used.]
+templet	TEMPLET	n.	A piece of timber in a building; as a templet under a girder.
+temporal	TEMPORAL	a.	Pertaining to this life or this world or the body only; secular; as temporal concerns; temporal affairs. In this sense, it is opposed to spiritual. Let not temporal affairs or employments divert the mind from spiritual concerns, which are far more important. In this sense also it is opposed to ecclesiastical; as temporal power, that is, secular, civil or political power; temporal courts, those which take cognizance of civil suits. temporal jurisdiction is that which regards civil and political affairs.	Measured or limited by time, or by this life or this state of things; having limited existence; opposed to eternal. The things which are seen are temporal but the things which are not seen are eternal. 2 Corinthians 4:18.	In grammar, relating to a tense; as a temporal augment.	Pertaining to the temple or temples of the head; as the temporal bone; a temporal artery or vein; temporal muscle.
+temporalities	TEMPORALITIES		TEM'PORALLY, adverb With respect to time or this life only.
+temporally	TEMPORALLY	adv.	With respect to time or this life only.
+temporalness	TEMPORALNESS	n.	Worldliness. [Not used.]
+temporals	TEMPORALS	n.	Secular possessions; revenues of an ecclesiastic proceeding from lands, tenements, or lay-fees, tithes and the like. It is opposed to spiritualities.
+temporalty	TEMPORALTY	n.	The laity; secular people. [Little used.]	Secular possessions. [See Temporalities.]
+temporaneous	TEMPORANEOUS	a.	Temporary. [Little used.]
+temporarily	TEMPORARILY	adv.	For a time only; not perpetually.
+temporariness	TEMPORARINESS	n.	The state of being temporary; opposed to perpetuity
+temporary	TEMPORARY	a.	Lasting for a time only; existing or continuing for a limited time; as, the patient has obtained temporary relief. There is a temporary cessation of hostilities. There is a temporary supply of provisions. In times of great danger, Rome appointed a temporary dictator
+temporization	TEMPORIZATION	n.	The act of temporizing.
+temporize	TEMPORIZE	v.i.	To comply with the time or occasion; to humor or yield to the current of opinion or to circumstances; a conduct that often indicates obsequiousness. They might their grievance inwardly complain, But outwardly they needs must temporize	To delay; to procrastinate. Well, you till temporize with the hours. [Little used.]	To comply. [Not in use.]
+temporizer	TEMPORIZER	n.	One who yields to the time, or complies with the prevailing opinions, fashions or occasions; a trimmer.
+temporizing	TEMPORIZING	ppr.	Complying with the time, or with the prevailing humors and opinions of men; time-serving.
+tempt	TEMPT	v.t.	To incite or solicit to an evil act; to entice to something wrong by presenting arguments that are plausible or convincing, or by the offer of some pleasure or apparent advantage as the inducement. My lady Gray tempts him to this harsh extremity. Every man is tempted, when he is drawn away by his own lust and enticed. James 1:13.	To provoke; to incite. TEMPT not the brave and needy to despair.	To solicit; to draw; without the notion of evil. Still his strength conceal'd, Which tempted our attempt, and wrought our fall.	To try; to venture on; to attempt. E'er leave be giv'n to tempt the nether skies.	In Scripture, to try; to prove; to put to trial for proof. God did tempt Abraham. Genesis 22:1. Ye shall not tempt the Lord your God. Deuteronomy 6:16.
+temptable	TEMPTABLE	a.	Liable to be tempted.
+temptation	TEMPTATION	n.	The act of tempting; enticement to evil by arguments, by flattery, or by the offer of some real or apparent good. When the devil had ended all the temptation he departed from him for a season. Luke 4:13.	Solicitation of the passions; enticements to evil proceeding from the prospect of pleasure or advantage.	The state of being tempted or enticed to evil. When by human weakness you are led into temptation resort to prayer for relief.	Trial. Lead us not into temptation	That which is presented to the mind as an inducement to evil. Dare to be great without a guilty crown, View it, and lay the bright temptation down.	In colloquial language, an allurement to any thing indifferent, or even good.
+tempted	TEMPTED	pp.	Enticed to evil; provoked; tried.
+tempter	TEMPTER	n.	One that solicits or entices to evil. Those who are bent to do wickedly, will never want tempters to urge them on.	The great adversary of man; the devil. Matthew 4:3.
+tempting	TEMPTING	ppr.	Enticing to evil; trying.	adjective Adapted to entice or allure; attractive; as tempting pleasures.
+temptingly	TEMPTINGLY	adv.	In a manner to entice to evil; so as to allure.
+temptress	TEMPTRESS	n.	A female who entices.
+temsebread	TEMSEBREAD		TEM'SED-BREAD, noun Bread made of flour better sifted than common flour. [I know not where this word is used.]
+temsed-bread	TEMSED-BREAD	n.	Bread made of flour better sifted than common flour. [I know not where this word is used.]
+temsedbread	temsed-bread
+temulence	TEMULENCE		TEM'ULENCY, noun [Latin temulentia.] Intoxication; inebriation; drunkenness. [Not used.]
+temulency	TEMULENCY	n.	Intoxication; inebriation; drunkenness. [Not used.]
+temulent	TEMULENT	a.	Intoxicated. [Not in use.]
+temulentive	TEMULENTIVE	a.	Drunken; in a state of inebriation. [Not in use.]
+ten	TEN	a.	Twice five; nine and one. With twice ten sail I cross'd the Phrygian sea.	It is a kind of proverbial number. There's a proud modesty in merit, Averse to begging, and resolv'd to pay TEN times the gift it asks. The meaning in this use is, a great deal more, indefinitely.
+tenable	TENABLE	a.	That may be held, maintained or defended against an assailant, or against attempts to take it; as a tenable fortress. The works were not deemed tenable The ground taken in the argument is not tenable
+tenacious	TENACIOUS	a.	Holding fast, or inclined to hold fast; inclined to retain what is in possession; as men tenacious of their just rights. Men are usually tenacious of their opinions, as well as of their property.	Retentive; apt to retain long what is committed to it; as a tenacious memory.	Adhesive; apt to adhere to another substance; as oily, glutinous or viscous matter. Few substances are to tenacious as tar.	Niggardly; close fisted.
+tenaciously	TENACIOUSLY	adv.	With a disposition to hold fast what is possessed.	Adhesively.	Obstinately; with firm adherence.
+tenaciousness	TENACIOUSNESS	n.	The quality of holding fast; unwillingness to quit, resign or let go; as a man's tenaciousness of his rights or opinions.	Adhesiveness; stickiness; as the tenaciousness of clay or glue.	Retentiveness; as the tenaciousness of memory.
+tenacity	TENACITY	n.	Adhesiveness; that quality of bodies which makes them stick or adhere to others; glutinousness; stickiness; as the tenacity of oils, of glue, of tar, of starch and the like.	That quality of bodies which keeps them from parting; without considerable force; cohesiveness; the effect of attraction; opposed to brittleness or fragility.
+tenacy	TENACY	n.	Tenaciousness. [Not in use.]
+tenail	TENAIL	n.	In fortification, an outwork consisting of two parallel sides with front, in which is a re-entering angle. It is simple or double
+tenaillon	TENAILLON	n.	In fortification, tenaillons are works constructed on each side of the ravelins, like the lunets, but differing in this, that one of the faces of the tenaillon is in the direction of the ravelin, whereas that of the lunet is perpendicular to it.
+tenancy	TENANCY	n.	In law, a holding or possession of lands or tenements; tenure; as tenancy in fee simple; tenancy in tail; tenancy by the curtesy; tenancy at will. tenancy in common happens where there is a unity of possession merely
+tenant	TENANT	n.	A person holding land or other real estate under another, either by grant, lease or at will; one who has the occupation or temporary possession of lands or tenements whose title is in another; as a tenant in tail; tenant in common; tenant by the curtesy; tenant in parcenary; tenant for life; tenant at will; tenant in dower.	One who has possession of any place; a dweller. The happy tenant of your shade. Tenant in capite, or tenant in chief, by the laws of England, is one who holds immediately of the king. According to the feudal system, all lands in England are considered as held immediately or mediately of the king, who is stiled lord paramount. Such tenants however are considered as having the fee of the lands and permanent possession.
+tenant	TENANT	v.t.	To hold or possess as a tenant Sir Roger's estate is tenanted by persons who have served him or his ancestors.
+tenantable	TENANTABLE	a.	Fit to be rented; in a state of repair suitable for a tenant.
+tenanted	TENANTED	pp.	Held by a tenant.
+tenanting	TENANTING	ppr.	Holding as a tenant.
+tenantless	TENANTLESS	a.	Having no tenant; unoccupied; as a tenantless mansion.
+tenantry	TENANTRY	n.	The body of tenants; as the tenantry of a manor or a kingdom.	Tenancy. [Not in use.]
+tench	TENCH	n.	A fish of the genus Cyprinus, found in ponds and rivers
+tend	TEND	v.t.	To watch; to guard; to accompany as an assistant or protector. And flaming ministers to watch and tend Their earthly charge-- There is a pleasure in that simplicity, in beholding princes tending their flocks.	To hold and take care of; as, to tend a child.	To be attentive to. Unsuck'd of lamb or kid that tend their play.
+tend	TEND	v.t.	To move in a certain direction. Having overheard two gentlemen tending towards that sight-- Here Dardanus was born, and hither tends.	To be directed to any end or purpose; to aim at; to have or give a leaning. The laws of our religion tend to the universal happiness of mankind.	To contribute. Our petitions, if granted, might tend to our destruction.	[for attend.] To attend; to wait as attendants or servants. He tends upon my father. [Colloquial.]	To attend as something inseparable. [Not in use.]	To wait; to expect. [Not in use.]	To swing round an anchor, as a ship.
+tendance	TENDANCE	n.	Attendance; state of expectation.	Persons attending.	Act of waiting; attendance.	Care; act of tending. [This word is entirely obsolete in all its senses. We now use attendance.]
+tended	TENDED	pp.	Attended; taken care of; nursed; as an infant, or a sick person.
+tendency	TENDENCY	n.	Drift; direction or course towards any place, object, effect or result. Read such books only as have a good moral tendency Mild language has a tendency to allay irritation. Writings of this kind, if conducted with candor, have a more particular tendency to the good of their country
+tender	TENDER	n.	One that attends or takes care of; a nurse	A small vessel employed to attend a larger one for supplying her with provisions and other stores, or to convey intelligence and the like.	In law, an offer, either of money to pay a debt, or of service to be performed, in order to save a penalty or forfeiture which would be incurred by non-payment or non-performance; as the tender of rent due, or of the amount of a note or bond with interest. To constitute a legal tender such money must be offered as the law prescribes; the offer of bank notes is not a legal tender So also the tender must be at the time and place where the rent or debt ought to be paid, and it must be to the full amount due. There is also a tender of issue in pleadings, a tender of an oath, etc.	Any offer for acceptance. The gentleman made me a tender of his services.	The thing offered. This money is not a legal tender	Regard; kind concern. [Not in use.]
+tender	TENDER	v.t.	To offer in words; or to exhibit or present for acceptance. All conditions, all minds tender down Their service to lord Timon.	To hold; to esteem. Tender yourself more dearly. [Not in use.]	To offer in payment or satisfaction of a demand, for saving a penalty or forfeiture; as, to tender the amount of rent or debt.
+tender	TENDER	a.	Soft; easily impressed, broken, bruised or injured; not firm or hard; as tender plants; tender flesh; tender grapes. Deuteronomy 32:2. Song of Solomon 2:13.	Very sensible to impression and pain; easily pained. Our bodies are not naturally more tender than our faces.	Delicate; effeminate; not hardy or able to endure hardship. The tender and delicate woman among you. Deuteronomy 28:54.	Weak; feeble; as tender age. Genesis 33:13.	Young and carefully educated. Proverbs 9:1.	Susceptible of the softer passions, as love, compassion, kindness; compassionate; pitiful; easily affected by the distresses of another, or anxious for another's good; as the tender kindness of the church; a tender heart.	Compassionate; easily excited to pity, forgiveness or favor. The Lord is pitiful, and of tender mercy. James 5:11. Luke 1:78.	Exciting kind concern. I love Valentine; His life's as tender to me as his soul.	Expressive of the softer passions; as a tender strain.	Careful to save inviolate, or not to injure; with of. Be tender of your neighbor's reputation. The civil authority should be tender of the honor of God and religion.	Gentle; mild; unwilling to pain. You that are so tender o'er his follies, Will never do him good.	Apt to give pain; as, that is a tender subject; things that are tender and unpleasing.	Adapted to excite feeling or sympathy; pathetic; as tender expressions; tender expostulations.
+tender-hearted	TENDER-HEARTED	a.	Having great sensibility; susceptible of impressions or influence. --When Rehoboam was young and tenderhearted, and could not withstand them. 2 Chronicles 13:7.	Very susceptible of the softer passions of love, pity or kindness. Be ye kind one to another, and tender-hearted Ephesians 4:32.
+tender-heartedness	TENDER-HEARTEDNESS	n.	Susceptibility of the softer passions.
+tendered	TENDERED	pp.	Offered for acceptance.
+tenderhearted	tender-hearted
+tenderheartedness	tender-heartedness
+tendering	TENDERING	ppr.	Offering for acceptance.
+tenderling	TENDERLING	n.	A fondling; one made tender by too much kindness.	The first horns of a deer.
+tenderloin	TENDERLOIN	n.	A tender part of flesh in the hind quarter of beef.
+tenderly	TENDERLY	adv.	With tenderness; mildly; gently; softly; in a manner not to injure or give pain. Brutus tenderly reproves.	Kindly; with pity or affection.
+tenderness	TENDERNESS	n.	The state of being tender or easily broken, bruised or injured; softness; brittleness; as the tenderness of a thread; the tenderness of flesh.	The state of being easily hurt; soreness; as the tenderness of flesh when bruised or inflamed.	Susceptibility of the softer passions; sensibility. Well we know your tenderness of heart.	Kind attention; anxiety for the good of another, or to save him from pain.	Scrupulousness; caution; extreme care or concern not to give or to commit offense; as tenderness of conscience.	Cautious care to preserve or not to injure; as a tenderness of reputation.	Softness of expression; pathos.
+tending	TENDING	ppr.	Having a certain direction; taking care of.
+tending	TENDING	n.	In seaman's language, a swinging round or movement of a ship upon her anchor.
+tendinous	TENDINOUS	a.	Pertaining to a tendon; partaking of the nature of tendons.	Full of tendons; sinewy; as nervous and tendinous parts.
+tendment	TENDMENT	n.	Attendance; care.
+tendon	TENDON	n.	In anatomy, a hard insensible cord or bundle of fibers, by which a muscle is attached to a bone
+tendrac	TENDRAC	n.	An animal of the hedgehog kind, found in the E. Indies.
+tendril	TENDRIL	n.	A clasp or clasper of a vine or other climbing or creeping plant; a filiform spiral shoot, that winds round another body. Tendrils or claspers are given to plants that have weak stalks. They are also given to creeping vines, which require support on the earth.
+tendril	TENDRIL	a.	Clasping; climbing; as a tendril
+tenebrious	TENEBRIOUS	a.	Dark; gloomy
+tenebrosity	TENEBROSITY	n.	Darkness; gloom.
+tenebrous	TENEBROUS		TENE'BROUSNESS TEN'EMENT, noun [Low Latin tenementum, from teneo, to hold.]	In common acceptation, a house; a building for a habitation; or an apartment in a building, used by one family.	A house or lands depending on a manor; or a fee farm depending on a superior.	In law, any species of permanent property that may be held, as land, houses, rents, commons, an office, an advowson, a franchise, a right of common, a peerage, etc. These are called free or frank tenements. The thing held is a tenement, and the possessor of it a tenant, and the manner of possession is called tenure.
+tenement	TENEMENT	n.	In common acceptation, a house; a building for a habitation; or an apartment in a building, used by one family.	A house or lands depending on a manor; or a fee farm depending on a superior.	In law, any species of permanent property that may be held, as land, houses, rents, commons, an office, an advowson, a franchise, a right of common, a peerage, &c. These are called free or frank tenements. The thing held is a tenement, and the possessor of it a tenant, and the manner of possession is called tenure.
+tenemental	TENEMENTAL	a.	Pertaining to tenanted lands; that is or may be held by tenants. Tenemental lands they distributed among their tenants.
+tenementary	TENEMENTARY	a.	That is or may be leased; held by tenants.
+tenerity	TENERITY	n.	Tenderness. [Not in use.]
+tenesmus	TENESMUS	n.	A painful, ineffectual and repeated effort, or a continual and urgent desire to go to stool
+tenet	TENET	n.	Any opinion, principle, dogma or doctrine which a person believes or maintains as true; as the tenets of Plato or of Cicero. The tenets of christians are adopted from the Scriptures; but different interpretations give rise to a great diversity of tenets
+tenfold	TENFOLD	a.	Ten times more. Fire kindled into tenfold rage
+tennantite	TENNANTITE	n.	A subspecies of gray copper; a mineral of a lead color, or iron black, massive or crystallized, found in Cornwall, England
+tennis	TENNIS	n.	A play in which a ball is driven continually or kept in motion by rackets.
+tennis	TENNIS	v.t.	To drive a ball.
+tenon	TENON	n.	In building and cabinet work, the end of a piece of timber, which is fitted to a mortise for insertion, or inserted, for fastening two pieces of timber together. The form of a tenon is various, as square, dovetailed, etc
+tenor	TENOR	n.	Continued run or currency; whole course or strain. We understand a speaker's intention or views from the tenor of his conversation, that is, from the general course of his ideas, or general purport of his speech. Does not the whole tenor of the divine law positively require humility and meekness to all men?	Stamp; character. The conversation was of the same tenor as that of the preceding day. This success would look like chance, if it were not perpetual and always of the same tenor	Sense contained; purport; substance; general course or drift; as close attention to the tenor of the discourse. Warrants are to be executed according to their form and tenor Bid me tear the bond. --When it is paid according to the tenor	In music, the natural pitch of a man's voice in singing; hence, the part of a tune adapted to a man's voice, the second of the four parts, reckoning from the base; and originally the air, to which the other parts were auxiliary.	The persons who sing the tenor or the instrument that plays it.
+tense	TENSE	a.	Stretched; strained to stiffness; rigid; not lax; as a tense fiber. For the free passage of the sound into the ear, it is requisite that the tympanum be tense
+tense	TENSE	n.	In grammar, time, or a particular form of a verb, or a combination of words, used to express the time of action, or of that which is affirmed; or tense is an inflection of verbs by which they are made to signify or distinguish the time of actions or events. The primary simple tenses are three; those which express time past, present, and future; but these admit of modifications, which differ in different languages. The English language is rich in tenses, beyond any other language in Europe
+tenseness	TENSENESS	n.	The state of being tense or stretched to stiffness; stiffness; opposed to laxness; as the tenseness of a string or fiber; tenseness of the skin.
+tensible	TENSIBLE	a.	Capable of being extended.
+tensile	TENSILE	a.	Capable of extension.
+tension	TENSION	n.	The act of stretching or straining; as the tension of the muscles.	The state of being stretched or strained to stiffness; or the state of being bent or strained; as, different degrees of tension in chords give different sounds; the greater the tension the more acute the sound.	Distension.
+tensive	TENSIVE	a.	Giving the sensation of tension, stiffness or contraction; as a tensive pain.
+tensor	TENSOR	n.	In anatomy, a muscle that extends or stretches a part.
+tensure	TENSURE		the same as tension, and not used.
+tent	TENT	n.	A pavilion or portable lodge consisting of canvas or other coarse cloth, stretched and sustained by poles; used for sheltering persons from the weather, particularly soldiers in camp. The wandering Arabs and Tartars lodge in tents. The Israelites lodged in tents forty years, while they were in the desert.	In surgery, a roll of lint or linen, used to dilate an opening in the flesh, or to prevent the healing of an opening from which matter or other fluid is discharged.
+tent	TENT	n.	A kind of wine of a deep red color, chiefly from Galicia or Malaga in Spain
+tent	TENT	v.i.	To lodge as in a tent; to tabernacle.
+tent	TENT	v.t.	To probe; to search as with a tent; as, to tent a wound. I'll tent him to the quick.	To keep open with a tent
+tentacle	TENTACLE	n.	A filiform process or organ, simple or branched, on the bodies of various animals of the Linnean class Vermes, and of Cuvier's Mollusca, Annelides, Echinodermata, Actinia, Medusae, Polypi, etc. either an organ of feeling, prehension or motion, sometimes round the mouth, sometimes on other parts of the body
+tentage	TENTAGE	n.	An encampment. [Unusual.]
+tentation	TENTATION	n.	Trial; temptation. [Little used.]
+tentative	TENTATIVE	a.	Trying; essaying.
+tentative	TENTATIVE	n.	An essay; trial.
+tented	TENTED	a.	Covered or furnished with tents; as soldiers.	Covered with tents; as a tented field.
+tenter	TENTER	n.	A hook for stretching cloth on a frame. To be on the tenters, to be on the stretch; to be in distress, uneasiness or suspense
+tenter	TENTER	v.t.	To hang or stretch on tenters.
+tenter	TENTER	v.i.	To admit extension. Woolen cloths will tenter
+tenter-ground	TENTER-GROUND	n.	Ground on which tenters are erected.
+tentered	TENTERED	pp.	Stretched or hung on tenters.
+tenterground	tenter-ground
+tentering	TENTERING	ppr.	Stretching or hanging on tenters.
+tenth	TENTH	a.	The ordinal of ten; the first after the ninth
+tenth	TENTH	n.	Tithe; the tenth part of annual produce or increase. The tenth of income is payable to the clergy in England, as it was to the priests among the Israelites.	In music, the octave of the third; an interval comprehending nine conjoint degrees, or ten sounds, diatonically divided.
+tenthly	TENTHLY	adv.	In the tenth place.
+tentiginous	TENTIGINOUS	a.	Stiff; stretched. [Not in use.]
+tentory	TENTORY	n.	The awning of a tent
+tentwort	TENTWORT	n.	A plant of the genus Asplenium
+tenuifolious	TENUIFOLIOUS	a.	Having thin or narrow leaves
+tenuity	TENUITY	n.	Thinness, smallness in diameter; exility; thinness, applied to a broad substance, and slenderness, applied to one that is long; as the tenuity of paper or of a leaf; the tenuity of a hair or filament.	Rarity; rareness; thinness; as of a fluid; as the tenuity of the air in the higher regions of the atmosphere; the tenuity of the blood.	Poverty. [Not in use.]
+tenuous	TENUOUS	a.	Rare.
+tenure	TENURE	n.	A holding. In English law, the manner of holding lands and tenements of a superior. All the species of ancient tenures may be reduced to four, three of which subsist to this day. 1. tenure by knight service, which was the most honorable. This is now abolished. 2. tenure in free socage, or by a certain and determinate service, which is either free and honorable, or villain and base. 3. tenure by copy of court roll, or copyhold tenure 4. tenure in ancient demain. There was also tenure in frankalmoign, or free alms. The tenure in free and common socage has absorbed most of the others. In the United States, almost all lands are held in fee simple; not of a superior, but the whole right and title to the property being vested in the owner. Tenure in general, then, is the particular manner of holding real estate, as by exclusive title or ownership, by fee simple, by fee tail, by curtesy, in dower, by copyhold, by lease, at will, etc.	The consideration, condition or service which the occupier of land gives to his lord or superior for the use of his land.	Manner of holding in general. In absolute governments, men hold their rights by a precarious tenure
+tepefaction	TEPEFACTION	n.	The act or operation of warming, making tepid or moderately warm
+tepefy	TEPEFY	v.t.	To make moderately warm
+tepefy	TEPEFY	v.i.	To become moderately warm.
+tepid	TEPID	a.	Moderately warm; lukewarm; as a tepid bath; tepid rays; tepid vapors. Tepid mineral waters, are such as have less sensible cold than common water
+tepidness	TEPIDNESS	n.	Moderate warmth; lukewarmness.
+tepor	TEPOR	n.	Gentle heat; moderate warmth
+ter-tenant	TER-TENANT	n.	One who has the actual possession of land; the occupant.
+tera	COLEOPTER		TERA, noun The coleopters, in Linnes system of entomology, are an order of insects, having crustaceous elytra or shells, which shut and form a longitudinal suture along the back, as the beetle.
+teraphim	TERAPHIM	n.	Household deities or images
+teratology	TERATOLOGY	n.	Bombast in language; affectation of sublimity. [Not used.]
+terce	TERCE	n.	A cask whose contents are 42 gallons, the third of a pipe or butt.
+terce-major	TERCE-MAJOR	n.	A sequence of the three best cards.
+tercel	TERCEL	n.	The male of the common falcon. [Falco Peregrinus.]
+tercemajor	terce-major
+terebinth	TEREBINTH	n.	The turpentine tree.
+terebinthinate	TEREBINTHINATE	a.	Terebinthine; impregnated with the qualities of turpentine.
+terebinthine	TEREBINTHINE	a.	Pertaining to turpentine; consisting of turpentine, or partaking of its qualities
+terebrate	TEREBRATE	v.t.	To bore; to perforate with a gimlet. [Little used.]
+terebration	TEREBRATION	n.	The act of boring. [Little used.]
+terebratulite	TEREBRATULITE	n.	Fossil terebratula, a kind of shell.
+teredo	TEREDO	n.	A worm that bores and penetrates the bottom of ships; or rather a genus of worms, so called
+terek	TEREK	n.	A water fowl with long legs.
+teret	TERET		TERE'TE, adjective [Latin teres.] Round and tapering; columnar; as the stem of a plant.
+terete	TERETE	a.	Round and tapering; columnar; as the stem of a plant
+tergeminal	TERGEMINAL		TERGEM'INATE, adjective [Latin tergeminus.] Thrice double; as a tergeminate leaf.
+tergeminate	TERGEMINATE	a.	Thrice double; as a tergeminate leaf
+tergeminous	TERGEMINOUS	a.	Threefold
+tergifetous	TERGIFETOUS	a.	tergifetous plants, are such as bear their seeds on the back of their leaves, as ferns.
+tergiversate	TERGIVERSATE	v.i.	To shift; to practice evasion. [Little used.]
+tergiversation	TERGIVERSATION	n.	A shifting; shift; subterfuge; evasion. Writing is to be preferred before verbal conferences, as being more free from passion and tergiversation	Change; fickleness of conduct. The colonel, after all his tergiversation lost his life in the king's service.
+term	TERM	n.	A limit; a bound or boundary; the extremity of any thing; that which limits its extent. Corruption is a reciprocal to generation, and they two are as nature's two terms or boundaries.	The time for which any thing lasts; any limited time; as the term of five years; the term of life.	In geometry, a point or line that limits. A line is the term of a superficies, and a superficies is the term of a solid.	In law, the limitation of an estate; or rather the whole time or duration of an estate; as a lease for the term of life, for the term of three lives, for the term of twenty one years.	In law, the time in which a court is held or open for the trial of causes. In England, there are four terms in the year; Hilary term from January 23d to February 12th; Easter term from Wednesday, fortnight after Easter, to the Monday next after Ascension day; Trinity term from Friday next after Trinity Sunday to the Wednesday, fortnight after; and Michaelmas term from November 6th to the 28th. These terms are observed by the courts of king's bench, the common pleas and exchequer, but not by the parliament, the chancery or by inferior courts. The rest of the year is called vacation. In the United States, the terms to be observed by the tribunals of justice, are prescribed by the statutes of congress and of the several states.	In universities and colleges, the time during which instruction is regularly given to students, who are obliged by the statutes and laws of the institution to attend to the recitations, lectures and other exercises.	In grammar, a word or expression; that which fixes or determines ideas. In painting, the greatest beauties cannot be always expressed for want of terms.	In the arts, a word or expression that denotes something peculiar to an art; as a technical term	In logic, a syllogism consists of three terms, the major, the minor, and the middle. The predicate of the conclusion is called the major term because it is the most general, and the subject of the conclusion is called the minor term because it is less general. These are called the extremes; and the third term introduced as a common measure between them, is called the mean or middle term Thus in the following syllogism. Every vegetable is combustible; Every tree is vegetable; Therefore every tree is combustible. Combustible is the predicate of the conclusion, or the major term; every tree is the minor term; vegetable is the middle term	In architecture, a kind of statues or columns adorned on the top with the figure of a head, either of a man, woman or satyr. Terms are sometimes used as consoles, and sustain entablatures; and sometimes as statues to adorn gardens.	Among the ancients, terms, termini miliares, were the heads of certain divinities placed on square land-marks of stone, to mark the several stadia on roads. These were dedicated to Mercury, who was supposed to preside over highways.	In algebra, a member of a compound quantity; as a, in a+b; or ab, in ab+cd.	Among physicians, the monthly courses of females are called terms.	In contracts, terms, in the plural, are conditions; propositions stated or promises made, which when assented to or accepted by another, settle the contract and bind the parties. A engages to build a house for B for a specific sum of money, in a given time; these are his terms. When B promises to give to A that sum for building the house, he has agreed to the terms; the contract is completed and binding upon both parties. TERMs of proportion, in mathematics, are such numbers, letters or quantities as are compared one with another. To make terms, to come to an agreement. To come to terms, to agree; to come to an agreement. To bring to terms, to reduce to submission or to conditions.
+term	TERM	v.t.	To name; to call; to denominate. Men term what is beyond the limits of the universe, imaginary space.
+term-fee	TERM-FEE	n.	Among lawyers, a fee or certain sum charged to a suitor for each term his cause is in court.
+termagancy	TERMAGANCY	n.	Turbulence; tumultuousness; as a violent termagancy of temper
+termagant	TERMAGANT	a.	Tumultuous; turbulent; boisterous or furious; quarrelsome; scolding. The eldest was a termagant imperious, prodigal, profligate wench.
+termagant	TERMAGANT	n.	A boisterous, brawling, turbulent woman. It seems in Shakespeare to have been used of men. In ancient farces and puppet-shows, termagant was a vociferous, tumultuous deity. She threw his periwig into the fire. Well, said he, thou are a brave termagant The sprites of fiery termagants in flame--
+termed	TERMED	pp.	Called; denominated.
+termer	TERMER	n.	One who travels to attend a court term.
+termfee	term-fee
+terminable	TERMINABLE	a.	That may be bounded; limitable
+terminal	TERMINAL	a.	In botany, growing at the end of a branch or stem; terminating; as a terminal scape, flower or spike	Forming the extremity; as a terminal edge.
+terminate	TERMINATE	v.t.	To bound; to limit; to set the extreme point or side of a thing; as, to terminate a surface by a line.	To end; to put an end to; as, to terminate a controversy.
+terminate	TERMINATE	v.i.	To be limited; to end; to come to the furthest point in space; as, a line terminates at the equator; the torrid zone terminates at the tropics.	To end; to close; to come to a limit in time. The session of congress, every second year, must terminate on the third of March. The wisdom of this world, its designs and efficacy, terminate on this side heaven.
+terminated	TERMINATED	pp.	Limited; bounded; ended.
+terminating	TERMINATING	ppr.	Limiting; ending; concluding.
+termination	TERMINATION	n.	The act of limiting or setting bounds; the act of ending or concluding.	Bound; limit in space or extent; as the termination of a line.	End in time or existence; as the termination of the year or of life; the termination of happiness.	In grammar, the end or ending of a word; the syllable or letter that ends a word. Words have different terminations to express number, time and sex.	End; conclusion; result.	Last purpose.	Word; term. [Not in use.]
+terminational	TERMINATIONAL	a.	Forming the end or concluding syllable.
+terminative	TERMINATIVE	a.	Directing termination.
+terminatively	TERMINATIVELY	adv.	Absolutely; so as not to respect any thing else.
+terminator	TERMINATOR	n.	In astronomy, a name sometimes given to the circle of illumination, form its property of terminating the boundaries of light and darkness.
+terminer	TERMINER	n.	A determining; as in oyer and terminer
+terming	TERMING	ppr.	Calling; denominating.
+terminist	TERMINIST	n.	In ecclesiastical history, a sect of christians who maintain that God has fixed a certain term for the probation of particular persons, during which time they have the offer of grace, but after which God no longer wills their salvation.
+terminology	TERMINOLOGY	n.	The doctrine of terms; a treatise on terms	In natural history, that branch of the science which explains all the terms used in the description of natural objects.
+terminthus	TERMINTHUS	n.	In surgery, a large painful tumor on the skin, thought to resemble a pine nut
+termless	TERMLESS	a.	Unlimited; boundless; as termless joys.
+termly	TERMLY	a.	Occurring every term; as a termly fee.
+termly	TERMLY	adv.	Term by term; every term; as a fee termly given.
+termor	TERMOR	n.	One who has an estate for a term of years of life.
+tern	TERN	n.	A common name of certain aquatic fowls of the genus Sterna; as the great tern or sea swallow, (S. hirundo, ) the black tern the lesser tern or hooded tern and the foolish tern or noddy, (S. stolida.) The brown tern or brown gull, (S. obscura, ) is considered as the young of the pewit gull or sea-crow, before molting
+tern	TERN	a.	Threefold; consisting of three. TERN leaves, in threes, or three by three; expressing the number of leaves in each whorl or set. TERN peduncles, three growing together from the same axil. TERN flowers, growing three and three together
+ternary	TERNARY	a.	Proceeding by threes; consisting of three. The ternary number, in antiquity, was esteemed a symbol of perfection and held in great veneration
+ternate	TERNATE	a.	In botany, a ternate leaf, is one that has three leaflets on a petiole, as in trefoil, strawberry, bramble, etc. There are leaves also biternate and triternate, having three ternate or three biternate leaflets. These leaves must not be confounded with folia terna, which are leaves that grow three together in a whorl, on a stem or branch. Ternate bat, a species of bat of a large kind, found in the isle ternate and other East India isles. [See Vampyre.] Terra Japonica, catechu, so called. Terra Lemnia, a species of red bolar earth. Terra ponderosa, baryte; heavy spar. Sienna, a brown bole or ocher from Sienna in Italy
+ternion	TERNION	n.	The number three
+terrace	TERRACE	n.	In gardening, a raised bank of earth with sloping sides, laid with turf, and graveled on the top for a walk.	A balcony or open gallery.	The flat roof of a house. All the buildings of the oriental nations are covered with terraces, where people walk or sleep.
+terrace	TERRACE	v.t.	To form in to a terrace	To open to the air and light.
+terraced	TERRACED	pp.	Formed into a terrace; having a terrace.
+terracing	TERRACING	ppr.	Forming into a terrace; opening to the air.
+terrapin	TERRAPIN	n.	A name given to a species of tide-water tortoise.
+terraqueous	TERRAQUEOUS	a.	Consisting of land and water, as the globe or earth. This epithet is given to the earth in regard to the surface, of which more than three fifths consist of water, and the remainder of earth or solid materials
+terrar	TERRAR	n.	A register of lands. [Not in use.]
+terrass	TERRASS		TERRE-BLUE, noun A kind of earth.
+terre-blue	TERRE-BLUE	n.	A kind of earth.
+terre-mote	TERRE-MOTE	n.	An earthquake. [Not in use.]
+terre-plain	TERRE-PLAIN	n.	In fortification, the top, platform or horizontal surface of a rampart, on which the cannon are placed.
+terre-plein	TERRE-PLEIN		TERRE-TEN'ANT TERRE-VERTE, noun A species of green earth, used by painters. It is an indurated clay, found in the earth in large flat masses, imbedded in strata of other species of earth. It is of a fine regular structure, and of a smooth glossy surface. It is found in Cyprus, France and Italy.
+terre-verte	TERRE-VERTE	n.	A species of green earth, used by painters. It is an indurated clay, found in the earth in large flat masses, imbedded in strata of other species of earth. It is of a fine regular structure, and of a smooth glossy surface. It is found in Cyprus, France and Italy.
+terreblue	terre-blue
+terrel	TERREL	n.	Little earth, a magnet of a just spherical figure, and so placed that its poles, equator, etc. correspond exactly to those of the world
+terremote	terre-mote
+terrene	TERRENE	a.	Pertaining to the earth; earthy; as terrene substance.	Earthly; terrestrial. God set before him a mortal and immortal life, a nature celestial and terrene
+terreous	TERREOUS	a.	Earthy; consisting of earth; as terreous substances; terreous particles
+terreplain	terre-plain
+terreplein	terre-plein
+terrestrial	TERRESTRIAL	a.	Pertaining to the earth; existing on the earth; as terrestrial animals; bodies terrestrial 1 Corinthians 15:40.	Consisting of earth; as the terrestrial globe.	Pertaining to the world, or to the present state; sublunary. Death puts and end to all terrestrial scenes.
+terrestrially	TERRESTRIALLY	adv.	After an earthly manner.
+terrestrious	TERRESTRIOUS	a.	Pertaining to the earth; being or living on the earth; terrestrial.
+terreverte	terre-verte
+terrible	TERRIBLE	a.	Frightful; adapted to excite terror; dreadful; formidable. Prudent in peace, and terrible in war. The form of the image was terrible Daniel 2:31.	Adapted to impress dread, terror or solemn awe and reverence. The Lord thy God is among you, a mighty God and terrible Deuteronomy 7:21. Let them praise thy great and terrible name, for it is holy. Psalms 99:3. He hath done for thee these great and terrible things, which thine eyes have seen. Deuteronomy 10:17.	adverb Severely; very; so as to give pain; as terrible cold; a colloquial phrase.
+terribleness	TERRIBLENESS	n.	Dreadfulness; formidableness; the quality or state of being terrible; as the terribleness of a sight.
+terribly	TERRIBLY	adv.	Dreadfully; in a manner to excite terror or fright. When he ariseth to shake terribly the earth. Isaiah 2:19.	Violently; very greatly. The poor man squalled terribly
+terrier	TERRIER	n.	A dog or little hound, that creeps into the ground after animals that burrow.	A lodge or hole where certain animals, as foxes, rabbits, badgers and the like, secure themselves.	Originally, a collection of acknowledgments of the vassals or tenants of a lordship, containing the rents and services they owed to the lord, etc.; at present, a book or roll in which the lands of private persons or corporations are described by their site, boundaries, number of acres, etc.	A wimble, auger or borer. [Latin tero.]
+terrific	TERRIFIC	a.	Dreadful; causing terror; adapted to excite great fear or dread; as a terrific form; terrific sight
+terrified	TERRIFIED	pp.	Frightened; affrighted.
+terrify	TERRIFY	v.t.	To frighten; to alarm or shock with fear. They were terrified and affrighted. Luke 24:37. When ye shall hear of wars and commotions, be not terrified. Luke 21:9. Job 7:14
+terrifying	TERRIFYING	ppr.	Frightening; affrighting.
+terrigenous	TERRIGENOUS	a.	Earthborn; produced by the earth
+territorial	TERRITORIAL	a.	Pertaining to territory or land; as territorial limits; territorial jurisdiction	Limited to a certain district. Rights may be personal or territorial
+territorially	TERRITORIALLY	adv.	In regard to territory; by means of territory.
+territory	TERRITORY	n.	The extent or compass of land within the bounds or belonging to the jurisdiction of any state, city or other body. Linger not in my territories. They erected a house within their own territory Arts and sciences took their rise and flourished only in those small territories where the people were free.	A tract of land belonging to and under the dominion of a prince or state, lying at a distance from the parent country or from the seat of government; as the territories of the East India Company; the territories of the United States; the territory of Michigan; Northwest territory These districts of country, when received into the union and acknowledged to be states, lose the appellation of territory
+terror	TERROR	n.	Extreme fear; violent dread; fright; fear that agitates the body and mind. The sword without, and terror within. Deuteronomy 32:25. The terrors of God do set themselves in array against me. Job 6:4.	That which may excite dread; the cause of extreme fear. Rulers are not a terror to good works, but to the evil. Romans 13:3. Those enormous terrors of the Nile.	In Scripture, the sudden judgments of God are called terrors.Psalms 73:19.	The threatenings of wicked men, or evil apprehended from them. 1 Peter 3:14.	Awful majesty, calculated to impress fear. 2 Corinthians 5:11.	Death is emphatically styled the king of terrors.
+terse	TERSE	a.	Cleanly written; neat; elegant without pompousness; as terse language; a terse style. Diffus'd, yet terse poetical, though plain
+tersely	TERSELY	adv.	Neatly.
+terseness	TERSENESS	n.	Neatness of style; smoothness of language.
+tertenant	ter-tenant
+tertials	TERTIALS	n.	In ornithology, feathers near the junction of the wing with the body.
+tertian	TERTIAN	a.	Occurring every other day; as a tertian fever
+tertian	TERTIAN	n.	A disease or fever whose paroxysms return every other day; an intermittent occurring after intervals of about forty eight hours.	A measure of 84 gallons, the third part of a tun.
+tertiary	TERTIARY	a.	Third; of the third formation. tertiary mountains are such as result from the ruins of other mountains promiscuously heaped together. Tertiary formation, in geology, a series of horizontal strata, more recent than chalk beds, consisting chiefly of sand and clay, and frequently embracing vast quantities of organic remains of the larger animals. It comprehends the alluvial formation, which embraces those deposits only which have resulted from causes still in operation; and the diluvial formation, which is constituted of such deposits as are supposed to have been produced by the deluge.
+tertiate	TERTIATE	v.t.	To do any thing the third time.	To examine the thickness of the metal at the muzzle of a gun; or in general, to examine the thickness to ascertain the strength of ordnance.
+tessaraic	TESSARAIC	a.	Diversified by squares; tesselated
+tesselate	TESSELATE	v.t.	To form into squares or checkers; to lay with checkered work
+tesselated	TESSELATED	pp.	Checkered; formed in little squares or mosaic work; as a tesselated pavement.	In botany, spotted or checkered like a chess board; as a tesselated leaf.
+tesselation	TESSELATION	n.	Mosaic work, or the operation of making it.
+test	TEST	n.	In metallurgy, a large cupel, or a vessel in the nature of a cupel, formed of wood ashes and finely powdered brick dust, in which metals are melted for trial and refinement.	Trial; examination by the cupel; hence, any critical trial and examination. Thy virtue, prince, has stood the test of fortune. Like purest gold--	Means of trial. Each test and every light her muse will bear.	That with which any thing is compared for proof of its genuineness; a standard. --Life, force and beauty must of all impart, At once the source, the end and test of art.	Discriminative characteristic; standard. Our test excludes your tribe from benefit.	Judgment; distinction. Who would excel, when few can make a test Betwixt indifferent writing and the best?	In chimistry, a substance employed to detect any unknown constituent of a compound, by causing it to exhibit some known property. Thus ammonia is a test of copper, because it strikes a blue color with that metal, by which a minute quantity of it can be discovered when in combination with other substances.
+test	TEST	n.	In England, an oath and declaration against transubstantiation, which all officers, civil and military, are obliged to take within six months after their admission. They were formerly obliged also to receive the sacrament, according to the usage of the church of England. These requisitions are made by Stat. 25 Charles II. which is called the test act. The test of 7 Jac.1. was removed in 1753
+test	TEST	v.t.	To compare with a standard; to try; to prove the truth or genuineness of any thing by experiment or by some fixed principle or standard; as, to test the soundness of a principle; to test the validity of an argument. The true way of testing its character, is to suppose it [the system] will be persevered in. Experience is the surest standard by which to test the real tendency of the existing constitution. To test this position-- In order to test the correctness of this system-- This expedient has been already tested.	To attest and date; as a writing tested on such a day.	In metallurgy, to refine gold or silver by means of lead, in a test by the destruction, vitrification or scarification of all extraneous matter.
+test-paper	TEST-PAPER	n.	A paper impregnated with a chimical re-agent, as litmus, etc.
+testable	TESTABLE	a.	That may be devised or given by will
+testaceography	TESTACEOGRAPHY	n.	[See Testaceology.]
+testaceology	TESTACEOLOGY		TESTA'CEOUS, adjective [Latin testaceus, from testa, a shell. The primary sense of testa, testis, testor, etc. is to thrust or drive; hence the sense of hardness, compactness, in testa and testis; and hence the sense of attest, context, detest, testator, testament, all implying a sending, driving, etc.] Pertaining to shells; consisting of a hard shell, or having a hard continuous shell. Testaceous animals are such as have a strong thick entire shell, as oysters and clams; and are thus distinguished from crustaceous animals, whose shells are more thin and soft, and consist of several pieces jointed, as lobsters. Testaceous medicines, are all preparations of shells and like substances, as the powders of crabs' claws, pearl, etc.
+testaceous	TESTACEOUS	a.	Pertaining to shells; consisting of a hard shell, or having a hard continuous shell. Testaceous animals are such as have a strong thick entire shell, as oysters and clams; and are thus distinguished from crustaceous animals, whose shells are more thin and soft, and consist of several pieces jointed, as lobsters. Testaceous medicines, are all preparations of shells and like substances, as the powders of crabs' claws, pearl, &c
+testalogy	TESTALOGY	n.	The science of testaceous vermes, or of those soft and simple animals which have a testaceous covering; a branch of vermeology. [Words thus formed of two languages are rather anomalous, and the first for its length is very objectionable.]
+testament	TESTAMENT	n.	A solemn authentic instrument in writing, by which a person declares his will as to the disposal of his estate and effects after his death. This is otherwise called a will. A testament to be valid, must be made when the testator is of sound mind, and it must be subscribed, witnessed and published in such manner as the law prescribes. A man in certain cases may make a valid will by words only, and such will is called nuncupative.	The name of each general division of the canonical books of the sacred Scriptures; as the Old Testament; the New testament The name is equivalent to covenant, and in our use of it, we apply it to the books which contain the old and new dispensations; that of Moses, and that of Jesus Christ.
+testamentary	TESTAMENTARY	a.	Pertaining to a will or to wills; as testamentary causes in law.	Bequeathed by will; given by testament; as testamentary charities.	Done by testament or will. Testamentary guardian of a minor, is one appointed by the deed or will of a father, until the child becomes of age.
+testamentation	TESTAMENTATION	n.	The act or power of giving by will. [Little used.]
+testate	TESTATE	a.	Having made and left a will; as, a person is said to die testate
+testation	TESTATION	n.	A witnessing or witness
+testator	TESTATOR	n.	A man who makes and leaves a will or testament at death
+testatrix	TESTATRIX	n.	A woman who makes and leaves a will at death.
+tested	TESTED	pp.	Tried or approved by a test.
+tester	TESTER	n.	The top covering of a bed, consisting of some species of cloth, supported by the bedstead.
+testicle	TESTICLE	n.	The testicles are male organs of generation, consisting of glandular substances, whose office is to secrete the fecundating fluid
+testiculate	TESTICULATE	a.	In botany, shaped like a testicle.
+testification	TESTIFICATION	n.	The act of testifying or giving testimony or evidence; as a direct testification of our homage to God
+testificator	TESTIFICATOR	n.	One who gives witness or evidence.
+testified	TESTIFIED	pp.	Given in evidence; witnessed; published; made known
+testifier	TESTIFIER	n.	One who testifies; one who gives testimony or bears witness to prove any thing
+testify	TESTIFY	v.i.	To make a solemn declaration, verbal or written, to establish some fact; to give testimony for the purpose of communicating to others a knowledge of something not known to them. Jesus needed not that any should testify of man, for he knew what was in man. John 2:25.	In judicial proceedings, to make a solemn declaration under oath, for the purpose of establishing or making proof of some act to a court; to give testimony in a cause depending before a tribunal. One witness shall not testify against any person to cause him to die. Numbers 35:30.	To declare a charge against one. O Israel, I will testify against thee. Psalms 1:1.	To protest; to declare against. I testified against them in the day wherein they sold victuals. Nehemiah 13:1.
+testify	TESTIFY	v.t.	To affirm or declare solemnly for the purpose of establishing a fact. We speak that we do know, and testify that we have seen. John 3:11.	In law, to affirm or declare under oath before tribunal, for the purpose of proving some fact.	To bear witness to; to support the truth of by testimony. To testify the gospel of the grace of God. Acts 20:24.	To publish and declare freely. Testifying both to the Jews, and also to the Greeks, repentance towards God and faith towards our Lord Jesus Christ. Acts 20:24.
+testifying	TESTIFYING	ppr.	Affirming solemnly or under oath, for the purpose of establishing a fact; giving testimony; bearing witness; declaring.
+testily	TESTILY	adv.	Fretfully; peevishly; with petulance
+testimonial	TESTIMONIAL	n.	A writing or certificate in favor of one's character or good conduct. Testimonials are required on many occasions. A person must have testimonials of his learning and good conduct, before he can obtain license to preach. Testimonials are to be signed by persons of known respectability of character
+testimony	TESTIMONY	n.	A solemn declaration or affirmation made for the purpose of establishing or proving some fact. Such affirmation in judicial proceedings, may be verbal or written, but must be under oath. testimony differs from evidence; testimony is the declaration of a witness, and evidence is the effect of that declaration on the mind, or the degree of light which it affords	Affirmation; declaration. These doctrines are supported by the uniform testimony of the fathers. The belief of past facts must depend on the evidence of human testimony or the testimony of historians.	Open attestation; profession. Thou for the testimony of truth hast borne Universal reproach.	Witness; evidence; proof of some fact. Shake off the dust under your feet, for a testimony against them. Mark 6:11.	In Scripture, the two tables of the law. Thou shalt put into the ark the testimony which I shall give thee. Exodus 25:16.	The book of the law. He brought forth the king's son--and gave him the testimony 2 Kings 11:12.	The gospel, which testifies of Christ and declares the will of God. 1 Corinthians 2:1. 2 Timothy 1:8.	The ark. Exodus 16:34.	The word of God; the Scriptures. The testimony of the Lord is sure, making wise the simple Psalms 19:7.	The laws or precepts of God. 'I love thy testimonies.' 'I have kept thy testimonies.'	That which is equivalent to a declaration; manifestation. Sacrifices were appointed by God for a testimony of his hatred of sin.	Evidence suggested to the mind; as the testimony of conscience. 2 Corinthians 1:12.	Attestation; confirmation.
+testimony	TESTIMONY	v.t.	To witness. [Not in use.]
+testiness	TESTINESS	n.	Fretfulness; peevishness; petulance. Testiness is a disposition or aptness to be angry
+testing	TESTING	ppr.	Trying for proof; proving by a standard or by experiment. A plan for testing alkalies--
+testing	TESTING	n.	The act of trying for proof.	In metallurgy, the operation of refining large quantities of gold or silver by means of lead, in the vessel called a test. In this process, the extraneous matter is vitrified, scarified or destroyed, and the metal left pure. This operation is performed in the manner of cupellation.
+teston	TESTON	n.	A French coin, of the value of about six pence sterling.
+testoon	TESTOON	n.	A silver coin in Italy and Portugal. In Florence, the testoon is worth two lire or three paoli, about seventeen pence sterling, or thirty two cents. At Lisbon, the testoon as a money of account, is valued at 100 rees, about seven pence sterling, or twelve and a half cents.
+testpaper	test-paper
+testudinal	TESTUDINAL	a.	Pertaining to the tortoise, or resembling it.
+testudinated	TESTUDINATED	a.	Roofed; arched
+testudineous	TESTUDINEOUS	a.	Resembling the shell of a tortoise.
+testudo	TESTUDO	n.	A tortoise. Among the Romans, a cover or screen which a body of troops formed with their shields or targets, by holding them over their heads when standing close to each other. This cover resembled the back of a tortoise, and served to shelter the men from darts, stones, and other missiles. A similar defense was sometimes formed of boards and moved on wheels	In medicine, a broad soft tumor between the skull and the skin, called also talpa or mole, as resembling the subterraneous windings of the tortoise or mole.
+testy	TESTY	a.	Fretful; peevish; petulant; easily irritated. Pyrrbus cured his testy courtiers with a kick. Must I stand and crouch under your testy humor?
+tetanus	TETANUS	n.	A spasmodic contraction of the muscles of voluntary motion, particularly of those which shut the lower jaw; the locked jaw
+tetaug	TETAUG	n.	The name of a fish on the coast of New England; called also black fish.
+tetchiness	TETCHINESS		TETCH'Y See Techiness, Techy. [corrupted from touchy, touchiness.] [Not in use.]
+tetchy	TETCHY		TETCH'Y See Techiness, Techy. [corrupted from touchy, touchiness.] [Not in use.]
+tete	TETE	n.	False hair; a kind of wig or cap of false hair. TETE-a-tete, head to head; cheek by jowl; in private.
+tether	TETHER	n.	[See Tedder.] A rope or chain by which a beast is confined for feeding within certain limits.
+tether	TETHER	v.t.	To confine, as a beast, with a rope or chain for feeding within certain limits. [It would be well to write this word uniformly tedder.]
+tetrachord	TETRACHORD	n.	In ancient music, a diatessaron; a series of four sounds, of which the extremes, or first and last, constituted a fourth. These extremes were immutable; the two middle sounds were changeable
+tetrad	TETRAD	n.	The number four; a collection of four things
+tetradactylous	TETRADACTYLOUS	a.	Having four toes
+tetradiapason	TETRADIAPASON	n.	Quadruple diapason or octave; a musical chord, otherwise called a quadruple eighth or twenty ninth
+tetradrachma	TETRADRACHMA	n.	In ancient coinage, a silver coin worth four drachmas, 3s.sterling, or 66 2/3 cents; the drachma being estimated at 9d. sterling, or 16 2/3 cents
+tetradynamian	TETRADYNAMIAN	n.	In botany, a plant having six stamens, four of which are longer than the others
+tetradynamian	TETRADYNAMIAN	a.	Having six stamens, four or which are uniformly longer than the others.
+tetragon	TETRAGON	n.	In geometry, a figure having four angles; a quadrangle; as a square, a rhombus, etc.	In astrology, an aspect of two planets with regard to the earth, when they are distant from each other ninety degrees, or the fourth of a circle.
+tetragonal	TETRAGONAL	a.	Pertaining to a tetragon; having four angles or sides. Thus a square, a parallelogram, a rhombus, and a trapezium, are tetragonal figures.	In botany, having four prominent longitudinal angles, as a stem.
+tetragonism	TETRAGONISM	n.	The quadrature of the circle.
+tetragyn	TETRAGYN	n.	In botany, a plant having four pistils
+tetragynian	TETRAGYNIAN	a.	Having four pistils.
+tetrahedral	TETRAHEDRAL	a.	Having four equal triangles.	In botany, having four sides, as a pod or silique.
+tetrahedron	TETRAHEDRON	n.	In geometry, a figure comprehended under four equilateral and equal triangles; or one of the five regular Platonic bodies of that figure
+tetrahexahedral	TETRAHEXAHEDRAL	a.	In crystallography, exhibiting four ranges of faces, one above another, each range containing six faces
+tetrameter	TETRAMETER	n.	In ancient poetry, an iambic verse consisting of four feet, found in the comic poets. A verse consisting of four measures or eight feet
+tetrander	TETRANDER	n.	In botany, a plant having four stamens
+tetrandrian	TETRANDRIAN	a.	Having four stamens.
+tetrapetalous	TETRAPETALOUS	a.	In botany, containing four distinct petals or flower leaves; as a tetrapetalous corol
+tetraphyllous	TETRAPHYLLOUS	a.	In botany, having four leaves; consisting of four distinct leaves or leaflets; as a tetraphyllous calyx
+tetraptote	TETRAPTOTE	n.	In grammar, a noun that has four cases only. As Latin astus, etc
+tetrarch	TETRARCH	n.	A Roman governor of the fourth part of a province; a subordinate prince. In time, this word came to denote any petty king or sovereign
+tetrarchate	TETRARCHATE	n.	The fourth part of a province under a Roman tetrarch; or the office or jurisdiction of a tetrarch.
+tetrarchical	TETRARCHICAL	a.	Pertaining to a tetrarchy.
+tetrarchy	TETRARCHY	n.	The same as tetrarchate.
+tetraspermous	TETRASPERMOUS	n.	In botany, containing four seeds. A tetraspermous plant, is one which produces four seeds in each flower, as the rough-leaved or verticillate plants
+tetrastich	TETRASTICH	n.	A stanza, epigram or poem consisting of four verses
+tetrastyle	TETRASTYLE	n.	In ancient architecture, a building with four columns in front
+tetrasyllabic	TETRASYLLABIC		TETRASYLLAB'ICAL, adjective Consisting of four syllables.
+tetrasyllabical	TETRASYLLABICAL	a.	Consisting of four syllables.
+tetrasyllable	TETRASYLLABLE	n.	A word consisting of four syllables
+tetric	TETRIC		TET'RICAL TETRIC'ITY, noun Crabbedness; perverseness. [Not in use.]
+tetricity	TETRICITY	n.	Crabbedness; perverseness. [Not in use.]
+tetricous	TETRICOUS	a.	Froward; perverse; harsh, sour; rugged. [Not in use.]
+tetter	TETTER	n.	In medicine, a common name of several cutaneous diseases, consisting of an eruption of vesicles or pustules, in distinct or confluent clusters, spreading over the body in various directions and hardening into scabs or crusts. It includes the shingles, ring-worm, milky scale (crusta lactea.) scald head, etc.	In farriery, a cutaneous disease of animals, of the ring-worm kind, which spreads on the body in different directions, and occasions a troublesome itching.
+tetter	TETTER	v.t.	To affect with the disease called tetters.
+tettish	TETTISH	a.	Captious; testy. [Not in use.]
+teutonic	TEUTONIC	a.	Pertaining to the Teutons, a people of Germany, or to their language; as a noun, the language of the Teutons, the parent of the German Dutch, and Anglo Saxon or native English. Teutonic order, a military religious order of knights, established toward the close of the twelfth century, in imitation of the Templars and Hospitallers. It was composed chiefly of Teutons or Germans, who marched to the Holy Land in the crusades, and was established in that country for charitable purposes. It increased in numbers and strength till it became master of all Prussia, Livonia and Pomerania.
+tew	TEW	v.t.	To work; to soften. [Not in use.] [See Taw.]	To work; to pull or tease; among seamen.
+tew	TEW	n.	Materials for any thing. [Not in use.]	An iron chain. [Not in use.]
+tewel	TEWEL	n.	An iron pipe in a forge to receive the pipe of a bellows.
+tewtaw	TEWTAW	v.t.	To beat; to break. [Not in use.] [See Tew.]
+text	TEXT	n.	A discourse or composition on which a note or commentary is written. Thus we speak of the text or original of the Scripture, in relation to the comments upon it. Infinite pains have been taken to ascertain and establish the genuine original text	A verse or passage of Scripture which a preacher selects as the subject of a discourse. How oft, when Paul has serv'd us with a text Has Epictetus, Plato, Tully preach'd.	Any particular passage of Scripture, used an authority in argument for proof of a doctrine. In modern sermons, texts of Scripture are not as frequently cited as they were formerly.	In ancient law authors, the four Gospels, by way of eminence.
+text	TEXT	v.t.	To write, as a text [Not much used.]
+text-book	TEXT-BOOK	n.	In universities and colleges, a classic author written with wide spaces between the lines, to give room for the observations or interpretation dictated by the master or regent.	A book containing the leading principles or most important points of a science or branch of learning, arranged in order for the use of students.
+text-hand	TEXT-HAND	n.	A large hand in writing; so called because it was the practice to write the text of a book in a large hand, and the notes in a smaller hand.
+text-man	TEXT-MAN	n.	A man ready in the quotation of texts.
+textbook	text-book
+texthand	text-hand
+textile	TEXTILE	a.	Woven, or capable of being woven
+textile	TEXTILE	n.	That which is or may be woven.
+textman	text-man
+textorial	TEXTORIAL	a.	Pertaining to weaving
+textrine	TEXTRINE	a.	Pertaining to weaving; as the textrine art.
+textual	TEXTUAL	a.	Contained in the text.	Serving for texts.
+textualist	TEXTUALIST		TEXT'UARY, noun One who is well versed in the Scriptures, and can readily quote texts.	One who adheres to the text.
+textuary	TEXTUARY	n.	One who is well versed in the Scriptures, and can readily quote texts.	One who adheres to the text.
+textuary	TEXTUARY	a.	Textual; contained in the text.	Serving as a text; authoritative.
+textuist	TEXTUIST	n.	One ready in the quotation of texts.
+texture	TEXTURE	n.	The act of weaving.	A web; that which is woven. Others, far in the grassy dale, Their humble texture weave.	The disposition or connection of threads, filaments or other slender bodies interwoven; as the texture of cloth or of a spider's web.	The disposition of the several parts of any body in connection with each other; or the manner in which the constituent parts are united; as the texture of earthy substances of fossils; the texture of a plant; the texture of paper, of a hat or skin; a loose texture; or a close compact texture	In anatomy. [See Tissue.]

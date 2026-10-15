@@ -1,0 +1,3 @@
+shy	SHY	a.	Fearful of near approach; keeping at a distance through caution or timidity; shunning approach; as a shy bird. She is represented in a shy retiring posture. Addison.	Reserved; not familiar; coy; avoiding freedom of intercourse. What makes you so shy, my good friend? Arbuthnot.	Cautious; wary; careful to avoid committing one's self or adopting measures. I am very shy of using corrosive liquors in the preparation of medicines. Boyle.	Suspicious; jealous. Princes are by wisdom of state somewhat shy of their successors. Wotton.
+shyly	SHYLY	adv.	In a shy or timid manner; not familiarity; with reserve.
+shyness	SHYNESS	n.	Fear of near approach or of familiarity; reserve; coyness.

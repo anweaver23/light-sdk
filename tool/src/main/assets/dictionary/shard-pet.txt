@@ -1,0 +1,74 @@
+pet	PET	n.	A slight fit of peevishness or fretful discontent. Life given for noble purposes must not be thrown away in a pet nor whined away in love
+pet	PET	n.	A cade lamb; a lamb brought up by hand.	A fondling; any little animal fondled and indulged.
+pet	PET	v.t.	To treat as a pet; to fondle; to indulge.
+petal	PETAL	n.	In botany, a flower leaf. In flowers of one petal the corol and petal are the same. In flowers of several petals, the corol is the whole, and the petals are the parts, or the petal is one of the leaves of which the whole corol is composed
+petal-shaped	PETAL-SHAPED		a Having the shape of a petal.
+petaled	PETALED		PET'ALINE, adjective Pertaining to a petal; attached to a petal; as a petaline nectary.
+petaline	PETALINE	a.	Pertaining to a petal; attached to a petal; as a petaline nectary.
+petalism	PETALISM	n.	A form of sentence among the ancient Syracusans, by which they proscribed a citizen whose wealth or popularity alarmed their jealousy, or who was suspected of aspiring to sovereign power; temporary proscription, or banishment for five years. The mode was to give their votes by writing his name on a leaf. petalism in Syracuse answered to ostracism in Athens
+petalite	PETALITE	n.	A rare mineral occurring in masses, having a foliated structure; its color milk white or shaded with gray, red or green. The new alkali, lithia, was first discovered in this mineral
+petaloid	PETALOID	a.	Having the form of petals
+petalous	PETALOUS	a.	Having petals; as a petaled flower; opposed to apetalous. This word is much used in compounds; as one-petaled; three petaled.
+petalshaped	petal-shaped
+petard	PETARD	n.	An engine of war made of metal, nearly in the shape of a hat, to be loaded with powder and fixed on a madrier or plank, and used to break gates, barricades, draw-bridges and the like, by explosion.
+petechiae	PETECHIAE	n.	Purple spots which appear on the skin in malignant fevers.
+petechial	PETECHIAL	a.	Spotted. A petechial fever is a malignant fever accompanied with purple spots on the skin.
+petency	COMPETENCE		Sufficiency; such a quantity as is sufficient; property or means of subsistence sufficient to furnish the necessaries and conveniences of life, without superfluity. Reasons whole pleasure, all the joys of sense, Lie in three words, health, peace, and competence.	Sufficiency, applied to other things than property; but this application is less common.	Legal capacity or qualifications; fitness; as the competence of a witness, which consists in his having the qualifications required by law, as age, soundness of mind, impartiality, etc.	Right or authority; legal power or capacity to take cognizance of a cause; as the competence of a judge or court to examine and decide.	Fitness; adequacy; suitableness; legal sufficiency; as the competency of evidence.
+peter	PETER		PET'EREL PE'TERPENCE, noun A tax or tribute formerly paid by the English people to the pope; being a penny for every house, payable at Lammas day. It was called also Romescot.
+peterpence	PETERPENCE	n.	A tax or tribute formerly paid by the English people to the pope; being a penny for every house, payable at Lammas day. It was called also Romescot.
+peterwort	PETERWORT	n.	A plant.
+petiolar	PETIOLAR		PET'IOLARY, adjective Pertaining to a petiole, or proceeding from it; as a petiolar tendril.	Formed from a petiole; as a petiolar bud.	Growing on a petiole; as a petiolar gland.
+petiolary	PETIOLARY	a.	Pertaining to a petiole, or proceeding from it; as a petiolar tendril.	Formed from a petiole; as a petiolar bud.	Growing on a petiole; as a petiolar gland.
+petiolate	PETIOLATE		PET'IOLE, noun [Latin petiolus, probably a diminutive from pes, pedis.] In botany, a leaf-stalk; the foot-stalk of a leaf.
+petiole	PETIOLE	n.	In botany, a leaf-stalk; the foot-stalk of a leaf
+petioled	PETIOLED	a.	Growing on a petiole; as a petiolate leaf.
+petit	PETIT	a.	Small; little; mean. This word petit is now generally written petty. PETIT constable, an inferior civil officer subordinate to the high constable. PETIT jury, a jury of twelve freeholders who are empanneled to try causes at the bar of a court; so called in distinction from the grand jury, which tries the truth of indictments. PETIT larceny, the stealing of goods of the value of twelve pence, or under that amount; opposed to grand larceny. serjeanty, in English law, the tenure of lands of the king, by the service of rendering to him annually some implement of war, as a bow, an arrow, a sword, lance, etc. PETIT treason, the crime of killing a person, to whom the offender owes duty or subjection. Thus it is petit treason for a wife to kill her husband, or a servant his lord or master.
+petit-maitre	PETIT-MAITRE	n.	pet'ty-maitre. A spruce fellow that dangles about females; a fop; a coxcomb.
+petition	PETITION	n.	In a general sense, a request, supplication or prayer; but chiefly and appropriately, a solemn or formal supplication; a prayer addressed by a person to the Supreme Being, for something needed or desired, or a branch or particular article of prayer.	A formal request or supplication, verbal or written; particularly, a written supplication from an inferior to a superior, either to a single person clothed with power, or to a legislative or other body, soliciting some favor, grant, right or mercy.	The paper containing a supplication or solicitation. Much of the time of our legislative bodies is consumed in attending to private petitions. The speaker's table is often loaded with petitions. Petitions to the king of Great Britain must contain nothing reflecting on the administration.
+petition	PETITION	v.t.	To make a request to; to ask from; to solicit; particularly, to make supplication to a superior for some favor or right; as, to petition the legislature; to petition a court of chancery. The mother petitioned her goddess to bestow on them the greatest gift that could be given.
+petitionarily	PETITIONARILY	adv.	By way of begging the question.
+petitionary	PETITIONARY	a.	Supplicatory; coming with a petition. Pardon thy petitionary countrymen.	Containing a petition or request; as a petitionary prayer; a petitionary epistle.
+petitioner	PETITIONER	n.	One that presents a petition, either verbal or written.
+petitioning	PETITIONING	ppr.	Asking as a favor, grant, right or mercy; supplicating.
+petitioning	PETITIONING	n.	The act of asking or soliciting; solicitation; supplication. Tumultuous petitioning is made penal by statute.
+petitmaitre	petit-maitre
+petitory	PETITORY	a.	Petitioning; soliciting. [Not used.]
+petong	PETONG	n.	The Chinese name of a species of copper of a white color. It is sometimes confounded with tutenag.
+petre	PETRE		[See Saltpeter.]
+petrean	PETREAN	a.	Pertaining to rock or stone
+petrel	PETREL	n.	An aquatic fowl of the genus Procellaria.
+petrescence	PETRESCENCE	n.	The process of changing into stone.
+petrescent	PETRESCENT	a.	Converting into stone; changing into stony hardness
+petrifaction	PETRIFACTION	n.	[See Petrify.] The process of changing into stone; the conversion of wood or any animal or vegetable substance into stone or a body of stony hardness. When the water in which wood is lodged is slightly impregnated with petrescent particles, the petrifaction very slowly takes place.	That which is converted from animal or vegetable substance into stone. --The calcarious petrifaction called osteocolla. An organized body rendered hard by depositions of stony matter in its cavities.	In popular usage, a body incrusted with stony matter; an incrustation.
+petrifactive	PETRIFACTIVE	a.	Having power to convert vegetable or animal substances into stone.
+petrific	PETRIFIC	a.	Having power to convert into stone. The cold, dry, petrific mace of a false and unfeeling philosophy.
+petrificate	PETRIFICATE	v.t.	To petrify. [Not used.]
+petrification	PETRIFICATION	n.	The process of petrifying.	That which is petrified; a petrifaction. [The latter word is generally used.]	Obduracy; callousness.
+petrified	PETRIFIED	pp.	Fixed in amazement.
+petrify	PETRIFY	v.t.	To convert to stone or stony substance; as an animal or vegetable substance. North of Quito, there is a river that petrifies any sort of wood or leaves.	To make callous or obdurate; as, to petrify the heart. And petrify a genius to a dunce.	To fix; as, to petrify one with astonishment.
+petrify	PETRIFY	v.i.	To become stone, or of a stony hardness, as animal or vegetable substances by means of calcarious or other depositions in their cavities.
+petrifying	PETRIFYING	ppr.	Converting into stone; as petrifying operation.
+petrol	PETROL		PETRO'LEUM, noun [Gr. a stone, and oil; quasi petrolaion.] Rock oil, a liquid inflammable substance or bitumen exuding from the earth and collected on the surface of the water in wells, in various parts of the world, or oozing from cavities in rocks. This is essentially composed of carbon and hydrogen.
+petroleum	PETROLEUM	n.	Rock oil, a liquid inflammable substance or bitumen exuding from the earth and collected on the surface of the water in wells, in various parts of the world, or oozing from cavities in rocks. This is essentially composed of carbon and hydrogen
+petronel	PETRONEL	n.	A horseman's pistol.
+petrosilex	PETROSILEX	n.	Rock stone; rock flint, or compact feldspar
+petrosilicious	PETROSILICIOUS	a.	Consisting of petrosilex; as petrosilicious breccias.
+petrous	PETROUS	a.	Like stone; hard; stony
+petticoat	PETTICOAT	n.	A garment worn by females and covering the lower limbs.
+pettifog	PETTIFOG	v.i.	To do small business; as a lawyer. [Vulgar.]
+pettifogger	PETTIFOGGER	n.	An inferior attorney or lawyer who is employed in small or mean business.
+pettifoggery	PETTIFOGGERY	n.	The practice of a pettifogger; tricks; quibbles.
+pettiness	PETTINESS	n.	Smallness; littleness
+pettish	PETTISH	a.	Fretful; peevish; subject to freaks of ill temper
+pettishly	PETTISHLY	adv.	In a pet; with a freak of ill temper.
+pettishness	PETTISHNESS	a.	Fretfulness; petulance; peevishness.
+pettitoes	PETTITOES	n.	The toes or feet of a pig; sometimes used for the human feet in contempt
+petto	PETTO	n.	The breast; hence, in petto in secrecy; in reserve
+petty	PETTY	a.	Small; little; trifling; inconsiderable; as a petty trespass; a petty crime.	Inferior; as a petty prince. We usually write petty constable, petty jury, petty larceny, petty treason. [See Petit.]
+pettychaps	PETTYCHAPS	n.	A small bird of the genus Motacilla, called also beambird; found in the north of Europe. The beambird is the spotted fly-catcher, of the genus Muscicapa.
+pettycoy	PETTYCOY	n.	An herb.
+petulanceulancy	PETULANCEULANCY	n.	Freakish passion; peevishness; pettishness; sauciness. Peevishness is not precisely synonymous with petulance; the former implying more permanence of a sour, fretful temper; the latter more temporary or capricious irritation. That which looked like pride in some, and petulance in others. The pride and petulance of youth
+petulant	PETULANT	a.	Saucy; pert or forward with fretfulness or sourness of temper; as a petulant youth	Manifesting petulance; proceeding from pettishness; as a petulant demand; a petulant answer.	Wanton; freakish in passion.
+petulantly	PETULANTLY	adv.	With petulance; with saucy pertness.
+petunse	PETUNSE		PETUNTSE PETUNTZE, noun petuns'. Porcelain clay so called, used by the Chinese in the manufacture of porcelain or chinaware. It is a variety of feldspar.
+petuntze	PETUNTZE	n.	Porcelain clay so called, used by the Chinese in the manufacture of porcelain or chinaware. It is a variety of feldspar.

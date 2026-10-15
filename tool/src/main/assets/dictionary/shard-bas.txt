@@ -1,0 +1,118 @@
+basal	BASAL	a.	Pertaining to the base; constituting the base.
+basalt	BASALT	n.	A dark, grayish black mineral or stone, sometimes bluish or brownish black, and when withered, the surface is grayish or reddish brown. It is amorphous, columnar, tabular or globular. The columnar form is straight or curved, perpendicular or inclined, sometimes nearly horizontal; the diameter of the columns from three inches to three feet, sometimes with transverse semi-spherical joints, in which the convex part of one is inserted in the concavity of another. The forms of the columns generally are pentagonal, hexagonal, or octagonal. It is sometimes found also in rounded masses, either spherical, or compressed and lenticular. These rounded masses are sometimes composed of concentric layers, with a nucleus, and sometimes of prisms radiating from a center. It is heavy and hard. The pillars of the Giant's causey in Ireland, composed of this stone and exposed to the roughest sea for ages, have their angles as perfect as those at a distance from the waves. The English miners call it cockle; the German, shorl, or shoerl. It is called by Kirwan, Figurate Trap, from its prismatic forms
+basaltic	BASALTIC	a.	Pertaining to basalt; formed of or containing basalt.
+basaltiform	BASALTIFORM	a.	In the form of basalt; columnar.
+basaltine	BASALTINE	n.	Basaltic Hornblend; a variety of common hornblend, so called from its being often found in Basalt. It is also found in lavas and volcanic scoriae. It is generally in distinct crystals, and its color is a pure black, or slightly tinged with green. It is more foliated than the other varieties, and has been mistaken for mica.	A column of basalt.
+basanite	BASANITE	n.	Lydian stone, or black jasper; a variety of siliceous or flinty slate. Its color is a grayish or bluish black, interspersed with veins of quartz. It is employed to test the purity of gold
+base	BASE	a.	Low in place. obsolete	Mean; vile; worthless; that is, low in value or estimation; used of things.	Of low station; of mean account; without rank, dignity or estimation among men; used of persons. The base shall behave proudly against the honorable. Isaiah 3:5.	Of mean spirit; disingenuous; illiberal; low; without dignity of sentiment; as a base and abject multitude.	Of little comparative value; applied to metals, and perhaps to all metals, except gold and silver.	Deep; grave; applied to sounds; as the base sounds of a viol.	Of illegitimate birth; born out of wedlock.	Not held by honorable tenure. A base estate is an estate held by services not honorable, not in capite, or by villenage. Such a tenure is called base or low, and the tenant, a base tenant. So writers on the laws of England use the terms, a base fee, a base court. Such a tenure is called base or low, and the tenant, a base tenant. So writers on the laws of England use the terms, a base fee, a base court.
+base	BASE	n.	The bottom of any thing, considered as its support or the part of a thing on which it stands or rests; as the base of a column, the pedestal of a statue, the foundation of a house, etc. In architecture, the base of a pillar properly is that part which is between the top of a pedestal and the bottom of the shaft; but when there is no pedestal, it is the part between the bottom of the column and the plinth. Usually it consists of certain spires or circles. The pedestal also has its base	In fortification, the exterior side of the polygon, or that imaginary line which is drawn from the flanked angle of a bastion to the angle opposite to it.	In gunnery, the least sort of ordnance, the diameter of whose bore is l 1/4 inch.	The part of any ornament which hangs down, as housings.	The broad part of any thing, as the bottom of a cone.	In old authors, stockings; armor for the legs.	The place from which racers or tilters start; the bottom of the field; the carcer or starting post.	The lowest or gravest part in music; improperly written bass.	A rustic play, called also bays, or prison bars.	In geometry, the lowest side of the perimeter of a figure. Any side of a triangle may be called its base but this term most properly belongs to the side which is parallel to the horizon. In rectangled triangles, the base properly, is the side opposite to the right angle. The base of a solid figure is that on which it stands. The base of a conic section is a right line in the hyperbola and parabola, arising from the common intersection of the secant plane and the base of the cone.	In chimistry, any body which is dissolved by another body, which it receives and fixes. Thus any alkaline, earthy or metallic substance, combining with an acid, forms a compound or neutral salt, of which it is the base Such salts are called salts with alkaline, earthy or metallic bases.	Thorough base in music, is the part performed with base viols or theorbos, while the voices sing and other instruments perform their parts, or during the intervals when the other parts stop. It is distinguished by figures over the notes. Counter base is a second or double base when there are several in the same concert.
+base	BASE	v.t.	To embase; to reduce the value by the admixture of meaner metals. [Little used.]	To found; to lay the base or foundation. To base and build the commonwealth of man.
+base-born	BASE-BORN	a.	Born out of wedlock	Born of low parentage.	Vile; mean.
+base-court	BASE-COURT	n.	[See Court.] The back yard, opposed to the chief court in front of a house; the farm yard.
+base-minded	BASE-MINDED	a.	Of a low spirit or mind; mean.
+base-mindedness	BASE-MINDEDNESS	n.	Meanness of spirit.
+base-string	BASE-STRING	n.	The lowest note.
+base-viol	BASE-VIOL	n.	[See Viol.] A musical instrument, used for playing the base or gravest part.
+baseborn	base-born
+basecourt	base-court
+based	BASED	pp.	Reduced in value; founded.
+baseless	BASELESS	a.	Without a base; having no foundation, or support. The baseless fabric of a vision. The fame how poor that swells our baseless pride.
+basely	BASELY	adv.	In a base manner; meanly; dishonorable.	Illegitimately; in bastardy.
+basement	BASEMENT	n.	In architecture, the ground floor, on which the order or columns which decorate the principal story, are placed.
+baseminded	base-minded
+basemindedness	base-mindedness
+baseness	BASENESS	n.	Vileness of metal; the quality of being of little comparative value.	Bastardy; illegitimacy of birth.	Deepness of sound.
+basenet	BASENET	n.	A helmet.
+basestring	base-string
+baseviol	base-viol
+bash	BASH	v.i.	To be ashamed; to be confounded with shame
+bashaw	BASHAW	n.	A title of honor in the Turkish dominions; appropriately, the title of the prime vizer, but given to viceroys or governors of provinces, and to generals and other men of distinction. The Turkish bashaws exercise an oppressive authority in their provinces. Hence,	A proud, tyrannical, overbearing man.
+bashful	BASHFUL	a.	[See Bash and Abash.]	Properly, having a downcast look; hence very modest.	Modest to excess; sheepish.	Exciting shame. 50
+bashfully	BASHFULLY	adv.	Very modestly; in a timorous manner.
+bashfulness	BASHFULNESS	n.	Excessive or extreme modesty; a quality of mind often visible in external appearance, as in blushing, a downcast look, confusion. etc.	Vicious or rustic shame.
+bashless	BASHLESS		a Shameless; unblushing.
+basil	BASIL	n.	s as z. The slope or angle of a tool or instrument as of a chisel or plane; usually of 12 degrees, but for hard wood, 18 degrees.
+basil	BASIL	v.t.	To grind or form the edge of a tool to an angle.
+basil	BASIL	n.	A plant of the genus Ocymum, of which there are many species, all natives of warm climates. They are fragrant aromatic plants, and one species, the sweet basil is much used in cookery, especially in France.
+basil	BASIL	n.	The skin of a sheep tanned; written also basan.
+basil-weed	BASIL-WEED	n.	Wild basil, a plant of the genus Clinopodium.
+basilar	BASILAR		BAS'ILARY, adjective s as z. [See Basilic.] Chief; an anatomical term applied to several bones, and to an artery of the brain. Basilian monks, monks of the order of St. Basil, who founded the order in Pontus. The order still exists, but has less power and celebrity than formerly.
+basilary	BASILARY	a.	s as z. [See Basilic.] Chief; an anatomical term applied to several bones, and to an artery of the brain. Basilian monks, monks of the order of St. Basil, who founded the order in Pontus. The order still exists, but has less power and celebrity than formerly.
+basilic	BASILIC	n.	s as z. [Latin basilica; Gr. a king.] Anciently, a public hall or court of judicature, where princes and magistrates sat to administer justice. It was a large hall, with aisles, porticoes, tribunes, and tribunals. The bankers also had a part allotted for their residence. These edifices, at first, were the palaces of princes, afterwards courts of justice, and finally converted into churches. Hence basilic now signifies a church, chapel, cathedral, or royal palace.
+basilic	BASILIC	n.	[See Basil.] The middle vein of the arm, or the interior branch of the axillary vein, so called by way of eminence.
+basilical	BASILICAL	a.	Belonging to the middle vein of the arm.	Noting a particular nut, the walnut, basilica nux.
+basilical	BASILICAL	a.	s as z. In the manner of a public edifice or cathedral.
+basilicon	BASILICON	n.	s as z. [Gr.royal.] An ointment. This name is given to several compositions in ancient medical writers. At present it is confined to three officinal ointments, distinguished into black, yellow and green basilicon 51
+basilisk	BASILISK	n.	s as z. [Latin basiliscus.]	A fabulous serpent, called a cockatrice, and said to be produced from a cock's egg brooded by a serpent. The ancients alledged that its hissing would drive away all other serpents, and that its breath and even its look was fatal. Some writers suppose that a real serpent exists under this name.	In military affairs, a large piece of ordnance, so called from its supposed resemblance to the serpent of that name, or from its size. This cannon carried a ball of 200 pounds weight, but is not now used. Modern writers give this name to cannon of a smaller size, which the Dutch make 15 feet long, and the French 10, carrying a 48 pound ball.
+basilweed	basil-weed
+basin	BASIN	n.	A hollow vessel or dish, to hold water for washing, and for various other uses.	In hydraulics, any reservoir of water.	That which resembles a basin in containing water, as a pond, a dock for ships, a hollow place for liquids, or an inclosed part of water, forming a broad space within a strait or narrow entrance; a little bay.	Among glass grinders, a concave piece of metal by which convex glasses are formed.	Among hatters, a large shell or case, usually of iron, placed over a furnace, in which the hat is molded into due shape.	In anatomy, a round cavity between the anterior ventricles of the brain.	The scale of a balance, when hollow and round.	In Jewish antiquities, the laver of the tabernacle.
+basis	BASIS	n. pl.	The foundation of any thing; that on which a thing stands or lies; the bottom or foot of the thing itself, or that on which it rests. See a full explanation under base.	The ground work or first principle; that which supports.	Foundation; support. The basis of public credit is good faith. The basis of all excellence is truth.	basis in chimistry. See Base. No. 12.
+bask	BASK	v.i.	To lie in warmth; to be exposed to genial heat; to be at ease and thriving under benign influences; as, to bask in the blaze of day; to bask in the sunshine of royal favor. The word includes the idea of some continuance of exposure
+bask	BASK	v.t.	To warm by continued exposure to heat; to warm with genial heat.
+basked	BASKED	pp.	Exposed to warmth, or genial heat.
+basket	BASKET	n.	A domestic vessel made of twigs, rushes, splinters or other flexible things interwoven. The forms and sizes of baskets are very various, as well as the uses to which they are applied; as corn-baskets, clothes-baskets, fruit-baskets, and work-baskets.	The contents of a basket; as much as a basket will contain; as, a basket of medlars is two bushels. But in general, this quantity is indefinite. In military affairs, baskets of earth sometimes are used on the parapet of a trench, between which the soldiers fire. They serve for defense against small shot.
+basket	BASKET	v.t.	To put in a basket
+basket-fish	BASKET-FISH	n.	A species of sea-star, or star-fish, of the genus Asterias, and otherwise called the Magellanic star-fish. It has five rays issuing from an angular body, and dividing into innumerable branches. These when extended form a circle of three feet diameter. [See Asterias.]
+basket-hilt	BASKET-HILT	n.	[See Hilt.] A hilt which covers the hand, and defends it from injury, as of a sword.
+basket-hilted	BASKET-HILTED	a.	Having a hilt of basket-work.
+basket-salt	BASKET-SALT	n.	Salt made from salt-springs, which is purer, whiter and finer, than common brine salt.
+basket-woman	BASKET-WOMAN	n.	A woman who carries a basket, to and from market.
+basketfish	basket-fish
+baskethilt	basket-hilt
+baskethilted	basket-hilted
+basketsalt	basket-salt
+basketwoman	basket-woman
+basking	BASKING	ppr.	Exposing or lying exposed to the continued action of heat or genial warmth.
+basking-shark	BASKING-SHARK	n.	The sun-fish of the Irish; a species of squalus or shark. This fish is from three to twelve yards in length, or even longer. The upper jaw is much longer than the lower one; the tail is large and the upper part much longer than the lower; the skin is rough, of a deep leaden color on the back, and white on the belly. The fish weighs more than a thousand pounds, and affords a great quantity of oil, which is used for lamps, and to cure bruises, burns, and rheumatic complaints. It is viviparous, and frequents the northern seas. [See Squalus.]
+baskingshark	basking-shark
+basquish	BASQUISH	a.	Pertaining to the people or language of Biscay.
+bass	BASS	n.	The name of several species of fish. In England, this name is given to a species of perch, called by some the sea-wolf, from its voracity, and resembling, in a degree, the trout in shape, but having a larger head. It weighs about fifteen pounds. In the northern states of America, this name is given to a striped fish which grows to the weight of 25 or 30 pounds, and which enters the rivers; the perca ocellata. A species of striped fish, of a darker color, with a large head, is called sea-bass, as it is never found in fresh water. This fish grows to two or three pounds weight. Both species are well tasted, but the proper bass is a very white and delicious food
+bass	BASS	n.	The linden, lime or tiel tree; called also bass-wood. [See Bast.]	[pron.bas.] A mat to kneel on in churches.
+bass	BASS	n.	In music, the base; the deepest or gravest part of a tune. This word is thus written in imitation of the Italian basso, which is the Eng. base, low; yet with the pronunciation of base and plural bases, a gross error that ought to be corrected; as the word used in pronunciation is the English word base.
+bass	BASS	v.t.	To sound in a deep tone.
+bass-relief	BASS-RELIEF	n.	In English, base-relief. [See Lift and Relief.] Sculpture, whose figures do not stand out far from the ground or plane on which they are formed. When figures do not protuberate so as to exhibit the entire body, they are said to be done in relief; and when they are low, flat or little raised from the plane, the work is said to be in low relief. When the figures are so raised as to be well distinguished, they are said to be bold, strong, or high, alto relievo. [See Relief.]
+bass-viol	BASS-VIOL	n.	[See Base-viol]
+bassa	BASSA		[See Bashaw.]
+basset	BASSET	n.	A game at cards, said to have been invented at Venice, by a nobleman, who was banished for the invention. The game being introduced into France by the Venetian embassador, Justiniani, in 1674, it was prohibited by severe edicts.
+basset	BASSET	v.i.	[See Basil.] Among coal diggers, to incline upwards. Thus a vein of coal bassets, when it takes a direction towards the surface of the earth. This is called cropping, and is opposed to dipping.
+basseting	BASSETING	ppr.	Having a direction upwards.
+basseting	BASSETING	n.	The upward direction of a vein in a coal mine.
+basso-concertante	BASSO-CONCERTANTE		in music, is the base of the little chorus, or that which plays throughout the whole piece.
+basso-continuo	BASSO-CONTINUO		thorough base, which see under base.
+basso-relievo	BASSO-RELIEVO		[See Bass-relief.]
+basso-repieno	BASSO-REPIENO		is the base of the grand chorus, which plays only occasionally, or in particular parts. 54
+basso-violino	BASSO-VIOLINO		is the base of the base-viol.
+bassock	BASSOCK	n.	The same as bass, a mat.
+bassoconcertante	basso-concertante
+bassocontinuo	basso-continuo
+bassoon	BASSOON	n.	A musical wind instrument, blown with a reed, and furnished with eleven holes, which are stopped, as in other large flutes. Its compass comprehends three octaves. Its diameter at bottom is nine inches, and for convenience of carriage it is divided into two parts; whence it is called also a fagot. It serves for the base in a concert of hautboys, flutes, etc.
+bassoonist	BASSOONIST	n.	A performer on the bassoon.
+bassorelievo	basso-relievo
+bassorepieno	basso-repieno
+bassoviolino	basso-violino
+bassrelief	bass-relief
+bassviol	bass-viol
+bast	BAST	n.	A rope or cord, made of the bark of the lime tree, bass-wood or linden; or the bark made into ropes and mats.
+bastard	BASTARD	n.	A natural child; a child begotten and born out of wedlock; an illegitimate or spurious child. By the civil and canon laws, a bastard becomes a legitimate child, by the intermarriage of the parents, at any future time. But by the laws of this country, as by those of England, a child, to be legitimate, must at least be born after the lawful marriage. Bastard eigne', or bastard elder, in law, is when a man has a bastard son, and afterward marries the mother, and has a legitimate son, called mulier puisne, or younger.
+bastard	BASTARD	n.	A kind of sweet wine. [Not in use.]
+bastard	BASTARD	a.	Begotten and born out of lawful matrimony; illegitimate.	Spurious;; not genuine; false; supposititious; adulterate. In this sense, it is applied to things which resemble those which are genuine, but are really not genuine; as a bastard hope, bastard honors. In military affairs, bastard is applied to pieces of artillery which are of an unusual make or proportion, whether longer or shorter, as the double culverin extraordinary, half or quarter culverin extraordinary. Bastard-Flower-fence, a plant, a species of Adenanthera. Bastard-hemp, a plant, a species of Datisca, false hemp. Bastard-Rocket, dyers-weed, or wild woad, a species of Reseda. Bastard-Star of Bethlehem, a plant, a species of Albuca. Bastard-Scarlet, a red color dyed with balemadder.
+bastard	BASTARD	v.t.	To make or determine to be a bastard
+bastardism	BASTARDISM	n.	The state of a bastard.
+bastardize	BASTARDIZE	v.t.	To make or prove to be a bastard; to convict of being a bastard; to declare legally, or decide a person to be illegitimate. The law is so indulgent as not to bastardize the child, if born, though not begotten, in lawful wedlock.	To beget a bastard.
+bastardly	BASTARDLY	adv.	In the manner of a bastard; spuriously.
+bastards	BASTARDS		an appellation given to a faction or troop of bandits, who ravaged Guienne in France in the 14th century; supposed to have been headed by the illegitimate sons of noblemen, who were excluded from the rights of inheritance.
+bastardy	BASTARDY	n.	A state of being a bastard, or begotten and born out of lawful wedlock, which condition disables the person from inheriting an estate.
+bastarnic	BASTARNIC	a.	Pertaining to the Basternae, ancient inhabitants of the Carpathian mountains. Bastarnic Alps, the Carpathian mountains, between Poland, Hungary and Transvlvania; so called from the ancient inhabitants, the Bastarnoe.
+bastas	BASTAS	n.	An India cloth or plain muslin. That of Surat is said to be the best.
+baste	BASTE	v.t.	To beat with a stick.	To drip butter or fat upon meat, as it turns upon the spit, in roasting; to moisten with fat or other liquid.
+baste	BASTE	v.t.	To sew with long stitches; to sew slightly.
+basted	BASTED	pp.	Beat with a stick; moistened with fat or other matter in roasting; sewed together with long stitches, or slightly.
+bastile	BASTILE	n.	An old castle in Paris, built between 1369 and 1383, used as a state prison, and converted to the purpose of confining men for life, who happened to incur the resentment or jealousy of the French monarchs. It was demolished by the enraged populace in 1789.
+bastinade	BASTINADE		BASTINA'DO, noun [See Baste.] A sound beating with a stick or cudgel; the blows given with a stick or staff. This name is given to a punishment in use among the Turks, of beating an offender on the soles of his feet.
+bastinade	BASTINADE		BASTINA'DO, verb transitive To beat with a stick or cudgel.
+bastinado	BASTINADO	n.	[See Baste.] A sound beating with a stick or cudgel; the blows given with a stick or staff. This name is given to a punishment in use among the Turks, of beating an offender on the soles of his feet.
+basting	BASTING	ppr.	Beating with a stick; moistening with dripping; sewing together with long stitches.
+basting	BASTING	n.	A beating with a stick; a moistening with dripping; a sewing together slightly with long stitches.
+bastion	BASTION	n.	A huge mass of earth, usually faced with sods, sometimes with brick, or stones, standing out from a rampart, of which it is a principal part; formerly called a bulwark. Bastions are solid or hollow. A flat bastion is made in the middle of the curtain, when it is too long to be defended by the bastions in its extremes. A cut bastion has its point cut off and instead of it a re-entering angle, or an angle inwards, with two points outward. A composed bastion has two sides of the interior polygon unequal, which makes the gorges unequal. A demibastion is composed of one face only, which makes the gorges unequal. A demibastion is composed of one face only, with one flank and a demigorge. A double bastion is one raised on the plane of another.
+basto	BASTO	n.	The ace of clubs at quadrille.
+baston	BASTON	n.	In architecture, a round molding in the base of a column; called also a tore, [torus.]

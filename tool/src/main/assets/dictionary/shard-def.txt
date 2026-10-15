@@ -1,0 +1,160 @@
+deface	DEFACE	v.t.	To destroy or mar the face or surface of a thing; to injure the superficies or beauty; to disfigure; as, to deface a monument; to deface an ediface.	To injure any thing; to destroy, spoil or mar; to erase or obliterate; as, to deface letters or writing; to deface a note, deed or bond; to deface a record.	To injure the appearance; to disfigure.
+defacer	DEFACER	n.	He or that which defaces; one who injures, mars or disfigures.
+defacing	DEFACING	ppr.	Injuring the face or surface; marring; disfiguring; erasing. De facto. [Latin] actually; in fact; existing; as a king de facto, distinguished from a king de jure, or by right.
+defailance	DEFAILANCE	n.	Failure; miscarriage.
+defalcate	DEFALCATE	v.t.	To cut off; to take away or deduct a part; used chiefly of money, accounts, rents, income, etc.
+defalcation	DEFALCATION		The act of cutting off, or deducting a part; deduction; diminution; abatement; as, let him have the amount of his rent without defalcation	That which is cut off; as, this loss is a defalcation from the revenue.
+defalk	DEFALK	v.t.	To defalcate.
+defamation	DEFAMATION	n.	The uttering of slanderous words with a view to injure anothers reputation; the malicious uttering of falsehood respecting another which tends to destroy or impair his good name, character or occupation; slander; calumny. To constitute defamation in law, the words must be false and spoken maliciously. Defamatory words written and published are called a libel.
+defamatory	DEFAMATORY	a.	Calumnious; slanderous; containing defamation; false and injurious to reputation; as defamatory words; defamatory reports or writings.
+defame	DEFAME		To slander; falsely and maliciously to utter words respecting another which tend to injure his reputation or occupation; as to say, a judge is corrupt; a man is perjured; a trader is a knave.	To speak evil of; to dishonor by false reports; to calumniate; to libel; to impair reputation by acts or words. Being defamed, we entreat. 1 Cor. Iv.
+defamed	DEFAMED	pp.	Slandered; dishonored or injured by evil reports.
+defamer	DEFAMER	n.	A slanderer; a detractor; a calumniator.
+defaming	DEFAMING	ppr.	Slandering; injuring the character by false reports.
+defaming	DEFAMING	n.	Defamation; slander.
+defaticate	DEFATICATE	v.t.	To weary or tire
+defatigable	DEFATIGABLE	a.	Liable to be wearied.
+defatigation	DEFATIGATION	n.	Weariness.
+default	DEFAULT	n.	A failing, or failure; an omission of that which ought to be done; neglect to do what duty or law requires; as, this evil has happened through the governors default A default or fault, may be a crime, a vice, or a mere defect, according to the nature of the duty omitted.	Defect; want; failure. Cooks could make artificial birds, in default of real ones.	In law, a failure of appearance in court at a day assigned, particularly of the defendant in a suit when called to make answer. It may be applied to jurors, witnesses, etc.; but a plaintiffs failing to appear by himself or attorney, is usually called a non-appearance. To suffer default is to permit an action to be called without appearing or answering; applied to a defendant.
+default	DEFAULT	v.i.	To fail in performing a contract or agreement.
+default	DEFAULT	v.t.	In law, to call out a defendant, (according to common expression.) To call a defendant officially, to appear and answer in court, and on his failing to answer, to declare him in default and enter judgement against him; as, let the defendant be defaulted. No costs are to be awarded for such town, if defaulted.	To call out a cause, in which the defendant does not appear, and enter judgment on the default; as, the cause was defaulted.	To fail in performance.
+default	DEFAULT	v.t.	To offend.
+defaulted	DEFAULTED	pp.	Called out of court, as a defendant or his cause.	adjective Having defect.
+defaulter	DEFAULTER	n.	One who makes default; one who fails to appear in court when called.	One who fails to perform a public duty; particularly, one who fails to account for public money entrusted to his care; a delinquent.
+defaulting	DEFAULTING	ppr.	Failing to fulfil a contract; delinquent.	Failing to perform a duty or legal requirement; as a defaulting creditor.	Calling out of court, and entering judgment against for non-appearance, as a defendant.
+defeasance	DEFEASANCE		noun S as z.	Literally, a defeating; a rendering null; the preventing of the operation of an instrument.	In law, a condition, relating to a deed, which being performed, the deed is defeated or rendered void; or a collateral deed, made at the same time with a feoffment or other conveyance, containing conditions, on the performance of which the estate then created may be defeated. A defeasance on a bond, or a recognizance, or a judgment recovered, is a condition which, when performed, defeats it. A defeasance differs from the common condition of a bond, in being a separate deed, whereas a common condition is inserted in the bond itself.	The writing containing a defeasance	Defeat.
+defeasible	DEFEASIBLE	a.	S as z. That may be defeated, or annulled; as a defeasible title; a defeasible estate.
+defeasibleness	DEFEASIBLENESS	n.	The quality of being defeasible.
+defeat	DEFEAT	n.	Overthrow; loss of battle; the check, rout, or destruction of an army by the victory of an enemy.	Successful resistance; as the defeat of an attack.	Frustration; a rendering null and void; as the defeat of a title.	Frustration; prevention of success; as the defeat of a plan or design.
+defeat	DEFEAT	v.t.	To overcome or vanquish, as an army; to check, disperse or ruin by victory; to overthrow; applies to an army, or a division of troops; to a fleet, or to a commander. The English army defeated the French on the plains of Abraham. Gen. Wolf defeated Montcalm. The French defeated the Austrians at Marengo.	To frustrate; to prevent the success of; to disappoint. Then mayest thou for me defeat the counsel of Ahithophel. 2 Sam. Xv. And xvii. We say, our dearest hopes are often defeated.	To render null and void; as, to defeat a title or an estate.	To resist with success; as, to defeat an attempt or assault.
+defeating	DEFEATING	ppr.	Vanquishing; subduing; opposing successfully; overthrowing; frustrating; disappointing; rendering null and void.
+defeature	DEFEATURE	n.	Change of feature.	Overthrow; defeat.
+defecate	DEFECATE	v.t.	To purify; to refine; to clear from dregs or impurities; to clarify; as, to defecate liquor.	To purify from admixture; to clear; to purge of extraneous matter.
+defecated	DEFECATED	pp.	Purtified; clarified; refined.
+defecating	DEFECATING	ppr.	Purifying; purging of lees or impurities.
+defecation	DEFECATION	n.	The act of separating from lees or dregs; purification from impurities or foreign matter.
+defect	DEFECT	n.	Want or absence of something necessary or useful towards perfection; fault; imperfection. Errors have been corrected, and defects supplied. We say, there are numerous defects in the plan, or in the work, or in the execution.	Failing; fault; mistake; imperfection in moral conduct, or in judgment. A deep conviction of the defects of our lives tends to make us humble. Trust not yourself; but, your defects to know, Make use of every friend and every foe.	Any want, or imperfection, in natural objects; the absence of any thing necessary to perfection; any thing unnatural or misplaced; blemish; deformity. We speak of a defect in the organs of seeing or hearing, or in a limb; a defect in timber; a defect in an instrument, etc.
+defect	DEFECT	v.i.	To be deficient.
+defectibility	DEFECTIBILITY	n.	Deficiency; imperfection.
+defectible	DEFECTIBLE	a.	Imperfect; deficient; wanting.
+defection	DEFECTION	n.	Want or failure of duty; particularly, a falling away; apostasy; the act of abandoning a person or cause to which one is bound by allegiance or duty, or to which one has attached himself. Our defection from God is proof of our depravity. The cause of the king was rendered desperate by the defection of the nobles.	Revolt; used of nations or states.
+defective	DEFECTIVE	a.	Wanting either in substance, quantity or quality, or in any thing necessary; imperfect; as a defective limb; defective timber; a defective copy or book; a defective account. defective articulation, in speaking, renders utterance indistinct.	Wanting in moral qualities; faulty; blamable; not conforming to rectitude or rule; as a defective character.	In grammar, a defective noun is one which wants a whole number or a particular case; an indeclinable noun.	A defective verb, is one which wants some of the tenses.
+defectively	DEFECTIVELY	adv.	In a defective manner; imperfectly.
+defectiveness	DEFECTIVENESS	n.	Want; the state of being imperfect; faultiness.
+defectuosity	DEFECTUOSITY	n.	Defectiveness; faultiness.
+defectuous	DEFECTUOUS	a.	Full of defects.
+defedation	DEFEDATION	n.	Pollution.
+defend	DEFEND	v.t.	To drive from; to thrust back; hence, to deny; to repel a demand, charge, or accusation; to oppose; to resist; the effect of which is to maintain ones own claims.	To forbid; to prohibit; that is, to drive from, or back. Milton calls the forbidden fruit, the defended fruit. The use of wine in some places is defended by customs or laws.	To drive back a foe or danger; to repel from any thing that which assails or annoys; to protect by opposition or resistance; to support or maintain; to prevent from being injured, or destroyed. There arose, to defend Israel, Tola the son of Puah. Judges 10:1.	To vindicate; to assert; to uphold; to maintain uninjured, by force or by argument; as, to defend our cause; to defend rights and privileges; to defend reputation.	To secure against attacks or evil; to fortify against danger or violence; to set obstacles to the approach of any thing that can annoy. A garden may be defended by a wall, a hill or a river.
+defend	DEFEND	v.i.	To make opposition; as, the party comes into court, defends and says.
+defendable	DEFENDABLE	a.	That may be defended.
+defendant	DEFENDANT	a.	Defensive; proper for defense.	Making defense; being in the character of a defendant
+defendant	DEFENDANT	n.	He that defends against an assailant, or against the approach of evil or danger.	In law, the party that opposes a complaint, demand or charge; he that is summoned into court, and defends, denies or opposes the demand or charge, and maintains his own right. It is applied to any party of whom a demand is made in court, whether the party denies and defends, or admits the claim and suffers a default.
+defended	DEFENDED	pp.	Opposed; denied; prohibited; maintained by resistance; vindicated; preserved uninjured; secured.
+defender	DEFENDER	n.	One who defends by oppostition; one who maintains, supports, protects or vindicates; an assertor; a vindicator, either by arms or by arguments; a champion or an advocate.
+defending	DEFENDING	ppr.	Denying; opposing; resisiting; forbidding; maintaining uninjured by force or by reason; securing from evil.
+defensative	DEFENSATIVE	n.	Guard; defense; a bandage, plaster, or the like, to secure a wound from external injury.
+defense	DEFENSE	n.	Any thing that opposes attack, violence, danger or injury; any thing that secures the person, the rights or the possessions of men; fortification; guard; protection; security. A wall, a parapet, a ditch, or a garrison, is the defense of a city or fortress. The Almighty is the defense of the righteous. Psalms 59:16.	Vindication; justification; apology; that which repels or disproves a charge or accusation. Men, brethren, fathers, hear ye my defense Acts 22:1.	In law, the defendants reply to the plaintiffs declaration, demands or charges.	Prohibition.	Resistance; opposition.	The science of defending against enemies; military skill.	In fortification, a work that flanks another.
+defense	DEFENSE	v.t.	To defend by fortification.
+defensed	DEFENSED	pp.	Fortified.
+defenseless	DEFENSELESS	a.	Being without defense, or without means of repelling assault or injury; applied to a town, it denotes unfortified or ungarrisoned; open to an enemy; applied to a person, it denotes naked; unarmed; unprotected; unprepared to resist attack; weak; unable to oppose; uncovered; unsheltered.
+defenselessness	DEFENSELESSNESS	n.	The state of being unguarded or unprotected.
+defensible	DEFENSIBLE	a.	That may be defended; as a defensible city.	That may be vindicated, maintained or justified; as a defensible cause.
+defensive	DEFENSIVE	a.	That serves to defend; proper for defense; as defensive armor, which repels attacks or blows, opposed to offensive arms, which are used in attack.	Carried on in resisting attack or aggression; as defensive war, in distinction from offensive war, which is aggressive.	In a state or posture to defend.
+defensive	DEFENSIVE	n.	Safeguard; that which defends. Wars preventive, upon just fears, are true defensives. To be on the defensive or to stand on the defensive is to be or stand in a state or posture of defense or resistance, in opposition to aggrression or attack.
+defensively	DEFENSIVELY	adv.	In a defensive manner; on the defensive; in defense.
+defer	DEFER	v.t.	To delay; to put off; to postpone to a future time; as, to defer the execution of a design. When thou vowest a vow, defer not to pay it. Ecclesiastes 5:4. Hope deferred maketh the heart sick. Proverbs 13:1.	To refer; to leave to anothers judgment and determination. [In this sense, refer is now used.]
+deference	DEFERENCE	n.	A yielding in opinion; submission of judgment to the opinion or judgment of another. Hence, regard; respect. We often decline acting in opposition to those for whose wisdom we have a great deference	Complaisance; condescension.	Submission.
+deferent	DEFERENT	a.	Bearing; carrying; conveying.
+deferent	DEFERENT	n.	That which carries or conveys. The deferent of a planet, is an imaginary circle or orb in the Ptolemaic system, that is supposed to carry about the body of the planet.	A vessel in the human body for the conveyance of fluids.
+deferential	DEFERENTIAL		adjective Expressing deference.
+deferment	DEFERMENT	n.	Delay.
+deferrer	DEFERRER	n.	One who delays or puts off.
+deferring	DEFERRING	ppr.	Delaying; postponing.
+defiance	DEFIANCE	n.	A daring; a challenge to fight; invitation to combat; a call to an adversary to encounter, if he dare. Goliath bid defiance to the army of Israel.	A challenge to meet in any contest; a call upon one to make good any assertion or charge; an invitation to maintain any cause or point.	Contempt of opposition or danger; a daring or resistance that implies the contempt of an adversary, or of any opposing power. Men often transgress the law and act in defiance of authority.
+defiatory	DEFIATORY	a.	Bidding or bearing defiance.
+deficience	DEFICIENCY	n.	A failing; a falling short; imperfection; as a deficiency in moral duties.	Want; defect; something less than is necessary; as a deficiency of means; a deficiency of revenue; a deficiency of blood.
+deficiency	DEFICIENCY	n.	A failing; a falling short; imperfection; as a deficiency in moral duties.	Want; defect; something less than is necessary; as a deficiency of means; a deficiency of revenue; a deficiency of blood.
+deficient	DEFICIENT	a.	Wanting; defective; imperfect; not sufficient or adequate; as deficient estate; deficient strength.	Wanting; not having a full or adequate supply; as, the country may be deficient in the means of carrying on war. DEFICIENT numbers, in arithmetic, are those numbers, whose parts, added together, make less than the integer, whose parts they are.
+deficit	DEFICIT	n.	Want; deficiency; as a deficit in the taxes or revenue.
+defier	DEFIER	n.	A challenger; one who dares to combat or encounter; one who braves; one who acts in contempt of opposition, law or authority; as a defier of the laws.
+defiguration	DEFIGURATION	n.	A disfiguring.
+defigure	DEFIGURE	v.t.	To delineate.
+defile	DEFILE	v.t.	To make unclean; to render foul or dirty; in a general sense.	To make impure; to render turbid; as, the water or liquor is defiled.	To soil or sully; to tarnish; as reputation, etc. He is among the greatest prelates of the age, however his character may be defiled by dirty hands. They shall defile thy brightness. Ezekiel 28:7.	To pollute; to make ceremonially unclean. That which dieth of itself, he shall not eat, to defile himself therewith. Leviticus 22:8.	To corrupt chastity; to debauch; to violate; to tarnish the purity of character by lewdness. Schechem defiled Dinah. Genesis 34:2.	To taint, in a moral sense; to corrupt; to vitiate; to render impure with sin. DEFILE not yourselves with the idols of Egypt. Ezekiel 20:7. He hath defiled the sanctuary of the Lord. Numbers 19:20.
+defile	DEFILE	v.i.	To march off in a line, or file by file; to file off
+defile	DEFILE	n.	A narrow passage or way, in which troops may march only in a file, or with a narrow front; a long narrow pass, as between hills, etc.
+defiled	DEFILED	pp.	Made dirty, or foul; polluted; soiled; corrupted; violated; vitiated.
+defilement	DEFILEMENT	n.	The act of defiling, or state of being defiled; foulness; dirtiness; uncleanness.	Corruption of morals, principles or character; impurity; pollution by sin. The chaste cannot rake into such filth without danger of defilement
+defiler	DEFILER	n.	One who defiles; one who corrupts or violates; that which pollutes.
+defiling	DEFILING	ppr.	Polluting; making impure.	Marching in a file, or with a narrow front.
+definable	DEFINABLE	a.	Literally, that may be limited, or have its limits ascertained. Hence, capable of having its extent ascertained with precision; capable of being fixed and determined. The extent of the Russian empire is hardly definable The limits are hardly definable	That may be defined or described; capable of having its signification rendered certain, or expressed with certainty or precision; as definable words.	That may be fixed, determined or ascertained; as, the time or period is not definable
+define	DEFINE	v.t.	To determine or describe the end or limit; as, to define the extent of a kingdom or country.	To determine with precision; to ascertain; as, to define the limits of a kingdom.	To mark the limit; to circumscribe; to bound.	To determine or ascertain the extent of the meaning of a word; to ascertain the signification of a term; to explain what a word is understood to express; as, to define the words, virtue, courage, belief, or charity.	To describe; to ascertain or explain the distinctive properties or circumstances of a thing; as, to define a line or an angle.
+define	DEFINE	v.i.	To determine; to decide.
+defined	DEFINED	pp.	Determined; having the extent ascertained; having the signification determined.	Having the precise limit marked, or having a determinate limit; as, the shadow of a body is well defined
+definer	DEFINER	n.	He who defines; he who ascertains or marks the limits; he who determines or explains the signification of a word, or describes the distinctive properties of a thing.
+defining	DEFINING	ppr.	Determining the limits; ascertaining the extent; explaining the meaning; describing the properties.
+definite	DEFINITE	a.	Having certain limits; bounded with precision; determinate; as a definite extent of land; definite dimensions; definite measure.	Having certain limits in signification; determinate; certain; precise; as a definite word, term or expression.	Fixed; determinate; exact; precise; as a definite time or period.	Defining; limiting; determining the extent; as a definite word.
+definite	DEFINITE	n.	Thing defined.
+definiteness	DEFINITENESS	n.	Certainty of extent; certainty of signification; determinateness.
+definition	DEFINITION	n.	A brief description of a thing by its properties; as a definition of wit or of a circle.	In logic, the explication of the essence of a thing by its kind and difference.	In lexicography, an explanation of the signification of a word or term, or of what a word is understood to express.
+definitive	DEFINITIVE	a.	Limiting the extent; determinate; positive; express; as a definitive term.	Limiting; ending; determining; final; opposed to conditional, provisional, or interlocutory; as a definitive sentence or decree.
+definitive	DEFINITIVE	n.	In grammar, an adjective used to define or limit the extent of the signification of an appelative or common noun. Such are the Latin hic, ille, ipse; the, this and that, in English; le, la, les, in French; il, la, lo in Italian. Thus tree is an appellative or common noun; the tree, this tree, that tree, designate a particular tree, determinate or known. Homo signifies man; hic homo, ille homo, a particular man, etc. But in some languages, the definitives have lost their original use, in a great degree; as in the Greek and French. Thus La force de la vertu, must be rendered in English, the force of virtue, not the force of the virtue. The first la is a definitive; the last has no definitive effect.
+definitively	DEFINITIVELY	adv.	Determinately; positively; expressly.	Finally; conclusively; unconditionally; as, the points between the parties are definitively settled.
+definitiveness	DEFINITIVENESS	n.	Determinateness; decisiveness; conclusiveness.
+defix	DEFIX	v.t.	To fix; to fasten.
+deflagrability	DEFLAGRABILITY	n.	Combustibility; the quality of taking fire and burning away, as a metallic wire; a chimical term.
+deflagrable	DEFLAGRABLE	a.	Combustible; having the quality of taking fire and burning, as alcohol, oils, etc.
+deflagrate	DEFLAGRATE	v.t.	To set fire to; to burn; to consume; as, to deflagrate oil or spirit
+deflagration	DEFLAGRATION	n.	A kindling or setting fire to a substance; burning; combustion. The strength of spirit is proved by deflagration A rapid combustion of a mixture, attended with much evolution of flame and vapor, as of niter and charcoal. This term is also applied to the rapid combustion of metals by galvanism.
+deflagrator	DEFLAGRATOR	n.	A galvanic instrument for producing combustion, particularly the combustion of metallic substances.
+deflect	DEFLECT	v.i.	To turn from or aside; to deviate from a true course or right line; to swerve. The needle deflects from the meridian
+deflect	DEFLECT	v.t.	To turn aside; to turn or bend from a right line or regular course.
+deflected	DEFLECTED	pp.	Turned aside, or from a direct line or course. In botany, bending downward archwise.
+deflecting	DEFLECTING	ppr.	Turning aside; turning from a right line or regular course.
+deflection	DEFLECTION	n.	Deviation; the act of turning aside; a turning from a true line or the regular course.	The departure of a ship from its true course.	A deviation of the rays of light towards the surface of an opake body; inflection.
+deflexure	DEFLEXURE	n.	A bending down; a turning aside; deviation.
+deflorate	DEFLORATE	a.	In botany, having cast its farin, pollen, or fecundating dust
+defloration	DEFLORATION	n.	The act of deflouring; the act of depriving of the flower or prime beauties; particularly, the act of taking away a womans virginity.	A selection of the flower, or of that which is most valuable. The laws of Normandy are, in a great measure, the defloration of the English laws.
+deflour	DEFLOUR	v.t.	To deprive a woman of her virginity, either by force or with consent. When by force, it may be equivalent to ravish or violate.	To take away the prime beauty and grace of any thing. The sweetness of his soul was defloured.	To deprive of flowers.
+defloured	DEFLOURED	pp.	Deprived of maidenhood; ravished; robbed or prime beauty.
+deflourer	DEFLOURER	n.	One who deprives a woman of her virginity.
+deflouring	DEFLOURING	ppr.	Depriving of virginity or maidenhood; robbing of prime beauties.
+deflow	DEFLOW	v.i.	To flow down.
+defluous	DEFLUOUS	a.	Flowing down; falling off
+deflux	DEFLUX	n.	A flowing down; a running downward; as a deflux of humors.
+defluxion	DEFLUXION	n.	A flowing, running or falling of humors or fluid matter, from a superior to an inferior part of the body; properly, an inflammation of a part, attended with increased secretion.	A discharge of flowing off of humors; as a defluxion from the nose or head in catarrh.
+defly	DEFLY	adv.	Dextrously; skilfully.
+defoliation	DEFOLIATION	n.	Literally, the fall of the leaf or shedding of leaves; but technically, the time or season of shedding leaves in autumn; applied to trees and shrubs
+deforce	DEFORCE	v.t.	To disseize and keep out of lawful possession of an estate; to withhold the possession of an estate from the rightful owner; applies to any possessor whose entry was originally lawful, but whose detainer is become unlawful.
+deforced	DEFORCED	pp.	Kept out of lawful possession.
+deforcement	DEFORCEMENT	n.	The holding of lands or tenements to which another person has a right; a general term including abatement, intrusion, disseisin, discontinuance, or any other species of wrong, by which he that hath a right to the freehold is kept out of possession.	In Scotland, a resisting of an officer in the execution of law.
+deforciant	DEFORCIANT	n.	He that keeps out of possession the rightful owner of an estate; he against whom a fictitious action is brought in fine and recovery.
+deforcing	DEFORCING	ppr.	Keeping out of lawful possession.
+deform	DEFORM	v.t.	To mar or injure the form; to alter that form or disposition of parts which is natural and esteemed beautiful, and thus to render it displeasing to the eye; to disfigure; as, a hump on the back deforms the body.	To render ugly or displeasing, by exterior applications or appendages; as, to deform the face by paint, or the person by unbecoming dress.	To render displeasing. Wintry blasts deform the year.	To injure and render displeasing or disgusting; to disgrace; to disfigure moral beauty; as, all vices deform the character of rational beings.	To dishonor; to make ungraceful.
+deform	DEFORM	a.	Disfigured; being of an unnatural, distorted, or disproportioned form; displeasing to the eye. Sight so deform what heart of rock could long Dry-eyed behold?
+deformation	DEFORMATION	n.	A disfiguring or defacing.
+deformed	DEFORMED	pp.	Injured in the form; disfigured; distorted; ugly; wanting natural beauty, or symmetry.	Base; disgraceful.
+deformedly	DEFORMEDLY	adv.	In an ugly manner.
+deformedness	DEFORMEDNESS	n.	Ugliness; a disagreeable or unnatural form.
+deformer	DEFORMER	n.	One who deforms.
+deforming	DEFORMING	ppr.	Marring the natural form or figure; rendering ugly or disppleasing; destroying beauty.
+deformity	DEFORMITY	n.	Any unnatural state of the shape or form; want of that uniformity or symmetry which constitutes beauty; distortion; irregularity of shape or features; disproportion of limbs; defect; crookedness, etc. Hence, ugliness; as bodily deformity	Any thing that destroys beauty, grace or propriety; irregularity; absurdity; gross deviation from order, or the established laws of propriety. Thus we speak of deformity in an edifice, or deformity of character.
+deforser	DEFORSER	n.	One that casts out by force.
+defraud	DEFRAUD	v.t.	To deprive of right, either by obtaining something by deception or artifice, or by taking something wrongfully without the knowledge or consent of the owner; to cheat; to cozen; followed by of before the thing taken; as, to defraud; a man of his right. We have corrupted no man, we have defrauded no man. 2 Corinthians 7:2. The agent who embezzles public property, defrauds the state. The man who by deception obtains a price for a commodity above its value, defrauds the purchaser.	To withhold wrongfully from another what is due to him. defraud not the hireling of his wages.	To prevent one wrongfully from obtaining what he may justly claim. A man of fortune who permits his son to consume the season of education in hunting, shooting, or in frequenting horse-races, assemblies, etc., defrauds the community of a benefactor, and bequeaths them a nuissance.	To defeat or frustrate wrongfully. By the duties deserted-by the claims defrauded.
+defrauded	DEFRAUDED	pp.	Deprived of property or right by trick, artifice or deception; injured by the withholding of what is due.
+defrauder	DEFRAUDER	n.	One who defrauds; one who takes from another his right by deception, or withholds what is his due; a cheat; a cozener; an embezzler; a peculator.
+defrauding	DEFRAUDING	ppr.	Depriving another of his property or right by deception or artifice; injuring by withholding wrongfully what is due.
+defraudment	DEFRAUDMENT	n.	Tha act of defrauding.
+defray	DEFRAY	v.t.	To pay; to discharge, as cost or expense; to bear, as charge, cost or expense. It is followed chiefly by expense, charge or cost. The acquisitions of war seldom defray the expenses. The profits of a voyage will not always defray the charges, or even the cost of the first outfits.	To satisfy; as, to defray anger.	To fill; as, to defray a bottle.
+defrayed	DEFRAYED	pp.	Paid; discharged; as expense, or cost.
+defrayer	DEFRAYER	n.	One who pays or discharges expenses.
+defraying	DEFRAYING	ppr.	Paying; discharging.
+defrayment	DEFRAYMENT	n.	Payment.
+deft	DEFT	a.	Neat; handsome; spruce; ready; dextrous; fit; convenient.
+deftly	DEFTLY	adv.	Neatly; dextrously; in a skilful manner.
+deftness	DEFTNESS	n.	Neatness; beauty.
+defunct	DEFUNCT	a.	Having finished the course of life; dead; deceased
+defunct	DEFUNCT	n.	A dead person; one deceased.
+defunction	DEFUNCTION	n.	Death.
+defy	DEFY	v.t.	To dare; to provoke to combat or strife, by appealing to the courage of another; to invite one to contest; to challenge; as, Goliath defied the armies of Israel.	To dare; to brave; to offer to hazard a conflict by manifesting a contempt of opposition, attack or hostile force; as, to defy the arguments of an opponent; to defy the power of the magistrate. Were we to abolish the common law, it would rise triumphant above its own ruins, deriding and defying its impotent enemies.	To challenge to say or do any thing.
+defy	DEFY	n.	A challenge.
+defyer	DEFYER		[See defier.]

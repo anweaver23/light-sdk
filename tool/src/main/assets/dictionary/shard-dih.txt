@@ -1,0 +1,3 @@
+dihedral	DIHEDRAL	a.	Having two sides, as a figure
+dihedron	DIHEDRON	n.	A figure with two sides or surfaces
+dihexahedral	DIHEXAHEDRAL	a.	In crystalography, having the form of a hexahedral prism with trihedral summits

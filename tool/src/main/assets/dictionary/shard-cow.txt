@@ -1,0 +1,53 @@
+cow	COW	n. pl.	cows; old plural kine. The female of the bovine genus of animals; a quadruped with cloven hoofs, whose milk furnishes an abundance of food and profit to the farmer. Sea-cow, the Manatus, a species of the Trichechus. [See Sea-cow.]
+cow	COW	v.t.	To depress with fear; to sink the spirits or courage; to oppress with habitual timidity.
+cow-bane	COW-BANE	n.	A popular name of the Aethusa cynapium
+cow-house	COW-HOUSE	n.	A house or building in which cows are kept or stabled.
+cow-itch	COWHAGE		COW-ITCH noun A leguminous plant of the genus Dolichos, a native of warm climates. It has a fibrous root and an herbaceous climbing stalk, with red papilionaceous flowers, and leguminous, coriaceous pods, crooked and covered with sharp hairs, which penetrate the skin, and cause an itching.
+cow-keeper	COW-KEEPER	n.	One whose business is to keep cows.
+cow-leech	COW-LEECH	n.	[See Leech.] One who professes to heal the diseases of cows.
+cow-leeching	COW-LEECHING	n.	The act or art of healing the distempers of cows.
+cow-lick	COW-LICK	n.	A tuft of hair that appears as if licked by a cow.
+cow-parsnep	COW-PARSNEP	n.	A plant of the genus Heracleum.
+cow-pen	COW-PEN	n.	A pen for cows.
+cow-pox	COW-POX	n.	The vaccine disease.
+cow-quakes	COW-QUAKES	n.	Quaking grass, the Briza, a genus of plants.
+cow-weed	COW-WEED	n.	A plant of the genus Chaerophyllum, or chervil.
+cow-wheat	COW-WHEAT	n.	A plant of the genus Melampyrum.
+coward	COWARD	n.	A person who wants courage to meet danger; a poltroon; a timid or pusillanimous man. A coward does not always escape with disgrace, but sometimes loses his life.	In heraldry, a term given to a lion borne in the escutcheon with his tail doubled between his legs.
+coward	COWARD	a.	Destitute of courage; timid; base; as a coward wretch.	Proceeding from or expressive of fear, or timidity; as coward cry; coward joy.
+cowardice	COWARDICE	n.	Want of courage to face danger; timidity; pusillanimity; fear of exposing ones person to danger. COWARDICE alone is loss of fame. Did cowardice; did injustice ever save a sinking state.
+cowardlike	COWARDLIKE	a.	Resembling a coward; mean.
+cowardliness	COWARDLINESS	n.	Want of courage; timidity; cowardice.
+cowardly	COWARDLY	a.	Wanting courage to face danger; timid; timorous; fearful; pusillanimous.	Mean; base; befitting a coward; as a cowardly action.	Proceeding from fear of danger; as cowardly silence.
+cowardly	COWARDLY	adv.	In the manner of a coward; meanly; basely.
+cowardous	COWARDOUS	a.	Cowardly. [Not used.]
+cowardship	COWARDSHIP	n.	Cowardice. [Not used.]
+cowbane	cow-bane
+cower	COWER	v.i.	To sink by bending the knees; to crouch; to squat; to stoop or sink downwards. Our dame wits cowering oer a kitchen fire.
+cower	COWER	v.t.	To cherish with care. [Not used.]
+cowhage	COWHAGE		COW-ITCH, noun A leguminous plant of the genus Dolichos, a native of warm climates. It has a fibrous root and an herbaceous climbing stalk, with red papilionaceous flowers, and leguminous, coriaceous pods, crooked and covered with sharp hairs, which penetrate the skin, and cause an itching.
+cowherd	COWHERD	n.	[See Herd.] One whose occupation is to tend cows.
+cowhouse	cow-house
+cowish	COWISH	a.	Timorous; fearful; cowardly. [Little used.]
+cowitch	cow-itch
+cowkeeper	cow-keeper
+cowl	COWL	n.	A monks hood, or habit, worn by the Bernardines and Benedictines. It is either white or black. What differ more, you cry, than crown and cowl?	A vessel to be carried on a pole betwixt two persons, for the conveyance of water.
+cowl-staff	COWL-STAFF	n.	A staff or pole on which a vessel is supported between two persons.
+cowled	COWLED	a.	Wearing a cowl; hooded; in shape of a cowl, as a cowled leaf.
+cowleech	cow-leech
+cowleeching	cow-leeching
+cowlick	cow-lick
+cowlike	COWLIKE	a.	Resembling a cow.
+cowlstaff	cowl-staff
+coworker	co-worker
+cowparsnep	cow-parsnep
+cowpen	cow-pen
+cowpox	cow-pox
+cowquakes	cow-quakes
+cowry	COWRY	n.	A small shell, the Cypraea moneta, used for coin in Africa and the East Indies.
+cows-lip	COWSLIP		COWS-LIP noun A plant of the genus Primula, or primrose, of several varieties. The American cowship belongs to the genus Dodecatheon; the Jerusalem and mountain cowslip, to the genus Pulmonaria.
+cows-lungwort	COWS-LUNGWORT	n.	A plant of the genus Verbascum.
+cowslip	COWSLIP		COWS-LIP, noun A plant of the genus Primula, or primrose, of several varieties. The American cowship belongs to the genus Dodecatheon; the Jerusalem and mountain cowslip to the genus Pulmonaria.
+cowslungwort	cows-lungwort
+cowweed	cow-weed
+cowwheat	cow-wheat

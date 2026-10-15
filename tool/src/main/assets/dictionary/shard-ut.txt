@@ -1,0 +1,23 @@
+utensil	UTENSIL	n.	An instrument; that which is used; particularly, an instrument or vessel used in a kitchen, or in domestic and farming business
+uterine	UTERINE	a.	Pertaining to the womb. uterine brother or sister, is one born of the same mother, but by a different father
+utero-gestation	UTERO-GESTATION	n.	Gestation in the womb from conception to birth.
+uterogestation	utero-gestation
+uterus	UTERUS	n.	The womb
+utility	UTILITY	n.	Usefulness; production of good; profitableness to some valuable end; as the utility of manures upon land; the utility of the sciences; the utility of medicines
+utilize	UTILIZE	v.t.	To gain; to acquire. [Rare.]
+utis	UTIS	n.	Bustle; stir. [Not in use.]
+utmost	UTMOST	a.	Extreme; being at the furthest point or extremity; as the utmost limit of North America; the utmost limits of the land; the utmost extent of human knowledge.	Being in the greatest or highest degree; as the utmost assiduity; the utmost harmony; the utmost misery or happiness; the utmost peril.
+utmost	UTMOST	n.	The most that can be; the greatest power, degree or effort. He has done his utmost Try your utmost I will be free even to the utmost as I please in words.
+utopian	UTOPIAN	a.	Ideal; chimerical; fanciful; not well founded
+utricle	UTRICLE	a.	A little bag or bladder; a little cell; a reservoir in plants to receive the sap.	A capsule of one cell, and containing a solitary seed, often very thin and semitransparent, constantly destitute of valves, and falling with the seed.
+utricular	UTRICULAR	a.	Containing utricles; furnished with glandular vessels like small bags; as plants.
+utter	UTTER	a.	Situated on the outside or remote from the center.	Placed or being beyond any compass; out of any place; as the utter deep.	Extreme; excessive; utmost; as utter darkness.	Complete; total; final; as utter ruin.	Peremptory; absolute; as an utter refusal or denial.	Perfect; mere; quite; as utter strangers.
+utter	UTTER	v.t.	To speak; to pronounce; to express; as, to utter words; to utter sounds.	To disclose; to discover; to divulge; to publish. He never utters a syllable of what I suppose to be intended as a secret.	To sell; to vend; as, to utter wares. [This is obsolete, unless in the law style.]	To put or send into circulation; to put off, as currency, or cause to pass in commerce; as, to utter coin or notes. A man utters a false note, who gives it in payment, knowing it to be false.
+utterable	UTTERABLE	a.	That may be uttered, pronounced or expressed.
+utterance	UTTERANCE	n.	The act of uttering words; pronunciation; manner of speaking; as a good or bad utterance They began to speak with other tongues, as the spirit gave them utterance Acts 2:4.	Emission from the mouth; vocal expression; as the utterance of sounds.	Extremity; furthest part. [Not in use.]
+uttered	UTTERED	pp.	Spoken; pronounced; disclosed; published; put into circulation.
+utterer	UTTERER	n.	One who utters; one who pronounces.	One who divulges or discloses.	One who puts into circulation.	A seller; a vender.
+uttering	UTTERING	ppr.	Pronouncing; disclosing; putting into circulation; selling.
+utterly	UTTERLY	adv.	To the full extent; fully; perfectly; totally; as utterly tired; utterly debased; utterly lost to all sense of shame; It is utterly vain; utterly out of my power.
+uttermost	UTTERMOST	a.	Extreme; being in the furthest, greatest or highest degree; as the uttermost extent or end; the uttermost distress
+uttermost	UTTERMOST	n.	The greatest. the uttermost we can do is to be patient. To the uttermost in the most extensive degree; fully. Hebrews 8:1.

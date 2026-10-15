@@ -1,0 +1,14 @@
+chylaceous	CHYLACEOUS	a.	[See Chyle.] Belonging to chyle; consisting of chyle.
+chyle	CHYLE	n.	In animal bodies, a white or milky fluid separated from aliments by means of digestion. It is absorbed by the lacteal vessels, by which it is conveyed into the circulation, assimilated into blood, and converted into nutriment.
+chylifaction	CHYLIFACTION	n.	The act or process by which chyle is formed from food in animal bodies.
+chylifactive	CHYLIFACTIVE	a.	Forming or changing into chyle; having the power to make chyle.
+chyliferous	CHYLIFEROUS	a.	Transmitting chyle
+chylopoetic	CHYLOPOETIC	adv.	Chylifactive; having the power to change into chyle; making chyle.
+chylous	CHYLOUS	a.	Consisting of chyle, or partaking of it.
+chyme	CHYME	n.	That particular modification which food assumes after it has undergone the action of the stomach. Among the older authors, juice; chyle, or the finest part of the chyle contained in the lacteals and thoracic duct; any humor incrassated by concoction, whether fit or unfit for preserving and nourishing the body.
+chymic	CHYMIC		CHYMIST, CHYMISTRY. [See chimical, Chimist, Chimistry.]
+chymification	CHYMIFICATION	n.	The process of becoming or of forming chyme.
+chymified	CHYMIFIED	pp.	Formed into chyme.
+chymify	CHYMIFY	v.t.	To form into chyme.
+chymist	CHYMIC		CHYMIST, CHYMISTRY. [See chimical, Chimist, Chimistry.]
+chymistry	CHYMIC		CHYMIST, CHYMISTRY [See chimical, Chimist, Chimistry.]

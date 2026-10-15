@@ -1,0 +1,2 @@
+mnemonic	MNEMONIC	a.	Assisting the memory
+mnemonics	MNEMONICS	n.	The art of memory; the precepts and rules intended to teach the method of assisting the memory

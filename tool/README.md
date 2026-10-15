@@ -5,6 +5,7 @@ A reader for the LDS standard works and hymnbooks on the Light Phone III, with y
 - **Text included:** Old Testament, New Testament, Book of Mormon, Doctrine and Covenants, Pearl of Great Price. Public domain text from [bcbooks/scriptures-json](https://github.com/bcbooks/scriptures-json) (see `src/main/assets/scriptures/SOURCE.md`). No footnotes, chapter headings or Official Declarations, since those are under copyright.
 - **Hymns included:** numbers and titles only for *Hymns* (1985) and *Hymns—For Home and Church*. Most lyrics are under copyright, so you upload your own words if you want them.
 - **Hebrew and Greek words:** for the Old and New Testaments, the original word behind an English word, with its Strong's dictionary entry (Strong's 1890/1894, public domain; KJV Strong's tagging by the CrossWire Bible Society KJV2006 project via eBible.org, public domain; see `src/main/assets/strongs/SOURCE.md`). Works offline.
+- **Dictionary included:** Noah Webster's *American Dictionary of the English Language* (1828), offline. The 1828 text is public domain. The digital edition comes from [akaitsurugi/webster1828](https://github.com/akaitsurugi/webster1828) under CC BY-SA 4.0, so our generated dictionary files carry the same license (see `src/main/assets/dictionary/SOURCE.md`).
 - **Audio not included.** Church recordings are copyrighted, so you bring your own files. The tool sorts them for you.
 
 ## Adding audio in bulk
@@ -49,11 +50,11 @@ src/main/kotlin/io/github/anweaver23/scriptures/
           Selection (WordPos/WordRange/Selection, quoteOf), Study (Annotation/Bookmark models, JSON
           format, highlight merge rules, reference labels), VerseLayout (verse display text + word and
           footnote-marker offsets), Footnotes (asset format), Strongs (root links), StrongsData
-          (Strong's asset parsing)
+          (Strong's asset parsing), WebsterLookup (dictionary shard format and word normalization)
   data/   AppGraph (singletons), Importer, AudioLibrary (files on disk), ProgressStore (DataStore),
           StudyStore (highlights/notes/bookmarks as JSON), AssetFootnotes, SearchIndex (all verse text,
           loaded on the first search, held softly), StrongsOriginalLanguage (lazy per-book Strong's
-          lookups, LRU cached)
+          lookups, LRU cached), WebsterDictionary (one dictionary shard per lookup, small LRU cache)
   ui/     Screens: Home (book grid + Search/Bookmarks/Annotations bar), BookTile, Search, BookList,
           ChapterGrid, Reader, Hymns, Player, AddAudio, Review, TargetPicker, Bookmarks, Annotations,
           StudyScreens (note editor, Define, highlight detail, footnote)
@@ -62,9 +63,11 @@ src/main/res/drawable/   ic_bookmark_{white,black}.xml (no LightIcons bookmark g
 src/main/assets/scriptures/   index.json + one JSON per book: {"c": [[verse, ...], ...]}
 src/main/assets/hymns/        hymns-1985.json, hymns-home-church.json (numbers and titles only)
 src/main/assets/strongs/      <ot|nt>/<book>.json word tags + dict/<H|G>/<n/100>.json dictionary shards
+src/main/assets/dictionary/   Webster's 1828 in ~700 shards: shard-<first 2-3 letters>.txt + index.txt
 src/main/assets/footnotes/    Format doc only (README.md); no footnote data is bundled
 scripts/build_scripture_assets.py   Rebuilds the scripture assets from bcbooks/scriptures-json
 scripts/build_strongs_assets.py     Aligns a Strong's-tagged KJV onto our text and builds the dictionaries
+scripts/build_webster_assets.py     Rebuilds the dictionary shards from akaitsurugi/webster1828
 ```
 
 ## Reading and study
@@ -89,7 +92,7 @@ Playback uses the SDK's detached player (`detached-audio` capability), so it kee
 ./gradlew :tool:testDebugUnitTest
 ```
 
-`FileMatcherTest`, `ChurchFilenamesTest`, `ImporterTest` and `SearchTest` run against the real bundled catalog. `SearchTest` also prints how long a full-text scan takes.
+`FileMatcherTest`, `ChurchFilenamesTest`, `ImporterTest` and `SearchTest` run against the real bundled catalog. `WebsterLookupTest` runs against the real dictionary shards. `SearchTest` also prints how long a full-text scan takes.
 `StrongsOriginalLanguageTest` runs against the real Strong's assets, including a check that the
 generator tokenized every OT/NT verse exactly like `Words.spans`.
 
@@ -97,4 +100,5 @@ generator tokenized every OT/NT verse exactly like `Words.spans`.
 
 - Scripture text: [bcbooks/scriptures-json](https://github.com/bcbooks/scriptures-json) by Ben Crowder (public domain).
 - Strong's numbers: King James Version tagged by the [CrossWire Bible Society](https://www.crosswire.org) KJV2006 project, via [eBible.org](https://ebible.org/find/details.php?id=eng-kjv2006) (public domain).
+- Webster's 1828: [akaitsurugi/webster1828](https://github.com/akaitsurugi/webster1828), CC BY-SA 4.0 (the 1828 text itself is public domain).
 - Strong's Hebrew and Greek dictionaries: James Strong (1890/1894, public domain); XML editions by David Troidl, David Instone-Brewer and Ulrik Petersen, via [Open Scriptures](https://github.com/openscriptures/strongs).

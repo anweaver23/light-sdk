@@ -1,0 +1,22 @@
+sex	SEX	n.	The distinction between male and female; or the property or character by which an animal is male or female. The male sex is usually characterized by muscular strength, boldness and firmness. The female sex is characterized by softness, sensibility and modesty. In botany, the property of plants which corresponds to sex in animals. The Linnean system of botany is formed on the doctrine of sexes in plants.	By way of emphasis, womankind; females. Unhappy sex! whose beauty is your snare. Dryden. The sex, whose presence civilizes ours. Milne.
+sexagenarian	SEXAGENARIAN	n.	A person who has arrived at the age of sixty years
+sexagenary	SEXAGENARY	a.	Designating the number sixty; as a noun, a person sixty years of age; also, something composed of sixty
+sexagesima	SEXAGESIMA	n.	The second Sunday before Lent, the next to Shrove-Sunday, so called as being the 60th day before Easter
+sexagesimal	SEXAGESIMAL	a.	Sixtieth; pertaining to the number sexty. Sexagenary or sexgesimal arithmetic, is a method of comutation by sexties, as that which is used in dividing minutes into seconds Sexagesimals, or sexagesimal fractions, are those whose denominators proceed in the ratio of sixty; as 1/60, 1/3600, 1/21600. The denominator is sixty, or its multiple. These fractions are called also astonomical fractions, because formerly there were no others used in astronomical calculations.
+sexangled	SEXANGLED	a.	Having six angles; hexagonal
+sexdecimal	SEXDECIMAL	a.	In crystalography, when a prism or the middle part of a crystal has six faces and two summits, and taken together, ten faces, or the reverse
+sexennial	SEXENNIAL	a.	Lasting six years, or happening once in six years
+sexfid	SEXFID	a.	In botany, six-cleft; as a sexfid calyx or nectary
+sexinnially	SEXINNIALLY	adv.	Once in six years.
+sexlocular	SEXLOCULAR	a.	In botany, six-celled; having six cells for seeds; as a sexlocular pericarp
+sextain	SEXTAIN	n.	A stanza of six lines
+sextant	SEXTANT	n.	In mathematics, the sixth part of a circle. Hence,	An instrument formed like a quadrant, excepting that its limb comprehends only 60 degrees, or the sixth part of a circle.	In astronomy, a constellation of the southern hemisphere which, according to the British catalogue, contains 41 stars.
+sextary	SEXTARY	n.	A measure of a pint and a half
+sextary	SEXTARY	n.	The same as sacristan. [Not used. ]
+sextile	SEXTILE	n.	Denoting the aspect or position of two planets, when distant from each other 60 degrees or two signs. This position is marked thus*
+sexton	SEXTON	n.	An under officer of the church, whose buiness is to take care of the vessels, vestments, etc. belonging to the church, to attend on the officiating clergyman and perform other duties pertaining to the church, to dig graves, etc
+sextonship	SEXTONSHIP	n.	The office of a sexton.
+sextuple	SEXTUPLE	a.	Sixfold; six times as much.	In music, denoting a mixed sort of triple, beaten in double time, or a measure of two times composed of six equal notes, three for each time.
+sexual	SEXUAL	a.	Pertaining to sex or the sexes; distinguishing the sex; denoting what is particular to the distinction and office of male and female; as sexual characteristics; sexual intercourse, connection or commerce.	Sexual systemm in botany, the system which ascribes to vegetables the distinction of sexes, suppose that plants are male and female, each sex furnished with the appropriate organs or parts; the male producing a pollen or dust which fecundates the stigma of the pistil or female organ, and is necessary to render it prolific. It is found however that most plants are hermaphrodite, the male and female organs being contained in the same flower. This doctrine was taught to a certain extent by Theophrastus, Dioscorides and Pliny among the ancients, but has been more fully illustrated by Caesalpinus, Grew, Camerarius, Linne and many others among the moderns.
+sexualist	SEXUALIST	n.	One who believes and maintains the doctrine of sexes in plants; or onw who classifies the differences of the sexes and parts of fructification.
+sexuality	SEXUALITY	n.	The state of being distinguished by sex.

@@ -1,0 +1,16 @@
+poem	POEM	n.	A metrical composition; a composition in which the verses consist of certain measures, whether in blank verse or in rhyme; as the poems of Homer or of Milton; opposed to prose.	This term is also applied to some compositions in which the language is that of excited imagination; as the poems of Ossian.
+poesy	POESY	n.	The art or skill of composing poems; as, the heavenly gift of poesy	Poetry; metrical composition. Music and poesy used to quicken you.	A short conceit engraved on a ring or other thing.
+poet	POET	n.	The author of a poem; the inventor or maker of a metrical composition. A poet is a maker, as the word signifies; and he who cannot make, that is, invent, hath his name for nothing.	One skilled in making poetry, or who has a particular genius for metrical composition; one distinguished for poetic talents. Many write verses who cannot be called poets.
+poet-laureat	POET-LAUREAT	n.	A poet employed to compose poems for the birth days of a prince or other special occasion.
+poet-musician	POET-MUSICIAN	n.	An appellation given to the bard and lyrist of former ages, as uniting the professions of poetry and music.
+poetaster	POETASTER	n.	A petty poet; a pitiful or rhymer or writer of verses.
+poetess	POETESS	n.	A female poet.
+poetic	POETIC		POET'ICAL, adjective [Latin poeticus.]	Pertaining to poetry; suitable to poetry; as a poetical genius; poetic turn or talent; poetic license.	Expressed in poetry or measure; as a poetical composition.	Possessing the peculiar beauties of poetry; sublime; as a composition or passage highly poetical.
+poetical	POETICAL	a.	Pertaining to poetry; suitable to poetry; as a poetical genius; poetic turn or talent; poetic license.	Expressed in poetry or measure; as a poetical composition.	Possessing the peculiar beauties of poetry; sublime; as a composition or passage highly poetical.
+poetically	POETICALLY	adv.	With the qualities of poetry; by the art of poetry; by fiction.
+poetics	POETICS	n.	The doctrine of poetry.
+poetize	POETIZE	v.i.	To write as a poet; to compose verse.
+poetlaureat	poet-laureat
+poetmusician	poet-musician
+poetress	POETRESS	n.	A female poet.
+poetry	POETRY	n.	Metrical composition; verse; as heroic poetry; dramatic poetry; lyric or Pindaric poetry	The art or practice of composing in verse. He excels in poetry	Poems; poetical composition. We take pleasure in reading poetry	This term is also applied to the language of excited imagination and feeling.

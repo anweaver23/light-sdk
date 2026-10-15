@@ -1,0 +1,79 @@
+chub	CHUB	n.	A river fish, called also cheven, of the genus Cyprinus. The body is oblong, nearly round; the head and back, green; the sides silvery, and the belly white. It frequents deep holes in rivers shaded by trees; but in warm weather floats near the surface, and furnishes sport for anglers. It is indifferent food.
+chub-faced	CHUB-FACED	a.	Having a plump round face.
+chubbed	CHUBBED		CHUBBY, adjective Like a chub; short and thick.
+chubby	CHUBBY	a.	Like a chub; short and thick.
+chubfaced	chub-faced
+chuck	CHUCK	v.i.	To make the noise of a hen or partridge, when she calls her chickens.
+chuck	CHUCK	v.t.	To call, as a hen her chickens.
+chuck	CHUCK	v.i.	To jeer; to laugh. [See Chuckle.]
+chuck	CHUCK	v.t.	To strike, or give a gentle blow; as, to chuck one under the chin.	To throw, with quick motion, a short distance; to pitch.
+chuck	CHUCK	n.	The voice or call of a hen.	A sudden small noise.	A word of endearment, corrupted from chick, chicken.
+chuck-farthing	CHUCK-FARTHING	n.	A play in which a farthing is pitched into a hole.
+chuckfarthing	chuck-farthing
+chuckle	CHUCKLE	v.t.	To call, as a hen her chickens.	To fondle; to cocker.
+chuckle	CHUCKLE	v.i.	To laugh heartily, or convulsively; to shake with laughter, or to burst into fits of laughter.
+chuckle-head	CHUCKLE-HEAD	n.	A vulgar word in America, denoting a person with a large head, a dunce. Bailey says, a rattling, noisy, empty fellow.
+chucklehead	chuckle-head
+chud	CHUD	v.t.	To champ; to bite.
+chuet	CHUET	n.	Forced meat.
+chuff	CHUFF	n.	A clown; a coarse, heavy, dull or surly fellow.
+chuffily	CHUFFILY	adv.	In a rough, surly manner; clownishly.
+chuffiness	CHUFFINESS	n.	Surliness.
+chuffy	CHUFFY	a.	Blunt; clownish; surly; angry; stomachful. In New England, this word expresses that displeasure which causes a swelling or surly look and grumbling, rather than heat and violent expressions of anger.
+chuk	CHUK	n.	A word used in calling swine. It is the original name of that animal, which our ancestors brought with them from Persia, where it is still in use, Pers. chuk Zend, chuk a hog; Sans. Sugara. Our ancestors, while in England, adopted the Welsh hwc, hog, but chuck is retained in our popular name of woodchuck, that is, wood hog. This is a remarkable proof of the original seat of the Teutonic nations. I have taken chuk from Adelung. The French cochon may be the same word.
+chum	CHUM	n.	A chamber-fellow; one who lodges or resides in the same room; a word used in colleges.
+chump	CHUMP	n.	A short, thick, heavy piece of wood, less than a block.
+chunk	CHUNK	n.	A short thick piece of wood. [Colloquial.]
+church	CHURCH	n.	A house consecrated to the worship of God, among Christians; the Lords house. This seems to be the original meaning of the word. The Greek, to call out or call together, denotes an assembly or collection. But, Lord, a term applied by the early Christians to Jesus Christ; and the house in which they worshipped was named from the title. So church goods, bona ecclesiastica; the Lords day, dies dominica.	The collective body of Christians, or of those who profess to believe in Christ, and acknowledge him to be the Savior of mankind. In this sense, the church is sometimes called the Catholic or Universal church	A particular number of Christians, united under one form of ecclesiastical government, in one creed, and using the same ritual and ceremonies; as the English church; the Gallican church; the Presbyterian church; the Romish church; the Greek church	The followers of Christ in a particular city or province; as the church of Ephesus, or of Antioch.	The disciples of Christ assembled for worship in a particular place, as in a private house. Colossians 4:15.	The worshipers of Jehovah or the true God, before the advent of Christ; as the Jewish church	The body of clergy, or ecclesiastics, in distinction from the laity. Hence, ecclesiastical authority.	An assembly of sacred rulers convened in Christs name to execute his laws.	The collective body of Christians, who have made a public profession of the Christian religion, and who are untied under the same pastor; in distinction from those who belong to the same parish, or ecclesiastical society, but have made no profession of their faith.
+church	CHURCH	v.t.	To perform with any one the office of returning thanks in the church after any signal deliverance, as from the dangers of childbirth.
+church-ale	CHURCH-ALE	n.	A wake or feast commemoratory of the dedication of the church.
+church-attire	CHURCH-ATTIRE	n.	The habit in which men officiate in divine service.
+church-authority	CHURCH-AUTHORITY	n.	Ecclesiastical power; spiritual jurisdiction.
+church-bench	CHURCH-BENCH	n.	The seat in the porch of a church.
+church-burial	CHURCH-BURIAL	n.	Burial according to the rites of the church.
+church-discipline	CHURCH-DISCIPLINE	n.	Discipline of the church, intended to correct the offenses of its members.
+church-founder	CHURCH-FOUNDER	n.	He that builds or endows a church.
+church-history	CHURCH-HISTORY	n.	History of the Christian church; ecclesiastical history.
+church-land	CHURCH-LAND	n.	Land belonging to a church.
+church-member	CHURCH-MEMBER	n.	A member in communion with a church; a professor of religion.
+church-music	CHURCH-MUSIC	n.	The service of singing or chanting in a church.	Music suited to church service.
+church-warden	CHURCH-WARDEN	n.	A keeper or guardian of the church, and a representative of the parish. Church-wardens are appointed by the minister, or elected by the parishioners, to superintend the church, its property and concerns, and the behavior of the parishioners. For these and many other purposes, they possess corporate powers.
+church-way	CHURCH-WAY	n.	The way, street or road that leads to the church.
+church-work	CHURCH-WORK	n.	Work carried on slowly.
+church-yard	CHURCH-YARD	n.	The ground adjoining to a church in which the dead are buried; a cemetery.
+churchale	church-ale
+churchattire	church-attire
+churchauthority	church-authority
+churchbench	church-bench
+churchburial	church-burial
+churchdiscipline	church-discipline
+churchdom	CHURCHDOM	n.	The government or authority of the church.
+churchfounder	church-founder
+churchhistory	church-history
+churching	CHURCHING	n.	The act of offering thanks in church after childbirth.
+churchland	church-land
+churchlike	CHURCHLIKE	a.	Becoming the church.
+churchman	CHURCHMAN	n.	An ecclesiastic or clergyman; one who ministers in sacred things.	An episcopalian, as distinguished from a presbyterian or congregationalist, etc.
+churchmember	church-member
+churchmusic	church-music
+churchship	CHURCHSHIP	n.	Institution of the church.
+churchwarden	church-warden
+churchway	church-way
+churchwork	church-work
+churchyard	church-yard
+churl	CHURL	n.	A rude, surly, ill-bred man.	A rustic; a countryman, or laborer.	A miser; a niggard. Isaiah 32:5.
+churlish	CHURLISH	a.	Rude; surly; austere; sullen; rough in temper; unfeeling; uncivil.	Selfish; narrow-minded; avaricious.	[Of things.] Unpliant; unyielding; cross-grained; harsh; unmanageable; as churlish metal.	Hard; firm; as a churlish knot.	Obstinate; as a churlish war.
+churlishly	CHURLISHLY	adv.	Rudely; roughly; in a churlish manner.
+churlishness	CHURLISHNESS	n.	Rudeness of manners or temper, but generally the word refers to the temper or disposition of mind; sullenness; austerity; indisposition to kindness or courtesy.
+churly	CHURLY	a.	Rude; boisterous.
+churme	CHURME		or, CHIRM, noun Noise; clamor, or confused noise.
+churn	CHURN	n.	A vessel in which cream or milk is agitated for separating the oily part from the caseous and serous parts, to make butter.
+churn	CHURN	v.t.	To stir or agitate cream for making butter.	To shake or agitate with violence or continued motion, as in the operation of making butter.
+churn-staff	CHURN-STAFF	n.	The staff or instrument used in churning.
+churned	CHURNED	pp.	Agitated; made into butter.
+churning	CHURNING	ppr.	Agitating to make butter; shaking; stirring.
+churning	CHURNING	n.	The operation of making butter from cream by agitation; a shaking or stirring.	As much butter as is made at one operation.
+churnstaff	churn-staff
+churnworm	CHURNWORM	n.	An insect that turns about nimbly, called also a fancricket.
+chuse	CHUSE		[See Choose.]
+chusite	CHUSITE	n.	A yellowish mineral found by Saussure in the cavities of porphyries in the environs of Limbourg.

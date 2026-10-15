@@ -1,0 +1,46 @@
+uran-glimmer	URAN-GLIMMER	n.	An ore of uranium; uran-mica; chalcolite.
+uran-ocher	URAN-OCHER	n.	Pechblend, an ore of uranium, containing the metal in an oxydized state. It is brown, grayish, black, and brownish black; occurring massive globular, reniform, disseminated, and pulverulent.
+uranglimmer	uran-glimmer
+uranite	URANITE	n.	An ore or phosphate of uranium, called also uran-glimmer, and uran-mica. It is of a lemon yellow gold color, or yellowish brown, sometimes of an apple green or emerald color. It occurs crystallized in rectangular prisms, in imperfect octahedrons, etc. Its structure is lamellar, and it yields to the knife. Uranite is found in primitive earths, in three states, crystallized, compact, and pulverulent.
+uranitic	URANITIC	a.	Pertaining to uranite, or resembling it.
+uranium	URANIUM	n.	A metal discovered in 1789 by Klaproth, in the mineral called pechblend. It is occasionally found native in uran-ocher and uran-mica; but more generally it is obtained from pechblend, in which it exists with iron, copper, lead, and sometimes with arsenic, cobalt and zink
+uranocher	uran-ocher
+uranology	URANOLOGY	n.	A discourse or treatise on the heavens
+urbane	URBANE	a.	Civil; courteous in manners; polite
+urbanity	URBANITY	n.	That civility or courtesy of manners which is acquired by associating with well bred people; politeness; polished manners.	Facetiousness.
+urbanize	URBANIZE	v.t.	To render civil and courteous; to polish.
+urceolate	URCEOLATE	a.	[Latin urceolus, urceus, a pitcher. In botany, shaped like a pitcher; swelling out like a pitcher; as a calyx or corol.
+urchin	URCHIN	n.	A name given to the hedgehog.	A name of slight anger given to a child; as, the little urchin cried.
+ure	URE	n.	Use; practice. [Obsolete, but retained in inure.]
+urea	UREA	n.	A substance obtained from urine.
+ureter	URETER	n.	A tube conveying the urine from the kidney to the bladder. There are two ureters, one on each side
+urethra	URETHRA	n.	The canal by which the urine is conducted from the bladder and discharged
+urge	URGE	v.i.	To press; to push; to drive; to impel; to apply force to, in almost any manner. And great Achilles urge the Trojan fate.	To press the mind or will; to press by motives, arguments, persuasion or importunity. My broth did urge me in his act.	To provoke; to exasperate. URGE not my father's anger.	To follow close; to impel. Heir urges heir, like wave impelling wave.	To labor vehemently; to press with eagerness. Through the thick deserts headlong urg'd his flight.	To press; as, to urge an argument; to urge a petition; to urge the necessity of a case.	To importune; to solicit earnestly. He urged his son to withdraw.	To apply forcibly; as, to urge an ore with intense heat.
+urge	URGE	v.i.	To press forward; as, he strives to urge upward.
+urge-wonder	URGE-WONDER	n.	A sort of grain.
+urged	URGED	pp.	Pressed; impelled; importuned.
+urgency	URGENCY	n.	Pressure; importunity; earnest solicitation; as the urgency of a request.	Pressure of necessity; as the urgency of want or distress; the urgency of the occasion.
+urgent	URGENT	a.	Pressing with importunity. Exodus 12:33.	Pressing with necessity; violent; vehement; as an urgent case or occasion.
+urgently	URGENTLY	adv.	With pressing importunity; violently; vehemently; forcibly.
+urger	URGER	n.	One who urges; one who importunes.
+urgewonder	urge-wonder
+urging	URGING	ppr.	Pressing; driving; impelling.	adjective Pressing with solicitations; importunate.
+uric	URIC	a.	In chimistry, the uric acid, called also lithic acid, is obtained from urinary calculi.
+urim	URIM	n.	The urim and Thummim, among the Israelites, signify lights and perfections. These were a kind of ornament belonging to the habit of the high priest, in virtue of which he gave oracular answers to the people; but what they were has not been satisfactorily ascertained
+urinal	URINAL	n.	A bottle in which urine is kept for inspection.	A vessel for containing urine.	In chimistry, an oblong glass vessel, used in making solutions.
+urinarium	URINARIUM	n.	In agriculture, a reservoir or place for the reception of urine, etc. for manure.
+urinary	URINARY	a.	Pertaining to urine; as the urinary bladder; urinary calculi; urinary abscesses
+urinative	URINATIVE	a.	Provoking urine.
+urinator	URINATOR	n.	A diver; one who plunges and sinks in water in search of something, as for pearls
+urine	URINE	n.	An animal fluid or liquor secreted by the kidneys, whence it is conveyed into the bladder by the ureters, and through the urethra discharged. The urine of beasts is sometimes called stale
+urine	URINE	v.i.	To discharge urine
+urinous	URINOUS	a.	Pertaining to urine, or partaking of its qualities.
+urn	URN	n.	A kind of vase of a roundish form, largest in the middle; used as an ornament.	A vessel for water.	A vessel in which the ashes of the dead were formerly kept.	A Roman measure for liquids, containing about three gallons and a half, wine measure. It was half the amphora, and four times the congius.
+uroscopy	UROSCOPY	n.	Inspection of urine
+urry	URRY	n.	A sort of blue or black clay, lying near a vein of coal.
+ursa	URSA	n.	The bear, a constellation, the greater and lesser bear, near the north pole
+ursiform	URSIFORM	a.	In the shape of a bear
+ursine	URSINE	a.	Pertaining to or resembling a bear
+ursuline	URSULINE	a.	Denoting an order of nuns who observe the rule of St. Austin; so called from their institutress, St. Ursula.
+uru	URU	n.	The name in India of a fragrant aloe-wood.
+urus	URUS		URE, noun [Latin urus ] The wild bull.

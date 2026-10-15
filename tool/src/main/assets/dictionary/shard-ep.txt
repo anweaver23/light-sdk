@@ -1,0 +1,132 @@
+ep	EP		EPI, [Gr. in composition, usually signifies on.]
+epact	EPACT	n.	In chronology, the excess of the solar month above the lunar synodical month, and of the solar year above the lunar year of twelve synodical months. The epacts then are annual or menstrual. Suppose the new moon to be on the first of January; the month of January containing 31 days, and the lunar month only 29 days, 12h. 44'3', the difference, or 1 day, 11h. 15'57', is the menstrual epact The annual epact is nearly eleven days; the solar year being 365 days, and the lunar year 354
+eparch	EPARCH	n.	The governor or prefect of a province
+eparchy	EPARCHY	n.	A province, prefecture or territory under the jurisdiction of an eparch or governor
+epaulet	EPAULET	n.	A shoulder-piece; an ornamental badge worn on the shoulder by military men. Officers, military and naval, wear epaulets on one shoulder, or on both, according to their rank.
+epaulment	EPAULMENT	n.	In fortification, a side-work or work to cover sidewise, made of gabions, fascines or bags of earth. It sometimes denotes a semi-bastion and a square orillon, or mass of earth faced and lined with a wall, designed to cover the cannon of the casemate.
+epenetic	EPENETIC	a.	Laudatory; bestowing praise.
+epenthesis	EPENTHESIS		EPEN'THESY, noun [Gr. to put.] The insertion of a letter or syllable in the middle of a word, as alituum for alitum.
+epenthesy	EPENTHESY	n.	The insertion of a letter or syllable in the middle of a word, as alituum for alitum
+epenthetic	EPENTHETIC	a.	Inserted in the middle of a word.
+epha	EPHA	n.	A Hebrew measure of three pecks and three pints, or according to others, of seven gallons and four pints, or about 15 solid inches
+ephemera	EPHEMERA	n.	A fever of one day's continuance only	The Day-fly; strictly, a fly that lives one day only; but the word is applied also to insects that are very short-lived, whether they live several days or an hour only. There are several species.
+ephemeric	EPHEMERAL	a.	Diurnal; beginning and ending in a day; continuing or existing one day only.	Short-lived; existing or continuing for a short time only. [Ephemeral is generally used. Ephemerous is not analogically formed.]
+ephemeris	EPHEMERIS	n. pl.	A journal or account of daily transactions; a diary.	In astronomy, an account of the daily state or positions of the planets or heavenly orbs; a table, or collection of tables, exhibiting the places of all the planets every day at noon. From these tables are calculated eclipses, conjunctions and other aspects of the planets.
+ephemerist	EPHEMERIST	n.	One who studies the daily motions and positions of the planets; an astrologer.
+ephemeron-worm	EPHEMERON-WORM	n.	[See Ephemera.] A worm that lives one day only.
+ephemeronworm	ephemeron-worm
+ephereral	EPHERERAL		EPHE'SIAN, adjective s as z. Pertaining to Ephesus, in Asia Minor. As a noun, a native of Ephesus.
+ephesian	EPHESIAN	a.	s as z. Pertaining to Ephesus, in Asia Minor. As a noun, a native of Ephesus.
+ephialtes	EPHIALTES	n.	The night-mar
+ephipora	EPHIPORA	n.	The watery eye; a disease in which the tears, from increased secretion, or an obstruction in the lachrymal duct, accumulate in front of the eye and trickle over the cheek
+ephod	EPHOD	n.	In Jewish antiquity, a part of the sacerdotal habit, being a kind of girdle, which was brought from behind the neck over the two shoulders, and hanging down before, was put across the stomach, then carried round the waist and used as a girdle to the tunic. There were two sorts; one of plain linen, the other embroidered for the high priest. On the part in front were two precious stones, on which were engraved the names of the twelve tribes of Israel. Before the breast was a square piece or breastplate
+ephor	EPHOR	n.	In ancient Sparta, a magistrate chosen by the people. The ephors were five, and they were intended as a check on the regal power, or according to some writers, on the senate
+ephoralty	EPHORALTY	n.	The office or term of office of an ephor.
+epi	EP		EPI [Gr. in composition, usually signifies on.]
+epic	EPIC	a.	Narrative; containing narration; rehearsing. An epic poem, otherwise called heroic, is a poem which narrates a story, real or fictitious or both, representing, in an elevated style, some signal action or series of actions and events, usually the achievements of some distinguished hero, and intended to form the morals and affect the mind with the love of virtue. The matter of the poem includes the action of the fable, the incidents, episodes, characters, morals and machinery. The form includes the manner of narration, the discourses introduced, descriptions, sentiments, style, versification, figures and other ornaments. The end is to improve the morals, and inspire a love of virtue, bravery and illustrious actions
+epicede	EPICEDE	n.	A funeral song or discourse
+epicedian	EPICEDIAN	a.	Elegiac; mournful.
+epicedium	EPICEDIUM	n.	An elegy.
+epicene	EPICENE	a.	Common to both sexes; of both kinds
+epictetian	EPICTETIAN	a.	Pertaining to Epictetus, the Grecian writer.
+epicure	EPICURE	n.	Properly, a follower of Epicurus; a man devoted to sensual enjoyments; hence, one who indulges in the luxuries of the table. [The word is now used only or chiefly in the latter sense
+epicurean	EPICUREAN		EPICURE'AN, adjective [Latin epicureus.] Pertaining to Epicurus; as the epicurean philosophy or tenets.	Luxurious; given to luxury; contributing to the luxuries of the table.
+epicurean	EPICUREAN		EPICURE'AN, noun A follower of Epicurus.
+epicureanism	EPICUREANISM	n.	Attachment to the doctrines of Epicurus.
+epicurism	EPICURISM	n.	Luxury; sensual enjoyments; indulgence in gross pleasure; voluptuousness.	The doctrines of Epicurus.
+epicurize	EPICURIZE	v.i.	To feed or indulge like an epicure; to riot; to feast.	To profess the doctrines of Epicurus.
+epicycle	EPICYCLE	n.	A little circle, whose center is in the circumference of a greater circle; or a small orb, which, being fixed in the deferent of a planet, is carried along with it, and yet by its own peculiar motion, carries the body of the planet fastened to it round its proper center
+epicycloid	EPICYCLOID	n.	In geometry, a curve generated by the revolution of the periphery of a circle along the convex or concave side of the periphery of another circle. A curve generated by any point in the plane of a movable circle which rolls on the inside or outside of the circumference of a fixed circle
+epicycloidal	EPICYCLOIDAL	a.	Pertaining to the epicycloid, or having its properties.
+epidemic	EPIDEMIC		EPIDEM'ICAL, adjective [Gr. people.] Common to many people. An epidemic disease is one which seizes a great number of people, at the same time, or in the same season. Thus we speak of epidemic measles; epidemic fever; epidemic catarrh. It is used in distinction from endemic or local. Intemperate persons have every thing to fear from an epidemic influenza.	Generally prevailing; affecting great numbers; as epidemic rage; an epidemic evil.
+epidemic	EPIDEMIC	n.	A popular disease; a disease generally prevailing. The influenza of October and November 1789, that of March and April 1790, that of the winter 1824-25, and of 1825-26, were very severe epidemics.
+epidemical	EPIDEMICAL	a.	Common to many people. An epidemic disease is one which seizes a great number of people, at the same time, or in the same season. Thus we speak of epidemic measles; epidemic fever; epidemic catarrh. It is used in distinction from endemic or local. Intemperate persons have every thing to fear from an epidemic influenza	Generally prevailing; affecting great numbers; as epidemic rage; an epidemic evil.
+epidermic	EPIDERMIC		EPIDERM'IDAL, adjective Pertaining to the cuticle; covering the skin. The epidermic texture.
+epidermidal	EPIDERMIDAL	a.	Pertaining to the cuticle; covering the skin. The epidermic texture.
+epidermis	EPIDERMIS	n.	In anatomy, the cuticle or scarf-skin of the body; a thin membrane covering the skin of animals, or the bark of plants
+epidote	EPIDOTE	n.	A mineral occurring in lamellar, granular or compact masses, in loose grains, or in prismatic crystals of six or eight sides, and sometimes ten or twelve. Its color is commonly some shade of green, yellowish, bluish or blackish green. It has two varieties, zoisite and aranaceous or granular epidote Epidote is granular or manganesian
+epigastric	EPIGASTRIC	a.	Pertaining to the upper part of the abdomen; as the epigastric region; the epigastric arteries and veins
+epigee	EPIGEE		EPIGEE or EPIGEUM. [See Perigee.]
+epiglot	EPIGLOT		EPIGLOT'TIS, noun [Gr. the tongue.] In anatomy, one of the cartilages of the larynx, whose use is to cover the glottis, when food or drink is passing into the stomach, to prevent it from entering the larynx and obstructing the breath.
+epiglottis	EPIGLOTTIS	n.	In anatomy, one of the cartilages of the larynx, whose use is to cover the glottis, when food or drink is passing into the stomach, to prevent it from entering the larynx and obstructing the breath
+epigram	EPIGRAM	n.	A short poem treating only of one thing, and ending with some lively, ingenious and natural thought. Conciseness and point form the beauty of epigrams. Epigrams were originally inscriptions on tombs, statues, temples, triumphal arches, etc
+epigrammatic	EPIGRAMMATIC		EPIGRAMMAT'ICAL, adjective Writing epigrams; dealing in epigrams; as an epigrammatic poet.	Suitable to epigrams; belonging to epigrams; like an epigram; concise; pointed; poignant; as epigrammatic style or wit.
+epigrammatical	EPIGRAMMATICAL	a.	Writing epigrams; dealing in epigrams; as an epigrammatic poet.	Suitable to epigrams; belonging to epigrams; like an epigram; concise; pointed; poignant; as epigrammatic style or wit.
+epigrammatist	EPIGRAMMATIST	n.	One who composes epigrams, or deals in them. Martial was a noted epigrammatist
+epigraph	EPIGRAPH	n.	Among antiquaries, an inscription on a building, pointing out the time of its erection, the building, its uses, etc
+epilepsy	EPILEPSY	n.	The falling sickness, so called because the patient falls suddenly to the ground; a disease accompanied with spasms or convulsions and loss of sense
+epileptic	EPILEPTIC	a.	Pertaining to the falling sickness; affected with epilepsy; consisting of epilepsy.
+epileptic	EPILEPTIC	n.	One affected with epilepsy.
+epilogism	EPILOGISM	n.	Computation; enumeration.
+epilogistic	EPILOGISTIC	a.	Pertaining to epilogue; of the nature of an epilogue.
+epilogize	EPILOGIZE	v.i.	To pronounce an epilogue.
+epilogue	EPILOGUE	n.	In oratory, a conclusion; the closing part of a discourse, in which the principal matters are recapitulated.	In the drama, a speech or short poem addressed to the spectators by one of the actors, after the conclusion of the play.
+epiloguize	EPILOGUIZE		EPINI'CION, noun [Gr. to conquer.] A song of triumph. [Not in use.]
+epinicion	EPINICION	n.	A song of triumph. [Not in use.]
+epiphany	EPIPHANY	n.	A christian festival celebrated on the sixth day of January, the twelfth day after Christmas, in commemoration of the appearance of our Savior to the magians or philosophers of the East, who came to adore him with presents; or as others maintain, to commemorate the appearance of the star to the magians, or the manifestation of Christ to the Gentiles. Jerome and Chrysostom take the epiphany to be the day of our Savior's baptism, when a voice from heaven declared, 'This is my beloved son, in whom I am well pleased.' The Greek fathers use the word for the appearance of christ in the world, the sense in which Paul used the word. 2 Timothy 1:10
+epiphonem	EPIPHONEM		EPIPHONE'MA, [Gr. exclamation, to cry out.] In oratory, an exclamation; an ecphonesis; a vehement utterance of the voice to express strong passion, in a sentence not closely connected with the general strain of the discourse; as, O mournful day! Miserable fate! Admirable clemency!
+epiphonema	EPIPHONEMA		In oratory, an exclamation; an ecphonesis; a vehement utterance of the voice to express strong passion, in a sentence not closely connected with the general strain of the discourse; as, O mournful day! Miserable fate! Admirable clemency!
+epiphyllospermous	EPIPHYLLOSPERMOUS	a.	In botany, bearing their seeds on the back of the leaves, as ferns
+epiphysis	EPIPHYSIS		EPIPH'YSY, noun [Gr. to grow.] Accretion; the growing of one bone to another by simple contiguity, without a proper articulation. The spongy extremity of a bone; any portion of a bone growing on another, but separated from it by a cartilage. Epiphyses are appendixes of the long bones, for the purpose of articulation, formed from a distinct center of ossification, and in the young subject connected with the larger bones by an intervening cartilage, which in the adult is obliterated.
+epiphysy	EPIPHYSY	n.	Accretion; the growing of one bone to another by simple contiguity, without a proper articulation. The spongy extremity of a bone; any portion of a bone growing on another, but separated from it by a cartilage. Epiphyses are appendixes of the long bones, for the purpose of articulation, formed from a distinct center of ossification, and in the young subject connected with the larger bones by an intervening cartilage, which in the adult is obliterated
+epiploce	EPIPLOCE		EPIP'LOCELE, noun [Gr. the caul, and a tumor.] A rupture of the caul or omentum.
+epiplocele	EPIPLOCELE	n.	A rupture of the caul or omentum
+epiplocy	EPIPLOCY	n.	A figure of rhetoric, by which one aggravation, or striking circumstance, is added in due gradation to another; as, 'He not only spared his enemies, but continued them in employment; not only continued them, but advanced them.'
+epiploic	EPIPLOIC	a.	Pertaining to the caul or omentum
+epiploon	EPIPLOON	n.	The caul or omentum
+episcopacy	EPISCOPACY	n.	Government of the church by bishops; that form of ecclesiastical government, in which diocesan bishops are established, as distinct from and superior to priests or presbyters
+episcopal	EPISCOPAL	a.	Belonging to or vested in bishops or prelates; as episcopal jurisdiction; episcopal authority.	Governed by bishops; as the episcopal church.
+episcopalian	EPISCOPALIAN	a.	Pertaining to bishops or government by bishops; episcopal.
+episcopalian	EPISCOPALIAN	n.	One who belongs to an episcopal church, or adheres to the episcopal form of church government and discipline.
+episcopally	EPISCOPALLY	adv.	By episcopal authority; in an episcopal manner.
+episcopate	EPISCOPATE	n.	A bishopric; the office and dignity of a bishop.	The order of bishops.
+episcopate	EPISCOPATE	v.i.	To act as a bishop; to fill the office of a prelate.
+episcopy	EPISCOPY	n.	Survey; superintendence; search.
+episode	EPISODE	n.	In poetry, a separate incident, story or action, introduced for the purpose of giving a greater variety to the events related in the poem; an incidental narrative, or digression, separable from the main subject, but naturally arising from it
+episodic	EPISODIC		EPISOD'ICAL, adjective Pertaining to an episode; contained in an episode or digression.
+episodical	EPISODICAL	a.	Pertaining to an episode; contained in an episode or digression.
+episodically	EPISODICALLY	adv.	By way of episode.
+epispastic	EPISPASTIC	a.	In medicine, drawing; attracting the humors to the skin; exciting action in the skin; blistering
+epispastic	EPISPASTIC	n.	A topical remedy, applied to the external part of the body, for the purpose of drawing the humors to the part, or exciting action in the skin; a blister.
+epistilbite	EPISTILBITE	n.	A mineral, said to be the same as the heulandite.
+epistle	EPISTLE	n.	A writing, directed or sent, communicating intelligence to a distant person; a letter; a letter missive. It is rarely used in familiar conversation or writings, but chiefly in solemn or formal transactions. It is used particularly in speaking of the letters of the Apostles, as the epistles of Paul; and of other letters written by the ancients, as the epistles of Pliny or of Cicero
+epistler	EPISTLER	n.	A writer of epistles. [Little used.]	Formerly, one who attended the communion table and read the epistles.
+epistolary	EPISTOLARY	a.	Pertaining to epistles or letters; suitable to letters and correspondence; familiar; as an epistolary style.	Contained in letters; carried on by letters; as an epistolary correspondence.
+epistolic	EPISTOLIC		EPISTOL'ICAL, adjective Pertaining to letters or epistles.	Designating the method of representing ideas by letters and words.
+epistolical	EPISTOLICAL	a.	Pertaining to letters or epistles.	Designating the method of representing ideas by letters and words.
+epistolize	EPISTOLIZE	v.i.	To write epistles or letters.
+epistolizer	EPISTOLIZER	n.	A writer of epistles.
+epistolographic	EPISTOLOGRAPHIC	a.	Pertaining to the writing of letters.
+epistolography	EPISTOLOGRAPHY	n.	The art or practice of writing letters
+epistrophe	EPISTROPHE		EPIS'TROPHY, noun [Gr. a return.] A figure, in rhetoric, in which several successive sentences end with the same word or affirmation.
+epistrophy	EPISTROPHY	n.	A figure, in rhetoric, in which several successive sentences end with the same word or affirmation
+epistyle	EPISTYLE	n.	In ancient architecture, a term used by the Greeks for what is now called the architrave, a massive piece of stone or wood laid immediately over the capital of a column or pillar
+epitaph	EPITAPH	n.	An inscription on a monument, in honor or memory of the dead. The epitaphs of the present day are crammed with fulsome compliments never merited. Can you look forward to the honor of a decorated coffin, a splendid funeral, a towering monument--it may be a lying epitaph	An eulogy, in prose or verse, composed without any intent to be engraven on a monument, as that on Alexander: 'Sufficit huic tumulus, cui non sufficeret orbis.'
+epitaphian	EPITAPHIAN	a.	Pertaining to an epitaph.
+epithalamium	EPITHALAMIUM		EPITHAL'AMY, noun [Gr. a bed-chamber.] A nuptial song or poem, in praise of the bride and bridegroom, and praying for their prosperity. The forty fifth Psalm is an epithalamium to Christ and the church.
+epithalamy	EPITHALAMY	n.	A nuptial song or poem, in praise of the bride and bridegroom, and praying for their prosperity. The forty fifth Psalm is an epithalamium to Christ and the church
+epithem	EPITHEM	n.	In pharmacy, a kind of fomentation or poultice, to be applied externally to strengthen the part. Any external application, or topical medicine. The term has been restricted to liquids in which cloths are dipped, to be applied to a part
+epithet	EPITHET	n.	An adjective expressing some real quality of the thing to which it is applied, or an attributive expressing some quality ascribed to it; as a verdant lawn; a brilliant appearance; a just man; an accurate description. It is sometimes used for title, name, phrase or expression; but improperly. EP'ITHET v, t, To entitle; to describe by epithets
+epithetic	EPITHETIC	a.	Pertaining to an epithet or epithets.	Abounding with epithets. A style or composition may be too epithetic
+epithumetic	EPITHUMETIC		EPITHUMET'ICAL, adjective [Gr.] Inclined to lust; pertaining to the animal passion.
+epithumetical	EPITHUMETICAL	a.	Inclined to lust; pertaining to the animal passion
+epitome	EPITOME		EPIT'OMIST, noun An epitomizer.
+epitomist	EPITOMIST	n.	An epitomizer.
+epitomize	EPITOMIZE	v.t.	To shorten or abridge, as a writing or discourse; to abstract, in a summary, the principal matters of a book; to contract into a narrower compass. Xiphilin epitomized Dion's Roman History.	To diminish; to curtail. [Less proper.]
+epitomized	EPITOMIZED	pp.	Abridged; shortened; contracted into a smaller compass, as a book or writing.
+epitomizer	EPITOMIZER	n.	One who abridges; a writer of an epitome.
+epitomizing	EPITOMIZING	ppr.	Abridging; shortening; making a summary.
+epitomy	EPITOMY	n.	An abridgment; a brief summary or abstract of any book or writing; a compendium containing the substance or principal matters of a book. Epitomes are helpful to the memory
+epitrite	EPITRITE	n.	In prosody, a foot consisting of three long syllables and one short one; as salutantes, concitati, incantare
+epitrope	EPITROPE		EPIT'ROPY, noun [Gr. to permit.] In rhetoric, concession; a figure by which one thing is granted, with a view to obtain an advantage; as, I admit all this may be true, but what is this to the purpose? I concede the fact, but it overthrows your own argument.
+epitropy	EPITROPY	n.	In rhetoric, concession; a figure by which one thing is granted, with a view to obtain an advantage; as, I admit all this may be true, but what is this to the purpose? I concede the fact, but it overthrows your own argument
+epizootic	EPIZOOTIC	a.	In geology, an epithet given to such mountains as contain animal remains in their natural or in a petrified state, or the impressions of animal substances. Epizootic mountains are of secondary formation
+epizooty	EPIZOOTY	n.	A murrain or pestilence among irrational animals
+epoch	EPOCH	n.	In chronology, a fixed point of time, from which succeeding years are numbered; a point from which computation of years begins. The Exodus of the Israelites from Egypt, and the Babylonish captivity, are remarkable epochs in their history.	Any fixed time or period; the period when any thing begins or is remarkably prevalent; as the epoch of falsehood; the epoch of woe. The fifteenth century was the unhappy epoch of military establishments in time of peace.
+epode	EPODE	n.	In lyric poetry, the third or last part of the ode; that which follows the strophe and antistrophe; the ancient ode being divided into strophe, antistrophe and epode The word is now used as the name of any little verse or verses, that follow one or more great ones. Thus a pentameter after a hexameter is an epode
+epopee	EPOPEE	n.	An epic poem. More properly, the history, action or fable, which makes the subject of an epic poem
+epos	EPOS	n.	An epic poem, or its fable or subject. Epsom salt, the sulphate of magnesia, a cathartic
+epulary	EPULARY	a.	Pertaining to a feast or banquet
+epulation	EPULATION	a.	A feasting or feast
+epulotic	EPULOTIC	a.	Healing; cicatrizing
+epulotic	EPULOTIC	n.	A medicament or application which tends to dry, cicatrize and heal wounds or ulcers, to repress fungous flesh and dispose the parts to recover soundness.

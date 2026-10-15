@@ -1,0 +1,114 @@
+coacervate	COACERVATE	v.t.	To heap up; to pile.
+coacervate	COACERVATE	a.	Heaped; raised into a pile; collected into a crowd.
+coacervation	COACERVATION	n.	The act of heaping, or state of being heaped together.
+coach	COACH	n.	A close vehicle for commodious traveling, borne on four wheels, and drawn by horses or other animals. It differs from a chariot in having seats in front, as well as behind. It is a carriage of state, or for pleasure, or for travelling. Hackney-coach, a coach kept for hire. In some cities, they are licensed by authority, and numbered, and the rates of fare fixed by law. Mail-coach, a coach that carries the public mails. Stage-coach, a coach that regularly conveys passengers from town to town. [See Stage.] COACH or COUCH, noun An apartment in a large ship of war near the stern, the roof of which is formed by the poop.
+coach	COACH	v.t.	To carry in a coach
+coach-box	COACH-BOX	n.	The seat on which the driver of a coach sits.
+coach-hire	COACH-HIRE	n.	Money paid for the use of a hired coach.
+coach-horse	COACH-HORSE	n.	A horse used in drawing coaches.
+coach-house	COACH-HOUSE	n.	A house to shelter a coach from the weather.
+coach-maker	COACH-MAKER	n.	A man whose occupation is to make coaches.
+coachbox	coach-box
+coachhire	coach-hire
+coachhorse	coach-horse
+coachhouse	coach-house
+coachmaker	coach-maker
+coachman	COACHMAN	n.	The person who drives a coach.
+coachmanship	COACHMANSHIP	n.	Skill in driving coaches.
+coact	COACT	v.i.	To act together.
+coacted	COACTED	pp.	or adjective Forced; compelled.
+coaction	COACTION	n.	Force; compulsion, either in restraining or impelling.
+coactive	COACTIVE	a.	Forcing; compulsory; having the power to impel or restrain.	Acting in concurrence.
+coactively	COACTIVELY	adv.	In a compulsory manner.
+coadjutant	COADJUTANT	a.	Helping; mutually assisting or operating.
+coadjutor	COADJUTOR	n.	One who aids another; an assistant; a fellow-helper; an associate in operation.	In the canon law, one who is empowered or appointed to perform the duties of another.
+coadjutorship	co-adjutorship
+coadjutrix	COADJUTRIX	n.	A female assistant.
+coadjuvancy	COADJUVANCY	n.	Joint help; assistance; concurrent aid; cooperation.
+coadunate	COADUNATE	a.	In botany, coadunate leaves are several united at the base. The word is used also to denote one of the natural orders of plants in Lines system.
+coadunition	COADUNITION	n.	The union of different substances in one mass.
+coadventurer	COADVENTURER	n.	A fellow adventurer.
+coafforest	COAFFOREST	v.t.	To convert ground into a forest.
+coagent	COAGENT	n.	An assistant or associate in an act.
+coagment	COAGMENT	v.t.	To congregate or heap together.
+coagmentation	COAGMENTATION	n.	Collection into a mass or united body; union; conjunction.
+coagmented	COAGMENTED	a.	Congregated; heaped together; united in one mass.
+coagulability	COAGULABILITY	n.	The capacity of being coagulated.
+coagulable	COAGULABLE	a.	[See Coagulate.] That may be concreted; capable of congealing or changing from a liquid to an inspissated state; as coagulable lymph.
+coagulate	COAGULATE	v.t.	To concrete; to curdle; to congeal; to change from a fluid into a fixed substance, or solid mass; as, to coagulate blood; rennet coagulates milk. This word is generally applied to the change of fluids into substances like curd or butter, of a moderate consistence, but not hard or impenetrable.
+coagulate	COAGULATE	v.i.	To curdle or congeal; to turn from a fluid into a consistent state, or fixed substance; to thicken.
+coagulation	COAGULATION	n.	The act of changing from a fluid to a fixed state; concretion; the state of being coagulated; the body formed by coagulating.
+coagulative	COAGULATIVE	a.	That has the power to cause concretion.
+coagulator	COAGULATOR	n.	That which causes coagulation.
+coagulum	COAGULUM	n.	Rennet; curd; the clot of blood, separated by cold, acid, etc.
+coaiti	COAITI	n.	A species of monkey in South America.
+coak	COAK		[See Coke.]
+coal	COAL	n.	A piece of wood, or other combustible substance, ignited, burning, or charred. When burning or ignited, it is called a live coal or burning coal or coal of fire. When the fire is extinct, it is called charcoal.	In the language of chimists, any substance containing oil, which has been exposed to a fire in a close vessel, so that its volatile matter is expelled, and it can sustain a red heat without further decomposition.	In mineralogy, a solid, opake, inflammable substance, found in the earth, and by way of distinction called fossil coal It is divided by recent mineralogists into three species, anthracite or glance coal black or bituminous coal and brown coal or lignite; under which are included many varieties, such as cannel coal bovey coal jet, etc.
+coal	COAL	v.t.	To burn to coal or charcoal; to char.	To mark or delineate with charcoal.
+coal-black	COAL-BLACK	a.	Black as a coal; very black.
+coal-box	COAL-BOX	n.	A box to carry coal to the fire.
+coal-fish	COAL-FISH	n.	A species of Gadus or cod, named from the color of its back. It grows to the length of two feet, or two and a half, and weighs about thirty pounds. This fish is found in great numbers about the Orkneys, and the northern parts of Britain.
+coal-house	COAL-HOUSE	n.	A house or shed for keeping coal.
+coal-mine	COAL-MINE	n.	A mine or pit in which coal is dug.
+coal-miner	COAL-MINER	n.	One who works in a coal-mine.
+coal-mouse	COAL-MOUSE	n.	A small species of titmouse, with a black head.
+coal-pit	COAL-PIT	n.	A pit where coal is dug. In America, a place where charcoal is made.
+coal-ship	COAL-SHIP	n.	A ship employed in transporting coal.
+coal-stone	COAL-STONE	n.	A kind of cannel-coal.
+coal-work	COAL-WORK	n.	A coalery; a place where coal is dug, including the machinery for raising the coal.
+coalblack	coal-black
+coalbox	coal-box
+coalery	COALERY	n.	A coal-mine, coal-pit, or place where coals are dug, with the engines and machinery used in discharging the water and raising the coal.
+coalesce	COALESCE	v.i.	To grow together; to unite, as separate bodies, or separate parts, into one body, as separate bones in an infant, or the fingers or toes.	To unite and adhere in one body or mass, by spontaneous approximation or attraction; as, vapors coalesce	To unite in society, in a more general sense, The Jews were incapable of coalescing with other nations.
+coalescence	COALESCENCE	n.	The act of growing together; the act of uniting by natural affinity or attraction; the state of being united; union; concretion.
+coalescing	COALESCING	ppr.	Growing or coming together; uniting in a body or mass; uniting and adhering together.
+coalfish	coal-fish
+coalhouse	coal-house
+coalier	COALIER		COALITE, verb transitive To unite or coalesce.
+coalite	COALITE	v.t.	To unite or coalesce.
+coalition	COALITION	n.	Union in a body or mass; a coming together, as of separate bodies or parts, and their union in one body or mass; as, a coalition of atoms or particles.	Union of individual persons, parties or states.
+coallier	COALLIER		[See Collier.]
+coally	co-ally
+coalmine	coal-mine
+coalminer	coal-miner
+coalmouse	coal-mouse
+coalpit	coal-pit
+coalship	coal-ship
+coalstone	coal-stone
+coalwork	coal-work
+coaly	COALY	a.	Like coal; containing coal.
+coamings	COAMINGS	n.	In ships, the raised borders or edges of the hatches, made to prevent water from running into the lower apartments from the deck.
+coapprehend	COAPPREHEND	v.t.	To apprehend with another.
+coaptation	COAPTATION	n.	The adaptation or adjustment of parts to each other.
+coarct	COARCTATE	v.t.	To press together; to crowd; to straiten; to confine closely.	To restrain; to confine.
+coarctate	COARCTATE	v.t.	To press together; to crowd; to straiten; to confine closely.	To restrain; to confine.
+coarctation	COARCTATION	n.	Confinement; restraint to a narrow space.	Pressure; contraction.	Restraint of liberty.
+coarse	COARSE	a.	Thick; large or gross in bulk; comparatively of large diameter; as coarse thread or yarn; coarse hair; coarse sand. This seems to be the primary sense of the word; opposed to fine or slender. Hence,	Thick; rough; or made of coarse thread or yarn; as coarse cloth.	Not refined; not separated from grosser particles, or impurities; as coarse metal; coarse glass.	Rude; rough; unrefined; uncivil; as coarse manners.	Gross; not delicate. The coarser tie of human law.	Rude; rough; unpolished; inelegant; applied to language.	Not nicely expert; not accomplished by art or education; as a coarse practitioner.	Mean; not nice; not refined or elegant; as a coarse perfume; a coarse diet.
+coarsely	COARSELY	adv.	Roughly; without fineness or refinement; rudely; inelegantly; uncivilly; meanly; without art or polish.
+coarseness	COARSENESS	n.	Largeness of size; thickness; as the coarseness of thread.	The quality of being made of coarse thread or yarn; whence thickness and roughness; as the coarseness of cloth.	Unrefined state; the state of being mixed with gross particles or impurities; as the coarseness of glass.	Roughness; grossness; rudeness; applied to manners; as the coarseness of a clown.	Grossness; want of refinement or delicacy; want of polish; as the coarseness of expression or of language.	Meanness; want of art in preparation; want of nicety; as the coarseness of food or of raiment.
+coassessor	COASSESSOR	n.	[See Assess.] A joint assessor.
+coassume	COASSUME	v.t.	To assume something with another
+coast	COAST	n.	The exterior line, limit or border of a country, as in Scripture. From the river to the uttermost sea shall your coast be. Deuteronomy 11:24. And ships shall come from the coast of Chittim. Numbers 24:24. Hence the word may signify the whole country within certain limits. Exodus 10:4.	The edge or margin of the land next to the sea; the sea-shore. This is the more common application of the word; and it seems to be used for sea-coast, the border of the sea. Hence it is never used for the bank of a river.	A side; applied to objects indefinitely, by Bacon and Newton. This is a correct use of the word, but now obsolete.	The country near the sea-shore; as, populous towns along the coast The coast is clear, is a proverbial phrase signifying, the danger is over; the enemies have marched off, or left the coast
+coast	COAST	v.i.	To sail near a coast; to sail by or near the shore, or in sight of land. The ancients coasted only in their navigation.	To sail from port to port in the same country.
+coast	COAST	v.t.	To sail by or near to; as, to coast the American shore.	To draw near; to approach; to follow.
+coasted	COASTED	pp.	Sailed by.
+coaster	COASTER	n.	One who sails near the shore.	A vessel that is employed in sailing along a coast, or is licensed to navigate or trade from port to port in the same country. In the United States, coasting vessels of twenty tuns burthen and upwards must be enrolled at the custom house.
+coasting	COASTING	ppr.	Sailing along or near a coast.
+coasting-pilot	COASTING-PILOT	n.	A pilot who conducts vessels along a coast.
+coasting-trade	COASTING-TRADE	n.	The trade which is carried on between the different ports of the same country, or under the same jurisdiction, as distinguished from foreign trade.
+coasting-vessel	COASTING-VESSEL	n.	A vessel employed in coasting; a coaster.
+coastingpilot	coasting-pilot
+coastingtrade	coasting-trade
+coastingvessel	coasting-vessel
+coat	COAT	n.	An upper garment, of whatever material it may be made. The word is, in modern times, generally applied to the garment worn by men next over the vest. God made coats of skin and clothed them. Genesis 3:21. Jacob made Joseph a coat of many colors. Genesis 3:217. He shall put on the holy linen coat Leviticus 16:4. Goliath was armed with a coat of mail. 1 Samuel 17:5.	A petticoat; a garment worn by infants or young children.	The habit or vesture of an order of men, indicating the order or office. Men of his coat should be minding their prayers. So we say, men of his cloth.	External covering, as the fur or hair of a beast, the skin of serpents, the wool of sheep, etc.	A tunic of the eye; a membrane that serves as a cover; a tegument.	The division or layer of a bulbous root; as the coats of an onion.	A cover; a layer of any substance covering another; as a coat of tar, pitch or varnish; a coat of canvas round a mast; a coat of tin-foil.	That on which ensigns armorial are portrayed; usually called a coat of arms. Anciently knights wore a habit over their arms, reaching as low as the navel, open at the sides, with short sleeves, on which were the armories of the knights, embroidered in gold and silver, and enameled with beaten tin of various colors. This habit was diversified with bands and fillets of several colors, placed alternately, and called devises, as being divided and composed of several pieces sewed together. The representation of these is still called a coat of arms.	A coat of mail is a piece of armor, in form of a shirt, consisting of a net-work of iron rings.	A card; a coat-card is one on which a king, queen or knave is painted.
+coat	COAT	v.t.	To cover or spread over with a layer of any substance; as, to coat a retort; to coat a ceiling; to coat a vial.	To cover with cloth or canvas; as, to coat a mast or a pump.
+coat-armor	COAT-ARMOR	n.	A coat of arms; armorial ensigns.
+coatarmor	coat-armor
+coated	COATED	pp.	Covered with a coat; loricated; covered or overspread with any thing that defends; clothed with a membrane.	Having concentric coats or layers, as a bulbous root.
+coati	COATI	n.	An animal of South America, resembling the raccoon, but with a longer body and neck, shorter fur and smaller eyes; the Viverra nasua of Linne.
+coating	COATING	ppr.	Covering with a coat; overspreading.
+coating	COATING	n.	A covering, or the act of covering; lorication; any substance spread over for cover or defense; as the coating of a retort or of a vial.	Cloth for coats; as, merchants advertise an assortment of coatings.
+coax	COAX	v.t.	To wheedle; to flatter; to soothe, appease or persuade by flattery and foundling.
+coaxed	COAXED	pp.	Soothed or persuaded by flattery.
+coaxer	COAXER	n.	A wheedler; a flatterer.
+coaxing	COAXING	ppr.	Wheedling; flattering.

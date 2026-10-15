@@ -1,0 +1,86 @@
+bed	BED	n.	A place or an article of furniture to sleep and take rest on; in modern times, and among civilized men, a sack or tick filled with feathers or wool; but a bed may be made of straw or any other materials. The word bed includes often the bedstead.	Lodging; a convenient place for sleep.	Marriage; matrimonial connection. George, the eldest son of his second bed	A plat or level piece of ground in a garden, usually a little raised above the adjoining ground.	The channel of a river, or that part in which the water usually flows.	Any hollow place, especially in the arts; a hollow place, in which any thing rests; as the bed of a mortar.	A layer; a stratum; an extended mass of any thing, whether upon the earth or within it; as a bed of sulphur; a bed of sand or clay.	Pain, torment. Revelation 2:22. The grave. Isaiah 57:7. The lawful use of wedlock. Hebrews 13:4. The bed of the carriage of a gun is a thick plank which lies under the piece, being, as it were, the body of the carriage. The bed of a mortar is a solid piece of oak, hollow in the middle, to receive the britch and half the trunnions. In masonry, bed is a range of stones, and the joint of the bed is the mortar between two stones placed over each other. BED of justice, in France, was a throne on which the king was seated when he went to parliament. Hence the phrase, to hold a bed of justice. To make a bed is to put it in order after it has been used. To bring to bed to deliver of a child, is rarely used. But in the passive form, to be brought to bed that is, to be delivered of a child, is common. It is often followed by of; as, to be brought to bed of a son. To put to bed in midwifery, is to deliver of a child. Dining bed or discubitory bed among the ancients, a bed on which persons lay at meals. It was four or five feet high, and would hold three or four persons. Three of these beds were ranged by a square table, one side of the table being left open, and accessible to the waiters. Hence the Latin name for the table and the room, triclinium, or three beds. From bed and board. In law, a separation of man and wife, without dissolving the bands of matrimony, is called a separation from bed and board, a mensa et thoro. In this case the wife has a suitable maintenance allotted to her out of the husband's estate, called alimony.
+bed	BED	v.t.	To place in a bed	To go to bed with. [Unusual.]	To make partaker of the bed	To plant and inclose or cover; to set or lay and inclose; as, to bed the roots of a plant in soft mold.	To lay in any hollow place, surrounded or inclosed; as to bed a stone.	To lay in a place of rest or security, covered, surrounded or inclosed; as a fish bedded in sand, or under a bank.	To lay in a stratum; to stratify; to lay in order or flat; as bedded clay, bedded hairs
+bed	BED	v.t.	To cohabit; to use the same bed If he be married and bed with his wife.
+bed-clothes	BED-CLOTHES	n. pl.	Blankets, or coverlets, etc., for beds
+bed-hangings	BED-HANGINGS	n.	Curtains.
+bed-molding	BED-MOLDING		In architecture, the members of a cornice, which are placed below the coronet, consisting of an ogee, a list, a large boultine, and another list under the coronet
+bedabble	BEDABBLE	v.t.	To wet; to sprinkle Bedabbled with the dew
+bedabbled	BEDABBLED	pp.	Wet; sprinkled.
+bedabbling	BEDABBLING	ppr.	Wetting; sprinkling.
+bedaff	BEDAFF	v.t.	To make a fool of. [Not in use.]
+bedaggle	BEDAGGLE	v.t.	To soil, as clothes, by drawing the ends in the mud, or spattering them with dirty water
+bedaggled	BEDAGGLED	pp.	Soiled by reaching the mud in walking; bespattering.
+bedare	BEDARE	v.t.	To dare; to defy. [Not used.]
+bedark	BEDARK	v.t.	To darken. [Not used.]
+bedash	BEDASH	v.t.	To wet, by throwing water, or other liquor upon; to bespatter, with water or mud
+bedashed	BEDASHED	pp.	Bespattered with water or other liquid.
+bedashing	BEDASHING	ppr.	Bespattering; dashing water upon, or other liquid.
+bedaub	BEDAUB	v.t.	To daub over; to besmear with viscous, slimy matter; to soil with any thing thick and dirty
+bedaubed	BEDAUBED	pp.	Daubed over; besmeared.
+bedaubing	BEDAUBING	ppr.	Daubing over; besmearing.
+bedazzle	BEDAZZLE	v.t.	To confound the sight by too strong a light; to make dim by luster
+bedazzled	BEDAZZLED	pp.	Having the sight confounded by too strong a light.
+bedazzling	BEDAZZLING	ppr.	Confounding or making dim by a too brilliant luster.
+bedchamber	BEDCHAMBER	n.	An apartment or chamber intended or appropriated for a bed, or for sleep and repose
+bedclothes	bed-clothes
+bedded	BEDDED	pp.	Laid in a bed; inclosed as in a bed.
+bedder	BEDDER		BED'DING, participle present tense Laying in a bed; inclosing as in a bed.
+bedding	BEDDING	ppr.	Laying in a bed; inclosing as in a bed.
+bedding	BEDDING	n.	A bed and its furniture; a bed; the materials of a bed, whether for man or beast.
+bedeck	BEDECK	v.t.	To deck; to adorn; to grace
+bedecked	BEDECKED	pp.	Adorned; ornamented.
+bedecking	BEDECKING	ppr.	Adorning; decking.
+bedehouse	BEDEHOUSE	n.	Formerly, a hospital or alms house, where the poor prayed for their founders and benefactors.
+bedel	BEDEL	n.	An officer in the universities of England. [A peculiar orthography of beadle.]
+bedelry	BEDELRY	n.	The extent of a bedel's office.
+bedetter	BEDETTER	n.	The nether stone of an oil mill
+bedew	BEDEW	v.t.	To moisten, as with dew; to moisten in a gentle manner with any liquid; as, tears bedew her face
+bedewed	BEDEWED	pp.	Moistened, as if with dew; gently moistened.
+bedewer	BEDEWER	n.	That which bedews.
+bedewing	BEDEWING	ppr.	Moistening gently, as with dew; wetting.
+bedewy	BEDEWY	a.	Moist with dew. [Little used.]
+bedfellow	BEDFELLOW	n.	One who lies in the same bed
+bedhangings	bed-hangings
+bedight	BEDIGHT	v.t.	To adorn; to dress; set off with ornaments. [Little used.]
+bedighted	BEDIGHTED	pp.	Adorned; set off with ornaments.
+bedighting	BEDIGHTING	ppr.	Adorning.
+bedim	BEDIM	v.t.	To make dim; to obscure or darken
+bedimmed	BEDIMMED	pp.	Made dim; obscured.
+bedimming	BEDIMMING	ppr.	Making dim; obscuring; darkening.
+bedizen	BEDIZEN	v.t.	To adorn; to deck; a low word
+bedizened	BEDIZENED	pp.	Bedecked; adorned.
+bedizening	BEDIZENING	ppr.	Adorning.
+bedlam	BEDLAM	n.	A mad house; a place appropriated for lunatics.]	A madman; a lunatic; one who lives in bedlam	A place of uproar.
+bedlam	BEDLAM	a.	Belonging to a mad house; fit for a mad house.
+bedlamite	BEDLAMITE	n.	An inhabitant of a madhouse, a madman.
+bedmaker	BEDMAKER	n.	One whose occupation is to make beds, as a college or university
+bedmate	BEDMATE	n.	A bedfellow
+bedmolding	bed-molding
+bedote	BEDOTE	v.t.	To make to dote. [Not in use.]
+bedpost	BEDPOST	n.	The post of a bedstead
+bedpresser	BEDPRESSER	n.	A lazy fellow; one who loves his bed
+bedraggle	BEDRAGGLE	v.t.	To soil, as garments which are suffered, in walking, to reach the dirt; to soil by drawing along on mud
+bedraggled	BEDRAGGLED	pp.	Soiled by reaching the dirt, in walking.
+bedraggling	BEDRAGGLING	ppr.	Soiling by drawing along in dirt or mud.
+bedrench	BEDRENCH	v.i.	To drench; to soak; to saturate with moisture; applied to things which imbibe moisture
+bedrenched	BEDRENCHED	pp.	Drenched; soaked.
+bedrenching	BEDRENCHING	ppr.	Soaked; drenching.
+bedrid	BEDRID		BED'RIDDEN, adjective [bed and ride.] Confined to the bed, by age or infirmity.
+bedridden	BEDRIDDEN	a.	Confined to the bed, by age or infirmity
+bedrite	BEDRITE	n.	The privilege of the marriage bed
+bedroom	BEDROOM	n.	A room or apartment intended or used for a bed; a lodging room	Room in a bed. [Not in use.]
+bedrop	BEDROP	v.t.	To sprinkle, as with drops
+bedropped	BEDROPPED	pp.	Sprinkled as with drops; speckled; variegated with spots.
+bedside	BEDSIDE	n.	The side of the bed.
+bedstaff	BEDSTAFF	n.	A wooden pin anciently inserted on the sides of bedsteads, to keep the clothes from slipping on either side
+bedstead	BEDSTEAD	n.	A frame for supporting a bed
+bedstraw	BEDSTRAW	n.	Straw laid under a bed to make it soft; also the name of a plant, a species of galium
+bedswerver	BEDSWERVER	n.	One that swerves from his bed; that is one who is false and unfaithful to the marriage vow
+bedtime	BEDTIME	n.	The time to go to rest; the usual hour of going to bed
+beduck	BEDUCK	v.t.	To duck; to put the head under water; to immerse
+bedust	BEDUST	v.t.	To sprinkle, soil or cover with dust
+bedward	BEDWARD	adv.	Toward bed
+bedwarf	BEDWARF	v.t.	To make little; to stunt or hinder growth
+bedwork	BEDWORK	n.	Work done in bed, without toil of the hands or with ease
+bedye	BEDYE	v.t.	To dye; to stain
+bedyed	BEDYED	pp.	Dyed; stained.

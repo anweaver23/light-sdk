@@ -1,0 +1,62 @@
+maid	MAID	n.	A species of skate fish.
+maid-servant	MAID-SERVANT	n.	A female servant.
+maiden	MAIDEN	n.	An unmarried woman, or a young unmarried woman; a virgin.	A female servant.	It is used in composition, to express the feminine gender, as in maid-servant.
+maiden	MAIDEN	n.	A maid; also, an instrument for beheading criminals, and another for washing linen.
+maiden	MAIDEN	a.	Pertaining to a young woman or virgin; as maiden charms.	Consisting of young women or virgins. Amid the maiden throng.	Fresh; new; unused. He fleshed his maiden sword.
+maiden	MAIDEN	v.i.	To speak and act demurely or modestly.
+maidenhair	MAIDENHAIR	n.	A plant of the genus Adiantum.
+maidenhood	MAIDENHOOD	n.	The state of being a maid or virgin; virginity. The modest lore of maidenhood	Newness; freshness; uncontaminated state.
+maidenlike	MAIDENLIKE	a.	Like a maid; modest.
+maidenliness	MAIDENLINESS	n.	The behavior that becomes a maid; modesty; gentleness.
+maidenlip	MAIDENLIP	n.	A plant.
+maidenly	MAIDENLY	a.	Like a maid; gentle; modest; reserved.
+maidenly	MAIDENLY	adv.	In a maidenlike manner.
+maidhood	MAIDHOOD	n.	Virginity.
+maidmarian	MAIDMARIAN	n.	A dance; so called from a buffoon dressed like a man.
+maidpale	MAIDPALE	a.	Pale, like a sick girl.
+maidservant	maid-servant
+mail	MAIL	n.	A coat of steel net-work, formerly worn for defending the body against swords, poniards, etc. The mail was of two sorts, chain and plate mail; the former consisting of iron rings, each having four others inserted into it; the latter consisting of a number of small lamins of metal, laid over one another like the scales of a fish, and sewed down to a strong linen or leathern jacket.	Armor; that which defends the body. We strip the lobster of his scarlet mail We read also of shirts of mail and gloves of mail	In ships, a square machine composed of rings interwoven, like net-work, used for rubbing off the loose hemp on lines and white cordage.	A rent. Also, a spot.
+mail	MAIL	n.	A bag for the conveyance of letters and papers, particularly letters conveyed from one post office to another, under public authority.
+mail	MAIL	v.t.	To put on a coat of mail or armor; to arm defensively.	To inclose in a wrapper and direct to a post office. We say, letters were mailed for Philadelphia.
+mail-coach	MAIL-COACH	n.	A coach that conveys the public mails.
+mailcoach	mail-coach
+mailed	MAILED	pp.	Covered with a mail or with armor; inclosed and directed, as letters in a bundle.	adjective Spotted; speckled.
+mailing	MAILING	ppr.	Investing with a coat of mail; inclosing in a wrapper and directing to a post office.
+maim	MAIM	v.t.	To deprive of the use of a limb, so as to render a person less able to defend himself in fighting, or to annoy his adversary.	To deprive of a necessary part; to cripple; to disable. You maim'd the jurisdiction of all bishops.
+maim	MAIM	n.	The privation of the use of a limb or member of the body, so as to render the sufferer less able to defend himself or to annoy his adversary.	The privation of any necessary part; a crippling. Surely there is more cause to fear lest the want thereof be a maim than the use of it a blemish.	Injury; mischief.	Essential defect. A noble author esteems it to be a maim in history. [Not used.]
+maimed	MAIMED	pp.	Crippled; disabled in limbs; lame.
+maimedness	MAIMEDNESS	n.	A state of being maimed.
+maiming	MAIMING	ppr.	Disabling by depriving of the use of a limb; crippling; rendering lame or defective.
+main	MAIN	a.	Principal; chief; that which has most power in producing an effect, or which is mostly regarded in prospect; as the main branch or tributary stream of a river; the main timbers of an edifice; a main design; a main object. Our main interest is to be as happy as we can, and as long as possible.	Mighty; vast; as the main abyss.	Important; powerful. This young prince, with a train of young noblemen and gentlemen, not with any main army, came over to take possession of his patrimony.
+main	MAIN	n.	Strength; force; violent effort; as in the phrase, 'with might and main '	The gross; the bulk; the greater part. The main of them may be reduced to language and an improvement in wisdom--	The ocean; the great sea, as distinguished from rivers, bays, sounds and the like. He fell, and struggling in the main--	The continent, as distinguished from an isle. We arrived at Nantucket on Saturday, but did not reach the main till Monday. In this use of the word, land is omitted; main for main land.	A hamper.	A course; a duct. For the main in the main for the most part; in the greatest part.
+main	MAIN	n.	A hand at dice. We throw a merry main And lucky mains make people wise. [Not used.]	A match at cock fighting.
+main-keel	MAIN-KEEL	n.	The principal keel, as distinguished from the false keel.
+main-land	MAIN-LAND	n.	The continent; the principal land, as opposed to an isle.
+main-mast	MAIN-MAST	n.	The principal mast in a ship or other vessel.
+main-sail	MAIN-SAIL	n.	The principal sail in a ship. The main-sail of a ship or brig is extended by a yard attached to the main-mast, and that of a sloop, by the boom.
+main-sheet	MAIN-SHEET	n.	The sheet that extends and fastens the main-sail.
+main-top	MAIN-TOP	n.	The top of the main-mast of a ship or brig.
+main-yard	MAIN-YARD	n.	The yard on which the main-sail is extended, supported by the main-mast.
+mainkeel	main-keel
+mainland	main-land
+mainly	MAINLY	adv.	Chiefly; principally. He is mainly occupied with domestic concerns.	Greatly; to a great degree; mightily.
+mainmast	main-mast
+mainor	MAINOR	n.	The old law phrase, to be taken as a thief with the mainor signifies, to be taken in the very act of killing venison or stealing wood, or in preparing so to do; or it denotes the being taken with the thing stolen upon him
+mainpernable	MAINPERNABLE	a.	That may be admitted to give surety by mainpernors; that may be mainprized.
+mainpernor	MAINPERNOR	n.	In law, a surety for a prisoner's appearance in court at a day. Mainpernors differ from bail, in that a man's bail may imprison or surrender him before the stipulated day of appearance; mainpernors can do neither; they are bound to produce him to answer all charges whatsoever.
+mainprize	MAINPRIZE	n.	In law, a writ directed to the sheriff, commanding him to take sureties for the prisoner's appearance, and to let him go at large. These sureties are called mainpernors.	Deliverance of a prisoner on security for his appearance at a day.
+mainprize	MAINPRIZE	v.t.	To suffer a prisoner to go at large, on his finding sureties, mainpernors, for his appearance at a day.
+mainsail	main-sail
+mainsheet	main-sheet
+mainswear	MAINSWEAR	v.i.	To swear falsely; to perjure one's self.
+maintain	MAINTAIN	v.t.	To hold, preserve or keep in any particular state or condition; to support; to sustain; not to suffer to fail or decline; as, to maintain a certain degree of heat in a furnace; to maintain the digestive process or powers of the stomach; to maintain the fertility of soil; to maintain present character or reputation.	To hold; to keep; not to lose or surrender; as, to maintain a place or post.	To continue; not to suffer to cease; as, to maintain a conversation.	To keep up; to uphold; to support the expense of; as, to maintain state or equipage. What maintains one vice would bring up two children.	To support with food, clothing and other conveniences; as, to maintain a family by trade or labor.	To support by intellectual powers, or by force of reason; as, to maintain an argument.	To support; to defend; to vindicate; to justify; to prove to be just; as, to maintain one's right or cause.	To support by assertion or argument; to affirm. In tragedy and satire, I maintain that this age and the last have excelled the ancients.
+maintainable	MAINTAINABLE	a.	That may be maintained, supported, preserved or sustained.	That may be defended or kept by force or resistance; as, a military post is not maintainable	That may be defended by argument or just claim; vindicable; defensible.
+maintained	MAINTAINED	pp.	Kept in any state; preserved; upheld; supported; defended; vindicated.
+maintainer	MAINTAINER	n.	One who supports, preserves, sustains or vindicates.
+maintaining	MAINTAINING	ppr.	Supporting; preserving; upholding; defending; vindicating.
+maintenance	MAINTENANCE	n.	Sustenance; sustentation; support by means of supplies of food, clothing and other conveniences; as, his labor contributed little to the maintenance of his family.	Means of support; that which supplies conveniences. Those of better fortune not making learning their maintenance	Support; protection; defense; vindication; as the maintenance of right or just claims.	Continuance; security from failure or decline. Whatever is granted to the church for God's honor and the maintenance of his service, is granted to God.	In law, an officious intermeddling in a suit in which the person has no interest, by assisting either party with money or means to prosecute or defend it. This is a punishable offense. But to assist a poor kinsman from compassion, is not maintenance
+maintop	main-top
+mainyard	main-yard
+maister	MAISTER		for master, is obsolete.
+maistress	MAISTRESS		for mistress, is obsolete.
+maiz	MAIZ	n.	A plant of the genus Zea, the native corn of America, called Indian corn.

@@ -1,0 +1,47 @@
+ox	OX	n. pl.	oxen. pronoun ox'n. The male of the bovine genus of quadrupeds, castrated and grown to his size or nearly so. The young male is called in America a steer. The same animal not castrated is called a bull. These distinctions are well established with us in regard to domestic animals of this genus. When we speak of wild animals of this kind, ox is sometimes applied both to the male and female, and in zoology, the same practice exists in regard to the domestic animals. Sop in common usage, a pair of bulls yoked may be sometimes called oxen. We never apply the name ox to the cow or female of the domestic kind. Oxen in the plural may comprehend both the male and female.
+ox-eye	OX-EYE	n.	A plant of the genus Buphthalmum; another of the genus Anthemis; also, the ox-eye daisy or Chrysanthemum
+ox-eyed	OX-EYED	a.	Having large full eyes, like those of an ox.
+oxalate	OXALATE	n.	[See Oxalic.] In chimistry, a salt formed by a combination of the oxalic acid with a base.
+oxalic	OXALIC	a.	Pertaining to sorrel. The oxalic acid is the acid of sorrel
+oxbane	OXBANE	n.	A plant, buphonos.
+oxeye	ox-eye
+oxeyed	ox-eyed
+oxfly	OXFLY	n.	A fly hatched under the skin of cattle.
+oxgang	OXGANG	n.	In ancient laws, as much land as an ox can plow in a year; said to be fifteen acres, or as others allege, twenty acres
+oxheal	OXHEAL	n.	A plant.
+oxiodic	OXIODIC	a.	Pertaining to or consisting of the compound of oxygen and iodine.
+oxlike	OXLIKE	a.	Resembling an ox
+oxlip	OXLIP	n.	A plant, the cowslip.
+oxstall	OXSTALL	n.	A stall or stand for oxen.
+oxtongue	OXTONGUE	n.	A plant of the genus Picris.
+oxy-iodine	OXY-IODINE	n.	In chimistry, a compound of the chloriodic and oxiodic acids.
+oxycrate	OXYCRATE	n.	A mixture of water and vinegar. [Little used.]
+oxyd	OXYD	n.	In chimistry, a substance formed by the combination of a portion of oxygen with some base; or a substance combined with oxygen, without being in the state of an acid
+oxydability	OXYDABILITY	n.	The capacity of being converted into an oxyd.
+oxydable	OXYDABLE	a.	Capable of being converted into an oxyd.
+oxydate	OXYDATE	v.t.	To convert into an oxyd, as metals and other substances, by combination with oxygen. It differs from acidify, to make acid, or to convert into an acid, as in oxydation the acid that enters into combination is not sufficient to form an acid.
+oxydated	OXYDATED	pp.	Converted into an oxyd.
+oxydating	OXYDATING	ppr.	Converting into an oxyd.
+oxydation	OXYDATION	n.	The operation or process of converting into an oxyd, as metals or other substances, by combining with them a certain portion of oxygen.
+oxydize	OXYDIZE	v.t.	To oxydate, which see.
+oxydized	OXYDIZED	pp.	Oxydated.
+oxydizement	OXYDIZEMENT	n.	Oxydation.
+oxydizing	OXYDIZING	ppr.	Oxydating. [Oxydize and its derivatives are now more generally used than oxydate, though there seems to be no ground for the preference.]
+oxygen	OXYGEN	n.	In chimistry, oxygen or oxygen gas is an element or substance so named from its property of generating acids; it is the respirable part of air, vital air, or the basis of it; it is called the acidifying principle, and the principle or support of combustion. Modern experiments, however, prove that it is not necessary in all cases to combustion or to acidity. oxygen is a permanently elastic fluid, invisible, inodorous, and a little heavier than atmospheric air. In union with azote or nitrogen, it forms atmospheric air, of which it constitutes about a fifth part. Water contains about 85% of it, and it exists in most vegetable and animal products, acids, salts and oxyds. It forms 50% of silex, 47 of alumin, 28 of lime, 40 of magnesia, 17 of potash, and 25 of soda
+oxygenate	OXYGENATE	v.t.	To unite or cause to combine with oxygen, without the evolution of heat or light; to acidify by oxygen.
+oxygenated	OXYGENATED	pp.	United with oxygen.
+oxygenating	OXYGENATING	ppr.	Uniting with oxygen.
+oxygenation	OXYGENATION	n.	The act, operation or process of combining with oxygen.
+oxygenizable	OXYGENIZABLE	a.	Capable of being oxygenized.
+oxygenize	OXYGENIZE	v.t.	To oxygenate, which see.
+oxygenized	OXYGENIZED	pp.	United with oxygen.
+oxygenizement	OXYGENIZEMENT	n.	Oxygenation.
+oxygenizing	OXYGENIZING	ppr.	Oxygenating.
+oxygenous	OXYGENOUS	a.	Pertaining to oxygen, or obtained from it.
+oxygon	OXYGON	n.	A triangle having three acute angles
+oxyiodine	oxy-iodine
+oxymel	OXYMEL	n.	A mixture of vinegar and honey
+oxymoron	OXYMORON	n.	A rhetorical figure, in which an epithet of a quite contrary signification is added to a word; as cruel kindness. Oxyprussic acid, chloroprussic acid
+oxyrrhodine	OXYRRHODINE	n.	A mixture of two parts of the oil of roses with one of the vinegar of roses
+oxytone	OXYTONE	a.	Having an acute sound
+oxytone	OXYTONE	n.	An acute sound.

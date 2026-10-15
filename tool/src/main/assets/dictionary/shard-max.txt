@@ -1,0 +1,6 @@
+maxillar	MAXILLAR		MAX'ILLARY, adjective [Latin maxillaris, from maxilla, the jaw-bone; probably from the root of mash.] Pertaining to the jaw; as the maxillary bones or glands.
+maxillary	MAXILLARY	a.	Pertaining to the jaw; as the maxillary bones or glands
+maxim	MAXIM	n.	An established principle or proposition; a principle generally received or admitted as true. It is nearly the same in popular usage, as axiom in philosophy and mathematics. It is a maxim of state, that countries newly acquired and not settled, are matters of burden, rather than of strength. It is their maxim love is love's reward.	In music, the longest note formerly used, equal to two longs, or four breves.
+maxim-monger	MAXIM-MONGER	n.	One who deals much in maxims.
+maximmonger	maxim-monger
+maximum	MAXIMUM	n.	In mathematics, the greatest number or quantity attainable in any given case; opposed to minimum

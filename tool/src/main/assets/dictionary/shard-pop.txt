@@ -1,0 +1,40 @@
+pop	POP	n.	A small smart quick sound or report.
+pop	POP	v.i.	To enter or issue forth with a quick, sudden motion. I startled at his popping upon me unexpectedly.	To dart; to start from place to place suddenly.
+pop	POP	v.t.	To thrust or push suddenly with a quick motion. He popp'd a paper into his hand. Did'st thou never pop Thy head into a tinman's shop? To pop off, to thrust away; to shift off.
+pop	POP	adv.	Suddenly; with sudden entrance or appearance.
+pope	POPE	n.	The bishop of Rome, the head of the catholic church.	A small fish, called also a ruff.
+pope-joan	POPE-JOAN	n.	A game of cards.
+pope-s-eye	POPE-S-EYE	n.	The gland surrounded with fat in the middle of the thigh
+popedom	POPEDOM	n.	The place, office or dignity of the pope; papal dignity.	The jurisdiction of the pope.
+popejoan	pope-joan
+popeling	POPELING	n.	An adherent of the pope.
+popery	POPERY	n.	The religion of the church of Rome, comprehending doctrines and practices.
+popeseye	pope-s-eye
+popgun	POPGUN	n.	A small gun or tube used by children to shoot wads and make a noise.
+popinjay	POPINJAY	n.	A parrot.	A woodpecker, a bird with a gay head. The green woodpecker, with a scarlet crown, a native of Europe.	A gay, trifling young man; a fop or coxcomb.
+popish	POPISH	a.	Relating to the pope; taught by the pope; pertaining to the pope or to the church of Rome; as popish tenets or ceremonies.
+popishly	POPISHLY	adv.	In a popish manner; with a tendency to popery; as, to be popishly affected or inclined.
+poplar	POPLAR	n.	A tree of the genus Populus, of several species, as the abele, the white poplar the black poplar the aspen-tree, etc. It is numbered among the aquatic trees
+poplin	POPLIN	n.	A stuff made of silk and worsted.
+popliteal	POPLITEAL		POPLIT'IC, adjective [from Latin poples, the ham.] Pertaining to the ham or knee joint.
+poplitic	POPLITIC	a.	Pertaining to the ham or knee joint
+poppet	POPPET		[See Puppet.]
+poppy	POPPY	n.	A plant of the genus Papaver, of several species, from one of which, the somniferum or white poppy is collected opium. This is the milky juice of the capsule when half grown, which exudes from incisions in the cortical part of the capsule, is scraped off, and worked in an iron pot in the sun's heat, till it is of a consistence to form cakes
+populace	POPULACE	n.	The common people; the vulgar; the multitude, comprehending all persons not distinguished by rank, education, office, profession or erudition
+populacy	POPULACY	n.	The populace or common people.
+popular	POPULAR	a.	Pertaining to the common people; as the popular voice; popular elections. So the popular vote inclines.	Suitable to common people; familiar; plain; easy to be comprehended; not critical or abstruse. Homilies are plain and popular instructions.	Beloved by the people; enjoying the favor of the people; pleasing to people in general; as a popular governor; a popular preacher; a popular ministry; a popular discourse; a popular administration; a popular war or peace. Suspect the man who endeavors to make that popular which is wrong.	Ambitious; studious of the favor of the people. A popular man is in truth no better than a prostitute to common fame and to the people. [This sense is not used. It is more customary to apply this epithet to a person who has already gained the favor of the people.]	Prevailing among the people; extensively prevalent; as a popular disease.	In law, a popular action is one which gives a penalty to the person that sues for the same. [Note. popular at least in the United States, is not synonymous with vulgar; the latter being applied to the lower classes of people, the illiterate and low bred; the former is applied to all classes, or to the body of the people, including a great portion at least of well educated citizens.]
+popularity	POPULARITY	n.	Favor of the people; the state of possessing the affections and confidence of the people in general; as the popularity of the ministry; the popularity of a public officer or of a preacher. It is applied also to things; as the popularity of a law or public measure; the popularity of a book or poem. The most valuable trait in a patriot's character is to forbear all improper compliances for gaining popularity I have long since learned the little value which is to be placed in popularity acquired by any other way than virtue; I have also learned that it is often obtained by other means. The man whose ruling principle is duty--is never perplexed with anxious corroding calculations of interest and popularity	Representation suited to vulgar or common conception; that which is intended or adapted to procure the favor of the people. [Little used.]
+popularize	POPULARIZE	v.t.	To make popular or common; to spread among the people; as, to popularize philosophy or physics; to popularize a knowledge of chimical principles.
+popularized	POPULARIZED	pp.	Made popular, or introduced among the people.
+popularizing	POPULARIZING	ppr.	Making popular, or introducing among the people.
+popularly	POPULARLY	adv.	In a popular manner; so as to please the populace. The victor knight, Bareheadaed, popularly low had bow'd.	According to the conceptions of the common people.
+populate	POPULATE	v.i.	To breed people; to propagate. When there be great shoals of people which go on to populate
+populate	POPULATE	v.t.	To people; to furnish with inhabitants, either by natural increase, or by immigration or colonization.
+populate	POPULATE		for populous, is not now in use.
+populated	POPULATED	pp.	Furnished with inhabitants; peopled.
+populating	POPULATING	ppr.	Peopling.
+population	POPULATION	n.	The act or operation of peopling or furnishing with inhabitants; multiplication of inhabitants. The value of our western lands is annually enhanced by population	The whole number of people or inhabitants in a country. The population of England is estimated at ten millions of souls; that of the United States in 1823, was ten millions. A country may have a great population and yet not be populous.	The state of a country with regard to its number of inhabitants, or rather with regard to its numbers compared with their expenses, consumption of goods and productions, and earnings. Neither is the population to be reckoned only by number; for a smaller number that spend more and earn less, do wear out an estate sooner than a greater number that live lower and gather more.
+populosity	POPULOSITY	n.	Populousness. [Not used.]
+populous	POPULOUS	a.	Full of inhabitants; containing many inhabitants in proportion to the extent of the country. A territory containing fifteen or twenty inhabitants to a square mile is not a populous country. The Netherlands, and some parts of Italy, containing a hundred and fifty inhabitants to a square mile, are deemed populous
+populously	POPULOUSLY	adv.	With many inhabitants in proportion to the extent of country.
+populousness	POPULOUSNESS	n.	The state of having many inhabitants in proportion to the extent of country. By populousness in contradistinction to population, is understood the proportion the number bears to the surface of the ground they live on.

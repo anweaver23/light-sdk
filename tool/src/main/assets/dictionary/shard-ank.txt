@@ -1,0 +1,4 @@
+anker	ANKER	n.	A measure of liquids used in Holland, containing about 32 gallons, English measure. Chambers says it contains two stekans; each stekan, 16 mengles; each mengle, 2 wine quarts.
+ankle	ANKLE	n.	The joint which connects the foot with the leg.
+ankle-bone	ANKLE-BONE	n.	The bone of the ankle.
+anklebone	ankle-bone

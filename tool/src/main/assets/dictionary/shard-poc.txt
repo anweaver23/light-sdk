@@ -1,0 +1,20 @@
+pochard	POCHARD	n.	A fresh water duck of an excellent taste, weighing a pound and twelve ounces. It is the red headed duck of Lawson; found in America and in the north of Europe
+pock	POCK	n.	A pustule raised on the surface of the body in the variolous and vaccine diseases, named from the pustules, small pox, or as it ought to be written, small pocks
+pock-hole	POCK-HOLE	n.	The pit or scar made by a pock.
+pocket	POCKET	n.	A small bag inserted in a garment for carrying small articles.	A small bag or net to receive the balls in billiards.	A certain quantity; as a pocket of hops, as in other cases we use sack. [Not used in America.]
+pocket	POCKET	v.t.	To put or conceal in the pocket; as, to pocket a penknife.	To take clandestinely. To pocket an insult or affront, to receive it without resenting it, or at least without seeking redress. [In popular use.]
+pocket-book	POCKET-BOOK	n.	A small book of paper covered with leather; used for carrying papers in the pocket.
+pocket-glass	POCKET-GLASS	n.	A portable looking glass.
+pocket-hole	POCKET-HOLE	n.	The opening into a pocket.
+pocket-lid	POCKET-LID	n.	The flap over the pocket-hole.
+pocket-money	POCKET-MONEY	n.	Money for the pocket or for occasional expenses.
+pocketbook	pocket-book
+pocketglass	pocket-glass
+pockethole	pocket-hole
+pocketlid	pocket-lid
+pocketmoney	pocket-money
+pockhole	pock-hole
+pockiness	POCKINESS	n.	The state of being pocky.
+pockwood	POCKWOOD	n.	Lignum vitae, a very hard wood.
+pocky	POCKY	a.	Infected with the small pocks; full of pocks	Vile; rascally; mischievous; contemptible. [In vulgar use.]
+poculent	POCULENT	a.	Fit for drink. [Not used.]

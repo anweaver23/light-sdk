@@ -1,0 +1,521 @@
+intactable	INTACTABLE	a.	perceptible to the touch
+intagliated	INTAGLIATED	a.	[See Intaglio.] Engraved or stamped on.
+intaglio	INTAGLIO	n.	Literally, a cutting or engraving; hence, any thing engraved, or a precious stone with a head or an inscription engraved on it.
+intangibility	INTANGIBILITY	n.	The quality of being intangible.
+intangible	INTANGIBLE	a.	That cannot or may not be touched	Not perceptible to the touch. A corporation is an artificial, invisible, intangible being.
+intangibleness	INTANGIBLENESS		INTASTABLE, adjective [in and tastable, taste.] That cannot be tasted; that cannot affect the organs of taste.
+intastable	INTASTABLE	a.	That cannot be tasted; that cannot affect the organs of taste
+integer	INTEGER	n.	The whole of any thing; particularly, in arithmetic, a whole number, in contradistinction to a fraction. Thus in the number 54.7, in decimal arithmetic, 54 is an integer and 7 a fraction, or seven tenths of a unit
+integral	INTEGRAL	a.	Whole; entire. A local motion keepeth bodies integral	Making part of a whole, or necessary to make a whole.	Not fractional.	Uninjured; complete; not defective.
+integral	INTEGRAL	n.	A whole; an entire thing.
+integrality	INTEGRALITY	n.	Entireness. [Not used.]
+integrally	INTEGRALLY	adv.	Wholly; completely.
+integrant	INTEGRANT	a.	Making part of a whole; necessary to constitute an entire thing. Integrant particles of bodies, are those into which bodies are reduced by solution or mechanical division, as distinct from elementary particles.
+integrate	INTEGRATE	v.t.	To renew; to restore; to perfect; to make a thing entire
+integrated	INTEGRATED	pp.	Made entire.
+integration	INTEGRATION	n.	The act of making entire.
+integrity	INTEGRITY	n.	Wholeness; entireness; unbroken state. The constitution of the U.States guaranties to each state the integrity of its territories. The contracting parties guarantied the integrity of the empire.	The entire, unimpaired state of any thing, particularly of the mind; moral soundness or purity; incorruptness; uprightness; honesty. integrity comprehends the whole moral character, but has a special reference to uprightness in mutual dealings, transfers of property, and agencies for others. The moral grandeur of independent integrity is the sublimest thing in nature, before which the pomp of eastern magnificence and the splendor of conquest are odious as well as perishable.	Purity; genuine, unadulterated, unimpaired state; as the integrity of language.
+integumation	INTEGUMATION	n.	That part of physiology, which treats of the integuments of animals and plants
+integument	INTEGUMENT	n.	That which naturally invests or covers another thing; but appropriately and chiefly, in anatomy, a covering which invests the body, as the skin, or a membrane that invests a particular part. The skin of seeds and the shells of crustaceous animals are denominated integuments
+intellect	INTELLECT	n.	That faculty of the human soul or mind, which receives or comprehends the ideas communicated to it by the senses or by perception, or by other means; the faculty of thinking; otherwise called the understanding. A clear intellect receives and entertains the same ideas which another communicates with perspicuity
+intellection	INTELLECTION	n.	The act of understanding; simple apprehension of ideas
+intellective	INTELLECTIVE	a.	Having power to understand.	Produced by the understanding.	To be perceived by the understanding, not by the senses.
+intellectual	INTELLECTUAL	a.	Relating to the intellect or understanding; belonging to the mind; performed by the understanding; mental; as intellectual power or operations.	Ideal; perceived by the intellect; existing in the understanding; as an intellectual scene.	Having the power of understanding; as an intellectual being.	Relating to the understanding; treating of the mind; as intellectual philosophy, now sometimes called mental philosophy.
+intellectual	INTELLECTUAL	n.	The intellect or understanding. [Little used.]
+intellectualist	INTELLECTUALIST	n.	One who overrates the understanding.
+intellectuality	INTELLECTUALITY	n.	The state of intellectual power. [Not used.]
+intellectually	INTELLECTUALLY	adv.	By means of the understanding.
+intelligence	INTELLIGENCE	n.	Understanding; skill.	Notice; information communicated; an account of things distant or before unknown. intelligence may be transmitted by messengers, by letters, by signals or by telegraphs.	Commerce of acquaintance; terms of intercourse. Good intelligence between men is harmony. So we say, there is a good understanding between persons, when they have the same views, or are free from discord.	A spiritual being; as a created intelligence It is believed that the universe is peopled with innumerable superior intelligences.
+intelligence	INTELLIGENCE	v.t.	To inform; to instruct. [Little used.]
+intelligence-office	INTELLIGENCE-OFFICE	n.	An office or place where information may be obtained, particularly respecting servants to be hired.
+intelligenced	INTELLIGENCED	pp.	Informed; instructed. [Little used.]
+intelligenceoffice	intelligence-office
+intelligencer	INTELLIGENCER	n.	One who sends or conveys intelligence; one who gives notice of private or distant transactions; a messenger.	A public paper; a newspaper.
+intelligencing	INTELLIGENCING	ppr.	or adjective Giving or conveying notice to from a distance.
+intelligent	INTELLIGENT	a.	Endowed with the faculty of understanding or reason. Man is an intelligent being.	Knowing; understanding; well informed; skilled; as an intelligent officer; an intelligent young man; an intelligent architect; sometimes followed by of; as intelligent of seasons.	Giving information. [Not used nor proper.]
+intelligential	INTELLIGENTIAL	a.	Consisting of unbodied mind. Food alike those pure Intelligential substances require.	Intellectual; exercising understanding.
+intelligibility	INTELLIGIBILITY		INTEL'LIGIBLE, adjective [Latin intelligibilis.] That may be understood or comprehended; as an intelligible account. The rules of human duty are intelligible to minds of the smallest capacity.
+intelligible	INTELLIGIBLE	a.	That may be understood or comprehended; as an intelligible account. The rules of human duty are intelligible to minds of the smallest capacity
+intelligibleness	INTELLIGIBLENESS	n.	The quality of state of being intelligible; the possibility of being understood
+intelligibly	INTELLIGIBLY	adv.	In a manner to be understood; clearly; plainly; as, to write or speak intelligibly
+intemerate	INTEMERATE	a.	Pure; undefiled. [Not in use.]
+intemerateness	INTEMERATENESS	n.	State of being unpolluted. [Not used.]
+intemperament	INTEMPERAMENT	n.	A bad state or constitution; as the intemperament of an ulcerated part
+intemperance	INTEMPERANCE	n.	In a general sense, want of moderation or due restraint; excess in any kind of action or indulgence; any exertion of body or mind, or any indulgence of appetites or passions which is injurious to the person or contrary to morality; as intemperance in study or in labor, in eating or drinking, or in any other gratification. Hence, appropriately and emphatically,	Habitual indulgence in drinking spirituous liquors, with or without intoxication. Should a foreign army land on our shores, to levy such a tax upon us as intemperance levies--no mortal power could resist the swelling tide of indignation that would overwhelm it.
+intemperate	INTEMPERATE	a.	Not moderate or restrained within due limits; indulging to excess any appetite or passion, either habitually or in a particular instance; immoderate in enjoyment or exertion. A man may be intemperate in passion, intemperate in labor, intemperate in study or zeal. Hence by customary application, intemperate denotes indulging to excess in the use of food or drink, but particularly in the use of spirituous liquors. Hence,	Addicted to an excessive or habitual use of spirituous liquors.	Passionate; ungovernable.	Excessive; exceeding the convenient mean or degree; as an intemperate climate. The weather may be rendered intemperate by violent winds, rain or snow, or by excessive cold or heat.
+intemperate	INTEMPERATE	v.t.	To disorder. [Not in use.]
+intemperately	INTEMPERATELY	adv.	With excessive indulgence of appetite or passion; with undue exertion; immoderately; excessively.
+intemperateness	INTEMPERATENESS	n.	Want of moderation; excessive degree of indulgence; as the intemperateness of appetite or passion.	Immoderate degree of any quality in the weather, as in cold, heat or storms.
+intemperature	INTEMPERATURE	n.	Excess of some quality.
+intempestive	INTEMPESTIVE	a.	Untimely. [Not used.]
+intempestively	INTEMPESTIVELY	adv.	Unseasonably. [Not used.]
+intempestivity	INTEMPESTIVITY	n.	Untimeliness. [Not used.]
+intenable	INTENABLE	a.	That cannot be held or maintained; that is not defensible; as an intenable opinion; an intenable fortress. [Untenable, though not more proper, is more generally used.]
+intend	INTEND	v.t.	To stretch; to strain; to extend; to distend. By this the lungs are intended or remitted. [This literal sense is now uncommon.]	To mean; to design; to purpose, that is, to stretch or set forward in mind. [This is now the usual sense.] For they intended evil against thee. Psalms 21:11.	To regard; to fix the mind on; to attend; to take care of. Having no children, she did with singular care and tenderness intend the education of Phillip. [This use of the word is now obsolete. We now use tend and superintend or regard.]	To enforce; to make intense.
+intendant	INTENDANT	n.	One who has the charge, oversight, direction or management of some public business; as an intendant of marine; as intendant of finance; a word much used in France, and sometimes in England and America, but we generally use in lieu of it superintendent.	In Charleston, S. Carolina, the mayor or chief municipal officer of the city.
+intended	INTENDED	pp.	Designed; purposed; as, the insult was intended	Stretched; made intense. [Little used.]
+intendedly	INTENDEDLY	adv.	With intention or purpose; by design.
+intender	INTENDER	pp.	One who intends.
+intendiment	INTENDIMENT	n.	Attention; understanding; consideration.
+intending	INTENDING	ppr.	Stretching; distending. [Little used.]
+intendment	INTENDMENT	n.	Intention; design; in law, the true meaning of a person or of a law, or of any legal instrument. In the construction of statutes or of contracts, the intendment of the same is, if possible, to be ascertained, that is, the true meaning or intention of the legislator or contracting party.
+intenerate	INTENERATE	v.t.	To make tender; to soften. Autumn vigor gives, Equal, intenerating, milky grain
+intenerated	INTENERATED	pp.	Made tender or soft.
+intenerating	INTENERATING	ppr.	Making tender.
+inteneration	INTENERATION	n.	The act of making soft or tender. [Intenerate and its derivatives are little used.]
+intense	INTENSE	a.	Literally, strained, stretched; hence, very close, strict, as when the mind is fixed or bent on a particular subject; as, intense study or application; intense thought.	Raised to a high degree; violent; vehement; as intense heat.	Very severe or keen; as intense cold.	Vehement; ardent; as intense phrases in language.	Extreme in degree. The doctrine of the atonement supposes that the sins of men were so laid on Christ, that his sufferings were inconceivably intense and overwhelming.	Kept on the stretch; anxiously attentive; opposed to remiss.
+intensely	INTENSELY	adv.	To an extreme degree; vehemently; as a furnace intensely heated; weather intensely cold.	Attentively; earnestly.
+intenseness	INTENSENESS	n.	The state of being strained or stretched; intensity; as the intenseness of a cord.	The state of being raised or concentrated to a great degree; extreme violence; as the intenseness of heat or cold.	Extreme closeness; as the intenseness of study or thought.
+intension	INTENSION	n.	A straining, stretching or bending; the state of being strained; as the intension of a musical string	Increase of power or energy of any quality; opposed to remission.
+intensity	INTENSITY	n.	The state of being strained or stretched; intenseness, as of a musical chord.	The state of being raised to a great degree; extreme violence; as the intensity of heat.	Extreme closeness; as intensity of application.	Excess; extreme degree; as the intensity of guilt.
+intensive	INTENSIVE	a.	Stretched, or admitting of extension.	Intent; unremitted; assiduous; as intensive circumspection.	Serving to give force or emphasis; as an intensive particle or preposition.
+intensively	INTENSIVELY	adv.	By increase of degree; in a manner to give force.
+intent	INTENT	a.	Literally, having the mind strained or bent on an object; hence, fixed closely; sedulously applied; eager in pursuit of an object; anxiously diligent; formerly with to, but now with on; as intent on business or pleasure; intent on the acquisition of science. Be intent and solicitous to take up the meaning of the speaker--
+intent	INTENT	n.	Literally, the stretching of the mind towards an object; hence, a design; a purpose; intention; meaning; drift; aim; applied to persons or things. The principal intent of Scripture is to deliver the laws of duties supernatural. I ask therefore, for what intent ye have sent for me? Acts 10:29. To all intents, in all senses; whatever may be designed. He was miserable to all intents and purposes.
+intention	INTENTION	n.	Primarily, a stretching or bending of the mind towards an object; hence, uncommon exertion of the intellectual faculties; closeness of application; fixedness of attention; earnestness. Intention is when the mind, with great earnestness and of choice, fixes its view on any idea, considers it on every side, and will not be called off by the ordinary solicitation of other ideas.	Design; purpose; the fixed direction of the mind to a particular object, or a determination to act in a particular manner. It is my intention to proceed to Paris.	End or aim; the object to be accomplished. In chronical distempers, the principal intention is to restore the tone of the solid parts.	The state of being strained. [See Intension.]
+intentional	INTENTIONAL	a.	Intended; designed; done with design or purpose. The act was intentional not accidental.
+intentionally	INTENTIONALLY	adv.	By design; of purpose; not casually.
+intentioned	INTENTIONED		in composition; as well-intentioned, having good designs, honest in purpose; ill-intentioned, having ill designs.
+intentive	INTENTIVE	a.	Attentive; having the mind close applied. [This word is nearly superseded by attentive.]
+intentively	INTENTIVELY	adv.	Closely; with close application.
+intentiveness	INTENTIVENESS	n.	Closeness of attention or application of mind.
+intently	INTENTLY	adv.	With close attention or application; with eagerness or earnestness; as the mind intently directed to an object; the eyes intently fixed; the man is intently employed in the study of geology.
+intentness	INTENTNESS	n.	The state of being intent; close application; constant employment of the mind.
+inter	INTER		a Latin preposition, signifying among or between; used as a prefix.
+inter	INTER	v.t.	To bury; to deposit and cover in the earth; as, to inter a dead animal body.	To cover with earth. But it is used almost exclusively to denote the depositing and covering of dead animal bodies.
+interact	INTERACT	n.	Intermediate employment or time; a short piece between others
+interamnian	INTERAMNIAN	a.	Situated between rivers
+interanimate	INTERANIMATE	v.t.	To animate mutually. [Little used.]
+interbastation	INTERBASTATION	n.	Patch-work. [Not in use.]
+intercalar	INTERCALAR		INTER'CALARY, adjective [Latin intercalarius; inter and calo, to call or proclaim.] Inserted; an epithet given to the odd day inserted in leap year. The twenty ninth of February in leap year is called the intercalary day. We read in Livy of an intercalary month.
+intercalary	INTERCALARY	a.	Inserted; an epithet given to the odd day inserted in leap year. The twenty ninth of February in leap year is called the intercalary day. We read in Livy of an intercalary month
+intercalate	INTERCALATE	v.t.	To insert an extraordinary day or other portion of time
+intercalated	INTERCALATED	pp.	Inserted.
+intercalating	INTERCALATING	ppr.	Inserting.
+intercalation	INTERCALATION	n.	The insertion of an odd or extraordinary day in the calendar, as the 29th of February in leap year
+intercede	INTERCEDE	v.i.	To pass between. He supposes that a vast period interceded between that origination and the age in which he lived.	To mediate; to interpose; to make intercession; to act between parties with a view to reconcile those who differ or contend; usually followed by with.	To please in favor of one.
+intercedent	INTERCEDENT	a.	Passing between; mediating; pleading for.
+interceder	INTERCEDER	n.	One who intercedes or interposes between parties, to effect a reconciliation; a mediator; an intercessor.
+interceding	INTERCEDING	ppr.	Mediating; pleading.
+intercept	INTERCEPT	v.t.	To take or seize on by the way; to stop on its passage; as, to intercept a letter. The prince was intercepted at Rome. The convoy was intercepted by a detachment of the enemy.	To obstruct; to stop in progress; as, to intercept rays of light; to intercept the current of a river, or a course of proceedings.	To stop, as a course or passing; as, to intercept a course.	To interrupt communication with, or progress towards. While storms vindictive intercept the shore.	To take, include or comprehend between. Right ascension is an arch of the equator, reckoning towards the east, intercepted between the beginning of Aries, and the point of the equator which rises at the same time with the sun or star in a right sphere.
+intercepted	INTERCEPTED	pp.	Taken on the way; seized in progress; stopped.
+intercepter	INTERCEPTER	n.	One who intercepts.
+intercepting	INTERCEPTING	ppr.	Seizing on its passage; hindering from proceeding; comprehending between.
+interception	INTERCEPTION	n.	The act of seizing something on its passage; a stopping; obstruction of a course or proceeding; hinderance.
+intercession	INTERCESSION	n.	The act of interceding; mediation; interposition between parties at variance, with a view to reconciliation; prayer or solicitation to one party in favor of another, sometimes against another. Your intercession now is needless grown; Retire and let me speak with her alone. He bore the sin of many, and made intercession for the transgressors. Isaiah 53:12
+intercessor	INTERCESSOR	n.	A mediator; one who interposes between parties at variance, with a view to reconcile them; one who pleads in behalf of another.	A bishop who, during a vacancy of the see, administers the bishopric till a successor is elected.
+intercessory	INTERCESSORY	a.	Containing intercession; interceding.
+interchain	INTERCHAIN	v.t.	To chain; to link together
+interchained	INTERCHAINED	pp.	Chained together.
+interchaining	INTERCHAINING	ppr.	Chaining or fastening together.
+interchanaged	INTERCHANAGED	pp.	Mutually exchanged; reciprocated.
+interchange	INTERCHANGE	v.t.	To put each in the place of the other; to give and take mutually; to exchange; to reciprocate; as, to interchange places; to interchange cares or duties. I shall interchange My waned state of Henry's regal crown.	To succeed alternately.
+interchange	INTERCHANGE	n.	Mutual change, each giving and receiving; exchange; permutation of commodities; barter; as the interchange of commodities between New York and Liverpool.	Alternate succession; as the interchange of light and darkness. Sweet interchange Of hill and valley, rivers, woods and plains.	A mutual giving and receiving; reciprocation; as an interchange of civilities or kind offices.
+interchangeable	INTERCHANGEABLE	a.	That may be interchanged; that may be given and taken mutually.	Following each other in alternate succession; as the four interchangeable seasons.
+interchangeableness	INTERCHANGEABLENESS	n.	The state of being interchangeable.
+interchangeably	INTERCHANGEABLY	adv.	Alternately; by reciprocation; in a manner by which each gives and received.
+interchangement	INTERCHANGEMENT	n.	Exchange; mutual transfer. [Little used.]
+interchanging	INTERCHANGING	ppr.	Mutually giving and receiving; taking each other's place successively; reciprocating.
+intercident	INTERCIDENT	a.	Falling or coming between
+intercipient	INTERCIPIENT	a.	Intercepting; seizing by the way; stopping
+intercipient	INTERCIPIENT	n.	He or that which intercepts or stops on the passage.
+intercision	INTERCISION	n.	s as z. [Latin intercido; inter and coedo, to cut.] Interruption. [Little used.]
+interclude	INTERCLUDE	v.t.	To shut from a place or course by something intervening; to intercept.	To cut off; to interrupt.
+intercluded	INTERCLUDED	pp.	Intercepted; interrupted.
+intercluding	INTERCLUDING	ppr.	Interrupting.
+interclusion	INTERCLUSION	n.	s as z. Interception; a stopping.
+intercolumniation	INTERCOLUMNIATION	n.	In architecture, the space between two columns. By the rules of the art, this should be in proportion to the highth and bulk of the columns
+intercommon	INTERCOMMON	v.i.	To feet at the same table.	To graze cattle in a common pasture; to use a common with others, or to possess or enjoy the right of feeding in common. Common because of vicinage, is where the inhabitants of two townships contiguous to each other, have usually intercommoned with one another.
+intercommoning	INTERCOMMONING	ppr.	Feeding at the same table, or using a common pasture; enjoying a common field with others.
+intercommunicate	INTERCOMMUNICATE	v.i.	To communicate mutually; to hold mutual communication
+intercommunication	INTERCOMMUNICATION	n.	Reciprocal communication.
+intercommunion	INTERCOMMUNION	n.	Mutual communion; as an intercommunion of deities
+intercommunity	INTERCOMMUNITY	n.	A mutual communication or community; mutual freedom or exercise of religion; as the intercommunity of pagan theology
+intercostal	INTERCOSTAL	a.	Placed or lying between the ribs; as an intercostal muscle, artery or vein
+intercostal	INTERCOSTAL	n.	A part lying between the ribs.
+intercourse	INTERCOURSE	n.	Literally, a running or passing between. Hence	Communication; commerce; connection by reciprocal dealings between persons or nations, either in common affairs and civilities, in trade, or correspondence by letters. We have an intercourse with neighbors and friends in mutual visits and in social concerns; nations and individuals have intercourse with foreign nations or individuals by an interchange of commodities, by purchase and sale, by treaties, contracts, etc.	Silent communication or exchange. This sweet intercourse Of looks and smiles.
+intercur	INTERCUR	v.i.	To intervene; to come in and the mean time
+intercurrence	INTERCURRENCE	n.	A passing or running between
+intercurrent	INTERCURRENT	a.	Running between or among.	Occurring; intervening.
+intercutaneous	INTERCUTANEOUS	a.	Being within or under the skin
+interdeal	INTERDEAL	n.	Mutual dealing; traffick
+interdict	INTERDICT	v.t.	To forbid; to prohibit. An act of congress interdicted the sailing of vessels from our ports. Our intercourse with foreign nations was interdicted.	To forbid communion; to cut off from the enjoyment of communion with a church. An archbishop may not only excommunicate and interdict his suffragans, but his vicar-general may do the same.
+interdict	INTERDICT	n.	Prohibition; a prohibiting order or decree	A papal prohibition by which the clergy are restrained from performing divine service; a species of ecclesiastical censure. The pope has sometimes laid a whole kingdom under an interdict	A papal prohibition by which persons are restrained from attending divine service, or prevented from enjoying some privilege.
+interdicted	INTERDICTED	pp.	Forbid; prohibited.
+interdicting	INTERDICTING	ppr.	Forbidding; prohibiting; cutting off from the enjoyment of some privilege.
+interdiction	INTERDICTION	n.	The act of interdicting; prohibition; prohibiting decree; curse
+interdictive	INTERDICTIVE	a.	Having power to prohibit.
+interdictory	INTERDICTORY	a.	Serving to prohibit.
+interduce	INTERDUCE	n.	In carpentry, a small timber between summers.
+interequinoctial	INTEREQUINOCTIAL	a.	Coming between the vernal and autumnal equinoxes. Spring and autumn I have denominated equinoctial periods. Summer and winter I have called interequinoctial intervals
+interess	INTERESS		for interest, is obsolete.
+interest	INTEREST	v.t.	To concern; to affect; to excite emotion or passion, usually in favor, but sometimes against a person or thing. A narration of suffering interests us in favor of the sufferer. We are interested in the story or in the fate of the sufferer. We are interested to know the result, issue or event of an enterprise. It is followed by in or for. We are interested in the narration, but for the sufferer.	To give a share in. Christ, by his atonement, has interested believers in the blessings of the covenant of grace.	To have a share. We are not all interested in the public funds, but we are all interested in the happiness of a free government.	To engage; as, to interest one in our favor. To interest one's self, is to take a share or concern in.
+interest	INTEREST	n.	Concern; advantage; good; as private interest; public interest Divisions hinder the common interest and public good.	Influence over others. They had now lost their interest at court. He knew his interest sufficient to procure the office.	Share; portion; part; participation in value. He has parted with his interest in the stocks. He has an interest in a manufactory of cotton goods.	Regard to private profit. 'Tis interest calls off all her sneaking train.	Premium paid for the use of money; the profit per cent derived from money lent, or property used by another person, or from debts remaining unpaid. Commercial states have a legal rate of interest Debts on book bear an interest after the expiration of the credit. Courts allow interest in many cases where it is not stipulated. A higher rate of interest than that which the law allows, is called usury. Simple interest is that which arises from the principal sum only. Compound interest is that which arises from the principal with the interest added; interest on interest	Any surplus advantage. With all speed, you shall have your desire with interest
+interested	INTERESTED	pp.	Made a sharer; as one interested in the funds.	Affected; moved; having the passions excited; as one interested by a story.	Having an interest; concerned in a cause or in consequences; liable to be affected; as an interested witness.
+interesting	INTERESTING	ppr.	Giving a share or concern; as by interesting one in a voyage, or in a banking company.	Engaging the affections; as by interesting a person in one's favor.	Engaging the attention or curiosity; exciting emotions or passions; as an interesting story.
+interfere	INTERFERE	v.i.	To interpose; to intermeddle; to enter into or take a part in the concerns of others. It is prudence not to interfere in party disputes, but from necessity.	To clash; to come in collision; to be in opposition. The claims of two nations may interfere	A horse is said to interfere when one hoof or shoe strikes against the fetlock of the opposite leg, and breaks the skin or injures the flesh.
+interference	INTERFERENCE	n.	Interposition; an intermeddling; mediation.	A clashing or collision.	A striking of one foot against the other.
+interfering	INTERFERING	ppr.	Clashing; coming in collision.	Striking one foot against the fetlock of the opposite leg.
+interfering	INTERFERING	n.	Interference.
+interfluent	INTERFLUENT		INTER'FLUOUS, adjective [Latin interfluo; inter and fluo, to flow.] Flowing between.
+interfluous	INTERFLUOUS	a.	Flowing between
+interfoliaceous	INTERFOLIACEOUS	a.	Being between opposite leaves, but placed alternately with them; as interfoliaceous flowers or peduncles
+interfulgent	INTERFULGENT	a.	Shining between
+interfused	INTERFUSED	a.	s as z. [Latin interfusus; inter and fundo, to pour.] Poured or spread between. The ambient air, wide interfused Embracing round this florid earth.
+interim	INTERIM	n.	The mean time; time intervening
+interior	INTERIOR	a.	Internal; being within any limits, inclosure or substance; inner; opposed to exterior or superficial; as the interior apartments of a house; the interior ornaments; the interior surface of a hollow ball, the interior parts of the earth.	Inland; remote from the limits, frontier or shore; as the interior parts of a country, state or kingdom.
+interior	INTERIOR	n.	The internal part of a thing; the inside.	The inland part of a country, state or kingdom.
+interjacency	INTERJACENCY	n.	A lying between; a being between; intervention; as the interjacency of the Tweed between England and Scotland.	That which lies between. [Little used.]
+interjacent	INTERJACENT	a.	Lying or being between; intervening; as interjacent isles
+interject	INTERJECT	v.t.	To throw between; to throw in between other things; to insert. A circumstance--may be interjected even between a relative word and that to which it relates
+interjected	INTERJECTED	pp.	Thrown in or inserted between.
+interjecting	INTERJECTING	ppr.	Throwing or inserting between.
+interjection	INTERJECTION	n.	The act of throwing between.	A word in speaking or writing, thrown in between words connected in construction, to express some emotion or passion. 'These were delightful days, but, alas, they are no more.' [See Exclamation.]
+interjectional	INTERJECTIONAL	a.	Thrown in between other words or phrases; as an interjectional remark.
+interjoin	INTERJOIN	v.t.	To join mutually; to intermarry. [Little used.]
+interknowledge	INTERKNOWLEDGE	n.	Mutual knowledge. [Little used.]
+interlace	INTERLACE	v.t.	To intermix; to put or insert one thing with another. They interlaced some errors. The epic way is every where interlaced with dialogue.
+interlaced	INTERLACED	pp.	Intermixed; inserted between other things.
+interlacing	INTERLACING	ppr.	Intermixing; inserting between.
+interlapse	INTERLAPSE	n.	The lapse or flow of time between two events
+interlard	INTERLARD	v.t.	Primarily, to mix fat with lean; hence, to interpose; to insert between.	To mix; to diversify by mixture.
+interlarded	INTERLARDED	pp.	Interposed; inserted between; mixed.
+interlarding	INTERLARDING	ppr.	Inserting between; intermixing.
+interleaf	INTERLEAF	n.	[See Leaf.] A leaf inserted between other leaves; a blank leaf inserted.
+interleave	INTERLEAVE	v.t.	To insert a leaf; to insert a blank leaf or blank leaves in a book, between other leaves
+interleaved	INTERLEAVED	pp.	Inserted between leaves, or having blank leaves inserted between other leaves.
+interleaving	INTERLEAVING	ppr.	Inserting blank leaves between other leaves.
+interline	INTERLINE	v.t.	To write in alternate lines; as, to interline Latin and English	To write between lines already written or printed, for the purpose of adding to or correcting what is written.
+interlinear	INTERLINEAR		INTERLIN'EARY, adjective [inter and linear.] Written between lines before written or printed.
+interlineary	INTERLINEARY	a.	Written between lines before written or printed
+interlineary	INTERLINEARY	n.	A book having insertions between the leaves.
+interlineation	INTERLINEATION	n.	The act of inserting words or lines between lines before written or printed.	The words, passage or line inserted between lines before written or printed.
+interlined	INTERLINED	pp.	Written between lines; as an interlined word.	Containing a line or lines written between lines; as an interlined manuscript.
+interlining	INTERLINING	ppr.	Writing between lines already written or printed.
+interlining	INTERLINING	n.	Correction or alteration by writing between the lines.
+interlink	INTERLINK	v.t.	To connect by uniting links; to join one chain to another
+interlinked	INTERLINKED	pp.	Connected by union of links; joined.
+interlinking	INTERLINKING	ppr.	Connecting by uniting links; joining.
+interlocation	INTERLOCATION	n.	A placing between; interposition.
+interlocution	INTERLOCUTION	n.	Dialogue; conference; interchange of speech.	In law, an intermediate act or decree before final decision.
+interlocutor	INTERLOCUTOR	n.	One who speaks in dialogue; a dialogist.	In Scots law, an interlocutory judgment or sentence.
+interlocutory	INTERLOCUTORY	a.	Consisting of dialogue. There are several interlocutory discourses in the holy Scriptures.	In law, intermediate; not final or definitive. An order, sentence, decree or judgment, given in an intermediate stage of a cause, or on some intermediate question before the final decision, is called interlocutory; as a decree in chancery referring a question of fact to a court of law, or a judgment on default in a court of law.
+interlope	INTERLOPE	v.i.	To run between parties and intercept the advantage that one should gain from the other; to traffick without a proper license; to forestall; to prevent right
+interloper	INTERLOPER	n.	One who runs into business to which he has no right; one who interferes wrongfully; one who enters a country or place to trade without license.
+interloping	INTERLOPING	ppr.	Interfering wrongfully.
+interlucate	INTERLUCATE	v.t.	To let in light by cutting away branches of trees.
+interlucation	INTERLUCATION	n.	The act of thinning a wood to let in light.
+interlucent	INTERLUCENT	a.	Shining between
+interlude	INTERLUDE	n.	An entertainment exhibited on the state between the acts of a play, or between the play and the afterpiece, to amuse the spectators, while the actors take breath and shift their dress, or the scenes and decorations are changed. In ancient tragedy, the chorus sung the interludes. In modern times, interludes consist of songs, feats of activity, dances, concerts of music, etc
+interluder	INTERLUDER	n.	One that performs in an interlude.
+interluency	INTERLUENCY	n.	A flowing between; water interposed. [Little used.]
+interlunar	INTERLUNAR		INTERLU'NARY, adjective [Latin inter and luna, the moon.] Belonging to the time when the moon, at or near its conjunction with the sun, is invisible.
+interlunary	INTERLUNARY	a.	Belonging to the time when the moon, at or near its conjunction with the sun, is invisible
+intermarriage	INTERMARRIAGE	n.	Marriage between two families, where each takes one and gives another
+intermarried	INTERMARRIED	pp.	Mutually connected by marriage.
+intermarry	INTERMARRY	v.i.	To marry one and give another in marriage; as two families.	To marry some of each order, family, tribe or nation with the other. About the middle of the fourth century from the building of Rome, it was declared lawful for nobles and plebeians to intermarry
+intermarrying	INTERMARRYING	ppr.	Mutually giving and receiving in marriage; mutually connecting by marriage.
+intermean	INTERMEAN	n.	Interact; something done in the mean time. [Not used.]
+intermeation	INTERMEATION	n.	A flowing between. [Not in use.]
+intermeddle	INTERMEDDLE	v.i.	To meddle in the affairs of others, in which one has no concern; to meddle officiously; to interpose or interfere improperly. The practice of Spain has been, by war and by conditions of treaty, to intermeddle with foreign states
+intermeddler	INTERMEDDLER	n.	One that interposes officiously; one who meddles, or intrudes into business to which he has no right.
+intermeddling	INTERMEDDLING	ppr.	Interposing officiously; intruding.
+intermeddling	INTERMEDDLING	n.	Officious interposition.
+intermedial	INTERMEDIAL	a.	Lying between; intervening; intervenient
+intermediary	INTERMEDIARY	n.	Interposition; intervention. [Not much used.]	Something interposed.
+intermediate	INTERMEDIATE	a.	Lying or being in the middle place or degree between two extremes; intervening; interposed; as an intermediate space between hills or rivers; intermediate colors. Man has an intermediate nature and rank between angels and brutes
+intermediate	INTERMEDIATE	n.	In chimistry, a substance which is the intermedium or means of chimical affinity, as an alkali, which renders oil combinable with water.
+intermediately	INTERMEDIATELY	adv.	By way of intervention.
+intermediation	INTERMEDIATION	n.	Intervention; common means.
+intermedium	INTERMEDIUM	n.	An intervening agent.
+intermell	INTERMELL	v.t.	or i. To intermix or intermeddle. [Not in use.]
+interment	INTERMENT	n.	The act of depositing a dead body in the earth; burial; sepulture
+intermention	INTERMENTION	v.t.	To mention among other things; to include. [Not used.]
+intermication	INTERMICATION	n.	A shining between or among
+intermigration	INTERMIGRATION	n.	Reciprocal migration; removal from one country to another by men or tribes which take the place each of the other
+interminable	INTERMINABLE	a.	Boundless; endless; admitting no limit; as interminable space or duration; interminable sufferings. Milton uses this word as an appellation of the Godhead
+interminate	INTERMINATE	a.	Unbounded; unlimited; endless; as interminate sleep
+interminate	INTERMINATE	v.t.	To menace. [Not used.]
+intermination	INTERMINATION	n.	A menace or threat. [Not used.]
+intermingle	INTERMINGLE	v.t.	To mingle or mix together; to put some things with others
+intermingle	INTERMINGLE	v.i.	To be mixed or incorporated.
+intermingled	INTERMINGLED	pp.	Intermixed. There are trees and intermingled temples rise.
+intermingling	INTERMINGLING	ppr.	Mingling or mixing together.
+intermission	INTERMISSION	n.	Cessation for a time; pause; intermediate stop; as, to labor without intermission; service or business will begin after an intermission of one hour.	Intervenient time.	The temporary cessation or subsidence of a fever; the space of time between the paroxysms of a disease. intermission is an entire cessation, as distinguished from remission or abatement of fever.	The state of being neglected; disuse; as of words. [Little used.]
+intermissive	INTERMISSIVE	a.	Coming by fits or after temporary cessations; not continual.
+intermit	INTERMIT	v.t.	To cause to cease for a time; to interrupt; to suspend. Pray to the gods, to intermit the plague That needs must light on this ingratitude
+intermit	INTERMIT	v.i.	To cease for a time; to go off at intervals; as a fever. A tertian fever intermits every other day. The pulse sometimes intermits for a second of time.
+intermitted	INTERMITTED	pp.	Caused to cease for a time; suspended.
+intermittent	INTERMITTENT	a.	Ceasing at intervals; as an intermittent fever.
+intermittent	INTERMITTENT	n.	A fever which entirely subsides or ceases at certain intervals. The ague and fever is called an intermittent
+intermitting	INTERMITTING	ppr.	Ceasing for a time; pausing.	Causing to cease.
+intermittingly	INTERMITTINGLY	adv.	With intermissions; at intervals.
+intermix	INTERMIX	v.t.	To mix together; to put some things with others; to intermingle. In yonder-spring of roses, intermix'd With myrtle, find what to redress 'till noon
+intermix	INTERMIX	v.i.	To be mixed together; to be intermingled.
+intermixed	INTERMIXED	pp.	Mingled together.
+intermixing	INTERMIXING	ppr.	Intermingling.
+intermixture	INTERMIXTURE	n.	A mass formed by mixture; a mass of ingredients mixed.	Admixture; something additional mingled in a mass. In this height of impiety there wanted not an intermixture of levity and folly.
+intermontane	INTERMONTANE	a.	Between mountains; as intermontane soil
+intermundane	INTERMUNDANE	a.	Being between worlds or between orb and orb; as intermundane spaces
+intermural	INTERMURAL	a.	between walls
+intermuscular	INTERMUSCULAR	a.	Between the muscles
+intermutation	INTERMUTATION	n.	Interchange; mutual or reciprocal change
+intermutual	INTERMUTUAL		for mutual, is an illegitimate word.
+intern	INTERN	a.	Internal. [Not much used.]
+internal	INTERNAL	a.	Inward; interior; being within any limit or surface; not external. We speak of the internal parts of a body, of a bone, of the earth, etc. internal excellence is opposed to external. The internal peace of man, is peace of mind or conscience. The internal evidence of the divine origin of the Scriptures, is the evidence which arises from the excellence of its precepts and their adaptation to the condition of man, or from other peculiarities	Pertaining to the heart. With our Savior, internal purity is every thing.	Intrinsic; real; as the internal rectitude of actions.	Confined to a country; domestic; not foreign; as the internal trade of a state or kingdom; internal troubles or dissensions; internal war. internal taxes are taxes on the lands and other property within a state or kingdom; opposed to external taxes.
+internally	INTERNALLY	adv.	Inwardly; within the body; beneath the surface.	Mentally; intellectually.	Spiritually.
+international	INTERNATIONAL	a.	Existing and regulating the mutual intercourse between different nations; as international law
+internecine	INTERNECINE	a.	Deadly; destructive. [Little used.]
+internecion	INTERNECION	n.	Mutual slaughter or destruction. [Little used.]
+internection	INTERNECTION	n.	Connection. [Useless.]
+internode	INTERNODE	n.	[Latin internodium; inter and nodus, knot. In botany, the space between two joints of a plant.
+internuncio	INTERNUNCIO	n.	A messenger between two parties
+interossealseous	INTEROSSEALSEOUS	a.	Situated between bones; as an interosseous ligament
+interpeal	INTERPEAL	v.t.	To interrupt. [Not used.]
+interpel	INTERPEL	v.t.	To set forth. [Not used.]
+interpellation	INTERPELLATION	n.	A summons; a citation	Interruption.	An earnest address; intercession.
+interplead	INTERPLEAD	v.i.	In law, to discuss a point incidentally happening, before the principal cause can be tried
+interpleader	INTERPLEADER	n.	A bill of interpleader in chancery, is where a person owes a debt or rent to one of the parties in suit, but, till the determination of it, he knows not to which, and he desired that they may interplead or settle their claims between themselves, that he may be safe in the payment.
+interpledge	INTERPLEDGE	v.t.	To give and take as a mutual pledge.
+interpoint	INTERPOINT	v.t.	To point; to distinguish by stops or marks.
+interpolate	INTERPOLATE	v.t.	To renew; to begin again; to carry on with intermission; as a succession of interpolated motions.	To foist in; to insert, as a spurious word or passage in a manuscript or book; to add a spurious word or passage to the original. The Athenians were put in possession of Salamis by another law which was cited by Solon, or as some think, interpolated by him for that purpose.
+interpolated	INTERPOLATED	pp.	Inserted or added to the original.
+interpolating	INTERPOLATING	ppr.	Foisting in a spurious word or passage.
+interpolation	INTERPOLATION	n.	The act of foisting a word or passage into a manuscript or book.	A spurious word or passage inserted in the genuine writings of an author. I have changed the situation of some of the Latin verses, and made some interpolations.	In mathematics, that branch of analysis, which treats of the methods by which, when a series of quantities succeeding each other, and formed all according to some determinate law, are given, others subject to the same law may be interposed between them.
+interpolator	INTERPOLATOR	n.	One who foists into a book or manuscript, spurious words or passages; one who adds something to genuine writings
+interpolish	INTERPOLISH	v.t.	To polish between.
+interpone	INTERPONE	v.t.	To set or insert between. [Not in use.]
+interposal	INTERPOSAL	n.	s as z. [from interpose.]	The act of interposing; interposition; interference; agency between two persons.	Intervention; a coming or being between.
+interpose	INTERPOSE	v.t.	s as z. [Latin interpono, interpositum; inter and pono, to place.]	The act of interposing; interposition; interference; agency between two persons.	To place between or among; to thrust in; to intrude, as an obstruction, interruption or inconvenience. What watchful cares do interpose themselves Betwixt your eyes and night. Human frailty will too often interpose itself among persons of the holiest function.	To offer, as aid or services, for relief or the adjustment of differences. The emperor interposed his aid or services to reconcile the contending parties. The common Father of mankind seasonably interposed his hand and rescued miserable man--
+interpose	INTERPOSE	v.i.	To step in between parties at variance; to mediate. The prince interposed and made peace.	To put in by way of interruption. But, interposes Eleutherius, this objection may be made against almost any hypothesis.
+interpose	INTERPOSE	n.	Interposal. [Not used.]
+interposed	INTERPOSED	pp.	Placed between or among; thrust in.
+interposer	INTERPOSER	n.	One that interposes or comes between others; a mediator or agent between parties.
+interposing	INTERPOSING	ppr.	Placing between; coming between; offering aid or services.
+interposit	INTERPOSIT	n.	A place of deposit between one commercial city or country and another.
+interposition	INTERPOSITION	n.	A being, placing or coming between; intervention; as the interposition of the Baltic sea between Germany and Sweden. The interposition of the moon between the earth and the sun occasions a solar eclipse.	Intervenient agency; as the interposition of the magistrate in quieting sedition. How many evidences have we of divine interposition in favor of good men!	Mediation; agency between parties. By the interposition of a common friend, the parties have been reconciled.	Any thing interposed.
+interposure	INTERPOSURE	n.	Interposal. [Not in use.]
+interpret	INTERPRET	v.t.	To explain the meaning or words to a person who does not understand them; to expound; to translate unintelligible words into intelligible ones; as, to interpret the Hebrew language to an Englishman. --Immanuel, which being interpreted, signified, God with us. Matthew 1:23.	To explain or unfold the meaning of predictions, vision, dreams or enigmas; to expound and lay open what is concealed from the understanding; as, Joseph interpreted the dream of Pharaoh.	To decipher.	To explain something not understood; as, to interpret looks or signs.	To define; to explain words by other words in the same language.
+interpretable	INTERPRETABLE	a.	That may be interpreted or explained.
+interpretation	INTERPRETATION	n.	The act of interpreting; explanation of unintelligible words in language that is intelligible. interpretation is the design of translation.	The act of expounding or unfolding what is not understood or not obvious; as the interpretation of dreams and prophecy. Look how we can, or sad or merrily, Interpretation will misquote our looks.	The sense given by an interpreter; exposition. We sometimes find various interpretations of the same passage of Scripture and other ancient writings.	The power of explaining.
+interpretative	INTERPRETATIVE	a.	Collected or known by interpretation. An interpretative siding with heretics.	Containing explanation.
+interpretatively	INTERPRETATIVELY	adv.	As may be collected by interpretation.
+interpreted	INTERPRETED	pp.	Explained; expounded.
+interpreter	INTERPRETER	n.	One that explains or expounds; an expositor; as an interpreter of the Scriptures.	A translator; one who renders the words of one language in words of corresponding signification in another.
+interpreting	INTERPRETING	ppr.	Explaining; expounding; translating.
+interpunction	INTERPUNCTION	n.	The making of points between sentences or parts of a sentence. But punctuation is generally used
+interregnum	INTERREGNUM	n.	The time in which a throne is vacant, between the death or abdication of a king and the accession of his successor. An interregnum in strictness, can happen only in governments where the king is elective; for in hereditary kingdoms, the reign of the successor commences at the moment of his predecessor; s death or demise. The word however is used with more latitude
+interreign	INTERREIGN	n.	An interregnum, or vacancy of the throne.
+interrer	INTERRER	n.	One that inters or buries
+interrex	INTERREX	n.	A regent; a magistrate that governs during an interregnum
+interrogate	INTERROGATE	v.t.	To question; to examine by asking questions; as, to interrogate a witness
+interrogate	INTERROGATE	v.i.	To ask questions.
+interrogated	INTERROGATED	pp.	Examined by questions.
+interrogating	INTERROGATING	ppr.	Asking questions of one; examining by questions.
+interrogation	INTERROGATION	n.	The act of questioning; examination by questions.	A question put; inquiry.	A note that marks a question; as, does Job serve God for naught?
+interrogative	INTERROGATIVE	a.	Denoting a question; expressed in the form of a question; as an interrogative phrase or sentence.
+interrogative	INTERROGATIVE	n.	A word used in asking questions; as who? what? which? why?
+interrogatively	INTERROGATIVELY	adv.	In the form of a question.
+interrogator	INTERROGATOR	n.	One who asks questions.
+interrogatory	INTERROGATORY	n.	A question or inquiry. In law, a particular question to a witness, who is to answer it under the solemnities of an oath. This may be in open court or before commissioners.
+interrogatory	INTERROGATORY	a.	Containing a question; expressing a question; as an interrogatory sentence.
+interrupt	INTERRUPT	v.t.	To stop or hinder by breaking in upon the course or progress of any thing; to break the current or motion of; as a fall of rain interrupted our journey. There was not a tree nor a bush to interrupt the charge of the enemy. The speaker was interrupted by shouts of acclamation. We apply the word both to the agent and to his progress. We say, an alarm interrupted the speaker, or his arguments or discourse.	To divide; to separate; to break continuity or a continued series. The road was on a plain, not interrupted by a single hill, or interrupted here and there by a hill.
+interrupt	INTERRUPT	a.	Broken; containing a chasm.
+interrupted	INTERRUPTED	pp.	Stopped; hindered from proceeding.
+interruptedly	INTERRUPTEDLY	adv.	With breaks or interruptions.
+interrupter	INTERRUPTER	n.	One that interrupts.
+interrupting	INTERRUPTING	ppr.	Hindering by breaking in upon.
+interruption	INTERRUPTION	n.	The act of interrupting, or breaking in upon progression.	Breach of any thing extended; interposition; as an isle separated from the continent by the interruption of the sea.	Intervention; interposition. Lest the interruption of time caused	Stop; hinderance; obstruction caused by breaking in upon any course, current, progress or motion. An interruption may be temporary or durable. The work of the Erie canal has suffered few interruptions from storms and floods. The lava met with no interruption till it descended to the foot of the mountain. The author has met with many interruptions in the execution of his work. The speaker or the argument proceeds without interruption	Stop; cessation; intermission.
+interscapular	INTERSCAPULAR	a.	Situated between the shoulders
+interscind	INTERSCIND	v.t.	To cut off
+interscribe	INTERSCRIBE	v.t.	To write between
+intersecant	INTERSECANT	a.	Dividing into parts; crossing
+intersect	INTERSECT	v.t.	To cut or cross mutually; to divide into parts. Thus two lines or two planes may intersect each other. The ecliptic intersects the equator
+intersect	INTERSECT	v.i.	To meet and cross each other; as, the point where two lines intersect [This is elliptical.]
+intersected	INTERSECTED	pp.	Cut or divided into parts; crossed.
+intersecting	INTERSECTING	ppr.	Cutting; crossing; as lines.
+intersection	INTERSECTION	n.	The act or state of intersecting	The point or line in which two lines or two planes cut each other.
+interseminate	INTERSEMINATE	v.t.	To sow between or among. [Little used.]
+intersert	INTERSERT	v.t.	To set or put in between other things
+intersertion	INTERSERTION	n.	An insertion, or thing inserted between other things.
+interspace	INTERSPACE	n.	A space between other things
+intersperse	INTERSPERSE	v.t.	To scatter or set here and there among other things; as an able argument interspersed with flowers of rhetoric. intersperse shrubs among trees
+interspersed	INTERSPERSED	pp.	Scattered or situated here and there among other things.
+interspersing	INTERSPERSING	ppr.	Scattering here and there among other things.
+interspersion	INTERSPERSION	n.	The act of scattering or setting here and there among other things.
+interstellar	INTERSTELLAR	a.	Situated beyond the solar system
+interstice	INTERSTICE	n.	A space between things; but chiefly, a narrow or small space between things closely set, or the parts which compose a body. We speak of the interstices between the teeth, or between the parts of wood or stone.	Time between one act and another; interval.
+interstinctive	INTERSTINCTIVE	a.	Distinguishing. [Not used.]
+interstitial	INTERSTITIAL	a.	Pertaining to or containing interstices.
+interstratified	INTERSTRATIFIED	a.	Stratified among or between other bodies.
+intertalk	INTERTALK	v.t.	To exchange conversation. [Not used.]
+intertangle	INTERTANGLE	v.t.	To intertwist; to entangle.
+intertexture	INTERTEXTURE	n.	act of interweaving, or the state of things interwoven
+intertie	INTERTIE		INTERTROP'ICAL, adjective [inter and tropical.] Situated between the tropics.
+intertropical	INTERTROPICAL	a.	Situated between the tropics
+intertwine	INTERTWINE	v.t.	To unite by twining or twisting one with another
+intertwined	INTERTWINED	pp.	Twined or twisted one with another.
+intertwining	INTERTWINING	ppr.	Twining one with another.
+intertwist	INTERTWIST	v.t.	To twist one with another
+intertwisted	INTERTWISTED	pp.	Twisted one with another.
+intertwisting	INTERTWISTING	ppr.	Twisting one with another.
+interval	INTERVAL	n.	A space between things; a void space intervening between any two objects; as an interval between two columns, between two pickets or palisades, between two houses or walls, or between two mountains or hills.	Space of time between any two points or events; as the interval between the death of Charles I. of England and the accession of Charles II.' the interval between two wars. Hence we say, an interval of peace.	The space of time between two paroxysms of disease, pain or delirium; remission; as an interval of ease, of peace, of reason.	The distance between two given sounds in music, or the difference in point of gravity or acuteness.	A tract of low or plain ground between hills, or along the banks of rivers, usually alluvial land enriched by the overflowings of rivers, or by fertilizing deposits of earth from the adjacent hills. [De. Belknap writes this intervale; I think improperly.]
+interveined	INTERVEINED	a.	Intersected as with veins. Fair champaign with less rivers interveined
+intervene	INTERVENE	v.i.	To come or be between persons or things; to be situated between. Thus the Atlantic intervenes between Europe and America; the Mediterranean intervenes between Europe and Africa.	To come between points or time or events; as the period that intervened between the treaty of Ryswick and the treaty of Utrecht.	To happen in a way to disturb, cross or interrupt. Events may intervene to frustrate our purposes or wishes.	To interpose or undertake voluntarily for another. A third party may intervene and accept a bill of exchange for another.
+intervene	INTERVENE	n.	A coming between. [Not used.]
+intervenient	INTERVENIENT	a.	Coming or being between; intercedent; interposed. [Little used.]
+intervening	INTERVENING	ppr.	or adjective Coming or being between persons or things, or between points of time; as intervening space or time; intervening events or misfortunes; intervening peace.
+intervention	INTERVENTION	n.	A state of coming or being between; interposition. Light is not interrupted by the intervention of a transparent body.	Agency of persons between persons; interposition; mediation; any interference that may affect the interests of others. Let us decide our quarrels at home without the intervention of a foreign power.	Agency of means or instruments; as, effects are produced by the intervention of natural causes.	Interposition in favor of another; a voluntary undertaking of one party for another. A bill of exchange may be accepted by the intervention of a third person in behalf of the drawer or of one of the indorsers.
+intervenue	INTERVENUE	n.	Interposition. [Not used.]
+intervert	INTERVERT	v.t.	To turn to another course or to another use. [Little used.]
+interview	INTERVIEW	n.	A mutual sight or view; a meeting; usually a formal meeting for some conference on an important subject; hence the word implies a conference or mutual communication of thoughts. The envoy had an interview with the king or with the secretary of foreign affairs. The parties had an interview and adjusted their differences
+intervolve	INTERVOLVE	v.t.	To involve one within another
+intervolved	INTERVOLVED	pp.	Involved one within another; wrapped together.
+intervolving	INTERVOLVING	ppr.	Involving one within another.
+interweave	INTERWEAVE	v.t.; pret. interwove; pp. interwoven	To weave together; to intermix or unite in texture or construction; as threads of silk and cotton interwoven.	To intermix; to set among or together; as a covert of interwoven trees.	To intermingle; to insert together; as, to interweave truth with falsehood.
+interweaving	INTERWEAVING	ppr.	Weaving together.
+interweaving	INTERWEAVING	n.	Intertexture.
+interwish	INTERWISH	v.t.	To wish mutually to each other. [Little used
+interworking	INTERWORKING	n.	The act of working together.
+interwreathed	INTERWREATHED	a.	Woven into a wreath.
+intestable	INTESTABLE	a.	Not capable of making a will; legally unqualified or disqualified to make a testament; as, a person unqualified for want of discretion, or disqualified by loss of reason, is intestable
+intestacy	INTESTACY	n.	The state of dying without making a will or disposing of one's effects
+intestate	INTESTATE	a.	Dying without having made a will. When a man dies intestate his estate is committed for settlement to administrators.	Not devised; not disposed of by will; as an intestate estate.
+intestate	INTESTATE	n.	A person who dies without making a will.
+intestinal	INTESTINAL	a.	Pertaining to the intestines of an animal body; as the intestinal tube or canal
+intestine	INTESTINE	a.	Internal; inward; opposed to external; applied to the human or other animal body; as an intestine disease.	Internal with regard to a state or country; domestic, not foreign; as intestine feuds; intestine war; intestine enemies. It is to be remarked that this word is usually or always applied to evils. We never say, intestine happiness or prosperity; intestine trade, manufactures or bills; but intestine broils, trouble, disorders, calamities, war, etc. We say, internal peace, welfare, prosperity, or internal broils, war, trade, etc. This restricted use of intestine seems to be entirely arbitrary.
+intestine	INTESTINE	n.	Usually in the plural, intestines. The bowels; the canal or tube that extends, with convolutions, from the right orifice of the stomach to the anus.
+inthirst	INTHIRST	v.t.	To make thirsty. [Not used.]
+inthrall	INTHRALL	v.t.	To enslave; to reduce to bondage or servitude; to shackle. The Greeks have been inthralled by the Turks. She soothes, but never can inthrall my mind
+inthralled	INTHRALLED	pp.	Enslaved; reduced to servitude.
+inthralling	INTHRALLING	ppr.	Enslaving.
+inthrallment	INTHRALLMENT	n.	Servitude; slavery; bondage.
+inthrone	INTHRONE	v.t.	To seat on a throne; to raise to royalty or supreme dominion. [See Enthrone, which is the more common orthography.]
+inthronization	INTHRONIZATION	n.	The act of enthroning. [Not in use.]
+inthronize	INTHRONIZE	v.t.	To enthrone. [Not in use.]
+intimacy	INTIMACY	n.	Close familiarity or fellowship; nearness in friendship
+intimate	INTIMATE	a.	Inmost; inward; internal; as intimate impulse.	Near; close. He was honored with an intimate and immediate admission.	Close in friendship or acquaintance; familiar; as an intimate friend; intimate acquaintance.
+intimate	INTIMATE	n.	A familiar friend or associate; one to whom the thoughts of another are entrusted without reserve.
+intimate	INTIMATE	v.i.	To share together. [Not in use.]
+intimate	INTIMATE	v.t.	To hint; to suggest obscurely, indirectly or not very plainly; to give slight notice of. He intimated his intention of resigning his office. 'Tis heaven itself that points out an hereafter, And intimates eternity to man
+intimated	INTIMATED	pp.	Hinted; slightly mentioned or signified.
+intimately	INTIMATELY	adv.	Closely; with close intermixture and union of parts; as two fluids intimately mixed.	Closely; with nearness of friendship or alliance; as two friends intimately united; two families intimately connected.	Familiarly; particularly; as, to be intimately acquainted with facts or with a subject.
+intimating	INTIMATING	ppr.	Hinting; suggesting.
+intimation	INTIMATION	n.	Hint; an obscure or indirect suggestion or notice; a declaration or remark communicating imperfect information. Our friend left us without giving any previous intimation of his design.
+intime	INTIME	a.	Inward; internal. [Not used.]
+intimidate	INTIMIDATE	v.t.	To make fearful; to inspire with fear; to dishearten; to abash. Now guilt once harbor'd in the conscious breast, Intimidates the brave, degrades the great
+intimidated	INTIMIDATED	pp.	Made fearful; abashed.
+intimidating	INTIMIDATING	ppr.	Making fearful; abashing.
+intimidation	INTIMIDATION	n.	The act of making fearful; the state of being abashed.
+intinctivity	INTINCTIVITY	n.	The want of the quality of coloring or tinging other bodies. Fuller's earth is distinguished from colorific earths by its intinctivity
+intire	INTIRE		INTIRELY,. [See Entire and its derivatives.]
+intirely	INTIRE		INTIRELY. [See Entire and its derivatives.]
+intitle	INTITLE		[See Entitle.]
+into	INTO	prep.	Noting entrance or a passing from the outside of a thing to its interior parts. It follows verbs expressing motion. Come into the house; go into the church; one stream falls or runs into another. Water enters into the fine vessels of plants	Noting penetration beyond the outside or surface, or access to it. Look into a letter or book; look into an apartment.	Noting insertion. Infuse more spirit or animation into the composition.	Noting mixture. Put other ingredients into the compound.	Noting inclusion. Put these ideas into other words.	Noting the passing of a thing from one form or state to another. Compound substances may be resolved into others which are more simple; ice is convertible into water, and water into vapor. Men are more easily drawn than forced into compliance. We reduce many distinct substances into one mass. We are led by evidence into belief of truth. Men are often enticed into the commission of crimes. Children are sometimes frightened into fits, and we are all liable to be seduced into error and folly.
+intolerable	INTOLERABLE	a.	Not to be borne; that cannot be endured; as intolerable pain; intolerable heat or cold; an intolerable burden.	Insufferable; as intolerable laziness.
+intolerableness	INTOLERABLENESS	n.	The quality of being not tolerable or sufferable.
+intolerably	INTOLERABLY	adv.	To a degree beyond endurance; as intolerably cold; intolerably abusive.
+intolerance	INTOLERANCE	n.	Want of toleration; the not enduring at all or not suffering to exist without persecution; as the intolerance of a prince or a church towards a religious sect
+intolerant	INTOLERANT	a.	Not enduring; not able to endure. The powers of the human body being limited and intolerant of excesses.	Not enduring difference of opinion or worship; refusing to tolerate others in the enjoyment of their opinions, rights and worship.
+intolerant	INTOLERANT	n.	One who does not favor toleration.
+intolerated	INTOLERATED	a.	Not endured; not tolerated.
+intoleration	INTOLERATION	n.	Intolerance; refusal to tolerate others in their opinions or worship.
+intomb	INTOMB	v.t.	To deposit in a tomb; to bury
+intombed	INTOMBED	pp.	Deposited in a tomb; buried.
+intombing	INTOMBING	ppr.	Depositing in a tomb; interring.
+intonate	INTONATE	v.i.	To sound; to sound the notes of the musical scale.	To thunder.
+intonation	INTONATION	n.	In music, the action of sounding the notes of the scale with the voice, or any other given order of musical tones.	The manner of sounding or tuning the notes of a musical scale.	In speaking, the modulation of the voice in expression.
+intone	INTONE	v.i.	To utter a sound, or a deep protracted sound. Ass intones to ass
+intorsion	INTORSION	n.	A winding, bending or twisting. In botany, the bending or twining of any part of a plant towards one side or the other, or in any direction from the vertical
+intort	INTORT	v.t.	To twist; to wreath; to wind; to wring
+intorted	INTORTED	pp.	Twisted; made winding.
+intorting	INTORTING	ppr.	Winding; twisting.
+intoxicate	INTOXICATE	v.t.	To inebriate; to make drunk; as with spirituous liquor. As with new wine intoxicated both, They swim in mirth--	To excite the spirits to a kind of delirium; to elate to enthusiasm, frenzy or madness. Success may sometimes intoxicate a man of sobriety. An enthusiast may be intoxicated and zeal.
+intoxicate	INTOXICATE	a.	Inebriated.
+intoxicated	INTOXICATED	pp.	Inebriated; made drunk; excited to frenzy.
+intoxicating	INTOXICATING	ppr.	Inebriating; elating to excess or frenzy.	Having qualities that produce inebriation; as intoxicating liquors.
+intoxication	INTOXICATION	n.	Inebriation; ebriety; drunkenness; the act of making drunk.
+intractability	INTRACTABILITY	n.	The quality of being ungovernable; obstinacy; perverseness.	Indocility.
+intractable	INTRACTABLE	a.	Not to be governed or managed; violent; stubborn; obstinate; refractory; as an intractable temper.	Not to be taught; indocile.
+intractableness	INTRACTABLENESS		INTRACT'ABLY, adverb In a perverse, stubborn manner.
+intractably	INTRACTABLY	adv.	In a perverse, stubborn manner.
+intrafoliaceous	INTRAFOLIACEOUS	a.	In botany, growing on the inside of a leaf; as intrafoliaceous stipules
+intrance	INTRANCE		[See Entrance.]
+intranquillity	INTRANQUILLITY	n.	Unquietness; inquietude; want of rest
+intransient	INTRANSIENT	a.	Not transient; not passing suddenly away.
+intransitive	INTRANSITIVE	a.	In grammar, an intransitive verb is one which expresses an action or state that is limited to the agent, or in other words, an action that does not pass over to, or operate upon an object; as, I walk; I run; I sleep
+intransitively	INTRANSITIVELY	adv.	Without an object following; in the manner of an intransitive verb.
+intransmissible	INTRANSMISSIBLE	a.	That cannot be transmitted.
+intransmutability	INTRANSMUTABILITY	n.	The quality of not being transmutable.
+intransmutable	INTRANSMUTABLE	a.	That cannot be transmuted or changed into another substance
+intrant	INTRANT	a.	Entering; penetrating
+intreasure	INTREASURE	v.t.	To lay up as in a treasury. [Little used.]
+intreatful	INTREATFUL	a.	Full of entreaty.
+intrench	INTRENCH	v.t.	To dig or cut a trench around a place, as in fortification; to fortify with a ditch and parapet. The army intrenched their camp, or they were intrenched.	To furrow; to make hollows in. His face Deep scars of thunder had intrenched. To intrench on, literally, to cut into; hence, to invade; to encroach; to enter on and take possession of that which belongs to another. In the contest for power, the king was charged with intrenching on the rights of the nobles, and the nobles were accused of intrenching on the prerogatives of the crown.
+intrenchant	INTRENCHANT	a.	Not to be divided or wounded; indivisible. [Not used.]
+intrenched	INTRENCHED	pp.	Fortified with a ditch and parapet.
+intrenching	INTRENCHING	ppr.	Fortifying with a trench and parapet.
+intrenchment	INTRENCHMENT	n.	Properly, a trench or ditch only; but as the earth thrown out of a trench forms a part, and often the most necessary and useful part of a fortification, hence intrenchment is generally understood to signify a ditch and parapet, and sometimes it signifies fascines covered with earth, gabions, bags filled with earth, or other materials collected to cover men from an enemy's fire. On our side we have thrown up intrenchments on Winter and Prospect hills.
+intrepid	INTREPID	a.	Literally, not trembling or shaking with fear; hence, fearless; bold; brave; undaunted; as an intrepid soldier
+intrepidity	INTREPIDITY	n.	Fearlessness; fearless bravery in danger; undaunted courage or boldness. The troops engaged with intrepidity
+intrepidly	INTREPIDLY	adv.	Without trembling or shrinking from danger; fearlessly; daringly; resolutely.
+intricable	INTRICABLE	a.	Entangling. [Not in use.]
+intricacy	INTRICACY	n.	The state of being entangled; perplexity; involution; complication; as the intricacy of a knot, and figuratively, the intricacy of accounts, the intricacy of a cause in controversy, the intricacy of a plot
+intricate	INTRICATE	a.	Entangled, involved; perplexed; complicated; obscure. We passed through intricate windings. We found the accounts intricate The case on trial is intricate The plot of a tragedy may be too intricate to please
+intricate	INTRICATE	v.t.	To perplex; to make obscure. [Little used.]
+intricately	INTRICATELY	adv.	With involution or infoldings; with perplexity or intricacy.
+intricateness	INTRICATENESS	n.	The state of being involved; involution; complication; perplexity.
+intrication	INTRICATION	n.	Entanglement. [Not used.]
+intrigue	INTRIGUE	n.	A plot or scheme of a complicated nature, intended to effect some purpose by secret artifices. An intrigue may be formed and prosecuted by an individual, and we often hear of the intrigues of a minister or a courtier, but often several projectors are concerned in an intrigue The word is usually applied to affairs of love or of government.	The plot of a play or romance; a complicated scheme of designs, actions and events, intended to awaken interest in an audience or reader, and make them wait with eager curiosity for the solution or development.	Intricacy; complication. [Not in use.]
+intrigue	INTRIGUE	v.i.	To form a plot or scheme, usually complicated, and intended to effect some purpose by secret artifices. The courtier intrigues with the minister, and the lover with his mistress.
+intrigue	INTRIGUE	v.t.	To perplex or render intricate. [Not used.]
+intriguer	INTRIGUER	n.	One who intrigues; one who forms plots, or pursues an object by secret artifices.
+intriguing	INTRIGUING	ppr.	Forming secret plots or schemes.	Addicted to intrigue; given to secret machinations.
+intriguingly	INTRIGUINGLY	a.	With intrigue; with artifice or secret machinations.
+intrinsecate	INTRINSECATE	a.	Entangled; perplexed. [Not in use.]
+intrinsic	INTRINSIC		INTRIN'SICAL, adjective [Latin intrinsecus; intra and secus.]	Inward; internal; hence, true; genuine; real; essential; inherent; not apparent or accidental; as the intrinsic value of gold or silver; the intrinsic merit of an action; the intrinsic worth or goodness of a person.	Intimate; closely familiar.
+intrinsical	INTRINSICAL	a.	Inward; internal; hence, true; genuine; real; essential; inherent; not apparent or accidental; as the intrinsic value of gold or silver; the intrinsic merit of an action; the intrinsic worth or goodness of a person.	Intimate; closely familiar.
+intrinsically	INTRINSICALLY	adv.	Internally; in its nature; really; truly. A lie is a thing absolutely and intrinsically evil.
+introduce	INTRODUCE	v.t.	To lead or bring in; to conduct or usher into a place; as, to introduce a person into a drawing room.	To conduct and make known; to bring to be acquainted; as, to introduce a stranger to a person; to introduce a foreign minister to a prince.	To bring something new into notice or practice; as, to introduce a new fashion, or a new remedy for a disease; to introduce an improved mode of tillage.	To bring in; to import; as, to introduce foreign goods.	To produce; to cause to exist; as, to introduce habits into children.	To begin; to open to notice, He introduced the subject with a long preface.	To bring before the public by writing or discourse; as, to introduce one's self to notice or to the public.
+introduced	INTRODUCED	pp.	Led or conducted in; brought in; made acquainted; imported.
+introducer	INTRODUCER	n.	One who introduces; one who conducts another to a place or person; one who makes strangers known to each other; one who brings any thing into notice or practice.
+introducing	INTRODUCING	ppr.	Conducting or bringing in; making known, as one stranger to another; bringing any thing into notice or practice.
+introduction	INTRODUCTION	n.	The action of conducting or ushering into a place; used of persons. We speak of the introduction of one stranger to another; the introduction of a foreign minister to a prince or court, and the introduction of company to a levee.	The act of bringing into a country; as the introduction of gold or bullion, or of merchandise.	The act of bringing something into notice, practice or use; as the introduction of new modes of dress or of tillage.	The part of a book which precedes the main work; a preface or preliminary discourse.	The first part of an oration or discourse, in which the speaker gives some general account of his design and subject, and prepares the minds of his audience for a favorable reception of his remarks or arguments.
+introductive	INTRODUCTIVE	a.	Serving to introduce; serving as the means to bring forward something.
+introductor	INTRODUCTOR	n.	An introducer. [Not used.]
+introductory	INTRODUCTORY	a.	Serving to introduce something else; previous; prefatory; preliminary; as introductory remarks; an introductory discourse.
+introgression	INTROGRESSION	n.	Entrance. [Not used.]
+intromission	INTROMISSION	n.	The action of sending in.	In Scot's law, an intermeddling with the effects of another.
+intromit	INTROMIT	v.t.	To send in; to let in; to admit	To allow to enter; to be the medium by which a thing enters. Glass in the window intromits light without cold into a room.
+intromit	INTROMIT	v.i.	To intermeddle with the effects of another.
+introreception	INTRORECEPTION	n.	The act of admitting into or within.
+introspect	INTROSPECT	v.t.	To look into or within; to view the inside
+introspection	INTROSPECTION	n.	A view of the inside or interior. I was forced to make an introspection into my own mind.
+introsusception	INTROSUSCEPTION		INTROVE'NIENT, adjective [Latin intro and veniens, venio, to come.] Coming in or between; entering. [Little used.]
+introvenient	INTROVENIENT	a.	Coming in or between; entering. [Little used.]
+introversion	INTROVERSION	n.	The act of turning inwards.
+introvert	INTROVERT	v.t.	To turn inwards
+intrude	INTRUDE	v.i.	To thrust one's self in; to come or go in without invitation or welcome; to enter, as into company, against the will of the company or the host; as, to intrude on families at unseasonable hours. Never intrude where your company is not desired.	To encroach; to enter or force one's self in without permission; as, to intrude on the lands of another.	To enter uncalled or uninvited, or without just right. Colossians 2:1.
+intrude	INTRUDE	v.t.	To thrust one's self in, or to enter into some place without right or welcome.	To force or cast in.
+intruded	INTRUDED	pp.	Thrust in.
+intruder	INTRUDER	n.	One who intrudes; one who thrusts himself in, or enters where he has no right or is not welcome. They were but intruders on the possession, during the minority of the heir. They were all strangers and intruders.
+intruding	INTRUDING	ppr.	Entering without invitation, right or welcome.
+intrusion	INTRUSION	n.	s as z. [Latin intrusio, from intrudo.]	The action of thrusting in, or of entering into a place or state without invitation, right or welcome. The company may be disturbed by the intrusion of an unwelcome guest. --Many excellent strains which have been jostled off by the intrusions of poetical fictions. Why this intrusion? Were not my orders that I should be private?	Encroachment; entrance without right on the property or possessions of another.	Voluntary entrance on an undertaking unsuitable for the person.
+intrusive	INTRUSIVE	a.	Thrusting in or entering without right or welcome; apt to intrude.
+intrust	INTRUST	v.t.	To deliver in trust; to confide to the care of; to commit to another with confidence in his fidelity; as, to intrust a servant with one's money or goods, or to intrust money or goods to a servant. We intrust an agent or factor with commercial business, or we intrust commercial concerns to an agent. We intrust our friends with secrets, or intrust secrets to them
+intrusted	INTRUSTED	pp.	Delivered in trust; committed to the hands or care of another, in confidence that he will be faithful in discharging his duty.
+intrusting	INTRUSTING	ppr.	Delivering in trust; confiding to the care of.
+intuition	INTUITION	n.	A looking on; a sight or view; but restricted to mental view or perception. Particularly and appropriately, the act by which the mind perceives the agreement or disagreement of two ideas, or the truth of things, immediately, or the moment they are presented, without the intervention of other ideas, or without reasoning and deduction. We know by intuition that a part is less than the whole
+intuitive	INTUITIVE	a.	Perceived by the mind immediately, without the intervention of argument or testimony; exhibiting truth to the mind on bare inspection; as intuitive evidence.	Received or obtained by intuition or simple inspection; as intuitive judgment or knowledge.	Seeing clearly; as an intuitive view; intuitive vision.	Having the power of discovering truth without reasoning; as the intuitive powers of celestial beings.
+intuitvely	INTUITVELY	adv.	By immediate perception; without reasoning; as, to perceive truth intuitively.
+intumesce	INTUMESCE	v.i.	To swell; to enlarge or expand with heat. In a higher heat it intumesces and melts into a yellowish black mass
+intumescence	INTUMESCENCE	n.	The action of swelling	A swell; a swelling with bubbles; a rising and enlarging; a tumid state.
+inturgescence	INTURGESCENCE	n.	A swelling; the action of swelling or state of being swelled
+intuse	INTUSE	n.	A bruise. [Not in use.]
+intussusception	INTUSSUSCEPTION	n.	The falling of one part of an intestine into another, or the passing of one part within another, causing a duplicature of the intestine.
+intwine	INTWINE	v.t.	To twine or twist together; to wreath; as a wreath of flowers intwined
+intwined	INTWINED	pp.	Twisted together.
+intwining	INTWINING	ppr.	Wreathing together.
+intwist	INTWIST	v.t.	To twist together; to interweave
+intwisted	INTWISTED	pp.	Twisted together.
+intwisting	INTWISTING	ppr.	Twisting together.

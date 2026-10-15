@@ -1,0 +1,26 @@
+pepastic	PEPASTIC	n.	A medicine that serves to help digestion; applied particularly to such medicines as tend to promote the digestion of wounds
+pepper	PEPPER	n.	A plant and its seed or grain, of the genus Piper. The stem of the plant is a vine requiring a prop, which is usually a tree. The leaves are oval and the flower white. We have three kinds of pepper the black, the white, and the long. The black pepper is the produce of Java, Sumatra, Ceylon, and other Asiatic countries; The white pepper is the black pepper decorticated; the long pepper is the fruit of a different species, also from the E. Indies. It consists of numerous grains attached to a common footstalk. pepper has a strong aromatic smell and a pungent taste
+pepper	PEPPER	v.t.	To sprinkle with pepper	To beat; to pelt with shot; to mangle with blows.
+pepper-box	PEPPER-BOX	n.	A small box with a perforated lid, used for sprinkling pulverized pepper on food.
+pepper-cake	PEPPER-CAKE	n.	A kind of spiced cake or gingerbread.
+pepper-corn	PEPPER-CORN	n.	The berry or seed of the pepper-plant.	Something of inconsiderable value; as lands held at the rent of a pepper-corn
+pepper-gingerbread	PEPPER-GINGERBREAD	n.	A kind of cake made in England.
+pepper-pot	PEPPER-POT	n.	A plant of the genus Capsicum.
+pepper-tree	PEPPER-TREE	n.	A plant of the venus Vitis.
+pepper-water	PEPPER-WATER	n.	A liquor prepared from powdered black pepper; used in microscopical observations.
+pepper-wort	PEPPER-WORT	n.	A plant of the genus Lepidium.
+pepperbox	pepper-box
+peppercake	pepper-cake
+peppercorn	pepper-corn
+peppered	PEPPERED	pp.	Sprinkled with pepper; pelted; spotted.
+peppergingerbread	pepper-gingerbread
+peppergrass	PEPPERGRASS	n.	A plant of the genus Pilularia; also, a plant of the genus Lepidium.
+peppering	PEPPERING	ppr.	Sprinkling with pepper; pelting.	adjective Hot; pungent; angry.
+peppermint	PEPPERMINT	n.	A plant of the genus Mentha. It is aromatic and pungent. Also, a liquor distilled from the plant.
+peppermint-tree	PEPPERMINT-TREE	n.	The Eucalyptus piperita, a native of New South Wales.
+pepperminttree	peppermint-tree
+pepperpot	pepper-pot
+peppertree	pepper-tree
+pepperwater	pepper-water
+pepperwort	pepper-wort
+peptic	PEPTIC	a.	Promoting digestion; dietetic, as peptic precepts

@@ -1,0 +1,593 @@
+grab	GRAB	n.	A vessel used on the Malabar coast, having two or three masts.
+grab	GRAB	v.t.	To seize; to gripe suddenly. [Vulgar.]
+grabble	GRABBLE	v.i.	To grope; to feel with the hands.	To lie prostrate on the belly; to sprawl.
+grabbling	GRABBLING	ppr.	Groping; feeling along; sprawling.
+grace	GRACE	n.	Favor; good will; kindness; disposition to oblige another; as a grant made as an act of grace Or each, or all, may win a lady's grace	Appropriately, the free unmerited love and favor of God, the spring and source of all the benefits men receive from him. And if by grace then it is no more of works. Romans 11:5.	Favorable influence of God; divine influence or the influence of the spirit, in renewing the heart and restraining from sin. My grace is sufficient for thee. 2 Corinthians 12:9.	The application of Christ's righteousness to the sinner. Where sin abounded, grace did much more abound. Romans 5:2.	A state of reconciliation to God. Romans 5:2:2.	Virtuous or religious affection or disposition, as a liberal disposition, faith, meekness, humility, patience, etc. proceeding from divine influence.	Spiritual instruction, improvement and edification. Ephesians 4:29.	Apostleship, or the qualifications of an apostle. Ephesians 3:8.	Eternal life; final salvation. 1 Peter 1:13.	Favor; mercy; pardon. Bow and sue for grace With suppliant knee.	Favor conferred. I should therefore esteem it a great favor and grace	Privilege. To few great Jupiter imparts this grace	That in manner, deportment or language which renders it appropriate and agreeable; suitableness; elegance with appropriate dignity. We say, a speaker delivers his address with grace; a man performs his part with grace GRACE was in all her steps. Her purple habit sits with such a grace On her smooth shoulders.	Natural or acquired excellence; any endowment that recommends the possessor to others; as the graces of wit and learning.	Beauty; embellishment; in general, whatever adorns and recommends to favor; sometimes, a single beauty. I pass their form and every charming grace	Beauty deified; among pagans, a goddess. The graces were three in number, Aglaia, Thalia, and Euphrosyne, the constant attendants of Venus. The loves delighted, and the graces played.	Virtue physical; as the grace of plants. [Not used.]	The title of a duke or an archbishop, and formerly of the king of England, meaning your goodness or clemency. His grace the Duke of York. Your grace will please to accept my thanks.	A short prayer before or after meat; a blessing asked, or thanks rendered.	In music, graces signifies turns, trills and shakes introduced for embellishment. Day in grace in theology, time of probation, when an offer is made to sinners. Days in grace in commerce, the days immediately following the day when a bill or note becomes due, which days are allowed to the debtor or payor to make payment in. In Great Britain and the United States the days of grace are three, but in other countries more; the usages of merchants being different.
+grace	GRACE	v.t.	To adorn; to decorate; to embellish and dignify. Great Jove and Phoebus graced his noble line. And hail, ye fair, of every charm possess'd, Who grace this rising empire of the west.	To dignify or raise by act of favor; to honor. He might at his pleasure grace or disgrace whom he would in court.	To favor; to honor.	To supply with heavenly grace
+grace-cup	GRACE-CUP	n.	The cup or health drank after grace.
+gracecup	grace-cup
+graced	GRACED	pp.	Adorned; embellished; exalted; dignifies; honored.	Beautiful; graceful. [Not in use.]	Virtuous; regular; chaste. [Not in use.]
+graceful	GRACEFUL	a.	Beautiful with dignity; elegant; agreeable in appearance, with an expression of dignity or elevation of mind or manner; used particularly of motion, looks and speech; as a graceful walk; a graceful deportment; a graceful speaker; a graceful air. High o'er the rest in arms the graceful Turnus rode.
+gracefully	GRACEFULLY	adv.	With a pleasing dignity; elegantly; with a natural ease and propriety; as, to walk or speak gracefully
+gracefulness	GRACEFULNESS	n.	Elegance of manner or deportment; beauty with dignity in manner, motion or countenance. gracefulness consists in the natural ease and propriety of an action, accompanied with a countenance expressive of dignity or elevation of mind. Happy is the man who can add the gracefulness of ease to the dignity of merit.
+graceless	GRACELESS	a.	Void of grace; corrupt; depraved; unregenerate; unsanctified.
+gracelessly	GRACELESSLY	adv.	Without grace.
+graces	GRACES	n.	Good graces favor; friendship.
+gracile	GRACILE	a.	Slender. [Not in use.]
+gracility	GRACILITY	n.	Slenderness. [Not in use.]
+gracious	GRACIOUS	a.	Favorable; kind; friendly; as, the envoy met with a gracious reception.	Favorable; kind; benevolent; merciful; disposed to forgive offenses and impart unmerited blessings. Thou are a God ready to pardon, gracious and merciful. Nehemiah 9:17.	Favorable; expressing kindness and favor. All bore him witness, and wondered at the gracious words which proceeded from his mouth. Luke 4:22.	Proceeding from divine grace; as a person in a gracious state.	Acceptable; favored. He made us gracious before the kings of Persia. [Little used.] 1 Esdras.	Renewed or implanted by grace; as gracious affections.	Virtuous; good.	Excellent; graceful; becoming.
+graciously	GRACIOUSLY	adv.	Kindly; favorably; in a friendly manner; with kind condescension. His testimony he graciously confirmed.	In a pleasing manner.
+graciousness	GRACIOUSNESS	n.	Possession of graces or good qualities.	Pleasing manner.	Mercifulness.
+gradation	GRADATION	n.	A series of ascending steps or degrees, or a proceeding step by step; hence, progress from one degree or state to another; a regular advance from step to step. We observe a gradation in the progress of society from a rude to civilized life. Men may arrive by several gradations to the most horrid impiety.	A degree in any order or series; we observe a gradation in the scale of being, from brute to mane, from man to angels.	Order; series; regular process by degrees or steps; as a gradation in argument or description.
+gradatory	GRADATORY	a.	Proceeding step by step.
+gradatory	GRADATORY	n.	Steps from the cloisters into the church.
+gradaul	GRADAUL	n.	An order of steps.	A grail; an ancient book of hymns and prayers.
+grade	GRADE	n.	A degree or rank in order or dignity, civil, military or ecclesiastical. While questions, periods, and grades and privileges are never once formally discussed.	A step or degree in any ascending series; as crimes of every grade When we come to examine the intermediate grades.
+gradient	GRADIENT	a.	Moving by steps; walking; as gradient automata
+gradual	GRADUAL	a.	Proceeding by steps or degrees; advancing step by step; passing from one step to another; regular and slow; as a gradual increase of knowledge; a gradual increase of light in the morning is favorable to the eyes.	Proceeding by degrees in a descending line or progress; as a gradual decline.
+gradually	GRADUALLY	adv.	By degrees; step by step; regularly; slowly. At evening the light vanishes gradually	In degree. [Not used.] Human reason doth not only gradually but specifically differ from the fantastic reason of brutes.
+graduate	GRADUATE	v.t.	To honor with a degree or diploma, in a college or university; to confer a degree on; as, to graduate a master of arts.	To mark with degrees, regular intervals, or division; as, to graduate a thermometer.	To form shades or nice differences.	To raise to a higher place in the scale of metals.	To advance by degrees; to improve. Dyers advance and graduate their colors with salts.	To temper; to prepare. Diseases originating in the atmosphere act exclusively on bodies graduated to receive their impressions.	To mark degrees or differences of any kind; as, to graduate punishment.	In chimistry, to bring fluids to a certain degree of consistency.
+graduate	GRADUATE	v.i.	To receive a degree from a college or university.	To pass by degrees; to change gradually. Sandstone which graduates into gneiss, Carnelian sometimes graduates into quartz.
+graduate	GRADUATE	n.	One who has received a degree in a college or university, or from some professional incorporated society.
+graduated	GRADUATED	pp.	Honored with a degree or diploma from some learned society or college.	Marked with degrees or regular intervals; tempered.
+graduateship	GRADUATESHIP	n.	The state of a graduate.
+graduating	GRADUATING	ppr.	Honoring with a degree; marking with degrees.
+graduation	GRADUATION	n.	Regular progression by succession of degrees.	Improvement; exaltation of qualities.	The act of conferring or receiving academical degrees.	The act of marking with degrees.	The process of bringing a liquid to a certain consistence by evaporation.
+graduator	GRADUATOR	n.	An instrument for dividing any line, right or curve, into equal parts.
+graff	GRAFF	n.	[See Grave.] A ditch or moat.
+graff	GRAFF		for graft.
+graft	GRAFT	n.	A small shoot or cion of a tree, inserted in another tree as the stock which is to support and nourish it. These unite and become one tree, but the graft determines the kind of fruit
+graft	GRAFT	v.t.	To insert a cion or shoot, or a small cutting of it, into another tree.	To propagate by insertion or inoculation.	To insert in a body to which it did not originally belong. Romans 11:17.	To impregnate with a foreign branch.	To join one thing to another so as to receive support from it. And graft my love immortal on thy fame.
+graft	GRAFT	v.i.	To practice the insertion of foreign cions on a stock.
+grafted	GRAFTED	pp.	Inserted on a foreign stock.
+grafter	GRAFTER	n.	One who inserts cions on foreign stocks, or propagates fruit by ingrafting.
+grafting	GRAFTING	ppr.	Inserting cions on different stocks. Note. The true original orthography of this word is graff; but graft has superseded the original word, as it has in the compound ingraft.
+grail	GRAIL	n.	A book of offices in the Romish church
+grail	GRAIL	n.	Small particles of any kind.
+grain	GRAIN	n.	Any small hard mass; as a grain of sand or gravel. Hence,	A single seed or hard seed of a plant, particularly of those kinds whose seeds are used for food of man or beast. This is usually inclosed in a proper shell or covered with a husk, and contains the embryo of a new plant. Hence,	grain without a definitive, signifies corn in general, or the fruit of certain plants which constitutes the chief food of man and beast, as wheat, rye, barley, oats and maiz.	A minute particle.	A small weight, or the smallest weight ordinarily used, being the twentieth part of the scruple in apothecaries' weight, and the twenty fourth of a pennyweight troy.	A component part of stones and metals.	The veins or fibers of wood or other fibrous substance; whence, cross-grained, and against the grain	The body or substance of wood as modified by the fibers. Hard box, and linden of a softer grain	The body or substance of a thing considered with respect to the size, form or direction of the constituent particles; as stones of a fine grain The tooth of a sea-horse, contains a curdled grain	Any thing proverbially small; a very small particle or portion; as a grain of wit or of common sense. Neglect not to make use of any grain of grace.	Dyed or stained substance. All in a robe of darkest grain	The direction of the fibers of wood or other fibrous substance; hence the phrase, against the grain applied to animals, that is, against their natural tempers.	The heart or temper; as brothers not united in grain	The form of the surface of any thing with respect to smoothness or roughness; state of the grit of any body composed of grains; as sandstone of a fine grain	A tine, prong or spike. A grain of allowance, a small allowance or indulgence; a small portion to be remitted; something above or below just weight. To dye in grain is to dye in the raw material, as wool or silk before it is manufactured.
+grain	GRAIN	v.i.	To yield fruit.
+grain	GRAIN		for groan. [Not in use.]
+grained	GRAINED	a.	Rough; made less smooth.	Dyed in grain; ingrained.
+grainer	GRAINER	n.	A lixivium obtained by infusing pigeon's dung in water; used by tanners to give flexibility to skins.
+graining	GRAINING	n.	A fish of the dace kind.
+grains	GRAINS	n.	The husks or remains of malt after brewing, or of any grain after distillation. GRAINS of paradise, an Indian spice, the seeds of a species of Amomum
+grainstaff	GRAINSTAFF	n.	A quarter-staff.
+grainy	GRAINY	a.	Full of grains or corn; full of kernels.
+graith	GRAITH	v.t.	To prepare. [See Greith and Ready.]
+grallic	GRALLIC	a.	Stilted; an epithet given to an order of fowls having long legs, naked above the knees, which fit them for wading in water
+gram	GRAM	a.	Angry.
+gram	GRAM	n.	In the new system of French weights, the unity of weights. It is the weight of a quantity of distilled water equal to a cubic centimeter, or 18 grains French, or du poids de marc, equal to 15.444 grains troy
+gramercy	GRAMERCY		for Fr. grand-merci, is not in use. It formerly was used to express obligation.
+gramineal	GRAMINEAL		GRAMIN'EOUS, adjective [Latin gramineus, from gramen, grass.] Grassy; like or pertaining to grass. Gramineous plants are those which have simple leaves, a jointed stem, a husky calyx, termed glume, and a single seed. This description however includes several sorts of corn, as well as grass.
+gramineous	GRAMINEOUS	a.	Grassy; like or pertaining to grass. Gramineous plants are those which have simple leaves, a jointed stem, a husky calyx, termed glume, and a single seed. This description however includes several sorts of corn, as well as grass
+graminivorous	GRAMINIVOROUS	a.	Feeding or subsisting on grass. The ox and all the bovine genus of quadrupeds are graminivorous animals; so also the horse or equine genus
+grammar	GRAMMAR	n.	In practice, the art of speaking or writing a language with propriety or correctness, according to established usage. As a science, grammar treats of the natural connection between ideas and words, and develops the principles which are common to all languages.	A system of general principles and of particular rules for speaking or writing a language; or digested compilation of customary forms of speech in a nation; also, a book containing such principles and rules.	Propriety of speech. To write grammar we must write according to the practice of good writers and speakers.
+grammar	GRAMMAR	v.i.	To discourse according to the rules of grammar
+grammar	GRAMMAR	a.	Belonging to or contained in grammar; as a grammar rule.
+grammar-school	GRAMMAR-SCHOOL	n.	A school in which the learned languages are taught. By learned languages, we usually mean the Latin and Greek; but others may be included.
+grammarian	GRAMMARIAN	n.	One versed in grammar, or the construction of languages; a philologist.	One who teaches grammar.
+grammarschool	grammar-school
+grammatical	GRAMMATICAL	a.	Belonging to grammar; as a grammatical rule.	According to the rules of grammar. We say, a sentence is not grammatical; the construction is not grammatical
+grammatically	GRAMMATICALLY	adv.	According to the principles and rules of grammar; as, to write or speak grammatically
+grammaticaster	GRAMMATICASTER	n.	A low grammarian; a pretender to a knowledge of grammar; a pedant
+grammaticize	GRAMMATICIZE	v.t.	To render grammatical.
+grammatist	GRAMMATIST	n.	A pretender to a knowledge of grammar.
+grammatite	GRAMMATITE	n.	[See Tremolite.]
+grample	GRAMPLE	n.	A crab-fish.
+grampus	GRAMPUS	n.	A fish of the cetaceous order, and genus Delphinus. This fish grows to the length of twenty five feet, and is remarkably thick in proportion to its length. The nose is flat and turns up at the end. It has 30 teeth in each jaw. The spout-hole is on the top of the neck. The color of the back is black; the belly is of a snowy whiteness; and on each shoulder is a large white spot. This fist is remarkably voracious.
+granade	GRANADE		GRANADO. [See Grenade.]
+granadilla	GRANADILLA	n.	A plant; the fruit of the Passiflora quadrangulata.
+granado	GRANADE		GRANADO [See Grenade.]
+granary	GRANARY	n.	A store house or repository of grain after it is thrashed; a corn-house
+granate	GRANATE	n.	Usually written garnet, which see.
+granatite	GRANATITE	n.	[See Grenatite.]
+grancy	FRAGRANCE		'GRANCY, noun [Latin fragrantia, from fragro, to smell strong.] Sweetness of smell; that quality of bodies which affects the olfactory nerves with an agreeable sensation; pleasing scent; grateful odor. Eve separate he spies, vailed in a cloud of fragrance - The goblet crown'd, breathed aromatic fragrances around.
+grand	GRAND	a.	Great; but mostly in a figurative sense; illustrious; high in power or dignity; as a grand lord.	Great; splendid; magnificent; as a grand design; a grand parade; a grand view or prospect.	Great; principal; chief; as Satan our grand foe.	Noble; sublime; lofty; conceived or expressed with great dignity; as a grand conception. In general, we apply the epithet grand to that which is great and elevated, or which elevates and expands our ideas. The ocean, the sky, a lofty tower are grand objects. But to constitute a thing grand it seems necessary that it should be distinguished by some degree of beauty.	Old; more advanced; as in grandfather, grandmother, that is, old-father; and to correspond with this relation, we use grandson, granddaughter, grandchild.
+grand jury	GRAND JURY	n.	A jury whose duty is to examine into the grounds of accusation against offenders, and if they see just cause, then to find bills of indictment against them to be presented to the court
+grandam	GRANDAM	n.	An old woman.
+grandchild	GRANDCHILD	n.	A son's or daughter's child; a child in the second degree of descent.
+granddaughter	GRANDDAUGHTER	n.	The daughter of a son or daughter.
+grandee	GRANDEE	n.	A nobleman; a man of elevated rank or station. In Spain, a nobleman of the first rank, who has the king's leave to be covered in his presence.
+grandeeship	GRANDEESHIP	n.	The rank or estate of a grandee.
+grandeur	GRANDEUR	n.	In a general sense, greatness; that quality or combination of qualities in an object, which elevates or expands the mind, and excites pleasurable emotions in him who views or contemplates it. Thus the extent and uniformity of surface in the ocean constitute grandeur; as do the extent, the elevation, and the concave appearance or vault of the sky. So we speak of the grandeur of a large and well proportioned edifice, of an extensive range of lofty mountains, of a large cataract, of a pyramid. etc.	Splendor of appearance; state; magnificence; as the grandeur of a court, of a procession. etc.	Elevation of thought, sentiment or expression. We speak of the grandeur of conceptions, and of style or diction.	Elevation of mien or air and deportment.
+grandevity	GRANDEVITY	n.	Great age. [Not used.]
+grandevous	GRANDEVOUS	a.	Of great age. [Not used.]
+grandfather	GRANDFATHER	n.	A father's or mother's father; the next degree above the father or mother in lineal ascent.
+grandiloquence	GRANDILOQUENCE	n.	Lofty speaking; lofty expressions.
+grandiloquous	GRANDILOQUOUS	a.	Speaking in a lofty style
+grandinous	GRANDINOUS	a.	Consisting of hail
+grandity	GRANDITY	n.	Greatness; magnificence. [Not used.]
+grandjuror	GRANDJUROR	n.	One of a grand jury. In Connecticut, a peace-officer.
+grandly	GRANDLY	adv.	In a lofty manner; splendidly; sublimely.
+grandmother	GRANDMOTHER	n.	The mother of one's father or mother.
+grandness	GRANDNESS	n.	Grandeur; greatness with beauty; magnificence.
+grandsire	GRANDSIRE	n.	In poetry and rhetoric, any ancestor.
+grandson	GRANDSON	n.	The son of a son or daughter.
+grange	GRANGE	n.	A farm, with the buildings, stables, etc.
+granilite	GRANILITE	n.	[See Granit.] Indeterminate granit; granit that contains more than three constituent parts.
+granit	GRANIT		GRAN'ITE, noun In mineralogy, an aggregate stone or rock, composed of crystalline grains of quartz, feldspar and mica, or at least of two of these minerals, united without a cement, or confusedly crystallized. The grains very in size from that of a pin's head, to a mass of two or three feet; but usually the largest size is that of a nut. The color of granit is greatly diversified by the different colors and proportions of the component parts, and in general these stones are very hard.
+granite	GRANITE	n.	In mineralogy, an aggregate stone or rock, composed of crystalline grains of quartz, feldspar and mica, or at least of two of these minerals, united without a cement, or confusedly crystallized. The grains very in size from that of a pin's head, to a mass of two or three feet; but usually the largest size is that of a nut. The color of granit is greatly diversified by the different colors and proportions of the component parts, and in general these stones are very hard.
+granitel	GRANITEL	n.	A binary aggregate of minerals; a granitic compound containing two constituent parts, as quartz and feldspar, or quartz and shorl or hornblend. Italian workmen give this name to a variety of gray granit consisting of small grains
+granitic	GRANITIC	a.	Pertaining to granit; like granit; having the nature of granitic; as granitic texture.	Consisting of granit; as granitic mountains. Granitic aggregates, in mineralogy, granular compounds of two or more simple minerals, in which only one of the essential ingredients of granit is present; as quartz and hornblend, feldspar and shorl, etc. Similar compounds occur, in which none of the ingredients of granit are present.
+granitin	GRANITIN	n.	A granitic aggregate of three species of minerals, some of which differ from the species which compose granit; as quartz, feldspar, and jade or shorl.
+granivorous	GRANIVOROUS	a.	Eating grain; feeding or subsisting on seeds; as granivorous birds. Grannam, for grandam, a grandmother. [Vulgar.]
+grant	GRANT	v.t.	To admit as true what is not proved; to allow; to yield; to concede. We take that for granted which is supposed to be true. Grant that the fates have firmed, by their decree--	To give; to bestow or confer on without compensation, particularly in answer to prayer or request. Thou hast granted me life and favor. Job 10:12. God granted him that which he requested. 1. Chron.4.	To transfer the title of a thing to another, for a good or valuable consideration; to convey by deed or writing. The legislature have granted all the new land. Grant me the place of this threshing floor. 1 Chronicles 21:22.
+grant	GRANT	n.	The act of granting; a bestowing or conferring.	The thing granted or bestowed; a gift; a boon.	In law, a conveyance in writing, of such things as cannot pass or be transferred by word only, as land, rents, reversions, tithes, etc. A grant is an executed contract.	Concession; admission of something as true.	The thing conveyed by deed or patent.
+grantable	GRANTABLE	a.	That may be granted or conveyed.
+granted	GRANTED	pp.	Admitted as true; conceded; yielded; bestowed; conveyed.
+grantee	GRANTEE	n.	The person to whom a conveyance is made.
+granting	GRANTING	ppr.	Admitting; conceding; bestowing; conveying.
+grantor	GRANTOR	n.	The person who grants; one who conveys lands, rents, etc.
+granular	GRANULAR	a.	Consisting of grains; as a granular substance.	Resembling grains; as a stone of granular appearance.
+granulate	GRANULATE	v.t.	To form into grains or small masses; as, to granulate powder or sugar.	To raise into small asperities; to make rough on the surface.
+granulate	GRANULATE	v.i.	To collect or be formed into grains; as cane-juice granulates into sugar; melted metals granulate when poured into water.
+granulated	GRANULATED	pp.	Consisting of grains; resembling grains.
+granulating	GRANULATING	ppr.	Forming into grains.
+granulation	GRANULATION	n.	The act of forming into grains; as the granulation of powder and sugar. In chimistry, the granulation of metallic substances is performed by pouring the melted substances slowly into water, which is, at the same time, agitated with a broom.
+granule	GRANULE	n.	A little grain; a small particle
+granulous	GRANULOUS	a.	Full of grains; abounding with granular substances.
+grape	GRAPE	n.	Properly, a cluster of the fruit of the vine; but with us, a single berry of the vine; the fruit from which wine is made by expression and fermentation.	In the manege, grapes signifies mangy tumors on the legs of a horse.
+grape-hyacinth	GRAPE-HYACINTH	n.	A plant or flower, a species of Hyacinthus.
+grapehyacinth	grape-hyacinth
+grapeless	GRAPELESS	a.	Wanting the strength and flavor of the grape.
+grapeshot	GRAPESHOT	n.	A cluster of small shot, confined in a canvas bag, forming a kind of cylinder, whose diameter is equal to that of the ball adapted to the cannon.
+grapestone	GRAPESTONE	n.	The stone or seed of the grape.
+graphic	GRAPHIC		GRAPH'ICAL, adjective [Latin graphicus; Gr. to write.]	Pertaining to the art of writing or delineating.	Well delineated.	Describing with accuracy.
+graphical	GRAPHICAL	a.	Pertaining to the art of writing or delineating.	Well delineated.	Describing with accuracy.
+graphically	GRAPHICALLY	adv.	With good delineation; in a picturesque manner.
+graphite	GRAPHITE	n.	Carburet of iron, a substance used for pencils, and very improperly called black-lead
+grapholite	GRAPHOLITE	n.	A species of slate proper for writing on
+graphometer	GRAPHOMETER	n.	A mathematical instrument, called also a semicircle, whose use is to observe any angle whose vertex is at the center of the instrument in any plane, and to find how many degrees it contains
+graphometrical	GRAPHOMETRICAL	a.	Pertaining to or ascertained by a graphometer.
+grapling	GRAPLING	n.	A small anchor fitted with four or five flukes or claws, used to hold boats or small vessels.	A grappling iron, used to seize and hold one ship to another in engagements. This is called a fire grapling
+grapnel	GRAPNEL		To seize; to lay fast hold on, either with the hands or with hooks. We say, a man grapples his antagonist, or a ship grapples another ship.	To fasten; to fix, as the mind or heart. [Not in use.]
+grapple	GRAPPLE	v.t.	To seize; to lay fast hold on, either with the hands or with hooks. We say, a man grapples his antagonist, or a ship grapples another ship.	To fasten; to fix, as the mind or heart. [Not in use.]
+grapple	GRAPPLE	v.i.	To seize; to contend in close fight, as wrestlers. To grapple with, to contend with, to struggle with successfully.
+grapple	GRAPPLE	n.	A seizing; close hug in contest; the wrestler's hold.	Close fight.	A hook or iron instrument by which one ship fastens on another.
+grapplement	GRAPPLEMENT	n.	A grappling; close fight or embrace.
+grapy	GRAPY	a.	Like grapes; full of clusters of grapes.	Made of grapes.
+grasp	GRASP	v.t.	To seize and hold by clasping or embracing with the fingers or arms. We say, to grasp with the hand, or with the arms.	To catch; to seize; to lay hold of; to take possession of. Kings often grasp more than they can hold.
+grasp	GRASP	v.i.	To catch or seize; to gripe.	To struggle; to strive. [Not in use.]	To encroach. To grasp at, to catch at; to try to seize. Alexander grasped at universal empire.
+grasp	GRASP	n.	The gripe or seizure of the hand. This seems to be its proper sense; but it denotes also a seizure by embrace, or infolding in the arms.	Possession; hold.	Reach of the arms; and figuratively, the power of seizing. Bonaparte seemed to think he had the Russian empire within his grasp
+grasped	GRASPED	pp.	Seized with the hands or arms, embraced; held; possessed.
+grasper	GRASPER	n.	One who grasps or seizes; one who catches at; one who holds.
+grasping	GRASPING	ppr.	Seizing; embracing; catching; holding.
+grass	GRASS	n.	In common usage, herbage; the plants which constitute the food of cattle and other beasts.	In botany, a plant having simple leaves, a stem generally jointed and tubular, a husky calyx, called glume, and the seed single. This definition includes wheat, rye, oats, barley, etc., and excludes clover and some other plants which are commonly called by the name of grass The grasses form a numerous family of plants. Grass of Parnassus, a plant, the Parnassia.
+grass	GRASS	v.t.	To cover with grass or with turf.
+grass	GRASS	v.i.	To breed grass; to be covered with grass
+grass-green	GRASS-GREEN	a.	Dark green, like the color of grass.
+grass-grown	GRASS-GROWN	a.	Overgrown with grass.
+grassation	GRASSATION	n.	A wandering about. [Little used.]
+grassgreen	grass-green
+grassgrown	grass-grown
+grasshopper	GRASSHOPPER	n.	An animal that lives among grass, a species of Gryllus
+grassiness	GRASSINESS	n.	The state of abounding with grass; a grassy state
+grassless	GRASSLESS	a.	Destitute of grass.
+grassplot	GRASSPLOT	n.	A plat or level spot covered with grass.
+grasspoly	GRASSPOLY	n.	A plant, a species of Lythrum or willow-wort.
+grassvetch	GRASSVETCH	n.	A plant of the genus Lathyrus.
+grasswrack	GRASSWRACK	n.	A plant, the Zostera.
+grassy	GRASSY	a.	Covered with grass; abounding with grass.	Resembling grass; green.
+grate	GRATE	n.	A work or frame, composed of parallel or cross bars, with interstices; a kind of lattice-work, such as is used in the windows of prisons and cloisters.	An instrument or frame of iron bars for holding coals, used as fuel, in houses, stores, shops, etc.
+grate	GRATE	v.t.	To furnish with grates; to make fast with cross bars.
+grate	GRATE	v.t.	To rub, as a body with a rough surface against another body; to rub one thing against another, so as to produce a harsh sound; as, to grate the teeth.	To wear away in small particles, by rubbing with any thing rough or indented; as, to grate a nutmeg.	To offend; to fret; to vex; to irritate; to mortify; as, harsh words grate the heart; they are grating to the feeling; harsh sounds grate the ear.	To make a harsh sound, by rubbing or the friction of rough bodies.
+grate	GRATE	v.i.	To rub hard, so as to offend; to offend by oppression or importunity. This grated harder upon the hearts of men.	To make a harsh sound by the friction of rough bodies.
+grate	GRATE	a.	Agreeable. [Not in use.]
+grated	GRATED	pp.	Rubbed harshly; worn off by rubbing.	Furnished with a grate; as grated windows.
+grateful	GRATEFUL	a.	Having a due sense of benefits; kindly disposed towards one from whom a favor has been received; willing to acknowledge and repay benefits; as a grateful heart.	Agreeable; pleasing; acceptable; gratifying; as a grateful present; a grateful offering.	Pleasing to the taste; delicious; affording pleasure; as food or drink grateful offering. Now golden fruits on loaded branches shine, And grateful clusters swell with floods of wine.
+gratefully	GRATEFULLY	adv.	With a due sense of benefits or favors; in a manner that disposes to kindness, in return for favors. The gift was gratefully received.	In a pleasing manner. Study continually furnishes something new, which may strike the imagination gratefully
+gratefulness	GRATEFULNESS	n.	The quality of being grateful; gratitude.	The quality of being agreeable or pleasant to the mind or to the taste.
+grater	GRATER	n.	[See Grate.] An instrument or utensil with a rough indented surface, for rubbing off small particles of a body; as a grater for nutmegs.
+gratification	GRATIFICATION	n.	The act of pleasing, either the mind, the taste or the appetite. We speak of the gratification of the taste or the palate, of the appetites, of the senses, of the desires, of the mind, soul or heart.	That which affords pleasure; satisfaction; delight. It is not easy to renounce gratifications to which we are accustomed.	Reward; recompense.
+gratified	GRATIFIED	pp.	Pleased; indulged according to desire.
+gratifier	GRATIFIER	n.	One who gratifies or pleases.
+gratify	GRATIFY	v.t.	To please; to give pleasure to; to indulge; as, to gratify the taste, the appetite, the senses, the desires, the mind, etc.	To delight; to please; to humor; to soothe; to satisfy; to indulge to satisfaction. For who would die to gratify a foe?	To requite; to recompense.
+gratifying	GRATIFYING	ppr.	Pleasing; indulging to satisfaction.	Giving pleasure; affording satisfaction.
+grating	GRATING	ppr.	[See Grate.] Rubbing; wearing off in particles.	Fretting; irritating; harsh; as grating sounds, or a grating reflection.
+gratingly	GRATINGLY	adv.	Harshly; offensively; in a manner to irritate.
+gratings	GRATINGS	n.	[See Grate.] A partition of bars; an open cover for the hatches of a ship, resembling lattice-work.
+gratis	GRATIS	adv.	For nothing; freely; without recompense; as, to give a thing gratis; to perform service gratis
+gratitude	GRATITUDE	n.	An emotion of the heart, excited by a favor or benefit received; a sentiment of kindness or good will towards a benefactor; thankfulness. gratitude is an agreeable emotion, consisting in or accompanied with good will to a benefactor, and a disposition to make a suitable return of benefits or services, or when no return can be made, with a desire to see the benefactor prosperous and happy. gratitude is a virtue of the highest excellence, as it implies a feeling and generous heart, and a proper sense of duty. The love of God is the sublimest gratitude
+gratuitous	GRATUITOUS	a.	Free; voluntary; not required by justice; granted without claim or merit. We mistake the gratuitous blessings of heaven for the fruits of our own industry.	Asserted or taken without proof; as a gratuitous argument or affirmation.
+gratuitously	GRATUITOUSLY	adv.	Freely; voluntarily; without claim or merit; without an equivalent or compensation; as labor or services gratuitously bestowed.	Without proof; as a principle gratuitously assumed.
+gratuity	GRATUITY	n.	A free gift; a present; a donation; that which is given without a compensation or equivalent.	Something given in return for a favor; an acknowledgment.
+gratulate	GRATULATE	v.t.	To express joy or pleasure to a person, on account of his success, or the reception of some good; to salute with declarations of joy; to congratulate. [The latter word is more generally used.] To gratulate the gentle princes there.	To wish or express joy to.	To declare joy for; to mention with joy.
+gratulated	GRATULATED	pp.	Addressed with expressions of joy.
+gratulating	GRATULATING	ppr.	Addressing with expressions of joy, on account of some good received.
+gratulation	GRATULATION	n.	An address or expression ofjoy to a person, on account of some good received by him; congratulation. I shall turn my wishes into gratulations
+gratulatory	GRATULATORY	a.	Expressing gratulation; congratulatory.
+grave	GRAVE		a final syllable, is a grove.
+grave	GRAVE	v.t.; pret. graved; pp. graven or graved	To carve or cut letters or figures on stone or other hard substance, with a chisel or edged tool; to engrave. [The latter word is now more generally used.] Thou shalt take two onyx-stones and grave on them the names of the children of Israel. Exodus 28:9.	To carve; to form or shape by cutting with a chisel; as, to grave an image. Thou shalt not make unto thee any graven image. Exodus 20:4.	To clean a ship's bottom by burning off filth, grass or other foreign matter, and paying it over with pitch.	To entomb. [Unusual.]
+grave	GRAVE	v.i.	To carve; to write or delineate on hard substances; to practice engraving.
+grave	GRAVE	n.	The ditch, pit or excavated place in which a dead human body is deposited; a place for the corpse of a human being; a sepulcher.	A tomb.	Any place where the dead are reposited; a place of great slaughter or mortality. Flanders was formerly the grave of English armies. Russia proved to be the grave of the French army under Bonaparte. The tropical climates are the grave of American seamen and of British soldiers.	Graves, in the plural, sediment of tallow melted. [Not in use or local.]
+grave-clothes	GRAVE-CLOTHES	n.	The clothes or dress in which the dead are interred.
+grave-digger	GRAVE-DIGGER	n.	One whose occupation is to dig graves.
+grave-maker	GRAVE-MAKER	n.	A grave-digger.
+grave-stone	GRAVE-STONE	n.	A stone laid over a grave, or erected near it, as a monument to preserve the memory of the dead.
+graveclothes	grave-clothes
+graved	GRAVED	pp.	[See the Verb.] Carved; engraved; cleaned, as a ship.
+gravedigger	grave-digger
+gravel	GRAVEL	n.	Small stones or fragments of stone, or very small pebbles, larger than the particles of sand, but often intermixed with them.	In medicine, small calculous concretions in the kidneys and bladder.
+gravel	GRAVEL	v.t.	To cover with gravel; as, to gravel a walk.	To stick in the sand.	To puzzle; to stop; to embarrass.	To hurt the foot of a horse, by gravel lodged under the shoe.
+gravel-walk	GRAVEL-WALK	n.	A walk or alley covered with gravel, which makes a hard and dry bottom; used in gardens and malls.
+graveled	GRAVELED	pp.	Covered with gravel; stopped; embarrassed; injured by gravel.
+graveless	GRAVELESS	a.	Without a grave or tomb; unburied
+gravelly	GRAVELLY	a.	Abounding with gravel; consisting of gravel; as a gravelly soil or land
+gravelwalk	gravel-walk
+gravely	GRAVELY	adv.	In a grave, solemn manner; soberly; seriously. The queen of learning gravely smiles	Without gaudiness or show; as, to be dressed gravely
+gravemaker	grave-maker
+graveness	GRAVENESS	n.	Seriousness; solemnity; sobriety of behavior; gravity of manners or discourse.
+graver	GRAVER	n.	[See Grave.] One who carves or engraves; one whose profession is to cut letters or figures in stone, etc.; a sculptor.	An engraving tool; an instrument for graving on hard substances.
+gravestone	grave-stone
+gravid	GRAVID	a.	Pregnant; being with child
+gravidated	GRAVIDATED	a.	Made pregnant; big. [Not in use.]
+gravidation	GRAVIDATION	n.	Pregnancy. [Not in use.]
+gravidity	GRAVIDITY	n.	Pregnancy. [Not in use.]
+graving	GRAVING	ppr.	Engraving; carving; cutting figures on stone, copper or other hard substance.
+graving	GRAVING	n.	Carved work. 2 Chronicles 2:14.	Impression.
+gravitate	GRAVITATE	v.i.	To tend to the center of a body, or the central point of attraction. Thus a body elevated above the earth tends to fall, that is, it gravitates towards the center of the earth; and the planets are supposed to gravitate towards the sun, or center of the solar system
+gravitating	GRAVITATING	ppr.	Tending to the center of a body or system of bodies.
+gravitation	GRAVITATION	n.	The act of tending to the center.	The force by which bodies are pressed or drawn, or by which they tend towards the center of the earth or other center, or the effect of that force. Thus the falling of a body to the earth is ascribed to gravitation
+gravity	GRAVITY	n.	Weight; heaviness.	In philosophy, that force by which bodies tend or are pressed or drawn towards the center of the earth, or towards some other center, or the effect of that force; in which last sense gravity is synonymous with weight. Gravity is the tendency of great bodies to a center, or the sum or results of all the attractions of all the molecules composing a great body.	Specific gravity the weight belonging to an equal bulk of every different substance. Thus the exact weight of a cubic inch of gold, compared with that of a cubic inch of gold, compared with that of a cubic inch of water or tin, is called its specific gravity The specific gravity of bodies is usually ascertained by weighing them in distilled water.	Seriousness; sobriety of manners; solemnity of deportment or character. Great Cato there, for gravity renowned.	Weight; enormity; atrociousness; as the gravity of an injury. [Not used.	In music, lowness of sound.
+gravy	GRAVY	n.	The fat and other liquid matter that drips from flesh in roasting, or when roasted or baked, or a mixture of that juice with flour.
+gray	GRAY	a.	White, with a mixture of black. These gray and dun colors may be also produced by mixing whites and blacks.	White; hoary; as gray hair. We apply the word to hair that is partially or wholly white.	Dark; of a mixed color; of the color of ashes; as gray eyes; the gray-eyed morn.	Old; mature; as gray experience.
+gray	GRAY	n.	A badger.
+gray-beard	GRAY-BEARD	n.	An old man.
+gray-eyed	GRAY-EYED	a.	Having gray eyes.
+gray-haired	GRAY-HAIRED	a.	Having gray hair.
+gray-headed	GRAY-HEADED	a.	Having a gray head or gray hair.
+graybeard	gray-beard
+grayeyed	gray-eyed
+grayfly	GRAYFLY	n.	The trumpet-fly.
+grayhaired	gray-haired
+grayheaded	gray-headed
+grayhound	GRAYHOUND	n.	A tall fleet dog, used in the chase.
+grayish	GRAYISH	a.	Somewhat gray; gray in a moderate degree.
+grayling	GRAYLING	n.	A fish of the genus Salmo, called also umber, a voracious fish, about sixteen or eighteen inches in length, of a more elegant figure than the trout; the back and sides of a silvery gray color. It is found in clear rapid streams in the north of Europe, and is excellent food.
+grayness	GRAYNESS	n.	The quality of being gray.
+graywacke	GRAYWACKE	n.	A rock somewhat remarkable in its structure and geological relations; a kind of sandstone, composed of grains or fragments of different minerals, chiefly of quartz, feldspar, siliceous slate and argillite. These fragments are sometimes angular, and sometimes their edges and angles are rounded, thus forming nodules or globular masses. The size is very variable, passing from grains to nodules of a foot in diameter. The several ingredients are united by an indurated argillaceous substance, or the interstices between the larger fragments are filled by the same materials which compose the larger parts of the rock, but in grains so comminuted as to resemble a homogeneous cement. The colors are some shade of gray or brown, as bluish gray, reddish brown. etc.
+graze	GRAZE	v.t.	To rub or touch lightly in passing; to brush lightly in passing; as, the bullet grazed the wall or the earth.	To feed or supply cattle with grass; to furnish pasture for; as, the farmer grazes large herds of cattle.	To feed on; to eat from the ground, as growing herbage. The lambs with wolves shall graze the verdant mead.	To tend grazing cattle; as, Jacob grazed Laban's sheep.
+graze	GRAZE	v.i.	To eat grass; to feed on growing herbage; as, cattle graze on the meadows.	To supply grass; as, the ground will not graze well.	To move on devouring.
+grazed	GRAZED	pp.	Touched lightly by a passing body; brushed.	Fed by growing grass; as, cattle are grazed	Eaten, as growing herbage; as, the fields were grazed
+grazer	GRAZER	n.	One that grazes or feeds on growing herbage.
+grazier	GRAZIER	n.	One who feeds cattle with grass, or supplies them with pasture.
+grazing	GRAZING	ppr.	Touching lightly, as a moving body.	Feeding on growing herbage; as grazing cattle.	Supplying pasture; as a grazing farm.
+grease	GREASE	n.	Animal fat in a soft state; oily or unctuous matter of any kind, as tallow, lard; but particularly the fatty matter of land animals, as distinguished from the oily matter of marine animals.	A swelling and gourdiness of a horse's legs, occasioned by traveling or by standing long in a stable.
+grease	GREASE	v.t.	To smear, anoint or daub with grease or fat.	To bribe; to corrupt with presents. [Not elegant.]
+greased	GREASED	pp.	Smeared with oily matter; bribed.
+greasily	GREASILY	adv.	With grease or an appearance of it; grossly.
+greasiness	GREASINESS	n.	The state of being greasy; oiliness; unctuousness.
+greasing	GREASING	ppr.	Smearing with fat or oily matter; bribing.
+greasy	GREASY	a.	Smeared or defiled with grease.	Like grease or oil; smooth; as a fossil that has a greasy feel.	Fat of body; bulky. [Little used.]	Gross; indelicate; indecent.
+great	GREAT	a.	Large in bulk or dimensions; a term of comparison, denoting more magnitude or extension than something else, or beyond what is usual; as a great body; a great house; a great farm.	Being of extended length or breadth; as a great distance; a great lake.	Large in number; as a great many; a great multitude.	Expressing a large, extensive or unusual degree of any thing; as great fear; great love; great strength; great wealth; great power; great influence; great folly.	Long continued; as a great while.	Important; weighty; as a great argument; a great truth; a great event; a thing of no great consequence; it is no great matter.	Chief; principal; as the great seal of England.	Chief; of vast power and excellence; supreme; illustrious; as the great God; the great Creator.	Vast; extensive; wonderful; admirable. GREAT are thy works. Jehovah.	Possessing large or strong powers of mind; as a great genius.	Having made extensive or unusual acquisitions of science or knowledge; as a great philosopher or botanist; a great scholar.	Distinguished by rank, office or power; elevated; eminent; as a great lord; the great men of the nation; the great Mogul; Alexander the great	Dignified in aspect, mien or manner. Amidst the crowd she walks serenely great	Magnanimous; generous; of elevated sentiments; high-minded. He has a great soul.	Rich; sumptuous; magnificent. He disdained not to appear at great tables. A great feast or entertainment.	Vast; sublime; as a great conception or idea.	Dignified; noble. Nothing can be great which is not right.	Swelling; proud; as, he was not disheartened by great looks.	Chief; principal; much traveled; as a great road. The ocean is called the great highway of nations.	Pregnant; teeming; as great with young.	Hard; difficult. It is no great matter to live in peace with meek people.	Familiar; intimate. [Vulgar.]	Distinguished by extraordinary events, or unusual importance. Jude 1:6.	Denoting a degree of consanguinity, in the ascending or descending line, as great grandfather, the father of a grandfather; great great grandfather, the father of a great grandfather, and so on indefinitely; and great grandson, great great grandson. etc.	Superior; preeminent; as great chamberlain; great marshal. The sense of great is to be understood by the things it is intended to qualify. great pain or wrath is violent pain or wrath; great love is ardent love; great peace is entire peace; a great name is extensive renown; a great evil or sin, is a sin of deep malignity, etc.
+great	GREAT	n.	The whole; the gross; the lump or mass; as, a carpenter contracts to build a ship by the great	People of rank or distinction. The poor envy the great and the great despise the poor.
+great-bellied	GREAT-BELLIED	a.	Pregnant; teeming.
+great-hearted	GREAT-HEARTED	a.	High-spirited; undejected.
+greatbellied	great-bellied
+greaten	GREATEN	v.t.	To enlarge.
+greathearted	great-hearted
+greatly	GREATLY	adv.	In a great degree; much. I will greatly multiply thy sorrow. Genesis 3:16.	Nobly; illustriously. By a high fate, thou greatly didst expire.	Magnanimously; generously; bravely. He greatly scorned to turn his back on his foe. He greatly spurned the offered boon.
+greatness	GREATNESS	n.	Largeness of bulk, dimensions, number or quantity; as the greatness of a mountain, of an edifice, of a multitude, or of a sum of money. With reference to solid bodies, however, we more generally use bulk, size, extent or magnitude than greatness; as the bulk or size of the body; the extent of the ocean; the magnitude of the sun or of the earth.	Large amount; extent; as the greatness of a reward.	High degree; as the greatness of virtue or vice.	High rank or place; elevation; dignity; distinction; eminence; power; command.	Swelling pride; affected state. It is not of pride or greatness that he cometh not aboard your ships.	Magnanimity; elevation of sentiment; nobleness; as greatness of mind. Virtue is the only solid basis of greatness	Strength or extent of intellectual faculties; as the greatness of genius.	Large extent or variety; as the greatness of a man's acquisitions.	Grandeur; pomp; magnificence. GREATNESS with Timon dwells in such a draught, As brings all Brobdignag before your thought.	Force; intensity; as the greatness of sound, of passion, heat, etc.
+greave	GREAVE		for grove and groove. [See Grove and Groove.]
+greaves	GREAVES	n. pl.	Armor for the legs; a sort of boots. l Sam.17.
+grebe	GREBE	n.	A fowl of the genus Colymbus and order of ansers, of several species; as the tippet-grebe, the horned grebe the eared grebe or dob-chick.
+grecian	GRECIAN	a.	Pertaining to Greece.
+grecian	GRECIAN	n.	A native of Greece. Also, a Jew who understood Greek. Acts 6:1.	One well versed in the Greek language.
+grecism	GRECISM	n.	An idiom of the Greek language
+grecize	GRECIZE	v.t.	To translate into Greek.
+grecize	GRECIZE	v.i.	To speak the Greek language.
+gree	GREE	n.	Step; rank; degree. [See Degree.]
+gree	GREE		verb intransitive To agree. [See Agree.]
+greece	GREECE	n.	A flight of steps
+greed	GREED	n.	Greediness.
+greedily	GREEDILY	adv.	[See Greedy.] With a keen appetite for food or drink; voraciously; ravenously; as, to eat or swallow greedily	With keen or ardent desire; eagerly. Jude 1:11.
+greediness	GREEDINESS	n.	Keenness of appetite for food or drink; ravenousness; voracity. Fox in stealth, wolf in greediness	Ardent desire.
+greedy	GREEDY	a.	Having a keen appetite for food or drink; ravenous; voracious; very hungry; followed by of; as a lion that is greedy of his prey. Psalms 17:12.	Having a keen desire of any thing; eager to obtain; as greedy of gain.
+greek	GREEK	a.	Pertaining to Greece. [See Gray.]
+greek	GREEK	n.	A native of Greece.	The language of Greece.
+greek-fire	GREEK-FIRE		a combustible composition, the constituents of which are supposed to be asphalt, with niter and sulphur.
+greekfire	greek-fire
+greekish	GREEKISH	a.	Peculiar to Greece.
+greekling	GREEKLING	n.	An inferior Greek writer.
+greekrose	GREEKROSE	n.	The flower campion.
+green	GREEN	a.	Properly, growing, flourishing, as plants; hence, of the color of herbage and plants when growing, a color composed of blue and yellow rays, one of blue and yellow rays, one of the original prismatic colors; verdant.	New; fresh; recent; as a green wound. The greenest usurpation.	Fresh; flourishing; undecayed; as green old age.	Containing its natural juices; not dry; not seasoned; as green wood; green timber.	Not roasted; half raw. We say the meat is green when half-roasted. [Rarely, if ever used in America.]	Unripe; immature; not arrived to perfection; as green fruit. Hence,	Immature in age; young; as green in age or judgment.	Pale; sickly; wan; of a greenish pale color.
+green	GREEN	n.	The color of growing plants; a color composed of blue and yellow rays, which, mixed in different proportions, exhibit a variety of shades; as apple green meadow green leek green etc.	A grassy plain or plat; a piece of ground covered with verdant herbage. O'er the smooth enameled green	Fresh leaves or branches of trees or other plants; wreaths; usually in the plural. The fragrant greens I seek, my brows to bind.	The leaves and stems of young plants used in cookery or dressed for food in the spring; in the plural.
+green	GREEN	v.t.	To make green This is used by Thomson and by Barlow, but is not an elegant word, nor indeed hardly legitimate, in the sense in which these writers use it. 'Spring greens the year.' 'God greens the groves.' The only legitimate sense of this verb, if used, would be, to dye green or to change to a green color. A plant growing in a dark room is yellow; let this plant be carried into the open air, and the rays of the sun will green it. This use would correspond with the use of whiten, blacken, redden.
+green-crop	GREEN-CROP	n.	A crop of green vegetables, such as artificial grasses, turnips, etc.
+green-earth	GREEN-EARTH	n.	A species of earth or mineral, so called; the mountain green of artists.
+green-eyed	GREEN-EYED	a.	Having green eyes; as green-eyed jealousy.
+green-grocer	GREEN-GROCER	n.	A retailer of greens.
+green-house	GREEN-HOUSE	n.	A house in which tender plants are sheltered from the weather, and preserved green during the winter or cold weather.
+green-sickness	GREEN-SICKNESS	n.	The chlorosis, a disease of maids, so called from the color it occasions in the face.
+green-stall	GREEN-STALL	n.	A stall on which greens are exposed to sale.
+green-sward	GREEN-SWARD	n.	Turf green with grass.
+green-weed	GREEN-WEED	n.	Dyer's weed.
+greenbroom	GREENBROOM		GREE'NCLOTH, noun A board or court of justice held in the counting house of the British king's household, composed of the lord steward and the officers under him. This court has the charge and cognizance of all matters of justice in the king's household, with power to correct offenders and keep the peace of the verge, or jurisdiction of the court-royal, which extends every way two hundred yards from the gate of the palace.
+greencloth	GREENCLOTH	n.	A board or court of justice held in the counting house of the British king's household, composed of the lord steward and the officers under him. This court has the charge and cognizance of all matters of justice in the king's household, with power to correct offenders and keep the peace of the verge, or jurisdiction of the court-royal, which extends every way two hundred yards from the gate of the palace.
+greencrop	green-crop
+greenearth	green-earth
+greeneyed	green-eyed
+greenfinch	GREENFINCH	n.	A bird of the genus Fringilla.
+greenfish	GREENFISH	n.	A fish so called.
+greengage	GREENGAGE	n.	A species of plum.
+greengrocer	green-grocer
+greenhaired	GREENHAIRED	a.	Having green locks or hair.
+greenhood	GREENHOOD	n.	A state of greenness.
+greenhorn	GREENHORN	n.	A raw youth.
+greenhouse	green-house
+greenish	GREENISH	a.	Somewhat green; having a tinge of green; as a greenish yellow.
+greenishness	GREENISHNESS	n.	The quality of being greenish.
+greenly	GREENLY	adv.	With a green color; newly; freshly; immaturely.
+greenness	GREENNESS	n.	The quality of being green; viridity; as the greenness of grass or of a meadow.	Immaturity; unripeness; in a literal or figurative sense; as the greenness of fruit; the greenness of youth.	Freshness; vigor.	Newness.
+greensickness	green-sickness
+greenstall	green-stall
+greenstone	GREENSTONE	n.	A rock of the trap formation, consisting of hornblend and feldspar in the state of grains or small crystals
+greensward	green-sward
+greenweed	GREENWEED	n.	A plant of the genus Genista.
+greenwood	GREENWOOD	n.	Wood when green, as in summer.
+greenwood	GREENWOOD	a.	Pertaining to a greenwood; as a greenwood shade.
+greet	GREET	v.t.	To address with expressions of kind wishes; to salute in kindness and respect. My lord, the Mayor if London comes to greet you.	To address at meeting; to address in any manner.	To congratulate.	To pay compliments at a distance; to send kind wishes to. Colossians 4:14. 2 Timothy 4:21.	To meet and address with kindness; or to express kind wishes accompanied with an embrace. 1 Thessalonians 5:26.	To meet.
+greet	GREET	v.i.	To meet and salute. There greet in silence, as the dead are wont, And sleep in peace.	To weep; written by Spenser greit.
+greeted	GREETED	pp.	Addressed with kind wishes; complimented.
+greeter	GREETER	n.	One who greets.
+greeting	GREETING	ppr.	Addressing with kind wishes or expressions of joy; complimenting; congratulating; saluting.
+greeting	GREETING	n.	Expression of kindness or joy; salutation at meeting; compliment addressed from one absent.
+greeze	GREEZE	n.	A step, or flight of steps. [See Greece.]
+greffier	GREFFIER	n.	A registrar, or recorder.
+gregal	GREGAL	a.	Pertaining to a flock
+gregarian	GREGARIAN	a.	[See Gregarious.] Belonging to the herd or common sort.
+gregarious	GREGARIOUS	a.	Having the habit of assembling or living in a flock or herd; not habitually solitary or living alone. Cattle and sheep are gregarious animals. Many species of birds are gregarious Rapacious animals are generally not gregarious
+gregariously	GREGARIOUSLY	adv.	In a flock or herd; in a company.
+gregariousness	GREGARIOUSNESS	n.	The state or quality of living in flocks or herds.
+gregorian	GREGORIAN	a.	Denoting what belongs to Gregory. The gregorian calendar, is one which shows the new and full moon, with the time of Easter, and the movable feasts depending thereon, by means of epacts. The gregorian year, is the present year, as reformed by pope Gregory XIII, in 1582; consisting of 365 days, 5 hours, 48 minutes, 47 seconds, with an additional day every fourth year.
+greit	GREIT	v.i.	To lament.
+greith	GREITH	v.t.	To make ready.
+greith	GREITH	n.	Goods; furniture.
+gremial	GREMIAL	a.	Belonging to the lap or bosom
+grenade	GRENADE	n.	In the art of war, a hollow ball or shell of iron or other metal, about two inches and a half in diameter, to be filled with powder which is to be fired by means of a fusee, and thrown by hand among enemies. This, bursting into many pieces, does great injury, and is particularly useful in annoying an enemy in trenches and other lodgments.
+grenadier	GRENADIER	n.	A foot soldier, wearing a high cap. Grenadiers are usually tall, active soldiers, distinguished from others chiefly by their dress and arms; a company of them is usually attached to each battalion.	A fowl found in Angola, in Africa.
+grenatite	GRENATITE	n.	Staurotide or staurolite, a mineral of a dark reddish brown. It occurs imbedded in mica slate, and in talc, and is infusible by the blowpipe. It is called also prismatic garnet.
+grew	GREW	pret.	of grow.
+grey	GREY		[See Gray.]
+greyhound	GREYHOUND	n.	A tall fleet dog, kept for the chase.
+grice	GRICE	n.	A little pig.
+griddle	GRIDDLE	n.	A pan, broad and shallow, for baking cakes.
+gride	GRIDE	v.t.	To grate, or to cut with a grating sound; to cut; to penetrate or pierce harshly; as the griding sword. That through his thigh the mortal steel did gride
+gridelin	GRIDELIN	n.	A color mixed of white and red, or a gray violet.
+gridiron	GRIDIRON	n.	A grated utensil for broiling flesh and fish over coals.
+grief	GRIEF	n.	The pain of mind produced by loss, misfortune, injury or evils of any kind; sorrow; regret. We experience grief when we lose a friend, when we incur loss, when we consider ourselves injured, and by sympathy, we feel grief at the misfortunes of others.	The pain of mind occasioned by our own misconduct; sorrow or regret that we have done wrong; pain accompanying repentance. We feel grief when we have offended or injured a friend, and the consciousness of having offended the Supreme Being, fills the penitent heart with the most poignant grief	Cause of sorrow; that which afflicts. Who were a grief of mind to Isaac and Rebekah. Genesis 26:35. A foolish son is a grief to his father. Proverbs 17:25.
+griefful	GRIEFFUL	a.	Full of grief or sorrow.
+griefshot	GRIEFSHOT	a.	Pierced with grief.
+grievable	GRIEVABLE	a.	Lamentable.
+grievance	GRIEVANCE	n.	That which causes grief or uneasiness; that which burdens, oppresses or injures, implying a sense of wrong done, or a continued injury, and therefore applied only to the effects of human conduct; never to providential evils. The oppressed subject has the right to petition for a redress of grievances
+grieve	GRIEVE	v.t.	To give pain of mind to; to afflict; to wound the feelings. Nothing grieves a parent like the conduct of a profligate child.	To afflict; to inflict pain on. For he doth not afflict willingly, nor grieve the children of men. Lamentations 3:33.	To make sorrowful; to excite regret in.	To offend; to displease; to provoke. GRIEVE not the holy Spirit of God. Ephesians 4:30.
+grieve	GRIEVE	v.i.	To feel pain of mind or heart; to be in pain on account of an evil; to sorrow; to mourn. We grieve at the loss of friends or property. We grieve at the misfortunes of others. We grieve for our own misfortunes, follies and vices, as well as for those of our children. It is followed by at or for.
+grieved	GRIEVED	pp.	Pained; afflicted; suffering sorrow.
+griever	GRIEVER	n.	He or that which grieves.
+grieving	GRIEVING	ppr.	Sorrowing; exercised with grief; mourning.
+grievingly	GRIEVINGLY	adv.	In sorrow; sorrowfully.
+grievous	GRIEVOUS	a.	Heavy; oppressive; burdensome; as a grievous load of taxes	Afflictive; painful; hard to be borne. Correction is grievous to him that forsaketh the way. Proverbs 15:1.	Causing grief or sorrow. The thing was very grievous in Abraham's sight, because of his son. Genesis 21:11.	Distressing. The famine was very grievous in the land. Genesis 12:10.	Great; atrocious. Because their sin is very grievous Gen 18.	Expressing great uneasiness; as a grievous complaint.	Provoking; offensive; tending to irritate; as grievous words. Proverbs 15:1.	Hurtful; destructive; causing mischief; as grievous wolves. Acts 20:29.
+grievously	GRIEVOUSLY	adv.	With pain; painfully; with great pain or distress; as, to be grievously afflicted.	With discontent, ill will or grief.	Calamitously; miserably; greatly; with great uneasiness, distress or grief.	Atrociously; as, to sin or offend grievously
+grievousness	GRIEVOUSNESS	n.	Oppressiveness; weight that gives pain or distress; as the grievousness of a burden.	Pain; affliction; calamity; distress; as the grievousness of sickness, war or famine.	Greatness; enormity; atrociousness; as the grievousness of sin or offenses.
+griffon	GRIFFON	n.	In the natural history of the ancients, an imaginary animal said to be generated between the lion and eagle. It is represented with four legs, wings and a beak, the upper part resembling an eagle, and the lower part a lion. This animal was supposed to watch over mines of gold and hidden treasures, and was consecrated to the sun. The figure of the griffon is seen on ancient medals, and is still borne in coat-armor. It is also an ornament of Greek architecture
+griffon-like	GRIFFON-LIKE	a.	Resembling a griffon.
+griffonlike	griffon-like
+grig	GRIG	n.	A small eel; the sand ell.	A merry creature.	Health.
+grill	GRILL	v.t.	To broil. [Not in use.]
+grill	GRILL	a.	Shaking with cold.
+grilly	GRILLY	v.t.	To harass. [Not in use.]
+grim	GRIM	a.	Fierce; ferocious; impressing terror; frightful; horrible; as a grim look; a grim face; grim war.	Ugly; ill looking.	Sour; crabbed peevish; surly.
+grim-faced	GRIM-FACED	a.	Having a stern countenance.
+grim-grinning	GRIM-GRINNING	a.	Grinning with a fierce countenance.
+grim-visaged	GRIM-VISAGED	a.	Grim-faced.
+grimace	GRIMACE	n.	A distortion of the countenance, from habit, affectation or insolence.	An air of affection.
+grimaced	GRIMACED	a.	Distorted; having a crabbed look.
+grimalkin	GRIMALKIN	n.	The name of an old cat.
+grime	GRIME	n.	Foul matter; dirt; sullying blackness, deeply insinuated.
+grime	GRIME	v.t.	To sully or soil deeply; to dirt.
+grimfaced	grim-faced
+grimgrinning	grim-grinning
+grimly	GRIMLY	a.	Having a hideous or stern look.
+grimly	GRIMLY	adv.	Fiercely; ferociously; with a look of fury or ferocity.	Sourly; sullenly.
+grimness	GRIMNESS	n.	Fierceness of look; sternness; crabbedness.
+grimvisaged	grim-visaged
+grimy	GRIMY	a.	Full of grime; foul.
+grin	GRIN	v.i.	To set the teeth together and open the lips, or to open the mouth and withdraw the lips from the teeth, so as to show them, as in laughter or scorn. Fools grin on fools.	To fix the teeth, as in anguish.
+grin	GRIN	n.	The act of closing the teeth and showing them, or of withdrawing the lips and showing the teeth.
+grin	GRIN	n.	A snare or trap. [Not in use.]
+grin	GRIN	v.t.	To express by grinning. He grinned horribly a ghastly smile.
+grind	GRIND	v.t.; pret. and pp. ground	To break and reduce to fine particles or powder by friction; to comminute by attrition; to triturate. Take the millstones and grind meal. Isaiah 16:1. We say, to grind meal, but this is an elliptical phrase. The true phrase is, to grind corn to meal.	To break and reduce to small pieces by the teeth.	To sharpen by rubbing or friction; to wear off the substance of a metallic instrument, and reduce it to a sharp edge by the friction of a stone; as, to grind an ax or scythe.	To make smooth; to polish by friction; as, to grind glass.	To rub one against another. Harsh sounds--and the grinding of one stone against another, make a shivering or horror in the body and set the teeth on edge.	To oppress by severe exactions; to afflict cruelly; to harass; as, to grind the faces of the poor Isaiah 3:15.	To crush in pieces; to ruin. Matthew 21:44.	To grate; as grinding pains.
+grind	GRIND	v.i.	To perform the operation of grinding; to move a mill.	To be moved or rubbed together, as in the operation of grinding; as the grinding jaws.	To be ground or pulverized by friction. Corn will not grind well before it is dry.	To be polished and made smooth by friction. Glass grinds smooth.	To be sharpened by grinding. Steel grinds to a fine edge.
+grinder	GRINDER	n.	One that grinds, or moves a mill.	The instrument of grinding.	A tooth that grinds or chews food; a double tooth; a jaw-tooth.	The teeth in general.
+grinding	GRINDING	ppr.	Reducing to powder by friction; triturating; levitating; chewing.	Making sharp; making smooth or polishing by friction.
+grindstone	GRINDSTONE	n.	A sandstone used for grinding or sharpening tools. Stone, used by old writers, is obsolete.
+grinner	GRINNER	n.	[See Grin.] One that grins.
+grinning	GRINNING	ppr.	Closing the teeth and showing them, as in laughter; a showing of the teeth.
+grinningly	GRINNINGLY	adv.	With a grinning laugh.
+grip	GRIP	n.	The griffon. [Not in use.]
+grip	GRIP	n.	A grasp; a holding fast.
+grip	GRIP	n.	A small ditch or furrow. [Not used in America.]
+grip	GRIP	v.t.	To trench; to drain. [Not used.]
+gripe	GRIPE	v.t.	To seize; to grasp; to catch with the hand, and to clasp closely with the fingers.	To hold fast; to hold with the fingers closely pressed.	To seize and hold fast in the arms; to embrace closely.	To close the fingers; to clutch.	To pinch; to press; to compress.	To give pain to the bowels, as if by pressure or contraction.	To pinch; to straiten; to distress; as griping poverty.
+gripe	GRIPE	v.i.	To seize or catch by pinching; to get money by hard bargains or mean exactions; as a griping miser.	To feel the colic.	To lie too close to the wind, as a ship.
+gripe	GRIPE	n.	Grasp; seizure; fast hold with the hand or paw, or with the arms.	Squeeze; pressure.	Oppression; cruel exactions.	Affliction; pinching distress; as the gripe of poverty.	In seamen's language, the fore-foot or piece of timber which terminates the keel at the fore-end.	Gripes, in the plural, distress of the bowels; colic.	Gripes, in seamen's language, an assemblage of ropes, dead-eyes and hooks, fastened to ring-bolts in the deck to secure the boats.
+griper	GRIPER	n.	One who gripes; an oppressor; an extortioner.
+griping	GRIPING	ppr.	Grasping; seizing; holding fast; pinching; oppressing; distressing the bowels.
+griping	GRIPING	n.	A pinching or grasp; a distressing pain of the bowels; colic.	In seamen's language, the inclination of a ship to run to the windward of her course.
+gripingly	GRIPINGLY	adv.	With a pain in the bowels.
+gripple	GRIPPLE	a.	Griping; greedy; covetous; unfeeling	Grasping fast; tenacious.
+grippleness	GRIPPLENESS	n.	Covetousness.
+gris	GRIS	n.	A kind of fur.
+grisamber	GRISAMBER		used by Milton for ambergris.
+grise	GRISE	n.	A step, or scale of steps	A swine.
+grisette	GRISETTE	n.	A tradesman's wife or daughter. [Not used.]
+griskin	GRISKIN	n.	[See Grise.] The spine of a hog. [Not in use.]
+grisly	GRISLY	a.	s as z. Frightful; horrible; terrible; as grisly locks; a grisly countenance; a grisly face; a grisly specter; a grisly bear.
+grisons	GRISONS	n.	Inhabitants of the eastern Swiss alps.
+grist	GRIST	n.	Properly, that which is ground; hence, corn ground; but in common usage, it signifies corn for grinding, or that which is ground at one time; as much grain as is carried to the mill at one time or the meal it produces. Get grist to the mill to have plenty in store.	Supply; provision.	Profit; gain; [as in Latin emolumentum, from molo, to grind; ] in the phrase, it brings grist to the mill.
+gristle	GRISTLE	n.	A cartilage; a smooth, solid, elastic substance in animal bodies, chiefly in those parts where a small easy motion is required, as in the nose, ear, larynx, trachea and sternum. It covers the ends of all bones which are united by movable articulations
+gristly	GRISTLY	a.	Consisting of gristle; like gristle; cartilaginous; as the gristly rays of fins connected by membranes.
+gristmill	GRISTMILL	n.	A mill for grinding grain.
+grit	GRIT	n.	The coarse part of meal.	Oats hulled, or coarsely ground; written also groats.	Sand or gravel; rough hard particles.	Sandstone; stone composed of particles of sand agglutinated.
+grith	GRITH	n.	Agreement. [Not in use.]
+gritstone	GRITSTONE	n.	[See Grit.]
+grittiness	GRITTINESS	n.	The quality of containing grit or consisting of grit, sand or small hard, rough particles of stone.
+gritty	GRITTY	a.	Containing sand or grit; consisting of grit; full of hard particles; sandy.
+grizelin	GRIZELIN		[See Gridelin.]
+grizzle	GRIZZLE	n.	Gray; a gray color; a mixture of white and black.
+grizzled	GRIZZLED	a.	Gray; of a mixed color. Genesis 31:1.
+grizzly	GRIZZLY	a.	Somewhat gray.
+groan	GROAN	v.i.	To breathe with a deep murmuring sound; to utter a mournful voice, as in pain or sorrow. For we that are in this tabernacle, do groan being burdened. 2 Corinthians 5:2.	To sigh; to be oppressed or afflicted; or to complain of oppression. A nation groans under the weight of taxes.
+groan	GROAN	n.	A deep mournful sound, uttered in pain, sorrow or anguish.	Any low, rumbling sound; as the groans of roaring wind.
+groanful	GROANFUL	a.	Sad; inducing groans.
+groaning	GROANING	ppr.	Uttering a low mournful sound.
+groaning	GROANING	n.	The act of groaning; lamentation; complaint; a deep sound uttered in pain or sorrow. I have heard the groaning of the children of Israel. Exodus 6:5.	In hunting, the cry or noise of the buck.
+groat	GROAT	n.	An English money of account, equal to four pence.	A proverbial name for a small sum.
+groats	GROATS	n.	[See Grit.] Oats that have the hulls taken off.
+groats-worth	GROATS-WORTH	n.	The value of a groat.
+groatsworth	groats-worth
+grocer	GROCER	n.	A trader who deals in tea, sugar, spices, coffee, liquors, fruits, etc.
+grocery	GROCERY	n.	The commodities sold by grocers; usually in the plural.
+grog	GROG	n.	A mixture of spirit and water not sweetened.
+grog-blossom	GROG-BLOSSOM	n.	A rum bud; a redness on the nose or face of men who drink ardent spirits to excess; a deformity that marks the beastly vice of intemperance.
+grogblossom	grog-blossom
+grogdrinker	GROGDRINKER	n.	One addicted to drinking grog.
+groggy	GROGGY	a.	A groggy horse is one that bears wholly on his heels in trotting.	In vulgar language, tipsy; intoxicated.
+grogram	GROGRAM		GROG'RAN, noun A kind of stuff made of silk and mohair.
+grogran	GROGRAN	n.	A kind of stuff made of silk and mohair.
+groin	GROIN	n.	The depressed part of the human body between the belly and the thigh.	Among builders, the angular curve made by the intersection of two semi-cylinders or arches.	The snout or nose of a swine.
+groin	GROIN	v.i.	To groan.
+gromet	GROMET		GROM'IL, noun A plant of the genus Lithospermum. The German gromwell is the Stellera.
+gromil	GROMIL	n.	A plant of the genus Lithospermum. The German gromwell is the Stellera.
+grommet	GROMMET	n.	Among seamen, a ring formed of a strand of rope laid in three times round; used to fasten the upper edge of a sail to its stay.
+gromwell	GROMWELL		A boy or young man; a waiter; a servant.	A man or boy who has the charge of horses; one who takes care of horses or the stable.	In England, an officer of the king's household; as the groom of the chamber; groom of the stole or wardrobe.	Groom for goom, in bridegroom, is a palpable mistake.
+groom	GROOM	n.	A boy or young man; a waiter; a servant.	A man or boy who has the charge of horses; one who takes care of horses or the stable.	In England, an officer of the king's household; as the groom of the chamber; groom of the stole or wardrobe.	Groom for goom, in bridegroom, is a palpable mistake.
+groop	GROOP	n.	A cluster, crowd or throng; an assemblage, either of persons or things; a number collected without any regular form or arrangement; as a group of men or of trees; a group of isles.	In painting and sculpture, an assemblage of two or more figures of men, beasts or other things which have some relation to each other.
+groop	GROOP	v.t.	To form a group; to bring or place together in a cluster or knot; to form an assemblage. The difficulty lies in drawing and disposing, or as the painters term it, in grouping such a multitude of different objects.
+grooped	GROOPED	pp.	Formed or placed in a crowd.
+grooping	GROOPING	ppr.	Bringing together in a cluster or assemblage.
+groove	GROOVE	n.	A furrow, channel, or long hollow cut by a tool. Among joiners, a channel in the edge of a molding, style or rail.	Among miners, a shaft or pit sunk into the earth.
+groove	GROOVE	v.t.	To cut a channel with an edged tool; to furrow.
+groover	GROOVER	n.	A miner.
+grooving	GROOVING	ppr.	Cutting in channels.
+grope	GROPE	v.i.	To feel along; to search or attempt to find in the dark, or as a blind person, by feeling. We grope for the wall like the blind. Isaiah 59:10. The dying believer leaves the weeping children of mortality to grope a little longer among the miseries and sensualities of a worldly life.	To seek blindly in intellectual darkness, without a certain guide or means of knowledge.
+grope	GROPE	v.t.	To search by feeling in the dark. We groped our way at midnight. But Strephon, cautious, never meant The bottom of the pan to grope
+groper	GROPER	n.	One who gropes; one who feels his way in the dark, or searches by feeling.
+groping	GROPING	ppr.	Feeling for something in darkness; searching by feeling.
+gross	GROSS	a.	Thick; bulky; particularly applied to animals; fat; corpulent; as a gross man; a gross body.	Coarse; rude; rough; not delicate; as gross sculpture.	Coarse, in a figurative sense; rough; mean; particularly, vulgar; obscene; indelicate; as gross language; gross jests.	Thick; large; opposed to fine; as wood or stone of a gross grain.	Impure; unrefined; as gross sensuality.	Great; palpable; as a gross mistake; gross injustice.	Coarse; large; not delicate; as gross features.	Thick; dense; not attenuated; not refined or pure; as a gross medium of sight; gross air; gross elements.	Unseemly; enormous; shameful; great; as gross corruptions; gross vices.	Stupid; dull. Tell her of things that no gross ear can hear.	Whole; entire; as the gross sum, or gross amount, as opposed to a sum consisting of separate or specified parts.
+gross	GROSS	n.	The main body; the chief part; the bulk; the mass; as the gross of the people. [We now use bulk.]	The number of twelve dozen; twelve times twelve; as a gross of bottles. It never has the plural form. We say, five gross or ten gross In the gross in gross in the bulk, or the whole undivided; all parts taken together. By the gross in a like sense. GROSS weight, is the weight of merchandize or goods, with the dust and dross, the bag, cask, chest, etc., in which they are contained, for which an allowance is to be made of tare and tret. This being deducted, the remainder or real weight is denominated neat or net weight. gross weight has lately been abolished in Connecticut by statute, May, 1827. In English law, a villain in gross was one who did not belong to the land, but immediately to the person of the lord, and was transferrable by deed, like chattels, from one owner to another. Advowson in gross an advowson separated from the property of a manor, and annexed to the person of its owner. Common in gross is common annexed to a man's person, and not appurtenant to land.
+gross-headed	GROSS-HEADED	a.	Having a thick skull; stupid.
+grossbeak	GROSSBEAK	n.	A fowl of the genus Loxia, of several species. The bill is convex above and very thick at the base, from which circumstance it takes its name.
+grossheaded	gross-headed
+grossly	GROSSLY	adv.	In bulky or large parts; coarsely. This matter is grossly pulverized.	Greatly; palpably; enormously; as, this affair has been grossly misrepresented.	Greatly; shamefully; as grossly criminal.	Coarsely; without refinement or delicacy; as language grossly vulgar.	Without art or skill.
+grossness	GROSSNESS	n.	Thickness; bulkiness; corpulence; fatness; applied to animal bodies.	Thickness; spissitude; density; as the grossness of vapors.	Coarseness; rudeness; want of refinement or delicacy; vulgarity; as the grossness of language; the grossness of wit. Abhor the swinish grossness that delights to wound the ear of delicacy.	Greatness; enormity; as the grossness of vice.
+grossular	GROSSULAR	a.	Pertaining to or resembling a gooseberry; as grossular garnet.
+grossular	GROSSULAR	n.	A rare mineral of the garnet kind, so named from its green color.
+grot	GROT		GROTESK', adjective Wildly formed; whimsical; extravagant; of irregular forms and proportions; ludicrous; antic; resembling the figure found in the subterraneous apartments in the ancient ruins at Rome; applied to pieces of sculpture and painting, and to natural scenery; as grotesque painting; grotesque design.
+grotesk	GROTESK	a.	Wildly formed; whimsical; extravagant; of irregular forms and proportions; ludicrous; antic; resembling the figure found in the subterraneous apartments in the ancient ruins at Rome; applied to pieces of sculpture and painting, and to natural scenery; as grotesque painting; grotesque design.
+groteskly	GROTESKLY	a.	In a fantastical manner.
+grotesque	GROTESQUE		A large cave or den; a subterraneous cavern, and primarily a natural cave or rent in the earth, or such as is formed by a current of water, or an earthquake.	A cave for coolness and refreshment.
+grotto	GROTTO	n.	A large cave or den; a subterraneous cavern, and primarily a natural cave or rent in the earth, or such as is formed by a current of water, or an earthquake.	A cave for coolness and refreshment.
+ground	GROUND	n.	The surface of land or upper part of the earth, without reference to the materials which compose it. We apply ground to soil, sand or gravel indifferently, but never apply it to the whole mass of the earth or globe, nor to any portion of it when removed. We never say a shovel full or a load of ground We say under ground but not under earth; and we speak of the globe as divided into land and water, not into ground and water. Yet ground earth and land are often used synonymously. We say, the produce or fruits of the ground of the earth, or of land. The water overflows the low ground or the low land. There was not a man to till the ground Genesis 2:5. The ground shall give its increase. Zechariah 8:12. The fire ran along on the ground Exodus 9:23.	Region; territory; as Egyptian ground; British ground; heavenly ground	Land; estate; possession. Thy next design is on thy neighbor's grounds.	The surface of the earth, or a floor or pavement. Dagon had fallen on his face to the ground 1 Samuel 5:4.	Foundation; that which supports any thing. This argument stands on defensible ground Hence,	Fundamental cause; primary reason or original principle. He stated the grounds of his complaint. Making happiness the ground of his unhappiness.	First principles; as the grounds of religion.	In painting, the surface on which a figure or object is represented; that surface or substance which retains the original color, and to which the other colors are applied to make the representation; as crimson on a white ground	In manufactures, the principal color, to which others are considered as ornamental.	Grounds, plural, the bottom of liquors; dregs; lees; feces; as coffee grounds; the grounds of strong beer.	The plain song; the tune on which descants are raised. On that ground I'll build a holy descant.	In etching, a gummous composition spread over the surface of the metal to be etched, to prevent the nitric acid from eating, except where the ground is opened with the point of a needle.	Field or place of action. He fought with fury, and would not quit the ground	In music, the name given to a composition in which the base, consisting of a few bars of independent notes, is continually repeated to a continually varying melody.	The foil to set a thing off.	Formerly, the pit of a play house. To gain ground to advance; to proceed forward in conflict; as, an army in battle gains ground Hence, to obtain an advantage; to have some success; as, the army gains ground on the enemy. Hence,	To gain credit; to prevail; to become more general or extensive; as, the opinion gains ground To lose ground to retire; to retreat; to withdraw from the position taken. Hence, to lose advantage. Hence,	To lose credit; to decline; to become less in force or extent. To give ground to recede; to yield advantage. get ground and to gather ground are seldom used.
+ground	GROUND	v.t.	To lay or set on the ground	To found; to fix or set, as on a foundation, cause, reason or principle; as arguments grounded on reason; faith grounded on scriptural evidence.	To settle in first principles; to fix firmly. Being rooted and grounded in love Ephesians 3:17.
+ground	GROUND	v.i.	To run aground; to strike the bottom and remain fixed; as, the ship grounded in two fathoms of water.
+ground	GROUND	pret.	and participle passive of grind.
+ground-angling	GROUND-ANGLING	n.	Fishing without a float, with a bullet placed a few inches from the hook.
+ground-ash	GROUND-ASH	n.	A sapling of ash; a young shoot from the stump of an ash.
+ground-bait	GROUND-BAIT	n.	Bait for fish which sinks to the bottom of the water.
+ground-floor	GROUND-FLOOR	n.	The first or lower floor of a house. But the English call the second floor from the ground the first floor.
+ground-ivy	GROUND-IVY	n.	A well known plant, the Glechoma hederacea; called also alehoof and gill.
+ground-nut	GROUND-NUT	n.	A plant, the Arachis, a native of South America.
+ground-oak	GROUND-OAK	n.	A sapling of oak.
+ground-pine	GROUND-PINE	n.	A plant, a species of Teucrium or germander; said to be so called from its resinous smell.
+ground-plate	GROUND-PLATE	n.	In architecture, the ground-plates are the outermost pieces of timber lying on or near the ground, framed into one another with mortises and tenons.
+ground-plot	GROUND-PLOT	n.	The ground on which a building is placed.	The ichnography of a building.
+ground-rent	GROUND-RENT	n.	Rent paid for the privilege of building on another man's land.
+ground-room	GROUND-ROOM	n.	A room on the ground; a lower room.
+ground-tackle	GROUND-TACKLE	n.	In ships, the ropes and furniture belonging to anchors.
+groundage	GROUNDAGE	n.	A tax paid by a ship for standing in port.
+groundangling	ground-angling
+groundash	ground-ash
+groundbait	ground-bait
+groundfloor	ground-floor
+groundivy	ground-ivy
+groundless	GROUNDLESS	a.	Wanting ground or foundation; wanting cause or reason for support; as groundless fear.	Not authorized; false; as a groundless report or assertion.
+groundlessly	GROUNDLESSLY	a.	Without reason or cause; without authority for support.
+groundlessness	GROUNDLESSNESS	n.	Want of just cause, reason or authority for support.
+groundling	GROUNDLING	n.	A fish that keeps at the bottom of the water; hence, a low vulgar person.
+groundly	GROUNDLY	adv.	Upon principles; solidly. [A bad word and not used.]
+groundnut	ground-nut
+groundoak	ground-oak
+groundpine	ground-pine
+groundplate	ground-plate
+groundplot	ground-plot
+groundrent	ground-rent
+groundroom	ground-room
+groundsel	GROUNDSEL	n.	A plant of the genus Senecio, of several species.
+groundsel	GROUNDSEL		GROUND'-SILL, noun [Latin sella, that which is set.] The timber of a building which lies next to the ground; commonly called a sill.
+groundtackle	ground-tackle
+groundwork	GROUNDWORK	n.	The work which forms the foundation or support of any thing; the basis; the fundamentals.	The ground; that to which the rest are additional.	First principle; original reason.
+group	GROUP		GROUP'ED GROUP'ING GROUSE, noun grous. A heath-cock or cock of the wood, a fowl of the genus Tetrao. The name is given to several species, forming a particular division of the genus; such as the black game, the red game, the ptarmigan, the ruffed grouse, etc.
+grouse	GROUSE	n.	A heath-cock or cock of the wood, a fowl of the genus Tetrao. The name is given to several species, forming a particular division of the genus; such as the black game, the red game, the ptarmigan, the ruffed grouse, &c.
+grout	GROUT	n.	A kind of wild apple.	A thin coarse mortar.	That which purges off.
+grove	GROVE	n.	In gardening, a small wood or cluster of trees with a shaded avenue, or a wood impervious to the rays of the sun. A grove is either open or close; open, when consisting of large trees whose branches shade the ground below; close, when consisting of trees and underwood, which defend the avenues from the rays of the sun and from violent winds.	A wood of small extent. In America, the word is applied to a wood of natural growth in the field, as well as to planted trees in a garden, but only to a wood of small extent and not to a forest.	Something resembling a wood or trees in a wood. Tall groves of masts arose in beauteous pride.
+grovel	GROVEL	v.i.	To creep on the earth, or with the face to the ground; to lie prone, or move with the body prostrate on the earth; to act in a prostrate posture. Gaze on and grovel on thy face. To creep and grovel on the ground.	To be low or mean; a groveling sense; groveling thoughts.
+groveler	GROVELER	n.	One who grovels; an abject wretch.
+groveling	GROVELING	ppr.	Creeping; moving on the ground.	Mean; without dignity or elevation.
+grovy	GROVY	a.	Pertaining to a grove; frequenting groves.
+grow	GROW	v.i.; pret. grew; pp. grown	To enlarge in bulk or stature, by a natural, imperceptible addition of matter, through ducts and secreting organs, as animal and vegetable bodies; to vegetate as plants, or to be augmented by natural process, as animals. Thus, a plant grows from a seed to a shrub or tree, and a human being grows from a fetus to a man. He causeth the grass to grow for cattle. Psalms 104:14.	To be produced by vegetation; as, wheat grows in most parts of the world; rice grows only in warm climates.	To increase; to be augmented; to wax; as, a body grows larger by inflation or distension; intemperance is a growing evil.	To advance; to improve; to make progress; as, to grow in grace, in knowledge, in piety. The young man is growing in reputation.	To advance; to extend. His reputation is growing.	To come by degrees; to become; to reach any state; as, he grows more skillful, or more prudent. Let not vice grow to a habit, or into a habit.	To come forward; to advance. [Not much used.] Winter began to grow fast on.	To be changed from one state to another; to become; as, to grow pale; to grow poor; to grow rich.	To proceed, as from a cause or reason. Lax morals may grow from errors in opinion.	To accrue; to come. Why should damage grow to the hurt of the kings. Ezra 4:22.	To swell; to increase; as, the wind grew to a tempest. To grow out of, to issue from; as plants from the soil, or as a branch from the main stem. These wars have grown out of commercial considerations. To grow up, to arrive at manhood, or to advance to full stature or maturity. To grow up, To grow together, To close and adhere; to become united by growth; as flesh or the bark of a tree severed.
+grow	GROW		signifies properly to shoot out, to enlarge; but it is often used to denote a passing from one state to another, and from greater to less. Marriages grow less frequent. [To grow less, is an abuse of this word; the phrase should be to become less.]
+grow	GROW	v.t.	To produce; to raise; as, a farmer grows large quantities of wheat. [This is a modern abusive use of grow but prevalent in Great Britain, and the British use begins to be imitated in America. Until within a few years, we never heard grow used as a transitive verb in New England, and the ear revolts at the practice.]
+grower	GROWER	n.	One who grows; that which increases.	In English use, one who raises or produces.
+growing	GROWING	ppr.	Increasing; advancing in size or extent; becoming; accruing; swelling; thriving.
+growl	GROWL	v.i.	To murmur or snarl, as a dog; to utter an angry, grumbling sound
+growl	GROWL	v.t.	To express by growling.
+growl	GROWL	n.	The murmur of a cross dog.
+growler	GROWLER	n.	A snarling cur; a grumbler.
+growling	GROWLING	ppr.	Grumbling; snarling.
+grown	GROWN	pp.	of grow. Advanced; increased in growth.	Having arrived at full size or stature; as a grown woman. GROWN over, covered by the growth of any thing; overgrown.
+growse	GROWSE	v.i.	To shiver; to have chills. [Not used.]
+growth	GROWTH	n.	The gradual increase of animal and vegetable bodies; the process of springing from a germ, seed or root, and proceeding to full size, by the addition of matter, through ducts and secretory vessels. In plants, vegetation. We speak of slow growth and rapid growth; of early growth; late growth and full growth	Product; produce; that which has grown; as a fine growth of wood.	Production; any thing produced; as a poem of English growth	Increase in number, bulk or frequency.	Increase in extent or prevalence; as the growth of trade; the growth of vice.	Advancement; progress; improvement; as growth in grace or piety.
+growthead	GROWTHEAD		A kind of fish.	A lazy person
+growtnol	GROWTNOL	n.	A kind of fish.	A lazy person, Did you mean one of these words?, Guerdonless
+grub	GRUB	v.i.	To dig; to be occupied in digging.
+grub	GRUB	v.t.	To dig; mostly followed by up. To grub up, is to dig up by the roots with an instrument; to root out by digging, or throwing out the soil; as, to grub up trees, rushes or sedge.
+grub	GRUB	n.	A small worm; particularly, a hexapod or six-footed worm, produced from the egg of the beetle, which is transformed into a winged insect	A short thick man; a dwarf, in contempt.
+grubber	GRUBBER	n.	One who grubs up shrubs, etc.
+grubbing-hoe	GRUBBING-HOE	n.	An instrument for digging up trees, shrubs, etc. by the roots; a mattoc; called also a grub-ax.
+grubbinghoe	grubbing-hoe
+grubble	GRUBBLE	v.i.	To feel in the dark; to grovel. [Not much used.]
+grubstreet	GRUBSTREET	n.	Originally, the name of a street near Moorfields, in London, much inhabited by mean writers; hence applied to mean writings; as a grubstreet poem.
+grudge	GRUDGE	v.t.	To be discontented at another's enjoyments or advantages; to envy one the possession or happiness which we desire for ourselves. 'Tis not in thee To grudge my pleasures, to cut off my train. I have often heard the presbyterians say, they did not grudge us our employments. It is followed by two objects, but probably by ellipsis; as, grudge us for grudge to us.	To give or take unwillingly. Nor grudge my cold embraces in the grave. They have grudged those contributions, which have set our country at the head of all the governments of Europe.
+grudge	GRUDGE	v.i.	To murmur; to repine; to complain; as, to grudge or complain of injustice.	To be unwilling or reluctant. Not to serve your country.	To be envious. GRUDGE not one against another. James 5:9.	To wish in secret. [Not used nor proper.]	To feel compunction; to grieve. [Not in use.]
+grudge	GRUDGE	n.	Sullen malice or malevolence; ill will; secret enmity; hatred; as an old grudge	Unwillingness to benefit.	Remorse of conscience.
+grudgeons	GRUDGEONS	n. pl.	Coarse meal. [Not in use.]
+grudger	GRUDGER	n.	One that grudges; a murmurer.
+grudging	GRUDGING	pp.	Envying; being uneasy at another's possession of something which we have a desire to possess.
+grudging	GRUDGING	n.	Uneasiness at the possession of something by another.	Reluctance; also, a secret wish or desire. He had a grudging still to be a knave.	A symptom of disease. [Not in use.]
+grudgingly	GRUDGINGLY	adv.	Unwillingly; with reluctance or discontent; as, to give grudgingly
+gruel	GRUEL	n.	A kind of light food made by boiling meal in water. It is usually made of the meal of oats or maiz.
+gruff	GRUFF	a.	Of a rough or stern countenance; sour; surly; severe; rugged; harsh.
+gruffly	GRUFFLY	adv.	Roughly; sternly; ruggedly; harshly. --And gruffly looked the god.
+gruffness	GRUFFNESS	n.	Roughness of countenance; sternness.
+grum	GRUM	a.	Morose; severe of countenance; sour; surly.	Low; deep in the throat; guttural; rumbling; as a grum voice.
+grumble	GRUMBLE	v.i.	To murmur with discontent; to utter a low voice by way of complaint. L'Avare, not using half his store, Still grumbles that he has no more.	To growl; to snarl; as a lion grumbling over his prey.	To rumble; to roar; to make a harsh and heavy sound; as grumbling thunder; a grumbling storm. [In this sense, rumble is generally used.]
+grumbler	GRUMBLER	n.	One who grumbles or murmurs; one who complains; a discontented man.
+grumbling	GRUMBLING	ppr.	Murmuring through discontent; rumbling; growling.
+grumbling	GRUMBLING	n.	A murmuring through discontent; a rumbling.
+grumblingly	GRUMBLINGLY	adv.	With grumbling or complaint.
+grume	GRUME	n.	A thick viscid consistence of a fluid; a clot, as of blood, etc
+grumly	GRUMLY	adv.	Morosely; with a sullen countenance.
+grumous	GRUMOUS	a.	Thick; concreted; clotted; as grumous blood.
+grumousness	GRUMOUSNESS	n.	A state of being clotted or concreted.
+grundsel	GRUNDSEL	n.	[See Groundsel.]
+grunt	GRUNT	v.i.	To murmur like a hog; to utter a short groan or a deep guttural sound
+grunt	GRUNT	n.	A deep guttural sound, as a hog.
+grunter	GRUNTER	n.	A fish of the gurnard king.
+grunting	GRUNTING	ppr.	Uttering the murmuring or guttural sound of swine or other animals.
+grunting	GRUNTING	n.	The guttural sound of swine and other animals.
+gruntle	GRUNTLE	v.i.	To grunt. [Not much used.]
+gruntling	GRUNTLING	n.	A young hog.
+grutch	GRUTCH		for grudge, is now vulgar, and not to be used.
+gry	GRY	n.	A measure containing one tenth of a line.	Any thing very small or of little value. [Not much used.]
+gryphite	GRYPHITE	n.	Crowstone, an oblong fossil shell, narrow at the head, and wider towards the extremity, where it ends in a circular limb; the head or beak is very hooked

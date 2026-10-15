@@ -1,0 +1,4 @@
+dibble	DIBBLE	n.	A pointed instrument, used in gardening and agriculture, to make holes for planting seeds, etc
+dibble	DIBBLE	v.t.	To plant with a dibble; or to make holes for planting seeds, etc.
+dibble	DIBBLE	v.i.	To dibble or dip; a term in angling.
+dibstone	DIBSTONE	n.	A little stone which children throw at another stone.

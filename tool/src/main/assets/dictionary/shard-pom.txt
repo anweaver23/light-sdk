@@ -1,0 +1,36 @@
+pom-water	POM-WATER	n.	The name of a large apple.
+pomace	POMACE	n.	The substance of apples or of similar fruit crushed by grinding. In America, it is so called before and after being pressed. [See Pomp and Pommel.]
+pomaceous	POMACEOUS	a.	Consisting of apples; as pomaceous harvests.	Like pomace.
+pomade	POMADE	n.	Perfumed ointment. [Little used.]
+pomander	POMANDER	n.	A sweet ball; a perfumed ball or powder.
+pomatum	POMATUM	n.	An unguent or composition used in dressing the hair. It is also used in medicine.
+pomatum	POMATUM	v.t.	To apply pomatum to the hair.
+pome	POME	n.	In botany, a pulpy pericarp without valves, containing a capsule or core, as the apple, pear, etc
+pome	POME	v.i.	To grow to a head, or form a head in growing. [Not used.]
+pome-water	POME-WATER	n.	A sort of apple.
+pomecitron	POMECITRON	n.	A citron apple.
+pomegranate	POMEGRANATE	n.	The fruit of a tree belonging to the genus Punica. This fruit is as large as an orange, having a hard rind filled with a soft pulp and numerous seeds. It is of a reddish color.	The tree that produces pomegranates.	An ornament resembling a pomegranate on the robe and ephod of the Jewish high priest.
+pomegranate-tree	POMEGRANATE-TREE	n.	The tree which produces pomegranates.
+pomegranatetree	pomegranate-tree
+pomeroy	POMEROY		POMEROY'AL, noun Royal apple; a particular sort of apple.
+pomeroyal	POMEROYAL	n.	Royal apple; a particular sort of apple.
+pomewater	pome-water
+pomiferous	POMIFEROUS	a.	Apple-bearing; an epithet applied to plants which bear the larger fruits, such as melons, gourds, pumpkins, cucumbers, etc. in distinction from the bacciferous or berry-bearing plants
+pomme	POMME		POMMEL, noun [Latin pomum, an apple, or a similar fruit.]	A knob or ball. 2 Chronicles 4:1.	The knob on the hilt of a sword; the protuberant part of a saddle-bow; the round knob on the frame of a chair, etc.
+pommel	POMMEL	n.	A knob or ball. 2 Chron. 4.	The knob on the hilt of a sword; the protuberant part of a saddle-bow; the round knob on the frame of a chair, &c.
+pommel	POMMEL	v.t.	To beat as with a pommel, that is, with something thick or bulky; to bruise. [The French se pommeler, to grow dapple, to curdle, is from the same source; but the sense is to make knobs or lumps, and hence to variegate, or make spots like knobs. The Welsh have from the same root, or pwmp, a mass, pwmpiaw, to form a round mass, and to thump, to bang, Eng. to bump.]
+pommeled	POMMELED	pp.	In heraldry, having pommels; as a sword or dagger.
+pommelion	POMMELION	n.	The cascabel or hindmost knob of a cannon
+pommette	POMMETTE	n.	In heraldry, a cross with one or more knobs at each of the ends.
+pomp	POMP	n.	A procession distinguished by ostentation of grandeur and splendor; as the pomp of a Roman triumph.	Show of magnificence; parade; splendor. Hearts formed for love, but doom'd in vain to glow In prison'd pomp and weep in splendid woe.
+pompatic	POMPATIC	a.	Pompous; splendid; ostentatious. [Not in use.]
+pompet	POMPET	n.	The ball which printers use to black the types.
+pompholyx	POMPHOLYX	n.	The white oxyd which sublimes during the combustion of zink; called flowers of zink. It rises and adheres to the dome of the furnace and the covers of crucibles
+pompion	POMPION	n.	[See Pomp and Pomace.] A pumpkin; a plant and its fruit of the genus Cucurbita.
+pompire	POMPIRE	n.	A sort of pearmain
+pomposity	POMPOSITY	n.	Pompousness; ostentation; boasting.
+pompous	POMPOUS	a.	Displaying pomp; showy with grandeur; splendid; magnificent; as a pompous procession; a pompous triumph.	Ostentatious; boastful; as a pompous account of private adventures.
+pompously	POMPOUSLY	adv.	With great parade or display; magnificently; splendidly; ostentatiously.
+pompousness	POMPOUSNESS	n.	The state of being pompous; magnificence; splendor; great display of show; ostentatiousness.
+pomptine	POMPTINE	a.	Designating a large marsh between Rome and Naples
+pomwater	pom-water

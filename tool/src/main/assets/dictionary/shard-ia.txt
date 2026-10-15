@@ -1,0 +1,3 @@
+iambic	IAMBIC	n.	Pertaining to the iambus, a poetic foot consisting of two syllables, a short one followed by a long one
+iambics	IAMBICS	n. pl.	Verses composed of short and long syllables alternately. Anciently, certain songs or satires, supposed to have given birth to ancient comedy.
+iambus	IAMBUS	n.	In poetry, a foot consisting of two syllables, the first short and the last long, as in delight. The following line, consists wholly of iambic feet. He scorns the force that dares his fury stay

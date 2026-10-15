@@ -1,0 +1,170 @@
+evacate	EVACATE	v.t.	To empty. [Not in use.]
+evacuant	EVACUANT	a.	Emptying; freeing from
+evacuant	EVACUANT	n.	A medicine which procures evacuations, or promotes the natural secretions and excretions.
+evacuate	EVACUATE	v.t.	To make empty; to free from any thing contained; as, to evacuate the church.	To throw out; to eject; to void; to discharge; as, to evacuate dark-colored matter from the bowels. Hence,	To empty; to free from contents, or to diminish the quantity contained; as, to evacuate the bowels; to evacuate the vessels by bleeding.	To quit; to withdraw from a place. The British army evacuated the city of New York, November 25, 1783.	To make void; to nullify; as, to evacuate a marriage or any contract. [In this sense, vacate is now generally used.]
+evacuated	EVACUATED	pp.	Emptied; cleared; freed from the contents; quitted, as by an army or garrison; ejected; discharged; vacated.
+evacuating	EVACUATING	ppr.	Emptying; making void or vacant; withdrawing from.
+evacuation	EVACUATION	n.	The act of emptying or clearing of the contents; the act of withdrawing from, as an army or garrison.	Discharges by stool or other natural means; a diminution of the fluids of an animal body by cathartics, venesection, or other means.	Abolition; nullification.
+evacuative	EVACUATIVE	a.	That evacuates.
+evacuator	EVACUATOR	n.	One that makes void.
+evade	EVADE	v.t.	To avoid by dexterity. The man evaded the blow aimed at his head.	To avoid or escape by artifice or stratagem; to slip away; to elude. The thief evaded his pursuers.	To elude by subterfuge, sophistry, address or ingenuity. The advocate evades an argument or the force of an argument.	To escape as imperceptible or not to be reached or seized.
+evade	EVADE	v.i.	To escape; to slip away; formerly and properly with from; as, to evade from perils. But from is now seldom used.	To attempt to escape; to practice artifice or sophistry for the purpose of eluding. The ministers of God are not to evade and take refuge in any such ways.
+evaded	EVADED	pp.	Avoided; eluded.
+evading	EVADING	ppr.	Escaping; avoiding; eluding; slipping away from danger, pursuit or attack.
+evagation	EVAGATION	n.	The act of wandering; excursion; a roving or rambling
+eval	EVAL	a.	Relating to time or duration. [Not in use.]
+evanescence	EVANESCENCE	n.	A vanishing; a gradual departure from sight or possession, either by removal to a distance, or by dissipation, as vapor.	The state of being liable to vanish and escape possession.
+evanescent	EVANESCENT	a.	Vanishing; subject to vanishing; fleeting; passing away; liable to dissipation, like vapor, or to become imperceptible. The pleasures and joys of life are evanescent
+evangel	EVANGEL	n.	The gospel. [Not in use.]
+evangelian	EVANGELIAN	a.	Rendering thanks for favors.
+evangelic	EVANGELIC		EVANGEL'ICAL, adjective [Low Latin evangelicus, from evangelium, the gospel; Gr. well, good, to announce.]	According to the gospel; consonant to the doctrines and precepts of the gospel, published by Christ and his apostles; as evangelical righteousness, obedience or piety.	Contained in the gospel; as an evangelical doctrine.	Sound in the doctrines of the gospel; orthodox; as an evangelical preacher.
+evangelical	EVANGELICAL	a.	According to the gospel; consonant to the doctrines and precepts of the gospel, published by Christ and his apostles; as evangelical righteousness, obedience or piety.	Contained in the gospel; as an evangelical doctrine.	Sound in the doctrines of the gospel; orthodox; as an evangelical preacher.
+evangelically	EVANGELICALLY	adv.	In a manner according to the gospel.
+evangelism	EVANGELISM	n.	The promulgation of the gospel.
+evangelist	EVANGELIST	n.	A writer of the history, or doctrines, precepts, actions, life and death of our blessed Savior, Jesus Christ; as the four evangelists, Matthew, Mark, Luke and John.	A preacher or publisher of the gospel of Jesus Christ, licensed to preach, but not having charge of a particular church.
+evangelistary	EVANGELISTARY	n.	A selection of passages from the gospels, as a lesson in divine service.
+evangelization	EVANGELIZATION	n.	The act of evnagelizing.
+evangelize	EVANGELIZE	v.t.	To instruct in the gospel; to preach the gospel to, and convert to a belief of the gospel; as, to evangelize heathen nations; to evangelize the world
+evangelize	EVANGELIZE	v.i.	To preach the gospel.
+evangelized	EVANGELIZED	pp.	Instructed in the gospel; converted to a belief of the gospel, or to christianity.
+evangelizing	EVANGELIZING	ppr.	Instructing in the doctrines and precepts of the gospel; converting to christianity.
+evangely	EVANGELY	n.	Good tidings; the gospel. [Not in use.]
+evanid	EVANID	a.	Faint; weak; evanescent; liable to vanish or disappear; as an evanid color or smell
+evanish	EVANISH	v.i.	To vanish; to disappear; to escape from sight or perception. [Vanish is more generally used.]
+evanishment	EVANISHMENT	n.	A vanishing; disappearance.
+evaporable	EVAPORABLE	a.	[See Evaporate.] That may be converted into vapor and pass off in fumes; that may be dissipated by evaporation.
+evaporate	EVAPORATE	v.i.	To pass off in vapor, as a fluid; to escape and be dissipated, either in visible vapor, or in particles too minute to be visible. Fluids when heated often evaporate in visible steam; but water, on the surface of the earth, generally evaporates in an imperceptible manner.	To escape or pass off without effect; to be dissipated; to be wasted. Arguments evaporate in words. The spirit of a writer often evaporates in translating.
+evaporate	EVAPORATE	v.t.	To convert or resolve a fluid into vapor, which is specifically lighter than the air; to dissipate in fumes, steam, or minute particles. Heat evaporates water at every point of temperature, from 32 degrees to 212 degrees, the boiling point, of Fahrenheit. A north west wind, in New England, evaporates water and dries the earth more rapidly, than the heat alone of a summer's day.	To give vent to; to pour out in words or sound.
+evaporate	EVAPORATE	a.	Dispersed in vapors.
+evaporated	EVAPORATED	pp.	Converted into vapor or steam and dissipated; dissipated in insensible particles, as a fluid.
+evaporating	EVAPORATING	ppr.	Resolving into vapor; dissipating, as a fluid.
+evaporation	EVAPORATION	n.	The conversion of a fluid into vapor specifically lighter than the atmospheric air. evaporation is increased by heat and is followed by cold. It is now generally considered as a solution in the atmosphere.	The act of flying off in fumes; vent; discharge.	In pharmacy, the operation of drawing off a portion of a fluid in steam, that the remainder may be of a greater consistence, or more concentrated.
+evaporometer	EVAPOROMETER	n.	An instrument for ascertaining the quantity of a fluid evaporated in a given time; an atmometer
+evasion	EVASION	n.	s as z. [Latin evasio, from evado, evasi. See Evade.] The act of eluding or avoiding, or of escaping, particularly from the pressure of an argument, from an accusation or charge, from an interrogatory and the like; excuse; subterfuge; equivocation; artifice to elude; shift. evasion of a direct answer weakens the testimony of a witness. Thou by evasions thy crime uncover'st more.
+evasive	EVASIVE	a.	Using evasion or artifice to avoid; elusive; shuffling; equivocating. He--answered evasive of the sly request.	Containing evasion; artfully contrived to elude a question, charge or argument; as an evasive answer; an evasive argument or reasoning.
+evasively	EVASIVELY	adv.	By evasion or subterfuge; elusively; in a manner to avoid a direct reply or a charge.
+evasiveness	EVASIVENESS	n.	The quality or state of being evasive.
+eve	EVE	n.	The consort of Adam, and mother of the human race; so called by Adam, because she was the mother of all living. In this case, the word would properly belong to the Hebrew. But the Hebrew name is havah or chavah, coinciding with the verb, to shew, to discover, and Parkhurst hence denominates eve the manifester. In the Septuagint, eve in Genesis 3:20, is rendered life; but in Genesis 4:1, it is rendered Euan or Evan. The reason of this variation is not obvious, as the Hebrew is the same in both passages. In Russ. eve is Evva. In the Chickasaw language of America, a wife is called awah, says Adair.
+evection	EVECTION	n.	A carrying out or away; also, a lifting or extolling; exaltation
+even	EVEN		The decline of the sun; the latter part or close of the day, and beginning of the night. Eve is used chiefly in poetry. In prose, we generally use evening. Winter, oft at eve, resumes the breeze. They, like so many Alexanders, Have in these parts from morn till even fought.	Eve is used also for the fast or the evening before a holiday; as Christmas Eve.
+even	EVEN	a.	Level; smooth; of an equal surface; flat; not rough or waving; as an even tract of land; an even country; an even surface.	Uniform; equal; calm; not easily ruffled or disturbed, elevated or depressed; as an even temper.	Level with; parallel to. And shall lay thee even with the ground. Luke 19:44.	Not leaning. He could not carry his honors even.	Equally favorable; on a level in advantage; fair. He met the enemy on even ground. The advocates meet on even ground in argument.	Owing nothing on either side; having accounts balanced. We have settled accounts and now are even.	Settled; balanced; as, our accounts are even.	Equal; as even numbers.	Capable of being divided into equal parts, without a remainder; opposed to odd. 4.6.8.10. are even numbers. Let him tell me whether the number of the stars is even or odd.
+even	EVEN	v.t.	To make even or level; to level; to lay smooth. This will even all inequalities. This temple Xerxes evened with the soil.	To place in an equal state, as to obligation, or in a state in which nothing is due on either side; to balance accounts.
+even	EVEN	v.i.	To be equal to. [Not used.]
+even	EVEN	adv.	Noting a level or equality, or emphatically, a like manner or degree. As it has been done to you, even so shall it be done to others. Thou art a soldier even to Cato's wishes, that is, your qualities, as a soldier, are equal to his wishes.	Noting equality or sameness of time; hence emphatically, the very time. I knew the facts, even when I wrote to you.	Noting, emphatically, identity of person. And behold I, even I, do bring a flood of waters on the earth. Genesis 6:17.	Likewise; in like manner. Here all their rage, and ev'n their murmurs cease.	So much as. We are not even sensible of the change.	Noting the application of something to that which is less probably included in the phrase; or bringing something within a description, which is unexpected. The common people are addicted to this vice, and even the great are not free from it. He made several discoveries which are new, even to the learned. Here also we see the sense of equality, or bringing to a level. So in these phrases, I shall even let it pass, I shall even do more, we observe the sense of bringing the mind or will to a level with what is to be done.
+even-song	EVEN-SONG	n.	A song for the evening; a form of worship for the evening.	The evening, or close of the day.
+even-tide	EVEN-TIDE	n.	Literally, the time of evening; that is, evening. Isaac went out to meditate in the field at the even-tide Genesis 24:63. This word is nearly obsolete; tide being a useless addition to even.
+evene	EVENE	v.i.	To happen. [Not in use.]
+evened	EVENED	pp.	Made even or level.
+evener	EVENER	n.	One that makes even.
+evenhand	EVENHAND	n.	Equality.
+evenhanded	EVENHANDED	a.	Impartial; equitable; just.
+evening	EVENING	n.	[See Eve, Even.] The latter part and close of the day, and the beginning of darkness or night; properly the decline or fall of the day, or of the sun. The evening and the morning were the first day. Genesis 1:5. The precise time when evening begins, or when it ends, is not ascertained by usage. The word often includes a part at least of the afternoon, and indeed the whole afternoon; as in the phrase, 'The morning and evening service of the sabbath.' In strictness, evening commences at the setting of the sun, and continues during twilight, and night commences with total darkness. But in customary language, the evening extends to bed-time, whatever that time may be. Hence we say, to spend an evening with a friend; an evening visit.	The decline or latter part of life. We say, the evening of life, or of one's days.	The decline of any thing; as the evening of glory.
+evening	EVENING	a.	Being at the close of day; as the evening sacrifice.
+evening song	EVENING SONG	n.	A hymn or song to be sung at evening
+evening-star	EVENING-STAR	n.	Hesperus or Vesper; Venus, when visible in the evening.
+eveningstar	evening-star
+evenly	EVENLY	adv.	With an even, level or smooth surface; without roughness, elevations and depressions; as things evenly spread.	Equally; uniformly; in an equipoise; as evenly balanced.	In a level position; horizontally. The surface of the sea is evenly distant from the center of the earth.	Impartially; without bias from favor or enmity.
+evenness	EVENNESS	n.	The state of being even, level or smooth; equality of surface.	Uniformity; regularity; as evenness of motion.	Freedom from inclination to either side; equal distance from either extreme.	Horizontal position; levelness of surface; as the evenness of a fluid at rest.	Impartiality between parties; equal respect.	Calmness; equality of temper; freedom from perturbation; a state of mind not subject to elevation or depression; equanimity.
+evensong	even-song
+event	EVENT	n.	That which comes, arrives or happens; that which falls out; any incident good or bad. There is one event to the righteous and to the wicked. Ecclesiastes 9:2.	The consequence of any thing; the issue; conclusion; end; that in which an action, operation, or series of operations terminates. The event of the campaign was to being about a negotiation for peace.
+event	EVENT	v.i.	To break forth. [Not used.]
+eventerate	EVENTERATE	v.t.	To open the bowels; to rip open; to disembowel
+eventerated	EVENTERATED	pp.	Having the bowels opened.
+eventerating	EVENTERATING	ppr.	Opening the bowels.
+eventful	EVENTFUL	a.	Full of events or incidents; producing numerous or great changes, either in public or private affairs; as an eventful period of history; an eventful period of life
+eventide	even-tide
+eventilate	EVENTILATE	v.t.	To winnow; to fan; to discuss. [See Ventilate.]
+eventilation	EVENTILATION	n.	A fanning; discussion.
+eventual	EVENTUAL	a.	Coming or happening as a consequence or result of any thing; consequential	Final; terminating; ultimate. Eventual provision for the payment of the public securities.
+eventually	EVENTUALLY	adv.	In the event; in the final result or issue.
+eventuate	EVENTUATE	v.i.	To issue; to come to an end; to close; to terminate.
+eventuating	EVENTUATING	ppr.	Issuing; terminating.
+ever	EVER	adv.	At any time; at any period or point of time, past or future. Have you ever seen the city of Paris, or shall you ever see it? No man ever yet hated his own flesh. Ephesians 5:29.	At all times; always; continually. He shall ever love, and always be The subject of my scorn and cruelty. He will ever by mindful of his covenant. Psalms 111:3. Ever learning, and never able to come to the knowledge of the truth. 2 Timothy 3:7.	Forever, eternally; to perpetuity; during everlasting continuance. This is my name forever. Exodus 3:15. In a more lax sense, this word signifies continually, for an indefinite period. His master shall bore his ear through with an awl, and he shall serve him forever. Exodus 21:6. These words are sometimes repeated, for the sake of emphasis; forever and ever or forever and forever.	ever and anon, at one time and another; now and then.	In any degree. No man is ever the richer or happier for injustice. Let no man fear that creature ever the less, because he sees the apostle safe from his poison. In modern usage, this word is used for never, but very improperly. And all the question, wrangle e'er so long, Is only this, if God has placed him wrong. This ought to be, ne'er so long, as the phrase is always used in the Anglo-Saxon, and in our version of the scriptures, that is, so long as never, so long as never before, to any length of time indefinitely. As me never so much dowry. Charmers, charming never so wisely. These are the genuine English phrases. Let them charm so wisely as never before.	A word of enforcement or emphasis; thus, as soon as ever he had done it; as like him as ever he can look. They broke all their bones in pieces or ever they came to the bottom of the den. Daniel 6:6. The latter phrase is however anomalous; or-ever being equivalent to before, and or may be a mistake for ere.	In poetry, and sometimes in prose, ever is contracted into e'er. Ever in composition signifies always or continually, without intermission, or to eternity.
+everbubbling	EVERBUBBLING	a.	Continually boiling or bubbling
+everburning	EVERBURNING	a.	Burning continually or without intermission; never extinct; as an everburning lamp; everburning sulphur
+everduring	EVERDURING	a.	Enduring forever; continuing without end; as everduring glory
+evergreen	EVERGREEN	a.	Always green; verdant throughout the year. The pine is an evergreen tree
+evergreen	EVERGREEN	n.	A plant that retains its verdure through all the seasons; as a garden furnished with evergreens.
+everhonored	EVERHONORED	a.	Always honored; ever held in esteem; as an everhonored name
+everlasting	EVERLASTING	a.	Lasting or enduring for ever; eternal; existing or continuing without end; immortal. The everlasting God, or Jehovah. Genesis 21:33. Everlasting fire; everlasting punishment. Matthew 18:25	Perpetual; continuing indefinitely, or during the present state of things. I will give thee, and thy seed after thee, the land of Canaan, for an everlasting possession. Genesis 17:7. The everlasting hills or mountains. Genesis. Habakkuk.	In popular usage, endless; continual; unintermitted; as, the family is disturbed with everlasting disputes.
+everlasting	EVERLASTING	n.	Eternity; eternal duration, past and future. From everlasting to everlasting thou art God. Psalms 90:2.	A plant, the Gnaphalium; also, the Xeranthenum.
+everlasting-pea	EVERLASTING-PEA	n.	A plant, the Lathyrus latifolia.
+everlastingly	EVERLASTINGLY	adv.	Eternally; perpetually; continually.
+everlastingness	EVERLASTINGNESS	n.	Eternity; endless duration; indefinite duration. [Little used.]
+everlastingpea	everlasting-pea
+everliving	EVERLIVING	a.	Living without end; eternal; immortal; having eternal existence; as the everliving God	Continual; incessant; unintermitted.
+evermore	EVERMORE	adv.	Always; eternally. Religion prefers the pleasures which flow from the presence of God for evermore	Always; at all times; as evermore guided by truth.
+everopen	EVEROPEN	a.	Always open; never closed
+everpleasing	EVERPLEASING	a.	Always pleasing; ever giving delight. The everpleasing Pamela
+everse	EVERSE	v.t.	To overthrow or subvert. [Not used.]
+eversion	EVERSION	n.	An overthrowing; destruction. Eversion of the eye-lids, ectropium, a disease in which the eye-lids are turned outward, so as to expose the red internal tunic
+evert	EVERT	v.t.	To overturn; to overthrow; to destroy. [Little used.]
+everwaking	EVERWAKING	a.	Always awake
+everwatchful	EVERWATCHFUL	a.	Always watching or vigilant; as everwatchful eyes
+every	EVERY	a.	Each individual of a whole collection or aggregate number. The word includes the whole number, but each separately stated or considered. Every man at his best state is altogether vanity. Psalms 39:5
+everyday	EVERYDAY	a.	Used or being every day; common; usual; as everyday wit; an everyday suit of clothes
+everyoung	EVERYOUNG	a.	Always young or fresh; not subject to old age or decay; undecaying. Joys everyoung unmixed with pain or fear
+everywhere	EVERYWHERE	adv.	[See Where, which signifies place.] In every place; in all places.
+eves-drop	EVES-DROP		[See Eaves-drop, the usual spelling.]
+eves-dropper	EVES-DROPPER	n.	One who stands under the eaves or at a window or door, to listen privately to what is said in the house. [See Eaves-dropper.]
+evesdrop	eves-drop
+evesdropper	eves-dropper
+evestigate	EVESTIGATE	v.t.	[See Investigate.]
+evibrate	EVIBRATE		[See Vibrate.]
+evict	EVICT	v.t.	To dispossess by a judicial process, or course of legal proceedings; to recover lands or tenements by law. If either party be evicted for defect of the other's title.	To take away by sentence by law.	To evince; to prove. [Not used.]
+evicted	EVICTED	pp.	Dispossessed by sentence of law; applied to persons. Recovered by legal process; applied to things.
+evicting	EVICTING	ppr.	Dispossessing by course of law.
+eviction	EVICTION	n.	Dispossession by judicial sentence; the recovery of lands or tenements from another's possession, by due course of law.	Proof; conclusive evidence.
+evidence	EVIDENCE	n.	That which elucidates and enables the mind to see truth; proof arising from our own perceptions by the senses, or from the testimony of others, or from inductions of reason. Our senses furnish evidence of the existence of matter, of solidity, of color, of heat and cold, of a difference in the qualities of bodies, of figure, etc. The declarations of a witness furnish evidence of facts to a court and jury; and reasoning, or the deductions of the mind from facts or arguments, furnish evidence of truth or falsehood.	Any instrument or writing which contains proof. I delivered the evidence of the purchase to Baruch. Jeremiah 32:12. I subscribed the evidence and sealed it. Jeremiah 32:10.	A witness; one who testifies to a fact. This sense is improper and inelegant, though common, and found even in Johnson's writings.
+evidence	EVIDENCE	v.t.	To elucidate; to prove; to make clear to the mind; to show in such a manner that the mind can apprehend the truth, or in a manner to convince it. The testimony of two witnesses is usually sufficient to evidence the guilt of an offender. The works of creation clearly evidence the existence of an infinite first cause.
+evidenced	EVIDENCED	pp.	Made clear to the mind; proved.
+evidencing	EVIDENCING	ppr.	Proving clearly; manifesting.
+evident	EVIDENT	a.	Plain; open to be seen; clear to the mental eye; apparent; manifest. The figures and colors of bodies are evident to the senses; their qualities may be made evident The guilt of an offender cannot always be made evident
+evidential	EVIDENTIAL	a.	Affording evidence; clearly proving.
+evidently	EVIDENTLY	adv.	Clearly; obviously; plainly; in a manner to be seen and understood; in a manner to convince the mind; certainly; manifestly. The evil of sin may be evidently proved by its mischievous effect.
+evigilation	EVIGILATION	n.	A waking or watching. [Little used.]
+evil	EVIL	a.	Having bad qualities of a natural kind; mischievous; having qualities which tend to injury, or to produce mischief. Some evil beast hath devoured him. Genesis 37:2.	Having bad qualities of a moral kind; wicked; corrupt; perverse; wrong; as evil thoughts; evil deeds; evil speaking; an evil generation.	Unfortunate; unhappy; producing sorrow, distress, injury or calamity; as evil tidings; evil arrows; evil days.
+evil	EVIL	n.	evil is natural or moral. Natural evil is any thing which produces pain, distress, loss or calamity, or which in any way disturbs the peace, impairs the happiness, or destroys the perfection of natural beings. Moral evil is any deviation of a moral agent from the rules of conduct prescribed to him by God, or by legitimate human authority; or it is any violation of the plain principles of justice and rectitude. There are also evils called civil, which affect injuriously the peace or prosperity of a city or state; and political evils, which injure a nation, in its public capacity. All wickedness, all crimes, all violations of law and right are moral evils. Diseases are natural evils, but they often proceed from moral evils.	Misfortune; mischief; injury. There shall no evil befall thee. Psalms 91:10. A prudent man foreseeth the evil and hideth himself. Proverbs 22:3.	Depravity; corruption of heart, or disposition to commit wickedness; malignity. The heart of the sons of men is full of evil Ecclesiastes 9:3.	Malady; as the king's evil or scrophula.
+evil	EVIL	adv.	Not well; not with justice or propriety; unsuitable. Evil it beseems thee.	Not virtuously; not innocently.	Not happily; unfortunately. It went evil with his house.	Injuriously; not kindly. The Egyptians evil entreated us, and afflicted us. In composition, evil denoting something bad or wrong, is often contracted to ill.
+evil-affected	EVIL-AFFECTED	a.	Not well disposed; unkind; now ill-affected.
+evil-favored	EVIL-FAVORED	a.	Having a bad countenance or external appearance; ill-favored
+evil-favoredness	EVIL-FAVOREDNESS	n.	Deformity.
+evil-minded	EVIL-MINDED	a.	Having evil dispositions or intentions; disposed to mischief or sin; malicious; malignant; wicked. Slanderous reports are propagated by evil-minded persons. [This word is in common use.]
+evilaffected	evil-affected
+evildoer	EVILDOER	n.	One who does evil; one who commits sin, crime, or any moral wrong. They speak evil against you as evildoers. l Pet.2
+evileyed	EVILEYED	a.	Looking with an evil eye, or with envy, jealousy or bad design
+evilfavored	evil-favored
+evilfavoredness	evil-favoredness
+evilly	EVILLY	adv.	Not well. [Little used.]
+evilminded	evil-minded
+evilness	EVILNESS	n.	Badness; viciousness; malignity; as evilness of heart; the evilness of sin.
+evilspeaking	EVILSPEAKING	n.	Slander; defamation; calumny; censoriousness. 1 Peter 2:1
+evilwishing	EVILWISHING	a.	Wishing harm to; as an evilwishing mind
+evilworker	EVILWORKER	n.	One who does wickedness. Philippians 3:1
+evince	EVINCE	v.t.	To show in a clear manner; to prove beyond any reasonable doubt; to manifest; to make evident. Nothing evinces the depravity of man more fully than his unwillingness to believe himself depraved.	To conquer. [Not in use.]
+evinced	EVINCED	pp.	Made evident; proved.
+evincible	EVINCIBLE	a.	Capable of proof; demonstrable.
+evincibly	EVINCIBLY	adv.	In a manner to demonstrate, or force conviction.
+evincive	EVINCIVE	a.	Tending to prove; having the power to demonstrate.
+evirate	EVIRATE	v.t.	To emasculate. [Not in use.]
+eviscerate	EVISCERATE	v.t.	To embowel or disembowel; to take out the entrails; to search the bowels
+eviscerated	EVISCERATED	pp.	Deprived of the bowels.
+eviscerating	EVISCERATING	ppr.	Disemboweling.
+evitable	EVITABLE	a.	See Evitate.] That may be shunned; avoidable. [Little used.]
+evitate	EVITATE	v.t.	To shun; to avoid; to escape. [Little used.]
+evitation	EVITATION	n.	An avoiding; a shunning. [Little used.]
+evite	EVITE	v.t.	To shun. [Not used.]
+evocate	EVOCATE		EVOCA'TION, noun A calling forth; a calling or bringing from concealment.	A calling from one tribunal to another.	Among the Romans, a calling on the gods of a besieged city to forsake it and come over to the besiegers; a religious ceremony of besieging armies.
+evocation	EVOCATION	n.	A calling forth; a calling or bringing from concealment.	A calling from one tribunal to another.	Among the Romans, a calling on the gods of a besieged city to forsake it and come over to the besiegers; a religious ceremony of besieging armies.
+evoke	EVOKE	v.t.	To call forth. Neptune is a deity who evocates things into progression	To call from one tribunal to another; to remove. The cause was evoked to Rome. [Evoke is the preferable word.]
+evolation	EVOLATION	n.	The act of flying away
+evolute	EVOLUTE	n.	An original curve from which another curve is described; the origin of the evolent.
+evolution	EVOLUTION	n.	The act of unfolding or unrolling	A series of things unrolled or unfolded; as the evolution of ages.	In geometry, the unfolding or opening of a curve, and making it describe an evolvent. The equable evolution of the periphery of a circle, or other curve, is such a gradual approach of the circumference to rectitude, as that its parts do all concur, and equally evolve or unbend; so that the same line becomes successively a less arc of a reciprocally greater circle, till at last they change into a straight line.	In algebra, evolution is the extraction of roots from powers; the reverse of involution.	In military tactics, the doubling of ranks or files, wheeling, countermarching or other motion by which the disposition of troops is changed, in order to attack or defend with more advantage, or to occupy a different post.
+evolve	EVOLVE	v.t.	To unfold; to open and expand. The animal soul sooner evolves itself to its full orb and extent than the human soul.	To throw out; to emit.
+evolve	EVOLVE	v.i.	To open itself; to disclose itself.
+evolved	EVOLVED	pp.	Unfolded; opened; expanded; emitted.
+evolvent	EVOLVENT	n.	In geometry, a curve formed by the evolution of another curve; the curve described from the evolute.
+evolving	EVOLVING	ppr.	Unfolding; expanding; emitting.
+evomition	EVOMITION	n.	A vomiting.
+evulgation	EVULGATION	n.	A divulging. [Not in use.]
+evulsion	EVULSION	n.	The act of plucking or pulling out by force

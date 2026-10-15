@@ -1,0 +1,41 @@
+exhalable	EXHALABLE	a.	[See Exhale.] That may be exhaled or evaporated.
+exhalation	EXHALATION	n.	The act or process of exhaling, or sending forth fluids in the form of steam or vapor; evaporation.	That which is exhaled; that which is emitted, or which rises in the form of vapor; fume or steam; effluvia. Exhalations are visible or invisible. The earth is often dried by evaporation, without visible exhalations. The smell of fragrant plants is caused by invisible exhalations.
+exhale	EXHALE	v.t.	To send out; to emit; as vapor, or minute particles of a fluid or other substance. The rose exhales a fragrant odor. The earth exhales vapor. Marshes exhale noxious effluvia.	To draw out; to cause to be emitted in vapor or minute particles; to evaporate. The sun exhales the moisture of the earth.
+exhaled	EXHALED	pp.	Sent out; emitted, as vapor; evaporated.
+exhalement	EXHALEMENT	n.	Matter exhaled; vapor.
+exhaling	EXHALING	ppr.	Sending or drawing out in vapor of effluvia.
+exhaust	EXHAUST	v.t.	To draw out or drain off the whole of any thing; to draw out, till nothing of the matter drawn is left. We exhaust the water in a well, by drawing or pumping; the water of a marsh is exhausted by draining; the moisture of the earth is exhausted by evaporation.	To empty by drawing out the contents. Venesection may exhaust the veins and arteries.	To draw out or to use and expend the whole; to consume. The treasures of the prince were exhausted; his means or his resources were exhausted. The strength or fertility of land may be exhausted.	To use or expend the whole by exertion; as, to exhaust the strength or spirits; to exhaust one's patience. Hence this phrase is equivalent to tire, weary, fatigue.
+exhaust	EXHAUST	a.	Drained; exhausted. [Little used.]
+exhausted	EXHAUSTED	pp.	Drawn out; drained off; emptied by drawing, draining or evaporation; wholly used or expended; consumed.
+exhauster	EXHAUSTER	n.	He or that which exhausts or draws out.
+exhaustible	EXHAUSTIBLE	a.	That may be exhausted or drained off.
+exhausting	EXHAUSTING	ppr.	Drawing out; draining off; emptying; using or expending the whole; consuming.	Tending to exhaust; as exhausting labor.
+exhaustion	EXHAUSTION	n.	The act of drawing out or draining off; the act of emptying completely of the contents.	The state of being exhausted or emptied; the state of being deprived of strength or spirits.	In mathematics, a method of proving the equality of two magnitudes by a reductio ad absurdum, or showing that if one is supposed either greater or less than the other, there will arise a contradiction.
+exhaustless	EXHAUSTLESS	a.	Not to be exhausted; not to be wholly drawn off or emptied; inexhaustible; as an exhaustless fund or store.
+exhaustment	EXHAUSTMENT	n.	Exhaustion; drain.
+exheredate	EXHEREDATE	v.t.	To disinherit
+exheredation	EXHEREDATION	n.	In the civil law, a disinheriting; a father's excluding a child from inheriting any part of his estate
+exhibit	EXHIBIT	v.t.	To offer or present to view; to present for inspection; to show; as, to exhibit painting or other specimens of art; to exhibit papers or documents in court.	To show; to display; to manifest publicly; as, to exhibit a noble example of bravery or generosity.	To present; to offer publicly or officially; as, to exhibit a charge of high treason.
+exhibit	EXHIBIT	n.	Any paper produced or presented to a court or to auditors, referees or arbitrators, as a voucher, or in proof of facts; a voucher or document produced.	In chancery, a deed or writing produced in court, sworn to by a witness, and a certificate of the oath indorsed on it by the examiner or commissioner.
+exhibited	EXHIBITED	pp.	Offered to view; presented for inspection; shown; displayed.
+exhibiter	EXHIBITER	n.	One who exhibits; one who presents a petition or charge.
+exhibiting	EXHIBITING	ppr.	Offering to view; presenting; showing; displaying.
+exhibition	EXHIBITION	n.	The act of exhibiting for inspection; a showing or presenting to view; display	The offering, producing or showing of titles, authorities or papers of any kind before a tribunal, in proof of facts.	Public show; representation of feats or actions in public; display of oratory in public; any public show.	Allowance of meat and drink; pension; salary; benefaction settled for the maintenance of scholars in universities, not depending on the foundation.	Payment; recompense.
+exhibitioner	EXHIBITIONER	n.	In English universities; one who has a pension or allowance, granted for the encouragement of learning.
+exhibitive	EXHIBITIVE	a.	Serving for exhibition; representative.
+exhibitively	EXHIBITIVELY	adv.	By representation.
+exhibitory	EXHIBITORY	a.	Exhibiting; showing; displaying.
+exhilarate	EXHILARATE	v.t.	To make cheerful or merry; to enliven; to make glad or joyous; to gladden; to cheer. Good news exhilarates the mind, as good wine exhilarates the animal spirits
+exhilarate	EXHILARATE	v.i.	To become cheerful or joyous.
+exhilarated	EXHILARATED	pp.	Enlivened; animated;; cheered; gladdened; made joyous or jovial.
+exhilarating	EXHILARATING	ppr.	Enlivening; giving life and vigor to the spirits; cheering; gladdening.
+exhilaration	EXHILARATION	n.	The act of enlivening the spirits; the act of making glad or cheerful.	The state of being enlivened or cheerful. exhilaration usually expresses less than joy or mirth, but it may be used to express both.
+exhort	EXHORT	v.t.	To incite by words or advice; to animate or urge by arguments to a good deed or to any laudable conduct or course of action. I exhort you to be of good cheer. Acts 27:22. Young men also exhort to be sober minded. EXHORT servants to be obedient to their masters. Titus 2:6.	To advise; to warn; to caution.	To incite or stimulate to exertion.
+exhort	EXHORT	v.i.	To deliver exhortation; to use words or arguments to incite to good deeds. And with many other words did he testify and exhort Acts 2:40.
+exhortation	EXHORTATION	n.	The act or practice of exhorting; the act of inciting to laudable deeds; incitement to that which is good or commendable.	The form of words intended to incite and encourage.	Advice; counsel.
+exhortative	EXHORTATIVE	a.	Containing exhortation.
+exhortatory	EXHORTATORY	a.	Tending to exhort; serving for exhortation.
+exhorted	EXHORTED	pp.	Incited by words to good deeds; animated to a laudable course of conduct; advised.
+exhorter	EXHORTER	n.	One who exhorts or encourages.
+exhorting	EXHORTING	ppr.	Inciting to good deeds by words or arguments; encouraging; counseling.
+exhumation	EXHUMATION	n.	The digging up a dead body interred; the disinterring of a corpse.	The digging up of any thing buried.

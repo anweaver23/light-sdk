@@ -1,0 +1,178 @@
+polacre	POLACRE	n.	A vessel with three masts, used in the Mediterranean. The masts are usually of one piece, so that they have neither tops, caps nor cross-trees, nor horses to their upper yards.
+polar	POLAR	a.	Pertaining to the poles of the earth, north or south, or to the poles of artificial globes; situated near one of the poles; as polar regions; polar seas; polar ice or climates.	Proceeding from one of the regions near the poles, as polar winds.	Pertaining to the magnetic pole, or to the point to which the magnetic needle is directed.
+polarity	POLARITY	n.	That quality of a body in virtue of which peculiar properties reside in certain points; usually, as in electrified or magnetized bodies, properties of attraction or repulsion, or the power of taking a certain direction. Thus we speak of the polarity of the magnet or magnetic needle, whose pole is not always that of the earth, but a point somewhat easterly or westerly; and the deviation of the needle from a north and south line is called its variation. A mineral is said to possess polarity when it attracts one pole of a magnetic needle and repels the other.
+polarization	POLARIZATION	n.	The act of giving polarity to a body. Polarization of light, a change produced upon light by the action of certain media, by which it exhibits the appearance of having polarity, or poles possessing different properties. This property of light was first discovered by Huygens in his investigation of the cause of double refraction, as seen in the Iceland crystal. The attention of opticians was more particularly directed towards it by the discoveries of Malus, in 1810. The knowledge of this singular property of light, has afforded an explanation of several very intricate phenomena in optics.
+polarize	POLARIZE	v.t.	To communicate polarity to.
+polarized	POLARIZED	pp.	Having polarity communicated to.
+polarizing	POLARIZING	ppr.	Giving polarity to.
+polary	POLARY	a.	[See Polar.] Tending to a pole; having a direction to a pole.
+pole	POLE	n.	A long slender piece of wood, or the stem of a small tree deprived of its branches. Thus seamen use poles for setting or driving boats in shallow water; the stems of small trees are used for hoops and called hoop-poles; the stems of small, but tall straight trees, are used as poles for supporting the scaffolding in building.	A rod; a perch; a measure of length of five yards and a half.[In New England, rod is generally used.]	An instrument for measuring. Bare poles. A ship is under bare poles, when her sails are all furled.
+pole	POLE	n.	In astronomy, one of the extremities of the axis on which the sphere revolves. These two points are called the poles of the world.	In spherics, a point equally distant from every part of the circumference of a great circle of the sphere; or it is a point 90 deg. distant from the plane of a circle, and in a line passing perpendicularly through the center, called the axis. Thus the zenith and nadir are the poles of the horizon.	In geography, the extremity of the earth's axis, or one of the points on the surface of our globe through which the axis passes.	The star which is vertical to the pole of the earth; the pole-star. Poles of the ecliptic, are two points on the surface of the sphere, 23 deg. 30' distant from the poles of the world. Magnetic poles, two points in a lodestone, corresponding to the poles of the world; the one pointing to the north, the other to the south.
+pole	POLE	n.	A native of Poland
+pole	POLE	v.t.	To furnish with poles for support; as, to pole beans.	To bear or convey on poles; as, to pole hay into a barn.	To impel by poles, as a boat; to push forward by the use of poles.
+pole-ax	POLE-AX		PO'LE-AXE, noun An ax fixed to a pole or handle; or rather a sort of hatchet with a handle about fifteen inches in length, and a point or claw bending downward from the back of its head. It is principally used in actions at sea, to cut away the rigging of the enemy attempting to board; sometimes it is thrust into the side of a ship to assist in mounting the enemy's ship, and it is sometimes called a boarding-ax.
+pole-axe	POLE-AXE	n.	An ax fixed to a pole or handle; or rather a sort of hatchet with a handle about fifteen inches in length, and a point or claw bending downward from the back of its head. It is principally used in actions at sea, to cut away the rigging of the enemy attempting to board; sometimes it is thrust into the side of a ship to assist in mounting the enemy's ship, and it is sometimes called a boarding-ax.
+pole-davy	POLE-DAVY	n.	A sort of coarse cloth.
+pole-star	POLE-STAR	n.	A star which is vertical, or nearly so, to the pole of the earth; a lodestar. The northern pole-star is of great use to navigators in the northern hemisphere.	That which serves as a guide or director.
+poleax	pole-ax
+poleaxe	pole-axe
+polecat	POLECAT	n.	A quadruped of the genus Mustela; the fitchew or fitchet.
+poledavy	pole-davy
+polemarch	POLEMARCH	n.	Anciently, a magistrate of Athens and Thebes, who had under his care all strangers and sojourners in the city, and all children of parents who had lost their lives in the service of their country.	A military officer in Lacedaemon.
+polemic	POLEMIC		POLEM'ICAL, adjective [Gr. war.]	Controversial; disputative; intended to maintain an opinion or system in opposition to others; as a polemic treatise, discourse, essay or book; polemic divinity.	Engaged in supporting an opinion or system by controversy; as a polemic writer.
+polemic	POLEMIC	n.	A disputant; a controvertist; one who writes in support of an opinion or system in opposition to another.
+polemical	POLEMICAL	a.	Controversial; disputative; intended to maintain an opinion or system in opposition to others; as a polemic treatise, discourse, essay or book; polemic divinity.	Engaged in supporting an opinion or system by controversy; as a polemic writer.
+polemoscope	POLEMOSCOPE	n.	An oblique perspective glass contrived for seeing objects that do not lie directly before the eye. It consists of a concave glass placed near a plane mirror in the end of a short round tube, and a convex glass in a hole in the side of the tube. It is called opera-glass, or diagonal opera-glass
+polestar	pole-star
+poley	POLEY	n.	A plant. The poley grass is of the genus Lythrum
+poley-grass	POLEY-GRASS	n.	A plant of the genus Lythrum.
+poley-mountain	POLEY-MOUNTAIN	n.	A plant of the genus Teucrium.
+poleygrass	poley-grass
+poleymountain	poley-mountain
+police	POLICE	n.	The government of a city or town; the administration of the laws and regulations of a city or incorporated town or borough; as the police of London, of New York or Boston. The word is applied also to the government of all towns in New England which are made corporations by a general statute, for certain purposes.	The internal regulation and government of a kingdom or state.	The corporation or body of men governing a city.	In Scottish, the pleasure-ground about a gentleman's seat.
+police-officer	POLICE-OFFICER	n.	An officer entrusted with the execution of the laws of a city.
+policed	POLICED	a.	Regulated by laws; furnished with a regular system of laws and administration.
+policeofficer	police-officer
+policy	POLICY	n.	policy in its primary signification, is the same as polity, comprehending the fundamental constitution or frame of civil government in a state or kingdom. But by usage, policy is now more generally used to denote what is included under legislation and administration, and may be defined, the art or manner of governing a nation; or that system of measures which the sovereign of a country adopts and pursues, as best adapted to the interests of the nation. Thus we speak of domestic policy or the system of internal regulations in a nation; foreign policy or the measures which respect foreign nations; commercial policy or the measures which respect commerce.	Art, prudence, wisdom or dexterity in the management of public affairs; applied to persons governing. It has been the policy of France to preclude females from the throne. It has been the policy of Great Britain to encourage her navy, by keeping her carrying trade in her own hands. In this she manifests sound policy Formerly, England permitted wool to be exported and manufactured in the Low Countries, which was very bad policy The policy of all laws has made some forms necessary in the wording of last wills and testaments. All violent policy defeats itself.	In common usage, the art, prudence or wisdom of individuals in the management of their private or social concerns.	Stratagem; cunning; dexterity of management.	A ticket or warrant for money in the public funds.	policy in commerce, the writing or instrument by which a contract of indemnity is effected between the insurer and the insured; or the instrument containing the terms or conditions on which a person or company undertakes to indemnify another person or company against losses of property exposed to peculiar hazards, as houses or goods exposed to fire, or ships and goods exposed to destruction on the high seas. This writing is subscribed by the insurer, who is called the underwriter. The terms policy of insurance, or assurance, are also used for the contract between the insured and the underwriter. Policies are valued or open; valued, when the property or goods insured are valued at prime cost; open, when the goods are not valued, but if lost, their value must be proved. Wagering policies, which insure sums of money, interest or no interest, are illegal. All insurances, interest or no interest, or without further proof of interest than the policy itself, are null and void. The word policy is used also for the writing which insures against other events, as well as against loss of property.
+poling	POLING	n.	In gardening, the operation of dispersing the worm-casts all over the walks, with long ash poles. This destroys the worm-casts and is beneficial to the walks.
+poling	POLING	ppr.	Furnishing with poles for support.	Bearing on poles.	Pushing forward with poles, as a boat.
+polish	POLISH	a.	Pertaining to Poland, a level country on the south of Russia and the Baltic.
+polish	POLISH	v.t.	To make smooth and glossy, usually by friction; as, to polish glass, marble, metals and the like.	To refine; to wear off rudeness, rusticity and coarseness; to make elegant and polite; as, to polish life or manners. The Greeks were polished by the Asiatics and Egyptians.
+polish	POLISH	v.i.	To become smooth; to receive a gloss; to take a smooth and glossy surface. Steel will polish almost as white and bright as silver.
+polish	POLISH	n.	A smooth, glossy surface produced by friction. Another prism of clearer glass and better polish seemed free from veins.	Refinement; elegance of manners. What are these wond'rous civilizing arts, This Roman polish?
+polishable	POLISHABLE	a.	Capable of being polished.
+polished	POLISHED	pp.	Made smooth and glossy; refined.
+polisher	POLISHER	n.	The person or instrument that polishes.
+polishing	POLISHING	ppr.	Making smooth and glossy; refining.
+polishing	POLISHING	n.	Smoothness; glossiness; refinement.
+polite	POLITE	a.	Literally, smooth, glossy, and used in this sense till within a century. Rays of light falling on a polite surface. [This application of the word is, I believe, entirely obsolete.]	Being polished or elegant in manners; refined in behavior; well bred. He marries, bows at court and grows polite	Courteous; complaisant; obliging. His manners were warm without insincerity, and polite without pomp.
+politely	POLITELY	adv.	With elegance of manners; genteelly; courteously.
+politeness	POLITENESS	n.	Polish or elegance of manners; gentility; good breeding; ease and gracefulness of manners, united with a desire to please others and a careful attention to their wants and wishes.	Courteousness; complaisance; obliging attentions.
+politic	POLITIC	a.	Wise; prudent and sagacious in devising and pursuing measures adapted to promote the public welfare; applied to persons; as a politic prince.	Well devised and adapted to the public prosperity; applied to things. This land was famously enriched With politic grave counsel.	Ingenious in devising and pursuing any scheme of personal or national aggrandizement, without regard to the morality of the measure; cunning; artful; sagacious in adapting means to the end, whether good or evil. I have been politic with my friend, smooth with my enemy.	Well devised; adapted to its end, right or wrong.
+political	POLITICAL	a.	Pertaining to policy, or to civil government and its administration. political measures or affairs are measures that respect the government of a nation or state. So we say, political power or authority; political wisdom; a political scheme; political opinions. A good prince is the political father of his people. The founders of a state and wise senators are also called political fathers	Pertaining to a nation or state, or to nations or states, as distinguished from civil or municipal; as in the phrase, political and civil rights, the former comprehending rights that belong to a nation, or perhaps to a citizen as an individual of a nation; and the latter comprehending the local rights of a corporation or any member of it. Speaking of the political state of Europe, we are accustomed to say of Sweden, she lost her liberty by the revolution.	Public; derived from office or connection with government; as political character.	Artful; skillful. [See Politic.]	Treating of politics or government; as a political writer. Political arithmetic, the art of reasoning by figures, or of making arithmetical calculations on matters relating to a nation, its revenues, value of lands and effects, produce of lands or manufactures, population, etc. Political economy, the administration of the revenues of a nation; or the management and regulation of its resources and productive property and labor. political economy comprehends all the measures by which the property and labor of citizens are directed in the best manner to the success of individual industry and enterprise, and to the public prosperity. political economy is now considered as a science.
+politically	POLITICALLY	adv.	With relation to the government of a nation or state.	Artfully; with address.
+politicaster	POLITICASTER	n.	A petty politician; a pretender to politics.
+politician	POLITICIAN	a.	Cunning; using artifice.
+politician	POLITICIAN	n.	One versed in the science of government and the art of governing; one skilled in politics.	A man of artifice or deep contrivance.
+politics	POLITICS	n.	The science of government; that part of ethics which consists in the regulation and government of a nation or state, for the preservation of its safety, peace and prosperity; comprehending the defense of its existence and rights against foreign control or conquest, the augmentation of its strength and resources, and the protection of its citizens in their rights, with the preservation and improvement of their morals. politics as a science or an art, is a subject of vast extent and importance.
+politize	POLITIZE	v.i.	To play the politician. [Not in use.]
+politure	POLITURE	n.	[See Polish.] Polish; the gloss given by polishing. [Not used.]
+polity	POLITY	n.	The form or constitution of civil government of a nation or state; and in free states, the frame or fundamental system by which the several branches of government are established, and the powers and duties or each designated and defined. Every branch of our civil polity supports and is supported, regulates and is regulated by the rest. With respect to their interior polity our colonies are properly of three sorts; provincial establishments, proprietary governments, and charter governments. This word seems also to embrace legislation and administration of government	The constitution or general fundamental principles of government of any class of citizens, considered in an appropriate character, or as a subordinate state. Were the whole christian world to revert back to the original model, how far more simple, uniform and beautiful would the church appear, and how far more agreeable to the ecclesiastical polity instituted by the holy apostles.
+poll	POLL	n.	The head of a person, or the back part of the head, and in composition, applied to the head of a beast, as in poll-evil.	A register of heads, that is, of persons.	The entry of the names of electors who vote for civil officers. Hence,	An election of civil officers, or the place of election. Our citizens say, at the opening or close of the poll that is, at the beginning of the register of voters and reception of votes, or the close of the same. They say also, we are going to the poll; many voters appeared at the poll	A fish called a chub or chevin. [See Pollard.]
+poll	POLL	v.t.	To lop the tops of trees.	To clip; to cut off the ends; to cut off hair or wool; to shear. The phrases, to poll the hair, and to poll the head, have been used. The latter is used in 2 Samuel 14:26. To poll a deed, is a phrase still used in law language.	To mow; to crop. [Not used.]	To peel; to strip; to plunder.	To take a list or register of persons; to enter names in a list.	To enter one's name in a list or register.	To insert into a number as a voter.
+poll-evil	POLL-EVIL	n.	A swelling or impostem on a horse's head, or on the nape of the neck between the ears
+pollack	POLLACK	n.	A fish, a species of Gadus or cod.
+pollard	POLLARD	n.	A clipped coin.	The chub fish.	A stag that has cast his horns.	A mixture of bran and meal.
+pollard	POLLARD	v.t.	To lop the tops of trees; to poll.
+pollen	POLLEN	n.	The fecundating dust or fine substance like flour or meal, contained in the anther of flowers, which is dispersed on the pistil for impregnation; farin or farina.	Fine bran.
+pollenger	POLLENGER	n.	Brushwood.
+pollenin	POLLENIN	n.	A substance prepared from the pollen of tulips, highly inflammable, and insoluble in agents which dissolve other vegetable products. Exposed to the air, it soon undergoes putrefaction
+poller	POLLER	n.	One that shaves persons; a barber. [Not used	One that lops or polls trees.	A pillager; a plunderer; one that fleeces by exaction. [Not used.]	One that registers voters, or one that enters his name as a voter.
+pollevil	poll-evil
+pollicitation	POLLICITATION	n.	A promise; a voluntary engagement, or a paper containing it
+pollinctor	POLLINCTOR	n.	One that prepares materials for embalming the dead; a kind of undertaker
+polliniferous	POLLINIFEROUS	a.	Producing pollen
+pollock	POLLOCK		POLLU'TE, verb transitive [Latin polluo; polluceo and possideo.]	To defile; to make foul or unclean; in a general sense. But appropriately, among the Jews, to make unclean or impure, in a legal or ceremonial sense, so as to disqualify a person for sacred services, or to render things unfit for sacred uses. Numbers 18:1. Exodus 20:1. 2 Kings 23:1. 2 Chronicles 36:1.	To taint with guilt. Ye pollute yourselves with all your idols. Ezekiel 20:1.	To profane; to use for carnal or idolatrous purposes. My sabbaths they greatly polluted. Ezekiel 20:1.	To corrupt or impair by mixture of ill, moral or physical. Envy you my praise, and would destroy With grief my pleasures, and pollute my joy?	To violate by illegal sexual commerce.
+pollute	POLLUTE	v.t.	To defile; to make foul or unclean; in a general sense. But appropriately, among the Jews, to make unclean or impure, in a legal or ceremonial sense, so as to disqualify a person for sacred services, or to render things unfit for sacred uses. Num.18. Ex.20. 2 Kings 23. 2 Chron.36.	To taint with guilt. Ye pollute yourselves with all your idols. Ezek.20.	To profane; to use for carnal or idolatrous purposes. My sabbaths they greatly polluted. Ezek.20.	To corrupt or impair by mixture of ill, moral or physical. Envy you my praise, and would destroy With grief my pleasures, and pollute my joy?	To violate by illegal sexual commerce.
+pollute	POLLUTE	a.	Polluted; defiled.
+polluted	POLLUTED	pp.	Defiled; rendered unclean; tainted with guilt; impaired; profaned.
+pollutedness	POLLUTEDNESS	n.	The state of being polluted; defilement.
+polluter	POLLUTER	n.	A defiler; one that pollutes or profanes.
+polluting	POLLUTING	ppr.	Defiling; rendering unclean; corrupting; profaning.
+pollution	POLLUTION	n.	The act of polluting.	Defilement; uncleanness; impurity; the state of being polluted.	In the Jewish economy, legal or ceremonial uncleanness, which disqualified a person for sacred services or for common intercourse with the people, or rendered any thing unfit for sacred use.	In medicine, the involuntary emission of semen in sleep.	In a religious sense, guilt, the effect of sin; idolatry, etc.
+pollux	POLLUX	n.	A fixed star of the second magnitude, in the constellation Gemini or the Twins.	[See Castor.]
+polonaise	POLONAISE		POLONE'SE, noun A robe or dress adopted from the fashion of the Poles; sometimes worn by ladies.
+polonese	POLONESE	n.	A robe or dress adopted from the fashion of the Poles; sometimes worn by ladies.
+polonese	POLONESE	n.	The Polish language.
+polonoise	POLONOISE	n.	In music, a movement of three crotchets in a bar, with the rhythmical cesure on the last.
+polt	POLT	n.	A blow, stroke or striking; a word in common popular use in noun England.
+polt-foot	POLT-FOOT	n.	A distorted foot. [Not in use.]
+polt-footed	POLT-FOOTED	a.	Having distorted feet. [Not in use.]
+poltfoot	polt-foot
+poltfooted	polt-footed
+poltroon	POLTROON	n.	An arrant coward; a dastard; a wretch without spirit or courage.
+poltroonery	POLTROONERY	n.	Cowardice; baseness of mind; want of spirit.
+polverin	POLVERIN		POL'VERINE, noun [Latin pulvis, dust.] The calcined ashes of a plant, of the nature of pot and pearl ashes, brought from the Levant and Syria. In the manufacture of glass, it is preferred to other ashes, as the glass made with it is perfectly white.
+polverine	POLVERINE	n.	The calcined ashes of a plant, of the nature of pot and pearl ashes, brought from the Levant and Syria. In the manufacture of glass, it is preferred to other ashes, as the glass made with it is perfectly white
+poly	POLY		POLYACOUS'TIC, adjective [Gr. many, and to hear.] That multiples or magnifies sound; as a noun, an instrument to multiply sounds.
+polyacoustic	POLYACOUSTIC	a.	That multiples or magnifies sound; as a noun, an instrument to multiply sounds
+polyadelph	POLYADELPH	n.	In botany, a plant having its stamens united in three or more bodies or bundles by the filaments.
+polyadelphian	POLYADELPHIAN	a.	Having its stamens united in three or more bundles.
+polyander	POLYANDER	n.	In botany, a plant having many stamens, or any number above twenty, inserted in the receptacle
+polyandrian	POLYANDRIAN	a.	Having many stamens, that is, any number above twenty, inserted in the receptacle.
+polyandry	POLYANDRY	n.	The practice of females' having more husbands than one at the same time; plurality of husbands
+polyanth	POLYANTH		POLYANTH'OS, noun [Gr. many, and a flower.] A plant of the genus Primula or primrose, whose flower stalks produce flowers in clusters.
+polyanthos	POLYANTHOS	n.	A plant of the genus Primula or primrose, whose flower stalks produce flowers in clusters
+polyautography	POLYAUTOGRAPHY	n.	The act or practice of multiplying copies of one's own handwriting or of manuscripts, by engraving on stone; a species of lithography
+polychord	POLYCHORD	a.	Having many chords or strings
+polychrest	POLYCHREST	n.	In pharmacy, a medicine that serves for many uses, or that cures many diseases
+polychroite	POLYCHROITE	n.	The coloring matter of saffron
+polycotyledon	POLYCOTYLEDON	n.	In botany, a plant that has many or more than two cotyledons or lobes to the seed
+polycotyledonous	POLYCOTYLEDONOUS	a.	Having more than two lobes to the seed.
+polyedric	POLYEDRIC		POLYEDROUS. [See Polyhedron and Polyhedral.]
+polyedrous	POLYEDROUS		[See Polyhedron and Polyhedral.]
+polygam	POLYGAM		POLYGAM'IAN, noun [Gr. many, and marriage.] In botany, a plant which bears hermaphrodite flowers, with male or female flowers, or both, not inclosed in the same common calyx, but scattered either on the same plant, or on two or three distinct individuals.
+polygamian	POLYGAMIAN	n.	In botany, a plant which bears hermaphrodite flowers, with male or female flowers, or both, not inclosed in the same common calyx, but scattered either on the same plant, or on two or three distinct individuals
+polygamian	POLYGAMIAN	a.	Producing hermaphrodite flowers, with male or female flowers, or both.
+polygamist	POLYGAMIST	n.	[See Polygamy.] A person who maintains the lawfulness of polygamy.
+polygamous	POLYGAMOUS	a.	Inclined to polygamy; having a plurality of wives.
+polygamy	POLYGAMY	n.	A plurality of wives or husbands at the same time; or the having of such plurality. When a man has more wives than one, or a woman more husbands than one, at the same time, the offender is punishable for polygamy Such is the fact in christian countries. But polygamy is allowed in some countries, as in Turkey
+polygar	POLYGAR	n.	In Hindoostan, an inhabitant of the woods.
+polygenous	POLYGENOUS	a.	Consisting of many kinds; as a polygenous mountain, which is composed of strata of different species of stone
+polyglot	POLYGLOT	a.	Having or containing many languages; as a polyglot lexicon or Bible
+polyglot	POLYGLOT	n.	A book containing many languages, particularly the Bible containing the Scriptures in several languages.	One who understands many languages. [Not in use.]
+polygon	POLYGON	n.	In geometry, a figure of many angles and sides, and whose perimeter consists at least of more than four sides
+polygonal	POLYGONAL		POLYG'ONOUS, adjective Having many angles.
+polygonous	POLYGONOUS	a.	Having many angles.
+polygonum	POLYGONUM		POL'YGON, noun [Gr. many, and knee or knot.] Knotgrass, a genus of plants so names from the numerous joints in the stem.
+polygram	POLYGRAM	n.	A figure consisting of many lines
+polygraph	POLYGRAPH	n.	[See Polygraphy.] An instrument for multiplying copies of a writing with ease and expedition.
+polygraphic	POLYGRAPHIC		POLYGRAPH'ICAL, adjective Pertaining to polygraphy; as a polygraphic instrument.	Done with a polygraph; as a polygraphic copy or writing.
+polygraphical	POLYGRAPHICAL	a.	Pertaining to polygraphy; as a polygraphic instrument.	Done with a polygraph; as a polygraphic copy or writing.
+polygraphy	POLYGRAPHY	n.	The art of writing in various ciphers, and of deciphering the same
+polygyn	POLYGYN	n.	In botany, a plant having many pistils
+polygynian	POLYGYNIAN	a.	Having many pistils.
+polygyny	POLYGYNY	n.	The practice of having more wives than one at the same time
+polyhalite	POLYHALITE	n.	A mineral or salt occurring in masses of a fibrous structure, of a brick red color, being tinged with iron. It contains sulphates of lime, of magnesia, of potash and of soda
+polyhedral	POLYHEDRAL		POLYHE'DRON, noun [Gr. many, and side.]	In geometry, a body or solid contained under many sides or planes.	In optics, a multiplying glass or lens consisting of several plane surfaces disposed in a convex form.
+polyhedron	POLYHEDRON	n.	In geometry, a body or solid contained under many sides or planes.	In optics, a multiplying glass or lens consisting of several plane surfaces disposed in a convex form.
+polyhedrous	POLYHEDROUS	a.	[See Polyhedron.] Having many sides; as a solid body.
+polylogy	POLYLOGY	n.	A talking much; talkativeness; garrulity. [Not in use.]
+polymathic	POLYMATHIC	a.	[See Polymathy.] Pertaining to polymathy.
+polymathy	POLYMATHY	n.	The knowledge of many arts and sciences; acquaintance with many branches of learning or with various subjects
+polymnite	POLYMNITE	n.	A stone marked with dendrites and black lines, and so disposed as to represent rivers, marshes and ponds
+polymorph	POLYMORPH	n.	A name given by Soldani to a numerous tribe or series of shells, which are very small, irregular and singular in form, and which cannot be referred to any known genus
+polymorphous	POLYMORPHOUS	a.	Having many forms
+polyneme	POLYNEME	n.	A fish having a scaly compressed head, with a blunt prominent nose, and pliform appendages to the pectoral fins.
+polynesia	POLYNESIA	n.	s as z. [Gr. many and isle.] A new term in geography, used to designate a great number of isles in the Pacific ocean, as the Pelew isles, the Ladrones, the Carolinas, the Sandwich isles, the Marquesas, the Society isles and the Friendly isles.
+polynesian	POLYNESIAN	a.	Pertaining to Polynesia.
+polynome	POLYNOME	n.	In algebra, a quantity consisting of many terms
+polynomial	POLYNOMIAL	a.	Containing many names or terms.
+polyonomous	POLYONOMOUS	a.	Having many names or titles; many-titled
+polyonomy	POLYONOMY	n.	Variety of different names
+polyoptrum	POLYOPTRUM		noun [Gr. many and to see.] A glass through which objects appear multiplied.
+polype	POLYPE		POLYPET'ALOUS, adjective [Gr. many and a petal.] In botany, having many petals; as a polypetalous corol.
+polypetalous	POLYPETALOUS	a.	In botany, having many petals; as a polypetalous corol
+polyphonic	POLYPHONIC	a.	Having or consisting of many voices or sounds
+polyphonism	POLYPHONISM		POLYPH'ONY, noun [Gr. many and sound.] Multiplicity of sounds, as in the reverberations of an echo.
+polyphony	POLYPHONY	n.	Multiplicity of sounds, as in the reverberations of an echo
+polyphyllous	POLYPHYLLOUS	a.	In botany, many-leafed; as a polyphyllous calyx or perianth
+polypier	POLYPIER	n.	The name given to the habitations of polypes, or to the common part of those compound animals called polypes.
+polypite	POLYPITE	n.	Fossil polype.
+polypode	POLYPODE	n.	An animal having many feet; the milleped or wood-louse
+polypody	POLYPODY	n.	A plant of the genus Polypodium, of the order of Filices or ferns. The fructifications are in roundish points, scattered over the inferior disk of the frons or leaf. There are numerous species, of which the most remarkable is the common male fern
+polypous	POLYPOUS	a.	Having the nature of the polypus; having many feet or roots, like the polypus; as a polypous concretion
+polypus	POLYPUS	n.	Something that has many feet or roots.	In zoology, a species of fresh water insect, belonging to the genus Hydra and order of zoophytes. Of this animal it is remarkable, that if cut into pieces, each part will shoot out a new head and tail and become a distinct animal. The general character of this animal is, it fixes itself by its base, is gelatinous, linear, naked, contractile, and capable of changing place. The common name of all those small gelatinous animals, whose mouth is surrounded by tentacula or feelers, (whence the name, ) and conducts to a simple stomach, or one followed by intestines in the form of vessels. They constitute a distinct class or order of zoophytes, and include those compound animals, with a fixed and solid stem, which were formerly regarded as marine plants.	A concretion of blood in the heart and blood vessels.	A tumor with a narrow base, somewhat resembling a pear; found in the nose, uterus, etc.
+polyscope	POLYSCOPE	n.	A glass which makes a single object appear as many
+polyspast	POLYSPAST	n.	A machine consisting of many pulleys
+polysperm	POLYSPERM	n.	A tree whose fruit contains many seeds
+polyspermous	POLYSPERMOUS	a.	Containing many seeds; as a polyspermous capsule or berry.
+polysyllabic	POLYSYLLABIC		POLYSYLLAB'ICAL, adjective [from polysyllable.] Pertaining to a polysyllable; consisting of many syllables, or of more than three.
+polysyllabical	POLYSYLLABICAL	a.	Pertaining to a polysyllable; consisting of many syllables, or of more than three
+polysyllable	POLYSYLLABLE	n.	A word of many syllables, that is, consisting of more syllables than three, for words of a less number than four are called monosyllables, dissyllables and trisyllables
+polysyndeton	POLYSYNDETON	n.	A figure of rhetoric by which the copulative is often repeated; as, 'we have ships and men and money and stores.'
+polytechnic	POLYTECHNIC	a.	Denoting or comprehending many arts; as a polytechnic school
+polytheism	POLYTHEISM	n.	The doctrine of a plurality of gods or invisible beings superior to man, and having an agency in the government of the world
+polytheist	POLYTHEIST	n.	A person who believes in or maintains the doctrine of a plurality of gods.
+polytheistic	POLYTHEISTIC		POLYTHEIS'TICAL, adjective Pertaining to polytheism; as polytheistic belief or worship.	Holding a plurality of gods; as a polytheistic writer.
+polytheistical	POLYTHEISTICAL	a.	Pertaining to polytheism; as polytheistic belief or worship.	Holding a plurality of gods; as a polytheistic writer.

@@ -1,0 +1,7 @@
+spy	SPY	n.	A person sent into an enemys camp to inspect their works, ascertain their works, ascertain their strength and their intentions, to watch their movements, and secretly communicate intelligence to the proper officer. By the laws of war among all civilized nations, a spy is subjected to capital punishment.	A person deputed to watch the conduct of others.	One who watches the conduct of others. These wretched spies of wit.
+spy	SPY	v.t.	To see; to gain sight of; to discover at a distance, or in a state of concealment. It is the same as espy; as, to spy land from the mast head of a ship. As tiger spied two gentle fawns. One in reading skipped over all sentences where he spied a note of admiration.	To discover by close search or examination; as, a lawyer in examining the pleadings in a case, spies a defect.	To explore; to view, inspect and examine secretly; as a country; usually with out. Moses sent to spy out Jaazer, and they took the villages thereof. Numbers 21:32.
+spy	SPY	v.i.	To search narrowly; to scrutinize. It is my natures plague to spy into abuse.
+spy-boat	SPY-BOAT	n.	A boat sent to make discoveries and bring intelligence
+spy-glass	SPY-GLASS	n.	The popular name of a small telescope, useful in viewing distant objects.
+spyboat	spy-boat
+spyglass	spy-glass

@@ -1,0 +1,19 @@
+azarole	AZAROLE	n.	A species of thorn; the three grained medlar, a species of crataegus.
+azerira	AZERIRA	n.	A species of plum or prunus.
+azerit	AZERIT		In astronomy, an arch of the horizon intercepted between the meridian of the place, and the azimuth or vertical circle, passing through the center of the object.	Magnetical azimuth, an arch of the horizon, intercepted between the azimuth or vertical circle, passing through the center of any heavenly body, and the magnetic meridian. This is found by observing the object with an azimuth compass.	Azimuth compass, an instrument for finding either the magnetic azimuth or amplitude of an heavenly object.	Azimuth dial, a dial whose stile or gnomon is at right angles to the plane of the horizon.	Azimuths or vertical circles, are great circles intersecting each other in the zenith and nadir, and cutting the horizon at right angles. On charts, these azimuths are represented by rhumbs, and on the globe, by the quadrant of altitude, when screwed in the zenith.
+azimuth	AZIMUTH	n.	In astronomy, an arch of the horizon intercepted between the meridian of the place, and the azimuth or vertical circle, passing through the center of the object.	Magnetical azimuth, an arch of the horizon, intercepted between the azimuth or vertical circle, passing through the center of any heavenly body, and the magnetic meridian. This is found by observing the object with an azimuth compass.	Azimuth compass, an instrument for finding either the magnetic azimuth or amplitude of an heavenly object.	Azimuth dial, a dial whose stile or gnomon is at right angles to the plane of the horizon.	Azimuths or vertical circles, are great circles intersecting each other in the zenith and nadir, and cutting the horizon at right angles. On charts, these azimuths are represented by rhumbs, and on the globe, by the quadrant of altitude, when screwed in the zenith.
+azote	AZOTE	n.	A species of gas, called also mephitic air, and atmospheric mephitis, on account of it fatal effects upon animal life. It is tasteless, and inodorous: it exists in common air, mixed with oxygen, and constitutes about seventy-nine hundredth parts of atmospheric air. It may be obtained, in large quantities, from the muscular fibers of animals. Combined with hydrogen, it forms volatile alkali; and it enters into the composition of most animal substances. It is the radical of nitric acid, and is now called nitrogen gas, or nitrogen
+azoth	AZOTH	n.	Among alchimists, the first principle of metals; the mercury of metals; a universal medicine. obsolete	The liquor of sublimated quicksilver; brass.
+azotic	AZOTIC	a.	Pertaining to azote; fatal to animal life.
+azotite	AZOTITE	n.	A salt formed by a combination of the protoxyd of azote, or nitrous oxyd, with an alkali.
+azure	AZURE	a.	Of a sky-blue; resembling the clear blue color of the sky.
+azure	AZURE		The fine blue color of the sky. This word was formerly applied to the lapis lazuli, and the color prepared from it. But it is now applied to the blue extracted from cobalt, though somewhat a different color; the blue of the lapis is called ultramarine. azure is applied also to the blue glass made of the oxyd of cobalt and vitrifiable substances, reduced to fine powder. In large masses it is called smalt.	The sky, or azure vault of heaven.	In heraldry, a blue color in coats of all persons under the degree of baron.
+azure	AZURE	v.t.	To color blue.
+azure-stone	AZURE-STONE		AZURITE, noun Another name of the lazulite.
+azured	AZURED	a.	Colored azure; being of an azure color.
+azurestone	azure-stone
+azurite	AZURE-STONE		AZURITE noun Another name of the lazulite.
+azurn	AZURN	a.	Of a blue color. [Little used.]
+azyme	AZYME	n.	[See Azymous.] Unleavened bread. [Not in use.]
+azymite	AZYMITE	n.	[See Azymous.] In church history, azymites are Christians who administer the eucharist with unleavened bread.
+azymous	AZYMOUS	a.	Unleavened; unfermented; as sea-biscuit

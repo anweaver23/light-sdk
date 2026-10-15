@@ -1,0 +1,42 @@
+deed	DEED	n.	That which is done, acted or effected; an act; a fact; a word of extensive application, including whatever is done, good or bad, great or small. And Joseph said to them, what deed is this which ye have done? Gen. x1iv. We receive the due reward of our deeds. Luke 23:41.	Exploit; achievement; illustrious act. Whose deeds some nobler poem shall adorn.	Power of action; agency. With will and deed created free.	A writing containing some contract or agreement, and the evidence of its execution; particularly, an instrument on paper or parchment, conveying real estate to a purchaser or donee. This instrument must be executed, and the execution attested, in the manner prescribed by law. Indeed, in fact; in reality. These words are united and called an adverb. But sometimes they are separated by very, in very deed; a more emphatical expression. Exodus 9:16.
+deed	DEED	v.t.	To convey or transfer by deed; a popular use of the word in America; as, he deeded all his estate to his eldest son.
+deed-achieving	DEED-ACHIEVING	a.	That accomplishes great deeds.
+deed-poll	DEED-POLL	n.	A deed not indented, that is, shaved or even, made by one party only.
+deedachieving	deed-achieving
+deedless	DEEDLESS	a.	Inactive; not performing or having performed deeds or exploits.
+deedpoll	deed-poll
+deem	DEEM	v.t.	To think; to judge; to be of opinion; to conclude on consideration; as, he deems it prudent to be silent. For never can I deem him less than god. The shipmen deemed that they drew near to some country. Acts 27:27.	To estimate.
+deem	DEEM	n.	Opinion; judgment; surmise.
+deemed	DEEMED	pp.	Thought; judged; supposed.
+deeming	DEEMING	ppr.	Thinking; judging; believing.
+deemster	DEEMSTER	n.	A judge in the Isle of Man and in Jersey.
+deep	DEEP	a.	Extending or being far below the surface; descending far downward; profound; opposed to shallow; as deep water; a deep pit or well.	Low in situation; being or descending far below the adjacent land; as a deep valley.	Entering far; piercing a great way. A tree in a good soil takes deep root. A spear struck deep into the flesh.	Far from the outer part; secreted. A spider deep ambushed in her den.	Not superficial or obvious; hidden; secret. He discovereth deep things out of darkness. Job 12:22.	Remote from comprehension. O Lord, thy thoughts are very deep Ps. Xcii.	Sagacious; penetrating; having the power to enter far into a subject; as a man of deep thought; a deep divine.	Artful; contriving; concealing artifice; insidious; designing; as a friend, deep hollow treacherous.	Grave in sound; low; as the deep tones of an organ.	Very still; solemn; profound; as deep silence.	Thick; black; not to be penetrated by the sight. Now deeper darkness brooded on the ground.	Still; sound; not easily broken or disturbed. The Lord God caused a deep sleep to fall on Adam. Genesis 2:21.	Depressed; sunk low, metaphorically; as deep poverty.	Dark; intense; strongly colored; as a deep brown; a deep crimson; a deep blue.	Unknown; unintelligible. A people of deeper speech than thou canst perceive. Isaiah 33:19.	Heart-felt; penetrating; affecting; as a deep sense of guilt.	Intricate; not easily understood or unraveled; as a deep plot or intrigue. This word often qualifies a verb, like an adverb. Drink deep or taste not the Pierian spring.
+deep	DEEP	n.	The sea; the abyss of waters; the ocean. He maketh the deep to boil like a pot. Job x1i.	A lake; a great collection of water. Lanch out into the deep and let down your nets. Luke 5:4.	That which is profound, not easily fathomed, or incomprehensible. Thy judgments are a great deep Psalms 36:6.	The most still or solemn part; the midst; as, in deep of night.
+deep-mouthed	DEEP-MOUTHED	a.	Having a hoarse, loud, hollow voice; as a deep-mouthed dog.
+deep-musing	DEEP-MUSING	a.	Contemplative; thinking closely or profoundly.
+deep-read	DEEP-READ	a.	Having fully read; profoundly versed.
+deep-revolving	DEEP-REVOLVING	a.	Profoundly revolving or meditating.
+deep-throated	DEEP-THROATED	a.	With deep throats.
+deep-toned	DEEP-TONED	a.	Having a very low or grave tone.
+deep-vaulted	DEEP-VAULTED	a.	Formed like a deep vault or arch.
+deep-waisted	DEEP-WAISTED	a.	Having a deep waist, as a ship when the quarter deck and forecastle are raised from four to six feet above the level of the main deck.
+deepen	DEEPEN	v.t.	To make deep or deeper; to sink lower; as, to deepen the channel of a river or harbor; to deepen a well.	To make dark or darker; to make more thick or gloomy; as, to deepen the shades of night; to deepen gloom.	To give a darker hue, or a stronger color; as, to deepen a color; to deepen a red, blue or crimson color.	To make more poignant or distressing; as, to deepen grief or sorrow.	To make more frightful; as, to deepen the horrors of the scene.	To make more sad or gloomy; as, to deepen the murmurs of the flood.	To make more grave; as, to deepen the tones of an organ.
+deepen	DEEPEN	v.i.	To become more deep; as, the water deepens at every cast of the lead.
+deepened	DEEPENED	pp.	Made more deep.
+deepening	DEEPENING	ppr.	Sinking lower; making more deep.
+deeply	DEEPLY	adv.	At or to a great depth; far below the surface; as a passion deeply rooted in our nature; precepts deeply engraven on the heart.	Profoundly; thoroughly; as deeply skilled in ethics or anatomy.	To or from the inmost recesses of the heart; eith great sorrow; most feelingly. He sighed deeply in his spirit. Mark 8:12. He was deeply affected at the sight.	To a great degree; as, he has deeply offended. They have deeply corrupted themselves. Hosea 9.	With a dark hye, or strong color; as a deeply red liquor; deeply colored.	Gravely; as a deeply toned instrument.	With profound skill; with art or intricacy; as a deeply laid plot or intrigue. This word cannot easily be defined in all its various applications. In general it gives emphasis or intensity to the word which it qualifies.
+deepmouthed	deep-mouthed
+deepmusing	deep-musing
+deepness	DEEPNESS	n.	Depth; remoteness from the surface in a descending line; interior distance from the surface; profundity. And forthwith they sprung up, because they had no deepness of earth. Matthew 13:5	Craft; insidiousness.
+deepread	deep-read
+deeprevolving	deep-revolving
+deepthroated	deep-throated
+deeptoned	deep-toned
+deepvaulted	deep-vaulted
+deepwaisted	deep-waisted
+deer	DEER	n.	Sing. And plural [Gr. A wild beast. The primary sense is simply roving, wild, untamed; hence, a wild beast.] A quadruped of the genus Cervus, of several species, as the stag, the fallow deer the roe-buck, the rane or rane-deer, etc. These animals are wild and hunted in the forest, or kept in parks. Their flesh called venison, is deemed excellent food.
+deer-stealer	DEER-STEALER	n.	One who steals deer.
+deer-stealing	DEER-STEALING	n.	The act or crime of stealing deer.
+deerstealer	deer-stealer
+deerstealing	deer-stealing
+deess	DEESS	n.	A goddess.

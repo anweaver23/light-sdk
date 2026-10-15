@@ -1,0 +1,446 @@
+lo	LO	exclam.	Look; see; behold; observe. This word is used to excite particular attention in a hearer to some object of sight, or subject of discourse.
+lo	LO		here is Christ. Matthew 24:23.
+lo	LO		we turn to the Gentiles. Acts 13:46.
+loach	LOACH		LOAD, noun [See lade.]	A burden; that which is laid on or put in any thing for conveyance. Thus we lay a load on a beat or on a man's shoulders, or on a cart or wagon; and we say, a light load, heavy load. A load then is indefinite in quantity or weight. But by usage, in some cases, the word has a more definite signification, and expresses a certain quantity or weight, or as much as is usually carried, or as can be well sustained. Load is never used for the cargo of a ship; this is called loading, lading, freight, or cargo.	Any heavy burden; a large quantity borne or sustained. a tree may be said to have a load of fruit upon it.	That which is borne with pain or difficulty; a grievous weight; encumbrance; in a literal sense. Jove lightened of its load th' enormous mass - In a figurative sense, we say, a load of care or grief; a load of guilt or crimes.	Weight or violence of blows.	A quantity of food or drink that oppresses, or as much as can be borne.	Among miners, the quantity of nine dishes of ore, each dish being about half a hundred weight.
+load	LOAD	n.	A burden; that which is laid on or put in any thing for conveyance. Thus we lay a load on a beat or on a man's shoulders, or on a cart or wagon; and we say, a light load, heavy load. A load then is indefinite in quantity or weight. But by usage, in some cases, the word has a more definite signification, and expresses a certain quantity or weight, or as much as is usually carried, or as can be well sustained. Load is never used for the cargo of a ship; this is called loading, lading, freight, or cargo.	Any heavy burden; a large quantity borne or sustained. a tree may be said to have a load of fruit upon it.	That which is borne with pain or difficulty; a grievous weight; encumbrance; in a literal sense.Jove lightened of its load th' enormous mass -In a figurative sense, we say, a load of care or grief; a load of guilt or crimes.	Weight or violence of blows.	A quantity of food or drink that oppresses, or as much as can be borne.	Among miners, the quantity of nine dishes of ore, each dish being about half a hundred weight.
+load	LOAD	v.t.	pret. and pp. loaded. [loaden, formerly used, is obsolete and laden belongs to lade. Load, from the noun, is a regular verb.]	To lay on a burden; to put on or in something to be carried, or as much as can be carried; as, to load a camel or a horse; to load a cart or wagon. To load a gun, is to charge, or to put in a sufficient quantity of powder, or powder and ball or shot.	To encumber; to lay on or put in that which is borne with pain or difficulty; in a literal sense, as to load the stomach with meat; or in a figurative sense, as to load the mind or memory.	To make heavy by something added or appended.Thy dreadful vow, loaden with death -So in a literal sense, to load a whip.	To bestow or confer on in great abundance; as, to load one with honors; to load with reproaches.
+loaded	LOADED	pp.	Charged with a load or cargo; having a burden; freighted, as a ship; having a charge of powder, or powder and shot, as a gun.	Burdened with any thing oppressive; as loaded with cares, with guilt or shame.
+loader	LOADER	n.	One who put on a load.
+loading	LOADING	ppr.	Charging with a load; burdening; encumbering; charging, as a gun.
+loading	LOADING	n.	A cargo; a burden; also, any thing that makes part of a load.
+loadmanage	LOADMANAGE	n.	Pilotage; skill of a pilot. [Not in use.]
+loadsman	LOADSMAN	n.	A pilot. obsolete
+loadstar	LOADSTAR		LOADSTONE, noun [from the verb lead and stone. The old orthography, lodestone, is most correct, as this word has no connection with the verb to load.] The native magnet, an ore of iron in the lowest state of oxidation, which has the power of attracting metallic iron, as iron filings, and of communicating to masses of iron the same property of attraction, forming artificial magnets. [See Lodestone.]
+loadstone	LOADSTONE	n.	The native magnet, an ore of iron in the lowest state of oxidation, which has the power of attracting metallic iron, as iron filings, and of communicating to masses of iron the same property of attraction, forming artificial magnets. [See Lodestone.]
+loaf	LOAF	n. pl.	A mass of bread when baked. It is larger than a cake. The size and price of a loaf in large cities, are regulated by law.	A mass or lump, as of sugar.	Any thick mass.
+loaf-sugar	LOAF-SUGAR	n.	Sugar refined and formed into a conical mass.
+loafsugar	loaf-sugar
+loam	LOAM	n.	A natural mixture of sand and clay with oxyd of iron; a species of earth or soil of different colors, whitish, brown or yellow, readily diffusible in water
+loam	LOAM	v.t.	To cover with loam
+loamy	LOAMY	a.	Consisting of loam; partaking of the nature of loam, or resembling it.
+loan	LOAN	n.	The act of lending; a lending.	That which is lent; any thing furnished for temporary use to a person at his request, on the express or implied condition that the specific thing shall be returned, or its equivalent in kind, but without compensation for the use; as a loan of a book or of bread.	Something furnished for temporary use, on the condition that it shall be returned or its equivalent, but with a compensation for the use. In this sense, loan is generally applied to money. [See Lend.]	A furnishing; permission to use; grant of the use; as a loan of credit.
+loan	LOAN	v.t.	To lend; to deliver to another for temporary use, on condition that the thing shall be returned, as a book; or to deliver for use, on condition that an equivalent in kind shall be returned, as bread; or to deliver for temporary use, on condition that an equivalent in kind shall be returned, with a compensation for the use, as in the case of money at interest. Bills of credit were issued, to be loaned on interest.
+loan-office	LOAN-OFFICE	n.	In America, a public office in which loans of money are negotiated for the public, or in which the accounts of loans are kept and the interest paid to the lenders.
+loan-officer	LOAN-OFFICER	n.	A public officer empowered to superintend and transact the business of a loan-office.
+loanoffice	loan-office
+loanofficer	loan-officer
+loath	LOATH	n.	One that lothes.
+loather	LOATHER	n.	One that lothes.
+loathful	LOATHFUL	a.	Hating; abhorring through disgust.	Abhorred; hated.
+loathing	LOATHING	ppr.	Hating from disgust; abhorring.
+loathingly	LOATHINGLY	adv.	In a fastidious manner.
+loathly	LOATHLY	a.	Hateful; exciting hatred. obsolete
+loathly	LOATHLY	adv.	Unwillingly; reluctantly. [See Lothly.]
+loathness	LOATHNESS	n.	Unwillingness; reluctance. [See Lothness.]
+loathsome	LOATHSOME	a.	Disgusting; exciting disgust.	Hateful; abhorred; detestable.	Causing fastidiousness. [See Lothesome.]
+loathsomeness	LOATHSOMENESS	n.	The quality which excites disgust, hatred or abhorrence.
+loaves	LOAVES		plu of loaf.
+lob	LOB	n.	A dull, heavy, sluggish person.	Something thick and heavy; as in lobworm.
+lob	LOB	v.t.	To let fall heavily or lazily. And their poor jades lob down their heads.
+lobate	LOBATE		An opening before a room, or an entrance into a principal apartment, where there is a considerable space between that and the portico or vestibule.	A small hall or waiting room.	A small apartment taken from a hall or entry.	In a ship, an apartment close before the captain's cabin.	In agriculture, a confined place for cattle, formed by hedges, trees or other fencing, near the farm-yard.
+lobby	LOBBY	n.	An opening before a room, or an entrance into a principal apartment, where there is a considerable space between that and the portico or vestibule.	A small hall or waiting room.	A small apartment taken from a hall or entry.	In a ship, an apartment close before the captain's cabin.	In agriculture, a confined place for cattle, formed by hedges, trees or other fencing, near the farm-yard.
+lobe	LOBE	n.	A part or division of the lungs, liver, etc.	The lower soft part of the ear.	A division of a simple leaf.	The cotyledon or placenta of a seed.
+lobed	LOBED	a.	Consisting of lobes. In botany, divided to the middle into parts distant from each other, with convex margins
+lobspound	LOBSPOUND	n.	A prison.
+lobster	LOBSTER	n.	A crustaceous fish of the genus Cancer. Lobsters have large claws and fangs, and four pair of legs. They are said to change their crust annually, and to be frightened at thunder or other loud report. They constitute an article of food.
+lobule	LOBULE	n.	A small lobe.
+local	LOCAL	a.	Pertaining to a place, or to a fixed or limited portion of space. We say, the local situation of the house is pleasant. We are often influenced in our opinions by local circumstances.	Limited or confined to a spot, place, or definite district; as a local custom. The yellow fever is local in its origin, and often continues for a time, to be a local disease.	In law, local actions are such as must be brought in a particular county, where the cause arises; distinguished from transitory actions.
+locality	LOCALITY	n.	Existence in a place, or in a certain portion of space. It is thought that the soul and angels are devoid of quantity and dimension, and that they have nothing to do with grosser locality	Limitation to a county, district or place; as locality of trial.	Position; situation; place; particularly; geographical place or situation, as of a mineral or plant.
+locally	LOCALLY	adv.	With respect to place; in place; as, to be locally separated or distant.
+locate	LOCATE	v.t.	To place; to set in a particular spot or position.	To select, survey and settle the bounds of a particular tract of land; or to designate a portion of land by limits; as, to locate a tract of a hundred acres in a particular township.	To designate and determine the place of; as, a committee was appointed to locate a church or a court house.
+located	LOCATED	pp.	Placed; situated; fixed in place.
+locating	LOCATING	ppr.	Placing; designating the place of.
+location	LOCATION	n.	The act of placing, or of designating the place of.	Situation with respect to place. The location of the city on a large river is favorable for commerce.	That which is located; a tract of land designated in place.	In the civil law, a leasing on rent.
+loch	LOCH	n.	A lake; a bay or arm of the sea; used in Scotland.
+loch	LOCH	n.	loch or lohoch, is an Arabian name for the forms of medicines called eclegmas, lambatives, linctures, and the like.
+lochage	LOCHAGE	n.	In Greece, an officer who commanded a lochus or cohort, the number of men in which is not certainly known
+loche	LOCHE	n.	A small fish of the genus Cobitis, inhabiting small clear streams, and esteemed dainty food.
+lochia	LOCHIA	n.	Evacuations which follow childbirth
+lochial	LOCHIAL	a.	Pertaining to evacuations from the womb after childbirth.
+lock	LOCK	n.	lock in its primary sense, is any thing that fastens; but we now appropriate the word to an instrument composed of a spring, wards, and a bolt of iron or steel, used to fasten doors, chests and the like. The bolt is moved by a key.	The part of a musket or fowling-piece or other fire-arm, which contains the pan, trigger, etc.	The barrier or works of a canal, which confine the water, consisting of a dam, banks or walls, with two gates or pairs of gates, which may be opened or shut at pleasure.	A grapple in wrestling.	Any inclosure.	A tuft of hair; a plexus of wool, hay or other like substance; a flock; a ringlet of hair. A lock of hair will draw more than a cable rope. LOCK of water, is the measure equal to the contents of the chamber of the locks by which the consumption of water on a canal is estimated.
+lock	LOCK	v.t.	To fasten with a particular instrument; as, to lock a door; to lock a trunk.	To shut up or confine, as with a lock; as, to be locked in a prison. lock the secret in your breast.	To close fast. The frost locks up our rivers.	To embrace closely; as, to lock one in the arms.	To furnish with locks, as a canal.	To confine; to restrain. Our shipping was locked up by the embargo.	In fencing, to seize the sword-arm of an antagonist, by turning the left arm around it, after closing the parade, shell to shell, in order to disarm him.
+lock	LOCK	v.i.	To become fast. The door locks close.	To unite closely by mutual insertion; as, they lock into each other.
+lock-keeper	LOCK-KEEPER	n.	One who attends the locks of a canal.
+lock-paddle	LOCK-PADDLE	n.	A small sluse that serves to fill and empty a lock
+lock-sil	LOCK-SIL	n.	An angular piece of timber at the bottom of a lock against which the gates shut.
+lock-weir	LOCK-WEIR	n.	A paddle-weir, in canals, an over-fall behind the upper gates, by which the waste water of the upper pound is let down through the paddle-holes into the chamber of the lock
+lockage	LOCKAGE	n.	Materials for locks in a canal.	Works which form a lock on a canal.	Toll paid for passing the locks of a canal.
+locked	LOCKED	pp.	Made fast by a lock; furnished with a lock or locks; closely embraced.
+locker	LOCKER	n.	A close place, as a drawer or an apartment in a ship, that may be closed with a lock. A shot-locker is a strong frame of plank near the pump-well in the hold, where shot are deposited.
+locket	LOCKET	n.	A small lock; a catch or spring to fasten a necklace or other ornament.
+lockkeeper	lock-keeper
+lockpaddle	lock-paddle
+lockram	LOCKRAM	n.	A sort of coarse linen.
+locksil	lock-sil
+locksmith	LOCKSMITH	n.	An artificer whose occupation is to make locks.
+lockweir	lock-weir
+locky	LOCKY	a.	Having locks or tufts.
+locomotion	LOCOMOTION	n.	The act of moving from place to place.	The power of moving from place to place. Most animals possess locomotion; plants have life, but not locomotion
+locomotive	LOCOMOTIVE	a.	Moving from place to place; changing place, or able to change place; as a locomotive animal. Most animals are distinguished from plants by their locomotive faculty. Locomotive engine, a steam engine employed in land carriage; chiefly on railways.
+locomotivity	LOCOMOTIVITY	n.	The power of changing place.
+loculament	LOCULAMENT	n.	In botany, the cell of a pericarp in which the seed is lodged. A pericarp is unilocular, bilocular, etc
+locust	LOCUST	n.	An insect of the genus Gryllus. These insects are at times so numerous in Africa and the S. of Asia as to devour every green thing, and when they migrate, they fly in an immense cloud
+locust	LOCUST	n.	A name of several plants and trees; as a species of Melianthus, and of Ceratonia.
+locust-tree	LOCUST-TREE	n.	A tree of the genus Hymenaea, and another of the genus Robinia. The Honey-Locust-tree, is of the genus Gleditsia.
+locusttree	locust-tree
+lode	LODE	n.	Among miners, a metallic vein, or any regular vein or course, whether metallic or not, but commonly a metallic vein.	A cut or reach of water.
+lode-stone	LODE-STONE	n.	A magnet, an ore of iron; a stone found in iron mines, of a dark or black lead color, and of considerable hardness and weight. It attracts iron filings, and communicates to iron the same property of attraction. But its peculiar value consists in its communicating to a needle the property of taking a direction to the north and south, a property of inestimable utility in navigation and surveying.	A name given by Cornish miners to a species of stones, called also tin-stones; a compound of stones and sand, of different kinds and colors.
+lodestar	LODESTAR	n.	The star that leads; the polestar; the cynosure. obsolete
+lodestone	lode-stone
+lodgable	LODGABLE	a.	Capable of affording a temporary abode. [Not used.]
+lodge	LODGE	v.t.	To set, lay or deposit for keeping or preservation, for a longer or shorter time. The men lodged their arms in the arsenal.	To place; to plant; to infix. He lodged an arrow in a tender breast.	To fix; to settle in the heart, mind or memory. I can give no reason more than a lodged hate -	To furnish with a temporary habitation, or with an accommodation for a night. He lodged the prince a month, a week, or a night. [The word usually denotes a short residence, but for no definite time.]	To harbor; to cover. The deer is lodged.	To afford place to; to contain for keeping. The memory can lodge a greater store of images, than the senses can present at one time.	To throw in or on; as, to lodge a ball or a bomb in a fort.	To throw down; to lay flat. Our sighs, and they shall lodge the summer corn.
+lodge	LODGE	v.i.	To reside; to dwell; to rest in a place. And lodge such daring souls in little men.	To rest or dwell for a time, as for a night, a week, a month. We lodged a night at the Golden Ball. We lodged a week at the City Hotel. Soldiers lodge in tents in summer, and in huts in winter. Fowls lodge on trees or rocks.	To fall flat, as grain. Wheat and oats on strong land are apt to lodge
+lodge	LODGE	n.	A small house in a park or forest, for a temporary place of rest at night; a temporary habitation; a hut.	A small house or tenement appended to a larger; as a porter's lodge	A den; a cave; any place where a wild beast dwells.
+lodged	LODGED	pp.	Placed at rest; deposited; infixed; furnished with accommodations for a night or other short time; laid flat.
+lodger	LODGER	n.	One who lives at board, or in a hired room, or who has a bed in another's house for a night.	One that resides in any place for a time.
+lodging	LODGING	ppr.	Placing at rest; depositing; furnishing lodgings.	Resting for a night; residing for a time.
+lodging	LODGING	n.	A place of rest for a night, or of residence for a time; temporary habitation; apartment. Wits take lodgings in the sound of Bow.	Place of residence. Fair bosom - the lodging of delight.	Harbor; cover; place of rest.	Convenience for repose at night.
+lodgment	LODGMENT	n.	The act of lodging, or the state of being lodged; a being placed or deposited at rest for keeping for a time or for permanence.	Accumulation or collection of something deposited or remaining at rest.	In military affairs, an encampment made by an army.	A work cast up by besiegers, during their approaches, in some dangerous post which they have gained, and where it is necessary to secure themselves against the enemy's fire.
+loffe	LOFFE	v.i.	To laugh. [Not used.]
+loft	LOFT	n.	Properly, an elevation; hence, in a building, the elevation of one story or floor above another; hence, a floor above another; as the second loft; third loft; fourth loft Spenser seems to have used the word for the highest floor or top, and this may have been its original signification.	A high room or place.
+loftily	LOFTILY	adv.	On high; in an elevated place.	Proudly; haughtily. They are corrupt and speak wickedly concerning oppression; they speak loftily Psalms 73:8.	With elevation of language, diction or sentiment; sublimely. My lowly verse may loftily arise.	In an elevated attitude. A horse carries his head loftily
+loftiness	LOFTINESS	n.	Height; elevation in place or position; altitude; as the loftiness of a mountain.	Pride; haughtiness. Augustus and Tiberius had loftiness enough in their tempers -	Elevation of attitude or mien; as loftiness of carriage.	Sublimity; elevation of diction or sentiment. Three poets in three distant ages born; the first in loftiness of thought surpass'd; the next in majesty; in both the last. First occurrence in the Bible(KJV): Isaiah 2:17
+lofty	LOFTY	a.	Elevated in place; high; as a lofty tower; a lofty mountain. [But it expresses more than high, or at least is more emphatical, poetical and elegant.] See lofty Lebanon his head advance.	Elevated in condition or character. Thus saith the high and lofty One, that inhabiteth eternity, whose name is Holy - Isaiah 57:7.	Proud; haughty; as lofty looks. Isaiah 2:11.	Elevated in sentiment or diction; sublime; as lofty strains; lofty rhyme.	Stately; dignified; as lofty steps.
+log	LOG	n.	A bulky piece or stick of timer unhewed. Pine logs are floated down rivers in America, and stopped at saw-mills. A piece of timber when hewed or squared, is not called a log unless perhaps in constructing log-huts.	In navigation, a machine for measuring the rate of a ship's velocity through the water. The common log is a piece of board, forming the quadrant of a circle of about six inches radius, balanced by a small plate of lead nailed on the circular part, so as to swim perpendicular.	[Heb.] A Hebrew measure of liquids, containing, according to some authors, three quarters of a pint; according to others, five sixths of a pint. According to Arbuthnot, it was the seventy second part of the bath or ephab, and the twelfth part of a hin.
+log	LOG	v.i.	To move to and fro. [Not used.]
+log-board	LOG-BOARD	n.	In navigation, two boards, shutting like a book, and divided into columns, containing the hours of the day and night, direction of the wind, course of the ship, etc., from which is formed the log-book.
+log-book	LOG-BOOK	n.	A book into which are transcribed the contents of the log-board.
+log-house	LOG-HOUSE		LOG'-HUT, noun A house or hut whose walls are composed of logs laid on each other.
+log-line	LOG-LINE	n.	A line or cord about a hundred and fifty fathoms in length, fastened to the log by means of two legs. This is wound on a reel, called the log-reel.
+log-reel	LOG-REEL	n.	A reel in the gallery of a ship, on which the log line is wound.
+logarithm	LOGARITHM	n.	Logarithms are the exponents of a series of powers and roots. The logarithm of a number is that exponent of some other number, which renders the power of the latter, denoted by the exponent, equal to the former. When the logarithms form a series in arithmetical progression, the corresponding natural numbers form a series in geometrical progression. Thus, Logarithms 0 1 2 3 4 5 Natural numbers, 1 10 100 1000 10000 100000 The addition and subtraction of logarithms answer to the multiplication and division of their natural numbers. In like manner, involution is performed by multiplying the logarithm of any number by the number denoting the required power; and evolution, by dividing the logarithm by the number denoting the required root. Logarithms are the invention of Baron Napier, lord of Marchiston in Scotland; but the kind now in use, were invented by Henry Briggs, professor of geometry in Gresham college at Oxford. They are extremely useful in abridging the labor of trigonometrical calculations
+logarithmetic	LOGARITHMETIC		LOGARITHMET'ICAL, LOGARITH'MIC, adjective Pertaining to logarithms; consisting of logarithms.
+logarithmic	LOGARITHMIC	a.	Pertaining to logarithms; consisting of logarithms.
+logboard	log-board
+logbook	log-book
+loggats	LOGGATS	n.	The name of a play or game, the same as is now called kittle-pins. It was prohibited by Statute 33, Henry VIII. [Not in use.]
+loggerhead	LOGGERHEAD	n.	A blockhead; a dunce; a dolt; a thick-skull.	A spherical mass of iron, with a long handle; used to heat tar. To fall to loggerheads, To go to loggerheads, to come to blows; to fall to fighting without weapons.
+loggerheaded	LOGGERHEADED	a.	Dull; stupid; doltish.
+loghouse	log-house
+logic	LOGIC	n.	The art of thinking and reasoning justly. Logic is the art of using reason well in our inquiries after truth, and the communication of it to others. Logic may be defined, the science or history of the human mind, as it traces the progress of our knowledge from our first conceptions through their different combinations, and the numerous deductions that result from comparing them with one another. Correct reasoning implies correct thinking and legitimate inferences from premises, which are principles assumed or admitted to be just. logic then includes the art of thinking, as well as the art of reasoning. The purpose of logic is to direct the intellectual powers in the investigation of truth, and in the communication of it to others
+logical	LOGICAL	a.	Pertaining to logic; used in logic; as logical subtitles.	According to the rules of logic; as a logical argument or inference. This reasoning is strictly logical	Skilled in logic; versed in the art of thinking and reasoning; discriminating; as a logical head.
+logically	LOGICALLY	adv.	According to the rules of logic; as, to argue logically
+logician	LOGICIAN	n.	A person skilled in logic, or the art of reasoning. Each fierce logician still expelling Locke.
+logistic	LOGISTIC	a.	Relating to sexagesimal fractions.
+logline	log-line
+logman	LOGMAN	n.	A man who carries logs.	One whose occupation is to cut and convey logs to a mill. [Local.]
+logographic	LOGOGRAPHIC		LOGOGRAPH'ICAL, adjective Pertaining to logography.
+logographical	LOGOGRAPHICAL	a.	Pertaining to logography.
+logography	LOGOGRAPHY	n.	A method of printing, in which a type represents a word, instead of forming a letter
+logogriphe	LOGOGRIPHE	n.	A sort of riddle. obsolete
+logomachist	LOGOMACHIST	n.	One who contends about words.
+logomachy	LOGOMACHY	n.	Contention in words merely, or rather a contention about words; a war of words
+logometric	LOGOMETRIC	a.	A logometric scale is intended to measure or ascertain chimical equivalents
+logreel	log-reel
+logwood	LOGWOOD	n.	A species of tree and wood, called also Campeachy-wood, from the bay of Campeachy in Spanish America, of the genus Haematoxylon, of which there is one species only. This tree has a crooked, deformed stem, growing to the height of 20 or 24 feet, with crooked irregular branches, armed with strong thorns. The wood is of a firm texture and a red color. It is much used in dyeing.
+lohoch	LOHOCH		LO'HOCK, noun A medicine of a middle consistence between a soft electuary and a syrup. [See Loch.]
+lohock	LOHOCK	n.	A medicine of a middle consistence between a soft electuary and a syrup. [See Loch.]
+loin	LOIN	n.	The loins are the space on each side of the vertebrae, between the lowest of the false ribs and the upper portion of the os ilium or haunch bone, or the lateral portions of the lumbar region; called also the reins
+loiter	LOITER	v.i.	To linger; to be slow in moving; to delay; to be dilatory; to spend time idly. If we have loitered, let us quicken our pace.
+loiterer	LOITERER	n.	A lingerer; one that delays or is slow in motion; an idler; one that is sluggish or dilatory. Ever listless loiterers, that attend no cause, no trust, no duty and no friend.
+loitering	LOITERING	ppr.	Lingering; delaying; moving slowly.
+loke	LOKE	n.	In the Scandinavian mythology, the evil deity, the author of all calamities; answering to the Arimanes of the Persians.	A close narrow lane. [Local.]
+loll	LOLL	v.i.	To recline; to lean; properly, to throw one's self down; hence, to lie at ease. Void of care he lolls supine in state.	To suffer the tongue to hang extended from the mouth, as an ox or a dog when heated with labor or exertion. The triple porter of the Stygian seat, with lolling tongue lay fawning at his feet.
+loll	LOLL	v.t.	To thrust out, as the tongue. Fierce tigers couched around, and lolled their tongues.
+lollard	LOLLARD	n.	The Lollards were a sect of early reformers in Germany and England, the followers of Wickliffe.
+lollardy	LOLLARDY	n.	The doctrines of the Lollards.
+lolling	LOLLING	ppr.	Throwing down or out; reclining at ease; thrusting out the tongue.
+lombardic	LOMBARDIC	a.	Pertaining to the Lombards; an epithet applied to one of the ancient alphabets derived from the Roman, and relating to the manuscripts of Italy.
+loment	LOMENT	n.	An elongated pericarp, which never bursts. It consists, like the legume, of two valves, with the seeds attached to the under suture, but is divided into small cells, each containing a single seed
+lomentaceous	LOMENTACEOUS	a.	Furnished with a loment. The lomentaceae are a natural order of plants, many of which furnish beautiful tinctures or dyes, and whose seeds are contained in a loment or legume
+lomonite	LOMONITE	n.	Laumonite, or di-prismatic zeolite.
+lomp	LOMP	n.	A kind of roundish fish.
+londonism	LONDONISM	n.	A mode of speaking peculiar to London.
+lone	LONE	a.	Solitary; retired; unfrequented; having no company. And leave you in lone woods or empty walls.	Single; standing by itself; not having others in the neighborhood; as a lone house.	Single; unmarried, or in widowhood.
+lone	LONE	n.	A lane. [Local.]
+loneliness	LONELINESS	n.	Solitude; retirement; seclusion from company. He was weary of the loneliness of his habitation.	Love of retirement; disposition to solitude. I see the mystery of your loneliness
+lonely	LONELY	a.	Solitary; retired; sequestered from company or neighbors; as a lonely situation; a lonely cell.	Solitary; as the lonely traveler.	Addicted to solitude or seclusion from company.
+loneness	LONENESS	n.	Solitude; seclusion.
+lonesome	LONESOME	a.	Solitary; secluded from society. How horrid will these lonesome seats appear!
+lonesomeness	LONESOMENESS	n.	The state of being solitary; solitude.
+long	LONG	a.	Extended; drawn out in a line, or in the direction of length; opposed to short, and contradistinguished from broad or wide. long is a relative term; for a thing may be long in respect to one thing, and short with respect to another. We apply long to things greatly extended, and to things which exceed the common measure. we say, a long way, a long distance, a long line, and long hair, long arms. By the latter terms, we mean hair and arms exceeding the usual length.	Drawn out or extended in time; as a long time; a long period of time; a long while; a long series of events; a long sickness or confinement; a long session; a long debate.	Extended to any certain measure expressed; as a span long; a yard long; a mile long that is, extended to the measure of a mile, etc.	Dilatory; continuing for an extended time.	Tedious; continued to a great length. A tale should never be too long	Continued in a series to a great extent; as a long succession of princes; a long line of ancestors.	Continued in sound; protracted; as a long note; a long syllable.	Continued; lingering or longing. Praying for him, and casting a long look that way, he saw the galley leave the pursuit.	Extensive; extending far in prospect or into futurity. The perennial existence of bodies corporate and their fortunes, are things particularly suited to a man who has long views. LONG home, the grave or death. Ecclesiastes 12:5.
+long	LONG	n.	Formerly, a musical note equal to two breves. obsolete
+long	LONG	adv.	To a great extent in space; as a long extended line.	To a great extent in time; as, they that tarry long at the wine. Proverbs 23:17. When the trumpet soundeth long Exodus 19:13. So in composition we say, long-expected, long-forgot.	At a point of duration far distant, either prior or posterior; as not long before; not long after; long before the foundation of Rome; long after the conquest of Gaul by Julius Cesar.	Through the whole extent or duration of. The God who fed me all my life long to this day. Genesis 48:15. The bird of dawning singeth all night long
+long	LONG	adv.	By means of; by the fault of; owing to. obsolete Mistress, all this evil is long of you.
+long	LONG	v.t.	To belong. [Not used.]
+long	LONG	v.i.	To desire earnestly or eagerly. I long to see you. Romans 1:11. I have longed after thy precepts. Psalms 119:40. I have longed for thy salvation. Psalms 119:40.	To have a preternatural craving appetite; as a longing woman.	To have an eager appetite; as, to long for fruit.
+long-headed	LONG-HEADED	a.	Having a great extent of thought.
+long-measure	LONG-MEASURE	n.	Lineal measure; the measure of length.
+long-sight	LONG-SIGHT	n.	Long-sightedness.
+long-sighted	LONG-SIGHTED	a.	Able to see at a great distance; used literally of the eyes, and figuratively of the mind or intellect.
+long-sightedness	LONG-SIGHTEDNESS	n.	The faculty of seeing objects at a great distance.	In medicine, presbyopy; that defect of sight by which objects near at hand are seen confusedly, but at remoter distances distinctly.
+long-sufferance	LONG-SUFFERANCE	n.	Forbearance to punish; clemency; patience.
+long-suffering	LONG-SUFFERING	n.	Long endurance; patience of offense. Despisest thou the riches of his goodness, and forbearance, and long-suffering? Romans 2:1. aLONG'-TONGUED, adjective Rating; babbling.
+long-winded	LONG-WINDED	a.	Long breathed; tedious in speaking, argument or narration; as a long-winded advocate.
+long-wise	LONG-WISE	adv.	In the direction of length; lengthwise. [Little used.]
+longanimity	LONGANIMITY	n.	Forbearance; patience; disposition to endure long under offenses
+longboat	LONGBOAT	n.	The largest and strongest boat belonging to a ship.
+longer	LONGER	a.	More long; of greater length; as a longer course
+longer	LONGER	adv.	For a greater duration. This evil can be endured no longer
+longest	LONGEST	a.	Of the greatest extent; as the longest line.
+longest	LONGEST	adv.	For the greatest continuance of time. They who live longest are most convinced of the vanity of life.
+longeval	LONGEVAL	a.	Long lived
+longevity	LONGEVITY	n.	Length or duration of life; more generally, great length of life. The instances of longevity are chiefly among the abstemious
+longevous	LONGEVOUS	a.	Living a long time; of great age
+longheaded	long-headed
+longimanous	LONGIMANOUS	a.	Having long hands
+longimetry	LONGIMETRY	n.	The art or practice of measuring distances or lengths, whether accessible or inaccessible
+longing	LONGING	ppr.	Earnestly desiring; having a craving or preternatural appetite.
+longing	LONGING	n.	An eager desire; a craving or preternatural appetite.
+longingly	LONGINGLY	adv.	With eager wishes or appetite.
+longinquity	LONGINQUITY	n.	Great distance
+longish	LONGISH	a.	Somewhat long; moderately long.
+longitude	LONGITUDE	n.	Properly length; as the longitude of a room; but in this sense not now used. Appropriately, in geography,	The distance of any place on the globe from another place, eastward or westward; or the distance of any place from a given meridian. Boston, in Massachusetts, is situated in the 71st degree of longitude west from Greenwich. To be able to ascertain precisely the longitude of a ship at sea, is a great desideratum in navigation.	The longitude of a star, is its distance from the equinoctial points, or the beginning of Aries or Libra.
+longitudinal	LONGITUDINAL	a.	Pertaining to longitude or length; as longitudinal distance.	Extending in length; running lengthwise, as distinguished from transverse or across; as the longitudinal diameter of a body. The longitudinal suture of the head runs between the coronal and lamdoidal sutures.
+longitudinally	LONGITUDINALLY	adv.	In the direction of length. Some of the fibers of the human body are placed longitudinally others transversely.
+longlegged	LONGLEGGED	a.	Having long legs.
+longlived	LONGLIVED	a.	Having along life or existence; living long; lasting long.
+longly	LONGLY	adv.	With longing desire. [Not used.]
+longmeasure	long-measure
+longness	LONGNESS	n.	Length. [Little used.]
+longprimer	LONGPRIMER	n.	A printing type of a particular size, between small pica and bourgeois.
+longshanked	LONGSHANKED	a.	Having long legs.
+longsight	long-sight
+longsighted	long-sighted
+longsightedness	long-sightedness
+longsome	LONGSOME	a.	Extended in length; tiresome; tedious; as a longsome plain. obsolete
+longspun	LONGSPUN	a.	Spun or extended to a great length.
+longsufferance	long-sufferance
+longsuffering	LONGSUFFERING	a.	Bearing injuries or provocation for a long time; patient; not easily provoked. The Lord God, merciful and gracious, long-suffering and abundant in goodness. Exodus 34:6.
+longways	LONGWAYS		a mistake for longwise.
+longwinded	long-winded
+longwise	long-wise
+lonish	LONISH	a.	Somewhat solitary. [Not used and inelegant.]
+loo	LOO	n.	A game at cards.
+loobily	LOOBILY	adv.	[See Looby.] Like a looby; in an awkward, clumsy manner.
+looby	LOOBY	n.	An awkward, clumsy fellow; a lubber. Who could give the looby such airs?
+loof	LOOF	n.	The after part of a ship's bow, or the part where the planks begin to be incurvated, as they approach the stem.
+loof	LOOF		[See Luff, which is the word used.]
+loofed	LOOFED	a.	[See Aloof.] Gone to a distance. [Not used.]
+look	LOOK	v.i.	[See Light. The primary sense is to stretch, to extend, to shoot, hence to direct the eye. We observe its primary sense is nearly the same as that of seek. Hence, to look for is to seek.]	To direct the eye towards an object, with the intention of seeing it. When the object is within sight, look is usually followed by on or at. We look on or at a picture; we look on or at the moon; we cannot look on or at the unclouded sun, without pain. At, after look is not used in our version of the Scriptures. In common usage, at or on is now used indifferently in many cases, and yet in other cases, usage has established a preference. In general, on is used in the more solemn forms of expression. Moses was afraid to look on God. The Lord look on you and judge. In these and similar phrases, the use of at would be condemned, as expressing too little solemnity. In some cases, at seems to be more properly used before very distant objects; but the cases can hardly be defined. The particular direction of the eye is expressed by various modifying words; as, to look down, to look up, to look back to look forward, to look from, to look round, to look out, to look under. When the object is not in sight, look is followed by after, or for. Hence, to look after, or look for, is equivalent to seek or search, or to expect.	To see; to have the sight or view of. Fate sees thy life lodged in a brittle glass, and looks it through, but to it cannot pass.	To direct the intellectual eye; to apply the mind or understanding; to consider; to examine. look at the conduct of this man; view it in all its aspects. Let every man look into the state of his own heart. Let us look beyond the received notions of men on this subject.	To expect. He must look to fight another battle, before he could reach Oxford. [Little used.	To take care; to watch. LOOK that ye bind them fast.	To be directed. Let thine eyes look right on. Proverbs 4:25.	To seem; to appear; to have a particular appearance. The patient looks better than he did. The clouds look rainy. I am afraid it would look more like vanity than gratitude. Observe how such a practice looks in another person. So we say, to look stout or big; to look peevish; to look pleasant or graceful.	To have a particular direction or situation; to face; to front. The gate that looketh toward the north. Ezekiel 8:3. The east gate of the Lord's house, that looketh eastward. Ezekiel 11:1. To look about, to look on all sides, or in different directions. To look about one, to be on the watch; to be vigilant; to be circumspect or guarded.	To look after, to attend; to take care of; as, to look after children.	To expect; to be in a state of expectation. Men's hearts falling them for fear, and for looking after those things which are coming on the earth. Luke 21:28.	To seek; to search. My subject does not oblige me to look after the water, or point forth the place whereunto it has now retreated.	To look for, to expect; as, to look for news by the arrival of a ship. LOOK now for no enchanting voice.	To seek; to search; as, to look for lost money, or lost cattle. To look into, to inspect closely; to observe narrowly; to examine; as, to look into the works of nature; to look into the conduct of another; to look into one's affairs. Which things the angels desire to look into. 1 Peter 1:12.	To look on, to regard; to esteem. Her friends would look on her the worse.	To consider; to view; to conceive of; to think. I looked on Virgil as a succinct, majestic writer.	To be a mere spectator. I'll be a candle-holder and look on. To look over, to examine one by one; as, to look over a catalogue of books; to look over accounts. To overlook, has a different sense, to pass over without seeing. To look out, to be on the watch. The seaman looks out for breakers.	To look to, or unto, to watch; to take care of. LOOK well to thy herds. Proverbs 27:23.	To resort to with confidence or expectation of receiving something; to expect to receive from. The creditor may look to the surety for payment. LOOK to me and be ye saved, all the ends of the earth. Isaiah 45:22. To look through, to penetrate with the eye, or with the understanding; to see or understand perfectly.
+look	LOOK	v.t.	To seek; to search for. LOOKing my love, I go from place to place. obsolete	To influence by looks or presence; as, to look down opposition. A spirit fit to start into an empire, and look the world to law. To look out, to search for and discover. look out associates of good reputation. To look one another in the face, to meet for combat. 2 Kings 14:8.
+look	LOOK		in the imperative, is used to excite attention or notice. look ye, look you; that is see, behold, observe, take notice.
+look	LOOK	n.	Cast of countenance; air of the face; aspect; as, a high look is an index of pride; a downcast look is an index of pride; a downcast look indicates modesty, bashfulness, or depression of mind. Pain, disgrace and poverty have frightful looks.	The act of looking or seeing. Every look filled him with anguish.	View; watch.
+look-out	LOOK-OUT	n.	A careful looking or watching for any object or event.
+looker	LOOKER	n.	One who looks. A looker on, a mere spectator; one that looks on, but has no agency or interest in the affair.
+looking-glass	LOOKING-GLASS	n.	A glass which reflects the form of the person who looks on it; a mirror. There is none so homely but loves a looking-glass
+lookingglass	looking-glass
+lookout	look-out
+lool	LOOL	n.	In metallurgy, a vessel used to receive the washings of ores of metals.
+loom	LOOM	n.	In composition, heir-loom, in law, is a personal chattel that by special custom descends to an heir with the inheritance, being such a thing as cannot be separated from the estate, without injury to it; such as jewels of the crown, charters, deeds, and the like.	A frame or machine of wood or other material, in which a weaver works threads into cloth. Hector, when he sees Andromache overwhelmed with terror, sends her for consolation to the loom and the distaff.	A fowl of the size of a goose.	That part of an oar which is within board.
+loom	LOOM	v.i.	To appear above the surface either of sea or land, or to appear larger than the real dimensions and indistinctly; as a distant object, a ship at sea, or a mountain. The ship looms large, or the land looms high.
+loom-gale	LOOM-GALE	n.	A gentle gale of wind.
+loomgale	loom-gale
+looming	LOOMING	ppr.	Appearing above the surface, or indistinctly, at a distance.
+loon	LOON	n.	A sorry fellow; a rogue; a rascal.	A sea-fowl of the genus colymbus.
+loop	LOOP	n.	A folding or doubling of a string or a noose, through which a lace or cord may be run for fastening. That the probation bear no hinge, nor loop to hang a doubt on.	In iron-works, the part of a row or block of cast iron, melted off for the forge or hammer.
+looped	LOOPED	a.	Full of holes.
+loophole	LOOPHOLE	n.	A small aperture in the bulk-head and other parts of a merchant ship, through which small arms are fired at an enemy.	A hole or aperture that gives a passage.	A passage for escape; means of escape.
+loopholed	LOOPHOLED	a.	Full of holes or openings for escape.
+looping	LOOPING	n.	In metallurgy, the running together of the matter of an ore into a mass, when the ore is only heated for calcination.
+loord	LOORD	n.	A dull stupid fellow; a drone. [Not in use.]
+loose	LOOSE	v.t.	To untie or unbind; to free from any fastening. Canst thou loose the bands of Orion? Job 38:31. Ye shall find an ass tied, and a colt with her; loose them, and bring them to me. Matthew 21:2.	To relax. The joints of his loins were loosed. Daniel 5:6.	To release from imprisonment; to liberate; to set at liberty. The captive exile hasteneth that he may be loosed. Isaiah 51:14.	To free from obligation. Art thou loosed from a wife? see not a wife. 1 Corinthians 7:27.	To free from any thing that binds or shackles; as a man loosed from lust and pelf.	To relieve; to free from any thing burdensome or afflictive. Woman, thou art loosed from thine infirmity. Acts 13:13.	To disengage; to detach; as, to loose one's hold.	To put off. LOOSE thy shoe from off thy foot. Joshua 5:15.	To open. Who is worthy to open the book, and to loose the seals thereof? Revelation 5:2.	To remit; to absolve. Whatsoever thou shalt loose on earth, shall be loosed in heaven. Matthew 16:19.
+loose	LOOSE	v.i.	To set sail; to leave a port or harbor. Now when Paul and his company loosed from Paphos, they came to Perga, in Pamphylia. Acts 13:13.
+loose	LOOSE	a.	Unbound; untied; unsewed; not fastened or confined; as the loose sheets of a book.	Not tight or close; as a loose garment.	Not crowded; not close or compact. With horse and chariots rank'd in loose array.	Not dense, close or compact; as a cloth or fossil of loose texture.	Not close; not concise; lax; as a loose and diffuse style.	Not precise or exact; vague; indeterminate; as a loose way of reasoning.	Not strict or rigid; as a loose observance of rites.	Unconnected; rambling; as a loose indigested play. Vario spends whole mornings in running over loose and unconnected pages.	Of lax bowels.	Unengaged; not attached or enslaved. Their prevailing principle is, to sit as loose from pleasures, and be as moderate in the use of them as they can.	Disengaged; free from obligation; with from or of. Now I stand loose of my vow; but who knows Cato's thought? [Little used.]	Wanton; unrestrained in behavior; dissolute; unchaste; as a loose man or woman.	Containing unchaste language; as a loose epistle. To break loose to escape from confinement; to gain liberty by violence. To let loose to free from restraint or confinement; to set at liberty.
+loose	LOOSE	n.	Freedom from restraint; liberty. Come, give thy soul a loose Vent all its griefs, and give a loose to sorrow. We use this word only in the phrase, give a loose The following use of it, 'he runs with an unbounded loose ' is obsolete.
+loosed	LOOSED	pp.	Untied; unbound; freed from restraint.
+loosely	LOOSELY	adv.	Not fast; not firmly; that may be easily disengaged; as things loosely tied or connected.	Without confinement. Her golden locks for haste were loosely shed about her ears.	Without union or connection. Part loosely wing the region.	Irregularly; not with the usual restraints. A bishop living loosely was charged that his conversation was not according to the apostle's lives.	Negligently; carelessly; heedlessly; as a mind loosely employed.	Meanly; slightly. A prince should not be so loosely studied, as to remember so weak a composition.	Wantonly; dissolutely; unchastely.
+loosen	LOOSEN	v.t.	To free from tightness, tension, firmness or fixedness; as, to loosen a string when tied, or a knot; to loosen a joint; to loosen a rock in the earth.	To render less dense or compact; as, to loosen the earth about the roots of a tree.	To free from restraint. It loosens his hands and assists his understanding.	To remove costiveness from; to facilitate or increase alvine discharges. Fear looseneth the belly.
+loosen	LOOSEN	v.i.	To become loose; to become less tight, firm or compact.
+loosened	LOOSENED	pp.	Freed from tightness or fixedness; rendered loose.
+looseness	LOOSENESS	n.	The state of being loose or relaxed; a state opposite to that of being tight, fast, fixed or compact; as the looseness of a cord; the looseness of a robe; the looseness of the skin; the looseness of earth, or of the texture of cloth.	The state opposite to rigor or rigidness; laxity; levity; as looseness of morals or of principles.	Irregularity; habitual deviation from strict rules; as looseness of life.	Habitual lewdness; unchastity.	Flux from the bowels; diarrhaea.
+loosening	LOOSENING	ppr.	Freeing from tightness, tension or fixedness; rendering less compact.
+loosestrife	LOOSESTRIFE	n.	In botany, the name of several species of plants, of the genera Lysimachia, Epilobium, Lythrum, and Gaura.
+loosing	LOOSING	ppr.	Setting free from confinement.
+lop	LOP	v.t.	To cut off, as the top or extreme part of any thing; to shorten by cutting off the extremities; as, to lop a tree or its branches. With branches lopp'd in wood, or mountain fell'd.	To cut off, as exuberances; to separate, as superfluous parts. Expunge the whole, or lop the excrescent parts.	to cut partly off and bend down; as, to lop the trees or saplings of a hedge.	To let fall; to flap; as, a horse lops his ears.
+lop	LOP	n.	that which is cut from trees. Else both body and lop will be of little value.
+lop	LOP	n.	a flea. [Local.]
+lope	LOPE	pret.	of leap. obsolete
+lope	LOPE	n.	[See leap.] A leap; a long step. [A word in popular use in America.]
+lope	LOPE	v.i.	To leap; to move or run with a long step, as a dog.
+loping	LOPING	ppr.	Leaping; moving or running with a long step.
+lopped	LOPPED	pp.	cut off; shortened by cutting off the top or end; bent down.
+lopper	LOPPER	n.	One that lops.
+lopping	LOPPING	ppr.	Cutting off; shortening by cutting off the extremity; letting fall.
+lopping	LOPPING	n.	that which is cut off.
+loquacious	LOQUACIOUS	a.	Talkative; given to continual talking. Loquacious, brawling ever in the wrong.	Speaking; noisy. Bling British bards, with volant touch, traverse loquacious strings.	Apt to blab and disclose secrets.
+loquaciousness	LOQUACIOUSNESS		LOQUAC'ITY, noun [Latin loquacitas.] Talkativeness; the habit or practice of talking continually or excessively. Too great loquacity and too great taciturnity by fits.
+loquacity	LOQUACITY	n.	Talkativeness; the habit or practice of talking continually or excessively. Too great loquacity and too great taciturnity by fits
+lord	LORD	n.	A master; a person possessing supreme power and authority; a ruler; a governor. Man over man he made not lord But now I was the lord of this fair mansion.	A tyrant; an oppressive ruler.	A husband. I oft in bitterness of soul deplores my absent daughter, and my dearer lord My lord also being old. Genesis 18:1.	A baron; the proprietor of a manor; as the lord of the manor.	A nobleman; a title of honor in Great Britain given to those who are noble by birth or creation; a peer of the realm, including dukes, marquises, earls, viscounts and barons. Archbishops and bishops also, as members of the house of lords, are lords of parliament. Thus we say, lords temporal and spiritual. By courtesy also the title is given to the sons of dukes and marquises, and to the eldest sons of earls.	An honorary title bestowed on certain official characters; as lord advocate, lord chamberlain, lord chancellor, lord chief justice, etc.	In scripture, the Supreme Being; Jehovah. When lord in the Old Testament, is prints in capitals, it is the translation of JEHOVAH, and so might, with more propriety, be rendered. The word is applied to Christ, Psalms 110:1. Colossians 3:16. and to the Holy Spirit, 2 Thessalonians 3:1. As a title of respect, it is applied to kings, Genesis 40:1. 2 Samuel 19:7. to princes and nobles, Gen 42. Daniel 4:19. to a husband, Genesis 18:1. to a prophet, 1 Kings 18:1. 2 Kings 2:1. and to a respectable person, Gen 24. Christ is called the lord of glory, 1 Corinthians 2:8. and lord of lords, Revelation 19:1.
+lord	LORD	v.t.	To invest with the dignity and privileges of a lord
+lord	LORD	v.i.	To domineer; to rule with arbitrary or despotic sway; sometimes followed by over, and sometimes by it, in the manner of a transitive verb. The whiles she lordeth in licentious bliss. I see them lording it in London streets. They lorded over them whom now they serve.
+lording	LORDING	n.	A little lord; a lord, in contempt or ridicule. [Little used.]
+lordlike	LORDLIKE	a.	Becoming a lord.	Haughty; proud; insolent.
+lordliness	LORDLINESS	n.	Dignity; high station.	Pride; haughtiness.
+lordling	LORDLING	n.	A little or diminutive lord.
+lordly	LORDLY	a.	Becoming a lord; pertaining to a lord. Lordly sins require lordly estates to support them.	Proud; haughty; imperious; insolent. Every rich and lordly swain, with pride would drag about her chain.
+lordly	LORDLY	adv.	Proudly; imperiously; despotically. A famished lion, issuing from the wood, roars lordly fierce.
+lordship	LORDSHIP	n.	The state of quality of being a lord; hence, a title of honor given to noblemen, except to dukes, who have the title of grace.	A titulary compellation of judges and certain other persons in authority and office.	Dominion; power; authority. They who are accounted to rule over the Gentiles, exercise lordship over them. Mark 10:42.	Seigniory; domain; the territory of a lord over which he holds jurisdiction; a manor. What lands and lordships for their owner know my quondam barber.
+lore	LORE	n.	Learning; doctrine; lesson; instruction. The law of nations, or the lore of war. Lo! Rome herself, proud mistress now no more of arts, but thundering against heathen lore
+lorel	LOREL	n.	An abandoned scoundrel; a vagrant. obsolete
+loresman	LORESMAN	n.	An instructor. obsolete
+loricate	LORICATE	v.t.	To plate over; to spread over, as a plate for defense. Nature hath loricated the sides of the tympanum in animals with ear-wax.	To cover with a crust, as a chimical vessel, for resisting fire.
+loricated	LORICATED	pp.	Covered or plated over; encrusted.
+loricating	LORICATING	ppr.	Covering over with a plate or crust.
+lorication	LORICATION	n.	The act or operation of covering any thing with a plate or crust for defense; as the lorication of a chimical vessel, to enable it to resist the action of fire, and sustain a high degree of heat.
+lorimer	LORIMER	n.	A bridle-maker; one that makes bits for bridles, etc. [Not used.]
+loring	LORING	n.	Instructive discourse. obsolete
+loriot	LORIOT	n.	A bird called witwal; the oriole.
+loris	LORIS	n.	A small quadruped of Ceylon.
+lorn	LORN	a.	[See Forlorn.] Lost; forsaken; lonely.
+lory	LORY	n.	A subordinate genus of fowls of the parrot kind, forming the link between the parrot and parakeet.
+losable	LOSABLE	a.	That may be lost. [Little used.]
+lose	LOSE	v.t.	looz. preterit tense and participle passive lost.	To mislay; to part or be separated from a thing, so as to have no knowledge of the place where it is; as, to lose a book or a paper; to lose a record; to lose a dollar or a ducat.	To forfeit by unsuccessful contest; as, to lose money in gaming.	Not to gain or win; as, to lose a battle, that is, to be defeated.	To be deprived of; as, to lose men in battle; to lose an arm or leg by a shot or by amputation; to lose one's life or honor.	To forfeit, as a penalty. Our first parents lost the favor of God by their apostasy.	To suffer diminution or waste of. If the salt hath lost its savor, wherewith shall it be salted? Matthew 5:1.	To ruin; to destroy. The woman that deliberates is lost.	To wander from; to miss, so as not to be able to find; as, to lose the way.	To bewilder. Lost in the maze of words.	To possess no longer; to be deprived of; contrary to keep; as, to lose a valuable trade.	Not to employ or enjoy; to waste. Titus sighed to lose a day. Th' unhappy have but hours, but these they lose	To waste; to squander; to throw away; as, to lose a fortune by gaming, or by dissipation.	To suffer to vanish from view or perception. We lost sight of the land at noon. I lost my companion in the crowd. Like following life in creatures we dissect, we lost it in the moment we detect.	To ruin; to destroy by shipwreck, etc. the albion was lost on the coast of Ireland, april 22, 1822. the admiral lost three ships in a tempest.	To cause to perish; as, to be lost at sea.	to employ ineffectually; to throw away; to waste. Instruction is often lost on the dull; admonition is lost on the profligate. It is often the fate of projectors to lose their labor.	to be freed from. His scaly back the bunch has got which Edwin lost before.	to fail to obtain. He shall in no wise lose his reward. Matthew 5:1. to lose one's self, to be bewildered; also, to slumber; to have the memory and reason suspended.
+lose	LOSE	v.i.	To forfeit any thing in contest; not to win. We'll talk with them too, who loses and who wins; who's in, who's out.	To decline; to fail. Wisdom in discourse with her loses discountenanced, and like folly shows.
+losel	LOSEL	n.	s as z. [from the root of loose.] a wasteful fellow, one who loses by sloth or neglect; a worthless person. obsolete
+losenger	LOSENGER	n.	a deceiver. obsolete
+loser	LOSER	n.	One that loses, or that is deprived of any thing by defeat, forfeiture or the like; the contrary to winner or gainer. A loser by trade may be honest and moral; this cannot be said of a loser by gaming.
+losing	LOSING	ppr.	Parting from; missing; forfeiting; wasting; employing to no good purpose.
+loss	LOSS	n.	privation, as the loss of property; loss of money by gaming; loss of health or reputation. every loss is not a detriment. we cannot regret the loss of bad company or of evil habits.	Destruction; ruin; as the loss of a ship at sea; the loss of an army.	Defeat; as the loss of a battle.	Waste; useless application; as a loss of time or labor.	Waste by leakage or escape; as a loss of liquors in transportation. To bear a loss to make good; also, to sustain a loss without sinking under it. To be at a loss to be puzzled; to be unable to determine; to be in a state of uncertainty.
+lossful	LOSSFUL	a.	Detrimental. [Not used.
+lossless	LOSSLESS	a.	Free from loss. [Not used.]
+lost	LOST	pp.	Mislaid or left in a place unknown or forgotten; that cannot be found; as a lost book.	Ruined; destroyed; wasted or squandered; employed to no good purpose; as lost money; lost time.	Forfeited; as a lost estate.	Not able to find the right way, or the place intended. A stranger is lost in London or Paris.	Bewildered; perplexed; being in a maze; as, a speaker may be lost in his argument.	Alienated; insensible; hardened beyond sensibility or recovery; as a profligate lost to shame; lost to all sense of honor.	Not perceptible to the senses; not visible; as an isle lost in fog; a person lost in a crowd.	Shipwrecked or foundered; sunk or destroyed; as a ship lost at sea, or on the rocks.
+lot	LOT	n.	That which, in human speech, is called chance, hazard, fortune; but in strictness of language, is the determination of Providence; as, the land shall be divided by lot Numbers 26:55.	That by which the fate or portion of one is determined; that by which an event is committed to chance, that is, to the determination of Providence; as, to cast lots; to draw lots. The lot is cast into the lap, but the whole disposing thereof is of the Lord. Proverbs 16:33.	The part, division or fate which falls to one by chance, that is, by divine determination. The second lot came forth to Simeon. Joshua 19:1. He was but born to try the lot of man, to suffer and to die.	A distinct portion or parcel; as a lot of goods; a lot of boards.	Proportion or share of taxes; as, to pay scot and lot	In the United States, a piece or division of land; perhaps originally assigned by drawing lots, but now any portion, piece or division. So we say, a man has a lot of land in Broadway, or in the meadow; he has a lot in the plain, or on the mountain; he has a home-lot, a house-lot, a wood-lot. The defendants leased a house and lot in the city of New York. To cast lots, is to use or throw a die, or some other instrument, by the unforseen turn or position of which, an event is by previous agreement determined. To draw lots, to determine an event by drawing one thing from a number whose marks are concealed from the drawer, and thus determining an event.
+lot	LOT	v.t.	To allot; to assign; to distribute; to sort; to catalogue; to portion.
+lote	LOTE	n.	A plant of the genus Celtis, the lote-tree, of several species. The wood of one species is very durable, and is used for timber. In Italy, flutes and other wind-instruments are made of it, and in England it is used for the frames of coaches, etc.	A little fish.
+loth	LOTH	a.	Disliking; unwilling; reluctant. He was loth to leave the company. [See loth ]
+lothe	LOTHE	v.t.	To hate; to look on with hatred or abhorrence; particularly, to feel disgust at food or drink, either from natural antipathy, or a sickly appetite, or from satiety, or from its ill taste. [See lothe ]
+lothed	LOTHED	pp.	Hatred; abhorred; turned from with disgust.
+lother	LOTHER	n.	One that lothes or abhors.
+lothful	LOTHFUL	a.	Hating; abhorring. Which he did with lothful eyes behold.	Disgusting; hated; exciting abhorrence. Above the reach of lothful sinful lust.
+lothing	LOTHING	ppr.	Feeling disgust at; having extreme aversion to; as lothing food.	Hating; abhorring; as lothing sin.
+lothing	LOTHING	n.	Extreme disgust; abhorrence. Ezekiel 16:5.
+lothingly	LOTHINGLY	adv.	With extreme disgust or abhorrence; in a fastidious manner.
+lothly	LOTHLY	adv.	Unwillingly; reluctantly. This shows that you from nature lothly stray.
+lothness	LOTHNESS	n.	Unwillingness; reluctance. There grew among them a general silence and lothness to speak.
+lothsome	LOTHSOME	a.	Causing an extreme aversion of appetite; exciting fastidiousness. Numbers 11:1.	Exciting extreme disgust; offensive; as a lothsome disease. Psalms 38:1.	Odious; exciting hatred or abhorrence; detestable; as lothsome sloth.
+lothsomeness	LOTHSOMENESS	n.	the quality of exciting extreme disgust or abhorrence.
+lotion	LOTION	n.	A washing; particularly, a washing of the skin for the purpose of rendering it fair.	A liquid preparation for washing some part of the body, to cleanse it of fourlness or deformity.	In pharmacy, a preparation of medicines, by washing them in some liquid, to remove foreign substances, impurities, etc.
+lottery	LOTTERY	n.	A scheme for the distribution of prizes by chance, or the distribution itself. Lotteries are often authorized by law, but many good men deem them immoral in principle, and almost all men concur in the opinion that their effects are pernicious.	Allotment. [Not used.]
+loud	LOUD	a.	Having a great sound; high sounding; noisy; striking the ear with great force; as a loud voice; a loud cry; loud thunder.	Uttering or making a great noise; as loud instruments. 2 Chronicles 30:21.	Clamorous; noisy. She is loud and stubborn. Proverbs 7:11.	Emphatical; impressive; as a loud call to avoid danger.
+loudly	LOUDLY	adv.	With great sound or noise; noisily. Who long and loudly in the schools declaimed.	Clamorously; with vehement complaints or importunity. He loudly complained of intolerance.
+loudness	LOUDNESS	n.	Great sound or noise; as the loudness of a voice or of thunder.	Clamor; clamorousness; turbulence; uproar.
+lough	LOUGH	n.	lok. a lake; a different orthography of loch and lake.
+louis dor	LOUIS DOR	n.	A gold coin of France, first struck in 1640, in the reign of Louis XIII., value, twenty shillings sterling, equal to $4, 4444
+lounge	LOUNGE	v.i.	to live in idleness; to spend time lazily.
+lounger	LOUNGER	n.	An idler; one who loiters away his time in indolence.
+lour	LOUR		[See Lower.]
+louse	LOUSE	n.	lous. plural lice. A small insect of the genus Pediculus. It has six feet, two eyes, with long feelers and a sting in the mouth. It infests the bodies of men and other animals; but different animals are infested with different species.
+louse	LOUSE	v.t.	To clean from lice.
+louse-wort	LOUSE-WORT	n.	lous'-wort. A plant of the genus Pedicularis. The yellow louse-wort is of the genus Rhinanthus.
+lousewort	louse-wort
+lousily	LOUSILY	adv.	s as z. [from lousy.] In a mean, paltry manner; scurvily.
+lousiness	LOUSINESS	n.	s as z. The state of abounding with lice.
+lousy	LOUSY	a.	s as z. [louse.]	Swarming with lice; infested with lice.	Mean; low; contemptible; as a lousy knave.
+lout	LOUT	n.	A mean awkward fellow; a bumpkin; a clown.
+lout	LOUT	v.i.	To end; to bow; to stoop. [Obsolete or local.]
+loutish	LOUTISH	a.	Clownish; rude; awkward.
+loutishly	LOUTISHLY	adv.	Like a clown; in a rude, clumsy, awkward manner.
+louver	LOUVER	n.	An opening in the roof of a cottage for the smoke to escape.
+lovable	LOVABLE	a.	Worthy of love; amiable.
+lovage	LOVAGE	n.	A plant of the genus Ligusticum.
+love	LOVE	v.t.	In a general sense to be pleased with; to regard with affection, on account of some qualities which excite pleasing sensations or desire of gratification. We love a friend, on account of some qualities which give us pleasure in his society. We love a man who has done us a favor; in which case, gratitude enters into the composition of our affection. We love our parents and our children, on account of their connection with us, and on account of many qualities which please us. We love to retire to a cool shade in summer. We love a warm room in winter. we love to hear an eloquent advocate. The christian loves his Bible. In short, we love whatever gives us pleasure and delight, whether animal or intellectual; and if our hearts are right, we love God above all things, as the sum of all excellence and all the attributes which can communicate happiness to intelligent beings. In other words, the christian loves God with the love of complacency in his attributes, the love of benevolence towards the interest of his kingdom, and the love of gratitude for favors received. Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind - Thou shalt love thy neighbor as thyself. Matthew 22:37.	To have benevolence or good will for. John 3:16.
+love	LOVE	n.	An affection of the mind excited by beauty and worth of any kind, or by the qualities of an object which communicate pleasure, sensual or intellectual. It is opposed to hatred. love between the sexes, is a compound affection, consisting of esteem, benevolence, and animal desire. love is excited by pleasing qualities of any kind, as by kindness, benevolence, charity, and by the qualities which render social intercourse agreeable. In the latter case, love is ardent friendship, or a strong attachment springing from good will and esteem, and the pleasure derived from the company, civilities and kindness of others. Between certain natural relatives, love seems to be in some cases instinctive. Such is the love of a mother for her child, which manifests itself toward an infant, before any particular qualities in the child are unfolded. This affection is apparently as strong in irrational animals as in human beings. We speak of the love of amusements, the love of books, the love of money, and the love of whatever contributes to our pleasure or supposed profit. The love of God is the first duty of man, and this springs from just views of his attributes or excellencies of character, which afford the highest delight to the sanctified heart. Esteem and reverence constitute ingredients in this affection, and a fear of offending him is its inseparable effect.	Courtship; chiefly in the phrase, to make love that is, to court; to woo; to solicit union in marriage.	Patriotism; the attachment one has to his native land; as the love of country.	Benevolence; good will. God is love 1 John 4:7.	The object beloved. The lover and the love of human kind.	A word of endearment. Trust me, love	Picturesque representation of love Such was his form as painters, when they show their utmost art, on naked loves bestow.	Lewdness. He is not lolling on a lewd love-bed.	A thin silk stuff. obsolete LOVE in idleness, a kind of violet. Free of love a plant of the genus Cercis.
+love-broker	LOVE-BROKER	n.	A third person who acts as agent between lovers.
+love-darting	LOVE-DARTING	a.	Darting love.
+love-day	LOVE-DAY	n.	A day formerly appointed for an amicable adjustment of differences.
+love-favor	LOVE-FAVOR	n.	Something given to be worn in token of love.
+love-knot	LOVE-KNOT	n.	luv'-not. A knot so called, used as a token of love or representing mutual affection.
+love-labored	LOVE-LABORED	a.	Labored by love.
+love-lass	LOVE-LASS	n.	A sweetheart.
+love-letter	LOVE-LETTER	n.	A letter professing love; a letter of courtship.
+love-lock	LOVE-LOCK	n.	A curl or lock of hair so called; worn by men of fashion in the reigns of Elizabeth and James I.
+love-lorn	LOVE-LORN	a.	Forsaken by one's love; as the love-lorn nightingale
+love-monger	LOVE-MONGER	n.	One who deals in affairs of love. [Not used.]
+love-pined	LOVE-PINED	a.	Wasted by love.
+love-secret	LOVE-SECRET	n.	A secret between lovers.
+love-shaft	LOVE-SHAFT	n.	Cupid's arrow.
+love-sick	LOVE-SICK	a.	Sick or languishing with love or amorous desire; as a love-sick maid. To the dear mistress of my love-sick mind.	Dictated by a languishing lover, or expressive of languishing love. Where nightingales their love-sick ditty sing.
+love-song	LOVE-SONG	n.	A song expressing love.
+love-suit	LOVE-SUIT		n Courtship; solicitation of union in marriage.
+love-tale	LOVE-TALE	n.	A narrative of love. Cato's proper person to entrust a love-tale with.
+love-thought	LOVE-THOUGHT	n.	Amorous fancy. [Not used.]
+love-token	LOVE-TOKEN	n.	A present in token of love.
+love-toy	LOVE-TOY	n.	A small present from a lover.
+love-trick	LOVE-TRICK	n.	Art or artifice expressive of love. Other love-tricks than glancing with the eyes.
+loveapple	LOVEAPPLE	n.	A plant of the genus Solanum.
+lovebroker	love-broker
+loved	LOVED	pp.	Having the affection of any one.
+lovedarting	love-darting
+loveday	love-day
+lovefavor	love-favor
+loveknot	love-knot
+lovelabored	love-labored
+lovelass	love-lass
+loveless	LOVELESS	a.	Void of love; void of tenderness or kindness.
+loveletter	love-letter
+lovelily	LOVELILY	adv.	Amiably; in a manner to excite love
+loveliness	LOVELINESS	n.	Amiableness; qualities of body or mind that may excite love. If there is such a native loveliness in the sex, as to make them victorious when in the wrong, how resistless their power when they are on the side of truth
+lovelock	love-lock
+lovelorn	love-lorn
+lovely	LOVELY	a.	Amiable; that may excite love; possessing qualities which may invite affection. Saul and Jonathan were lovely and pleasant in their lives - 2 Samuel 1:23.
+lovemonger	love-monger
+lovepined	love-pined
+lover	LOVER	n.	One who loves; one who has a tender affection, particularly for a female. Love is blind, and lovers cannot see -	A friend; one who regards with kindness. Your brother and his lover have embraced.	One who likes or is pleased with any thing; as a lover of books or of science; a lover of wine; a lover of religion. Lover and loover. [See Louver.]
+lovesecret	love-secret
+loveshaft	love-shaft
+lovesick	love-sick
+lovesome	LOVESOME	a.	Lovely. [Not used.]
+lovesong	love-song
+lovesuit	love-suit
+lovetale	love-tale
+lovethought	love-thought
+lovetoken	love-token
+lovetoy	love-toy
+lovetrick	love-trick
+loving	LOVING	ppr.	Entertaining a strong affection for; having tender regard for.	adjective Fond; affectionate; as a loving friend.	Expressing love or kindness; as loving words.
+loving-kindness	LOVING-KINDNESS	n.	Tender regard; mercy; favor; a scriptural word. My loving-kindness will I not utterly take from him. Psalms 89:1.
+lovingkindness	loving-kindness
+lovingly	LOVINGLY	adv.	With love; with affection; affectionately. It is no great matter to live lovingly with meek persons.
+lovingness	LOVINGNESS	n.	Affection; kind regard. The only two bands of good will, loveliness and lovingness
+low	LOW	a.	Not high or elevated; depressed below any given surface or place. low ground or land, is land below the common level. low is opposed to high, and both are relative terms. That which is low with respect to one thing, may be high with respect to another. A low house would be a high fence. A low flight for an eagle, would be a high flight for a partridge.	Not rising to the usual height; as a man of low stature.	Declining near the horizon. The sun is low at four o'clock in winter, and at six in summer.	Deep; descending far below the adjacent ground; as a low valley. The lowest bottom shook of Erebus.	Sunk to the natural level of the ocean by the retiring of the tide; as low water.	Below the usual rate or amount, or below the ordinary value; as a low price of corn; low wages.	Not high or loud; as a low voice.	Grave; depressed in the scale of sounds; as a low note.	Near or not very distant from the equator; as a low latitude. We say, the low southern latitudes; the high northern latitudes.	Late in time; modern as the lower empire.	Dejected; depressed in vigor; wanting strength or animation; as low spirits; low in spirits. His courage is low	Depressed in condition; in a humble state. Why but to keep you low and ignorant?	Humble in rank; in a mean condition; as men of high and low condition; the lower walks of life; a low class of people.	Mean; abject; groveling; base; as a person of low mind.	Dishonorable; mean; as a low trick or stratagem.	Not elevated or sublime; not exalted in thought or diction; as a low comparison; a low metaphor; low language. In comparison of these divine writers, the noblest wits of the heathen world are low and dull.	Vulgar; common; as a low education.	Submissive; humble; reverent. And pay their fealty with low subjection. But first low reverence done.	Weak; exhausted of vital energy. His disease has brought him very low	Feeble; weak; without force; as a low pulse.	Moderate; not inflammatory; as a low fever.	Moderate; not intense; as a low heat; a low temperature.	Impoverished; in reduced circumstances. The rich are often reduced to a low condition.	Moderate; as a low calculation or estimate.	Plain; simple; not rich, high seasoned or nourishing; as a low diet.
+low	LOW	adv.	Not aloft; not on high; often in composition; as low-brow'd rocks.	Under the usual price; at a moderate price. He sold his wheat low	Near the ground; as, the bird flies very low	In a mean condition; in composition; as a low-born fellow; a low-born lass.	In time approaching our own. In the part of the world which was first inhabited, even as low down as Abraham's time, they wandered with their flocks and herds.	With a depressed voice; not loudly; as, speak low	In a state of subjection, poverty or disgrace; as, to be brought low by oppression, by want or by vice.
+low	LOW	v.t.	To sink; to depress. [Not used.]
+low	LOW	v.i.	To bellow, as an ox or cow. The lowing herd wind slowly o'er the lea
+low-born	LOW-BORN	a.	Born in low life.
+low-bred	LOW-BRED	a.	Bred in a low condition or manner; vulgar.
+low-spirited	LOW-SPIRITED	a.	Not having animation and courage; dejected; depressed; not lively or sprightly. Losses of property often render men low-spirited Excessive severity breaks the mind, and renders the child or pupil low-spirited
+low-spiritedness	LOW-SPIRITEDNESS	n.	Dejection of mind or courage; a state of low spirits.
+low-thoughted	LOW-THOUGHTED	a.	Having the thoughts employed on low subjects; not having sublime and elevated thoughts or contemplations; mean of sentiment; as low-thoughted care.
+low-wines	LOW-WINES	n.	The liquor produced by the first distillation of molasses, or fermented liquors; the first run of the still
+lowbell	LOWBELL	n.	A kind of fowling in the night, in which the birds are wakened by a bell, and blinded by light, so as to be easily taken.
+lowbell	LOWBELL	v.t.	To scare, as with a lowbell
+lowborn	low-born
+lowbred	low-bred
+lowe	LOWE		A termination of names, as in Bed-low.
+lower	LOWER	v.t.	To cause to descend; to let down; to take or bring down; as, to lower the main-sail of a sloop.	To suffer to sink downwards.	To bring down; to reduce or humble; as, to lower the pride of man.	To lessen; to diminish; to reduce, as value or amount; as, to lower the price or value of goods, or the rate of interest.
+lower	LOWER	v.i.	To fall; to sink; to grow less.
+lower	LOWER	v.i.	To appear dark or gloomy; to be clouded; to threaten a storm. And all the clouds that lowered upon your house. The lowering spring.	To frown; to look sullen. But sullen discontent sat lowering on her face.
+lower	LOWER	n.	Cloudiness; gloominess.	A frowning; sullenness.
+lower	LOWER	a.	Less high or elevated
+loweringly	LOWERINGLY	adv.	with cloudiness or threatening gloom.
+lowermost	LOWERMOST	a.	Lowest
+lowery	LOWERY	a.	cloudy; gloomy.
+lowest	LOWEST	a.	Most low; deepest; most depressed or degraded, etc
+lowing	LOWING	ppr.	Bellowing, as an ox.
+lowing	LOWING	n.	the bellowing or cry of cattle.
+lowland	LOWLAND	n.	land which is low with respect to the neighboring country; a low or level country. Thus the Belgic states are called Lowlands. The word is sometimes opposed to a mountainous country; as the Lowlands of Scotland. sometimes it denotes a marsh.
+lowlihood	LOWLIHOOD	n.	a humble state. obsolete
+lowliness	LOWLINESS	n.	Freedom from pride; humility; humbleness of mind. Walk - with all lowliness and meekness. Ephesians 4:2. Philippians 2:3.	Meanness; want of dignity; abject state. [In this sense little used.]
+lowly	LOWLY	a.	Having a low esteem of one's own worth; humble; meek; free from pride. Take my yoke upon you and learn of me, for I am meek and lovly in heart. Matthew 11:29. He scorneth the scorners; but he giveth grace to the lowly Proverbs 3:34.	Mean; low; wanting dignity or rank. One common right the great and lowly claim.	Not lofty or sublime; humble. these rural poems, and their lowly strain.	Not high; not elevated in place.
+lowly	LOWLY	adv.	Humbly; meekly; modestly. Belowly wise.	Meanly; in a low condition; without grandeur or dignity. I will show myself highly fed and lowly taught.
+lown	LOWN	n.	[See Loon. a low fellow; a scoundrel.
+lowness	LOWNESS	n.	The state of being low or depressed; the state of being less elevated than something else; as the lowness of the ground, or of the water after the ebb-tide.	Meanness of condition. Men are not to be despised or oppressed on account of the lowness of their birth or condition.	Meanness of mind or character; want of dignity. haughtiness usually springs from lowness of mind; real dignity is distinguished by modesty.	Want of sublimity in style or sentiment; the contrary to loftiness.	Submissiveness; as the lowness of obedience.	Depression of mind; want of courage or fortitude; dejection; as lowness of spirits.	Depression in fortune; a state of poverty; as the lowness of circumstances.	Depression in strength or intensity; as the lowness of heat or temperature; lowness of zeal.	Depression in price or worth; as the lowness of price or value; the lowness of the funds or of the markets.	Graveness of sound; as the lowness of notes.	Softness of sound; as the lowness of the voice.
+lowspirited	low-spirited
+lowspiritedness	low-spiritedness
+lowthoughted	low-thoughted
+lowwines	low-wines
+loxodromic	LOXODROMIC	a.	Pertaining to oblique sailing by the rhomb; as loxodromic tables
+loxodromics	LOXODROMICS	n.	The art of oblique sailing by the rhomb, which always makes an equal angle with every meridian; that is, when a ship sails neither directly under the equator, nor under the same meridian, but obliquely.
+loyal	LOYAL	a.	Faithful to a prince or superior; true to plighted faith, duty or love; not treacherous; used of subjects to their prince, and of husband, wife and lovers; as a loyal subject; a loyal wife. There Laodamia with Evadne moves, unhappy both! but loyal in their loves
+loyalist	LOYALIST	n.	A person who adheres to his sovereign; particularly, one who maintains his allegiance to his prince, and defends his cause in times of revolt or revolution.
+loyally	LOYALLY	adv.	With fidelity to a prince or sovereign, or to a husband or lover.
+loyalty	LOYALTY	n.	Fidelity to a prince or sovereign, or to a husband or lover. He had such loyalty to the king as the law requires.
+lozenge	LOZENGE	n.	Originally, a figure with four equal sides, having two acute and two obtuse angles; a rhomb.	In heraldry, a four-cornered figure, resembling a pane of glass in old casements.	Among jewelers, lozenges are common to brilliants and rose diamonds. In brilliants, they are formed by the meeting of the skill and the star facets on the bezil; in the latter, by the meeting of the facets in the horizontal ribs of the crown.	A form of medicine in small pieces, to be chewed or held in the mouth till melted.	In confectionary, a small cake of preserved fruit, or of sugar, etc.
+lozenged	LOZENGED	a.	Made into the shape of lozenges.
+lozengy	LOZENGY	a.	In heraldry, having the field or charge covered with lozenges.

@@ -1,0 +1,26 @@
+dew	DEW	n.	The water or moisture collected or deposited on or near the surface of the earth, during the night, by the escape of the heat which held the water in solution
+dew	DEW	v.i.	To wet with dew; to moisten.
+dew-berry	DEW-BERRY	n.	The fruit of a species of brier or bramble, that creeps along the ground, of the genus Rubus.
+dew-bespangled	DEW-BESPANGLED	a.	Spangled with dew-drops.
+dew-besprent	DEW-BESPRENT	a.	Sprinkled with dew.
+dew-besprinkled	DEW-BESPRINKLED	a.	Sprinkled with dew.
+dew-drop	DEW-DROP	n.	A drop of dew, which sparkles at sunrise; a spangle of dew.
+dew-dropping	DEW-DROPPING	a.	Wetting as with dew.
+dew-impearled	DEW-IMPEARLED	a.	[See Pearl.] Covered with dew-drops, like pearls.
+dew-lap	DEW-LAP	n.	The flesh that hangs from the throat of oxen, which laps or licks the dew in grazing.	In Shakespeare, a lip flaccid with age.
+dew-lapt	DEW-LAPT	a.	Furnished with a dew-lap.
+dew-worm	DEW-WORM	n.	A worm, called otherwise earth-worm, a species of Lumbricus, which lives just under the surface of the ground. It is of a pale red color, and does no injury to plants.
+dewbent	DEWBENT	a.	Bent by the dew.
+dewberry	dew-berry
+dewbespangled	dew-bespangled
+dewbesprent	dew-besprent
+dewbesprinkled	dew-besprinkled
+dewdrop	dew-drop
+dewdropping	dew-dropping
+dewed	DEWED	pp.	Moistened with dew.
+dewimpearled	dew-impearled
+dewing	DEWING	ppr.	Wetting or moistening the dew.
+dewlap	dew-lap
+dewlapt	dew-lapt
+dewworm	dew-worm
+dewy	DEWY	a.	Partaking of dew; like dew; as dewy mist.	Moist with dew; as dewy fields. His dewy locks distilled Ambrosia.

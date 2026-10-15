@@ -1,0 +1,31 @@
+sedan	SEDAN	n.	A portable chair or cover vehicle for carrying a single person. It is borne on poles by two men
+sedate	SEDATE	a.	Settled; composed; calm; quiet; tranquil; still; serene; unruffled by passion; udisturbed; as a sedate soul, mind or temper. So we say, a sedate look or countenance
+sedately	SEDATELY	adv.	Calmly; without agitation of mind.
+sedateness	SEDATENESS	n.	Calmness of mind, manner or countenance; freedom from agitation; a settled state; composure; serenity; tranquillity; as sedateness of temper or soul; sedateness of countenance; sedateness of conversation.
+sedation	SEDATION	n.	The act of calming. [Not in use.]
+sedative	SEDATIVE	a.	In medicine, moderating muscular action or animal energy
+sedative	SEDATIVE	n.	A midicine that moderates muscular action or animal energy. Se defendendo, in defending himself; the plea of a person charged with murder, who alledges that he committed the act in his own defense.
+sedentarily	SEDENTARILY	adv.	The state of being sedentary, or living without much action
+sedentariness	SEDENTARINESS	n.	The state of being sedentary.
+sedentary	SEDENTARY	a.	Accustomed to sit much, or to pass most of the time in a sitting posture; as a sedentary man. Students, taylors and women are sedentary persons.	Requiring much sitting; as a sedentary occupation or employment.	Passed for the most part in sitting; as a sedentary life.	Inactive; motionless; sluggish; as the sedentary earth. The soul, considered abstractly from its passions, is of a remiss sedentary nature. Spectator.
+sedge	SEDGE	n.	A narrow flag, or growth of such flags; called in the north of England, seg or sag.	In New England, a species of very coarse grass growing in swamps, and forming bogs or clumps.
+sedged	SEDGED	a.	Composed of flags or sedge.
+sedgy	SEDGY	a.	Overgrown with sedge. On the gentle Severn's sedgy bank. Shak.
+sediment	SEDIMENT	n.	The matter which subsides to the bottom of liquors; settlings; lees; dregs
+sedition	SEDITION	n.	A factious commotion of the people, a tumultuous assembly of men rising in opposition to law or the administration of justice, and in disturbance of the public peace. sedition is a rising or commotion of less extent than an insurrection, and both are less than rebellion; but some kinds of sedition in Great Britain, amount to high treason. In general, sedition is a local or limited insurrection in opposition to civil authority, as mutiny is to military
+seditionary	SEDITIONARY	n.	An inciter or promoter of sedition.
+seditious	SEDITIOUS	a.	Pertaining to sedition; partaking of the nature of sedition; as seditious behavior; seditious strife.	Tending to excite sedition; as seditious words.	Disposed to excite violent or irregular opposition to law or lawful authority; turbulent; factious, or guilty of sedition; as seditious citizens.
+seditiously	SEDITIOUSLY	adv.	With tumultious opposition to law; in a manner to violate the public peace.
+seditiousness	SEDITIOUSNESS	n.	The disposition to excite popular commotion in opposition to law; or the act of exciting such commotion.
+seduce	SEDUCE	v.	To draw aside or entice from the path of rectitude and duty in any manner, by flattery, promises, bribes or otherwise; to tempt and lead to iniquity; to corrupt; to deprave. Me the gold of France did not seduce. Shak. In the latter times, some shall depart from the faith, giving heed to seducing spirits. Tim. 4.	To entice to a surrender of chastity. He that can seduce a female is base enough to betray her.
+seducement	SEDUCEMENT	n.	The act of seducing; seduction.	The means employed to seduce; the arts of flattery, falsehood and deception.
+seducer	SEDUCER	n.	One that seduces; one that by temptation or arts, entices another to depart from the path of rectitude and duty; pre-eminently, one that by flattery, promises or falsehood, persuades a female to surrender her chastity. The seducer of a female is little less criminal than the murderer.	That which leads astray; that which entices to evil. He whose firm faith no reason could remove, Will mest before that soft seducer, love. Dryden.
+seducible	SEDUCIBLE	a.	Capable of being drawn aside from the path of rectitude; corruptible.
+seducing	SEDUCING	ppr.	Enticing from the path of virtue or chastity.
+seduction	SEDUCTION	n.	The act of seducing or of enticing from the path of duty.	Appropriately, the act or crime of persuading a female, by flattery or deception, to surrender her chastity. A woman who is above flattery, is least liable to seduction; but the best safeguard is principle, the love and purity of holiness, the fear of God and reverence forHis commandments.
+seductive	SEDUCTIVE	a.	Tending to lead astray; apt to mislead by flattering appearances.
+sedulity	SEDULITY	n.	Diligent and assiduous application to business; constant attention; unremitting industry in any pursuit. It denotes constancy and perseverance rather than intenseness of application. Let there be but the same propensity and bent of will to religion, and there will be the same sedulity and indefatigable industry in men's inquiries into it. South
+sedulous	SEDULOUS	a.	Literally, sitting close to an employment; hence, assiduous; diligent in application or pursuit; constant, steady and persevering in business or endeavors to effect an object; steadily industrious; as the sedulous bee. What signifies the sound of words in prayer, without the affection of heart, and a sedulous application of the proper means that may lead to such an end? L'Estrange
+sedulously	SEDULOUSLY	adv.	Assiduously; industriously; diligently; with constant or continued application.
+sedulousness	SEDULOUSNESS	n.	Assiduity; assiduousness; steady diligence; continued industry or effort.
+sedused	SEDUSED	pp.	Drawn or enticed from virtue; corrupted; depraved.

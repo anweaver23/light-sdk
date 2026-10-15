@@ -1,0 +1,33 @@
+dicacity	DICACITY	n.	Pertness. [Little used.]
+dicast	DICAST	n.	In ancient Greece, an officer answering nearly to our juryman
+dice	DICE	n. pl.	of die; also, a game with dice
+dice	DICE	v.i.	To play with dice
+dice-box	DICE-BOX	n.	A box from which dice are thrown in gaming.
+dice-maker	DICE-MAKER	n.	A maker of dice.
+dicebox	dice-box
+dicemaker	dice-maker
+dicer	DICER	n.	A player at dice.
+dichotomize	DICHOTOMIZE	v.t.	[See the next word.] To cut into two parts; to divide into pairs.
+dichotomous	DICHOTOMOUS	a.	In botany, regularly dividing by pairs from top to bottom; as a dichotomous stem
+dichotomous-corymbed	DICHOTOMOUS-CORYMBED	a.	Composed of corymbs, in which the pedicles divide and subdivide by pairs.
+dichotomouscorymbed	dichotomous-corymbed
+dichotomy	DICHOTOMY	n.	Division or distribution of ideas by pairs. [Little used.]	In astronomy, that phase of the moon in which it appears bisected, or shows only half its disk, as at the quadratures.
+dichroit	DICHROIT	n.	[See Iolite.]
+dicing-house	DICING-HOUSE	n.	A house where dice is played; a gaming house. [Little used.]
+dicinghouse	dicing-house
+dicker	DICKER	n.	In old authors, the number or quantity of ten, particularly ten hides or skins; but applied to other things, as a dicker gloves, etc. [I believe not used in America.]
+dicoccous	DICOCCOUS	a.	Two-grained; consisting of two cohering grains or cells, with one seed in each; as a dicoccous capsule
+dicotyledon	DICOTYLEDON	n.	A plant whose seeds divide into two lobes in germinating
+dicotyledonous	DICOTYLEDONOUS	a.	Having two lobes. A dicotyledonous plant is one whose seeds have two lobes, and consequently rise with two seminal leaves.
+dictate	DICTATE	v.t.	To tell with authority; to deliver, as an order, command, or direction; as, what God has dictated, it is our duty to believe.	To order or instruct what is to be said or written; as, a general dictates orders to his troops.	To suggest; to admonish; to direct by impulse on the mind. We say, the spirit of God dictated the messages of the prophets to Israel. Conscience often dictates to men the rules by which they are to govern their conduct.
+dictate	DICTATE	n.	An order delivered; a command.	A rule, maxim or precept, delivered with authority. I credit what the Grecian dictates say.	Suggestion; rule or direction suggested to the mind; as the dictates of reason or conscience.
+dictated	DICTATED	pp.	Delivered with authority; ordered; directed; suggested.
+dictating	DICTATING	ppr.	Uttering or delivering with authority; instructing what to say or write; ordering; suggesting to the mind.
+dictation	DICTATION	n.	The act of dictating; the act or practice of prescribing. It affords security against the dictation of laws.
+dictator	DICTATOR	n.	One who dictates; one who prescribes rules and maxims for the direction of others.	One invested with absolute authority. In ancient Rome, a magistrate, created in times of exigence and distress, and invested with unlimited power. He remained in office six months.
+dictatorial	DICTATORIAL	a.	Pertaining to a dictator; absolute; unlimited; uncontrollable.	Imperious; dogmatical; overbearing; as, the officer assumed a dictatorial tone.
+dictatorship	DICTATORSHIP	n.	The office of a dictator; the term of a dictators office.	Authority; imperiousness; dogmatism.
+dictatory	DICTATORY	a.	Overbearing; dogmatical.
+dictature	DICTATURE	n.	The office of a dictator; dictatorship.	Absolute authority; the power that dictates.
+diction	DICTION	n.	Expression of ideas by words; style; manner of expression
+dictionary	DICTIONARY	n.	A book containing the words of a language arranged in alphabetical order, with explanations of their meanings; a lexicon

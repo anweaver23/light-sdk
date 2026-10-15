@@ -1,0 +1,826 @@
+miasm	MIASM		MIAS'MA, noun [Gr. to pollute.] Infecting substances floating in the air; the effluvia or fine particles of any putrefying bodies, rising and floating in the atmosphere, and considered to be noxious to health.
+miasma	MIASMA	n.	Infecting substances floating in the air; the effluvia or fine particles of any putrefying bodies, rising and floating in the atmosphere, and considered to be noxious to health
+miasmatic	MIASMATIC	a.	Pertaining to miasma; partaking of the qualities of noxious effluvia.
+mica	MICA	n.	A mineral of a foliated structure, consisting of thin flexible lamels or scales, having a shining surface. The scales are sometimes parallel, sometimes interwoven, sometimes wavy or undulated, sometimes representing filaments. It is called also talck, glimmer, muscovy-glass, and glist. Jameson subdivides mica into ten subspecies, viz. mica pinite, lepidolite, chlorite, green earth, talck, nacrite, potstone, steatite and figure stone
+micaceous	MICACEOUS	a.	Pertaining to mica; resembling mica or partaking of its properties.
+micarel	MICAREL	n.	A species of argillaceous earth; a mineral of a brownish or blackish red color, commonly crystallized in rhomboidal prisms, or in prisms of six sides.
+mice	MICE	pl.	of mouse.
+michaelite	MICHAELITE	n.	A subvariety of siliceous sinter, found in the isle of St. Michael.
+michaelmas	MICHAELMAS	n.	The feast of St. Michael, a festival of the Romish church, celebrated Sept.29; hence,	In colloquial language, autumn.
+miche	MICHE	v.i.	To lie hid; to skulk; to retire or shrink from view.	To pilfer.
+micher	MICHER	n.	One who skulks, or creeps out of sight; a thief.
+michery	MICHERY	n.	Theft, cheating.
+miching	MICHING	ppr.	Retiring; skulking; creeping from sight; mean; cowardly. [Vulgar.]
+mickle	MICKLE	a.	Much; great. [Obsolete, but retained in the Scottish language.]
+mico	MICO	n.	A beautiful species of monkey.
+microcosm	MICROCOSM	n.	Literally, the little world; but used for man, supposed to be an epitome of the universe or great world. Microcosmic salt, a triple salt of soda, ammonia and phosphoric acid, obtained from urine
+microcosmical	MICROCOSMICAL	a.	Pertaining to the microcosm.
+microcoustic	MICROCOUSTIC	n.	An instrument to augment small sounds, and assist in hearing
+micrography	MICROGRAPHY	n.	The description of objects too small to be discerned without the aid of a microscope
+micrometer	MICROMETER	n.	An instrument for measuring small objects or spaces, by the help of which, the apparent magnitude of objects viewed through the microscope or telescope, is measured with great exactness
+microphone	MICROPHONE	n.	An instrument to augment small sounds; a microcoustic
+microscope	MICROSCOPE	n.	An optical instrument consisting of lenses or mirrors, which magnify objects, and thus render visible minute objects which cannot be seen by the naked eye, or enlarge the apparent magnitude of small visible bodies, so as to enable us to examine their texture or construction
+microscopic	MICROSCOPIC		MICROSCOP'ICAL, adjective Made by the aid of a microscope; as microscopic observation.	Assisted by a microscope. Evading even the microscopic eye.	Resembling a microscope; capable of seeing small objects. Why has not man a microscopic eye?	Very small; visible only by the aid of a microscope; as a microscopic insect.
+microscopical	MICROSCOPICAL	a.	Made by the aid of a microscope; as microscopic observation.	Assisted by a microscope. Evading even the microscopic eye.	Resembling a microscope; capable of seeing small objects. Why has not man a microscopic eye?	Very small; visible only by the aid of a microscope; as a microscopic insect.
+microscopically	MICROSCOPICALLY	adv.	By the microscope; with minute inspection.
+micturition	MICTURITION	n.	The act of making water, or passing the urine
+mid	MID	a.	Middle; at equal distance from extremes; as the mid hour of night.	Intervening. No more the mounting larks, while Daphne sings, Shall, lifting in mid air, suspend their wings.
+mid-age	MID-AGE	n.	The middle of life, or persons of that age.
+mid-course	MID-COURSE	n.	The middle of the course or way.
+mid-day	MID-DAY	a.	Being at noon; meridional; as the mid-day sun.
+mid-day	MID-DAY	n.	The middle of the day; noon.
+mid-heaven	MID-HEAVEN	n.	The middle of the sky or heaven.
+mid-winter	MID-WINTER	n.	The middle of winter, or the winter solstice, December 21. As the severity of winter in North America falls in January and February, the word ordinarily denotes this period, or some weeks after the winter solstice.
+mida	MIDA	n.	A worm, or the beanfly
+midage	mid-age
+midcourse	mid-course
+midday	mid-day
+middest	MIDDEST	a. superl.	of mid. Among the middest crowd. [Not used.]
+middle	MIDDLE	a.	Equally distant from the extremes; as the middle point of a line or circle; the middle station of life. The middle path or course is most safe.	Intermediate; intervening. Will, seeking good, finds many middle ends. MIDDLE ages, the ages or period of time about equally distant from the decline of the Roman empire and the revival of letters in Europe, or from the eighth to the fifteenth century of the christian era.
+middle	MIDDLE	n.	The point or part equally distant from the extremities. See, there come people down by the middle of the land. Judges 9:37.	The time that passes, or events that happen between the beginning and the end.
+middle-aged	MIDDLE-AGED	a.	Being about the middle of the ordinary age of man. A middle-aged man is so called from the age of thirty five or forty to forty five or fifty.
+middle-earth	MIDDLE-EARTH	n.	The world.
+middleaged	middle-aged
+middleearth	middle-earth
+middlemost	MIDDLEMOST	a.	Being in the middle, or nearest the middle of a number of things that are near the middle. If a thing is in the middle, it cannot be more so, and in this sense the word is improper. But when two or more things are near the middle, one may be nearer than another.
+middling	MIDDLING	a.	Of middle rank, state, size or quality; about equally distant from the extremes; moderate. Thus we speak of people of the middling class or sort, neither high nor low; of a man of middling capacity or understanding; a man of middling size; fruit of a middling quality.
+midge	MIDGE	n.	A gnat or flea. [Not used.]
+midheaven	mid-heaven
+midland	MIDLAND	a.	Being in the interior country; distant from the coast or sea shore; as midland towns or inhabitants.	Surrounded by the sea; mediterranean. And on the midland sea the French had aw'd.
+midleg	MIDLEG	n.	Middle of the leg.
+midmost	MIDMOST	a.	Middle; as the midmost battles.
+midnight	MIDNIGHT	n.	The middle of the night; twelve o'clock at night.
+midnight	MIDNIGHT	a.	Being in the middle of the night; as midnight studies.	Dark as midnight; very dark; as midnight gloom.
+midriff	MIDRIFF	n.	In anatomy, the diaphragm; the muscle which divides the trunk into two cavities, the thorax and abdomen.
+midsea	MIDSEA	n.	The Mediterranean sea.
+midship	MIDSHIP	a.	Being or belonging to the middle of a ship; as a midship beam.
+midshipman	MIDSHIPMAN	n.	In ships of war, a kind of naval cadet, whose business is to second the orders of the superior officers and assist in the necessary business of the ship, particularly in managing the sails, that he may be trained to a knowledge of the machinery, discipline and operations of ships of war, and qualified for naval service.
+midships	MIDSHIPS	adv.	In the middle of a ship; properly amidships.
+midst	MIDST	n.	The middle. There is nothing said or done in the midst of the play, which might not have been placed in the beginning. The phrase, in the midst often signifies involved in, surrounded or overwhelmed by, or in the thickest part, or in the depths of; as in the midst of afflictions, troubles or cares; in the midst of our contemplations; in the midst of the battle; in the midst of pagan darkness and error; in the midst of gospel light; in the midst of the ocean; in the midst of civil dissensions. From the midst from the middle, or from among. Deuteronomy 18:15
+midst	MIDST	adv.	In the middle. On earth, join all ye creatures to extol Him first, Him last, Him midst and without end.
+midstream	MIDSTREAM	n.	The middle of the stream.
+midsummer	MIDSUMMER	n.	The middle of summer; the summer solstice, about the 21st of June.
+midward	MIDWARD	adv.	Midst. [Not in use.]
+midway	MIDWAY	n.	The middle of the way or distance. Paths indirect, or in the midway faint.
+midway	MIDWAY	a.	Being in the middle of the way or distance; as the midway air.
+midway	MIDWAY	adv.	In the middle of the way or distance; half way. She met his glance midway
+midwife	MIDWIFE	n.	A woman that assists other women in childbirth
+midwife	MIDWIFE	v.i.	To perform the office of midwife
+midwife	MIDWIFE	v.t.	To assist in childbirth.
+midwifery	MIDWIFERY	n.	The art or practice of assisting women in childbirth; obstetrics.	Assistance at childbirth.	Help or cooperation in production.
+midwinter	mid-winter
+miemite	MIEMITE	n.	Granular miemite is a sub-variety of magnesian limestone, first found at Miemo, in Tuscany. It occurs massive, or crystallized in flat, double, three-sided pyramids. Its color is light green or greenish white.
+mien	MIEN	n.	Look; air; manner; external appearance; carriage; as a lofty mien; a majestic mien
+miff	MIFF	n.	A slight degree of resentment. [Colloquial.]
+miffed	MIFFED	a.	Slightly offended.
+might	MIGHT	n.	pret. of may. Had power or liberty. He might go, or might have gone.	It sometimes denotes was possible, implying ignorance of the fact in the speaker. Orders might have been given for the purpose.
+might	MIGHT	n.	Strength; force; power; primarily and chiefly, bodily strength or physical power; as, to work or strive with all one's might. There small be no might in thy hand. Deut.28.	Political power or great achievements. The acts of David--with all his reign and his might. 1 Chron.29. l Kings 15.	National strength; physical power or military force. We have no might against this great company that cometh against us. 2 Chron.20.	Valor with bodily strength; military prowess; as men of might. 1 Chron.12.	Ability; strength or application of means. I have prepared with all my might for the house of my God--1 Chron.29.	Strength or force of purpose. Like him was no king that turned to the Lord with all his might. 2 Kings 23.	Strength of affection. Thou shalt love the Lord thy God with all thine heart, and with all thy soul, and with all thy might. Deut.6.	Strength of light; splendor; effulgence. Let them that love him be as the sun when he goeth forth in his might. Judges 5. Shakespeare applied the word to an oath. "An oath of mickle might." This application is obsolete. We now use strength or force; as the strength or force of an oath or covenant. With might and main, with the utmost strength or bodily exertion; a tautological phrase, as both words are from the same root, and mean the same thing.
+mightily	MIGHTILY	adv.	With great power, force of strength; vigorously; as, to strive mightily	Vehemently; with great earnestness. Cry mightily to God. Jonah 3:8.	Powerfully; with great energy. Whereto I also labor, striving according to his working, which worketh in me mightily Colossians 1:29.	With great strength of argument. He mightily convinced the Jews. Acts 18:28.	With great or irresistible force; greatly; extensively. So mightily grew the word of God and prevailed. Acts 19:20.	With strong means of defense. Fortify the power mightily Nahum 2.	Greatly; to a great degree; very much. I was mightily pleased with a story applicable to this piece of philosophy. [Admissible in colloquial and familiar language.]
+mightiness	MIGHTINESS	n.	Power; greatness; highth of dignity. How soon this mightiness meets misery!	A title of dignity; as their High Mightinesses.
+mighty	MIGHTY	a.	Having great bodily strength or physical power; very strong or vigorous; as a mighty arm.	Very strong; valiant; bold; as a mighty man of valor. Judges 6:12.	Very powerful; having great command. Cush begat Nimrod; he began to be a mighty one on the earth. Genesis 10:8.	Very strong in numbers; as a mighty nation. Genesis 18:18.	Very strong or great in corporeal power; very able. Wo to them that are mighty to drink wine. Isaiah 5:15.	Violent; very loud; as mighty thunderings. Exodus 9:28. Psalms 68:33.	Vehement; rushing with violence; as a mighty wind or tempest. Exodus 10:19. Revelation 6:13.	Very great; vast; as mighty waters. Nehemiah 9:11.	Very great or strong; as mighty power. 2 Chronicles 26:12.	Very forcible; efficacious; as, great is truth and mighty	Very great or eminent in intellect or acquirements; as the mighty Scaliger and Selden.	Great; wonderful; performed with great power; as mighty works. Matthew 11:20.	Very severe and distressing; as a mighty famine. Luke 15:14.	Very great, large or populous; as a mighty city. Revelation 18:10.	Important; momentous. I'll sing of heroes and of kings, In mighty numbers mighty things.
+mighty	MIGHTY	adv.	In a great degree; very; as might wise; mighty thoughtful. [Colloquial.]
+migniard	MIGNIARD	a.	Soft; dainty; delicate; pretty.
+migonet	MIGONET	n.	An annual flower or plant of the genus Reseda, having the scent of raspberries.
+migrate	MIGRATE	v.i.	To pass or remove from one country or from one state to another, with a view to permanent residence, or residence of some continuance. The first settlers of New England migrated first to Holland, and afterwards to America. Some species of fowls migrate in autumn to a warmer climate for a temporary residence. To change residence in the same city or state is not to migrate	To pass or remove from one region or district to another for a temporary residence; as, the Tartars migrate for the sake of finding pasturage.
+migrating	MIGRATING	ppr.	Removing from one state to another for a permanent residence. The people of the eastern states are continually migrating to the western states.
+migration	MIGRATION	n.	The act of removing from one kingdom or state to another, for the purpose of permanent residence, or a residence of some continuance	Change of place; removal; as the migration of the center of gravity.
+migratory	MIGRATORY	a.	Removing or accustomed to remove from one state or country to another for permanent residence.	Roving; wandering; occasionally removing for pasturage; as the migratory Tartars.	Passing from one climate to another; as fowls.
+milch	MILCH	a.	Giving milk; as a milch cow. It is now applied only to beasts.
+mild	MILD	a.	Soft; gently and pleasantly affecting the senses; not violent; as a mild air; a mild sun; a mild temperature; a mild light. The rosy morn resigns her light And milder glory to the noon. And with a milder gleam refreshed the sight.	Not acrid, pungent, corrosive or drastic; operating gently; not acrimonious; demulcent; mollifying; lenitive; assuasive; as a mild liquor; a mild cataplasm; a mild cathartic or emetic.	Tender and gentle in temper or disposition; kind; compassionate; merciful; clement; indulgent; not severe or cruel. It teaches us to adore him as a mild and merciful Being.	Not fierce, rough or angry; as mild words.	Placid; not fierce; not stern; not frowning; as a mild look or aspect.	Not sharp, tart, sour or bitter; moderately sweet or pleasant to the taste; as mild fruit.	Calm; tranquil. When passion subsides the temper becomes mild	Moderate; not violent or intense; as a mild heat.
+mild-spirited	MILD-SPIRITED	a.	Having a mild temper.
+mildew	MILDEW	n.	Honey dew; a thick, clammy, sweet juice, found on the leaves of plants, which is said to injure the plants by corroding them, or otherwise preventing them from coming to perfection.	Spots on cloth or paper caused by moisture.
+mildew	MILDEW	v.t.	To taint with mildew.
+mildewed	MILDEWED	pp.	Tainted or injured by mildew.
+mildewing	MILDEWING	ppr.	Tainting with mildew.
+mildly	MILDLY	adv.	Softly; gently; tenderly; not roughly or violently; moderately; as, to speak mildly; to burn mildly; to operate mildly
+mildness	MILDNESS	n.	Softness; gentleness; as the mildness of words or speech; mildness of voice.	Tenderness; mercy; clemency; as mildness of temper.	Gentleness of operation; as the mildness of a medicine.	Softness; the quality that affects the senses pleasantly; as the mildness of fruit or of liquors.	Temperateness; moderate state; as the mildness of weather.
+mildspirited	mild-spirited
+mile	MILE	n.	A measure of length or distance, containing eight furlongs, 320 rods, poles or perches, 1760 yards, 5280 feet, or 80 chains. The Roman mile was a thousand paces, equal to 1600 yards English measure
+mileage	MILEAGE	n.	Fees paid for travel by the mile.
+milestone	MILESTONE	n.	A stone set to mark the distance or space of a mile.
+milfoil	MILFOIL	n.	A plant of the genus Achillea; yarrow
+miliary	MILIARY	a.	Resembling millet seeds; as a miliary eruption; miliary glands. The miliary glands are the sebaceous glands of the skin.	Accompanied with an eruption like millet seeds; as a miliary fever.
+milice	MILICE		for militia, is not in use.
+miliolite	MILIOLITE	n.	Fossil remains of the Miliola, a genus of univalve shells.
+militancy	MILITANCY	n.	Warfare. [Little used.]
+militant	MILITANT	a.	Fighting; combating; serving as a soldier.	The church militant is the christian church on earth, which is supposed to be engaged in a constant warfare against its enemies; thus distinguished from the church triumphant, or in heaven.
+militarily	MILITARILY	adv.	In a soldierly manner.
+military	MILITARY	a.	Pertaining to soldiers or to arms; as a military parade or appearance; military discipline.	Engaged in the service of soldiers or arms; as a military man.	Warlike; becoming a soldier; as military virtue; military bravery.	Derived from the services or exploits of a soldier; as military renown.	Conformable to the customs or rules of armies or militia. The conduct of the officer was not military	Performed or made by soldiers; as a military election. Military tenure, a tenure of land, on condition of performing military service.
+military	MILITARY	n.	The whole body of soldiers; soldiery; militia; an army.
+militate	MILITATE	v.i.	To militate against, is to oppose; to be or to act in opposition. Paley writes, to militate with; but in America, against is generally used
+militia	MILITIA	n.	The body of soldiers in a state enrolled for discipline, but not engaged in actual service except in emergencies; as distinguished from regular troops, whose sole occupation is war or military service. The militia of a country are the able bodied men organized into companies, regiments and brigades, with officers of all grades, and required by law to attend military exercises on certain days only, but at other times left to pursue their usual occupations
+milk	MILK	n.	A white fluid or liquor, secreted by certain glands in female animals, and drawn from the breasts for the nourishment of their young.	The white juice of certain plants.	Emulsion made by bruising seeds.
+milk	MILK	v.t.	To draw or press milk from the breasts by the hand, as, to milk a cow.	To suck. [Not used.]
+milk-fever	MILK-FEVER	n.	A fever which accompanies the first flowing of milk in females after childbirth.
+milk-hedge	MILK-HEDGE	n.	A shrub growing on the Coromandel coast, containing a milky juice.
+milk-livered	MILK-LIVERED	a.	Cowardly; timorous.
+milk-thistle	MILK-THISTLE	n.	A plant of the genus Carduus.
+milk-trefoil	MILK-TREFOIL	n.	A plant, the cytisus.
+milk-vetch	MILK-VETCH	n.	A plant of the genus Astragalus.
+milk-weed	MILK-WEED	n.	A plant, the Asclepias Syriaca.
+milk-wort	MILK-WORT	n.	A plant of the genus Euphorbia; spurge.
+milken	MILKEN	a.	Consisting of milk. [Not used.]
+milker	MILKER	n.	One that milks.
+milkfever	milk-fever
+milkhedge	milk-hedge
+milkiness	MILKINESS	n.	Qualities like those of milk; softness.
+milklivered	milk-livered
+milkmaid	MILKMAID	n.	A woman that milks or is employed in the dairy.
+milkman	MILKMAN	n.	A man that sells milk or carries milk to market.
+milkpail	MILKPAIL	n.	A pail which receives the milk drawn from cows.
+milkpan	MILKPAN	n.	A pan in which milk is set.
+milkporridge	MILKPORRIDGE		MILK'POTTAGE, noun A species of food composed of milk or milk and water, boiled with meal or flour.
+milkpottage	MILKPOTTAGE	n.	A species of food composed of milk or milk and water, boiled with meal or flour.
+milkscore	MILKSCORE	n.	An account of milk sold or purchased in small quantities, scored or marked.
+milksop	MILKSOP	n.	A soft, effeminate, feeble-minded man.
+milkthistle	milk-thistle
+milktooth	MILKTOOTH	n.	The fore tooth of a foal, which is cast within two or three years.
+milktrefoil	milk-trefoil
+milkvetch	milk-vetch
+milkweed	milk-weed
+milkwhite	MILKWHITE	a.	White as milk.
+milkwoman	MILKWOMAN	n.	A woman that sells milk.
+milkwort	milk-wort
+milky	MILKY	a.	Resembling milk; as milky sap or juice.	Yielding milk; as milky mothers.	Soft; mild; gentle; timorous; as a milky heart.
+milky-way	MILKY-WAY	n.	The galaxy; a broad luminous path or circle in the heavens, supposed to be the blended light of innumerable fixed stars, which are not distinguishable with ordinary telescopes.
+milkyway	milky-way
+mill	MILL	n.	A money of account of the United States, value the tenth of a cent, or the thousandth of a dollar
+mill	MILL	n.	A complicated engine or machine for grinding and reducing to fine particles, grain, fruit or other substance, or for performing other operations by means of wheels and a circular motion; as a grist-mill for grain; a coffee-mill; a cider-mill; a bark-mill. The original purpose of mills was to comminute grain for food, but the word mill is now extended to engines or machines moved by water, wind or steam, for carrying on many other operations. We have oil-mills, saw-mills, slitting-mills, bark-mills, fulling-mills, etc.	The house or building that contains the machinery for grinding, etc.
+mill	MILL	v.t.	To grind; to comminute; to reduce to fine particles or to small pieces.	To beat up chocolate.	To stamp coin.	To full, as cloth.
+mill-sixpence	MILL-SIXPENCE	n.	An old English coin first milled in 1561.
+mill-tooth	MILL-TOOTH	n. pl.	mill-teeth. A grinder, dens molaris.
+millcog	MILLCOG	n.	The cog of a mill wheel.
+milldam	MILLDAM	n.	A dam or mound to obstruct a water course, and raise the water to an altitude sufficient to turn a mill wheel.
+millenarian	MILLENARIAN	a.	Consisting of a thousand years; pertaining to the millenium.
+millenarian	MILLENARIAN	n.	A chiliast; one who believes in the millenium, and that Christ will reign on earth with his saints a thousand years before the end of the world.
+millenary	MILLENARY	a.	Consisting of a thousand.
+millenial	MILLENIAL	a.	Pertaining to the millenium, or to a thousand years; as millenial period; millenial happiness.
+millenist	MILLENIST	n.	One who holds to the millenium. [Not used.]
+millenium	MILLENIUM	n.	A thousand years; a word used to denote the thousand years mentioned in Revelations 20. during which period Satan shall be bound and restrained from seducing men to sin, and Christ shall reign on earth with his saints
+milleped	MILLEPED	n.	The wood-louse, an insect having many feet, a species of Oniscus
+millepore	MILLEPORE	n.	A genus of lithophytes or polypiers of various forms, which have the surface perforated with little holes or pores, or even without any apparent perforation
+milleporite	MILLEPORITE	n.	Fossil millepores.
+miller	MILLER	n.	One whose occupation is to attend a grist-mill	An insect whose wings appear as if covered with white dust or powder, like a miller's clothes.
+millers-thumb	MILLER'S-THUMB	n.	A small fish found in small streams.
+millersthumb	millers-thumb
+millesimal	MILLESIMAL	a.	Thousandth; consisting of thousandth parts; as millesimal fractions
+millet	MILLET	n.	A plant of the genus Milium, of several species, one of which is cultivated as an esculent grain. The Indian millet is of the genus Holcus
+millhorse	MILLHORSE	n.	A horse that turns a mill.
+milliary	MILLIARY	a.	Pertaining to a mile; denoting a mile; as a milliary column
+milligram	MILLIGRAM	n.	In the system of French weights and measures, the thousandth part of a gram, equal to a cubic millimeter of water. The milligram is equal to.0154 English grains
+milliliter	MILLILITER	n.	A French measure of capacity containing the thousandth part of a liter or cubic decimeter, equal to.06103 decimals of a cubic inch
+millimeter	MILLIMETER	n.	A French lineal measure containing the thousandth part of a meter; equal to.03937 decimals of an inch. It is the least measure of length
+milliner	MILLINER	n.	A woman who makes and sells head-dresses, hats or bonnets, etc. for females
+millinery	MILLINERY	n.	The articles made or sold by milliners, as head-dresses, hats or bonnets, laces, ribbons and the like.
+million	MILLION	n.	The number of ten hundred thousand, or a thousand thousand. It is used as a noun or an adjective; as a million of men, or a million men. As a noun, it has a regular plural, millions.	In common usage, a very great number, indefinitely. There are millions of truths that men are not concerned to know.
+millionary	MILLIONARY	a.	Pertaining to millions; consisting of millions; as the millionary chronology of the Pundits.
+millioned	MILLIONED	a.	Multiplied by millions. [Not used.]
+millionth	MILLIONTH	a.	The ten hundred thousandth.
+millpond	MILLPOND	n.	A pond or reservoir of water raised for driving a mill wheel.
+millrace	MILLRACE	n.	The current of water that drives a mill wheel, or the canal in which it is conveyed.
+millrea	MILLREA		MILLREE', noun A coin of Portugal of the value of $1.24 cents.
+millree	MILLREE	n.	A coin of Portugal of the value of $1.24 cents.
+millsixpence	mill-sixpence
+millstone	MILLSTONE	n.	A stone used for grinding grain.
+milltooth	mill-tooth
+milt	MILT	n.	In anatomy, the spleen, a viscus situated in the left hypochondrium under the diaphragm.	The soft roe of fishes, or the spermatic part of the males.
+milt	MILT	v.t.	To impregnate the roe or spawn of the female fish.
+milter	MILTER	n.	A male fish.
+miltwort	MILTWORT	n.	A plant of the genus Asplenium.
+mime	MIME	n.	A buffoon. [See Mimic.]	A kind of dramatic farce.
+mime	MIME	v.i.	To mimic, or play the buffoon. [See Mimic.]
+mimer	MIMER	n.	A mimic. [See Mimic.]
+mimesis	MIMESIS	n.	In rhetoric, imitation of the voice or gestures of another
+mimetic	MIMETIC	a.	Apt to imitate; given to aping or mimicry
+mimic	MIMIC		MIM'ICAL, adjective [Latin mimus, mimicus; Gr. to imitate.]	Imitative; inclined to imitate or to ape; having the practice or habit of imitating. Man is of all creatures the most mimical in gestures, speech, etc.	Consisting of imitation; as mimic gestures. Mimic implies often something droll or ludicrous, or less dignified than imitative.
+mimic	MIMIC	n.	One who imitates or mimics; a buffoon who attempts to excite laughter or derision by acting or speaking in the manner of another.	A mean or servile imitator. Of France the mimic and of Spain the prey.
+mimical	MIMICAL	a.	Imitative; inclined to imitate or to ape; having the practice or habit of imitating. Man is of all creatures the most mimical in gestures, speech, &c.	Consisting of imitation; as mimic gestures. Mimic implies often something droll or ludicrous, or less dignified than imitative.
+mimick	MIMICK	v.t.	To imitate or ape for sport; to attempt to excite laughter or derision by acting or speaking like another; to ridicule by imitation. --The walk, the words, the gesture, could supply, The habit mimick and the mien belie.
+mimicry	MIMICRY	n.	Ludicrous imitation for sport or ridicule.
+mimographer	MIMOGRAPHER	n.	A writer of farces
+mina	MINA	n.	A weight or denomination of money. The mina of the Old Testament was valued at sixty shekels. The Greek or Attic mina was valued at a hundred drachmas, about f2. l7s.sterling, $10.44 cents
+minacious	MINACIOUS	a.	Threatening; menacing
+minacity	MINACITY	n.	Disposition to threaten. [Little used.]
+minaret	MINARET	n.	A small spire or steeple, or spire-like ornament in Saracen architecture.
+minatory	MINATORY	a.	Threatening; menacing.
+mince	MINCE	v.t.	To cut or chop into very small pieces; as, to mince meat.	To diminish in speaking; to retrench, cut off or omit a part for the purpose of suppressing the truth; to extenuate in representation. I know no way to mince it in love, but to say directly, I love you. Siren, now mince the sin, And mollify damnation with a phrase-- If, to mince his meaning, I had either omitted some part of what he said, or taken from the strength of his expression, I certainly had wronged him. These--were forced to mince the matter.	To speak with affected softness; to clip words; not to utter the full sound.	To walk with short or diminished steps.
+mince	MINCE	v.i.	To walk with short steps; to walk with affected nicety; to affect delicacy in manner. I'll turn two mincing steps Into a manly stride. Because the daughters of Zion are haughty-- walking and mincing as they go. Isaiah 3:1.	To speak softly, or with affected nicety.
+mince-pie	MINCE-PIE		MIN'CED, participle passive Cut or chopped into very small pieces.
+minced	MINCED	pp.	Cut or chopped into very small pieces.
+minced-pie	MINCED-PIE	n.	A pie made with minced meat and other ingredients, baked in paste.
+mincedpie	minced-pie
+mincepie	mince-pie
+mincing	MINCING	ppr.	Cutting into small pieces; speaking or walking affectedly.
+mincingly	MINCINGLY	adv.	In small parts; not fully.
+mind	MIND	n.	Intention; purpose; design. The sacrifice of the wicked is abomination; how much more, when he bringeth it with a wicked mind Proverbs 21:27.	Inclination; will; desire; a sense much used, but expressing less than settled purpose; as in the common phrases, 'I wish to know your mind; ' 'let me know your mind; ' 'he had a mind to go; ' 'he has a partner to his mind '	Opinion; as, to express one's mind We are of one mind	Memory; remembrance; as, to put one in mind; to call to mind; the fact is out of my mind; time out of mind From the operations of the intellect in man, this word came to signify.	The intellectual or intelligent power in man; the understanding; the power that conceives, judges or reasons. I fear I am not in my perfect mind So we speak of a sound mind a disordered mind a weak mind a strong mind with reference to the active powers of the understanding; and in a passive sense, it denotes capacity, as when we say, the mind cannot comprehend a subject.	The heart or seat of affection. Which were a grief of mind to Isaac and Rebekah. Genesis 26:35.	The will and affection; as readiness of mind Acts 17:11.	The implanted principle of grace. Romans 7:23.
+mind	MIND	v.t.	To attend to; to fix the thoughts on; to regard with attention. Cease to request me; let us mind our way. MIND not high things. Romans 12:2.	To attend to or regard with submission; to obey. His father told him to desist, but he would not mind him.	To put in mind; to remind.	To intend; to mean.
+mind	MIND	v.i.	To be inclined or disposed to incline. When one of them mindeth to go into rebellion.
+mind-stricken	MIND-STRICKEN	a.	Moved; affected in mind. [Not used.]
+minded	MINDED	a.	Disposed; inclined. If men were minded to live virtuously. Joseph was minded to put her away privily. Matthew 1:19. MINDED is much used in composition; as high-minded; low-minded; feeble-minded; sober-minded; double-minded.
+mindedness	MINDEDNESS	n.	Disposition; inclination towards any thing; as heavenly mindedness
+mindfilling	MINDFILLING	a.	Filling the mind.
+mindful	MINDFUL	a.	Attentive; regarding with care; bearing in mind; heedful; observant. I promise to be mindful of your admonitions. What is man, that thou art mindful of him? Psalms 7:1.
+mindfully	MINDFULLY	adv.	Attentively; heedfully.
+mindfulness	MINDFULNESS	n.	Attention; regard; heedfulness.
+minding	MINDING	ppr.	Regarding; heeding.
+minding	MINDING	n.	Regard.
+mindless	MINDLESS	a.	Inattentive; heedless; forgetful; negligent; careless. Cursed Athens, mindless of thy worth.	Not endued with mind or intellectual powers; as mindless bodies.	Stupid; unthinking; as a mindless slave.
+mindstricken	mind-stricken
+mine	MINE	a.	called sometimes a pronominal adj. [Latin meus.] My; belonging to me. It was formerly used before nouns beginning with vowels. 'I kept myself from mine iniquity.' Psalms 18:3. But this use is no longer retained. We now use my before a vowel as well as before an articulation; as my iniquity. In present usage, my always precedes the noun, and mine follows the noun, and usually the verb; as, this is my book; this book is mine; it is called my book; the book is called mine:it is acknowledged to be mine MINE sometimes supplies the place of a noun. Your sword and mine are different in construction.
+mine	MINE	n.	A pit or excavation in the earth, from which metallic ores, mineral substances and other fossil bodies are taken by digging. The pits from which stones only are taken, are called quarries.	In the military art, a subterraneous canal or passage dug under the wall or rampart of a fortification, where a quantity of power may be lodged for blowing up the works.	A rich source of wealth or other good.
+mine	MINE	v.i.	To dig a mine or pit in the earth.	To form a subterraneous canal or hole by scratching; to form a burrow or lodge in the earth, as animals; as the mining coney.	To practice secret means in injury.
+mine	MINE	v.t.	To sap; to undermine; to dig away or otherwise remove the substratum or foundation; hence, to ruin or destroy by slow degrees or secret means. They mined the walls. In a metaphorical sense, undermine is generally used.
+mine-digger	MINE-DIGGER	n.	One that digs mines.
+minedigger	mine-digger
+miner	MINER	n.	One that digs for metals and other fossils.	One who digs canals or passages under the walls of a fort, etc. Armies have sappers and miners.
+mineral	MINERAL	n.	A body destitute of organization, and which naturally exists within the earth or at its surface. Minerals were formerly divided into salts, earths, inflammables and ores; a division which serves for a general distribution, but a more scientific arrangement into classes, orders, genera, species, subspecies and varieties, has been adopted to meet the more precise views of modern mineralogists
+mineral	MINERAL	a.	Pertaining to minerals; consisting of fossil substances; as the mineral kingdom.	Impregnated with minerals or fossil matter; as mineral waters; a mineral spring.
+mineralist	MINERALIST	n.	One versed or employed in minerals.
+mineralization	MINERALIZATION	n.	The process of forming an ore by combination with another substance; the natural operation of uniting a metallic substance with another.	The process of converting into a mineral, as a bone or a plant.	The act of impregnating with a mineral, as water.
+mineralize	MINERALIZE	v.t.	In mineralogy, to combine with a metal in forming an ore or mineral. Sulphur mineralizes many of the metals	To convert into a mineral. In these caverns, the bones are not mineralized.	To impregnate with a mineral substance; as, to mineralize water.
+mineralized	MINERALIZED	pp.	Deprived of its usual properties by being combined with another substance or formed into an ore; as, metallic substances are mineralized	Converted into a mineral.	Impregnated with a mineral.
+mineralizer	MINERALIZER	n.	A substance which mineralizes another or combines with it in an ore, and thus deprives it of its usual and peculiar properties. Sulphur is one of the most common mineralizers.
+mineralogical	MINERALOGICAL	a.	[See Mineralogy.] Pertaining to the science of minerals; as a mineralogical table.
+mineralogically	MINERALOGICALLY	adv.	In mineralogy.
+mineralogist	MINERALOGIST	n.	One who is versed in the science of minerals, or one who treats or discourses of the properties of mineral bodies.
+mineralogy	MINERALOGY	n.	The science which treats of the properties of mineral substances, and teaches us to characterize, distinguish and class them according to their properties. It comprehends the study or science of all inorganic substances in the earth or on its surface
+mingle	MINGLE	v.t.	To mix; to blend; to unite in one body; as, to mingle liquors of different kinds.	To mix or blend without order or promiscuously. There was fire mingled with hail. Exodus 9:24.	To compound; to unite in a mass, as solid substances; as, to mingle flour, sugar and eggs in cookery.	To join in mutual intercourse or in society. The holy seed have mingled themselves with the people of those lands. Ezra 9:2. Psalms 106:35.	To contaminate; to render impure; to debase by mixture. The best of us appear contented with a mingled imperfect virtue.	To confuse. There mingle broils.
+mingle	MINGLE	v.i.	To be mixed; to be united with. She, when she saw her sister nymphs, suppressed Her rising fears, and mingled with the rest.
+mingle	MINGLE	n.	Mixture; medley; promiscuous mass. [Not used.]
+mingled	MINGLED	pp.	Mixed; united promiscuously.
+mingledly	MINGLEDLY	adv.	Confusedly.
+mingler	MINGLER	n.	One that mingles.
+mingling	MINGLING	ppr.	Mixing; uniting without order.
+miniard	MINIARD	a.	Soft; dainty. [Little used.]
+miniardize	MINIARDIZE	v.t.	To render soft, delicate or dainty.
+miniate	MINIATE	v.t.	To paint or tinge with vermillion
+miniature	MINIATURE	n.	A painting in water colors on vellum, ivory or paper, with points or dots; sometimes in oil colors. The term is usually applied to portraits painted on a very small scale.	A picture or representation in a small compass, or less than the reality.	Red letter; rubric distinction.
+minikin	MINIKIN	a.	Small; diminutive; used in slight contempt.
+minikin	MINIKIN	n.	A small sort of pins.	A darling; a favorite. [See Minion.]
+minim	MINIM	n.	A little man or being; a dwarf.	One of a certain reformed order of Franciscans or Minimi.	A note in music, equal to half a semi-breve or two crotchets.	A short poetical encomium.	A small fish.
+minimum	MINIMUM	n.	The least quantity assignable in a given case
+minimus	MINIMUS	n.	A being of the smallest size
+mining	MINING	ppr.	Digging into the earth, as for fossils and minerals; sapping.	adjective Designating the business of digging mines; as the mining districts of Siberia.
+minion	MINION	a.	Fine; trim; dainty. [Not used.]
+minion	MINION	n.	A favorite; a darling; particularly, the favorite of a prince, on whom he lavishes his favors; one who gains favors by flattery or mean adulation. Edward sent an army into Ireland, not for conquest, but to guard the person of his minion Piers Gaviston. The drowsy tyrant by his minions led.
+minion	MINION	n.	A small kind of printing types
+minioning	MINIONING	n.	Kind treatment.
+minionlike	MINIONLIKE		MIN'IONLY, adverb Finely; daintily.
+minionly	MINIONLY	adv.	Finely; daintily.
+minionship	MINIONSHIP	n.	State of being a minion.
+minious	MINIOUS	n.	Of the color of red lead or vermillion
+minish	MINISH	v.t.	To lessen; to diminish. [See Diminish.]
+minister	MINISTER	n.	Properly, a chief servant; hence, an agent appointed to transact or manage business under the authority of another; in which sense, it is a word of very extensive application. Moses rose up and his minister Joshua. Exodus 24:13.	One to whom a king or prince entrusts the direction of affairs of state; as minister of state; the prime minister In modern governments, the secretaries or heads of the several departments or branches of government are the ministers of the chief magistrate.	A magistrate; an executive officer. For he is the minister of God to thee for good. Romans 13:4.	A delegate; an embassador; the representative of a sovereign at a foreign court; usually such as is resident at a foreign court, but not restricted to such.	One who serves at the altar; one who performs sacerdotal duties; the pastor of a church, duly authorized or licensed to preach the gospel and administer the sacraments. Ephesians 3:7.	Christ is called a minister of the sanctuary. Hebrews 8:2.	An angel; a messenger of God. Who maketh his angels spirits, his ministers a flaming fire. Psalms 104:4.
+minister	MINISTER	v.t.	To give; to afford; to supply. He that ministereth seed to the sower--2 Corinthians 9:10. That it may minister grace to the hearers. Ephesians 4:29
+minister	MINISTER	v.i.	To attend and serve; to perform service in any office, sacred or secular. I will sanctify also both Aaron and his sons, to minister to me in the priest's office. Exodus 29:1.	To afford supplies; to give things needful; to supply the means of relief; to relieve. When saw we thee hungry, or thirsty, or a stranger, or naked, or sick, or in prison, and did not minister unto thee? Matthew 25:44.	To give medicines. Canst thou not minister to a mind diseased? In this sense, we commonly use administer.
+ministered	MINISTERED	pp.	Served; afforded; supplied.
+ministerial	MINISTERIAL	a.	Attending for service; attendant; acting at command. Enlight'ning spirits and ministerial flames.	Acting under superior authority; pertaining to a minister. For the ministerial offices in court, there must be an eye to them.	Pertaining to executive offices, as distinct from judicial. The office and acts of a sheriff are ministerial	Sacerdotal; pertaining to ministers of the gospel; as ministerial garments; ministerial duties. Genuine ministerial prudence keeps back no important truth, listens to no compromise with sin, connives at no fashionable vice, cringes before no lordly worldling.	Pertaining to ministers of state; as ministerial circles; ministerial benches.
+ministerially	MINISTERIALLY	adv.	In a ministerial manner or character.
+ministering	MINISTERING	ppr.	Attending and serving as a subordinate agent; serving under superior authority. Hebrews 1:14.	Affording aid or supplies; administering things needful.
+ministery	MINISTERY		[See Ministry.]
+ministral	MINISTRAL	a.	Pertaining to a minister. [Little used.]
+ministrant	MINISTRANT	a.	Performing service as a minister; attendant on service; acting under command. Princedoms and dominations ministrant
+ministration	MINISTRATION	n.	The act of performing service as a subordinate agent; agency; intervention for aid or service. -- Because their widows were neglected in the daily ministrations. Acts 6:1	Office of a minister; service; ecclesiastical function. As soon as the days of his ministration were ended. Luke 1:23.
+ministress	MINISTRESS	n.	A female that ministers.
+ministry	MINISTRY	n.	The office, duties or functions of a subordinate agent of any kind	Agency; service; aid; interposition; instrumentality. He directs the affairs of this world by the ordinary ministry of second causes.	Ecclesiastical function; agency or service of a minister of the gospel or clergyman in the modern church, or of priests, apostles and evangelists in the ancient. Acts 1:17. Romans 12:7. 2 Timothy 4:5. Numbers 4:12.	Time of ministration; duration of the office of a minister, civil or ecclesiastical. The war with France was during the ministry of Pitt.	Persons who compose the executive government or the council of a supreme magistrate; the body of ministers of state.	Business; employment. He abhorred the wicked ministry of arms.
+ministryship	MINISTRYSHIP		for ministry, is little used and hardly proper.
+minium	MINIUM	n.	The red oxyd of lead, produced by calcination. Lead exposed to air while melting is covered with a gray dusky pellicle. This taken off and agitated becomes a greenish gray powder, inclining to yellow. This oxyd, separated by sifting from the grains of lead which it contains, and exposed to a more intense heat, takes a deep yellow color, and in this state it is called massicot. The latter, slowly heated, takes a beautiful red color, and is called minium
+mink	MINK	n.	An American quadruped of the genus Mustela, an amphibious animal that burrows in the earth on the side of a river or pond, whose fur is more valuable than that of the muskrat.
+minnoc	MINNOC		used by Shakespeare, is supposed by Johnson to be the same as minx.
+minnow	MINNOW		MI'NOR, adjective [Latin minuo, to diminish. See Mince.]	Less; smaller; sometimes applied to the bulk or magnitude of a single object; more generally to amount, degree or importance. We say, the minor divisions of a body, the minor part of a body; opposed to the major part. We say, minor sums, minor faults, minor considerations, details or arguments. In the latter phrases, minor is equivalent to small, petty, inconsiderable, not principal, important or weighty.	In music, less or lower by a lesser semi-tone; as a third minor. Asia Minor, the Lesser Asia, that part of Asia which lies between the Euxine on the north, and the Mediterranean on the south.
+minor	MINOR	a.	Less; smaller; sometimes applied to the bulk or magnitude of a single object; more generally to amount, degree or importance. We say, the minor divisions of a body, the minor part of a body; opposed to the major part. We say, minor sums, minor faults, minor considerations, details or arguments. In the latter phrases, minor is equivalent to small, petty, inconsiderable, not principal, important or weighty.	In music, less or lower by a lesser semi-tone; as a third minor. Asia Minor, the Lesser Asia, that part of Asia which lies between the Euxine on the north, and the Mediterranean on the south.
+minor	MINOR	n.	A person of either sex under age; one who is under the authority of his parents or guardians, or who is not permitted by law to make contracts and manage his own property. By the laws of Great Britain and of the United States, persons are minors till they are twenty one years of age.	In logic, the second proposition of a regular syllogism, as in the following: Every act of injustice partakes of meanness. To take money from another by gaming, or reputation by seduction, are acts of injustice. Therefore the taking of money from another by gaming, or reputation by seduction, partake of meanness.	A Minorite, a Franciscan friar.	A beautiful bird of the East Indies.
+minorate	MINORATE	v.t.	To diminish. [Not used.]
+minoration	MINORATION	n.	A lessening; diminution.
+minorite	MINORITE	n.	A Franciscan friar.
+minority	MINORITY	n.	The state of being under age. [See Minor.]	The smaller number; as the minority of the senate or house of representatives; opposed to majority. We say, the minority was large or small; AB was in the minority; the minority must be ruled by the majority.
+minotaur	MINOTAUR	n.	A fabled monster, half man and half bull
+minow	MINOW	n.	A very small fish, a species of Cyprinus.
+minster	MINSTER	n.	A monastery; an ecclesiastical convent or fraternity; but it is said originally to have been the church of a monastery; a cathedral church.
+minstrel	MINSTREL	n.	A singer and musical performer on instruments. Minstrels were formerly poets as well as musicians, and held in high repute by our rude ancestors. Their attendance was sought and their performances lavishly rewarded by princes. It was in the character of a minstrel that king Alfred entered the camp of the Danes his enemies, and explored their situation.
+minstrelsy	MINSTRELSY	n.	The arts and occupations of minstrels; instrumental music.	A number of musicians. The minstrelsy of heaven.
+mint	MINT	n.	The place where money is coined by public authority. In Great Britain, formerly, there was a mint in almost every county; but the privilege of coining is now considered as a royal prerogative in that country, and as the prerogative of the sovereign power in other countries. The only mint now in Great Britain is in the Tower of London. The mint in the United States is in Philadelphia.	A place of invention or fabrication; as a mint of phrases; a mint of calumny.	A source of abundant supply.
+mint	MINT	v.t.	To coin; to make and stamp money.	To invent; to forge; to fabricate.
+mint	MINT	n.	A plant of the genus Mentha
+mintage	MINTAGE	n.	That which is coined or stamped.	The duty paid for coining.
+minter	MINTER	n.	A coiner; also, an inventor.
+mintman	MINTMAN	n.	A coiner; one skilled in coining or in coins.
+mintmaster	MINTM`ASTER	n.	The master or superintendent of a mint.	One who invents or fabricates.
+minuend	MINUEND	n.	In arithmetic, the number form which another number is to subtracted
+minuet	MINUET	n.	A slow graceful dance, consisting of a coupee, a high step and a balance.	A tune or air to regulate the movements in the dance so called; a movement of three crotchets or three quavers in a bar.
+minum	MINUM	n.	A small kind of printing types; now written minion.	A note of slow time containing two crotchets; now written minim, which see.
+minute	MINUTE	a.	Very small, little or slender; of very small bulk or size; small in consequence; as a minute grain of sand; a minute filament. The blood circulates through very minute vessels. Minute divisions of a subject often perplex the understanding. Minute details are tedious.	Attending to small things; critical; as minute observation.
+minute-book	MINUTE-BOOK	n.	A book of short hints.
+minute-glass	MINUTE-GLASS	n.	A glass, the sand of which measures a minute.
+minute-guns	MINUTE-GUNS	n.	Guns discharged every minute.
+minute-hand	MINUTE-HAND	n.	The hand that points to the minutes on a clock or watch.
+minute-watch	MINUTE-WATCH	n.	A watch that distinguishes minutes of time, or on which minutes are marked.
+minutebook	minute-book
+minuteglass	minute-glass
+minuteguns	minute-guns
+minutehand	minute-hand
+minutely	MINUTELY	adv.	To a small point of time, space or matter; exactly; nicely; as, to measure the length of any thing minutely; to ascertain time minutely; to relate a story minutely
+minutely	MINUTELY	a.	Happening every minute.
+minutely	MINUTELY	adv.	Every minute; with very little time intervening. As if it were minutely proclaimed in thunder from heaven
+minuteness	MINUTENESS	n.	Extreme smallness, fineness or slenderness; as the minuteness of the particles of air or of a fluid; the minuteness of the filaments of cotton; the minuteness of details in narration.	Attention to small things; critical exactness; as the minuteness of observation or distinction.
+minutewatch	minute-watch
+minutiae	MINUTIAE	n.	The smaller particulars
+minx	MINX	n.	A pert, wanton girl.	A she-puppy.
+miny	MINY	a.	Subterraneous.
+mirable	MIRABLE	a.	Wonderful. [Not in use.]
+miracle	MIRACLE	n.	Literally, a wonder or wonderful thing; but appropriately,	In theology, an event or effect contrary to the established constitution and course of things, or a deviation from the known laws of nature; a supernatural event. Miracles can be wrought only by Almighty power, as when Christ healed lepers, saying, 'I will, be thou clean, ' or calmed the tempest, 'Peace, be still.' They considered not the miracle of the loaves. Mark 6:52. A man approved of God by miracles and signs. Acts 2:22.	Anciently, a spectacle or dramatic representation exhibiting the lives of the saints.
+miracle	MIRACLE	v.t.	To make wonderful. [Not used.]
+miracle-monger	MIRACLE-MONGER	n.	An impostor who pretends to work miracles.
+miraclemonger	miracle-monger
+miraculous	MIRACULOUS	a.	Performed supernaturally, or by a power beyond the ordinary agency of natural laws; effected by the direct agency of Almighty power, and not by natural causes; as the miraculous healing of the sick or raising the dead by Christ.	Supernatural; furnished supernaturally, or competent to perform miracles; as the miraculous powers of the Apostles. miraculous applied to the extraordinary powers of the Apostles, may mean conferred by supernatural agency, or competent to work miracles. I believe it is generally used in the latter sense.	In a less definite sense, wonderful; extra-ordinary.
+miraculously	MIRACULOUSLY	adv.	By miracle; supernaturally. AEneas, wounded as he was, could not have engaged him in single combat, unless his hurt had been miraculously healed.	Wonderfully; by extraordinary means.
+miraculousness	MIRACULOUSNESS	n.	The state of being effected by miracle or by supernatural agency.
+mirador	MIRADOR	n.	A balcony or gallery commanding an extensive view
+mire	MIRE	n.	Deep mud; earth so wet and soft as to yield to the feet and to wheels.
+mire	MIRE	v.t.	To plunge and fix in mire; to set or stall in mud. We say, a horse, an ox or a carriage is mired, when it has sunk deep into mud and its progress is stopped.	To soil or daub with mud or foul matter.
+mire	MIRE	v.i.	To sink in mud, or to sink so deep as to be unable to move forward.
+mire	MIRE	n.	An ant. [See Pismire.]
+mire-crow	MIRE-CROW	n.	The sea-crow or pewit gull, of the genus Larus.
+mirecrow	mire-crow
+miriness	MIRINESS	n.	The state of consisting of deep mud
+mirk	MIRK	a.	Dark. [See Murky.]
+mirksome	MIRKSOME	a.	Dark; obscure. [See Murky.]
+mirksomeness	MIRKSOMENESS	n.	Obscurity. [See Murky.]
+mirror	MIRROR	n.	A looking glass; any glass or polished substance that forms images by the reflection of rays of light. In the clear mirror of thy ruling star I saw, alas! some dread event depend.	A pattern; an exemplar; that on which men ought to fix their eyes; that which gives a true representation, or in which a true image may be seen. O goddess, heavenly bright, Mirror of grace and majesty divine.
+mirror-stone	MIRROR-STONE	n.	A bright stone.
+mirrorstone	mirror-stone
+mirth	MIRTH	n.	Social merriment; hilarity; high excitement of pleasurable feelings in company; noisy gayety; jollity. mirth differs from joy and cheerfulness, as always implying noise. With genial joy to warm the soul, Bright Helen mixed a mirth-inspiring bowl. I will cause to cease the voice of mirth from Judah and Jerusalem. Jeremiah 7:34.
+mirth[fully	MIRTH[FULLY	adv.	In a jovial manner.
+mirthful	MIRTHFUL	a.	Merry; jovial; festive. The feast was served, the bowl was crown'd, To the king's pleasure went the mirthful round.
+mirthless	MIRTHLESS	a.	Without mirth or hilarity.
+miry	MIRY	a.	Abounding with deep mud; full of mire; as a miry road; a miry lane	Consisting of mire.
+mis	MIS		a prefix, denotes error, or erroneous, wrong, from the verb miss, to err, to go wrong.
+misacceptation	MISACCEPTATION	n.	The act of taking or understanding in a wrong sense.
+misadventure	MISADVENTURE	n.	Mischance; misfortune; ill luck; an unlucky accident.	In law, homicide by misadventure is when a man, doing a lawful act, without any intention of injury, unfortunately kills another. This is called excusable homicide.
+misadventured	MISADVENTURED	a.	Unfortunate.
+misadvised	MISADVISED	a.	[See Advise.] Ill advised; ill directed.
+misaffect	MISAFFECT	v.t.	To dislike.
+misaffected	MISAFFECTED	a.	Ill disposed.
+misaffirm	MISAFFIRM	v.t.	To affirm incorrectly.
+misaimed	MISAIMED	a.	Not rightly aimed or directed.
+misalledge	MISALLEDGE	v.t.	To state erroneously.
+misallegation	MISALLEGATION	n.	Erroneous statement.
+misalliance	MISALLIANCE	n.	Improper association.
+misallied	MISALLIED	a.	Ill allied or associated.
+misanthrope	MISANTHROPE		MISANTHROP'IC MISANTHROP'ICAL, adjective Hating or having a dislike to mankind.
+misanthropical	MISANTHROPICAL	a.	Hating or having a dislike to mankind.
+misanthropist	MISANTHROPIST	n.	A hater of mankind
+misanthropy	MISANTHROPY	n.	Hatred or dislike to mankind; opposed to philanthropy.
+misapplication	MISAPPLICATION	n.	A wrong application; an application to a wrong person or purpose.
+misapplied	MISAPPLIED	pp.	Applied to a wrong person or purpose.
+misapply	MISAPPLY	v.t.	To apply to a wrong person or purpose; as to misapply a name or title; to misapply our talents or exertions; to misapply public money.
+misapplying	MISAPPLYING	ppr.	Applying to a wrong person or purpose.
+misapprehend	MISAPPREHEND	v.t.	To misunderstand; to take in a wrong sense.
+misapprehended	MISAPPREHENDED	pp.	Not rightly understood.
+misapprehending	MISAPPREHENDING	ppr.	Misunderstanding.
+misapprehension	MISAPPREHENSION	n.	A mistaking or mistake; wrong apprehension of one's meaning or of a fact.
+misascribe	MISASCRIBE	v.t.	To ascribe falsely or erroneously.
+misassign	MISASSIGN	v.t.	[See Assign.] To assign erroneously.
+misattend	MISATTEND	v.t.	To disregard.
+misbecome	MISBECOME	v.t.	[See Become.] Not to become; to suit ill; not to befit. Thy father will not act what misbecomes him.
+misbecoming	MISBECOMING	ppr.	or adjective Unseemly; unsuitable; improper; indecorous.
+misbecomingness	MISBECOMINGNESS	n.	Unbecomingness; unsuitableness.
+misbegot	MISBEGOT		MISBEGOT'TEN, participle present tense or adjective Unlawfully or irregularly begotten.
+misbegotten	MISBEGOTTEN	ppr.	or a. Unlawfully or irregularly begotten.
+misbehave	MISBEHAVE	v.i.	To behave ill; to conduct one's self improperly.
+misbehaved	MISBEHAVED	a.	Guilty of ill behavior; ill bred; rude.
+misbehavior	MISBEHAVIOR	n.	Ill conduct; improper, rude or uncivil behavior.
+misbelief	MISBELIEF	n.	Erroneous belief; false religion.
+misbelieve	MISBELIEVE	v.t.	To believe erroneously.
+misbeliever	MISBELIEVER	n.	One who believes wrongly; one who holds a false religion.
+misbelieving	MISBELIEVING	a.	Believing erroneously; irreligious.
+misbeseem	MISBESEEM	v.t.	To suit ill.
+misbestow	MISBESTOW	v.t.	To bestow improperly.
+misborn	MISBORN	a.	Born to evil.
+miscalculate	MISCALCULATE	v.t.	To calculate erroneously.
+miscalculated	MISCALCULATED	pp.	Erroneously calculated.
+miscalculating	MISCALCULATING	ppr.	Committing errors in calculation.
+miscalculation	MISCALCULATION	n.	Erroneous calculation.
+miscall	MISCALL	v.t.	To call by a wrong name; to name improperly.
+miscalled	MISCALLED	pp.	Misnamed.
+miscalling	MISCALLING	ppr.	Misnaming.
+miscarriage	MISCARRIAGE	n.	Unfortunate event of an undertaking; failure. When a counselor, to save himself, Would lay miscarriages upon his prince.	Ill conduct; evil or improper behavior; as the failings and miscarriages of the righteous.	Abortion; the act of bringing forth before the time.
+miscarry	MISCARRY	v.i.	To fail of the intended effect; not to succeed; to be unsuccessful; to suffer defeat; applied to persons or undertakings, and to things. We say, a project, scheme, design, enterprise, attempt, has miscarried. Have you not heart of Frederick, the great soldier, who miscarried at sea? My ships have all miscarried.	To bring forth young before the proper time; to suffer abortion.
+miscarrying	MISCARRYING	ppr.	Failing of the intended effect; suffering abortion. Hosea 9.
+miscast	MISCAST	v.t.	To cast or reckon erroneously.
+miscast	MISCAST	pp.	Erroneously cast or reckoned.
+miscast	MISCAST	n.	An erroneous cast or reckoning.
+miscasting	MISCASTING	ppr.	Casting or reckoning erroneously.
+miscellanarian	MISCELLANARIAN	a.	[See Miscellany.] Belonging to miscellanies; of miscellanies. Miscellanarian authors.
+miscellanarian	MISCELLANARIAN	n.	A writer of miscellanies.
+miscellane	MISCELLANE	n.	A mixture of two or more sorts of grain; now called meslin
+miscellaneous	MISCELLANEOUS	a.	Mixed; mingled; consisting of several kinds; as a miscellaneous publication; a miscellaneous rabble
+miscellaneousness	MISCELLANEOUSNESS	n.	The state of being mixed; composition of various kinds.
+miscellany	MISCELLANY	n.	A mass or mixture of various kinds; particularly,	A book or pamphlet containing a collection of compositions on various subjects, or a collection of various kinds of compositions.
+miscellany	MISCELLANY	a.	Miscellaneous.
+miscenter	MISCENTER	v.t.	To place amiss. [Not in use.]
+mischance	MISCHANCE	n.	Ill luck; ill fortune; misfortune; mishap; misadventure. It is a man's unhappiness, his mischance or calamity, but not his fault.
+mischaracterize	MISCHARACTERIZE	v.t.	[See Character.] To characterize falsely or erroneously; to give a wrong character to. They totally mischaracterize the action.
+mischarge	MISCHARGE	v.t.	To mistake in charging, as an account.
+mischarge	MISCHARGE	n.	A mistake in charging, as an account; an erroneous entry in an account.
+mischief	MISCHIEF	n.	Harm; hurt; injury; damage; evil, whether intended or not. A new law is made to remedy the mischief	Intentional injury; harm or damage done by design. Thy tongue deviseth mischief Psalms 52:1.	Ill consequence; evil; vexatious affair. The mischief was, these allies would never allow that the common enemy was subdued.
+mischief	MISCHIEF	v.t.	To hurt; to harm; to injure.
+mischief-maker	MISCHIEF-MAKER	n.	One who makes mischief; one who excites or instigates quarrels or enmity.
+mischief-making	MISCHIEF-MAKING	a.	Causing harm; exciting enmity or quarrels.
+mischiefmaker	mischief-maker
+mischiefmaking	mischief-making
+mischievous	MISCHIEVOUS	a.	Harmful; hurtful; injurious; making mischief; of persons; as a mischievous man or disposition.	Hurtful; noxious; as a mischievous thing.	Inclined to do harm; as a mischievous boy.
+mischievously	MISCHIEVOUSLY	adv.	With injury, hurt, loss or damage. We say, the law operates mischievously	With evil intention or disposition. The injury was done mischievously
+mischievousness	MISCHIEVOUSNESS	n.	Disposition to do harm, or to vex or annoy; as the mischievousness of youth. Mischief denotes injury, harm or damage of less malignity and magnitude than what are usually called crimes. We never give the name of mischief to theft, robbery or murder. And it so commonly implies intention in committing petty offenses, that it shocks us to hear the word applied to the calamities inflicted by Providence. We say, a tempest has done great damage, but not mischief. In like manner, the adjective mischievous is not applied to thieves, pirates and other felons, but to persons committing petty trespasses and offenses.
+mischna	MISCHNA	n.	A part of the Jewish Talmud. [See Mishna.]
+mischoose	MISCHOOSE	v.t.	To choose wrong; to make a wrong choice.
+mischosen	MISCHOSEN	pp.	Chosen by mistake.
+miscible	MISCIBLE	a.	That may be mixed. Oil and water are not miscible
+miscitation	MISCITATION	n.	A wrong citation; erroneous quotation.
+miscite	MISCITE	v.t.	To cite erroneously or falsely.
+misclaim	MISCLAIM	n.	A mistaken claim or demand.
+miscomputation	MISCOMPUTATION	n.	Erroneous computation; false reckoning.
+miscompute	MISCOMPUTE	v.t.	To compute or reckon erroneously.
+misconceit	MISCONCEIT		MISCONCE'IVE, verb transitive or i. To receive a false notion or opinion of any thing; to misjudge; to have an erroneous understanding of any thing. To yield to others just and reasonable causes of those things, which, for want of due consideration heretofore, they have misconceived.
+misconceive	MISCONCEIVE	v.t.	or i. To receive a false notion or opinion of any thing; to misjudge; to have an erroneous understanding of any thing. To yield to others just and reasonable causes of those things, which, for want of due consideration heretofore, they have misconceived.
+misconceived	MISCONCEIVED	pp.	Wrongly understood; mistaken.
+misconceiving	MISCONCEIVING	ppr.	Mistaking; misunderstanding.
+misconception	MISCONCEPTION	n.	Erroneous conception; false opinion; wrong notion or understanding of a thing. Great errors and dangers result from a misconception of the names of things.
+misconduct	MISCONDUCT	n.	Wrong conduct; ill behavior; ill management.
+misconduct	MISCONDUCT	v.t.	To conduct amiss; to mismanage.
+misconduct	MISCONDUCT	v.i.	To behave amiss.
+misconducted	MISCONDUCTED	pp.	Ill managed; badly conducted.
+misconducting	MISCONDUCTING	ppr.	Mismanaging; misbehaving.
+misconjecture	MISCONJECTURE	n.	A wrong conjecture or guess.
+misconjecture	MISCONJECTURE	v.t.	or i. To guess wrong.
+misconstruction	MISCONSTRUCTION	n.	Wrong interpretation of words or things; a mistaking of the true meaning; as a misconstruction of words or actions.
+misconstrue	MISCONSTRUE	v.t.	To interpret erroneously either words or things. It is important not to misconstrue the Scriptures. Do not, great sir, misconstrue his intent. A virtuous emperor was much affected to find his actions misconstrued.
+misconstrued	MISCONSTRUED	pp.	Erroneously interpreted.
+misconstruer	MISCONSTRUER	n.	One who makes a wrong interpretation.
+misconstruing	MISCONSTRUING	ppr.	Interpreting wrongly.
+miscorrect	MISCORRECT	v.t.	To correct erroneously; to mistake in attempting to correct another. He passed the first seven years of his life at Mantua, not seventeen, as Scaliger miscorrects his author.
+miscorrected	MISCORRECTED	pp.	Mistaken in the attempt to correct.
+miscounsel	MISCOUNSEL	v.t.	To advise wrong.
+miscount	MISCOUNT	v.t.	To count erroneously; to mistake in counting.
+miscount	MISCOUNT	v.i.	To make a wrong reckoning.
+miscount	MISCOUNT	n.	An erroneous counting or numbering.
+miscreance	MISCREANCE		MIS'CREANCY, noun [See Miscreant.] Unbelief; false faith; adherence to a false religion.
+miscreancy	MISCREANCY	n.	[See Miscreant.] Unbelief; false faith; adherence to a false religion.
+miscreant	MISCREANT	n.	An infidel, or one who embraces a false faith.	A vile wretch; an unprincipled fellow.
+miscreate	MISCREATE		MISCREA'TED, adjective Formed unnaturally or illegitimately; deformed.
+miscreated	MISCREATED	a.	Formed unnaturally or illegitimately; deformed.
+misdate	MISDATE	n.	A wrong date.
+misdate	MISDATE	v.i.	To date erroneously.
+misdeed	MISDEED	n.	An evil deed; a wicked action. Evils which our own misdeeds have wrought.
+misdeem	MISDEEM	v.t.	To judge erroneously; to misjudge; to mistake in judging.
+misdemean	MISDEMEAN	v.t.	To behave ill.
+misdemeanor	MISDEMEANOR	n.	Ill behavior; evil conduct; fault; mismanagement.	In law, an offense of a less atrocious nature than a crime. Crimes and misdemeanors are mere synonymous terms; but in common usage, the word crime is made to denote offenses of a deeper and more atrocious dye, while small faults and omissions of less consequence are comprised under the gentler name of misdemeanors.
+misdesert	MISDESERT	n.	Ill desert.
+misdevotion	MISDEVOTION	n.	False devotion; mistaken piety. [Little used.]
+misdiet	MISDIET	n.	Improper diet or food. [Not used.]
+misdirect	MISDIRECT	v.t.	To give a wrong direction to; as to misdirect a passenger.	To direct to a wrong person or place; as, to misdirect a letter.
+misdirected	MISDIRECTED	pp.	Directed wrong, or to a wrong person or place.
+misdirecting	MISDIRECTING	ppr.	Directing wrong, or to a wrong person or place.
+misdisposition	MISDISPOSITION	n.	Disposition to evil. [Not in use.]
+misdistinguish	MISDISTINGUISH	v.t.	To make wrong distinctions.
+misdo	MISDO	v.t.	[See Do.] To do wrong; to do amiss; to commit a crime or fault.
+misdoer	MISDOER	n.	One who does wrong; one who commits a fault or crime.
+misdoing	MISDOING	ppr.	Doing wrong; committing a fault or crime.
+misdoing	MISDOING	n.	A wrong done; a fault or crime; an offense.
+misdoubt	MISDOUBT	v.t.	[See Doubt.] To suspect of deceit or danger. [An ill formed word and not in use.]
+misdoubt	MISDOUBT	n.	Suspicion of crime or danger. [Not used.]	Irresolution; hesitation. [Not used.]
+misdoubtful	MISDOUBTFUL	a.	Misgiving. [Not used.]
+mise	MISE	n.	In law, an issue to be tried at the grand assize.	Expense; cost.	A tax or tallage; in Wales, an honorary gift of the people to a new king or prince of Wales; also, a tribute paid in the county Palatine of Chester at the change of the owner of the earldoms.
+misemploy	MISEMPLOY	v.t.	To employ to no purpose, or to a bad purpose; as, to misemploy time, power, advantages, talents, etc.
+misemployed	MISEMPLOYED	pp.	Used to no purpose, or to a bad one.
+misemploying	MISEMPLOYING	ppr.	Using to no purpose, or to a bad one.
+misemployment	MISEMPLOYMENT	n.	Ill employment; application to no purpose, or to a bad purpose.
+misentry	MISENTRY	n.	An erroneous entry or charge, as of an account.
+miser	MISER	n.	s as z. [Latin miser miserable.] A miserable person; one wretched or afflicted.	A wretch; a mean fellow.	An extremely covetous person; a sordid wretch; a niggard; one who in wealth makes himself miserable by the fear of poverty. [This is the only sense in which it is now used.] No silver saints by dying misers given.
+miserabale	MISERABALE	a.	s as z. [Latin miser, miserabilis.]	Very unhappy from grief, pain, calamity, poverty, apprehension of evil, or other cause. It however expresses somewhat less than wretched. What hopes delude thee, miserable man?	Very poor; worthless. Miserable comforters are ye all. Job 16:1.	Causing unhappiness or misery. What's more miserable than discontent?	Very poor or mean; as a miserable hut; miserable clothing.	Very poor or barren; as a miserable soil.	Very low or despicable; as a miserable person.
+miserableness	MISERABLENESS	n.	State of misery; poorness.
+miserably	MISERABLY	adv.	Unhappily; calamitously. The fifth was miserably stabbed to death.	Very poorly or meanly; wretchedly. They were miserably entertained.	In misery or unhappiness.
+miserly	MISERLY	a.	[See Miser.] Very covetous; sordid; niggardly; parsimonious.
+misery	MISERY	n.	s as z. [Latin miseria.]	Great unhappiness; extreme pain of body or mind. A man suffers misery from the gout, or from great afflictions, distress, calamity, and other evils. misery expresses somewhat less than wretchedness. Misery is as really the fruit of vice reigning in the heart, as tares are the produce of tares sown in the field.	Calamity; misfortune; natural evils which are the cause of misery And mourn the miseries of human life.	Covetousness. [Not used.]
+misestimate	MISESTIMATE	v.t.	To estimate erroneously.
+misfall	MISFALL	v.t.	To befall, as ill luck; to happen to unluckily.
+misfare	MISFARE	n.	Ill fare; misfortune.
+misfashion	MISFASHION	v.t.	To form wrong.
+misfeasance	MISFEASANCE	n.	In law, a trespass; a wrong done.
+misform	MISFORM	v.t.	To make of an ill form; to put in an ill shape.
+misfortune	MISFORTUNE	n.	Ill fortune; ill luck; calamity; an evil or cross accident; as loss of property at sea or by fire. Consider why the change was wrought, You'll find it his misfortune not his fault.
+misfortuned	MISFORTUNED	a.	Unfortunate.
+misgive	MISGIVE	v.t.	[See Give.] To fill with doubt; to deprive of confidence; to fail; usually applied to the heart. So doth my heart misgive me. His heart misgave him.	To give or grant amiss. [Not in use.]
+misgiving	MISGIVING	ppr.	Filling with doubt or distrust; failing.
+misgiving	MISGIVING	n.	A failing of confidence; doubt; distrust. Doubts, suspicions and misgivings.
+misgotten	MISGOTTEN	a.	Unjustly obtained.
+misgovern	MISGOVERN	v.t.	To govern ill; to administer unfaithfully. Solyman charged him bitterly that he had misgoverned the state.
+misgovernance	MISGOVERNANCE	n.	Ill government; disorder; irregularity.
+misgoverned	MISGOVERNED	pp.	Ill governed; badly administered.	Rude; unrestrained; as rude, misgoverned hands.
+misgovernment	MISGOVERNMENT	n.	Ill administration of public affairs.	Ill management in private affairs.	Irregularity; disorder.
+misgraff	MISGRAFF	v.t.	To graft amiss.
+misground	MISGROUND	v.t.	To found erroneously.
+misguidance	MISGUIDANCE	n.	Wrong direction; guidance into error.
+misguide	MISGUIDE	v.t.	To lead or guide into error; to direct ill; as, to misguide the understanding or mind.
+misguided	MISGUIDED	pp.	Let astray by evil counsel or wrong direction; as a misguided prince.
+misguiding	MISGUIDING	ppr.	Giving wrong direction to; leading into error.
+misgum	MISGUM		MIS'GURN, noun An anguilliform fish about the size of a common eel.
+misgurn	MISGURN	n.	An anguilliform fish about the size of a common eel.
+mishap	MISHAP	n.	Ill chance; evil accident; ill luck; misfortune. Secure from worldly chances and mishaps.
+mishappen	MISHAPPEN	v.i.	To happen ill.
+mishear	MISHEAR	v.t.	To mistake in hearing.
+mishna	MISHNA	n.	A collection or digest of Jewish traditions and explanations of Scripture.
+mishnic	MISHNIC	a.	Pertaining or relating to the Mishna.
+misimprove	MISIMPROVE	v.t.	To improve to a bad purpose; to abuse; as, to misimprove time, talents, advantages.
+misimproved	MISIMPROVED	pp.	Used to a bad purpose.
+misimprovement	MISIMPROVEMENT	n.	Ill use or employment; improvement to a bad purpose.
+misinfer	MISINFER	v.t.	To draw a wrong inference.
+misinform	MISINFORM	v.t.	To give erroneous information to; to communicate an incorrect statement of facts.
+misinformation	MISINFORMATION	n.	Wrong informations; false account or intelligence received.
+misinformed	MISINFORMED	pp.	Wrongly informed.
+misinformer	MISINFORMER	n.	One that gives wrong information.
+misinforming	MISINFORMING	ppr.	Communicating erroneous information to.
+misinstruct	MISINSTRUCT	v.t.	To instruct amiss.
+misinstruction	MISINSTRUCTION	n.	Wrong instruction.
+misintelligence	MISINTELLIGENCE	n.	Wrong information; disagreement.
+misinterpret	MISINTERPRET	v.t.	To interpret erroneously; to understand or to explain in a wrong sense.
+misinterpretation	MISINTERPRETATION	n.	The act of interpreting erroneously.
+misinterpreted	MISINTERPRETED	a.	Erroneously understood or explained.
+misinterpreter	MISINTERPRETER	n.	One who interprets erroneously.
+misinterpreting	MISINTERPRETING	ppr.	Erroneously interpreting.
+misjoin	MISJOIN	v.t.	To join unfitly or improperly.
+misjoined	MISJOINED	pp.	Improperly united.
+misjoining	MISJOINING	ppr.	Joining unfitly or improperly.
+misjudge	MISJUDGE	v.t.	To mistake in judging of; to judge erroneously.
+misjudge	MISJUDGE	v.i.	To err in judgment; to form false opinions or notions.
+misjudged	MISJUDGED	pp.	Judged erroneously.
+misjudging	MISJUDGING	ppr.	Judging erroneously of; forming a wrong opinion or inference.
+misjudgment	MISJUDGMENT	n.	A wrong or unjust determination.
+miskin	MISKIN	n.	A little bagpipe.
+miskindle	MISKINDLE	v.t.	To kindle amiss; to inflame to a bad purpose.
+mislaid	MISLAID	pp.	Laid in a wrong place, or place not recollected; lost.
+mislay	MISLAY	v.t.	To lay in a wrong place. The fault is generally mislaid upon nature.	To lay in a place not recollected; to lose. If the butler be the tell-tale, mislay a spoon so as he may never find it.
+mislayer	MISLAYER	n.	One that lays in a wrong place; one that loses.
+mislaying	MISLAYING	ppr.	Laying in a wrong place, or place not remembered; losing.
+misle	MISLE	v.i.	To rain in very fine drops, like a thick mist
+mislead	MISLEAD	v.t.; pret. and pp. misled	[See Lead.] To lead into a wrong way or path; to lead astray; to guide into error; to cause to mistake; to deceive. Trust not servants who mislead or misinform you, But of the two, less dangerous is th' offense, To tire our patience, than mislead our sense.
+misleader	MISLEADER	n.	One who leads into error.
+misleading	MISLEADING	ppr.	Leading into error; causing to err; deceiving.
+misled	MISLED	pp.	of mislead. Let into error; led a wrong way. --To give due light To the misled and lonely traveller.
+misletoe	MISLETOE	n.	A plant or shrub that grows on trees. It is of the genus Viscum. The berry contains a glutinous substance, and the shrub is said to be propagated by birds. This plant was held in great veneration by the Druids.
+mislike	MISLIKE	v.t.	To dislike; to disapprove; to have aversion to; as, to mislike a man or an opinion. [For this word, dislike is generally used.]
+mislike	MISLIKE	n.	Dislike; disapprobation; aversion.
+misliked	MISLIKED	pp.	Disliked; disapproved.
+misliker	MISLIKER	n.	One that dislikes.
+misliking	MISLIKING	ppr.	Disliking; disapproving.
+mislin	MISLIN		[See Meslin.]
+mislive	MISLIVE	v.i.	To live amiss. [Not used.]
+misluck	MISLUCK	n.	Ill luck; misfortune.
+misly	MISLY	a.	[See Misle and Mist.] Raining in very small drops.
+mismanage	MISMANAGE	v.t.	To manage ill; to administer improperly; as, to mismanage public affairs.
+mismanage	MISMANAGE	v.i.	To behave ill; to conduct amiss.
+mismanaged	MISMANAGED	pp.	Ill managed or conducted.
+mismanager	MISMANAGER	n.	One that manages ill.
+mismanaging	MISMANAGING	ppr.	Managing ill.
+mismanagment	MISMANAGMENT	n.	Ill or improper management; ill conduct; as the mismanagement of public or private affairs.
+mismark	MISMARK	v.t.	To mark with the wrong token; to mark erroneously.
+mismarked	MISMARKED	pp.	Wrongly marked.
+mismarking	MISMARKING	ppr.	Marking erroneously.
+mismatch	MISMATCH	v.t.	To match unsuitably.
+mismatched	MISMATCHED	pp.	Unsuitably matched; ill joined.
+mismatching	MISMATCHING	ppr.	Matching in an unsuitable manner.
+misname	MISNAME	v.t.	To call by the wrong name.
+misnamed	MISNAMED	pp.	Called by a wrong name.
+misnaming	MISNAMING	ppr.	Calling by a wrong name.
+misnomer	MISNOMER	n.	In law, the mistaking of the true name of a person; a misnaming. [Misnosmer, as written by Blackstone, must be a corrupt orthography. In no dialect has name, Latin nomen, been written with s, unless by mistake.
+misobedience	MISOBEDIENCE	n.	Erroneous obedience or disobedience. [Not used.]
+misobserve	MISOBSERVE	v.t.	To observe inaccurately; to mistake in observing.
+misogamist	MISOGAMIST	n.	A hater of marriage
+misogynist	MISOGYNIST	n.	A woman hater. [Unusual.]
+misogyny	MISOGYNY	n.	Hatred of the female sex
+misopinion	MISOPINION	n.	Erroneous opinion.
+misorder	MISORDER	v.t.	To order ill; to manage erroneously.	To manage ill; to conduct badly.
+misorder	MISORDER	n.	Irregularity; disorderly proceedings. [We now use disorder.]
+misorderly	MISORDERLY	a.	Irregular; disorderly.
+mispell	MISPELL		MISPEND, etc. [See Miss-spell, Miss-spend.]
+mispend	MISPELL		MISPEND etc. [See Miss-spell, Miss-spend.]
+mispersuade	MISPERSUADE	v.t.	To persuade amiss, or to lead to a wrong notion.
+mispersuasion	MISPERSUASION	n.	A false persuasion; wrong notion or opinion.
+mispikel	MISPIKEL	n.	Arsenical pyrite; an ore of arsenic, containing this metal in combination with iron, sometimes found in cubic crystals, but more often without any regular form.
+misplace	MISPLACE	v.t.	To put in a wrong place; as, the book is misplaced.	To place on an improper object; as, he misplaced his confidence.
+misplaced	MISPLACED	pp.	Put in a wrong place, or on an improper object.
+misplacing	MISPLACING	ppr.	Putting in a wrong place, or on a wrong object.
+misplead	MISPLEAD	v.i.	To err in pleading.
+mispleading	MISPLEADING	ppr.	Making a mistake in pleading.
+mispleading	MISPLEADING	n.	A mistake in pleading.
+mispoint	MISPOINT	v.t.	To point improperly; to err in punctuation.
+misprint	MISPRINT	v.t.	To mistake in printing; to print wrong.
+misprint	MISPRINT	n.	A mistake in printing; a deviation from the copy.
+misprinted	MISPRINTED	pp.	Erroneously printed.
+misprinting	MISPRINTING	ppr.	Printing wrong.
+misprise	MISPRISE		MISPRISION, noun misprizh'un. [supra.] Neglect; contempt.	In law, any high offense under the degree of capital, but nearly bordering thereon. Misprision is contained in every treason and felony. Misprisions are divided into negative and positive; negative, which consist in the concealment of something which ought to be revealed; and positive, which consist in the commission of something which ought not to be done. Misprision of treason, consists in a bare knowledge and concealment of treason, without assenting to it. Maladministration in offices of high public trust, is a positive misprision.	Mistake; oversight; contempt. [Not in use.]
+misprision	MISPRISION	n.	In law, any high offense under the degree of capital, but nearly bordering thereon. Misprision is contained in every treason and felony. Misprisions are divided into negative and positive; negative, which consist in the concealment of something which ought to be revealed; and positive, which consist in the commission of something which ought not to be done. Misprision of treason, consists in a bare knowledge and concealment of treason, without assenting to it. Maladministration in offices of high public trust, is a positive misprision.1. Mistake; oversight; contempt. [Not in use.]
+misprize	MISPRIZE	v.t.	To mistake.	To slight or undervalue. O for those vanish'd hours, so much mispris'd.
+misproceeding	MISPROCEEDING	n.	Wrong or irregular proceeding.
+misprofess	MISPROFESS	v.t.	To make a false profession; to make pretensions to skill which is not possessed.
+mispronounce	MISPRONOUNCE	v.t.	To pronounce erroneously; as, to mispronounce a word, a name, etc.
+mispronounce	MISPRONOUNCE	v.i.	To speak incorrectly.
+mispronunciation	MISPRONUNCIATION	n.	A wrong or improper pronunciation.
+misproportion	MISPROPORTION	v.t.	To err in proportioning one thing to another; to join without due proportion.
+misproud	MISPROUD	v.	Vitiously proud. [Not used.]
+misquotation	MISQUOTATION	n.	An erroneous quotation; the act of quoting wrong.
+misquote	MISQUOTE	v.t.	To quote erroneously; to cite incorrectly.
+misquoted	MISQUOTED	pp.	Incorrectly quoted or cited.
+misquoting	MISQUOTING	ppr.	Quoting or citing erroneously.
+misrate	MISRATE	v.t.	To rate erroneously; to estimate falsely.
+misrecital	MISRECITAL	n.	An inaccurate recital.
+misrecite	MISRECITE	v.t.	To recite erroneously.
+misrecited	MISRECITED	pp.	Recited incorrectly.
+misreciting	MISRECITING	ppr.	Reciting erroneously.
+misreckon	MISRECKON	v.t.	To reckon or compute wrong.
+misreckoned	MISRECKONED	pp.	Reckoned or computed erroneously.
+misreckoning	MISRECKONING	ppr.	Reckoning wrong; and as a noun, an erroneous computation.
+misrelate	MISRELATE	v.t.	To relate falsely or inaccurately.
+misrelated	MISRELATED	pp.	Erroneously related or told.
+misrelating	MISRELATING	ppr.	Relating or telling erroneously.
+misrelation	MISRELATION	n.	Erroneous relation or narration.
+misremember	MISREMEMBER	v.t.	To mistake in remembering; not to remember correctly.
+misremembered	MISREMEMBERED	pp.	Inaccurately recollected.
+misremembering	MISREMEMBERING	ppr.	Remembering inaccurately.
+misreport	MISREPORT	v.t.	To report erroneously; to give an incorrect account of.
+misreport	MISREPORT	n.	An erroneous report; a false or incorrect account given.
+misreported	MISREPORTED	pp.	Incorrectly reported.
+misreporting	MISREPORTING	ppr.	Reporting incorrectly.
+misrepresent	MISREPRESENT	v.t.	To represent falsely or incorrectly; to give a false or erroneous representation, either maliciously, ignorantly or carelessly.
+misrepresentation	MISREPRESENTATION	n.	The act of giving a false or erroneous representation.	A false or incorrect account given, either from mistake, carelessness or malice.
+misrepresented	MISREPRESENTED	pp.	Falsely or erroneously represented.
+misrepresenter	MISREPRESENTER	n.	One who gives a false or erroneous account.
+misrepresenting	MISREPRESENTING	ppr.	Giving a false or erroneous representation. [Note. This word is so customarily used for an euphemism, or as a softer expression for lie or falsehood, as to convey the idea generally of intentional falsehood. This signification however is not necessarily implied.]
+misrepute	MISREPUTE	v.t.	To have in wrong estimation.
+misreputed	MISREPUTED	pp.	or adjective Erroneously reputed.
+misrule	MISRULE	n.	Disorder; confusion; tumult from insubordination. Enormous riot and misrule--	Unjust domination.
+misruly	MISRULY	a.	Unruly; ungovernable; turbulent.
+miss	MISS	n.	The title of a young woman or girl; as little masters and misses.	A kept mistress; a prostitute retained; a concubine.
+miss	MISS	v.t.	To fail in aim; to fail of reaching the object; not to hit; as, to miss the mark; to miss the object intended.	To fail of finding the right way; to err in attempting to find; as, to miss the way or the road.	To fail of obtaining. Orgalus feared nothing but to miss Parthenia.	To learn or discover that something is wanting, or not where it was supposed to be; as, to miss one's snuff-box; I missed the first volume of Livy. Neither missed we any thing--. Nothing was missed of all that pertained to him. 1 Samuel 25:15.	To be without; as, we cannot miss him.	To omit; to pass by; to go without; to fail to have; as, to miss a meal of victuals. She would never miss one day A walk so fine, a sight so gay.	To perceive the want of. What by me thou hast lost, thou least shalt miss He who has a firm sincere friend, may want all the rest without missing them.	To fail of seeing or finding.
+miss	MISS	v.i.	To fail to hit; to fly wide; to deviate from the true direction. Flying bullets now, To execute his rage, appear too slow; They miss or sweep but common souls away.	Not to succeed; to fail. Men observe when things hit, and not when they miss--	To fail; to miscarry, as by accident. The invention all admired, and each, how he To be the inventor missed.	To fail to obtain, learn or find; with of. On the least reflection, we can miss of them.	To fail; to mistake.
+miss	MISS	n.	Loss; want. There will be no great miss of those which are lost.	Mistake; error. He did without any great miss in the hardest points of grammar. [Little used.]	Harm from mistake.
+missal	MISSAL	n.	The Romish mass-book.
+missay	MISSAY	v.t.	To say wrong; to slander. [Little used.]
+missay	MISSAY	v.i.	To speak ill.
+missaying	MISSAYING	n.	Wrong expression.
+misseem	MISSEEM	v.i.	To make a false appearance.	To misbecome.
+missel	MISSEL		MIS'SEL-BIRD, noun A species of thrush.
+missel-bird	MISSEL-BIRD	n.	A species of thrush.
+misselbird	missel-bird
+misseldine	MISSELDINE	n.	The mistletoe. [Not used.]
+missemblance	MISSEMBLANCE	n.	False resemblance.
+misserve	MISSERVE	v.t.	To serve unfaithfully.
+misshape	MISSHAPE	v.t.	[See Shape.] To shape ill; to give an ill form to; to deform. And horribly misshapes with ugly sights. A misshaped figure. Misshapen mountains.
+misshaped	MISSHAPED		MISSHA'PEN, participle passive Ill formed; deformed; ugly.
+misshapen	MISSHAPEN	pp.	Ill formed; deformed; ugly.
+missile	MISSILE	a.	Thrown or sent, or that may be thrown. A missile weapon is one that is thrown by the hand, or from an engine in war, in distinction from such as are held or retained in the hand, or fixed. An arrow, a dart, a javelin, a stone, a bullet, a bomb, are missile weapons
+missing	MISSING	ppr.	Failing to hit, to reach or to find; discovering to be wanting	adjective Lost; absent from the place where it was expected to be found; wanting. My horse is missing; my pen or my book is missing For a time caught up to God, as once Moses was in the mount, and missing long.
+mission	MISSION	n.	A sending or being sent, usually the latter; a being sent or delegated by authority, with certain powers for transacting business; commission; as sent on a foreign mission How to begin, how to accomplish best His end of being on earth, and mission high.	Persons sent; any number of persons appointed by authority to perform any service; particularly, the persons sent to propagate religion, or evangelize the heathen. The societies for propagating the gospel have missions in almost every country. Last week a mission sailed for the Sandwich isles. We have domestic missions and foreign missions.	Dismission; discharge from service; a Roman use of the word; in English, obsolete.	Faction; party. [Not in use.]
+missionary	MISSIONARY	n.	One sent to propagate religion. Christian missionaries are called missionaries of the cross.
+missionary	MISSIONARY	a.	Pertaining to mission; as a missionary meeting; a missionary fund.
+missioner	MISSIONER		for missionary, is not used.
+missive	MISSIVE	a.	Such as is sent; as a letter missive	Thrown or sent, or such as may be sent; as a missive weapon.
+missive	MISSIVE	n.	A letter sent, or messenger.
+misspeak	MISSPEAK	v.i.	[See Speak.] To err or mistake in speaking.
+misspeak	MISSPEAK	v.t.	To utter wrong.
+misspell	MISSPELL	v.t.	To spell wrong, to write or utter with wrong letters.
+misspelled	MISSPELLED		MISSPELL'ING, participle present tense Spelling wrong.
+misspelling	MISSPELLING	ppr.	Spelling wrong.
+misspelling	MISSPELLING	n.	A wrong spelling; false orthography.
+misspelt	MISSPELT	pp.	Spelled wrong, or with wrong letters.
+misspend	MISSPEND	v.t.	To spend amiss; to waste or consume to no purpose, or to a bad one; as, to misspend time or money; to misspend life.	To waste. The genial moisture due To apples, otherwise misspends itself.
+misspender	MISSPENDER	n.	One that consumes prodigally or improperly.
+misspending	MISSPENDING	pp.	Spending to no purpose, or to a bad one.
+misspense	MISSPENSE	n.	A spending improperly; a wasting.
+misspent	MISSPENT	ppr.	Ill spent; expended or consumed to no purpose, or to a bad one; as misspent time or life.
+misspoke	MISSPOKE		MISSPO'KEN, participle passive Uttered or spoken amiss.
+misspoken	MISSPOKEN	pp.	Uttered or spoken amiss.
+misstate	MISSTATE	v.t.	To state wrong; to make an erroneous representation of facts; as, to misstate a question in debate.
+misstated	MISSTATED	pp.	Stated erroneously.
+misstatement	MISSTATEMENT	n.	A wrong statement; an erroneous representation, verbal or written; as a misstatement of facts in testimony, or of accounts in a report.
+misstating	MISSTATING	ppr.	Stating falsely or erroneously.
+missy	MISSY	n.	The sulphate of iron, having lost the water of its crystallization, is called sori; more thoroughly calcined, it is yellow, and called missy
+mist	MIST	n.	Water falling in very numerous, but fine and almost imperceptible drops. A mist is a multitude of small but solid globules, which therefore descend.	That which dims or darkens, and obscures or intercepts vision. His passion cast a mist before his sense.
+mist	MIST	v.t.	To cloud; to cover with vapor.
+mist-encumbered	MIST-ENCUMBERED	a.	Loaded with mist.
+mistakable	MISTAKABLE	a.	That may be misconceived or mistaken.
+mistake	MISTAKE	v.t.	To take wrong; to conceive or understand erroneously; to misunderstand or misapprehend. 'Tis to mistake them costs the time and pain.	To take one thing or person for another. We mistake the eloquence of self-apology for the animation of conscious integrity. A man may mistake the love of virtue for the practice of it.
+mistake	MISTAKE	v.i.	To err in opinion or judgment. Servants mistake, and sometimes occasion misunderstanding among friends.
+mistake	MISTAKE	n.	An error in opinion or judgment; misconception. Infallibility is an absolute security of the understanding from all possibility of mistake.	A slip; a fault; an error. There is a mistake in the account or in the date.
+mistaken	MISTAKEN		In the use of this participle, there is a peculiarity which ought to be carefully noticed. When used of persons, it signified to be in an error, to be wrong; as, I am mistaken you are mistaken he is mistaken But when used of things, it signified misunderstood, misconceived; as, the sense of the passage is mistaken that is, not rightly understood.
+mistaker	MISTAKER	n.	One that mistakes or misunderstands.
+mistaking	MISTAKING	ppr.	Making a mistake; erring from the truth; misconceiving.
+mistaking	MISTAKING	n.	An error; a mistake.
+mistakingly	MISTAKINGLY	adv.	Erroneously; falsely.
+mistaught	MISTAUGHT	pp.	Wrongly taught; as a mistaught youth.
+misteach	MISTEACH	v.t.	[See Teach.] To teach wrong; to instruct erroneously.
+misteaching	MISTEACHING	ppr.	Instructing erroneously.
+mistell	MISTELL	v.t.	[See Tell.] To tell erroneously.
+mistemper	MISTEMPER	v.t.	To temper ill; to disorder.
+mistempered	MISTEMPERED	pp.	Tempered ill.
+mistencumbered	mist-encumbered
+mister	MISTER	n.	The common title of address to gentlemen, and to men of all classes. In writing, it is expressed by the abbreviation Mr.
+mister	MISTER	v.t.	To occasion loss. [Not in use.]
+misterm	MISTERM	v.t.	To term or denominate erroneously.
+mistermed	MISTERMED	pp.	Wrongly denominated.
+misterming	MISTERMING	ppr.	Denominating erroneously.
+mistful	MISTFUL	a.	Clouded with mist.
+misthink	MISTHINK	v.i.	[See Think.] To think wrong. [Little used.]
+misthought	MISTHOUGHT	pp.	of misthink. Thought wrong of. Adam, misthought of her to thee so dear.
+mistime	MISTIME	v.t.	To time wrong; not to adapt to the time.
+mistime	MISTIME	v.i.	To neglect the proper time.
+mistimed	MISTIMED	pp.	Ill timed; done at a wrong time.
+mistiming	MISTIMING	ppr.	Ill timing; doing unseasonably.
+mistiness	MISTINESS	n.	[See Mist.] A state of being misty; a state of thick rain in very small drops.
+mistion	MISTION	n.	A state of being mixed.	Mixture; a mingling.
+mistitle	MISTITLE	v.t.	To call by a wrong title or name.
+mistitled	MISTITLED	pp.	Wrongly named.
+mistle	MISTLE	v.i.	To fall in very fine drops, as rain. [See Missle.]
+mistletoe	MISTLETOE		MIST'LIKE, adjective Resembling mist.
+mistlike	MISTLIKE	a.	Resembling mist.
+mistold	MISTOLD	pp.	Erroneously told. [See Tell.]
+mistook	MISTOOK	pret.	of mistake.
+mistrain	MISTRAIN	v.t.	To train or educate amiss.
+mistranslate	MISTRANSLATE	v.t.	To translate erroneously.
+mistranslated	MISTRANSLATED	pp.	Erroneously rendered into another language.
+mistranslating	MISTRANSLATING	ppr.	Translating incorrectly.
+mistranslation	MISTRANSLATION	n.	An erroneous translation or version.
+mistress	MISTRESS	n.	A woman who governs; correlative to servant, slave, or subject. My mistress here lies murdered in her bed.	The female head of a family.	That which governs; a sovereign. Rome was mistress of the world.	One that commands, or has possession and sovereignty. The queen is mistress of the Indies.	A female who is well skilled in any thing; as, she is mistress of arithmetic.	A woman teacher; an instructress of a school.	A woman beloved and courted.	A woman in keeping for lewd purposes.	A term of contemptuous address.
+mistress	MISTRESS	v.t.	To wait upon a mistress; to be courting.
+mistress-ship	MISTRESS-SHIP	n.	Female rule or dominion.
+mistressship	mistress-ship
+mistrust	MISTRUST	n.	Want of confidence or trust; suspicion.
+mistrust	MISTRUST	v.t.	To suspect; to doubt; to regard with jealousy or suspicion. Fate her own book mistrusted at the sight.
+mistrusted	MISTRUSTED	pp.	Suspected.
+mistrustful	MISTRUSTFUL	a.	Suspicious; doubting; wanting confidence in.
+mistrustfully	MISTRUSTFULLY	adv.	With suspicion or doubt.
+mistrustfulness	MISTRUSTFULNESS	n.	Suspicion; doubt.
+mistrusting	MISTRUSTING	ppr.	Suspecting; having no confidence in.
+mistrustingly	MISTRUSTINGLY	adv.	With distrust or suspicion.
+mistrustless	MISTRUSTLESS	a.	Unsuspecting; unsuspicious.
+mistune	MISTUNE	v.t.	To tune wrong or erroneously; to put out of tune.
+misturn	MISTURN	v.t.	To pervert. [Not used.]
+mistutor	MISTUTOR	v.t.	To instruct amiss.
+misty	MISTY	a.	Overspread with mist; filled with very minute drops of rain; as misty weather; a misty atmosphere; a misty night or day	Dim; obscure; clouded; as misty sight.
+misunderstand	MISUNDERSTAND	v.t.	To misconceive; to mistake; to take in a wrong sense.
+misunderstanding	MISUNDERSTANDING	ppr.	Mistaking the meaning.
+misunderstanding	MISUNDERSTANDING	n.	Misconception; mistake of the meaning; error.	Disagreement; difference; dissension; sometimes a softer name for quarrel.
+misunderstood	MISUNDERSTOOD	pp.	Misconceived; mistaken; understood erroneously.
+misusage	MISUSAGE	n.	Ill usage; abuse.
+misuse	MISUSE	v.t.	To treat or use improperly; to use to a bad purpose.	To abuse; to treat ill.
+misuse	MISUSE	n.	Ill treatment; improper use; employment to a bad purpose; as the misuse of mercies.	Abuse; ill treatment.	Wrong application; misapplication; erroneous use; as the misuse of words.
+misused	MISUSED	pp.	Improperly used or applied; misapplied; misemployed; abused.
+misusing	MISUSING	ppr.	Using improperly; abusing; misapplying.
+misvouch	MISVOUCH	v.t.	To vouch falsely.
+miswear	MISWEAR	v.t.	To swear ill.
+miswed	MISWED	v.t.	To wed improperly.
+miswedded	MISWEDDED	pp.	Ill matched.
+misween	MISWEEN	v.i.	To misjudge; to distrust.
+miswend	MISWEND	v.i.	To go wrong.
+miswrite	MISWRITE	v.t.	[See Write.] To write incorrectly.
+miswrought	MISWROUGHT	a.	Badly wrought.
+misy	MISY		[See Missy.]
+miszealous	MISZEALOUS	a.	Actuated by false zeal.
+mite	MITE	n.	A very small insect of the genus Acarus.	In Scripture, a small piece of money, the quarter of a denarius, or about seven English farthings.	Any thing proverbially very small; a very little particle or quantity.	The twentieth part of a grain.
+mitella	MITELLA	n.	A plant.
+miter	MITER	n.	A sacerdotal ornament worn on the head by bishops and certain abbots, on solemn occasions.	In architecture, an angle of 45 degrees.	In Irish history, a sort of base money or coin.	Figuratively, the dignity of bishops or abbots.
+miter	MITER	v.t.	To adorn with a miter	To unite at an angle of 45 degrees.
+mitered	MITERED	ppr.	or adjective Wearing a miter.	Honored with the privilege of wearing a miter.	Cut or joined at an angle of 45 degrees.
+mithic	MITHIC		[See Mythic.]
+mithridate	MITHRIDATE	n.	In pharmacy, an antidote against poison, or a composition in form of an electuary, supposed to serve either as a remedy or a preservative against poison. It takes its name from Mithridates, king of Pontus, the inventor.
+mithridatic	MITHRIDATIC	a.	Pertaining to mithridate, or its inventor, Mithridates.
+mitigable	MITIGABLE	a.	That may be mitigated.
+mitigant	MITIGANT	a.	Softening; lenient; lenitive.	Diminishing; easing; as pain.
+mitigate	MITIGATE	v.t.	To alleviate, as suffering; to assuage; to lessen; as, to mitigate pain or grief. And counsel mitigates the greatest smart.	To make less severe; as, to mitigate doom.	To abate; to make less rigorous; to moderate; as, to mitigate cold; to mitigate the severity of the season.	To temper; to moderate; to soften in harshness or severity. We could wish that the rigor of their opinions were allayed and mitigated.	To calm; to appease; to moderate; as, to mitigate the fierceness of party.	To diminish; to render more tolerable; as, to mitigate the evils or calamities of life; to mitigate punishment.	To reduce in amount or severity; as, to mitigate a penalty.	To soften, or make mild and accessible; in a literal sense. It was this opinion which mitigated kings into companions. [Unusual.]
+mitigated	MITIGATED	pp.	Softened; alleviated; moderated; diminished.
+mitigating	MITIGATING	ppr.	Softening; alleviating; tempering; moderating; abating.
+mitigation	MITIGATION	n.	Alleviation; abatement or diminution of any thing painful, harsh, severe, afflictive or calamitous; as the mitigation of pain, grief, rigor, severity, punishment or penalty
+mitigative	MITIGATIVE	a.	Lenitive; tending to alleviate.
+mitigator	MITIGATOR	n.	He or that which mitigates.
+mitten	MITTEN	n.	A cover for the hand, worn to defend it from cold or other injury. It differs from a glove, in not having a separate cover for each finger.	A cover for the arm only. To handle without mittens, to treat roughly; a popular colloquial phrase.
+mittent	MITTENT	a.	Sending forth; emitting. [Not used.]
+mittimus	MITTIMUS	n.	In law, a precept or command in writing, under the hand or hand and seal of a justice of the peace or other proper officer, directed to the keeper of a prison, requiring him to imprison an offender; a warrant of commitment to prison	A writ for removing records from one court to another.
+mitu	MITU	n.	A fowl of the turkey kind, found in Brazil.
+mity	MITY	a.	Having or abounding with mites
+mix	MIX	v.t.; pret. and pp. mixed or mixt	To unite or blend promiscuously two or more ingredients into a mass or compound; applied both to solids and liquids; as, to mix flour and salt; to mix wines.	To join; to associate; to unite with in company. Ephraim, he hath mixed himself among the people. Hosea 7.	To join; to mingle. You mix your sadness with some fear.	To unite with a crowd or multitude.
+mix	MIX	v.i.	To become united or blended promiscuously in a mass or compound. Oil and water will not mix without the intervention of a third substance.	To be joined or associated; as, to mix with the multitude, or to mix in society.
+mixed	MIXED	pp.	United in a promiscuous mass or compound; blended; joined; mingled; associated.	adjective Promiscuous; consisting of various kinds or different things; as a mixed multitude.
+mixen	MIXEN	n.	A dunghill; a laystall.
+mixer	MIXER	n.	One who mixes or mingles.
+mixing	MIXING	ppr.	Uniting or blending in a mass or compound; joining in company; associating.
+mixtilineal	MIXTILINEAL		MIXTILIN'EAR, adjective [Latin mixtus, mixed, and linea, line.] Containing a mixture of lines, right, curved, etc.
+mixtilinear	MIXTILINEAR	a.	Containing a mixture of lines, right, curved, &c
+mixtion	MIXTION	n.	Mixture; promiscuous assemblage
+mixtly	MIXTLY	adv.	With mixture.
+mixture	MIXTURE	n.	The act of mixing, or state of being mixed. Compounds are made by the mixture of different substances	A mass or compound, consisting of different ingredients blended without order. In this life there is a mixture of good and evil. Most wines in market are base mixtures.	The ingredient added and mixed. Cicero doubted whether it is possible for a community to exist without a prevailing mixture of piety in its constitution.	In pharmacy, a liquid medicine which receives into its composition not only extracts, salts and other substances dissolvable in water, but earths, powders and other substances not dissolvable.	In chimistry, mixture differs from combination. In mixture the several ingredients are blended without an alteration of the substances, each of which still retains its own nature and properties. In combination, the substances unite by chimical attraction, and losing their distinct properties, they form a compound differing in its properties from either of the ingredients.
+mizmaze	MIZMAZE	n.	A cant word for a maze or labyrinth.
+mizzen	MIZZEN	n.	In sea-language, the aftermost of the fixed sails of a ship, extended sometimes by a gaff, and sometimes by a yard which crosses the mast obliquely.
+mizzen-mast	MIZZEN-MAST	n.	The mast which supports the after-sails, and stands nearest to the stern.
+mizzenmast	mizzen-mast
+mizzle	MIZZLE	v.i.	To mistle. [See Mistle.]
+mizzy	MIZZY	n.	A bog or quagmire.

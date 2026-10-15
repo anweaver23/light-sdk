@@ -1,0 +1,403 @@
+trace	TRACE	n.	A mark left by any thing passing; a footstep; a track; a vestige; as the trace of a carriage or sled; the trade of a man or of a deer.	Remains; a mark, impression or visible appearance of any thing left when the thing itself no longer exists. We are told that there are no traces of ancient Babylon now to be seen. The shady empire shall retain no trace Of war or blood, but in the sylvan chase.
+trace	TRACE	n.	Traces, in a harness, are the straps, chains or ropes by which a carriage or sleigh is drawn by horses. [Locally these are called tugs.]
+trace	TRACE	v.t.	To mark out; to draw or delineate with marks; as, to race a figure with a pencil; to trace the outline of any thing.	To follow by some mark that has been left by something which has preceded; to follow by footsteps or tracks. You may trace the deluge quite round the globe. I feel thy power to trace the ways Of highest agents.	To follow with exactness. That servile path thou nobly do'st decline, Of tracing word by word, and line by line.	To walk over. We do trace this alley up and down.
+traceable	TRACEABLE	a.	That may be traced.
+traced	TRACED	pp.	Marked out; delineated; followed.
+tracer	TRACER	n.	One that traces or follows by marks.
+tracery	TRACERY	n.	Ornamental stone work.
+trachea	TRACHEA	n.	In anatomy, the windpipe
+tracheal	TRACHEAL	a.	Pertaining to the trachea or windpipe; as the tracheal artery.
+tracheocele	TRACHEOCELE	n.	An enlargement of the thyroid gland; bronchocele or goiter
+tracheotomy	TRACHEOTOMY	n.	In surgery, the operation of making an opening into the windpipe
+trachyte	TRACHYTE	n.	A species of volcanic rock, composed of crystals of glassy feldspar, sometimes with crystals of hornblend, mica, iron pyrite, etc
+trachytic	TRACHYTIC	a.	Pertaining to trachyte, or consisting of it.
+tracing	TRACING	ppr.	Marking out; drawing in lines; following by marks or footsteps. Tracing lines, in a ship, are lines passing through a block or thimble, and used to hoist a thing higher
+tracing	TRACING	n.	Course; regular track or path.
+track	TRACK	n.	A mark left by something that has passed along; as the track of a ship, a wake; the track of a meteor; the track of a sled or sleigh.	A mark or impression left by the foot, either of man or beast. Savages are said to be wonderfully sagacious in finding the tracks of men in the forest.	A road; a beaten path. Behold Torquatus the same track pursue.	Course; way; as the track of a comet.
+track	TRACK	v.t.	To follow when guided by a trace, or by the footsteps, or marks of the feet; as, to track a deer in the snow.	To tow; to draw a boat on the water in a canal.
+track-road	TRACK-ROAD	n.	A towing-path
+track-scout	TRACK-SCOUT	n.	A boat or vessel employed on the canals in Holland, usually drawn by a horse.
+tracked	TRACKED	pp.	Followed by the footsteps.
+tracking	TRACKING	ppr.	Following by the impression of the feet; drawing a boat; towing.
+trackless	TRACKLESS	a.	Having no track; marked by no footsteps; untrodden; as a trackless desert.
+trackroad	track-road
+trackscout	track-scout
+tract	TRACT	n.	Something drawn out or extended.	A region, or quantity of land or water, of indefinite extent. We may apply tract to the sandy and barren desert of Syria and Arabia, or to the narrow vales of Italy and Sardinia. We say, a rich tract of land in Connecticut or Ohio, a stony tract or a mountainous tract We apply tract to a single farm, or to a township or state.	A treatise; a written discourse or dissertation of indefinite length, but generally not of great extent.	In hunting, the trace or footing of a wild beast.	Treatment; exposition. [Not in use.]	Track. [Not in use.]	Continuity or extension of any thing; as a tract of speech. [Not much used.]	Continued or protracted duration; length; extend; as a long tract of time.
+tract	TRACT	v.t.	To trace out; to draw out. [Not in use.]
+tractability	TRACTABILITY	n.	The quality or state of being tractable or docile; docility; tractableness
+tractable	TRACTABLE	a.	That may be easily led, taught or managed; docile; manageable; governable; as tractable children; a tractable learner.	Palpable; such as may be handled; as tractable measures.
+tractableness	TRACTABLENESS	n.	The state or quality of being tractable or manageable; docility; as the tractableness of children.
+tractably	TRACTABLY	adv.	In a tractable manner; with ready compliance.
+tractate	TRACTATE	n.	A treatise; a tract. [Not now in use.]
+tractation	TRACTATION	n.	Treatment or handling of a subject; discussion
+tractatrix	TRACTATRIX	n.	In geometry, a curve line.
+tractile	TRACTILE	a.	Capable of being drawn out in length; ductile. Bodies are tractile or intractile
+tractility	TRACTILITY	n.	The quality of being tractile; ductility.
+traction	TRACTION	n.	The act of drawing, or state of being drawn; as the traction of a muscle	Attraction; a drawing towards.
+tractor	TRACTOR	n.	That which draws, or is used for drawing.
+trade	TRADE	n.	The act or business of exchanging commodities by barter; or the business of buying and selling for money; commerce; traffic; barter. trade comprehends every species of exchange or dealing, either in the produce of land, in manufactures, in bills or money. It is however chiefly used to denote the barter or purchase and sale of goods, wares and merchandise, either by wholesale or retail. trade is either foreign, or domestic or inland. Foreign trade consists in the exportation and importation of goods, or the exchange of the commodities of different countries. Domestic or home trade is the exchange or buying and selling of goods within a country. trade is also by the wholesale, that is, by the package or in large quantities, or it is by retail, or in small parcels. The carrying trade is that of transporting commodities from one country to another by water.	The business which a person has learned and which he carries on for procuring subsistence or for profit; occupation; particularly, mechanical employment; distinguished from the liberal arts and learned professions, and from agriculture. Thus we speak of the trade of a smith, of a carpenter or mason. But we never say, the trade of a farmer or of a lawyer or physician.	Business pursued; occupation; in contempt; as, piracy is their trade Hunting their sport, and plund'ring was their trade	Instruments of any occupation. The shepherd bears His house and household goods, his trade of war.	Employment not manual; habitual exercise.	Custom; habit; standing practice. Thy sin's not accidental, but a trade	Men engaged in the same occupation. Thus booksellers speak of the customs of the trade
+trade	TRADE	v.i.	To barter, or to buy and sell; to deal in the exchange, purchase or sale of goods, wares and merchandise, or any thing else; to traffic; to carry on commerce as a business. Thus American merchants trade with the English at London and at Liverpool; they trade with the French at Havre and Bordeaux, and they trade with Canada. The country shopkeepers trade with London merchants. Our banks are permitted to trade in bills of exchange.	To buy and sell or exchange property, in a single instance. Thus we say, man treats with another for his farm, but cannot trade with him. A traded with B for a horse or a number of sheep.	To act merely for money. How did you dare To trade and traffic with Macbeth?	To have a trade wind. They on the trading flood ply tow'rd the pole. [Unusual.]
+trade	TRADE	v.t.	To sell or exchange in commerce. They traded the persons of men. Ezekiel 27:12. [This, I apprehend, must be a mistake; at least it is not to be vindicated as a legitimate use of the verb.]
+trade-wind	TRADE-WIND	n.	[trade and wind. A wind that favors trade. A trade wind is a wind that blows constantly in the same direction, or a wind that blows for a number of months in one direction, and then changing, blows as long in the opposite direction. These winds in the East Indies are called monsoons, which are periodical. On the Atlantic, within the tropics, the trade winds blow constantly from the eastward to the westward.
+traded	TRADED	a.	Versed; practiced. [Not in use.]
+tradeful	TRADEFUL	a.	Commercial; busy in traffic.
+trader	TRADER	n.	One engaged in trade or commerce; a dealer in buying and selling or barter; as a trader to the East Indies; a trader to Canada; a country trader
+tradesfolk	TRADESFOLK	n.	People employed in trade. [Not in use.]
+tradesman	TRADESMAN	n.	A shopkeeper. A merchant is called a trader, but not a tradesman [In America, a shopkeeper is usually called a retailer.]
+tradewind	trade-wind
+trading	TRADING	ppr.	Trafficking; exchanging commodities by barter, or buying and selling them.	adjective Carrying on commerce; as a trading company.
+trading	TRADING	n.	The act or business of carrying on commerce.
+tradition	TRADITION	n.	Delivery; the act of delivering into the hands of another. A deed takes effect only from the tradition or delivery. The sale of a movable is completed by simple tradition	The delivery of opinions, doctrines, practices, rites and customs from father to son, or from ancestors to posterity; the transmission of any opinions or practice from forefathers to descendants by oral communication, without written memorials. Thus children derive their vernacular language chiefly from tradition Most of our early notions are received by tradition from our parents.	That which is handed down from age to age by oral communication. The Jews pay great regard to tradition in matters of religion, as do the Romanists. Protestants reject the authority of tradition in sacred things, and rely only on the written word. Traditions may be good or bad, true or false. Stand fast, and hold the traditions which ye have been taught, whether by word or our epistle. 2 Thessalonians 2:15. Why do ye also transgress the commandment of God by your traditions? Matthew 15:2.
+traditional	TRADITIONAL		TRADI'TIONALLY, adverb By transmission from father to son, or from age to age; as an opinion or doctrine traditionally derived from the apostles, is of no authority.
+traditionally	TRADITIONALLY	adv.	By transmission from father to son, or from age to age; as an opinion or doctrine traditionally derived from the apostles, is of no authority.
+traditionary	TRADITIONARY	a.	Delivered orally from father to son; communicated from ancestors to descendants by word only; transmitted from age to age without writing; as traditional opinions; traditional evidence; the traditional expositions of the Scriptures. The reveries of the Talmud, a collection of Jewish traditionary interpolations, are unrivaled in the regions of absurdity.	Observant of tradition. [Not used.]
+traditioner	TRADITIONER		TRADI'TIONIST, noun One who adheres to tradition.
+traditionist	TRADITIONIST	n.	One who adheres to tradition.
+traditive	TRADITIVE	a.	Transmitted or transmissible from father to son, or from age to age, by oral communication. Suppose we on things traditive divide
+traditor	TRADITOR	n.	A deliverer; a name of infamy given to christians who delivered the Scriptures or the goods of the church to their persecutors, to save their lives
+traduce	TRADUCE	v.t.	To represent as blamable; to condemn. The best stratagem that Satan hath, is by traducing the form and manner of the devout prayers of God's church.	To calumniate; to vilify; to defame; willfully to misrepresent. As long as men are malicious and designing, they will be traducing. He had the baseness to traduce me in libel.	To propagate; to continue by deriving one from another. From these only the race of perfect animals was propagated and traduced over the earth. [Not in use.]
+traduced	TRADUCED	pp.	Misrepresented; calumniated.
+traducement	TRADUCEMENT	n.	Misrepresentation; ill founded censure; defamation; calumny. [Little used.]
+traducent	TRADUCENT	a.	Slandering; slanderous.
+traducer	TRADUCER	n.	One that traduces; a slanderer; a calumniator.
+traducible	TRADUCIBLE	a.	That may be orally derived or propagated. [Little used.]
+traducing	TRADUCING	ppr.	Slandering; defaming; calumniating.
+traducingly	TRADUCINGLY	adv.	Slanderously; by way of defamation.
+traduction	TRADUCTION	n.	Derivation from one of the same kind; propagation. If by traduction came thy mind, Our wonder is the less to find A soul so charming from a stock so good	Tradition; transmission from one to another; as traditional communication and traduction of truth. [Little used.]	Conveyance; transportation; act of transferring; as the traduction of animals from Europe to America by shipping.	Transition.
+traductive	TRADUCTIVE	a.	Derivable; that may be deduced.
+traffick	TRAFFICK	n.	Trade; commerce, either by barter or by buying and selling. This word, like trade, comprehends every species of dealing in the exchange or passing of goods or merchandise from hand to hand for an equivalent, unless the business of retailing may be excepted. It signifies appropriately foreign trade, but is not limited to that. My father, A merchant of great traffick through the world.	Commodities for market.
+traffick	TRAFFICK	v.i.	To trade; to pass goods and commodities from one person to another for an equivalent in goods or money; to barter; to buy and sell wares; to carry on commerce. The English and Americans traffick with all the world. Genesis 42:34.	To trade meanly or mercenarily.
+traffick	TRAFFICK	v.t.	To exchange in traffick
+traffickable	TRAFFICKABLE	a.	Marketable. [Not in use.]
+trafficker	TRAFFICKER	n.	One who caries on commerce; a trader; a merchant. Isaiah 8:1.
+trafficking	TRAFFICKING	ppr.	Trading; bartering; buying and selling goods, wares and commodities.
+tragacanth	TRAGACANTH	n.	Goat's thorn; a plant of the genus Astragalus, of several species, growing in Syria, Candia, etc. almost all of which were included by Linne in the tragacanthas, and all of which produce the gum tragacanth	A gum obtained from the goat's thorn. It comes in small contorted pieces resembling worms. It is of different colors; that which is white, clear, smooth and vermicular, is the best. It is somewhat soft to the touch, but only imperfectly soluble. It is softening, and used in coughs and catarrhs.
+tragedian	TRAGEDIAN	n.	A writer of tragedy	More generally, an actor of tragedy.
+tragedy	TRAGEDY	n.	A dramatic poem representing some signal action performed by illustrious persons, and generally having a fatal issue. Aeschylus is called the father of tragedy All our tragedies are of kings and princes.	A fatal and mournful event; any event in which human lives are lost by human violence, more particularly by unauthorized violence.
+tragi-comedy	TRAGI-COMEDY	n.	A kind of dramatic piece representing some action passed among eminent persons, the event of which is not unhappy, in which serious and comic scenes are blended; a species of composition not now used, or held in little estimation.
+tragi-comic	TRAGI-COMIC		TRAGI-COM'ICAL, adjective Pertaining to tragi-comedy; partaking of a mixture of grave and comic scenes.
+tragi-comical	TRAGI-COMICAL	a.	Pertaining to tragi-comedy; partaking of a mixture of grave and comic scenes.
+tragi-comically	TRAGI-COMICALLY	adv.	In a tragicomical manner.
+tragic	TRAGIC		TRAG'ICAL, adjective [Latin tragicus.]	Pertaining to tragedy; of the nature or character of tragedy; as a tragic poem; tragic play or representation.	Fatal to life; mournful; sorrowful; calamitous; as the tragic scenes of Hayti the tragic horrors of Scio and Missilonghi; the tragical fate of the Greeks.	Mournful; expressive of tragedy, the loss of life, or of sorrow. I now must change those notes to tragic
+tragical	TRAGICAL	a.	Pertaining to tragedy; of the nature or character of tragedy; as a tragic poem; tragic play or representation.	Fatal to life; mournful; sorrowful; calamitous; as the tragic scenes of Hayti the tragic horrors of Scio and Missilonghi; the tragical fate of the Greeks.	Mournful; expressive of tragedy, the loss of life, or of sorrow. I now must change those notes to tragic.
+tragically	TRAGICALLY	adv.	In a tragical manner; with fatal issue; mournfully; sorrowfully. The play ends tragically
+tragicalness	TRAGICALNESS	n.	Fatality; mournfulness; sadness. We moralize the fable in the tragicalness of the event.
+tragicomedy	tragi-comedy
+tragicomic	tragi-comic
+tragicomical	tragi-comical
+tragicomically	tragi-comically
+trail	TRAIL	v.t.	To hunt by the track. [See the Norman, supra.]	To draw along the ground. trail your pikes. And hung his head, and trail'd his legs along. They shall not trail me through the streets Like a wild beast. That long behind he trails his pompous robe.	To lower; as, to trail arms.	In America, to tread down gras by walking through; to lay flat; as, to trail grass.
+trail	TRAIL	v.i.	To be drawn out in length. When his brother saw the red blood trail
+trail	TRAIL	n.	Track followed by the hunter; scent left on the ground by the animal pursued. How cheerfully on the false trail they cry.	Any thing drawn to length; as the trail of a meteor; a trail of smoke. When lightning shoots in glitt'ring trails along.	Any thing drawn behind in long undulations; a train. And drew behind a radiant trail of hair.	The entrails of a fowl; applied sometimes to those of sheep. boards, in ship-building, a term for the craved work between the cheeks of the head, at the heel of the figure.
+trailed	TRAILED	pp.	Hunted by the tracks; laid flat; drawn along on the ground; brought to a lower position; as trailed arms.
+trailing	TRAILING	ppr.	Hunting by the track; drawing on the ground; trading down; laying flat; bringing to a lower position; drawing out in length. Since men of foot whose broad-set backs their trailing hair did hide.
+train	TRAIN	v.t.	To draw along. In hollow cube he train'd His devilish enginery.	Top draw; to entice; to allure. If but twelve French Were there in arms, they would be as a call To train ten thousand English to their side.	To draw by artifice or stratagem. O train me not, sweet mermaid, with thy note.	To draw from act to act by persuasion or promise. We did train him on.	To exercise; to discipline; to teach and form by practice; as, to train the militia to the manual exercise; to train soldiers to the use of arms and to tactics. Abram armed his trained servants. Genesis 14:14. The warrior horse here bred he's taught to train	To break, tame and accustom to draw; as oxen.	In gardening, to lead or direct and form to a wall or espalier; to form to a proper shape by growth, lopping or pruning; as, to train young trees.	In mining, to trace a lode or any mineral appearance to its head. To train or train up, to educate; to teach; to form by instruction or practice; to bring up. TRAIN up a child in the way he should go, and when he is old he will not depart from it. Proverbs 22:6. The first christians were, by great hardships, trained up for glory.
+train	TRAIN	n.	Artifice; stratagem of enticement. Now to my charms, And to my wily trains.	Something drawn along behind, the end of a gown, etc.; as the train of a gown or robe.	The tail of a fowl. The train steers their flight, and turns their bodies, like the rudder of a ship.	A retinue; a number of followers or attendants. My train are men of choice and rarest parts. The king; s daughter with a lovely train	A series; a consecution or succession of connected things. Rivers now stream and draw their humid train Other truths require a train of ideas placed in order. --The train of ills our love would draw behind it.	Process; regular method; course. Things are now in a train for settlement. If things were once in this train--our duty would take root in our nature.	A company in order; a procession. Fairest of stars, last in the train of night.	The number of beats which a watch makes in any certain time.	A line of gunpowder, laid to lead fire to a charge, or to a quantity intended for execution. TRAIN of artillery, any number of cannon and mortars accompanying an army.
+train-band	TRAIN-BAND	n.	A band or company of militia. Train-bands, in the plural, militia; so called because trained to military exercises
+train-bearer	TRAIN-BEARER	n.	One who holds up a train
+train-oil	TRAIN-OIL	n.	The oil procured from the blubber or fat of whales by boiling
+train-road	TRAIN-ROAD	n.	In mines, a slight rail-way for small wagons
+trainable	TRAINABLE	a.	That may be trained. [Little used.]
+trainband	train-band
+trainbearer	train-bearer
+trained	TRAINED	pp.	Drawn; allured; educated; formed by instruction.
+training	TRAINING	ppr.	Drawing; alluring; educating; teaching and forming by practice.
+training	TRAINING	n.	The act or process of drawing or educating; education. In gardening, the operation or art of forming young trees to a wall or espalier, or of causing them to grow in a shape suitable for that end.
+trainoil	train-oil
+trainroad	train-road
+trainy	TRAINY	a.	Belonging to train-oil. [Not in use.]
+traipse	TRAIPSE	v.i.	To walk sluttishly or carelessly. [A low word.]
+trait	TRAIT	n.	A stroke; a touch. By this single trait Homer makes an essential difference between the Iliad and Odyssey.	A line; a feature; as a trait of character.
+traitor	TRAITOR	n.	One who violates his allegiance and betrays his country; one guilty of treason; one who, in breach of trust, delivers his country to its enemy, or any fort or place entrusted to his defense, or who surrenders an army or body of troops to the enemy, unless when vanquished; or one who takes arms and levies war against his country; or one who aids an enemy in conquering his country. [See Treason.]	One who betrays his trust.
+traitorly	TRAITORLY	a.	Treacherous. [Not in use.]
+traitorous	TRAITOROUS	a.	Guilty of treason; treacherous; perfidious; faithless; as a traitorous officer or subject.	Consisting in treason; partaking of treason; implying breach of allegiance; as a traitorous scheme or conspiracy.
+traitorously	TRAITOROUSLY	adv.	In violation of allegiance and trust; treacherously; perfidiously. They had traitorously endeavored to subvert the fundamental laws.
+traitorousness	TRAITOROUSNESS	n.	Treachery; the quality of being treasonable.
+traitress	TRAITRESS	n.	A female who betrays her country or her trust.
+traject	TRAJECT	v.t.	To throw or cast through; as, to traject the sun's light through three or more cross prisms
+traject	TRAJECT	n.	A ferry; a passage, or place for passing water with boats.
+trajecting	TRAJECTING	ppr.	Casting through.
+trajection	TRAJECTION	n.	The act of casting or darting through.	Transportation.	Emission.
+trajectory	TRAJECTORY	n.	The orbit of a comet; the path described by a comet in its motion, which Dr. Halley supposes to be elliptical.
+tralation	TRALATION	n.	A change in the use of a word, or the use of a word in a less proper, but more significant sense
+tralatitious	TRALATITIOUS	a.	Metaphorical; not literal
+tralatitiously	TRALATITIOUSLY	adv.	Metaphorically; not in a literal sense.
+tralineate	TRALINEATE	v.t.	To deviate from any direction. [Not in use.]
+tralucent	TRALUCENT	a.	Transparent; clear
+trammel	TRAMMEL	n.	A kind of long net for catching birds or fishes. The trammel differs not much from the shape of the bunt.	A kind of shackles used for regulating the motions of a horse, and making him amble.	An iron hook, of various forms and sizes, used for hanging kettles and other vessels over the fire.	Trammels, in mechanics, a joiner's instrument for drawing ovals upon boards. One part consists of a cross with two grooves at right angles; the other is a beam carrying two pins which slide in those grooves, and also the describing pencil.
+trammel	TRAMMEL	v.t.	To catch; to intercept.	To confine; to hamper; to shackle.
+trammeled	TRAMMELED	pp.	In the manege, a horse is said to be trammeled when he has blazes or white marks on the fore and hind foot of one side.
+trammeling	TRAMMELING	ppr.	Catching; confining; shackling.
+tramontane	TRAMONTANE	n.	One living beyond the mountain; a stranger.
+tramontane	TRAMONTANE	a.	Lying or being beyond the mountain; foreign; barbarous. The Italian painters apply this epithet to all such as live north of the Alps, as in Germany and France; and a north wind is called a tramontane wind. The French lawyers call certain Italian canonists tramontane or ultramontane doctors; considering them as favoring too much the court of Rome
+tramp	TRAMP	v.t.	To tread.
+tramp	TRAMP	v.i.	To travel; to wander or stroll.
+tramper	TRAMPER	n.	A stroller; a vagrant or vagabond.
+trample	TRAMPLE	v.t.	To tread under foot; especially, to tread upon with pride, contempt, triumph or scorn. Neither cast ye your pearls before swine, lest they trample them under their feet. Matthew 7:6.	To tread down; to prostrate by treading; as, to trample grass.	To treat with pride, contempt and insult.
+trample	TRAMPLE	v.i.	To tread in contempt. Diogenes trampled on Plato's pride with greater of his own.	To tread with force and rapidity.
+trample	TRAMPLE	n.	The act of treading under foot with contempt.
+trampled	TRAMPLED	pp.	Trod on; trodden under foot.
+trampler	TRAMPLER	n.	One that tramples; one that treads down.
+trampling	TRAMPLING	ppr.	Treading under foot; prostrating by treading; treading with contempt and insult.
+tranation	TRANATION	n.	The act of passing over by swimming. [Not in use.]
+trance	TRANCE	n.	An ecstasy; a state in which the soul seems to have passed out of the body into celestial regions, or to be rapt into visions. My soul was ravish'd quite as in a trance While they made ready, he fell into a trance and saw heaven opened. Acts 10:10
+tranced	TRANCED	a.	Lying in a trance or ecstasy. And there I left him tranc'd.
+trangram	TRANGRAM	n.	An odd thing intricately contrived. [It is said to be a cant word, and is not used.] Trannel, used by Moxon, is a mistake for tree-nail, pronounced by ship-builders trunnel.
+tranquil	TRANQUIL	a.	Quiet; calm; undisturbed; peaceful; not agitated. The atmosphere is tranquil The state is tranquil A tranquil retirement is desirable; but a tranquil mind is essential to happiness
+tranquilize	TRANQUILIZE	v.t.	To quiet; to allay when agitated; to compose; to make calm and peaceful; as, to tranquilize a state disturbed by factions or civil commotions; to tranquilize the mind. Religion haunts the imagination of the sinner, instead of tranquilizing his heart.
+tranquilized	TRANQUILIZED	pp.	Quieted; calmed; composed.
+tranquilizing	TRANQUILIZING	ppr.	Quieting; composing.
+tranquillity	TRANQUILLITY	n.	Quietness; a calm state; freedom from disturbance or agitation. We speak of the tranquillity of public affairs, of the state, of the world, the tranquillity of a retired life, the tranquillity of mind proceeding from conscious rectitude
+tranquilly	TRANQUILLY	adv.	Quietly; peacefully.
+tranquilness	TRANQUILNESS	n.	Quietness; peacefulness.
+transact	TRANSACT	v.t.	To do; to perform; to manage; as, to transact commercial business. We transact business in person or by an agent
+transacted	TRANSACTED	pp.	Done; performed; managed.
+transacting	TRANSACTING	ppr.	Managing; performing.
+transaction	TRANSACTION	n.	The doing or performing of any business; management of any affair.	That which is done; an affair. We are not to expect in history a minute detail of every transaction	In the civil law, an adjustment of a dispute between parties by mutual agreement.
+transactor	TRANSACTOR	n.	One who performs or conducts any business.
+transalpine	TRANSALPINE	a.	Lying or being beyond the Alps in regard to Rome, that is, on the north or west of the Alps; as transalpine Gaul; opposed to Cisalpine
+transanimate	TRANSANIMATE	v.t.	To animate by the conveyance of a soul to another body
+transanimation	TRANSANIMATION	n.	Conveyance of the soul from one body to another; transmigration. [The latter is the word generally used.]
+transatlantic	TRANSATLANTIC	a.	Lying or being beyond the Atlantic. When used by a person in Europe or Africa, transatlantic signifies being in America; when by a person in America, it denotes being or lying in Europe or Africa. We apply it chiefly to something in Europe
+transcend	TRANSCEND	v.t.	To rise above; to surmount; as lights in the heavens transcending the region of the clouds.	To pass over; to go beyond. It is dangerous opinion to such hopes as shall transcend their limits.	To surpass; to outgo; to excel; to exceed. How much her worth transcended all her kind.
+transcend	TRANSCEND	v.i.	To climb. [Not in use.]
+transcended	TRANSCENDED	pp.	Overpassed; surpassed; exceeded.
+transcendence	TRANSCENDENCE		TRANSCEND'ENCY, noun Superior excellence; supereminence.	Elevation above truth; exaggeration.
+transcendency	TRANSCENDENCY	n.	Elevation above truth; exaggeration.
+transcendent	TRANSCENDENT	a.	Very excellent; superior or supreme in excellence; surpassing others; as transcendent worth; transcendent valor. Cloth'd with transcendent brightness
+transcendental	TRANSCENDENTAL	a.	Supereminent; surpassing others; as transcendental being or qualities. Transcendental quantities, among geometricians, are indeterminate ones, or such as cannot be expressed or fixed to any constant equation. Transcendental curve, is such as cannot be defined by any algebraic equation, or of which, when it is expressed by an equation, one of the terms is a variable quantity.
+transcendently	TRANSCENDENTLY	adv.	Very excellently; supereminently; by way of eminence. The law of christianity is eminently and transcendently called the word of truth.
+transcolate	TRANSCOLATE	v.t.	To strain; to cause to pass through a sieve or colander
+transcribe	TRANSCRIBE	v.t.	To copy; to write over again or in the same words; to write a copy of any thing; as, to transcribe Livy or Tacitus; to transcribe a letter
+transcribed	TRANSCRIBED	pp.	Copied.
+transcriber	TRANSCRIBER	n.	A copier; one who writes from a copy.
+transcribing	TRANSCRIBING	ppr.	Writing from a copy; writing copy.
+transcript	TRANSCRIPT	n.	A copy; a writing made from and according to an original; a writing or composition consisting of the same words with the original. The decalogue of Moses was but a transcript not an original	A copy of any kind. The Roman learning was a transcript of the Grecian.
+transcription	TRANSCRIPTION	n.	The act of copying. Corruptions creep into books by repeated transcriptions.
+transcriptively	TRANSCRIPTIVELY	adv.	In manner of a copy.
+transcur	TRANSCUR	v.i.	run or rove to and fro. [Little used.]
+transcursion	TRANSCURSION	n.	A rambling or ramble; a passage beyond certain limits; extraordinary deviation; as the transcursion of a comet. I am to make often transcursions into the neighboring forests as I pass along. [Note: Excursion has in a great measure superseded this word.]
+transduction	TRANSDUCTION	n.	The act of conveying over
+transe	TRANSE	n.	Ecstasy. [See Trance.]
+transelementation	TRANSELEMENTATION	n.	The change of the elements of one body into those of another, as of the bread and wine into the actual body and blood of Christ; transubstantiation
+transept	TRANSEPT	n.	In ancient churches, the aisle extending across the nave and main aisles
+transfer	TRANSFER	v.t.	To convey from one place or person to another; to transport or remove to another place or person; as, to transfer the laws of one country to another. The seat of government was transferred from New York to Albany. We say, a war is transferred from France to Germany. Pain or the seat of disease in the body, is often transferred from one part to another.	To make over; to pass; to convey, as a right, from one person to another; to sell; to give. The title to land is transferred by deed. The property of a bill of exchange may be transferred by indorsement. Stocks are transferred by assignment, or entering the same under the name of the purchaser in the proper books.
+transfer	TRANSFER	n.	The removal or conveyance of a thing from one place or person to another.	The conveyance of right, title or property, either real or personal, from one person to another, either by sale, by gift or otherwise.
+transferable	TRANSFERABLE	a.	That may be transferred or conveyed from one place or person to another.	Negotiable, as a note, bill of exchange or other evidence of property, that may be conveyed from one person to another by indorsement or other writing. The stocks of the public and of companies are transferable
+transferred	TRANSFERRED	pp.	Conveyed from one to another.
+transferree	TRANSFERREE	n.	The person to whom a transfer is made.
+transferrer	TRANSFERRER	n.	One who makes a transfer or conveyance.
+transferring	TRANSFERRING	ppr.	Removing from one place or person to another; conveying to another, as a right.
+transfiguration	TRANSFIGURATION	n.	A change of form; particularly, the supernatural change in the personal appearance of our Savior on the mount. See Matthew 17:1.	A feast held by the Romish church on the 6th of August, in commemoration of the miraculous change above mentioned.
+transfigure	TRANSFIGURE	v.t.	To transform; to change the outward form or appearance. --And was transfigured before them. Matthew 17:2
+transfigured	TRANSFIGURED	pp.	Changed in form.
+transfiguring	TRANSFIGURING	ppr.	Transforming; changing the external form.
+transfix	TRANSFIX	v.t.	To pierce through, as with a pointed weapon; as, to transfix one with a dart or spear
+transfixed	TRANSFIXED	pp.	Pierced through.
+transfixing	TRANSFIXING	ppr.	Piercing through with a pointed weapon.
+transform	TRANSFORM	v.t.	To change the form of; to change the shape or appearance; to metamorphose; as a caterpillar transformed into a butterfly.	To change one substance into another; to transmute. The alchimists sought to transform lead into gold.	In theology, to change the natural disposition and temper of man from a state of enmity to God and his law, into the image of God, or into a disposition and temper conformed to the will of God. Be ye transformed by the renewing of your mind. Romans 12:2.	To change the elements, bread and wine, into the flesh and blood of Christ.	Among the mystics, to change the contemplative soul into a divine substance, by which it is lost or swallowed up in the divine nature.	In algebra, to change an equation into another of a different form, but of equal value.
+transform	TRANSFORM	v.i.	To be changed in form; to be metamorphosed. His hair transforms to down.
+transformation	TRANSFORMATION	n.	The act or operation of changing the form or external appearance.	Metamorphosis; change of form in insects; as from a caterpillar to a butterfly.	Transmutation; the change of one metal into another, as of copper or tin into gold.	The change of the soul into a divine substance, as among the mystics.	Transubstantiation.	In theology, a change of heart in man, by which his disposition and temper are conformed to the divine image; a change from enmity to holiness and love.	In algebra, the change of an equation into one of a different form, but of equal value.
+transformed	TRANSFORMED	pp.	Changed in form or external appearance; metamorphosed; transmuted; renewed.
+transforming	TRANSFORMING	ppr.	Changing the form or external appearance; metamorphosing; transmuting; renewing.	adjective Effecting or able to effect a change of form or state; as the transforming power of true religion.
+transfreight	TRANSFREIGHT	v.i.	To pass over the sea. [Not in use.]
+transfretation	TRANSFRETATION	n.	The passing over a strait or narrow sea. [Little used.]
+transfuse	TRANSFUSE	v.t.	To pour, as liquor, out of one vessel into another.	To transfer, as blood, from one animal to another.	To cause to pass from one to another; to cause to be instilled or imbibed; as, to transfuse a spirit of patriotism from one to another; to transfuse a love of letters.
+transfused	TRANSFUSED	pp.	Poured form one vessel into another.
+transfusible	TRANSFUSIBLE	a.	That may be transfused, etc.
+transfusing	TRANSFUSING	ppr.	Pouring out of one vessel into another; transferring.
+transfusion	TRANSFUSION	n.	The act of pouring, as liquor, out of one vessel into another. In chimistry and pharmacy, transfusions of liquors are frequent.	The act or operation of transferring the blood of one animal into the vascular system of another by means of a tube.
+transgress	TRANSGRESS	v.t.	To pass over or beyond any limit; to surpass.	In a moral sense, to overpass any rule prescribed as the limit of duty; to break or violate a law, civil or moral. To transgress a divine law, is sin. Legislators should not transgress laws of their own making.
+transgress	TRANSGRESS	v.i.	To offend by violating a law; to sin. Chron 2.
+transgressed	TRANSGRESSED	pp.	Overpassed; violated.
+transgressing	TRANSGRESSING	ppr.	Passing beyond; surpassing; violating; sinning.
+transgression	TRANSGRESSION	n.	The act of passing over or beyond any law or rule of moral duty; the violation of a law or known principle of rectitude; breach of command. He mourned because of the transgression of them that had been carried away. Ezra 10:6. Forgive thy people all their transgressions. 1 Kings 8:50.	Fault; offense; crime.
+transgressional	TRANSGRESSIONAL	a.	That violates a law or rule of duty.
+transgressive	TRANSGRESSIVE	a.	Faulty; culpable; apt to transgress.
+transgressor	TRANSGRESSOR	n.	One who breaks a law or violates a command; one who violates any known rule or principle of rectitude; a sinner. The way of transgressors is hard. Proverbs 13:15.
+transhape	TRANSHAPE	v.t.	To transform. [Not in use.]
+tranship	TRANSHIP	v.t.	To convey from one ship to another; a commercial word
+transhipment	TRANSHIPMENT	n.	The act of transferring, as goods, from one ship to another.
+transhipped	TRANSHIPPED	pp.	Carried from one ship to another.
+transhipping	TRANSHIPPING	ppr.	Carrying from one ship to another.
+transient	TRANSIENT	a.	Passing; not stationary; hence, of short duration; not permanent; not lasting or durable. How transient are the pleasures of this life! --Measur'd this transient world.	Hasty; momentary; imperfect; as a transient view of a landscape. TRANSIENT person, a person that is passing or traveling through a place; one without a settled habitation.
+transiently	TRANSIENTLY	adv.	In passage; for a short time; not with continuance. I touch here but transiently--on some few of those many rules of imitating nature, which Aristotle drew from Homer
+transientness	TRANSIENTNESS	n.	Shortness of continuance; speedy passage
+transilience	TRANSILIENCE		TRANSIL'IENCY, noun [Latin transiliens, transilio; trans and salio.] A leap from thing to thing. [Not much used.]
+transiliency	TRANSILIENCY	n.	A leap from thing to thing. [Not much used.]
+transit	TRANSIT	n.	A passing; a passing over or through; conveyance; as the transit of goods through a country.	In astronomy, the passing of one heavenly body over the disk of another and larger. I witnessed the transit of Venus over the sun's disk, June 3, 1769. When a smaller body passes behind a larger, it is said to suffer an occultation.	The passage of one heavenly body over the meridian of another.
+transit	TRANSIT	v.t.	To pass over the disk of a heavenly body.
+transit-duty	TRANSIT-DUTY	n.	A duty paid on goods that pass through a country.
+transitduty	transit-duty
+transition	TRANSITION	n.	Passage from one place or state to another; change; as the transition of the weather form hot to cold. Sudden transitions are sometimes attended with evil effects. The spots are of the same color throughout, there being an immediate transition from white to black	In rhetoric, a passing from one subject to another. This should be done by means of some connection in the parts of the discourse, so as to appear natural and easy. He with transition sweet new speech resumes.	In music, a change of key from major to minor, or the contrary; or in short, a change from any one genus or key to another; also, the softening of a disjunct interval by the introduction of intermediate sounds. Transition rocks, in geology, rocks supposed to have been formed when the world was passing from an uninhabitable to a habitable state. These rocks contain few organic remains, and when they occur with others, lie immediately over those which contain none, and which are considered as primitive.
+transitive	TRANSITIVE	a.	Having the power of passing.	In grammar, a transitive verb is one which is or may be followed by an object; a verb expressing an action which passes from the agent to an object, from the subject which does, to the object on which it is done. Thus, 'Cicero wrote letters to Atticus.' In this sentence, the act of writing, performed by Cicero, the agent, terminates on letters, the object. All verbs not passive, may be arranged in two classes, transitive and intransitive. In English, this division is correct and complete.
+transitorily	TRANSITORILY	adv.	[See Transitory.] With short continuance.
+transitoriness	TRANSITORINESS	n.	A passing with short continuance; speedy departure or evanescence. Who is not convinced of the transitoriness of all sublunary happiness?
+transitory	TRANSITORY	a.	Passing without continuance; continuing a short time; fleeting; speedily vanishing. O Lord, comfort and succor all them who, in this transitory life, are in trouble	In law, a transitory action, is one which may be brought in any county, as actions for debt, detinue, slander and the like. It is opposed to local.
+translatable	TRANSLATABLE	a.	Capable of being translated or rendered into another language
+translate	TRANSLATE	v.t.	To bear, carry or remove from one place to another. It is applied to the removal of a bishop from one see to another. The bishop of Rochester, when the king would have translated him to a better bishoprick, refused.	To remove or convey to heaven, as a human being, without death. By faith Enoch was translated, that he should not see death. Hebrews 11:15.	To transfer; to convey from one to another. 2 Samuel 3:10.	To cause to remove from one part of the body to another; as, to translate a disease.	To change. Happy is your grace, That can translate the stubbornness of fortune Into so quiet and so sweet a style.	To interpret; to render into another language; to express the sense of one language in the words of another. The Old Testament was translated into the Greek language more than two hundred years before Christ. The Scriptures are now translated into most of the languages of Europe and Asia.	To explain.
+translated	TRANSLATED	pp.	Conveyed from one place to another; removed to heaven without dying; rendered into another language.
+translating	TRANSLATING	ppr.	Conveying or removing from one place to another; conveying to heaven without dying; interpreting in another language.
+translation	TRANSLATION	n.	The act of removing or conveying from one place to another; removal; as the translation of a disease from the foot to the breast.	The removal of a bishop from one see to another.	The removal of a person to heaven without subjecting him to death.	The act of turning into another language; interpretation; as the translation of Virgil or Homer.	That which is produced by turning into another language; a version. We have a good translation of the Scriptures.
+translative	TRANSLATIVE	a.	Taken from others.
+translator	TRANSLATOR	n.	One who renders into another language; one who expresses the sense of words in one language by equivalent words in another.
+translatory	TRANSLATORY	a.	Transferring; serving to translate.
+translatress	TRANSLATRESS	n.	A female translator.
+translocation	TRANSLOCATION	n.	Removal of things reciprocally to each others' places; or rather substitution of one thing for another. There happened certain translocations of animal and vegetable substances at the deluge
+translucency	TRANSLUCENCY	n.	The property of admitting rays of light to pass through, but not so as to render objects distinguishable.	Transparency.
+translucent	TRANSLUCENT	a.	In mineralogy, transmitting rays of light, but not so as to render objects distinctly visible.	Transparent; clear. Replenish'd from the cool translucent springs.
+translucid	TRANSLUCID	a.	Transparent; clear. [See Translucent.]
+transmarine	TRANSMARINE	a.	Lying or being beyond the sea
+transmew	TRANSMEW	v.t.	To transmute; to transform; to metamorphose. [Not in use.]
+transmigrant	TRANSMIGRANT	a.	[See Transmigrate.] Migrating; passing into another country or state for residence, or into another form or body.
+transmigrant	TRANSMIGRANT	n.	One who migrates or leaves his own country and passes into another for settlement.	One who passes into another state or body.
+transmigrate	TRANSMIGRATE	v.i.	To migrate; to pass from one country or jurisdiction to another for the purpose of residing in it; as men or families.	To pass from one body into another. Their souls may transmigrate into each other.
+transmigrating	TRANSMIGRATING	ppr.	Passing from one country, state or body into another.
+transmigration	TRANSMIGRATION	n.	The passing of men from one country to another for the purpose of residence, particularly of a whole people.	The passing of a thing into another state, as of one substance into another.	The passing of the soul into another body, according to the opinion of Pythagoras.
+transmigrator	TRANSMIGRATOR	n.	One who transmigrates.
+transmigratory	TRANSMIGRATORY	a.	Passing from one place, body or state to another.
+transmissibility	TRANSMISSIBILITY	n.	The quality of being transmissible
+transmissible	TRANSMISSIBLE	a.	That may be transmitted or passed from one to another.	That may be transmitted through a transparent body.
+transmission	TRANSMISSION	n.	The act of sending from one place or person to another; as the transmission of letters, writings, papers, news and the like, from one country to another; or the transmission of rights, titles or privileges from father to son, and from one generation to another.	The passing of a substance through any body, as of light through glass.
+transmissive	TRANSMISSIVE	a.	Transmitted; derived from one to another. Itself a sun, it with transmissive light Enlivens worlds denied to human sight.
+transmit	TRANSMIT	v.t.	To send from one person or place to another; as, to transmit a letter or a memorial; to transmit dispatches; to transmit money or bills of exchange from one city or country to another. Light is transmitted from the sun to the earth; sound is transmitted by means of vibrations of the air. Our civil and religious privileges have been transmitted to us from our ancestors; and it is our duty to transmit them to our children.	To suffer to pass through; as, glass transmits light; metals transmit electricity.
+transmittal	TRANSMITTAL	n.	Transmission.
+transmitted	TRANSMITTED	pp.	Sent from one person or place to another; caused or suffered to pass through.
+transmitter	TRANSMITTER	n.	One who transmits.
+transmittible	TRANSMITTIBLE	a.	That may be transmitted.
+transmitting	TRANSMITTING	ppr.	Sending from one person or place to another; suffering to pass through.
+transmutability	TRANSMUTABILITY	n.	[See Transmute.] Susceptibility of change into another nature or substance.
+transmutable	TRANSMUTABLE	a.	Capable of being changed into a different substance, or into something of a different form or nature. The fluids and solids of an animal body are transmutable into one another
+transmutably	TRANSMUTABLY	adv.	With capacity of being changed into another substance or nature.
+transmutation	TRANSMUTATION	n.	The change of any thing into another substance, or into something of a different nature. For a long time, the transmutation of base metals into gold was deemed practicable, but nature proved refractory, and the alchimists were frustrated.	In chimistry, the transmutation of one substance into another is very easy and common, as of water into gas or vapor, and of gases into water.	In geometry, the change or reduction of one figure or body into another of the same area or solidity, but of a different form; as of a triangle into a square.	The change of colors, as in the case of a decoction of the nephritic wood.	In the vegetable economy, the change of a plant into another form; as of wheat into chess, according to the popular opinion. [See Chess.]
+transmute	TRANSMUTE	v.t.	To change from one nature or substance into another. Water may be transmuted into ice, and ice into water; the juices of plants are transmuted into solid substances; but human skill has not been able to transmute lead or copper into gold. A holy conscience sublimates every thing; it transmutes the common affairs of life into acts of solemn worship to God. The caresses of parents and the blandishments of friends, transmute us into idols
+transmuted	TRANSMUTED	pp.	Changed into another substance or nature.
+transmuter	TRANSMUTER	n.	One that transmutes.
+transmuting	TRANSMUTING	ppr.	Changing or transforming into another nature or substance.
+transom	TRANSOM	n.	A beam or timber extended across the stern-post of a ship, to strengthen the aft-part and give it due form.	In architecture, the piece that is framed across a double light window; or a lintel over a door; the vane of a cross-staff.
+transpadane	TRANSPADANE	a.	Being beyond the river Po
+transparency	TRANSPARENCY	n.	[See Transparent.] That state or property of a body by which it suffers rays of light to pass through it, so that objects can be distinctly seen through it; diaphaneity. This is a property of glass, water and air, which when clear, admit the free passage of light. transparency is opposed to opakeness.
+transparent	TRANSPARENT	a.	Having the property of transmitting rays of light so that bodies can be distinctly seen through; pervious to light; diaphanous; pellucid; as transparent glass; a transparent diamond; opposed to opake.	Admitting the passage of light; open porous; as a transparent vail.
+transparently	TRANSPARENTLY	adv.	Clearly; so as to be seen through.
+transparentness	TRANSPARENTNESS	n.	The quality of being transparent; transparency.
+transpass	TRANSPASS	v.t.	To pass over. [Not in use.]
+transpass	TRANSPASS	v.i.	To pass by or away. [Not in use.]
+transpicuous	TRANSPICUOUS	a.	Transparent; pervious to the sight. The wide transpicuous air
+transpierce	TRANSPIERCE	v.t.	To pierce through; to penetrate; to permeate; to pass through. His forceful spear the sides transpierc'd.
+transpierced	TRANSPIERCED	pp.	Pierced through; penetrated.
+transpiercing	TRANSPIERCING	ppr.	Penetrating; passing through.
+transpirable	TRANSPIRABLE	a.	Capable of being emitted through pores.
+transpiration	TRANSPIRATION	n.	The act or process of passing off through the pores of the skin; cutaneous exhalation; as the transpiration of obstructed fluids.
+transpire	TRANSPIRE	v.t.	To emit through the pores of the skin; to send off in vapor
+transpire	TRANSPIRE	v.i.	To be emitted through the pores of the skin; to exhale; to pass off in insensible perspiration; as, fluids transpire from the human body.	To escape from secrecy; to become public. The proceedings of the council have not yet transpired.	To happen or come to pass.
+transpiring	TRANSPIRING	ppr.	Exhaling; passing off in insensible perspiration; becoming public.
+transplace	TRANSPLACE	v.t.	To remove; to put in a new place. It was transplaced from the left side of the Vatican to a more eminent place. [Little used.]
+transplant	TRANSPLANT	v.t.	To remove and plant in another place; as, to transplant trees.	To remove and settle or establish for residence in another place; as, to transplant inhabitants. Salmaneser transplanted the Cuthites to Samaria.	To remove.
+transplantation	TRANSPLANTATION	n.	The act of transplanting; the removal of a plant or of a settled inhabitant to a different place for growth or residence.	Removal; conveyance form one to another. Formerly men believed in the transplantation of diseases.
+transplanted	TRANSPLANTED	pp.	Removed and planted or settled in another place.
+transplanter	TRANSPLANTER	n.	A machine for transplanting trees.
+transplanting	TRANSPLANTING	ppr.	Removing and planting or settling in another place.
+transplendency	TRANSPLENDENCY	n.	Supereminent splendor
+transplendent	TRANSPLENDENT	a.	Resplendent in the highest degree.
+transplendently	TRANSPLENDENTLY	adv.	With eminent splendor.
+transport	TRANSPORT	v.t.	To carry or convey from one place to another, either by means of beasts or vehicles on land, or by ships in water, or by balloons in air; as, to transport the baggage of an army; to transport goods from one country to another; to transport troops over a river.	To carry into banishment, as a criminal. Criminals are transported as a punishment for their crimes, which often amounts to banishment.	To hurry or carry away by violence of passion. They laugh as if transported with some fit of passion.	To ravish with pleasure; to bear away the soul in ecstasy; as, to be transported with joy.	To remove from one place to another, as a ship by means of hawsers and anchors.
+transport	TRANSPORT	n.	Transportation; carriage; conveyance. The Romans stipulated with the Carthaginians to furnish them with ships for transport and war.	A ship or vessel employed for carrying soldiers, warlike stores or provisions from one place to another, or to convey convicts to the place of their destination.	Rapture; ecstasy. The news of victory was received with transports of joy.	A convict transported or sentenced to exile.
+transportable	TRANSPORTABLE	a.	That may be transported.
+transportance	TRANSPORTANCE	n.	Conveyance. [Not in use.]
+transportation	TRANSPORTATION	n.	The act of carrying or conveying from one place to another, either on beasts or in vehicles, by land or water, or in air. Goods in Asia are transported on camels; in Europe and America, either on beasts or on carriages or sleds. But transportation by water is the great means of commercial intercourse.	Banishment for felony.	Transmission; conveyance.	Transport; ecstasy. [Little used.]	Removal from one country to another; as the transportation of plants.
+transported	TRANSPORTED	pp.	Carried; conveyed; removed; ravished with delight.
+transportedly	TRANSPORTEDLY	adv.	In a state of rapture.
+transportedness	TRANSPORTEDNESS	n.	A state of rapture.
+transporter	TRANSPORTER	n.	One who transports or removes.
+transporting	TRANSPORTING	ppr.	Conveying or carrying from one place to another; removing; banishing for a crime.	adjective Ravishing with delight; bearing away the soul in pleasure; extatic; as transporting joy.
+transportment	TRANSPORTMENT	n.	Transportation. [Little used.]
+transposal	TRANSPOSAL	n.	The act of changing the places of things, and putting each in the place which was before occupied by the other
+transpose	TRANSPOSE	v.t.	To change the place or order of things by putting each in the place of the other; as, to transpose letters, words or propositions.	To put out of place.	In algebra, to bring any term of an equation over to the other side. Thus if a+b=c, and we make a=c-b, then b is said to be transposed.	In grammar, to change the natural order of words.	In music, to change the key.
+transposed	TRANSPOSED	pp.	Being changed in place and one put in the place of the other.
+transposing	TRANSPOSING	ppr.	Changing the place of things and putting each in the place of the other.	Bringing any term of an equation over to the other side.	Changing the natural order of words.
+transposition	TRANSPOSITION	n.	A changing of the places of things and putting each in the place before occupied by the other; as the transposition of words in a sentence.	The state of being reciprocally changed in place.	In algebra, the bringing of any term of an equation to the other side.	In grammar, a change of the natural order of words in a sentence. The Latin and Greek languages admit transposition without inconvenience, to a much greater extent than the English.	In music, a change in the composition, either in the transcript or the performance, by which the whole is removed into another key.
+transpositional	TRANSPOSITIONAL	a.	Pertaining to transposition.
+transpositive	TRANSPOSITIVE	a.	Made by transposing; consisting in transposition.
+transubstantiate	TRANSUBSTANTIATE	v.t.	To change to another substance; as, to transubstantiate the sacramental elements, bread and wine, into the flesh and blood of Christ, according to the popish doctrine.
+transubstantiation	TRANSUBSTANTIATION	n.	Change of substance. In the Romish theology, the supposed conversion of the bread and wine in the eucharist, into the body and blood of Christ.
+transubstantiator	TRANSUBSTANTIATOR	n.	One who maintains the popish doctrine of transubstantiation.
+transudation	TRANSUDATION	n.	The act or process of passing off through the pores of a substance; as sweat or other fluid
+transudatory	TRANSUDATORY	a.	Passing by transudation.
+transude	TRANSUDE	v.i.	To pass through the pores or interstices of texture, as perspirable matter or other fluid; as, liquor may transude through leather, or through wood
+transuding	TRANSUDING	ppr.	Passing through the pores of a substance, as sweat or other fluid.
+transume	TRANSUME	v.t.	To take from one to another. [Little used.]
+transumpt	TRANSUMPT	n.	A copy or exemplification of a record. [Not in use.]
+transumption	TRANSUMPTION	n.	The act of taking from one place to another. [Little used.]
+transvection	TRANSVECTION	n.	The act of conveying or carrying over
+transversal	TRANSVERSAL	a.	Running or lying across; as a transversal line
+transversally	TRANSVERSALLY	adv.	In a direction crosswise.
+transverse	TRANSVERSE	a.	Lying or being across or in a cross direction; as a transverse diameter of axis. transverse lines are the diagonals of a square or parallelogram. Lines which intersect perpendiculars, are also called transverse	In botany, a transverse partition, in a pericarp, is at right angles with the valves, as in a silique.
+transverse	TRANSVERSE	n.	The longer axis of an ellipse.
+transverse	TRANSVERSE	v.t.	To overturn. [Little used.]
+transversely	TRANSVERSELY	adv.	In a cross direction; as, to cut a thing transversely At Stonehenge, the stones lie transversely upon each other.
+tranters	TRANTERS	n. pl.	Men who carry fish from the sea coast to sell in the inland countries. [Not American.]
+trap	TRAP	n.	An engine that shuts suddenly or with a spring, used for taking game; as a trap for foxes. A trap is a very different thing from a snare; though the latter word may be used in a figurative sense for a trap	An engine for catching men. [Not used in the U. States.]	An ambush; a stratagem; any device by which men or other animals may be caught unawares. Let their table be made a snare and a trap Romans 11:9.	A play in which a ball is driven with a stick.
+trap	TRAP	n.	In mineralogy, a name given to rocks characterized by a columnar form, or whose strata or beds have the form of steps or a series of stairs. Kirwan gives this name to two families of basalt. It is now employed to designate a rock or aggregate in which hornblend predominates, but it conveys no definite idea of any one species; and under this term are comprehended hornblend, hornblend slate, greenstone, greenstone slate, amygdaloid, basalt, wacky, clinkstone porphyry, and perhaps hypersthene rock, augite rock, and some varieties of sienite.
+trap	TRAP	v.t.	To catch in a trap; as, to trap foxes or beaver.	To ensnare; to take by stratagem. I trapp'd the foe.	To adorn; to dress with ornaments. [See Trappings.] [the verb is little used.]
+trap	TRAP	v.i.	To set traps for game; as, to trap for beaver.
+trap-door	TRAP-DOOR	n.	A door in a floor, which shuts close like a valve
+trap-stick	TRAP-STICK	n.	A stick with which boys drive a wooden ball; hence, a slender leg.
+trap-tuff	TRAP-TUFF	n.	Masses of basalt, amygdaloid, hornblend, sandstones, etc., cemented.
+trapan	TRAPAN	v.t.	To ensnare; to catch by stratagem.
+trapan	TRAPAN	n.	A snare; a stratagem.
+trapanner	TRAPANNER	n.	One who ensnares.
+trapanning	TRAPANNING	ppr.	Ensnaring.
+trapdoor	trap-door
+trape	TRAPE	v.i.	To traipse; to walk carelessly and sluttishly. [Not much used.]
+trapes	TRAPES	n.	A slattern; an idle sluttish woman.
+trapezian	TRAPEZIAN	a.	[See Trapezium.] In crystallography, having the lateral planes composed of trapeziums situated in two ranges, between two bases.
+trapeziform	TRAPEZIFORM	a.	Having the form of a trapezium.
+trapezihedron	TRAPEZIHEDRON	n.	A solid bounded by twenty four equal and similar trapeziums
+trapezium	TRAPEZIUM	n. pl.	trapezia or trapeziums. [Latin from Gr. a little table.]	In geometry, a plane figure contained under four unequal right lines, none of them parallel.	In anatomy, a bone of the carpus.
+trapezoid	TRAPEZOID	n.	An irregular solid figure having four sides, no two of which are parallel to each other; also, a plane four sided figure having two of the opposite sides parallel to each other
+trapezoidal	TRAPEZOIDAL	a.	Having the form of a trapezoid.	Having the surface composed of twenty four trapeziums, all equal and similar.
+trappings	TRAPPINGS	n. pl.	Ornaments of horse furniture. Caparisons and steeds, Bases and tinsel trappings--	Ornaments; dress; external and superficial decorations. These but the trappings and the suits of woe. Trappings of life, for ornament, not use. Affectation is part of the trappings of folly.
+trappous	TRAPPOUS	a.	Pertaining to trap; resembling trap, or partaking of its form or qualities
+trapstick	trap-stick
+traptuff	trap-tuff
+trash	TRASH	n.	Any waste or worthless matter. Who steals my money, steals trash	Loppings of trees; bruised canes, etc. In the West Indies, the decayed leaves and stems of canes are called field-trash; the bruised or macerated rind of canes is called cane-trash; and both are called trash	Fruit or other matter improper for food, but eaten by children, etc. It is used particularly of unripe fruits.	A worthless person. [Not proper.]	A piece of leather or other thing fastened to a dog's neck to retard his speed.
+trash	TRASH	v.t.	To lop; to crop.	To strip of leaves; as, to trash ratoons.	To crush; to humble; as, to trash the Jews.	To clog; to encumber; to hinder.
+trash	TRASH	v.i.	To follow with violence and trampling.
+trashy	TRASHY	a.	Waste; rejected; worthless; useless.
+trass	TRASS	n.	A volcanic earth, resembling puzzolana, used as a cement; or a coarse sort of plaster or mortar, durable in water, and used to line cisterns and other reservoirs of water. The Dutch tarrass is made of a soft rock stone found near Collen, on the lower part of the Rhine. It is burnt like lime, and reduced to powder in mills. It is of a grayish color.
+traulism	TRAULISM	n.	A stammering. [Not in use.]
+traumatic	TRAUMATIC	a.	Pertaining to or applied to wounds.	Vulnerary; adapted to the cure of wounds.
+traumatic	TRAUMATIC	n.	A medicine useful in the cure of wounds.
+travail	TRAVAIL	v.i.	To labor with pain; to toil.	To suffer the pangs of childbirth; to be in labor. Genesis 35:16.
+travail	TRAVAIL	v.t.	To harass; to tire; as troubles sufficient to travail the realm. [Not in use.]
+travail	TRAVAIL	n.	Labor with pain; severe toil. As every thing of price, so doth this require travail	Labor in childbirth; as a severe travail; an easy travail
+travailing	TRAVAILING	ppr.	Laboring with toil; laboring in childbirth. Isaiah 42:14.
+trave	TRAVE		TRAV'EL, verb intransitive [a different orthography and application of travail.]	To walk; to go or march on foot; as, to travel from London to Dover, or from New York to Philadelphia. So we say, a man ordinarily travels three miles an hour. [This is the proper sense of the word, which implies toil.]	To journey; to ride to a distant place in the same country; as, a man travels for his health; he is traveling to Virginia. A man traveled from London to Edinburgh in five days.	To go to a distant country, or to visit foreign states or kingdoms, either by sea or land. It is customary for men of rank and property to travel for improvement. Englishmen travel to France and Italy. Some men travel for pleasure or curiosity; others travel to extend their knowledge of natural history.	To pass; to go; to move. News travels with rapidity. Time travels in divers paces with divers persons.	To labor. [See Travail.]	To move, walk or pass, as a beast, a horse, ox or camel. A horse travels fifty miles in a day; a camel; twenty.
+travel	TRAVEL	v.i.	To walk; to go or march on foot; as, to travel from London to Dover, or from New York to Philadelphia. So we say, a man ordinarily travels three miles an hour. [This is the proper sense of the word, which implies toil.]	To journey; to ride to a distant place in the same country; as, a man travels for his health; he is traveling to Virginia. A man traveled from London to Edinburgh in five days.	To go to a distant country, or to visit foreign states or kingdoms, either by sea or land. It is customary for men of rank and property to travel for improvement. Englishmen travel to France and Italy. Some men travel for pleasure or curiosity; others travel to extend their knowledge of natural history.	To pass; to go; to move. News travels with rapidity. Time travels in divers paces with divers persons.	To labor. [See Travail.]	To move, walk or pass, as a beast, a horse, ox or camel. A horse travels fifty miles in a day; a camel; twenty.
+travel-tainted	TRAVEL-TAINTED	a.	Harassed; fatigued with travel. [Not in use.]
+traveled	TRAVELED	pp.	Gained or made by travel; as traveled observations.	adjective Having made journeys.
+traveler	TRAVELER	n.	One who travels in any way. Job:31.	One who visits foreign countries.	In ships, an iron thimble or thimbles with a rope spliced round them, forming a kind of tail or a species of grommet.
+traveling	TRAVELING	ppr.	Walking; going; making a journey. Matthew 25:1.	adjective Incurred by travel; as traveling expenses.	Paid for travel; as traveling fees.
+traveltainted	travel-tainted
+travers	TRAVERS	adv.	Across; athwart. [Not used.]
+traversable	TRAVERSABLE	a.	[See Traverse, in law.] That may be traversed or denied; as a traversable allegation.
+traverse	TRAVERSE	adv.	Athwart; crosswise. The ridges of the field lay traverse
+traverse	TRAVERSE	prep.	Through crosswise. He traverse The whole battalion views their order due. [Little used.]
+traverse	TRAVERSE	a.	Lying across; being in a direction across something else; as paths cut with traverse trenches. Oak--may be trusted in traverse work for summers
+traverse	TRAVERSE	n.	Any thing laid or built across. There is a traverse placed in the loft where she sitteth	Something that thwarts, crosses or obstructs; a cross accident. He is satisfied he should have succeeded, had it not been for unlucky traverses not in his power.	In fortification, a trench with a little parapet for protecting men on the flank; also, a wall raised across a work.	In navigation, traverse-sailing is the mode of computing the place of a ship by reducing several short courses made by sudden shifts or turns, to one longer course.	In law, a denial of what the opposite party has advanced in any state of the pleadings. When the traverse or denial comes from the defendant, the issue is tendered in this manner, 'and of this he puts himself on the country.' When the traverse lies on the plaintiff, he prays 'this may be inquired of by the country.' The technical words introducing a traverse are absque hoc, without this; that is, without this which follows.	A turning; a trick.
+traverse	TRAVERSE	v.t.	To cross; to lay in a cross direction. The parts should be often traversed or crossed by the flowing of the folds.	To cross by way of opposition; to thwart; to obstruct. Frog thought to traverse this new project.	To wander over; to cross in traveling; as, to traverse the habitable globe. What seas you travers'd, and what fields you fought.	To pass over and view; to survey carefully. My purpose is to traverse the nature, principles and properties of this detestable vice, ingratitude.	To turn and point in any direction; as, to traverse a cannon.	To plane in a direction across the grain of the wood; as, to traverse a board.	In law pleadings, to deny what the opposite party has alleged. When the plaintiff or defendant advances new matter, he avers it to be true, and traverses what the other party has affirmed. So to traverse an indictment or an office, is to deny it. To traverse a yard, in sailing, is to brace it aft.
+traverse	TRAVERSE	v.i.	In fencing, to use the posture or motions of opposition or counteraction. To see thee fight, to see thee traverse--	To turn, as on a pivot; to move round; to swivel. The needle of a compass traverses; if it does not traverse well, it is an unsafe guide.	In the manege, to cut the tread crosswise, as a horse that throws his croup to one side and his head to the other.
+traverse-board	TRAVERSE-BOARD	n.	In a ship, a small board to be hung in the steerage, and bored full of holes upon lines, showing the points of compass upon it. By moving a peg on this, the steersman keeps an account of the number of glasses a ship is steered on any point
+traverse-table	TRAVERSE-TABLE	n.	In navigation, a table of difference of latitude and departure
+traverseboard	traverse-board
+traversetable	traverse-table
+traversing	TRAVERSING	ppr.	Crossing; passing over; thwarting; turning; denying.
+travestied	TRAVESTIED	pp.	Disguised by dress; turned into ridicule.
+travestin	TRAVESTIN	n.	A kind of white spongy stone found in Italy.
+travesty	TRAVESTY	a.	Having an unusual dress; disguised by dress so as to be ridiculous. It is applied to a book or composition translated in a manner to make it burlesque
+travesty	TRAVESTY	n.	A parody; a burlesque translation of a work. travesty may be intended to ridicule absurdity, or to convert a grave performance into a humorous one.
+travesty	TRAVESTY	v.t.	To translate into such language as to render ridiculous or ludicrous. G. Battista Lalli travestied Virgil, or turned him into Italian burlesque verse.
+travis	TRAVIS	n.	A wooden frame to confine a horse while the smith is setting his shoes. This is not used for horses in America, but a similar frame is used for confining oxen for shoeing.	Beam; a lay of joints; a traverse.
+tray	TRAY	n.	A small trough or wooden vessel, sometimes scooped out of a piece of timber and made hollow, used for making bread in, chopping meat and other domestic purposes
+tray-trip	TRAY-TRIP	n.	A kind of play.
+traytrip	tray-trip

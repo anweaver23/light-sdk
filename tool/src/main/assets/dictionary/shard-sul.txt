@@ -1,0 +1,43 @@
+sulcate	SULCATE		SUL'CATED, adjective [Latin sulcus, a furrow.] In botany, furrowed; grooved; scored with deep broad channels longitudinally; as a sulcated stem.
+sulcated	SULCATED	a.	In botany, furrowed; grooved; scored with deep broad channels longitudinally; as a sulcated stem
+sulkiness	SULKINESS	n.	Sullenness; sourness; moroseness
+sulky	SULKY	a.	Sullen; sour; heavy; obstinate; morose. While these animals remain in their inclosures, they are sulky
+sulky	SULKY	n.	A carriage for a single person.
+sullage	SULLAGE	n.	[See Sulliage.] A drain of filth, or filth collected from the street or highway.
+sullen	SULLEN	a.	Gloomily angry and silent; cross; sour; affected with ill humor. And sullen I forsook th' imperfect feast.	Mischievous; malignant. Such sullen planets at my birth did shine.	Obstinate; intractable. Things are as sullen as we are.	Gloomy; dark; dismal. Why are thine eyes fix'd to the sullen earth? Night with her sullen wings. No cheerful breeze this sullen region knows.	Heavy; dull; sorrowful. Be thou the trumpet of our wrath, And sullen presage of your own decay.
+sullenly	SULLENLY	adv.	Gloomily; malignantly; intractably; with moroseness.
+sullenness	SULLENNESS	n.	Ill nature with silence; silent moroseness; gloominess; malignity; intractableness.
+sullens	SULLENS	n. pl.	A morose temper; gloominess. [Not in use.]
+sulliage	SULLIAGE	n.	Foulness; filth. [Not in use.]
+sullied	SULLIED	pp.	Soiled; tarnished; stained.
+sully	SULLY	v.t.	To soil; to dirt; to spot; to tarnish. And statues sullied yet with sacrilegious smoke.	To tarnish; to darken. Let there be no spots to sully the brightness of this solemnity.	To stain; to tarnish; as the purity of reputation; as virtues sullied by slanders; character sullied by infamous vices.
+sully	SULLY	v.i.	To be soiled or tarnished. Silvering will sully and canker more than gilding.
+sully	SULLY	n.	Soil, tarnish; spot. A noble and triumphant merit breaks through little spots and sullies on his reputation.
+sullying	SULLYING	ppr.	Soiling; tarnishing; staining.
+sulphate	SULPHATE	n.	A neutral salt formed by sulphuric acid in combination with any base; as sulphate of lime
+sulphatic	SULPHATIC	a.	Pertaining to sulphate.
+sulphite	SULPHITE	n.	A salt or definite compound formed by a combination of sulphurous acid with a base
+sulphore	SULPHORE		SUL'PHUR, noun [Latin] A simple combustible mineral substance, of a yellow color, brittle, insoluble in water, but fusible by heat. It is called also brimstone, that is, burn-stone, from its great combustibility. It burns with a blue flame and a peculiar suffocating odor. Sulphur native or prismatic is of two kinds, common and volcanic.
+sulphur	SULPHUR	n.	A simple combustible mineral substance, of a yellow color, brittle, insoluble in water, but fusible by heat. It is called also brimstone, that is, burn-stone, from its great combustibility. It burns with a blue flame and a peculiar suffocating odor. Sulphur native or prismatic is of two kinds, common and volcanic
+sulphur-wort	SULPHUR-WORT	n.	A plant, hog's fennel, of the genus Peucedanum.
+sulphurate	SULPHURATE	a.	Belonging to sulphur; of the color of sulphur. [Little used.]
+sulphurate	SULPHURATE	v.t.	To combine with sulphur.
+sulphurated	SULPHURATED	pp.	Combined or impregnated with sulphur; as sulphurated hydrogen gas.
+sulphuration	SULPHURATION	n.	Act of addressing or anointing with sulphur.
+sulphureous	SULPHUREOUS	a.	Consisting of sulphur; having the qualities of sulphur or brimstone; impregnated with sulphur. Her snakes untied, sulphureous waters drink.
+sulphureously	SULPHUREOUSLY	adv.	In a sulphureous manner.
+sulphureousness	SULPHUREOUSNESS	n.	The state of being sulphureous.
+sulphuret	SULPHURET	n.	A combination of sulphur with a metallic, earthy or alkaline base; as a sulphuret of potash.
+sulphureted	SULPHURETED	a.	Applied to gaseous bodies holding sulphur in solution; as sulphureted hydrogen.
+sulphuric	SULPHURIC	a.	Pertaining to sulphur; more strictly, designating an acid formed by sulphur saturated with oxygen; as sulphuric acid, formerly called vitriolic acid, or oil of vitrol.
+sulphurous	SULPHUROUS	a.	Like sulphur; containing sulphur; also, designating an acid formed by sulphur subsaturated with oxygen. This is called sulphurous acid.
+sulphurwort	sulphur-wort
+sulphury	SULPHURY	a.	Partaking of sulphur; having the qualities of sulphur.
+sultan	SULTAN	n.	An appellation given to the emperor of the Turks, denoting ruler or commander
+sultan-flower	SULTAN-FLOWER	n.	A plant, a species of Centaurea.
+sultana	SULTANA		SUL'TANESS, noun The queen of a sultan; the empress of the Turks.
+sultaness	SULTANESS	n.	The queen of a sultan; the empress of the Turks.
+sultanflower	sultan-flower
+sultanry	SULTANRY	n.	An eastern empire; the dominions of a sultan.
+sultriness	SULTRINESS	n.	The state of being sultry; heat with a moist or close air
+sultry	SULTRY	a.	Very hot, burning and oppressive; as Libya's sultry deserts.	Very hot and moist, or hot, close, stagnant and unelastic; as air or the atmosphere. A sultry air is usually enfeebling and oppressive to the human body. Such as born beneath the burning sky And sultry sun, betwixt the tropics lie.

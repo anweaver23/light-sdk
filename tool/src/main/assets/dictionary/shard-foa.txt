@@ -1,0 +1,11 @@
+foal	FOAL	n.	The young of the equine genus of quadrupeds and of either sex; a colt; a filly
+foal	FOAL	v.t.	To bring forth a colt or filly; to bring forth young as a mare or a she-ass.
+foal	FOAL	v.i.	To bring forth young, as a mare and certain other beasts.
+foalbit	FOALBIT	n.	A plant.
+foalfoot	FOALFOOT	n.	The colt's-foot, Tussilago.
+foam	FOAM	n.	Froth; spume; the substance which is formed on the surface of liquors by fermentation or violent agitation, consisting of bubbles
+foam	FOAM	v.i.	To froth; to gather foam The billows foam A horse foams at the mouth when violently heated.	To be in a rage; to be violently agitated. He foameth and gnasheth with his teeth. Mark 9:18.
+foam	FOAM	v.t.	To throw out with rage or violence; with out. FOAMing out their own shame. Jude 1:13.
+foaming	FOAMING	ppr.	Frothing; fuming.
+foamingly	FOAMINGLY	adv.	Frothily.
+foamy	FOAMY	a.	Covered with foam; frothy. Behold how high the foamy billows ride!

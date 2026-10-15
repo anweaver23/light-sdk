@@ -1,0 +1,119 @@
+cap	CAP	n.	A part of dress made to cover the head.	The ensign of a cardinalate.	The top, or the uppermost; the highest. Thou art the cap of fools.	A vessel in form of a cap	An act of respect, made by uncovering the head. CAP of cannon, a piece of lead laid over the vent to keep the priming dry; now called an apron. CAP of maintenance, an ornament of state, carried before the Kings of England at the coronation. It is also carried before the mayors of some cities. In ship-building, a cap is a thick strong block of wood, used to confine two masts together, when one is erected at the head of another.
+cap	CAP		To cover the top, or end; to spread over; as, a bone is capped at the joint with a cartilaginous substance. The cloud-capped towers.	To deprive of the cap or take off a cap To cap verses, is to name alternately verses beginning with a particular letter; to name in opposition or emulation; to name alternately in contest.
+cap	CAP	v.i.	To uncover the head in reverence or civility. CAP-a-pie, From head to foot; all over; as, armed cap-a-pie. CAP-paper, noun A coarse paper, so called from being used to make caps to hold commodities. CAP-sheaf, noun The top sheaf of a stack of grain; the crowner.
+capability	CAPABILITY	n.	[See Capable.] The quality of being capable; capacity; capableness.
+capable	CAPABLE	a.	Able to hold or contain; able to receive; sufficiently capacious; often followed by of; as, the room is not capable of receiving, or capable of holding the company.	Endued with power competent to the object; as, a man is capable of judging, or he is not capable	Possessing mental powers; intelligent; able to understand, or receive into the mind; having a capacious mind; as a capable judge; a capable instructor.	Susceptible; as, capable of pain or grief.	Qualified for; susceptible of; as, a thing is capable of long duration; or it is capable of being colored or altered.	Qualified for, in a moral sense; having legal power or capacity; as, a bastard is not capable of inheriting an estate.	Hollow.
+capableness	CAPABLENESS	n.	The state or quality of being capable; capacity; power of understanding; knowledge.
+capacify	CAPACIFY	v.t.	To qualify.
+capacious	CAPACIOUS	a.	Wide; large; that will hold much; as a capacious vessel.	Broad; extensive; as a capacious bay or harbor.	Extensive; comprehensive; able to take a wide view; as a capacious mind.
+capaciousness	CAPACIOUSNESS	n.	Wideness; largeness; as of a vessel.	Extensiveness; largeness; as of a bay.	Comprehensiveness; power of taking a wide survey; applied to the mind.
+capacitate	CAPACITATE	v.t.	To make capable; to enable; to furnish with natural power; as, to capacitate one for understanding a theorem.	To endue with moral qualifications; to qualify; to furnish with legal powers; as, to capacitate one for an office.
+capacitated	CAPACITATED	pp.	Made capable; qualified.
+capacitation	CAPACITATION	n.	The act of making capable.
+capacity	CAPACITY	n.	Passive power; the power of containing, or holding; extent of room or space; as the capacity of a vessel, or a cask.	The extent or comprehensiveness of the mind; the power of receiving ideas or knowledge. Let instruction be adapted to the capacities of youth.	Active power; ability; applied to men or things; but less common, and correct. The world does not include a cause endued with such capacities.	State; condition; character; profession; occupation. A man may act in the capacity of a mechanic, of a friend, of an attorney, or of a statesman. He may have a natural or a political capacity	Ability, in a moral or legal sense; qualification; legal power or right; as, a man or a corporation may have a capacity to give or receive and hold estate.	In geometry, the solid contents of a body.	In chimistry, that state, quality or constitution of bodies, by which they absorb and contain, or render latent, any fluid; as the capacity of water for caloric.
+caparison	CAPARISON	n.	A cloth or covering laid over the saddle or furniture of a horse, especially a sumpter horse or horse of state.
+caparison	CAPARISON	v.t.	To cover with a cloth.	To dress pompously; to adorn with rich dress.
+capcase	CAPCASE	n.	A covered case.
+cape	CAPE	n.	A head land; properly the head, point or termination of a neck of land, extending some distance into the sea, beyond the common shore, and hence the name is applied to the neck of land itself, indefinitely, as in Cape-Cod, Cape-Horn, cape of Good Hope. It differs from a promontory in this, that it may be high or low land; but a promontory is a high bold termination of a neck of land.	The neck-piece of a cloke or coat.
+capelan	CAPELAN	n.	A small fish, about six inches in length, sholes of which appear off the coasts of Greenland, Iceland and New-foundland. They constitute a large part of the food of the Greenlanders.
+capella	CAPELLA	n.	A bright fixed star in the left shoulder of the constellation Auriga.
+capellet	CAPELLET	n.	A kind of swelling, like a wen, growing on the heel of the hock on a horse, and on the point of the elbow.
+caper	CAPER	v.i.	To leap; to skip or jump; to prance; to spring.
+caper	CAPER	n.	A leap; a skip; a spring; as in dancing or mirth, or in the frolick of a goat or lamb.
+caper	CAPER	n.	The bud of the caper-bush, which is much used for pickling. The buds are collected before the flowers expand, and preserved in vinegar. The bush is a low shrub, generally growing from the joints of old walls, from fissures in rocks and amongst rubbish, in the southern parts of Europe.
+caper-bush	CAPER-BUSH		[See Caper.]
+caper-cutting	CAPER-CUTTING	n.	A leaping or dancing in a frolicksome manner.
+caperbush	caper-bush
+capercutting	caper-cutting
+caperer	CAPERER	n.	One who capers, leaps and skips about, or dances.
+capering	CAPERING	ppr.	Leaping; skipping.
+capias	CAPIAS	n.	In law, a writ of two sorts; one before judgment, called a capias ad respondendum, where an original is issued, to take the defendant, and make him answer to the plaintiff; the other, which issues after judgment, is of divers kinds; as a capias ad satisfaciendum, or writ of execution; a capias pro fine; a capias utlagatum; a capias in withernam.
+capibar	CAPIBAR	n.	An animal partaking of the form of a hog and of a rabbit, the cabiai.
+capillaceous	CAPILLACEOUS	a.	Hairy; resembling a hair. [See Capillary.]
+capillaire	CAPILLAIRE	n.	A kind of sirrup, extracted rom maiden-hair.
+capillament	CAPILLAMENT	n.	The filament, a small fine thread, like a hair, that grows in the middle of a flower, with a little knob at the top; a chive.	A FINE FIBER, OR FILAMENT, OF WHICH THE NERVES ARE COMPOSED.
+capillary	CAPILLARY	a.	Resembling a hair, fine, minute, small in diameter, though long; as a capillary tube or pipe; a capillary vessel in animal bodies, such as the ramifications of the blood vessels.	In botany, capillary plants are hair-shaped, as the ferns; a term used by Ray, Boerhaave and Morison. This class of plants corresponds to the order of Filices, in the Sexual method, which bear their flower and fruit on the back of the leaf or stalk. This term is applied also to leaves which are longer than the setaceous or bristle-shaped leaf, to glands resembling hairs, to the filaments, to the style, and to the pappus or down affixed to some seeds.
+capillary	CAPILLARY	n.	A fine vessel or canal.
+capillation	CAPILLATION	n.	A blood vessel like a hair.
+capilliform	CAPILLIFORM	a.	In the shape or form of a hair, or of hairs.
+capital	CAPITAL	a.	Literally, pertaining to the head; as a capital bruise, in Milton, a bruise on the head.	Figuratively, as the head is the highest part of a man, chief; principal; first in importance; as a capital city or town; the capital articles of religion.	Punishable by loss of the head or of life; incurring the forfeiture of life; punishable with death; as, treason and murder are capital offenses or crimes.	Taking away life, as a capital punishment; or affecting life, as a capital trial.	Great, important, though perhaps not chief; as, a town possesses capital advantages for trade.	Large; of great size; as capital letters, which are of different form, and larger than common letters. CAPITAL stock, is the sum of money or stock which a merchant, banker or manufacturer employs in his business; either the original stock, or that stock augmented. Also, the sum of money or stock which each partner contributes to the joint fund or stock of the partnership; also, the common fund or stock of the company, whether incorporated or not. A capital city or town is the metropolis or chief city of an empire, kingdom, state or province. The application of the epithet indicates the city to be the largest, or to be the seat of government, or both. In many instances, the capital that is, the largest city, is not the seat of government.
+capital	CAPITAL	n.	The uppermost part of a column, pillar or pilaster, serving as the head or crowning, and placed immediately over the shaft, and under the entablature. By the customary omission of the noun, to which the adjective, capital refers, it stand for,	The chief city or town in a kingdom or state; a metropolis.	A large letter or type, in printing.	A stock in trade, in manufactures, or in any business requiring the expenditure of money with a view to profit.
+capitalist	CAPITALIST	n.	A man who has a capital or stock in trade, usually denoting a man of large property, which is or may be employed in business.
+capitally	CAPITALLY	adv.	In a capital manner; nobly; finely.	With loss of life; as, to punish capitally
+capitalness	CAPITALNESS	n.	A capital offense.
+capitate	CAPITATE	a.	In botany, growing in a head, applied to a flower, or stigma.
+capitation	CAPITATION	n.	Numeration by the head; a numbering of persons.	A tax, or imposition upon each head or person; a poll-tax. Sometimes written Capitation-tax.
+capite	CAPITE		In English law, a tenant in capite or in chief, is one who holds lands immediately of the king, caput, the head or Lord Paramount of all lands in the kingdom, by knights service or by soccage. This tenure is called tenure in capite; but it was abolished in England, by 12 Charles II. 24.
+capitol	CAPITOL	n.	The temple of Jupiter in Rome, and a fort or castle, on the Mons Capitolinus. In this, the Senate of Rome anciently assembled; and on the same place, is still the city hall or town-house, where the conservators of the Romans hold their meetings. The same name was given to the principal temples of the Romans in their colonies.	The edifice occupied by the Congress of the United States in their deliberations. In some states, the State-house, or house in which the legislature holds its sessions; a government house.
+capitolian	CAPITOLIAN	a.	Pertaining to the capitol in Rome.
+capitoline	CAPITOLINE	a.	Pertaining to the capitol in Rome. The capitoline Games were annual games instituted by Camillus in honor of Jupiter Capitolinus, and in commemoration of the preservation of the capitol from the Gauls, and other games instituted by Domitian and celebrated every five years.
+capitular	CAPITULAR		CAPITULARLY, adverb In the form of an ecclesiastical chapter.
+capitularly	CAPITULARLY	adv.	In the form of an ecclesiastical chapter.
+capitulary	CAPITULARY	n.	An act passed in a chapter, either of knights, canons or religious.	The body of laws or statutes of a chapter, or of an ecclesiastical council. This name is also given to the laws, civil and ecclesiastical, made by Charlemagne, and other princes, in general councils and assemblies of the people. Some indeed have alledged that these are supplements to laws. They are so called, because they are divided into chapters or sections.	The member of a chapter.
+capitulate	CAPITULATE	v.i.	To draw up a writing in chapters, heads or articles. [But this sense is not usual.]	To surrender, as an army or garrison, to an enemy, by treaty, in which the terms of surrender are specified and agreed to by the parties. The term is applicable to a garrison or to the inhabitants of a besieged place, or to an army or troops in any situation in which they are subdued or compelled to submit to a victorious enemy.
+capitulation	CAPITULATION	n.	The act of capitulating, or surrendering to an enemy upon stipulated terms or conditions.	The treaty or instrument containing the conditions of surrender.	A reducing to heads.	In German polity, a contract which the Emperor makes with the electors, in the names of the princes and states of the empire, before he is raised to the imperial dignity.
+capitulator	CAPITULATOR	n.	One who capitulates.
+capitule	CAPITULE	n.	A summary.
+capivi	CAPIVI	n.	A balsam of the Spanish West-Indies. [See Copaiba.]
+capnomancy	CAPNOMANCY	n.	Divination by the ascent or motion of smoke.
+capoch	CAPOCH	n.	A monks hood.
+capon	CAPON	n.	A castrated cock; a cock-chicken gelded as soon as he quits his dam, or as soon as he begins to crow.
+capon	CAPON	v.t.	To castrate, as a cock.
+caponniere	CAPONNIERE	n.	In fortification, a covered lodgment, sunk four or five feet into the ground, encompassed with a parapet, about two feet high, serving to support several planks, laden with earth. It is large enough to contain 15 or 20 soldiers, and is placed in the glacis, at the extremity of the counterscarp, and in dry moats, with embrasures or loop holes, through which the soldiers may fire.
+capot	CAPOT	n.	A winning of all the tricks of cards at the game of piquet.
+capot	CAPOT	v.t.	To win all the tricks of cards at piquet.
+capper	CAPPER	n.	One whose business is to make or sell caps
+capreolate	CAPREOLATE	a.	In botany, having tendrils, or filiform spiral claspers, by which plants fasten themselves to other bodies, as in vines, peas, etc.
+caprice	CAPRICE	n.	A sudden start of the mind; a sudden change of opinion, or humor; a whim, freak, or particular fancy.
+capricious	CAPRICIOUS	a.	Freakish; whimsical; apt to change opinions suddenly, or to start from ones purpose; unsteady; changeable; fickle; fanciful; subject to change or irregularity; as a man of a capricious temper.
+capriciously	CAPRICIOUSLY	adv.	In a capricious manner; whimsically.
+capriciousness	CAPRICIOUSNESS	n.	The quality of being led by caprice; whimsicalness; unsteadiness of purpose or opinion.	Unsteadiness; liableness to sudden changes; as the capriciousness of fortune.
+capricorn	CAPRICORN	n.	One of the twelve signs of the zodiac, the winter solstice; represented on ancient monuments, by the figure of a goat, or a figure having the fore part like a goat and the hind part like a fish.
+caprification	CAPRIFICATION	n.	A method of ripening figs by means of a gnat or insect that pricks the bud.
+caprifole	CAPRIFOLE	n.	Honeysuckle; woodbine.
+capriform	CAPRIFORM	a.	Having the form of a goat.
+capriole	CAPRIOLE	n.	In the manege, caprioles are leaps that a horse makes in the same place without advancing, in such a manner that when he is at the highth of the leap, he jerks out with his hind legs, even and near. It differs from the croupade in this, that, in a croupade, a horse does not show his shoes, and from a balotade, in which he does not jerk out.
+capriped	CAPRIPED	a.	Having feet like those of a goat.
+capsicum	CAPSICUM	n.	Guinea pepper.
+capsize	CAPSIZE	v.t.	To upset or overturn; a seamans phrase.
+capstan	CAPSTAN	n.	A strong massy column of timber, formed like a truncated cone, and having its upper extremity pierced to receive bars or levers, for winding a rope round it, to raise great weights, or perform other extraordinary work, that requires a great power. It may be let down through the decks of a ship, and so fixed that the work is performed by a horizontal motion.
+capsular	CAPSULAR		Hollow like a chest.	capsular ligament, is that which surrounds every movable articulation, and contains the synovia like a bag.
+capsulary	CAPSULARY	a.	Hollow like a chest.	Capsular ligament, is that which surrounds every movable articulation, and contains the synovia like a bag.
+capsulate	CAPSULATE		CAPSULATED, adjective Inclosed in a capsule, or as in a chest or box.
+capsulated	CAPSULATED	a.	Inclosed in a capsule, or as in a chest or box.
+capsule	CAPSULE	n.	The seed vessel of a plant; a dry membranaceous hollow pericarp, opening differently in different plants. It is composed of valves or outer covering, partitions, the columella or central pillar, and cells.	A small saucer, made of clay for roasting samples or ores, or for melting them.
+captain	CAPTAIN	n.	Literally, a head or chief officer; appropriately, the military officer who commands a company, whether of infantry, cavalry, artillery or matrosses.	The commander of a ship of war, or of a merchantman. But the latter is often called a master.	The commander of a military band, a sense that occurs in the sciptures; as a captain of fifty.	A man skilled in war or military affairs; as, Lord Wellington is a great captain	A chief commander. Shak. But in this sense rarely used, but in composition.
+captain	CAPTAIN	a.	Chief; valiant.
+captain-banshaw	CAPTAIN-BANSHAW		apudan Bashaw, in Turkey, is the High Admiral.
+captain-general	CAPTAIN-GENERAL		is the commander in chief of an army, or of the militia. The governor of a state is Captain-General of the militia.
+captain-lieutenant	CAPTAIN-LIEUTENANT		is an officer, who with the rank of captain and pay of lieutenant, commands a company or troop. Thus the colonel of a regiment being the captain of the first company, that company is commanded by a Captain-Lieutenant.
+captainbanshaw	captain-banshaw
+captaincy	CAPTAINCY	n.	The rank, post or commission of a captain.	The jurisdiction of a captain, or commander, as in South America.
+captaingeneral	captain-general
+captainlieutenant	captain-lieutenant
+captainry	CAPTAINRY	n.	The power or command over a certain district; chieftainship.
+captainship	CAPTAINSHIP	n.	The condition or post of a captain or chief commander.	The rank, quality or post of a captain. In lieu of this captaincy is now used.	The command of a clan, or government of a certain district.	Skill in military affairs.
+captation	CAPTATION	n.	The act or practice of catching favor or applause, by flattery or address.
+caption	CAPTION	n.	The act of taking, or apprehending by a judicial process.	A certificate signed by commissioners in Chancery, declaring when and where the commission was executed.	A preamble.	In Scots law, a writ issued at the instance of a creditor, commanding an officer to take and imprison the debtor, till he pays the debt.
+captious	CAPTIOUS	a.	Disposed to find fault, or raise objections; apt to cavil, as in popular language, it is said, apt to catch at; as a captious man.	Fitted to catch or ensnare; insidious; as a captious question.	Proceeding from a caviling disposition; as a captious objection or criticism.
+captiously	CAPTIOUSLY	adv.	In a captious manner; with an inclination or intention to object, or censure.
+captiousness	CAPTIOUSNESS	n.	Disposition to find fault; inclination to object; peevishness.
+captivate	CAPTIVATE	v.t.	To take prisoner; to seize by force; as an enemy in war.	To subdue; to bring into bondage.	To overpower and gain with excellence or beauty; to charm; to engage the affections; to bind in love.	To enslave; with to; as, captivated to error.
+captivate	CAPTIVATE	a.	Taken prisoner.
+captivated	CAPTIVATED	pp.	Made prisoner; charmed.
+captivating	CAPTIVATING	ppr.	Taking prisoner; engaging the affections.	adjective Having power to engage the affections.
+captivation	CAPTIVATION	n.	The act of taking a prisoner; a taking one captive.
+captive	CAPTIVE	n.	A prisoner taken by force or stratagem in war, by an enemy; followed by to; as a captive to the victor.	One who is charmed or subdued by beauty or excellence; one whose affections are seized, or who is held by strong ties of love.	One who is ensnared by love or flattery, or by wiles. 2 Timothy 2:26.	A slave. Anciently captives were enslaved by their conquerors. But in modern times, they are not made slaves in Christian countries; and the word captive in a literal sense, rarely signifies a slave.
+captive	CAPTIVE	v.t.	To take prisoner; to bring into subjection.
+captivity	CAPTIVITY	n.	The state of being a prisoner, or of being in the power of an enemy by force or the fate of war.	Subjection to love.	Subjection; a state of being under control. Bringing into captivity every thought to the obedience of Christ. 2 Corinthians 10:5.	Subjection; servitude; slavery. But I see another law in my members--bringing me into captivity to the law of sin. Romans 7:23. To lead captivity captive, in scripture, is to subdue those who have held others in slavery, or captivity Psalms 98:1.
+captor	CAPTOR	n.	One who takes, as a prisoner or a prize. It is appropriately one who takes a prize at sea.
+capture	CAPTURE	n.	In a general sense, the act of taking or seizing; as the capture of an enemy, of a ship, or of booty, by force, surprise or stratagem.	The thing taken; a prize; prey taken by force, surprise or stratagem.	Seizure; arrest as the capture of a criminal or debtor.
+capture	CAPTURE	v.t.	To take or seize by force, surprise or stratagem, as an enemy or his property; to take by force under the authority of a commission; as to capture a ship.
+captured	CAPTURED	pp.	Taken as a prize.
+capturing	CAPTURING	ppr.	Seizing as a prize.
+capuccio	CAPUCCIO	n.	A capuchin or hood.
+capuched	CAPUCHED	a.	Covered with a hood.
+capuchin	CAPUCHIN	n.	A garment for females, consisting of a cloke and hood, made in imitation of the dress of capuchin monks.	A pigeon whose head is covered with feathers.
+capuchins	CAPUCHINS	n.	Monks of the order of St. Francis, who cover their heads with a capuce, capuchon, a stuff-cap or cowl. They are clothed in brown or gray, go bare-footed, and never shave their faces.
+capucine	CAPUCINE	n.	A species of monkey, the sagoo or sai.
+capulin	CAPULIN	n.	The Mexican cherry.

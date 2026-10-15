@@ -1,0 +1,24 @@
+cohabit	COHABIT	v.i.	To dwell with; to inhabit or reside in company, or in the same place, or country.	To dwell or live together as husband and wife; usually or often applied to persons not legally married.
+cohabitant	COHABITANT	n.	One who dwells with another or in the same place.
+cohabitation	COHABITATION	n.	The act or state of dwelling together or in the same place with another.	The state of living together as man and wife, without being legally married.
+coheir	COHEIR	n.	A joint heir; one who succeeds to a share of an inheritance, which is to be divided among two or more.
+coheiress	COHEIRESS	n.	A female who inherits a share of an estate, which is to be divided among two or more heirs or heiresses; a joint heiress.
+cohere	COHERE	v.i.	To stick together; to cleave; to be united; to hold fast, as parts of the same mass, or as two substances that attract each other. Thus, particles of clay cohere; polished surfaces of bodies cohere	To be well connected; to follow regularly in the natural order; to be suited in connection; as the parts of a discourse, or as arguments in a train of reasoning.	To suit; to be fitted; to agree.
+coherence	COHERENCE		A sticking, cleaving or hanging together; union of parts of the same body, or a cleaving together of two bodies, by means of attraction; applied to all substances, solid or fluid.	Connection; suitable connection or dependence, proceeding from the natural relation of parts or things to each other, as in the parts of a discourse, or of any system; consistency.
+coherency	COHERENCY	n.	A sticking, cleaving or hanging together; union of parts of the same body, or a cleaving together of two bodies, by means of attraction; applied to all substances, solid or fluid.	Connection; suitable connection or dependence, proceeding from the natural relation of parts or things to each other, as in the parts of a discourse, or of any system; consistency.
+coherent	COHERENT	a.	Sticking together; cleaving; as the parts of bodies, solid or fluid.	Connected; united, by some relation in form or order; followed by to, but rather by with.	Suitable or suited; regularly adapted.	Consistent; having a due agreement of parts; as a coherent discourse. Or observing due agreement; as a coherent thinker or reasoner.
+coherently	COHERENTLY	adv.	In a coherent manner; with due connection or agreement of parts.
+cohesibility	COHESIBILITY	n.	The tendency which one part of matter evinces to unite with another part of matter, so as to form, out of different bodies, one common mass. It is opposed to divisibility.
+cohesible	COHESIBLE	a.	Capable of cohesion.
+cohesion	COHESION	n.	The act of sticking together; the state of being united by natural attraction, as the constituent particles of bodies which unite in a mass, by a natural tendency; one of the different species of attraction.	Connection; dependence; as the cohesion of ideas. But in this sense, see Coherence.
+cohesive	COHESIVE	a.	That has the power of sticking or cohering; tending to unite in a mass, and to resist separation.
+cohesively	COHESIVELY	adv.	With cohesion.
+cohesiveness	COHESIVENESS	n.	The quality of being cohesive; the quality of adhering together, as particles of matter.
+cohobate	COHOBATE	v.t.	Among chimists, to repeat the distillation of the same liquor or that from the same body, pouring the liquor back upon the matte remaining in the vessel.
+cohobated	COHOBATED	pp.	Repeatedly distilled.
+cohobating	COHOBATING	ppr.	Distilling repeatedly.
+cohobation	COHOBATION	n.	The operation of repeatedly distilling the same liquor, or that from the same substance.
+cohoes	COHOES	n.	A fall of water, or falls; a word of Indian origin in America.
+cohort	COHORT	n.	Among the Romans, a body of about five or six hundred men; each cohort consisted of three maniples, and each maniple, of two centuries; and ten cohorts constituted a legion.	In poetry, a band or body of warriors.
+cohortation	COHORTATION	n.	Exhortation; encouragement.
+cohoze	COHOES	n.	A fall of water, or falls; a word of Indian origin in America.

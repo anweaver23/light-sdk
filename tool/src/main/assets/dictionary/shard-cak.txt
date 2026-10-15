@@ -1,0 +1,4 @@
+cake	CAKE	n.	A small mass of dough baked; or a composition of flour, butter, sugar, or other ingredients, baked in a small mass. The name is applied to various compositions, baked or cooked in different shapes.	Something in the form of a cake rather flat than high, but roundish; as a cake on a tree.	A mass of matter concreted; as a cake of ice. In New England, a piece of floating ice in a river or lake.	A hard swelling on the flesh; or rather a concretion without such swelling.
+cake	CAKE	v.t.	To form into a cake or mass.
+cake	CAKE	v.i.	To concrete, or form into a had mass, as dough in an oven, or as flesh or any other substance.
+cake	CAKE	v.i.	To cackle.

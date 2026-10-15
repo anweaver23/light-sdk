@@ -1,0 +1,370 @@
+vial	VIAL	n.	A phial; a small bottle of thin glass, used particularly by apothecaries and druggists. Samuel took a vial of oil, and poured it on his head. 1 Samuel 10:1. Vials of God's wrath, in Scripture, are the execution of his wrath upon the wicked for their sins. Revelation 16:2
+vial	VIAL	v.t.	To put in a vial
+viand	VIAND	n.	Meat dressed; food. Viands of various kinds allure the taste. [It is used chiefly in the plural.]
+viatic	VIATIC	a.	Pertaining to a journey or to traveling
+viaticum	VIATICUM	n.	Provisions for a journey.	Among the ancient Romans, an allowance to officers who were sent into the provinces to exercise any office or perform any service, also to the officers and soldiers of the army.	In the Romish church, the communion or eucharist given to persons in their last moment.
+vibrant	VIBRANT		VI'BRATE, verb intransitive [Latin vibro; Eng. wabble.]	To swing; to oscillate; to move one way and the other; to play to and fro; as, the pendulum of a clock vibrates more or less rapidly, as it is shorter or longer. The chords of an instrument vibrate when touched.	To quiver; as, a whisper vibrates on the ear.	To pass from one state to another; as, a man vibrates from one opinion to another.
+vibrate	VIBRATE	v.i.	To swing; to oscillate; to move one way and the other; to play to and fro; as, the pendulum of a clock vibrates more or less rapidly, as it is shorter or longer. The chords of an instrument vibrate when touched.	To quiver; as, a whisper vibrates on the ear.	To pass from one state to another; as, a man vibrates from one opinion to another.
+vibrate	VIBRATE	v.t.	To brandish; to move to and fro; to swing; as, to vibrate a sword or staff. The pendulum of a clock vibrates seconds.	To cause to quiver.Breath vocalized, that is, vibrated or undulated, may differently affect the lips, and impress a swift tremulous motion.
+vibrated	VIBRATED	pp.	Brandished; moved one way and the other.
+vibratility	VIBRATILITY	n.	Disposition to preternatural vibration or motion. [Not much used.]
+vibrating	VIBRATING	ppr.	Brandishing; moving to and fro, as a pendulum or musical chord.
+vibration	VIBRATION	n.	The act of brandishing; the act of moving or state of being moved one way and the other in quick succession.	In mechanics, a regular reciprocal motion of a body suspended; a motion consisting of continual reciprocations or returns; as of the pendulum of a chronometer. This is frequently called oscillation. The number of vibrations in a given time depends on the length of the vibrating body; a pendulum three feet long, makes only ten vibrations while one of nine inches makes twenty. The vibrations of a pendulum are somewhat slower at or near the equator than in remote latitudes. The vibrations of a pendulum are isochronal in the same climate.	In physics, alternate or reciprocal motion; as the vibrations of the nervous fluid, by which sensation has been supposed to be produced, by impressions of external objects propagated thus to the brain.	In music, the motion of a chord, or the undulation of any body, by which sound is produced. The acuteness, elevation and gravity of sound, depend on the length of the chord and its tension.
+vibratiuncle	VIBRATIUNCLE	n.	A small vibration.
+vibrative	VIBRATIVE	a.	That vibrates.
+vibratory	VIBRATORY	a.	Vibrating; consisting in vibration or oscillation; as a vibratory motion.	Causing to vibrate.
+vibrion	VIBRION	n.	A name given to the ichneumon fly, from the continual vibration of its antennae
+vicar	VICAR	n.	In a general sense, a person deputed or authorized to perform the functions of another; a substitute in office. The pope pretends to be vicar of Jesus Christ on earth. He has under him a grand vicar who is a cardinal, and whose jurisdiction extends over all priests, regular and secular.	In the canon law, the priest of a parish, the predial tithes of which are impropriated or appropriated, that is, belong to a chapter or religious house, or to a layman, who receives them, and only allows the vicar the smaller tithes or a salary. Apostolical vicars, are those who perform the functions of the pope in churches or provinces committed to their direction.
+vicar-general	VICAR-GENERAL	n.	A title given by Henry VIII to the earl of Essex, with power to oversee all the clergy, and regulate all church affairs. It is now the title of an office, which, as well as that of official principal, is united in the chancellor of the diocese. The business of the vicar-general is to exercise jurisdiction over matters purely spiritual.
+vicarage	VICARAGE	n.	The benefice of a vicar. A vicarage by endowment, becomes a benefice distinct from the parsonage.
+vicargeneral	vicar-general
+vicarial	VICARIAL	a.	Pertaining to a vicar; small; as vicarial tithes
+vicariate	VICARIATE	a.	Having delegated power, as vicar.
+vicariate	VICARIATE	n.	A delegated office or power.
+vicarious	VICARIOUS	a.	Deputed; delegated; as vicarious power or authority.	Acting for another; filling the place of another; as a vicarious agent or officer.	Substituted in the place of another; as a vicarious sacrifice. The doctrine of vicarious punishment has occasioned much controversy.
+vicariously	VICARIOUSLY	adv.	In the place of another; by substitution.
+vicarship	VICARSHIP	n.	The office of a vicar; the ministry of a vicar.
+vice	VICE	n.	Properly, a spot or defect; a fault; a blemish; as the vices of a political constitution.	In ethics, any voluntary action or course of conduct which deviates from the rules of moral rectitude, or from the plain rules of propriety; any moral unfitness of conduct, either from defect of duty, or from the transgression of known principles of rectitude. vice differs from crime, in being less enormous. We never call murder or robbery a vice; but every act of intemperance, all falsehood, duplicity, deception, lewdness and the like, is a vice The excessive indulgence of passions and appetites which in themselves are innocent, is a vice The smoking of tobacco and the taking of snuff, may in certain cases be innocent and even useful, but these practices may be carried to such an excess as to become vices. This word is also used to denote a habit of transgressing; as a life of vice vice is rarely a solitary invader; it usually brings with it a frightful train of followers.	Depravity or corruption of manners; as an age of vice When vice prevails, and impious men bear sway. The post of honor is a private station.	A fault or bad trick in a horse.	The fool or punchinello of old shows. His face made of brass, like a vice in a game.	An iron press. [This should be written vise.]	A gripe or grasp. [Not in use.]
+vice	VICE	v.t.	To draw by a kind of violence. [Not in use. See Vise.]
+vice	VICE		Latin vice in the turn or place, is used in composition to denote one qui vicem gerit, who acts in the place of another, or is second in authority.
+vice-admiral	VICE-ADMIRAL	n.	In the navy, the second officer in command. His flag is displayed at the fore top-gallant-mast head.	A civil officer in Great Britain, appointed by the lords commissioners of the admiralty, for exercising admiralty jurisdiction within their respective districts.
+vice-admiralty	VICE-ADMIRALTY	n.	The office of a vice-admiralty; a vice-admiralty court.
+vice-agent	VICE-AGENT	n.	One who acts in the place of another
+vice-chamberlain	VICE-CHAMBERLAIN		CHAMBERLAIN, noun An officer in court, next in command to the lord chamberlain.
+vice-chancellor	VICE-CHANCELLOR	n.	An officer in a university in England, a distinguished member, who is annually elected to manage the affairs in the absence of the chancellor.
+vice-consul	VICE-CONSUL	n.	One who acts in the place of a consul.
+vice-doge	VICE-DOGE	n.	A counsellor at Venice, who represents the doge when sick or absent.
+vice-legate	VICE-LEGATE	n.	An officer employed by the pope to perform the office of spiritual and temporal governor in certain cities, when there is no legate or cardinal to command there.
+vice-president	VICE-PRESIDENT	n.	s as z. An officer next in rank below a president.
+viceadmiral	vice-admiral
+viceadmiralty	vice-admiralty
+viceagent	vice-agent
+vicechamberlain	vice-chamberlain
+vicechancellor	vice-chancellor
+viceconsul	vice-consul
+viced	VICED	a.	Vitious; corrupt. [Not in use.]
+vicedoge	vice-doge
+vicegerency	VICEGERENCY	n.	[See Vicegerent.] The office of a vicegerent; agency under another; deputed power; lieutenancy.
+vicegerent	VICEGERENT	n.	A lieutenant; a vicar; an officer who is deputed by a superior or by proper authority to exercise the powers of another. Kings are sometimes called God's vicegerents. It is to be wished they would always deserve the appellation
+vicegerent	VICEGERENT	a.	Having or exercising delegated power; acting by substitution, or in the place of another.
+vicelegate	vice-legate
+vicenary	VICENARY	a.	Belonging to twenty
+vicepresident	vice-president
+viceroy	VICEROY	n.	The governor of a kingdom or country, who rules in the name of the king with regal authority, as the king's substitute.
+viceroyalty	VICEROYALTY	n.	the dignity, office or jurisdiction of a viceroy.
+viceroyship	VICEROYSHIP	n.	the dignity, office or jurisdiction of a viceroy.
+vicety	VICETY	n.	Nicety; exactness. [Not in use; probably a mistake.]
+viciate	VICIATE	v.t.	to injure the substance or properties of a thing so as to impair its value, and lessen or destroy its use; to make less pure, or wholly impure; to deprave, in a physical or moral sense; as, to viciate the blood; to viciate taste or style; to viciate morals.	To render defective and thus destroy the validity of; to invalidate by defect; as, to viciate a deed or bond.
+viciated	VICIATED	pp.	Depraved; impaired in substance or quality; rendered defective and void.
+viciating	VICIATING	ppr.	Injuring in subtance or properties; rendering defective; making void.
+viciation	VICIATION	n.	Depravation; corruption.
+vicinage	VICINAGE	n.	Neighborhood; the place or places adjoining or near. A jury must be of the vicinage or body of the country. In law, common because of vicinage is where the inhabitants of two townships contiguous to each other, have usually intercommoned with one another; the beasts of one straying into the other's fields without molestation from either
+vicinal	VICINAL		VIC'INE, adjective Near; neighboring. [Little used.]
+vicine	VICINE	a.	Near; neighboring. [Little used.]
+vicinity	VICINITY	n.	Nearness in place; as the vicinity of two country seats.	Neighborhood; as a seat in the vicinity of the metropolis.	Neighboring country. Vegetables produced in the vicinity of the city, are daily brought to market. the vicinity is full of gardens.
+viciosity	VICIOSITY	n.	Depravity; corruption of manners. [But viciousness is generally used.]
+vicious	VICIOUS	a.	Defective; imperfect; as a system of government vicious and unsound.	Addicted to vice; corrupt in principles or conduct; depraved; wicked; habitually transgressing the moral law; as a vicious race of men; vicious parents; vicious children.	Corrupt; contrary to moral principles or to rectitude; as vicious examples; vicious conduct.	Corrupt, in a physical sense; foul; impure; insalubrious; as vicious air.	Corrupt; not genuine or pure; as vicious language; vicious idioms.	Unruly; refractory; not well tamed or broken; as a vicious horse.
+viciously	VICIOUSLY	adv.	Corruptly; in a manner contrary to rectitude, moral principles, propriety or purity.	Faultily; not correctly.
+viciousness	VICIOUSNESS	n.	Addictedness to vice; corruptness of moral principles or practice; habitual violation of the moral law, or of moral duties; depravity in principles or in manners. What makes a governor justly despised, is viciousness and ill morals.	Unruliness; refractoriness; as of a beast.
+vicissitude	VICISSITUDE	n.	Regular change or succession of one thing to another; as the vicissitudes of day and night, and of winter and summer; the vicissitudes of the seasons.	Change; revolution; as in human affairs. We are exposed to continual vicissitudes of fortune.
+vicissitudinary	VICISSITUDINARY	a.	Changing in succession.
+vicontiel	VICONTIEL	a.	In old law books, pertaining to the sheriff. Vicontiel rents, are certain rents for which the sheriff pays a rent to the king. Vicontiel writs, are such as are triable in the county or sheriff court
+vicontiels	VICONTIELS	n.	Things belonging to the sheriff; particularly, farms for which the sheriff pays rent to the king.
+vicount	VICOUNT	n.	In law books, the sheriff.	A degree of nobility next below a count or earl. [See Viscount.]
+victim	VICTIM	n.	A living being sacrificed to some deity, or in the performance of a religious rite; usually, some beast slain in sacrifice; but human beings have been slain by some nations, for the purpose of appeasing the wrath or conciliating the favor of some deity.	Something destroyed; something sacrificed in the pursuit of an object. How many persons have fallen victims to jealousy, to lust, to ambition!
+victimate	VICTIMATE	v.t.	To sacrifice. [Not in use.]
+victor	VICTOR	n.	One who conquers in war; a vanquisher; one who defeats an enemy in battle. victor differs from conqueror. We apply conqueror to one who subdues countries, kingdoms or nations; as, Alexander was the conqueror of Asia or India, or of many nations, or of the world. In such phrases, we cannot substitute victor But we use victor when we speak of one who overcomes a particular enemy, or in a particular battle; as, Cesar was victor at Pharsalia. The duke of Wellington was victor at Waterloo. victor then is not followed by the possessive case; for we do not say, Alexander was the victor of Darius, though we say, he was victor at Arbela.	One who vanquishes another in private combat or contest; as a victor in the Olympic games.	One who wins, or gains the advantage. In love, the victors from the vanquish'd fly; They fly that wound, and they pursue that die.	Master; lord. These, victor of his health, his fortune, friends. [Not usual nor legitimate.]
+victoress	VICTORESS	n.	A female who vanquishes.
+victorious	VICTORIOUS	a.	Having conquered in battle or contest; having overcome an enemy or antagonist; conquering; vanquishing; as a victorious general; victorious troops; a victorious admiral or navy.	That produces conquest; as a victorious day.	Emblematic of conquest; indicating victory; as brows bound with victorious wreaths.
+victoriously	VICTORIOUSLY	adv.	With conquest; with defeat of an enemy or antagonist; triumphantly; as, grace will carry us victoriously through all difficulties.
+victoriousness	VICTORIOUSNESS	n.	The state of being victorious.
+victory	VICTORY	n.	Conquest; the defeat of an enemy in battle, or of an antagonist in contest; a gaining of the superiority in war or combat. victory supposes the power of an enemy or an antagonist to prove inferior to that of the victor. victory however depends not always on superior skill or valor; it is often gained by the fault or mistake of the vanquished. Victory may be honorable to the arms, but shameful to the counsels of a nation.	The advantage or superiority gained over spiritual enemies, over passions and appetites, or over temptations, or in any struggle or competition. Thanks be to God, who giveth us the victory through our Lord Jesus Christ. 1 Corinthians 15:54.
+victress	VICTRESS	n.	A female that conquers.
+victual	VICTUAL		[See Victuals.]
+victual	VICTUAL	v.t.	To supply with provisions for subsistence; as, to victual an army; to victual a garrison.	To store with provisions; as, to victual a ship.
+victualed	VICTUALED	pp.	Supplied with provisions.
+victualer	VICTUALER	n.	One who furnishes provisions.	One who keeps a house of entertainment.	A provision-ship; a ship employed to carry provisions for other ships, or for supplying troops at a distance.
+victualing	VICTUALING	ppr.	Supplying with provisions.
+victualing-house	VICTUALING-HOUSE	n.	A house where provision is made for strangers to eat.
+victualinghouse	victualing-house
+victuals	VICTUALS	n.	Food for human beings, prepared for eating; that which supports human life; provisions; meat; sustenance. We never apply this word to that on which beasts or birds feed, and we apply it chiefly to food for men when cooked or prepared for the table. We do not now give this name to flesh, corn or flour, in a crude state; but we say, the victuals are well cooked or dressed, and in great abundance. We say, a man eats his victuals with a good relish. Such phrases as to buy victuals for the army or navy, to lay in victuals for the winter, etc. are now obsolete. We say, to buy provisions; yet we use the verb, to victual an army or ship
+videlicet	VIDELICET	adv.	To wit; namely. An abbreviation for this word is viz
+vidual	VIDUAL	a.	[Latin viduus, deprived. Belonging to the state of a widow. [Not used.]
+viduity	VIDUITY	n.	Widowhood. [Not used.]
+vie	VIE	v.i.	[See Victor.] To strive for superiority; to contend; to use effort in a race, contest, competition, rivalship or strife. How delightful it is to see children vie with each other in diligence and in duties of obedience. In a trading nation, the younger sons may be placed in a way of life to vie with the best of their family.
+vie	VIE	v.t.	To show or practice in competition; as, to vie power; to vie charities. [Not legitimate.]	To urge; to press. She hung about my neck, and kiss and kiss she vied so fast. [Not in use.]
+vielleur	VIELLEUR	n.	A species of fly in Surinam, less than the lantern fly.
+view	VIEW	v.t.	To survey; to examine with the eye; to look on with attention, or for the purpose of examining; to inspect; to explore. view differs from look, see, and behold, in expressing more particular or continued attention to the thing which is the object of sight. We ascended mount Holyoke, and viewed the charming landscape below. We viewed with delight the rich valleys of the Connecticut about the town of Northhampton. Go up and view the country. Joshua 7:2. I viewed the walls of Jerusalem. Nehemiah 7:1.	To see; to perceive by the eye.	To survey intellectually; to examine with the mental eye; to consider. view the subject in all its aspects.
+view	VIEW	n.	Prospect; sight; reach of the eye. The walls of Pluto's palace are in view	The whole extent seen. Vast or extensive views present themselves to the eye.	Sight; power of seeing, or limit of sight. The mountain was not within our view	Intellectual or mental sight. These things give us a just view of the designs of providence.	Act of seeing. The facts mentioned were verified by actual view	Slight; eye. Objects near our view are thought greater than those of larger size, that are more remote.	Survey; inspection; examination by the eye. The assessors took a view of the premises. Surveying nature with too nice a view	Intellectual survey; mental examination. On a just view of all the arguments in the case, the law appears to be clear.	Appearance; show.	Display; exhibition to the sight or mind. To give a right view of this mistaken part of liberty. -	Prospect of interest. No man sets himself about any thing, but upon some view or other, which serves him for a reason.	Intention; purpose; design. With that view he began the expedition. With a view to commerce, he passed through Egypt.	Opinion; manner of seeing or understanding. These are my views of the policy which ought to be pursued. VIEW of frankpledge, in law, a court of record, held in a hundred, lordship or manor, before the stewart of the leet. Point of view the direction in which a thing is seen.
+viewed	VIEWED	pp.	Surveyed; examined by the eye; inspected; considered.
+viewer	VIEWER	n.	One who views, surveys or examines.	In New England, a town officer whose duty is to inspect something; as a viewer of fences, who inspects them to determine whether they are sufficient in law.
+viewing	VIEWING	ppr.	Surveying; examining by the eye or by the mind; inspecting; exploring.
+viewing	VIEWING	n.	The act of beholding or surveying.
+viewless	VIEWLESS	a.	That cannot be seen; not being perceivable by the eye; invisible; as viewless winds. Swift through the valves the visionary fair repass'd and viewless mix'd with common air.
+vigesimation	VIGESIMATION	n.	The act of putting to death every twentieth man
+vigil	VIGIL	n.	Watch; devotion performed in the customary hours of rest or sleep. So they in heav'n their odes and vigils tun'd.	In church affairs, the eve or evening before any feast, the ecclesiastical day beginning at 6:00 in the evening, and continuing till the same hour the following evening; hence, a religious service performed in the evening preceding a holiday.	A fast observed on the day preceding a holiday; a wake.	Watch; forbearance of sleep; as the vigils of the card table. Vigils or watchings of flowers, a term used by Linne to express a peculiar faculty belonging to the flowers of certain plants, of opening and closing their petals at certain hours of the day
+vigilance	VIGILANCE	n.	Forbearance of sleep; a state of being awake.	Watchfulness; circumspection; attention of the mind in discovering and guarding against danger, or providing for safety. vigilance is a virtue of prime importance in a general. The vigilance of the dog is no less remarkable than his fidelity.	Guard; watch. In at this gate none pass the vigilance here plac'd.
+vigilancy	VIGILANCY		for vigilance, is not used.
+vigilant	VIGILANT	a.	Watchful; circumspect; attentive to discover and avoid danger, or to provide for safety. Take your places and be vigilant Be sober, be vigilant 1 Peter 5:8
+vigilantly	VIGILANTLY	adv.	Watchfully; with attention to danger and the means of safety; circumspectly
+vignet	VIGNET	n.	An ornament placed at the beginning of a book, preface or dedication; a head piece. Those vignets are of various forms; often they are wreaths of flowers or sprigs.
+vignette	VIGNETTE		VIG'OR, noun [Latin from vigeo, to be brisk, to grow, to be strong; allied to vivo, vixi, to live.]	Active strength or force of body in animals; physical force. The vigor of this arm was never vain.	Strength of mind; intellectual force; energy. We say, a man possesses vigor of mind or intellect.	Strength or force in vegetable motion; as, a plant grows with vigor.	Strength; energy; efficacy. In the fruitful earth his beams, unactive else, their vigor find.
+vigor	VIGOR	n.	Active strength or force of body in animals; physical force.The vigor of this arm was never vain.	Strength of mind; intellectual force; energy. We say, a man possesses vigor of mind or intellect.	Strength or force in vegetable motion; as, a plant grows with vigor.	Strength; energy; efficacy.In the fruitful earth his beams, unactive else, their vigor find.
+vigor	VIGOR	v.t.	To invigorate. [not in use.]
+vigorous	VIGOROUS	a.	Full of physical strength or active force; strong; lusty; as a vigorous youth; a vigorous body.	Powerful; strong; made by strength, either of body or mind; as a vigorous attack; vigorous exertions. The enemy expects a vigorous campaign. The beginnings of confederacies have been vigorous and successful.
+vigorously	VIGOROUSLY	adv.	With great physical force or strength; forcibly; with active exertions; as, to prosecute an enterprise vigorously
+vigorousness	VIGOROUSNESS	n.	The quality of being vigorous or possessed of active strength. [Vigor and all its derivatives imply active strength, or the power of action and exertion, in distinction from passive strength, or strength to endure.]
+vild	VILD		VILE, adjective [Latin vilis. Gr.]	Base; mean; worthless; despicable. The inhabitants account gold a vile thing. A man in vile raiment. James 2:1. Wherefore are we counted as beasts, and reputed as vile in your sight? Job 18:1.	Morally base or impure; sinful; depraved by sin; wicked; hateful in the sight of God and of good men. The sons of Eli made themselves vile. 1 Samuel 3:1. Behold I am vile; what shall I answer? Job 40:4.
+vile	VILE	a.	Base; mean; worthless; despicable.The inhabitants account gold a vile thing.A man in vile raiment. James 2.Wherefore are we counted as beasts, and reputed as vile in your sight? Job. 18.	Morally base or impure; sinful; depraved by sin; wicked; hateful in the sight of God and of good men. The sons of Eli made themselves vile. 1Sam. 3.Behold I am vile; what shall I answer? Job 40.
+viled	VILED	a.	Vile. [Not in use.]
+vilely	VILELY	adv.	Basely; meanly; shamefully; as Hector vilely dragged about the walls of Troy.	In a cowardly manner. 2 Samuel 1:21. The Volscians vilely yielded the town.
+vileness	VILENESS	n.	Baseness; meanness; despicableness. His vileness us shall never awe.	Moral baseness or depravity; degradation by sin; extreme wickedness; as the vileness of mankind.
+vilified	VILIFIED	pp.	Defamed; traduced; debased
+vilifier	VILIFIER	n.	One who defames or traduces.
+vilify	VILIFY	v.t.	To make vile; to debase; to degrade. Their Maker's image forsook them, when themselves they vilified to serve ungovern'd appetite.	To defame; to traduce; to attempt to degrade by slander. Many passions dispose us to depress and vilify the merit of one rising in the esteem of mankind. [This is the most usual sense of the verb.]
+vilifying	VILIFYING	ppr.	Debasing; defaming.
+vilipend	VILIPEND	v.t.	To despise. [Not in use.]
+vilipendency	VILIPENDENCY	n.	Disesteem; alight. [Not in use.]
+vility	VILITY	n.	Vileness; baseness. [Not in use.]
+vill	VILL	n.	A village; a small collection of houses. The statute of Exeter, 14 Edward I mentions entire-vills, demi-vills, and hamlets
+villa	VILLA	n.	A country seat or a farm, furnished with a mansion and convenient out-houses
+village	VILLAGE	n.	A small assemblage of houses, less than a town or city, and inhabited chiefly by farmers and other laboring people. In England, it is said that a village is distinguished from a town by the want of a market. In the United States, no such distinction exists, and any small assemblage of houses in the country is called a village
+villager	VILLAGER	n.	An inhabitant of a village.
+villagery	VILLAGERY	n.	a district of villages.
+villain	VILLAIN		VIL'LAINOUS, adjective [from villain ]	Base; very vile.	Wicked; extremely depraved; as a villanous person or wretch.	Proceeding from extreme depravity; as a villanous action.	Sorry; vile; mischievous; in a familiar sense; as a villanous trick of the eye. Villanous judgment, in old law, a judgment that casts reproach on the guilty person.
+villainous	VILLAINOUS	a.	Base; very vile.	Wicked; extremely depraved; as a villanous person or wretch.	Proceeding from extreme depravity; as a villanous action.	Sorry; vile; mischievous; in a familiar sense; as a villanous trick of the eye.Villanous judgment, in old law, a judgment that casts reproach on the guilty person.
+villainy	VILLAINY	n.	Extreme depravity; atrocious wickedness; as the villany of the thief or the robber; the villany of the seducer. The commendation is not in his wit, but in his villany.	A crime; an action of deep depravity. In this sense, the word has a plural. Such villanies roused Horace into wrath.
+villakin	VILLAKIN	n.	A little village; a word used by Gay.
+villan	VILLAN	n.	In feudal law, a villain or villein is one who holds lands by a base or servile tenure, or in villenage. Villains were of two sorts; villains regardant, that is, annexed to the manor, adscriptitii glebae; or villains in gross, that is, annexed to the person of their lord, and transferable from one to another.	A vile wicked person; a man extremely depraved, and capable or guilty of great crimes. We call by the name of villain, the thief, the robber, the burglarian, the murderer, the incendiary, the ravisher, the seducer, the cheat, the swindler. etc. Calm thinking villains, whom no faith could fix.
+villanage	VILLANAGE	n.	The state of a villain; base servitude.	A base tenure of lands; tenure on condition of doing the meanest services for the lord; usually written villenage.	Baseness; infamy. [See Villany.]
+villanize	VILLANIZE	v.t.	to debase; to degrade; to defame; to revile. Were virtue by descent, a noble name could never villanize his father's fame.
+villanized	VILLANIZED	pp.	Defamed; debased. [Little used.
+villanizing	VILLANIZING	ppr.	Defaming; debasing. [Little used.]
+villanous	VILLANOUS		VIL'LANOUSLY, adverb Basely; with extreme wickedness or depravity.
+villanously	VILLANOUSLY	adv.	Basely; with extreme wickedness or depravity.
+villanousness	VILLANOUSNESS	n.	Baseness; extreme depravity.
+villany	VILLANY		VILLAT'IC, adjective [Latin villaticus.] Pertaining to a village. Tame villatic fowl.
+villatic	VILLATIC	a.	Pertaining to a village. Tame villatic fowl
+villenage	VILLENAGE	n.	a tenure of lands and tenements by base services
+villous	VILLOUS	a.	Abounding with fine hairs or wooly substance; nappy shaggy; rough; as a villous coat. The villous coat of the stomach and intentines is the inner mucous membrane, so called from the innumerable villi or fine fibrils with which its internal surface is covered.	In botany, pubescent; covered with soft hairs.
+viminal	VIMINAL	a.	Pertaining to twigs; consisting of twigs; producing twigs
+vimineous	VIMINEOUS	a.	[Latin vimineus, from vimen, a twig. Made of twigs or shoots. In the hive's vimineous dome.
+vinaceous	VINACEOUS	a.	Belonging to wine or grapes
+vincible	VINCIBLE	a.	[from Latin vinco, to conquer. See Victor. Conquerable; that may be overcome or subdued. He not vincible in spirit -
+vincibleness	VINCIBLENESS	n.	the capacity of being conquered; conquerableness.
+vincture	VINCTURE	n.	a binding. [Not in use.]
+vindemial	VINDEMIAL	a.	Belonging to a vintage or grape harvest
+vindemiate	VINDEMIATE	v.i.	to gather the vintage
+vindemiation	VINDEMIATION	n.	The operation of gathering grapes.
+vindicability	VINDICABILITY	n.	The quality of being vindicable, or capable of support or justification.
+vindicable	VINDICABLE	a.	That may be vindicated, justified or supported
+vindicate	VINDICATE	v.t.	To defend; to justify; to support or maintain as true or correct, against denial, censure or objections. When the respondent denies any proposition, the opponent must vindicate it. Laugh where we must, be candid where we can; but vindicate the ways of God to man.	To assert; to defend with success; to maintain; to prove to be just or valid; as, to vindicate a claim or title.	To defend with arms, or otherwise; as, to vindicate our rights.	to avenge; to punish; as a war to vindicate or punish infidelity. God is more powerful to exact subjection and to vindicate rebellion. [This latter use is entirely obsolete.]
+vindicated	VINDICATED	pp.	Defended; supported; maintained; proved to be just or true.
+vindicating	VINDICATING	ppr.	Defending; supporting against denial, censure, charge or impeachment; proving to be true or just; defending by force.
+vindication	VINDICATION	n.	The defense of any thing, or a justification against denial or censure, or against objections or accusations; as the vindication of opinions or of a creed; the vindication of the Scriptures against the objections and cavils of infidels.	The act of supporting by proof or legal process; the proving of any thing to be just; as the vindication of a title, claim or right.	Defense by force or otherwise; as the vindication of the rights of man; the vindication of our liberties or the rights of conscience.
+vindicative	VINDICATIVE	a.	Tending to vindicate.	Revengeful. [This is now generally vindictive.]
+vindicator	VINDICATOR	n.	One who vindicates; one who justifies or maintains; one who defends.
+vindicatory	VINDICATORY	a.	Punitory; inflicting punishment; avenging. The afflictions of Job were not vindicatory punishments.	Tending to vindicate; justificatory.
+vindictive	VINDICTIVE	a.	Revengeful; given to revenge. I am vindictive enough to repel force by force.
+vindictively	VINDICTIVELY	adv.	By way of revenge; revengefully.
+vindictiveness	VINDICTIVENESS	n.	A revengeful temper.	Revengefulness.
+vine	VINE	n.	A plant that produces grapes, of the genus Vitis, and of a great number of varieties.	The long slender stem of any plant, that trails on the ground, or climbs and supports itself by winding round a fixed object, or by seizing any fixed thing with its tendrils or claspers. Thus we speak of the hop vine the bean vine the vines of melons, squashes, pumpkins, and other encurbitaceous plants.
+vine-dresser	VINE-DRESSER	n.	One who dresses, trims, prunes and cultivates vines
+vine-fretter	VINE-FRETTER	n.	A small insect that injures vines, the aphis or puceron
+vine-grub	VINE-GRUB	n.	A little insect that infests vines; the vine-fretter or puceron
+vined	VINED	a.	Having leaves like those of the vine.
+vinedresser	vine-dresser
+vinefretter	vine-fretter
+vinegar	VINEGAR	n.	Vegetable acid; an acid liquor obtained from wine, cider, beer or other liquors, by the second or acetous fermentation. vinegar may differ indefinitely in the degree of its acidity. When highly concentrated, it is called radical vinegar	Any thing really or metaphorically sour. [Not in use.] Vinegar of lead, a liquor formed by digesting ceruse or litharge with a sufficient quantity of vinegar to dissolve it.
+vinegrub	vine-grub
+vinery	VINERY	n.	In gardening, an erection for supporting vines and exposing them to artificial heat, consisting of a wall with stoves and flues.
+vineyard	VINEYARD		VIN'NEWED, adjective Moldy; musty. [Not in use.]
+vinnewed	VINNEWED	a.	Moldy; musty. [Not in use.]
+vinnewedness	VINNEWEDNESS	n.	Mustiness; moldiness. [Not in use.]
+vinny	VINNY	a.	Moldy; musty. [Not in use.]
+vinolency	VINOLENCY	n.	Drunkenness. [Not used.]
+vinolent	VINOLENT	a.	Given to wine. [Not used.]
+vinosity	VINOSITY	n.	State or quality of being vinous.
+vinous	VINOUS	a.	Having the qualities of wine; pertaining to wine; as a vinous taste; a vinous flavor; vinous fermentation
+vintage	VINTAGE	n.	The produce of the vine for the season. The vintage is abundant.	The time of gathering the crop of grapes.	The wine produced by the crop of grapes in one season.
+vintager	VINTAGER	n.	One that gathers the vintage.
+vintner	VINTNER	n.	One who deals in wine; a wine-seller.
+vintry	VINTRY	n.	A place where wine is sold.
+viny	VINY	a.	Belonging to vines; producing grapes.	Abounding in vines.
+vinyard	VINYARD	n.	A plantation of vines producing grapes; properly, an inclosure or yard for grape-vines.
+viol	VIOL	n.	A stringed musical instrument, of the same form as the violin, but larger, and having formerly six strings, to be struck with a bow. Viols are of different kinds. The largest of all is the base viol whose tones are deep, soft and agreeable. The violin now takes the place of the old viol Me softer airs befit, and softer strings of lute, or viol still more apt for mournful things.
+violable	VIOLABLE	a.	That may be violated, broken or injured
+violaceous	VIOLACEOUS	a.	Resembling violets
+violate	VIOLATE	v.t.	To injure; to hurt; to interrupt; to disturb; as, to violate sleep. Kindness for man, and pity for his fate, may mix with bliss and yet not violate	To break; to infringe; to transgress; as, to violate the laws of the state, or the rules of good breeding; to violate the divine commands; to violate one's vows or promises. Promises and commands may be violated negatively, by non-observance.	To injure; to do violence to. Forbid to violate the sacred fruit.	To treat with irreverence; to profane; as, to violate the sanctity of a holy place.	To ravish; to compress by force.
+violated	VIOLATED	pp.	Injured; broken; transgressed; ravished.
+violating	VIOLATING	ppr.	Injuring; infringing; ravishing.
+violation	VIOLATION	n.	The act of violating or injuring; interruption, as of sleep or peace.	Infringement; transgression; non-observance; as the violation of law or positive command; a violation of covenants, engagements and promises; a violation of vows.	Act of irreverence; profanation or contemptuous treatment of sacred things; as the violation of a church.	Ravishment; rape.
+violator	VIOLATOR	n.	One who violates, injures, interrupts or disturbs; as a violator of repose.	One who infringes or transgresses; as a violator of law.	One who profanes or treats with irreverence; as a violator of sacred things.	A ravisher.
+violence	VIOLENCE	n.	Physical force; strength of action or motion; as the violence of a storm; the violence of a blow or of a conflict.	Moral force; vehemence. The critic attacked the work with violence	Outrage; unjust force; crimes of all kinds. The earth was filled with violence Genesis 6:11.	Eagerness; vehemence. You ask with violence	Injury; infringement. Offer no violence to the laws, or to the rules of civility.	Injury; hurt. Do violence to no man. Luke 3:14.	Ravishment; rape. To do violence to or on, to attack; to murder. But, as it seems, did violence on herself. To do violence to, to outrage; to force; to injure. He does violence to his own opinions.
+violence	VIOLENCE	v.t.	To assault; to injure; also, to bring by violence [Little used.]
+violent	VIOLENT	a.	Forcible; moving or acting with physical strength; urged or driven with force; as a violent wind; a violent stream; a violent assault or blow; a violent conflict.	Vehement; outrageous; as a violent attack on the minister.	Produced or continued by force; not spontaneous or natural. No violent state can be perpetual.	Produced by violence; not natural; as a violent death.	Acting by violence; assailant; not authorized. Some violent hands were laid on Humphry's life.	Fierce; vehement; as a violent philippic; a violent remonstrance. We might be reckoned fierce and violent	Severe; extreme; as violent pains.	Extorted; not voluntary. Vows made in pain, are violent and void. Violent presumption, in law, is presumption that arises from circumstances which necessarily attend such facts. Such circumstances being proved, the mind infers with confidence that the fact has taken place, and this confidence is a violent presumption, which amounts to proof.
+violent	VIOLENT	n.	An assailant. [Not in use.]
+violent	VIOLENT	v.t.	To urge with violence. [Not used.]
+violently	VIOLENTLY	adv.	With force; forcibly; vehemently; as, the wind blows violently Forfeitures must not be exacted violently
+violet	VIOLET	n.	A plant and flower of the genus Viola, of many species
+violin	VIOLIN	n.	A musical instrument with four strings, played with a bow; a fiddle; one of the most perfect and most powerful instruments that has been invented.
+violinist	VIOLINIST	n.	A person skilled in playing on a violin.
+violist	VIOLIST	n.	A player on the viol.
+violoncello	VIOLONCELLO	n.	A stringed instrument of music; a base viol of four strings, or a little base violin with long large strings, giving sounds an octave lower than the base violin.
+violono	VIOLONO	n.	A double base, a deep toned instrument.
+viper	VIPER	n.	A serpent, a species of coluber, whose bite is remarkably venomous. A viper came out of the heat, and fastened on his hand. Acts 28:3.	A person or thing mischievous or malignant.
+viper's bugloss	VIPER'S BUGLOSS	n.	A plant of the genus Echium.
+viper's grass	VIPER'S GRASS	n.	A plant of the genus Scorzonera.
+viperine	VIPERINE	a.	Pertaining to a viper or to vipers
+viperous	VIPEROUS	a.	Having the qualities of a viper; malignant; venomous; as a viperous tongue
+virago	VIRAGO	n.	A woman of the extraordinary stature, strength and courage; a female who has the robust body and masculine mind of a man; a female warrior. To arms! to arms! the fierce virago cries.	In common language, a bold, impudent, turbulent woman; a termagant.
+vire	VIRE	n.	An arrow. obsolete
+virelay	VIRELAY	n.	A song or little poem among the Provencal poets in France; a roundelay. It sometimes consisted of two rhymes only, and short verses, with stops. To which a lady sung a virelay
+virent	VIRENT	a.	Green; verdant; fresh
+virgate	VIRGATE	a.	nearly vurgate. [Latin virga, a rod.] In botany, having the shape of a rod or wand; as a virgate stem.
+virgate	VIRGATE	n.	A yardland.
+virge	VIRGE		[See Verge.]
+virgilian	VIRGILIAN	a.	Pertaining to Virgil, the Roman poet.	Resembling the style of Virgil.
+virgin	VIRGIN	n.	nearly vur'gin. [Latin virgo.]	A woman who has had no carnal knowledge of man.	A woman not a mother. [Unusual.]	The sign Virgo. [See Virgo.]
+virgin	VIRGIN	a.	Pure; untouched; as virgin gold.	Fresh; new; unused; as virgin soil.
+virgin	VIRGIN	v.i.	To play the virgin; a cant word.
+virgin's bower	VIRGIN'S BOWER	n.	A plant of the genus Clematis.
+virginal	VIRGINAL	a.	Pertaining to a virgin; maidenly; as virginal chastity.
+virginal	VIRGINAL	n.	A keyed instrument of one string, jack and quill to each note, like a spinet, but in shape resembling the forte piano; out of use.
+virginal	VIRGINAL	v.i.	To pat; to strike as on a virginal [A cant word.]
+virginity	VIRGINITY	n.	Maidenhood; the state of having had no carnal knowledge of man
+virgo	VIRGO	n.	A sign of the zodiac which the sun enters in August; a constellation, containing according to the British catalogue, one hundred and ten stars
+viridity	VIRIDITY	n.	Greenness; verdure; the color of fresh vegetables
+virile	VIRILE	a.	Pertaining to a man, in the eminent sense of the word, [not to man, in the sense of the human race; ] belonging to the male sex; as virile age.	Masculine; not puerile or feminine; as virile strength or vigor.
+virility	VIRILITY	n.	Manhood; the state of the male sex, which has arrived to the maturity and strength of a man, and to the power of procreation.	The power of procreation.	Character of man. [Unusual.]
+virtu	VIRTU	n.	A love of the fine arts; a taste for curiosities.
+virtual	VIRTUAL	a.	Potential; having the power of acting or of invisible efficacy without the material or sensible part. Every kind that lives, fomented by his virtual power, and warm'd. Neither an actual nor virtual intention of the mind, but only that which may be gathered from the outward acts.	Being in essence or effect, not in fact; as the virtual presence of a man in his agent or substitute.
+virtuality	VIRTUALITY	n.	Efficacy.
+virtually	VIRTUALLY	adv.	In efficacy or effect only; by means of some virtue or influence, or the instrumentality of something else. Thus the sun is virtually on earth by its light and heat. The citizens of an elective government are virtually present in the legislature by their representatives. A man may virtually agree to a proposition by silence or withholding objections.
+virtuate	VIRTUATE	v.t.	To make efficacious. [Not in use.]
+virtue	VIRTUE	n.	The radical sense is strength, from straining, stretching, extending. This is the primary sense of Latin vir, a man.]	Strength; that substance or quality of physical bodies, by which they act and produce effects on other bodies. In this literal and proper sense, we speak of the virtue or virtues of plants in medicine, and the virtues of drugs. In decoctions, the virtues of plants are extracted. By long standing in the open air, the virtues are lost.	Bravery valor. This was the predominant signification of virtus among the Romans. Trust to thy single virtue [This sense is nearly or quite obsolete.]	Moral goodness; the practice of moral duties and the abstaining from vice, or a conformity of life and conversation to the moral law. In this sense, virtue may be, and in many instances must be, distinguished from religion. The practice of moral duties merely from motives of convenience, or from compulsion, or from regard to reputation, is virtue as distinct from religion. The practice of moral duties from sincere love to God and his laws, is virtue and religion. In this sense it is true, That virtue only makes our bliss below. VIRTUE is nothing but voluntary obedience to truth.	A particular moral excellence; as the virtue of temperance, of chastity, of charity. Remember all his virtues.	Acting power; something efficacious. Jesus, knowing that virtue had gone out of him, turned - Mark 3:1.	Secret agency; efficacy without visible or material action. She moves the body which she doth possess, Yet no part toucheth, but by virtue's touch.	Excellence; or that which constitutes value and merit. - Terence, who thought the sole grace and virtue of their fable, the sticking in of sentences.	One of the orders of the celestial hierarchy. Thrones, dominations, princedoms, virtues, powers.	Efficacy; power. He used to travel through Greece by virtue of this fable, which procured him reception in all the towns.	Legal efficacy or power; authority. A man administers the laws by virtue of a commission. In virtue in consequence; by the efficacy or authority. This they shall attain, partly in virtue of the promise of God, and partly in virtue of piety.
+virtueless	VIRTUELESS	a.	Destitute of virtue.	Destitute of efficacy or operating qualities. Virtueless she wish'd all herbs and charms.
+virtuoso	VIRTUOSO	n.	A man skilled in the fine arts, particularly in music; or a man skilled in antiquities, curiosities and the like. Virtuoso the Italians call a man who loves the nobel arts, and is a critic in them.
+virtuosoship	VIRTUOSOSHIP	n.	The pursuits of a virtuoso.
+virtuous	VIRTUOUS	a.	Morally good; acting in conformity to the moral law; practicing the moral duties, and abstaining from vice; as a virtuous man.	Being in conformity to the moral or divine law; as a virtuous action; a virtuous life. The mere performance of virtuous actions does not denominate an agent virtuous	Chaste; applied to women.	Efficacious by inherent qualities; as virtuous herbs; virtuous drugs. [Not in use.]	Having great or powerful properties; as virtuous steel; a virtuous staff; a virtuous ring. [Not in use.]	Having medicinal qualities. [Not used.]
+virtuously	VIRTUOUSLY	adv.	In a virtuous manner; in conformity with the moral law or with duty; as a life virtuously spent. A child virtuously educated.
+virtuousness	VIRTUOUSNESS	n.	The state or character of being virtuous.
+virulence	VIRULENCE		'ULENCY, noun [from virulent.]	That renders it extremely active in doing injury; acrimony; malignancy; as the virulence of poison.	Acrimony of temper; extreme bitterness or malignity; as the virulence of enmity or malice; the virulence of satire; to attack a man with virulence
+virulent	VIRULENT	a.	Extremely active in doing injury; very poisonous or venomous. No poison is more virulent than that of some species of serpents.	Very bitter in enmity; malignant; as a virulent invective.
+virulently	VIRULENTLY	adv.	With malignant activity; with bitter spite or severity.
+virus	VIRUS	n.	Foul or contagious matter of an ulcer, postule, etc.; poison
+vis-a-vis	VIS-A-VIS	n.	A carriage in which two persons sit face to face.
+visage	VISAGE	n.	s as z. [Latin visus, video.] The face; the countenance or look of a person, or of other animal; chiefly applied to human beings; as a wolfish visage Love and beauty still that visage grace. His visage was so marred, more than any man. Isaiah 52:14.
+visaged	VISAGED	a.	Having a visage or countenance.
+visavis	vis-a-vis
+viscera	VISCERA	n.	The bowels or intestines; the contents of the abdomen and thorax. In its most general sense, the organs contained in any cavity of the body, particularly in the three venters, the head, thorax and abdomen
+visceral	VISCERAL	a.	Pertaining to the viscera or intestines.	Feeling; having sensibility. [Unusual.]
+viscerate	VISCERATE	v.t.	To exenterate; to embowel; to deprive of the entrails or viscera. [Eviscerate is generally used.]
+viscid	VISCID	a.	Glutinous; sticky; tenacious; not readily separating; as, turpentine, tar, gums, etc. are more or less viscid
+viscidity	VISCIDITY	n.	Glutinousness; tenacity; stickiness.	Glutinous concretion.
+viscosity	VISCOSITY		VISCOUNT, noun vi'count. [Latin vice-comes.]	An officer who formerly supplied the place of the count or earl; the sheriff of the country.	A degree or title of nobility next in rank to an earl.
+viscount	VISCOUNT	n.	An officer who formerly supplied the place of the count or earl; the sheriff of the country.	A degree or title of nobility next in rank to an earl.
+viscountess	VISCOUNTESS	n.	The lady of a viscount; a peeress of the fourth order.
+viscounty	VISCOUNTY	n.	The quality and office of a viscount.
+viscous	VISCOUS	a.	Glutinous; clammy; sticky; adhesive; tenacious; as a viscous juice
+viscousness	VISCOUSNESS	n.	Glutinousness; tenacity; viscidity; that quality of soft substances which makes them adhere so as not to be easily parted.
+vise	VISE	n.	An engine or instrument for griping and holding things, closed by a screw; used by artificers.
+vishnu	VISHNU	n.	In the Hindoo mythology, the name of one of the chief deities of the trimurti or triad. He is the second person of this unity, and a personification of the preserving powers.
+visibility	VISIBILITY	n.	The state or quality of being perceivable to the eye; as the visibility of minute particles, or of distant objects.	The state of being discoverable or apparent; conspicuousness; as the perpetual visibility of the church.
+visible	VISIBLE	a.	s as z. [Latin visibilis.]	Perceivable by the eye; that can be seen; as a visible star; the least spot is visible on white paper; air agitated by heat becomes visible; as the air near a heated stove, or over a dry sandy plain, appears like pellucid waves. Virtue made visible in outward grace.	Discovered to the eye; as visible spirits.	Apparent; open; conspicuous. Factions at court became more visible Visible church, in theology, the apparent church of Christ; the whole body of professed believers in Christ, as contradistinguished from the real or invisible church, consisting of sanctified persons. Visible horizon, the line that bounds the sight.
+visibleness	VISIBLENESS	n.	State or quality of being visible; visibility.
+visibly	VISIBLY	adv.	In a manner perceptible to the eye. The day is visibly governed by the sun; the tides are visibly governed by the moon.
+vision	VISION	n.	s as z. [Latin visio, from video, visus.]	The act of seeing external objects; actual sight. Faith here is turned into vision there.	The faculty of seeing; sight. vision is far more perfect and acute in some animals than in man.	Something imagined to be seen, though not real; a phantom; a specter. No dreams, but visions strange.	In Scripture, a revelation from God; an appearance or exhibition of something supernaturally presented to the minds of the prophets, by which they were informed of future events. Such were the visions of Isaiah, of Amos, of Ezekiel, etc.	Something imaginary; the production of fancy.	Any thing which is the object of sight.
+visional	VISIONAL	a.	Pertaining to a vision.
+visionary	VISIONARY	a.	Affected by phantoms; disposed to receive impressions on the imagination. Or lull to rest the visionary maid.	Imaginary; existing in imagination only; not real; having no solid foundation; as a visionary prospect; a visionary scheme or project.
+visionary	VISIONARY	n.	One whose imagination is disturbed.	One who forms impracticable schemes; one who is confident of success in a project which others perceive to be idle and fanciful. [Visionist, in a like sense, is not used.]
+visit	VISIT	v.t.	To go or come to see; to attend. The physician visits his patient and prescribes. One friend visits another from respect or affection. Paul and Barnabas visited the churches they had planted, to know their state and confirm their faith. Men visit England, France or Italy in their travels.	To go or come to see for inspection, examination, correction of abuses, etc.; as, a bishop visits his diocese; a superintendent visits those persons or works which are under his care.	To salute with a present. Samson visited his wife with a kid. Judges 15:1.	To go to and to use; as, to visit the springs. To visit in mercy, in Scriptural language, to be propitious; to grant requests; to deliver from trouble; to support and comfort. It is thus God visits his people. Genesis 21:1. Zechariah 10:3. Luke 12:1. To visit with the rod, to punish. Psalms 89:32. To visit in wrath, or visit iniquity or sings upon, to chastise; to bring judgments on; to afflict. Exodus 20:1. To visit the fatherless and widow, or the sick and imprisoned, to show them regard and pity, and relieve their wants. Matthew 25:36. James 1:27.
+visit	VISIT	v.i.	To keep up the interchange of civilities and salutations; to practice going to see others. We ought not to visit for pleasure or ceremony on the sabbath.
+visit	VISIT	n.	The act of going to see another, or of calling at his house; a waiting on; as a visit of civility or respect; a visit of ceremony; a short visit; a long visit; a pleasant visit	The act of going to see; as a visit to Saratoga or to Niagara.	A going to see or attending on; as the visit of a physician.	The act of going to view or inspect; as the visit of a trustee or inspector.
+visitable	VISITABLE	a.	Liable or subject to be visited. all hospitals built since the reformation are visitable by the king or lord chancellor.
+visitant	VISITANT	n.	One that goes or comes to see another; one who is a guest in the house of a friend. When the visitant comes again he is no more a stranger.
+visitation	VISITATION	n.	The act of visiting. Nothing but peace and gentle visitation	Object of visit. My early visitation and my last. [Unusual.]	In law, the act of a superior or superintending officer, who visits a corporation, college, church or other house, to examine into the manner in which it is conducted, and see that its laws and regulations are duly observed and executed. In England, the visitation of the diocese belongs to the bishop; parochial visitation belongs peculiarly to the archdeacons.	In Scripture, and in a religious sense, the sending of afflictions and distresses on men to punish them for their sins, or to prove them. Hence afflictions, calamities and judgments are called visitations. What will ye do in the day of visitation? Isaiah 10:3.	Communication of divine love; exhibition of divine goodness and mercy.
+visited	VISITED	pp.	Waited on; attended; inspected; subjected to sufferings; favored with relief or mercy.
+visiting	VISITING	ppr.	Going or coming to see; attending on, as a physician; inspecting officially; afflicting; showing mercy to.	adjective Authorized to visit and inspect; as a visiting committee.
+visiting	VISITING	n.	The act of going to see or of attending; visitation.
+visitor	VISITOR	n.	One who comes or goes to see another, as in civility or friendship.	A superior or person authorized to visit a corporation or any institution, for the purpose of seeing that the laws and regulations are observed, or that the duties and conditions prescribed by the founder or by law, are duly performed and executed. The king is the visitor of all lay corporations.
+visitorial	VISITORIAL	a.	Belonging to a judicial visitor or superintendent. An archdeacon has visitorial power in parishes
+visive	VISIVE	a.	Pertaining to the power of seeing; formed in the act of seeing. [Not in use.]
+visne	VISNE	n.	In law, a neighborhood or near place; the place where an action is laid. In certain cases, the court has power to change the venue. The twelve men who are to try the cause, must be of the same venue where the demand is made
+visnomy	VISNOMY	n.	Face; countenance. [Not in use.]
+visor	VISOR	n.	s as z. [Latin visus, video; written also visard, visar, vizard.]	A head piece or mask used to disfigure and disguise. My weaker government since, makes you pull off the visor Swarms of knaves the visor quite disgrace.	A perforated part of a helmet.
+visored	VISORED	a.	Wearing a visor; masked; disguised.
+vista	VISTA	n.	A view or prospect through an avenue, as between rows of trees; hence, the trees or other things that form the avenue. The finish'd garden to the view its vistas opens and its alleys green
+visual	VISUAL	a.	s as z. [Latin visus.] Pertaining to sight; used in sight; serving as the instrument of seeing; as the visual nerve. The air, no where so clear, sharpen'd his visual ray. Visual point, in perspective, a point in the horizontal line, in which all the ocular rays unite. Visual rays, lines of light, imagined to come from the object to the eye.
+vital	VITAL	a.	Pertaining to life, either animal or vegetable; as vital energies; vital powers.	Contributing to life; necessary to life; as vital air; vital blood.	Containing life. Spirits that live throughout, vital in every part - and vital virtue infus'd, and vital warmth.	Being the seat of life; being that on which life depends. The dart flew on, and pierc'd a vital part.	Very necessary; highly important; essential. Religion is a business of vital concern. Peace is of vital importance to our country.	So disposed as to live. Pythagoras and Hippocrates affirm the birth of the seventh month to be vital [Little used.] Vital air, pure air or oxygen gas, which is essential to animal life.
+vitality	VITALITY	n.	Power of subsisting in life; the principle of animation, or of life; as the vitality of vegetable seeds or of eggs.	The act of living; animation.
+vitalize	VITALIZE	v.t.	To give life.
+vitally	VITALLY	adv.	In such a manner as to give life. The organic structure of human bodies, by which they are fitted to live and move, and to be vitally informed by the soul, is the workmanship of a most wise and beneficent maker.	Essentially; as vitally important.
+vitals	VITALS	n. pl.	Parts of animal bodies essential to life, such as the viscera.	The part essential to life, or to a sound state. Corruption of manners preys upon the vitals of a state.
+vitellary	VITELLARY	n.	The place where the yolk of an egg swims in the white. [Little used.]
+vitiate	VITIATE	v.t.	To injure the substance or qualities of a thing, so as to impair or spoil its use and value. Thus we say, luxury vitiates the humors of the body; evil examples vitiate the morals of youth; language is vitiated by foreign idioms. This undistinguishing complaisance will vitiate the taste of readers.	To render defective; to destroy; as the validity or binding force of an instrument or transaction. Any undue influence exerted on a jury vitiates their verdict. Fraud vitiates a contract.
+vitiated	VITIATED	pp.	Depraved; rendered impure; rendered defective and void.
+vitiating	VITIATING	ppr.	Depraving; rendering of no validity.
+vitiation	VITIATION	n.	The act of vitiating; depravation; corruption; as the vitiation of the blood.	A rendering invalid; as the vitiation of a contract.
+vitilitigate	VITILITIGATE	v.i.	To contend in law litigiously or cavilously. [Not in use.]
+vitilitigation	VITILITIGATION	n.	Cavilous litigation. [Not in use.] Vitious, vitiously, vitiousness. [See vicious and its derivatives.]
+vitreo-electric	VITREO-ELECTRIC	a.	Containing or exhibiting positive electricity, or that which is excited by rubbing glass.
+vitreoelectric	vitreo-electric
+vitreous	VITREOUS	a.	Pertaining to glass.	Consisting of glass; as a vitreous substance.	Resembling glass; as the vitreous humor of the eye, so called from its resembling melted glass. [See Humor.]
+vitreousness	VITREOUSNESS	n.	The quality or state of being vitreous; resemblance of glass.
+vitrescence	VITRESCENCE	n.	Glassiness; or the quality of being capable of conversion into glass; susceptibility of being formed into glass
+vitrescent	VITRESCENT	a.	Capable of being formed into glass; tending to become glass.
+vitrescible	VITRESCIBLE	a.	That can be vitrified.
+vitrifaction	VITRIFACTION	n.	[See vitrify.] The act, process or operation of converting into glass by heat; as the vitrifaction of sand, flint and pebbles with alkaline salts.
+vitrifiable	VITRIFIABLE	a.	Capable of being converted into glass by heat and fusion. Flint and alkaline salts are vitrifiable
+vitrificable	VITRIFICABLE		for vitrifiable. [Not used.]
+vitrificate	VITRIFICATE		for vitrify. [Not used.]
+vitrification	VITRIFICATION		for vitrifaction. [See Vitrifaction, which is generally used.]
+vitrified	VITRIFIED	pp.	Converted into glass.
+vitriform	VITRIFORM	a.	Having the form or resemblance of glass
+vitrify	VITRIFY	v.t.	To convert into glass by fusion or the action of heat; as, to vitrify sand and alkaline salts
+vitrify	VITRIFY	v.i.	To become glass; to be converted into glass. Chimists make vessels of animal substances calcined, which will not vitrify in the fire.
+vitriol	VITRIOL	n.	In mineralogy, native vitriol is a substance of a grayish or yellowish white color, apple green, or sky blue, and when decomposed, covered with an ochery crust. It occurs in masses, disseminated, stalactical, or capillary. Externally, it is dull and rough; internally, it is more or less shining, with a vitreous silky structure. It is called by manufacturers copperas, a name derived from the flower or efflorescence of copper. This substance is seem only in cabinets.	In chimistry, a combination of the acid of sulphur with any metallic substance; but chiefly green vitriol or sulphate of iron; blue vitriol or sulphate of copper, and white vitriol or sulphate of zink. All metals may be converted into vitriols, by dissolving them with acid spirits, and suffering them to stand and crystallize.
+vitriolate	VITRIOLATE	v.t.	To convert, as sulphur in any compound, into sulphuric acid, formerly called vitriolic acid. Thus the sulphuret of iron vitriolated, becomes sulphate of iron, or green vitriol.
+vitriolated	VITRIOLATED	pp.	Converted into sulphuric acid or vitriol.
+vitriolating	VITRIOLATING	ppr.	Turning into sulphuric acid or vitrol.
+vitriolation	VITRIOLATION	n.	The act or process of converting into sulphuric acid or vitriol.
+vitriolic	VITRIOLIC	a.	Pertaining to vitriol; having the qualities of vitriol, or obtained from vitriol. Vitriolic acid, in modern chimistry is denominated sulphuric acid, the base of it being sulphur; sulphur completely saturated with oxygen.
+vitriolizable	VITRIOLIZABLE	a.	Capable of being converted into sulphuric acid.
+vitriolization	VITRIOLIZATION		[See Vitriolation.]
+vitriolize	VITRIOLIZE		[See Vitriolate.]
+vitriolized	VITRIOLIZED		[See Vitriolated.]
+vitriolizing	VITRIOLIZING		[See Vitriolating.]
+vituline	VITULINE	a.	Belonging to a calf, or to veal
+vituperable	VITUPERABLE	a.	[See Vituperate.] Blameworthy; censurable. [Not used.]
+vituperate	VITUPERATE	v.t.	To blame; to censure. [Little used.]
+vituperation	VITUPERATION	n.	Blame; censure. [Little used.]
+vituperative	VITUPERATIVE	a.	Uttering or writing censure; containing censure.
+vivacious	VIVACIOUS	a.	Lively; active; sprightly in temper or conduct.	Long lived. [Not in use.]	Having vigorous powers of life; as vivacious plants.
+vivaciousness	VIVACIOUSNESS	n.	Activity; liveliness; sprightliness of temper or behavior; vivacity.	Power of living; also, long life. [Not in use.]
+vivacity	VIVACITY	n.	Liveliness; sprightliness of temper or behavior; as a lady of great vivacity	Air of life and activity; as vivacity of countenance.	Life; animation; spirits; as the vivacity of a discourse.	Power of living. [Not used.]	Longevity. [Not in use.]
+vivary	VIVARY	n.	A warren; a place for keeping living animals, as a pond, a park, etc. Viva voce, [Latin] by word of mouth; as, to vote viva voce
+vive	VIVE	a.	Lively; forcible. [Not in use.]
+vively	VIVELY	adv.	In a lively manner. [Not used.]
+vivency	VIVENCY	n.	Manner of supporting life or vegetation. [Not in use.]
+vives	VIVES	n.	A disease of animals, particularly of horses, seated in the glads under the ear, where a tumor is formed which sometimes ends in suppuration.
+vivianite	VIVIANITE	n.	A phosphate of iron, of various shades of blue and green.
+vivid	VIVID	a.	Lively; sprightly; active. Body is a fit workhouse for sprightly vivid faculties to exert themselves in.	Lively; sprightly; forming brilliant images, or painting in lively colors; as a vivid imagination.	Bright; strong; exhibiting the appearance of life or freshness; as the vivid colors of the rainbow; the vivid green of flourishing vegetables. Arts which present, with all the vivid charms of painting, the human face and human form divine.
+vividly	VIVIDLY	adv.	With life; with strength. Sensitive objects affect a man much more vividly than those which affect only his mind.	With brightness; in bright colors.	In glowing colors; with animated exhibition to the mind. The orator vividly represented the miseries of his client.
+vividness	VIVIDNESS	n.	Life; strength; sprightliness.	Strength of coloring; brightness.
+vivific	VIVIFIC		VIVIF'ICAL, adjective [Latin vivificus. See Vivify.] Giving life; reviving; enlivening.
+vivifical	VIVIFICAL	a.	Giving life; reviving; enlivening
+vivificate	VIVIFICATE	v.t.	to give life to; to animate. [See Vivify.]	In chimistry, to recover from such a change of form as seems to destroy the essential qualities; or to give to natural bodies new luster, force and figor.
+vivification	VIVIFICATION	n.	The act of giving life; revival.	Among chimists, the act of giving new luster, force and vigor; as the vivification of mercury.
+vivificative	VIVIFICATIVE	a.	Able to animate or give life.
+vivified	VIVIFIED	pp.	revived; endued with life.
+vivify	VIVIFY	v.t.	To endue with life; to animate; to make to be living. Sitting on eggs doth vivify not nourish
+vivifying	VIVIFYING	ppr.	enduing with life; communicating life to.
+viviparous	VIVIPAROUS	a.	Producing young in a living state, as all mammifers; as distinguished from oviparous, producing eggs, as fowls. If fowls were viviparous it is difficult to how the female would fly during preganancy.	In botany, producing its offspring alive, either by bulbs instead of seeds, or by the seeds themselves germinating on the plant, instread of falling, as they usually do; as a viviparous plant.
+vixen	VIXEN	n.	[vixen is a she fox, or a fox's cub. A froward, turbulent, quarrelsome woman.
+vixenly	VIXENLY	a.	having the qualities of a vixen.
+viz	VIZ		a contraction of videlicet; to wit, that is, namely.
+vizard	VIZARD	n.	a mask. [See Visor.]
+vizard	VIZARD	v.t.	To mask.
+vizer	VIZER	n.	The chief minister of the Turkish empire.
+vizier	VIZIER		VO'CABLE, noun [Latin vocabulum. See Voice.] A word; a term; a name.

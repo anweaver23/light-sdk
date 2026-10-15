@@ -1,0 +1,41 @@
+dim	DIM	a.	Not seeing clearly; having the vision obscured and indistinct. When Isaac was old, and his eyes were dim Genesis 27:1.	Not clearly seen; obscure; imperfectly seen or discovered; as a dim prospect.	Somewhat dark; dusky; not luminous; as a dim shade.	Dull of apprehension; having obscure conceptions. The understanding is dim	Having its luster obscured; sullied; tarnished. How is the gold become dim? Lamentations 4:1.
+dim	DIM	v.t.	To cloud; to impair the powers of vision; as, to dim the eyes.	To obscure; as, to dim the sight; to dim the prospect.	To render dull the powers of conception.	To make less bright; to obscure. Each passion dimmed his face.	To render less bright; to tarnish or sully; as, to dim gold.
+dim-sighted	DIM-SIGHTED	a.	Having dim or obscure vision.
+dimble	DIMBLE	n.	A bower; a cell or retreat. [Not in use.]
+dime	DIME	n.	A silver coin of the United States, of the value of ten cents; the tenth of a dollar.
+dimension	DIMENSION	n.	In geometry, the extent of a body, or length, breadth and thickness or depth. A line has one dimension or length; a superficies has two dimensions, length and breadth; and a solid has three dimensions, length, breadth and thickness or depth. The word is generally used int eh plural, and denotes the whole space occupied by a body, or its capacity, size, measure; as the dimensions of a room, or of a ship; the dimensions of a farm, of a kingdom, etc
+dimensionless	DIMENSIONLESS	a.	Without any definite measure or extent; boundless.
+dimensity	DIMENSITY	n.	Extent; capacity.
+dimensive	DIMENSIVE	a.	That marks the boundaries or outlines. Who can draw the souls dimensive lines?
+dimeter	DIMETER	a.	Having two poetical measures
+dimeter	DIMETER	n.	A verse of two measures.
+dimiciliary	DIMICILIARY	a.	Pertaining to an abode, or the residence of a person or family. A domiciliary visit is a visit to a private dwelling, particularly for the purpose of searching it, under authority.
+dimidiate	DIMIDIATE	v.t.	To divide into two equal parts
+dimidiated	DIMIDIATED	a.	Divided into two equal parts; halved
+dimidiation	DIMIDIATION	n.	The act of having; division into two equal parts.
+diminish	DIMINISH	v.t.	To lessen; to make less or smaller, by any means; opposed to increase and augment; as, to diminish the size of a thing by contraction, or by cutting off a part; to diminish a number by subtraction; to diminish the revenue by limiting commerce, or reducing the customs; to diminish strength or safety; to diminish the heat of a room. It is particularly applied to bulk and quantity, as shorten is to length.	To lessen; to impair; to degrade. I will diminish them, that they shall no more rule over the nations. Ezekiel 29:15.	In music, to take from a note by a sharp, flat or natural. To diminish from, to take away something. Neither shall you diminish aught from it Deuteronomy 4:2.
+diminish	DIMINISH	v.i.	To lessen; to become or appear less or smaller. The size of an object diminishes, as we recede from it.
+diminishable	DIMINISHABLE	a.	Capable of being reduced in size or quantity.
+diminished	DIMINISHED	pp.	Lessened; made smaller; reduced in size; contracted; degraded.
+diminishing	DIMINISHING	ppr.	Lessening; contracting; degrading.
+diminishingly	DIMINISHINGLY	adv.	In a manner to lessen reputation.
+diminuent	DIMINUENT	a.	Lessening. [Little used.]
+diminute	DIMINUTE	a.	Small. [Not in use.]
+diminution	DIMINUTION	n.	The act of lessening; a making smaller; opposed to augmentation; as the diminution of size, of wealth, of power, of safety.	The state of becoming or appearing less; opposed to increase; as the diminution of the apparent diameter of a receding body.	Discredit; loss of dignity; degradation.	Deprivation of dignity; a lessening of estimation.	In architecture, the contraction of the upper part of a column, by which its diameter is made less than that of the lower part.	In music, the imitation of or reply to a subject in notes of half the length or value of those of the subject itself.
+diminutive	DIMINUTIVE	a.	Small; little; narrow; contracted; as a diminutive race of men or other animals; a diminutive thought.
+diminutive	DIMINUTIVE	n.	In grammar, a word formed from another word, usually an appellative or generic term, to express a little thing of the kind; as, in Latin, lapillus, a little stone, from lapis; cellula, a little cell, from cella, a cell; in French, maisonnette, a little house, from maison, a house; in English, manikin, a little man, from man.
+diminutively	DIMINUTIVELY	adv.	In a diminutive manner; in a manner to lessen; as, to speak diminutively of another.
+diminutiveness	DIMINUTIVENESS	n.	Smallness; littleness; want of bulk; want of dignity.
+dimish	DIMISH	a.	Somewhat dim, or obscure
+dimissory	DIMISSORY	a.	Sending away; dismissing to another jurisdiction. A letter dimissory is one given by a bishop to a candidate for holy orders, having a title in his diocese, directed to some other bishop, and giving leave for the bearer to be ordained by him.	Granting leave to depart.
+dimit	DIMIT	v.t.	To permit to go; to grant to farm; to let. [Not in use.]
+dimity	DIMITY	n.	A kind of white cotton cloth, ribbed or figured.
+dimly	DIMLY	adv.	In a dim or obscure manner; with imperfect sight.	Not brightly, or clearly; with a faint light.
+dimming	DIMMING	ppr.	Obscuring.
+dimming	DIMMING	n.	Obscurity.
+dimness	DIMNESS	n.	Dullness of sight; as the dimness of the eyes.	Obscurity of vision; imperfect sight; as the dimness of a view.	Faintness; imperfection; as the dimness of a color.	Want of brightness; as the dimness of gold or silver.	Want of clear apprehension; stupidity; as the dimness of perception.
+dimple	DIMPLE	n.	A small natural cavity or depression in the cheek or other part of the face
+dimple	DIMPLE	v.i.	To form dimples; to sink into depressions or little inequalities. And smiling eddies dimpled on the main.
+dimpled	DIMPLED	a.	Set with dimples; as a dimpled cheek.
+dimply	DIMPLY	a.	Full of dimples, or small depressions; as the dimply flood.
+dimsighted	dim-sighted

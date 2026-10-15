@@ -1,0 +1,10 @@
+ejaculate	EJACULATE	v.t.	To throw out; to cast; to shoot; to dart; as rays of light ejaculated. It is now seldom used, except to express the utterance of a short prayer; as, he ejaculated a few words
+ejaculation	EJACULATION	n.	The act of throwing or darting out with a sudden force and rapid flight; as the ejaculation of light. [This sense is nearly obsolete.]	The uttering of a short prayer; or a short occasional prayer uttered.
+ejaculatory	EJACULATORY	a.	Suddenly darted out; uttered in short sentences; as an ejaculatory prayer or petition.	Sudden; hasty; as ejaculatory repentance.	Casting; throwing out.
+eject	EJECT	v.t.	To throw out; to cast forth; to thrust out, as from a place inclosed or confined.	To discharge through the natural passages or emunctories; to evacuate.	To throw out or expel from an office; to dismiss from an office; to turn out; as, to eject a clergyman.	To dispossess of land or estate.	To drive away; to expel; to dismiss with hatred.	To cast away; to reject; to banish; as, to eject words from a language.
+ejected	EJECTED	pp.	Thrown out; thrust out; discharged; evacuated; expelled; dismissed; dispossessed; rejected.
+ejecting	EJECTING	ppr.	Casting out; discharging; evacuating; expelling; dispossessing; rejecting.
+ejection	EJECTION	n.	The act of casting out; expulsion	Dismission from office.	Dispossession; a turning out from possession by force or authority.	The discharge of any excrementitious matter through the pores or other emunctories; evacuation; vomiting.	Rejection.
+ejectment	EJECTMENT	n.	Literally, a casting out; a dispossession.	In law, a writ or action which lies for the recovery of possession of land from which the owner has been ejected, and for trial of title. ejectment may be brought by the lessor against the lessee for rent in arrear, or for holding over his term; also by the lessee for years, who has been ejected before the expiration of his term.
+ejector	EJECTOR	n.	One who ejects or dispossesses another of his land.
+ejulation	EJULATION	n.	Outcry; a wailing; a loud cry expressive of grief or pain; mourning; lamentation

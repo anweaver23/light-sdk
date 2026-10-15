@@ -1,0 +1,99 @@
+mascle	MASCLE	n.	In heraldry, a lozenge, as it were perforated.
+masculine	MASCULINE	a.	Having the qualities of a man; strong; robust; as a masculine body.	Resembling man; coarse; opposed to delicate or soft; as masculine features.	Bold; brave; as a masculine spirit or courage.	In grammar, the masculine gender of words is that which expresses a male, or something analogous to it; or it is the gender appropriated to males, though not always expressing the male sex.
+masculinely	MASCULINELY	adv.	Like a man.
+masculineness	MASCULINENESS	n.	The quality or state of being manly; resemblance of man in qualities; as in coarseness of features, strength of body, boldness, etc.
+mash	MASH	n.	A mixture or mass of ingredients, beaten or blended together in a promiscuous manner.	A mixture for a horse.	A mesh. [See Mesh, the more common orthography.]
+mash	MASH	v.t.	To beat into a confused mass.	To bruise; to crush by beating or pressure; as, to mash apples in a mill.	To mix malt and water together in brewing.
+mashed	MASHED	pp.	Beat into a mass; bruised; crushed; mixed into a mash.
+mashing	MASHING	ppr.	Beating into a mass; bruising; crushing.
+mashing-tub	MASHING-TUB	n.	A tub for containing the mash in breweries.
+mashingtub	mashing-tub
+mashy	MASHY	a.	Produced by crushing or bruising.
+mask	MASK	n.	A cover for the face; that which conceals the face, especially a cover with apertures for the eyes and mouth; a visor. A mask is designed to conceal the face from beholders, or to preserve the complexion from injury by exposure to the weather and the rays of the sun.	That which disguises; any pretense or subterfuge.	A festive entertainment of dancing or other diversions, in which the company all wear masks; a masquerade.	A revel; a bustle; a piece of mummery. This thought might lead through this world's vain mask	A dramatic performance written in a tragic style, without attention to rules or probability.	In architecture, a piece of sculpture representing some grotesque form, to fill and adorn vacant places, as in friezes, panels of doors, keys of arches, etc.
+mask	MASK	v.t.	To cover the face for concealment or defense against injury; to conceal with a mask or visor.	To disguise; to cover; to hide. Masking the business from the common eye.
+mask	MASK	v.i.	To revel; to play the fool in masquerade.	To be disguised in any way.
+mask-house	MASK-HOUSE	n.	A place for masquerades.
+masked	MASKED	pp.	Having the face covered; concealed; disguised.	adjective In botany, personate.
+masker	MASKER	n.	One that wears a mask; one that plays the fool at a masquerade.
+maskery	MASKERY	n.	The dress or disguise of a masker.
+maskhouse	mask-house
+masking	MASKING	ppr.	Covering with a mask; concealing.
+maslin	MASLIN		[See Meslin.]
+mason	MASON	n.	A man whose occupation is to lay bricks and stones, or to construct the walls of buildings, chimneys and the like, which consist of bricks or stones.	A member of the fraternity of free masons.
+masonic	MASONIC	a.	Pertaining to the craft or mysteries of free masons.
+masonry	MASONRY	n.	The art or occupation of a mason.	The work or performance of a mason; as when we say, the wall is good masonry	The craft of free masons.
+masora	MASORA	n.	A Hebrew work on the bible, by several Rabbins
+masoretic	MASORETIC	a.	Relating to the Masorites, who interpreted the Scriptures by tradition, and invented the Hebrew points to fix the true reading and pronunciation. Whence the vowel points are denominated masoretic
+masorite	MASORITE	n.	One of the writers of the Masora.
+masquerade	MASQUERADE	n.	A nocturnal assembly of persons wearing masks, and amusing themselves with dancing, conversation and other diversions. In courtly balls and midnight masquerades.	Disguise. I came to visit thee in masquerade	A Spanish diversion on horseback.
+masquerade	MASQUERADE	v.i.	To go in disguise.	To assemble in masks.
+masquerade	MASQUERADE	v.t.	To put in disguise.
+masquerader	MASQUERADER	n.	A person wearing a mask; one disguised.
+masquerading	MASQUERADING	ppr.	Assembling in masks for diversion.
+mass	MASS	n.	A lump; a body of matter concreted, collected or formed into a lump; applied to any solid body; as a mass of iron or lead; a mass of flesh; as mass of ice; a mass of dough.	A collective body of fluid matter. The ocean is a mass of water.	A heap; as a mass of earth.	A great quantity collected; as a mass of treasure.	Bulk; magnitude. This army of such mass and charge.	An assemblage; a collection of particulars blended, confused or indistinct; as a mass of colors. They lose their forms, and make a mass Confused and black, if brought too near.	Gross body of things considered collectively; the body; the bulk; as the mass of people in a nation. A small portion of morbid matter may infect the whole mass of fluids in the body.
+mass	MASS	n.	The service of the Romish church; the office or prayers used at the celebration of the eucharist; the consecration of the bread and wine
+mass	MASS	v.i.	To celebrate mass [Not used.]
+mass	MASS	v.t.	To fill; to stuff; to strengthen. [Not used.]
+massacer	MASSACER		The murder of an individual, or the slaughter of numbers of human beings, with circumstances of cruelty; the indiscriminate killing of human beings, without authority or necessity, and without forms civil or military. It differs from assassination, which is a private killing. It differs from carnage, which is rather the effect of slaughter than slaughter itself, and is applied to the authorized destruction of men in battle. Massacre is sometimes called butchery, from its resemblance to the killing of cattle. If a soldier kills a man in battle in his own defense, it is a lawful act; it is killing, and it is slaughter, but it is not a massacre. Whereas, if a soldier kills an enemy after he has surrendered, it is a massacre, a killing without necessity, often without authority, contrary to the usages of nations, and of course with cruelty. The practice of killing prisoners, even when authorized by the commander, is properly massacre; as the authority given proceeds from cruelty. We have all heard of the massacre of the protestants in France, in the reign of Charles IX. and frequent instances of barbarous massacre occur in the war between the Turks and Greeks.	Murder.
+massacer	MASSACER		MAS'SACRE, verb transitive To murder human beings with circumstances of cruelty; to kill men with indiscriminate violence, without authority or necessity, and contrary to the usages of nations; to butcher human beings.
+massacre	MASSACRE	n.	The murder of an individual, or the slaughter of numbers of human beings, with circumstances of cruelty; the indiscriminate killing of human beings, without authority or necessity, and without forms civil or military. It differs from assassination, which is a private killing. It differs from carnage, which is rather the effect of slaughter than slaughter itself, and is applied to the authorized destruction of men in battle. Massacre is sometimes called butchery, from its resemblance to the killing of cattle. If a soldier kills a man in battle in his own defense, it is a lawful act; it is killing, and it is slaughter, but it is not a massacre. Whereas, if a soldier kills an enemy after he has surrendered, it is a massacre, a killing without necessity, often without authority, contrary to the usages of nations, and of course with cruelty. The practice of killing prisoners, even when authorized by the commander, is properly massacre; as the authority given proceeds from cruelty. We have all heard of the massacre of the protestants in France, in the reign of Charles IX. and frequent instances of barbarous massacre occur in the war between the Turks and Greeks.	Murder.
+massacrer	MASSACRER	n.	One who massacres. [A very bad word.]
+masser	MASSER	n.	A priest who celebrates mass.
+masseter	MASSETER	n.	A muscle which raises the under jaw
+massicot	MASSICOT		M'ASSINESS M'ASSIVE M'ASSIVENESS, noun [See Massy, Massive.] The state of being massy; great weight or weight with bulk; ponderousness.
+massiveness	M`ASSIVENESS	n.	[See Massy, Massive.] The state of being massy; great weight or weight with bulk; ponderousness.
+massy	MASSY	a.	Heavy; weighty; ponderous; bulky and heavy; as a massy shield; a massy rock. The yawning rocks in massy fragments fly.
+mast	MAST	n.	A long, round piece of timber, elevated or designed to be raised perpendicularly or nearly so, on the keel of a ship or other vessel, to which the yards, sails and rigging are attached, and by which they are supported. A mast is a single stick, formed from the trunk of a tree, or it consists of many pieces of timber united by iron bands. Masts are of several kinds, as the main-mast, fore-mast, mizzen-mast, top-mast, top-gallant-mast, etc.
+mast	MAST	n.	The fruit of the oak and beech, or other forest trees; nuts; acorns. [It has no plural.]
+masted	MASTED	a.	Furnished with a mast or masts.
+master	MASTER	n.	A man who rules, governs or directs either men or business. A man who owns slaves is their master; he who has servants is their master; he who has apprentices is their master; he who has apprentices is their master as he has the government and direction of them. The man who superintends and directs any business, is master or master workman. O thou my friend, my genius, come along, Thou master of the poet and the song. Nations that want protectors, will have masters.	A director, head, or chief manager; as the master of a feast.	The owner; proprietor; with the idea of governing. The master of a house may be the owner, or the occupant, who has a temporary right of governing it. It would be believed that he rather took the horse for his subject, than his master	A lord; a ruler; one who has supreme dominion. Caesar, the world's great master and his own.	A chief; a principal; as the master root of a plant. One master passion swallows up the rest.	One who has possession, and the power of controlling or using at pleasure. When I have made myself master of a hundred thousand drachmas--	The commander of a merchant ship.	In ships of war, an officer who takes rank immediately after the lieutenants, and navigates the ship under the direction of the captain.	The director of a school; a teacher; an instructor. In this sense the word is giving place to the more appropriate words teacher, instructor and preceptor; at least it is so in the United States.	One uncontrolled. Let every man be master of his time.	An appellation of respect. Master doctor, you have brought those drugs.	An appellation given to young men. Where there are little masters and misses in a house--	A man eminently or perfectly skilled in any occupation, art or science. We say, a man is master of his business; a great master of music, of the flute or violin; a master of his subject, etc.	A title of dignity in colleges and universities; as master of Arts.	The chief of a society; as the Grand master of Malta, of free-masons, etc.	The director of ceremonies at public places, or on public occasions.	The president of a college. Master in chancery, an assistant of the lord chancellor, chosen from among the barristers to sit in chancery, or at the rolls. To be master of one's self, to have the command or control of one's own passions. The word master has numerous applications, in all of which it has the sense of director, chief or superintendent. As a title of respect given to adult persons, it is pronounced mister; a pronunciation which seems to have been derived from some of the northern dialects. [supra.]
+master	MASTER	v.i.	To conquer; to overpower; to subdue; to bring under control. Obstinacy and willful neglect must be mastered, even though it costs blows. Evil customs must be mastered by degrees.	To execute with skill. I will not offer that which I cannot master	To rule; to govern. --And rather father thee than master thee. [Not used.]
+master	MASTER	v.i.	To be skillful; to excel.
+master-hand	MASTER-HAND	n.	The hand of a man eminently skillful.
+master-jest	MASTER-JEST	n.	Principal jest.
+master-key	MASTER-KEY	n.	The key that opens many locks, the subordinate keys of which open only one each.
+master-lode	MASTER-LODE	n.	In mining, the principal vein of ore.
+master-piece	MASTER-PIECE	n.	A capital performance; any thing done or made with superior or extraordinary skill. This wondrous master-piece I fain would see.	Chief excellence or talent. Dissimulation was his master-piece
+master-sinew	MASTER-SINEW	n.	A large sinew that surrounds the hough of a horse, and divides it from the bone by a hollow place, where the wind-galls are usually seated.
+master-string	MASTER-STRING	n.	Principal string.
+master-stroke	MASTER-STROKE	n.	Capital performance.
+master-tooth	MASTER-TOOTH	n.	A principal tooth.
+master-touch	MASTER-TOUCH	n.	Principal performance.
+master-work	MASTER-WORK	n.	Principal performance.
+master-wort	MASTER-WORT	n.	A plant of the genus Imperatoria.
+masterdom	MASTERDOM	n.	Dominion, rule. [Not used.]
+masterful	MASTERFUL	a.	Having the skill of a master; also, imperious; arbitrary.
+masterhand	master-hand
+masterjest	master-jest
+masterkey	master-key
+masterless	MASTERLESS	a.	Destitute of a master or owner.	Ungoverned; unsubdued.
+masterlode	master-lode
+masterly	MASTERLY	a.	Formed or executed with superior skill; suitable to a master; most excellent; skillful; as a masterly design; a masterly performance; a masterly stroke of policy.	Imperious.
+masterly	MASTERLY	adv.	With the skill of a master. Thou dost speak masterly 'I think it very masterly written, ' in Swift, is improper or unusual.
+masterpiece	master-piece
+mastership	MASTERSHIP	n.	Dominion; rule; supreme power.	Superiority; preeminence. Where noble youths for mastership should strive.	Chief work; master-piece. [Not used.]	Superior skill.	Title of respect; in irony. How now, signor Launce, what new with your mastership	The office of president of a college, or other institution.
+mastersinew	master-sinew
+masterstring	master-string
+masterstroke	master-stroke
+mastertooth	master-tooth
+mastertouch	master-touch
+masterwork	master-work
+masterwort	master-wort
+mastery	MASTERY	n.	Dominion; power of governing or commanding. If divided by mountains, they will fight for the mastery of the passages of the tops--Raleigh	Superiority in competition; preeminence. Every man that striveth for the mastery is temperate in all things. 1 Corinthians 9:25.	Victory in war. It is not the voice of them that shout for mastery, Exodus 32:18.	Eminent skill; superior dexterity. He could attain to a mastery in all languages.	Attainment of eminent skill or power. The learning and mastery of a tongue being unpleasant in itself, should not be cumbered with other difficulties.--Locke
+mastful	MASTFUL	a.	Abounding with mast, or fruit of oak, beech and other forest trees; as the mastful chestnut
+mastic	MASTIC		MAS'TICATE, verb transitive [Latin mastico.] To chew; to grind with the teeth and prepare for swallowing and digestion; as, to masticate food.
+masticate	MASTICATE	v.t.	To chew; to grind with the teeth and prepare for swallowing and digestion; as, to masticate food
+masticated	MASTICATED	pp.	Chewed.
+masticating	MASTICATING	ppr.	Chewing; breaking into small pieces with the teeth.
+mastication	MASTICATION	n.	The act or operation of chewing solid food, breaking it into small pieces, and mixing it with saliva; thus preparing it for deglutition, and more easy digestion in the stomach. Mastication is a necessary preparation of solid aliment, without which there can be no good digestion.
+masticatory	MASTICATORY	a.	Chewing; adapted to perform the office of chewing food.
+masticatory	MASTICATORY	n.	A substance to be chewed to increase the saliva.
+mastich	MASTICH	n.	A resin exuding from the mastic-tree, a species of Pistacia, and obtained by incision. It is in white farinaceous tears, of a faint smell, and is used as an astringent and an aromatic. It is used also as an ingredient in drying varnishes.	A kind of mortar or cement.
+masticot	MASTICOT	n.	Calcined white lead; yellow oxyd of lead. Lead exposed to the air while melting, is covered with a gray, dusky pellicle. This pellicle carefully taken off, is reduced by agitation to a greenish gray powder, inclining to yellow. This oxyd, separated from the grains of lead by sifting, and exposed to a more intense heat, sufficient to make it red hot, assumes a deep yellow color. In this state it is called massicot. Massicot, slowly heated by a moderate fire, takes a beautiful red color, and obtains the name of minium. Massicot is sometimes used by painters, and it is used as a drier in the composition of ointments and plasters.
+mastiff	MASTIFF	n. pl.	Mastives is irregular. [Low Latin mastivus.] A large species of dog, remarkable for strength and courage. Strabo informs us that the mastiffs of Britain were trained for war, and used by the Gauls in battle.
+mastless	MASTLESS	a.	Having no mast; as a vessel.	Bearing no mast; as a mastless oak or beech.
+mastlin	MASTLIN		[See Meslin.]
+mastodon	MASTODON	n.	A genus of mammiferous animals resembling the elephant, now extinct, and known only by their fossil remains. It includes the noun American mammoth
+mastoid	MASTOID	a.	Resembling the nipple or breast; as the mastoid muscle; the mastoid process
+mastress	MASTRESS		for mistress, is not used.
+masty	MASTY	a.	Full of mast; abounding with acorns, etc.

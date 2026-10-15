@@ -1,0 +1,7 @@
+pod	POD	n.	The pericarp, capsule or seed vessel of certain plants. The silique or pod is an oblong, membranaceous, two valved pericarp, having the seeds fixed along both sutures. A legume is a pericarp of two valves, in which the seeds are fixed along one suture only. According to these descriptions, the seed vessels of peas and beans are legumes, and not pods; but in popular language, pod is used for the legume as well as for the silique or siliqua. In New England, it is the only word in popular use.
+pod	POD	v.i.	To swell; to fill; also, to produce pods.
+podagric	PODAGRIC		PODAG'RICAL, adjective [Latin podagra; Gr. the foot, and a seizure.]	Pertaining to the gout; gouty; partaking of the gout.	Afflicted with the gout.
+podagrical	PODAGRICAL	a.	Pertaining to the gout; gouty; partaking of the gout.	Afflicted with the gout.
+podded	PODDED	a.	Having its pods formed; furnished with pods.
+podder	PODDER	n.	A gatherer of pods.
+podge	PODGE	n.	A puddle; a plash.

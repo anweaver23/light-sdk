@@ -1,0 +1,202 @@
+descant	DESCANT	n.	A song or tune composed in parts.	A song or tune with various modulations. The wakeful nightingale All night long her amourous descant sung.	A discourse; discussion; disputation; animadversion, comment, or a series of comments.	The art of composing music in several parts. descant is plain, figurative and double. Plain descant is the ground-work of musical compositions, consisting in the orderly disposition of concords, answering to simple counterpoint. Figurative or florid descant is that part of an air in which some discords are concerned. Double descant is when the parts are so contrived, that the treble may be made the base, and the base the treble.
+descant	DESCANT	v.i.	To run a division or variety with the voice, on a musical ground in true measure; to sing.	To discourse; to comment; to make a variety of remarks; to animadvert freely. A virtuous man should be pleased to find people descanting on his actions.
+descanting	DESCANTING	ppr.	Singing in parts or with various modulations; discoursing freely; commenting.
+descanting	DESCANTING	n.	Remark; conjecture.
+descend	DESCEND	v.i.	To move or pass from a higher to a lower place; to move, come or go downwards; to fall; to sink; to run or flow down; applicable to any kind of motion or of body. We descend on the feet, on wheels, or by falling. A torrent descends from a mountain. The rains descended, and the floods came. Matthew 7:25.	To go down, or to enter. He shall descend into battle and perish. Sam. 26.	To come suddenly; to fall violently. And on the suitors let thy wrath descend	To go in; to enter. He, with honest meditations fed, into himself descended.	To rush; to invade, as an enemy. The Grecian fleet descending on the town.	To proceed from a source or original; to be derived. The beggar may descend from a prince, and the prince, from a beggar.	To proceed, as from father to son; to pass from a preceding possessor, in the order of lineage, or according to the laws of succession or inheritance. Thus, an inheritance descends to the son or next of kin; a crown descends to the heir.	To pass from general to particular considerations; as, having explained the general subject, we will descend to particulars.	To come down from an elevated or honorable station; in a figurative sense. Flavius is an honorable man; he cannot descend to acts of meanness.	In music, to fall in sound; to pass from any note to another less acute or shrill, or from sharp to flat.
+descend	DESCEND	v.t.	To walk, move or pass downwards on a declivity; as, to descend a hill; to descend an inclined plain. [But this may be considered as elliptical; on or along being understood.]
+descendant	DESCENDANT	n.	Any person proceeding from an ancestor in any degree; issue; offspring, in the line of generation, ad infinitum. We are all the descendants of Adam and Eve.
+descendent	DESCENDENT	a.	Descending; falling; sinking.	Proceeding from an original or ancestor.
+descendibility	DESCENDIBILITY	n.	The quality of being descendible, or capable of being trnasmitted from ancestors; as the descendibility of an estate or of a crown.
+descendible	DESCENDIBLE	a.	That may be descended, or passed down; as, the hill is descendible	That may descend from an ancestor to an heir; as a descendible estate.
+descension	DESCENSION	n.	The act of going downwards; descent; a falling or sinking; declension; degradation.	In astronomy, right descension is an arch of the equinoctial, intercepted between the next equinoctial point and the intersection of the meridian, passing through the center of the object, at its setting, in a right sphere. Oblique descension is an arch of the equinoctial, intercepted between the next equinoctial point and the horizon, passing through the center of the object, at its setting, in an oblique sphere. Oblique descension is an arch of the equator which descends with the sun below the horizon of an oblique sphere. DESCENSION of a sign, is an arch of the equator, which sets with such a sign or part of the zodiac, or any planet in it. Right descension of a sign, is an arch of the equator, which descends with the sign below the horizon of a right sphere; or the time the sign is setting in a right sphere.
+descensional	DESCENSIONAL	a.	Pertaining to descent.
+descensive	DESCENSIVE	a.	Tending downwards; having power to descend.
+descent	DESCENT	n.	The act of descending; the act of passing from a higher to a lower place, by any form of motion, as by walking, riding, rolling, sliding, sinking or falling.	Inclination downward; obliquity; slope; declivity; as the descent of a hill, or a roof.	Progress downward; as the descent from higher to lower orders of beings.	Fall from a higher to a lower state or station.	A landing from ships; invasion of troops from the sea; as, to make a descent on Cuba.	A passing from an ancestor to an heir; transmission by succession or inheritance, as the descent of an estate or a title from the father to the son. descent is lineal, when it proceeds directly from the father to the son, and from the son to the grandson; collateral, when it proceeds from a man to his brother, nephew or other collateral representative.	A proceeding from an original or progenitor. The Jews boast of their descent from Abraham. Hence,	Birth; extraction; lineage; as a noble descent	A generation; a single degree in the scale of genealogy; distance from the common ancestor. No man is a thousand descents from Adam.	Offspring; issue; descendants. The care of our descent perplexes most.	A rank in the scale of subordination.	Lowest place.	In music, a passing from a note or sound to one more grave or less acute.
+describable	DESCRIBABLE	a.	That may be described; capable of description.
+describe	DESCRIBE	v.t.	To delineate or mark the form or figure; as, to describe a circle by the compasses.	To make or exhibit a figure by motion; as, a star describes a circle or an ellipsis in the heavens.	To show or represent to others in words; to communicate the resemblance of a thing, by naming its nature, form or properties. The poet describes the Trojan horse. The historian describes the battle of Pharsalia. The moralist describes the effects of corrupt manners. The geographer describes countries and cities.	To represent by signs. A deaf and dumb man may describe a distant object. Our passions may be described by external motions.	To draw a plan; to represent by lines and other marks on paper, or other material; as, to describe the surface of the earth by a map or chart.	To define laxly.
+described	DESCRIBED	pp.	Represented in form by marks or figures; delineated; represented by words or signs.
+describer	DESCRIBER	n.	One who describes by marks, words or signs.
+describing	DESCRIBING	ppr.	Representing the form or figure of, by lines or marks; communicating a view of, by words or signs, or by naming the nature and properties.
+descried	DESCRIED	pp.	Espied; discovered; seen.
+descrier	DESCRIER	n.	One who espies, or discovers; a discoverer; a detecter.
+description	DESCRIPTION	n.	The act of delineating, or representing the figure of any thing by a plan, to be presented to the eye.	The figure or appearance of any thing delineated, or represented by visible lines, marks, colors, etc.; as the description of a country, or of Solomons temple.	The act of representing a thing by words or by signs, or the passage containing such representation; a representation of names, nature of properties, that gives to another a view of the thing. Homer abounds with beautiful and striking descriptions.	A definition. All definitions must be less perfect descriptions of a material thing, than a visible figure or delineation.	The qualities expressed in a representation; as, a man of this description Hence,	The persons having the qualities expressed; a class of persons to whom a description is applicable, or who are in a similar condition. The secretary proceeds to examine, whether a difference ought to be permitted to remain between them and another description of public creditors. Persons of different descriptions.
+descriptiv	DESCRIPTIV		E, adjective Containing description; tending to describe; having the quality of representing; as a descriptive figure; a descriptive narration; a story descriptive of the age.
+descry	DESCRY	v.t.	To espy; to explore; to examine by observation. The house of Joseph sent to descry Bethel. Judges 1:23.	To detect; to find out; to discover any thing concealed.	To see; to behold; to have a sight of from a distance; as, the seamen descried land.	To give notice of something suddenly discovered.
+descry	DESCRY	n.	Discovery; thing descovered.
+descrying	DESCRYING	ppr.	Descovering; espying.
+desecrate	DESECRATE	v.t.	To divert from a sacred purpose or appropriation; opposed to consecrate; as, to desecrate a donation to a church.	To divest of a sacred character or office. The clergy-cannot suffer corporal punishment, without being previously desecrated.
+desecrated	DESECRATED	pp.	Diverted from a sacred purpose or appropriation; divested of a sacred character or office.
+desecrating	DESECRATING	ppr.	Diverting from a purpose to which a thing is consecrated; divested of a sacred character or office.
+desecration	DESECRATION	n.	The act of diverting from a sacred purpose or use to which a thing had been devoted; the act of diverting from a sacred character or office.
+desert	DESERT	a.	S as z [Latin To sow, plant or scatter.]	Literally, forsaken; hence, uninhabited; as a desert isle. Hence, wild; untilled; waste; uncultivated; as a desert land or country.	Void; emprty; unoccupied. Full many a flower is born to blush unseen, and waste its sweetness on the desert air.
+desert	DESERT	n.	An uninhabited tract of land; a region in its natural state; a wilderness; a solitude; particularly, a vast sandy plain, as the deserts of Arabia and Africa. But the word may be applied to an uninhabited country covered with wood.
+desert	DESERT	v.t.	To forsake; to leave utterly; to abandon; to quit with a view not to return to; as, to desert a friend; to desert our country; to desert a cause.	To leave, without permission, a military band, or a ship, in which one is enlisted; to forsake the service in which one is engaged, in violation of duty; as, to desert the army; to desert ones colors; to desert a ship.
+desert	DESERT	v.i.	To run away; to quit a service without permission; as, to desert from the army.
+desert	DESERT	n.	A deserving; that which gives a right to reward or demands, or which renders liable to punishment; merit or demerit; that which entitles to a recompense of equal to the offense; good conferred, or evil done, which merits an equivalent return. A wise legislature will reward or punish men according to their deserts.	That which is deserved; reward or punishment merited. In a future life, every man will receive his desert
+deserted	DESERTED	pp.	Wholly forsaken; abandoned; left.
+deserter	DESERTER	n.	A person who forsakes his cause, his post, or his party or friend; particularly, a soldier or seaman who quits the service without permission, and in violation of his engagement.
+desertful	DESERTFUL	a.	High in desert; meritorious.
+deserting	DESERTING	ppr.	Forsaking utterly; abandoning.
+desertion	DESERTION	n.	The act of forsaking or abandoning, as a party, a friend, a country, an army or military band, or a ship; the act of quitting, with an intention not to return.	The state of being forsaken by God; spiritual despondency. The agonies of a soul under desertion
+desertless	DESERTLESS	a.	Without merit or claim to favor or reward.
+desertlessly	DESERTLESSLY	adv.	Undeservedly.
+desertrice	DESERTRIX	n.	A female who deserts.
+desertrix	DESERTRIX	n.	A female who deserts.
+deserve	DESERVE	v.t.	To merit; to be worthy of; applied to good or evil.	To merit by labor or services; to have a just claim to an equivalent for good conferred. The laborer deserves his wages; he deserves the value of his services.	To merit by good actions or qualities in general; to be worthy of, on account of excellence. The virtuous man deserves esteem and commendation. A work of value deserves praise.	To be worthy of, in a bad sense; to merit by an evil act; as, to deserve blame or punishment. God exacteth of thee less than thine iniquity deserveth. Job 11:1.
+deserve	DESERVE	v.i.	To merit; to be worthy of or deserving; as, he deserves well or ill of his neighbor.
+deserved	DESERVED	pp.	Merited; worthy of.
+deservedly	DESERVEDLY	adv.	Justly; according to desert, whether of good or evil. A man may be deservedly praised, blamed or punished.
+deserver	DESERVER	n.	He who deserves or merits; one who is worthy of; used generally in a good sense.
+deserving	DESERVING	ppr.	Meriting; having a just claim to reward; justly meriting punishment.	Worthy of reward or praise; meritorious; possessed of good qualities that entitle to approbation; as a deserving officer.
+deserving	DESERVING	n.	The act of meriting; desert; merit. If ye have done to him according to the deserving of his hands. Judges 9:16.
+deservingly	DESERVINGLY	adv.	Meritoriously; with just desert.
+deshabille	DESHABILLE		DESHABILLE or DESHABIL, noun An undress; a loose morning dress; hence, any home dress; as, the lady is in deshabille [It would be well to anglicize the orthography.]
+desiccant	DESICCANT	a.	Drying.
+desiccant	DESICCANT	n.	A medicine or application that dries a sore.
+desiccate	DESICCATE	v.t.	to dry; to exhaust of moisture; to exhale or remove moisture from
+desiccate	DESICCATE	v.i.	To become dry.
+desiccated	DESICCATED	pp.	Dried.
+desiccating	DESICCATING	ppr.	Drying; exhausting moisture.
+desiccation	DESICCATION	n.	The act of making dry; the state of being dried.
+desiccative	DESICCATIVE	a.	Drying; tending to dry; that has the power to dry.
+desiderate	DESIDERATE	v.i.	To want; to miss
+desideratum	DESIDERATUM	n. pl.	Desiderata. [Latin To desire.] That which is desired; that which is not possessed, but which is desirable; any perfection or improvement which is wanted. The longitude is a desideratum in navigation. A tribunal to settle national disputes without war is a great desideratum
+design	DESIGN	v.t.	To delineate a form or figure by drawing the outline; to sketch; as in painting and other works of art.	To plan; to form an outline or representation of any thing. Hence,	To project; to form in idea, as a scheme. Hence,	To purpose or intend; as, a man designs to write an essay, or to study law.	To mark out by tokens.	To intend to apply or appropriate; with for; as, we design this ground for a garden, and that for a park. The word design may include an adapting or planning a thing for a purpose, or mere intention or scheme of the mind, which implies a plan. The father designs his son for the profession of the law, or for the ministry. It was formerly followed by to, but this use is now uncommon.
+design	DESIGN	n.	A plan or representation of a thing by an outline; sketch; general view; first idea represented by visible lines; as in painting or architecture.	A scheme or plan in the mind. A wise man is distinguished by the judiciousness of his designs.	Purpose; intention; aim; implying a scheme or plan in the mind. It is my design to educate my son for the bar.	The idea or scheme intended to be expressed by an artist; as the designs of medals.	In manufactories, the figures with which workmen enrich their stuffs, copied from painting or draughts.	In music, the invention and conduct of the subject; the disposition of every part, and the general order of the whole.
+designable	DESIGNABLE	a.	Capable of being designed or marked out.	Distinguishable.
+designate	DESIGNATE	v.t.	To mark out or show, so as to make known; to indicate by bisible lines, marks, description or something known and determinate; as, to designate the limits of a country; the limits are designated on the map; designate the spot where a star appears in the heavens; designate the place where our ancestors first landed.	To point out; to distinguish from others by indication; as, to be able to designate every individual who was concerned in a riot.	To appoint; to select or distinguish for a particular purpose; to assign; with for, as to designate an officer for the command of a station; or with to, as this captain was designated to that station.
+designate	DESIGNATE	a.	Appointed; marked out.
+designated	DESIGNATED	pp.	Marked out; indicated; shown; pointed out appointed.
+designating	DESIGNATING	ppr.	Marking out; indicating; pointing out; appointing.
+designation	DESIGNATION	n.	The act of pointing or marking out by signs or objects; as the designation of an estate by boundaries.	Indication; a showing or pointing; a distinguishing from others.	Appointment; direction; as, a claim to a throne grounded on the designation of a predecessor.	Appointment; a selecting and appointing; assignment; as the designation of an officer to a particular command.	Import; distinct application. Finite and infinite are primarily attributed in their first designation to things which have parts.
+designative	DESIGNATIVE	a.	Serving to designate or indicate.
+designator	DESIGNATOR	n.	A Roman officer who assigned to each person his rank and place in public shows and ceremonies.
+designed	DESIGNED	pp.	Marked out; delineated; planned; intended.
+designedly	DESIGNEDLY	adv.	By design; purposely; intentionally; opposed to accidentally, ignorantly, or inadvertently.
+designer	DESIGNER	n.	One who designs, marks out or plans; one who frames a scheme or project; a contriver.	One who plots; one who lays a scheme; in an ill sense.
+designfulness	DESIGNFULNESS	n.	Abundance of design.
+designing	DESIGNING	ppr.	Forming a design; plnning; delineating the outline; drawing figures on a plane.	adjective In an ill sense, artful; insidious; intriguing; contriving schemes of mischief; hence, deceitful. designing men are always liable to suspicion.
+designing	DESIGNING	n.	The art of delineating objects.
+designless	DESIGNLESS	a.	Without design or intention; inadvertent.
+designlessly	DESIGNLESSLY	adv.	Without design; inadvertently; ignorantly.
+designment	DESIGNMENT	n.	Design; sketch; delineation.	Design; purpose; aim; intent; scheme.
+desinence	DESINENCE	n.	End; close.
+desinent	DESINENT	a.	Ending; extreme; lower-most.
+desipient	DESIPIENT	a.	trifling; foolish; playful
+desirable	DESIRABLE	a.	Worthy of desire; that is to be wished for with sincerity or earnestness. An easy address is a desirable accomplishment; real virtue is still more desirable	Pleasing; agreeable. All of them desirable young men. Ezekiel 23:6.
+desirableness	DESIRABLENESS	n.	The quality of being desirable.
+desire	DESIRE	n.	An emotion or excitement of the mind, directed to the attainment or possession of an object from which pleasure, sensual, intellectual or spiritual, is expected; a passion excited by the love of an object, or uneasiness at the want of it, and directed to its attainment or possession. desire is a wish to possess some gratification or source of happiness which is supposed to be obtainable. A wish may exist for something that is or is not abtainable. desire when directed solely to sensual enjoyment, differs little from appetite. In other languages, desire is expressed by longing or reaching toward, and when it is ardent or intense, it approaches to longing, but the word in English usually expresses less than longing. We endeavored-to see your face with great desire 1 Thessalonians 2:17. Thou satisfiest the desires of every living thing. Psalms 145:16. DESIRE is that internal act, which, by influencing the will, makes us proceed to action.	A prayer or request to obtain: He will fulfill the desire of them that fear him. Psalms 145:16.	The object of desire; that which is desired. The desire of all nations shall come. Haggai 2:7.	Love; affection. His desire is toward me. Song of Solomon 7:10.	Appetite; lust. Fulfilling the desires of the flesh. Ephesians 2:3.
+desire	DESIRE	v.t.	To wish for the possession or enjoyment of, with a greater or less degree of earnestness; to covet. It expresses less strength of affection than longing. Neither shall any man desire thy land. Exodus 34:24. Follow after charity, and desire spiritual gifts. 1 Corinthians 14:1.	To express a wish to obtain; to ask; to request; to petition. Then she said, did I desire a son of my Lord? 2 Kings 4:28.	To require.
+desired	DESIRED	pp.	Wished for; coveted; requested; entreated.
+desireless	DESIRELESS	a.	Free from desire.
+desirer	DESIRER	n.	One who desires or asks; one who wishes.
+desiring	DESIRING	ppr.	Wishing for; coveting; asking; expressing a wish; soliciting.
+desirous	DESIROUS	a.	Wishing for; wishing to obtain; coveting; solicitous to possess and enjoy. Be not desirous of his dainties. Proverbs 23:3. Jesus knew they were desirous to ask him. John 16:19.
+desirously	DESIROUSLY	adv.	With desire; with earnest wishes.
+desirousness	DESIROUSNESS	n.	The state or affection of being desirous.
+desist	DESIST	v.i.	To stop; to cease to act or proceed; to forbear; with from; as, he desisted from his purpose; let us desist
+desistance	DESISTANCE	n.	A ceasing to act or proceed; a stopping.
+desisting	DESISTING	ppr.	Ceasing to act or proceed.
+desitive	DESITIVE	a.	Final; conclusive.
+desk	DESK	n.	An inclining table for the use of writers and readers; usually made with a box or drawer underneath, and sometimes with a book-case above.	The pulpit in a church, and figuratively the clerical profession. The man appears well in the desk He intends one son for the bar, and another for the desk
+desk	DESK	v.t.	To shut up in a desk; to treasure.
+desmine	DESMINE	n.	A mineral that crystalizes in little silken tufts, which accompany spinellane in the lava of extinct volcanoes on the banks of the Rhine.
+desolate	DESOLATE	a.	Destitute or deprived of inhabitants; desert; uninhabited; denoting either stripped of inhabitants, or never having been inhabitated; as a desolate isle; a desolate wilderness. I will make the cities of Judah desolate without an inhabitant. Jeremiah 9:11.	Laid waste; in a ruinous condition; neglected; destroyed; as desolate altars; desolate towers. Ezek. Zeph.	Solitary; without a companion; afflicted. Tamar remained desolate in Absaloms house. 2 Samuel 13:20.	Deserted of God; deprived of comfort. My heart within me is desolate Psalms 143:4.
+desolated	DESOLATED	pp.	Deprived of inhabitants; wasted; ruined.
+desolately	DESOLATELY	adv.	In a desolate manner.
+desolater	DESOLATER	n.	One who lays waste or desolates; that which desolates.
+desolating	DESOLATING	ppr.	Depriving of inhabitants; wasting; ravaging.
+desolation	DESOLATION	n.	The act of desolating destruction or expulsion of inhabitants; destruction; ruin; waste. Every kingdom divided against itself is brought to desolation Matthew 12:25.	A place deprived of inhabitants, or otherwise wasted, ravaged and ruined. How is Babylon become a desolation among the nations. Jeremiah 50:23.	A desolate state; gloominess; sadness; destitution. The abomination of desolation Roman armies which ravaged and destroyed Jerusalem. Matthew 24:15.
+desolatory	DESOLATORY	a.	Causing desolation.
+despair	DESPAIR	n.	Hopelessness; a hopeless state; a destitution of hope or expectation. We are perplexed, but not in despair 2 Corinthians 4:8. All safety in despair of safety placed.	That which causes despair; that of which there is no hope. The mere despair of surgery, he cures.	Loss of hope in the mercy of God.
+despair	DESPAIR	v.i.	To be without hope; to hive up all hope or expectation; followed by of. We despaired even of life. 2 Corinthians 1:8. Never despair of Gods blessings here, or of his reward hereafter
+despairer	DESPAIRER	n.	One without hope.
+despairful	DESPAIRFUL	a.	Hopeless.
+despairing	DESPAIRING	ppr.	Giving up all hope or expectation.
+despairingly	DESPAIRINGLY	adv.	In a despairing manner; in a manner indicating hopelessness; as, he speaks despairingly of the sick mans recovery.
+despatch	DESPATCH		[See Dispatch.]
+despection	DESPECTION	n.	A looking down; a despising.
+desperado	DESPERADO	n.	A desperate fellow; a furious man; a madman; a person urged by furious passions; one fearless, or regardless of safety.
+desperate	DESPERATE	a.	Without hope. I am desperate of obtaining her.	Without care of safety; rash; fearless of danger; as a desperate man. Hence,	Furious, as a man in despair.	Hopeless; despaired of; lost beyond hope of recovery; irretrievable; irrecoverable; forlorn. We speak of a desperate case of disease, desperate fortunes, a desperate situation or condition.	In a popular sense, great in the extreme; as a desperate sot or fool.
+desperately	DESPERATELY	adv.	In a desperate manner; as in despair; hence, furiously; with rage; madly; without regard to danger or safety; as, the troops fought desperately	In a popular sense, greatly; extremely; violently. She fell desperately in love with him.
+desperateness	DESPERATENESS	n.	Madness; fury; rash precipitance.
+desperation	DESPERATION	n.	A despairing; a giving up of hope; as desperation of success.	Hopelessness; despair; as, the men were in a state of desperation Hence,	Fury; rage; disregard of safety or danger; as, the men fought with desperation; they were urged to desperation
+despicable	DESPICABLE	a.	That may be or deserves to be despised; contemptible; mean; vile; worthless; applicable equally to persons and things; as a despicable man; despicable company; a despicable gift
+despicableness	DESPICABLENESS	n.	The quality or state of being despicable; meanness; vileness; worthlessness.
+despicably	DESPICABLY	adv.	Meanly; vilely; contemptibly; as despicably poor.
+despiciency	DESPICIENCY	n.	A looking down; a despising.
+despisable	DESPISABLE	a.	Despicable; contemptible.
+despisal	DESPISAL	n.	Contempt.
+despise	DESPISE		To contemn; to scorn; to disdain; to have the lowest opinion of. Fools despise wisdom and instruction. Proverbs 1:7. Else he will hold to the one, and despise the other. Matthew 6:24.	To abhor.
+despised	DESPISED	pp.	Contemned; disdained; abhorred.
+despisedness	DESPISEDNESS	n.	The state of being despised.
+despiser	DESPISER	n.	A contemner; a scorner.
+despising	DESPISING	ppr.	Contemning; scorning; disdaining.
+despising	DESPISING	n.	Contempt.
+despisingly	DESPISINGLY	adv.	With contempt.
+despite	DESPITE	n.	Extreme malice; violent hatred; malignity; malice irritated or enraged; active malignity; angry hatred. With all thy despite against the land of israel. Ezekiel 25:6.	Defiance with contempt, or contempt of opposition. He will rise to fame in despite of his enemies.	An act of malice or contempt; as a despite to the Most High.
+despite	DESPITE	v.t.	To vex; to offend; to tease.
+despiteful	DESPITEFUL	a.	Full of spite; malicious; malignant; as a despiteful enemy. Hater of God, despiteful proud, boasters. Romans 1:30.
+despitefully	DESPITEFULLY	adv.	With despite; maliciously; contemptuously. Pray for them that despitefully use you. Matthew 5:44.
+despitefulness	DESPITEFULNESS	n.	Malice; extreme hatred; malignity.
+despiteous	DESPITEOUS	a.	Malicious.
+despiteously	DESPITEOUSLY	adv.	Furiously.
+despoil	DESPOIL	v.i.	To strip; to take from by force; to rob; to deprive; followed by of; as, to despoil one of arms; to despoil of honors; to despoil of innocence.	To strip or divest by any means.
+despoiled	DESPOILED	pp.	Stripped; robbed; bereaved; deprived.
+despoiler	DESPOILER	n.	One who strips by force; a plunderer.
+despoiling	DESPOILING	ppr.	Depriving; stripping; robbing.
+despoliation	DESPOLIATION	n.	The act of despoiling; a stripping.
+despond	DESPOND	v.i.	To be cast down; to be depressed or dejected in mind; to fail in spirits. I should despair, or at least despond	To lose all courage, spirit or resolution; to sink by loss of hope. Others depress their own mind, and despond at the first difficulty. Note. The distinction between despair and despond is well marked in the foregoing passage from Scott. But although despair implies a total loss of hope, which despond does not, at least in every case, yet despondency is followed by the abandonment of effort, or cessation of action, and despair sometimes impelss to violent action, even to rage.
+despondency	DESPONDENCY	n.	A sinking or dejection of spirits at the loss of hope; loss of courage at the failure of hope, or in deep affliction, or at the prospect of insurmountable difficulties.
+despondent	DESPONDENT	a.	Losing courage at the loss of hope; sinking into dejection; depressed and inactive in despair.
+desponder	DESPONDER	n.	One destitute of hope.
+desponding	DESPONDING	ppr.	Losing courage to act, in consequence of loss of hope, or of deep calamity, or of difficulties deemed insurmountable; sinking into dejection; despairing, with depression of spirits; despairingly.
+despondingly	DESPONDINGLY	adv.	In a desponding manner; with dejection of spirits; despairingly.
+desponsate	DESPONSATE	v.t.	To betroth.
+desponsation	DESPONSATION	n.	A betrothing.
+despot	DESPOT	n.	An emperor, king or price invested with absolute power, or ruling without any control from men, constitution or laws. Hence in a general sense, a tyrant.
+despotic	DESPOTICAL	a.	Absolute in power; independent of control from men, constitution or laws; arbitrary in the exercise of power; as a despotic prince.	Unlimited or unrestrained by constitution, laws or men; absolute; arbitrary; as despotic authority or power.	Tyrannical.
+despotical	DESPOTICAL	a.	Absolute in power; independent of control from men, constitution or laws; arbitrary in the exercise of power; as a despotic prince.	Unlimited or unrestrained by constitution, laws or men; absolute; arbitrary; as despotic authority or power.	Tyrannical.
+despotically	DESPOTICALLY	adv.	With unlimited power; arbitrarily; in a despotic manner.
+despoticalness	DESPOTICALNESS	n.	Absolute or arbitrary authority.
+despotism	DESPOTISM	n.	Absolute power; authority unlimited and uncontrolled by men, constitution or laws, and depending alone on the will of the prince; as the despotism of a Turkish sultan.	An arbitrary government, as that of Turkey and Persia.
+despumate	DESPUMATE	v.i.	To foam; to froth; to form froth or scum
+despumation	DESPUMATION	n.	The act of throwing off excrementitious matter and forming a froth or scum on the surface of liquor; clarification; scumming.
+desquamation	DESQUAMATION	n.	A scaling or exfoliation of bone; the separation of the cuticle in small scales
+dess	DESS		for desk.
+dessert	DESSERT	n.	A service of fruits and sweetmeats, at the close of an entertainment; the last course at the table, after the meat is removed.
+destinate	DESTINATE	v.t.	To design or appoint.
+destinate	DESTINATE	a.	Appointed; destined; determined.
+destination	DESTINATION	n.	The act of destining, or appointing.	The purpose for which any thing is intended or appointed; end or ultimate design. Every animal is fitted for its destination	The place to which a thing is appointed, as the ship left her destination; but it is more usual to say, the place of her destination
+destine	DESTINE	v.t.	To set, ordain or appoint to a use, purpose, state or place. We destine a son to the ministerial office; a house for a place of worship; a ship for the London trade or to Lisbon; and we are all destined to a future state of happiness or misery.	To fix unalterable, as by a divine decree; as the destined hour of death.	To doom; to devote; to appoint unalterably.
+destined	DESTINED	pp.	Ordained; appointed by previous determination; devoted; fixed unalterably.
+destining	DESTINING	ppr.	Ordaining; appointing.
+destiny	DESTINY	n.	State or condition appointed or predetermined; ultimate fate; as, men are solicitous to know their future destiny which is however happily concealed from them.	Invincible necessity; fate; a necessity or fixed order of things established by a divine decree, or by an indissoluble connection of causes and effects. But who can turn the stream of destiny? Destinies, the fates, or supposed powers which preside over himan life, spin it out, and determine it; called by the Latins, parcae.
+destitute	DESTITUTE	a.	Not having or possessing; wanting; as destitute of virtue, or of peity; destitute of food and clothing. It differs from deprived, as it does not necessarily imply previous possession.	Needy; abject; comfortless; friendless. He will regard the prayer of the destitute Psalms 102:17.
+destitute	DESTITUTE	n.	One who is without friends or comfort.
+destitute	DESTITUTE	v.t.	To forsake.	To deprive.
+destitution	DESTITUTION	n.	Want; absence of a thing; a state in which something is wanted or not possessed; poverty.
+destroy	DESTROY	v.t.	To demolish; to pull down; to separate the parts of an edifice, the union of which is necessary to constitute the thing; as, to destroy a house or temple; to destroy a fortification.	To ruin; to annihilate a thing by demolishing or by burning; as, to destroy a city.	To ruin; to bring to naught; to annihilate; as, to destroy a theory or scheme; to destroy a government; to destroy influence.	To lay waste; to make desolate. Go up against this land, and destroy it. Isaiah 36:10.	To kill; to slay; to extirpate; applied to men or other animals. Ye shall destroy all this people. Numbers 32:15. All the wicked will he destroy Psalms 145:20.	To take away; to cause to cease; to put an end to; as, pain destroys happiness. That the body of sin might be destroyed. Romans 6:6.	To kill; to eat; to devour; to consume. Birds destroy insects. Hawks destroy chickens.	In general, to put an end to; to annihilate a thing or the form in which it exists. An army is destroyed by slaughter, capture or dispersion; a forest, by the ax, or by fire; towns, by fire or inundation, etc.	In chimistry, to resolve a body into its parts or elements.
+destroyable	DESTROYABLE	a.	That may be destroyed. Plants scarcely destroyable by the weather.
+destroyed	DESTROYED	pp.	Demolished; pulled down; ruined; annihilated; devoured; swept away; etc.
+destroyer	DESTROYER	n.	One who destroys, or lays waste; one who kills a man, or an animal, or who ruins a country, cities, etc.
+destroying	DESTROYING	ppr.	Demolishing; laying waste; killing; annihilating; putting an end to.
+destroying	DESTROYING	n.	Destruction.
+destruct	DESTRUCT		fro destroy, is not used.
+destructibility	DESTRUCTIBILITY	n.	The quality of being capable of destruction.
+destructible	DESTRUCTIBLE	a.	Liable to destruction; capable of being destroyed
+destruction	DESTRUCTION	n.	The act of destroying; demolition; a pulling down; subversion; ruin, by whatever means; as the destruction of buildings, or of towns. destruction consists in the annihilation of the form of any theing; that form of parts which constitues it what it is; as the destruction of grass or herbage by eating; of a forest, by cutting down the trees; or it denotes a total annihilation; as the destruction of a particular government; the destruction of happiness.	Death; murder; slaughter; massacre. There was a deadly destruction throughout all the city. 1 Samuel 5:9.	Ruin. DESTRUCTION and misery are in their ways. Romans 3:16.	Eternal death. Broad is the way that leadeth to destruction Matthew 7:13.	Cause of destruction; a consuming plague; a destroyer. The destruction that wasteth at noon-day. Psalms 91:6.
+destructive	DESTRUCTIVE	a.	Causing destruction; having the quality of destroying; ruinous; mischievous; pernicious; with of or to; as a destructive fire or famine. Intemperance is destructive of health; evil examples are destructive to the morals of youth.
+destructively	DESTRUCTIVELY	adv.	With destruction; ruinously; mischievously; with power to destroy; as destructively lewd or intemperate.
+destructiveness	DESTRUCTIVENESS	n.	The quality of destroying or ruining.
+destructor	DESTRUCTOR	n.	A destroyer; a consumer. [Not used.]
+desudation	DESUDATION	n.	A sweating; a profuse or morbid sweating, succeeded by an eruption of pustles, called heat-pimples
+desuetude	DESUETUDE	n.	The cessation of use; disuse; discontinuance of practice, custom or fashion. Habit is contracted by practice, and lost by desuetude Words in every language are lost by desuetude
+desulphurate	DESULPHURATE	v.t.	To deprive of sulphur.
+desulphurated	DESULPHURATED	pp.	Deprived of sulphur.
+desulphurating	DESULPHURATING	ppr.	Depriving of sulphur.
+desulphuration	DESULPHURATION	n.	The act or operation of depriving of sulphur.
+desultorily	DESULTORILY	adv.	[See Desultory.] In a desultory manner; without method; loosely.
+desultoriness	DESULTORINESS	n.	A desultory manner; unconnectedness; a passing from one thing to another without order or method.
+desultory	DESULTORY	a.	Leaping; passing from one thing or subject to another, without order or natural connection; unconnected; immethodical; as a desultory conversation.	Coming suddenly; started at the moment; not proceeding from natural order or connection with what precedes; as a desultory thought.
+desume	DESUME	v.t.	To take from; to borrow. [Not in use.]

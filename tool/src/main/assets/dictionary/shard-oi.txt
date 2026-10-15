@@ -1,0 +1,28 @@
+oil	OIL	n.	It seems to be named from its inflammability, for aelan, is to kindle, and to oil; hence anaelan, to anneal; aeled, fire. Latin oleum; Gr.] An unctuous substance expressed or drawn from several animal and vegetable substances. The distinctive characters of oil are inflammability, fluidity, and insolubility in water. Oils are fixed or fat, and volatile or essential. They have a smooth feel, and most of them have little taste or smell. Animal oil is found in all animal substances. Vegetable oils are produced by expression, infusion or distillation.
+oil	OIL	v.t.	To smear or rub over with oil; to lubricate with oil; to anoint with oil
+oil-bag	OIL-BAG	n.	A bag, cyst or gland in animals containing oil
+oil-color	OIL-COLOR	n.	A color made by grinding a coloring substance in oil
+oil-gas	OIL-GAS	n.	Inflammable gas procured from oil, and used for lighting streets and apartments in buildings.
+oil-nut	OIL-NUT	n.	The butternut of North America.
+oil-nut	OIL-NUT		OIL'-TREE, noun A plant, a species of Ricinus, the palma Christi, or castor, from which is procured castor oil.
+oil-shop	OIL-SHOP	n.	A shop where oils and pickles are sold.
+oilbag	oil-bag
+oilcolor	oil-color
+oiled	OILED	pp.	Smeared or anointed with oil.
+oiler	OILER	n.	One who deals in oils and pickles.
+oilgas	oil-gas
+oiliness	OILINESS	n.	The quality of being oily; unctuousness; greasiness; a quality approaching that of oil.
+oiling	OILING	ppr.	Smearing or anointing with oil.
+oilman	OILMAN	n.	One who deals in oils and pickles.
+oilnut	oil-nut
+oilshop	oil-shop
+oily	OILY	a.	Consisting of oil; containing oil; having the qualities of oil; as oily matter or substance.	Resembling oil; as an oily appearance.	Fatty; greasy.
+oily-grain	OILY-GRAIN	n.	A plant.
+oily-palm	OILY-PALM	n.	A tree.
+oilygrain	oily-grain
+oilypalm	oily-palm
+oint	OINT	v.t.	To anoint; to smear with an unctuous substance. They oint their naked limbs with mother'd oil
+ointed	OINTED	pp.	Anointed; smeared with an oily or greasy matter.
+ointing	OINTING	ppr.	Anointing.
+ointment	OINTMENT	n.	Unguent; any soft, unctuous substance or compound, used for smearing, particularly the body or a diseased part.
+oisanite	OISANITE	n.	Pyramidical ore of titanium.

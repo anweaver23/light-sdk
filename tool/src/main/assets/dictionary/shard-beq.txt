@@ -1,0 +1,5 @@
+bequeath	BEQUEATH	v.t.	To give or leave by will; to devise some species of property by testament; as, to bequeath an estate or a legacy
+bequeathed	BEQUEATHED	pp.	Given or left by will.
+bequeathing	BEQUEATHING	ppr.	Giving or devising by testament.
+bequeathment	BEQUEATHMENT	n.	The act of bequeathing; a bequest.
+bequest	BEQUEST	n.	Something left by will; a legacy.

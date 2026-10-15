@@ -1,0 +1,57 @@
+debacle	DEBACLE	n.	A breaking or bursting forth. The geological deluge, which is supposed to have swept the surface of the earth, and to have conveyed the fragments of rocks, and the remains of animals and vegetables, to a distance from their native localities.
+debar	DEBAR	v.t.	To cut off from entrance; to preclude; to hinder from approach, entry or enjoyment; to shut out or exclude; as, we are not debarred from any rational enjoyment; religion debars us from no real pleasure.
+debark	DEBARK	v.t.	To land from a ship or boat; to remove from on board any water-craft, and place on land; to disembark; as, to debark artillery.
+debarkation	DEBARKATION	n.	The act of disembarking.
+debarked	DEBARKED	pp.	Removed to land from on board a ship or boat.
+debarking	DEBARKING	ppr.	Removing from a ship to the land; going from on board a vessel.
+debarred	DEBARRED	pp.	Hindered from approach, entrance or possession.
+debarring	DEBARRING	ppr.	Preventing from approach, entrance or enjoyment.
+debase	DEBASE	v.t.	To reduce from a higher to a lower state or rank, in estimation. The drunkard debases himself and his character. Intemperance and debauchery debase men almost to a level with beasts.	To reduce or lower in quality, purity, or value; to adulterate; as, to debase gold or silver by alloy.	To lower or degrade; to make mean or despicable. Religion should not be debased by frivolous disputes. Vicious habits debase the mind, as well as the character.	To sink in purity or elegance; to vitiate by meanness; as, to debase style by the use of vulgar words.
+debased	DEBASED	pp.	Reduced in estimated rank; lowered in estimation; reduced in purity, fineness, quality or value; adulterated; degraded; rendered mean.
+debasement	DEBASEMENT	n.	The act of debasing; degradation; reduction of purity, fineness, quality or value; adulteration; a state of being debased; as debasement of character, of our faculties, of the coin, of style, etc.
+debaser	DEBASER	n.	One who debases or lowers in estimation, or in value; one who degrades or renders mean; that which debases.
+debasing	DEBASING	ppr.	Reducing in estimation or worth; adulterating; reducing in purity or elegance; degrading; rendering mean.	adjective Lowering; tending to debase or degrade; as debasing vices.
+debatable	DEBATABLE	a.	That may be debated; disputable; subject to controversy or contention; as a debatable question.
+debate	DEBATE	n.	Contention in words or arguments; discussion for elucidating truth; strife in argument or reasoning, between persons of different opinions, each endeavoring to prove his own opinion right, and that of his opposer wrong; dispute; controversy; as the debates in parliament or in congress.	Strife; contention. Behold, ye fast for strife and debate Isaiah 1:8.	The power of being disputed; as, this question is settled beyond debate; the story is true beyond debate	debate or debates, the published report of arguments for and against a measure; as, the debates in the convention are printed.
+debate	DEBATE	v.t.	To contend for in words or arguments; to strive to maintain a cause by reasoning; to dispute; to discuss; to argue; to contest, as opposing parties; as, the question was debated till a late hour. DEBATE thy cause with thy neighbor himself. Proverbs 25:9.
+debate	DEBATE	v.i.	To debate on or in, to deliberate; to discuss or examine different arguments in the mind.	To dispute.	To engage in combat.
+debated	DEBATED	pp.	Disputed; argued; discussed.
+debateful	DEBATEFUL	a.	Of things, contested; occasioning contention.	Of persons, quarrelsome; contentious.
+debatefully	DEBATEFULLY	adv.	With contention.
+debatement	DEBATEMENT	n.	Controversy; deliberation.
+debater	DEBATER	n.	One who debates; a disputant; a controvertist.
+debating	DEBATING	ppr.	Disputing; discussing; contending by arguments.
+debauch	DEBAUCH	v.t.	To corrupt or vitiate; as, to debauch a prince or a youth; to debauch good principles.	To corrupt with lewdness; as, to debauch a woman.	To seduce from duty or allegiance; as, to debauch an army.
+debauch	DEBAUCH	n.	Excess in eating or drinking; intemperance; drunkenness; gluttony; lewdness.
+debauched	DEBAUCHED	pp.	Corrupted; vitiated in morals or purity of character.
+debauchedly	DEBAUCHEDLY	adv.	In a profligate manner.
+debauchedness	DEBAUCHEDNESS	n.	Intemperance.
+debauchee	DEBAUCHEE	n.	A man given to intemperance, or bacchanalian excesses. But chiefly, a man habitually lewd.
+debaucher	DEBAUCHER	n.	One who debauches or corrupts others; a seducer to lewdness, or to any dereliction of duty.
+debauchery	DEBAUCHERY	n.	Excess in the pleasures of the table; gluttony; intemperance. But chiefly, habitual lewdness; excessive unlawful indulgence of lust.	Corruption of fidelity; seduction from duty or allegiance. The republic of Paris will endeavor to complete the debauchery of the army.
+debauchment	DEBAUCHMENT	n.	The act of debauching or corrupting; the act of seducing from virtue or duty.
+debellate	DEBELLATE	v.t.	To subdue.
+debellation	DEBELLATION	n.	The act of conquering or subduing.
+debenture	DEBENTURE	n.	A writing acknowledging a debt; a writing or certificate signed by a public officer, as evidence of a debt due to some person. This paper, given by an officer of the customs, entitles a merchant exporting goods, to the receipt of a bounty, or a drawback of duties. When issued by a treasurer, it entitles the holder to a sum of money from the state.	In the customs, a certificate of drawback; a writing which states that a person is entitled to a certain sum from the government, on the exportation of specified goods, the duties on which had been paid.
+debentured	DEBENTURED	a.	debentured goods are those for which a debenture has been given, as being entitled to drawback.
+debile	DEBILE	a.	Relaxed; weak; feeble; languid; faint; without strength.
+debilitate	DEBILITATE	v.t.	To weaken; to impair the strength of; to enfeeble; to make faint or languid. Intemperance debilitates the organs of digestion. Excessive indulgence debilitates the system.
+debilitated	DEBILITATED	pp.	Weakened; enfeebled; relaxed.
+debilitating	DEBILITATING	ppr.	Weakening; enfeebling; impairing strength.
+debilitation	DEBILITATION	n.	The act of weakening; relaxation.
+debility	DEBILITY	n.	Relaxation of the solids; weakness; feebleness; languor of body; faintness; imbecility; as, morbid sweats induce debility
+debit	DEBIT	n.	Debt. It is usually written debt. But it is used in mercantile language, as the debit side of an account
+debit	DEBIT	v.t.	To charge with debt; as, to debit a purchaser the amount of goods sold.	To enter an account on the debtor side of a book; as, to debit the sum or amount of goods sold.
+debited	DEBITED	pp.	Charged in debt; made debtor on account.	Charged to one's debt, as money or goods.
+debiting	DEBITING	ppr.	Making debtor on account, as a person.	Charging to the debt of a person, as goods.
+debitor	DEBITOR	n.	A debtor.
+deboise	DEBOISE		for debauch.
+deboish	DEBOISH		for debauch.
+debonnair	DEBONNAIR	a.	Civil; wellbred; complaisant; elegant.
+debouch	DEBOUCH	v.i.	To issue or march out of a narrow place, or from defiles, as troops.
+debris	DEBRIS	n.	Fragments; rubbish; ruins; applied particularly to the fragments of rocks.
+debt	DEBT	n.	That which is due from one person to another, whether money, goods, or services; that which one person is bound to pay or perform to another; as the debts of a bankrupt; the debts of a nobleman. It is a common misfortune or vice to be in debt When you run in debt you give to another power over your liberty.	That which any one is obliged to do or to suffer. Your son, my lord, has paid a soldier's debt Hence death is called the debt of nature.	In law, an action to recover a debt This is a customary ellipsis. He brought debt instead of an action of debt	In scripture, sin; trespass; guilt; crime; that which renders liable to punishment. Forgive us our debts. Lord's Prayer.
+debted	DEBTED	pp.	Indebted; obliged to.
+debtee	DEBTEE	n.	A creditor; one to whom a debt is due.
+debtless	DEBTLESS	a.	Free from debt.
+debtor	DEBTOR	n.	The person who owes another either money, goods or services. In Athens an insolvent debtor became slave to his creditor.	One who is under obligation to do something. I am debtor to the Greeks and barbarians. Rom. I. He is a debtor to do the whole law. Galatians 5:3.	The side of an account in which debts are charged.

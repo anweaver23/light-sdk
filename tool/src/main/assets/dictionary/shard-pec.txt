@@ -1,0 +1,36 @@
+pec-cary	PEC-CARY	n.	A quadruped of Mexico, in general appearance resembling a hog, but its body is less bulky, its legs shorter, and its bristles thicker and stronger, like the quills of the porcupine. Its color is black and white, and it has on the hind part of the back a protuberance like the navel of other animals, with an orifice form which issues a liquor of a very strong scent.
+pecary	PECARY		PECCABIL'ITY, noun [from peccable.] State of being subject to sin; capacity of sinning.
+peccability	PECCABILITY	n.	State of being subject to sin; capacity of sinning
+peccable	PECCABLE	a.	Liable to sin; subject to transgress the divine law
+peccadillo	PECCADILLO	n.	A slight trespass or offense; a petty crime or fault.	A sort of stiff ruff.
+peccancy	PECCANCY	n.	Bad quality; as the peccancy of the humors	Offense.
+peccant	PECCANT	a.	Sinning; guilty of sin or transgression; criminal; as peccant angels.	Morbid; bad; corrupt; not healthy; as peccant humors.	Wrong; bad; defective; informal; as a peccant citation. [Not used.]
+peccant	PECCANT	n.	An offender. [Not used.]
+peccary	pec-cary
+peccavi	PECCAVI		A colloquial word used to express confession or acknowledgment of an offense
+pechblend	PECHBLEND	n.	Pitchblend, an ore of uranium; a metallic substance found in masses, or stratified with earths or with other minerals, in Swedish and Saxon mines. It is of a blackish color, inclining to a deep steel gray, and one kind has a mixture of spots of red.
+peck	PECK	n.	The fourth part of a bushel; a dry measure of eight quarts; as a peck of wheat or oats.	In low language, a great deal; as, to be in a peck of troubles.
+peck	PECK	v.t.	To strike with the beak; to thrust the beak into, as a bird that pecks a hole in a tree.	To strike with a pointed instrument, or to delve or dig with any thing pointed, as with a pick-ax.	To pick up food with the beak.	To strike with small and repeated blows; to strike in manner to make small impressions. In this sense, the verb is generally intransitive. We say, to peck at.] [This verb and pick are radically the same.]
+pecked	PECKED	pp.	Struck or penetrated with a beak or pointed instrument.
+pecker	PECKER	n.	One that pecks; a bird that pecks holes in trees; a woodpecker.
+pecking	PECKING	ppr.	Striking with the bill; thrusting the beak into; thrusting into with a pointed instrument; taking up food with the beak.
+peckled	PECKLED		for speckled, not used.
+pectinal	PECTINAL	a.	Pertaining to a comb; resembling a comb
+pectinal	PECTINAL	n.	A fish whose bones resemble the teeth of a comb.
+pectinate	PECTINATE		PEC'TINATED, adjective [from Latin pecten, a comb.] Having resemblance to the teeth of a comb. In botany, a pectinate leaf is a sort of pinnate leaf, in which the leaflets are toothed like a comb. A mineral is pectinated, when it presents short filaments, crystals or branches, nearly parallel and equidistant.
+pectinated	PECTINATED	a.	Having resemblance to the teeth of a comb. In botany, a pectinate leaf is a sort of pinnate leaf, in which the leaflets are toothed like a comb. A mineral is pectinated, when it presents short filaments, crystals or branches, nearly parallel and equidistant
+pectination	PECTINATION	n.	The state of being pectinated.	A combing; the combing of the head.
+pectinite	PECTINITE	n.	A fossil pecten or scallop, or scallop petrified
+pectoral	PECTORAL	a.	Pertaining to the breast; as the pectoral muscles; pectoral medicines. The pectoral fins of a fish are situated on the sides of the fish, behind the gills
+pectoral	PECTORAL	n.	A sacerdotal habit or vestment worn by the Jewish high priest, called in our version of the Bible, a breastplate.	A medicine adapted to cure or relieve complaints of the breast and lungs.
+peculate	PECULATE	v.i.	To defraud the public of money or goods entrusted to one's care, by appropriating the property to one's own use; to defraud by embezzlement.	Among civilians, to steal.
+peculation	PECULATION	n.	The act, practice or crime of defrauding the public by appropriating to one's own use the money or goods entrusted to one's care for management or disbursement; embezzlement of public money or goods.
+peculator	PECULATOR	n.	One that defrauds the public by appropriating to his own use money entrusted to his care
+peculiar	PECULIAR	a.	Appropriate; belonging to a person and to him only. Almost every writer has a peculiar style. Most men have manners peculiar to themselves.	Singular; particular. The man has something peculiar in his deportment.	Particular; special. My fate is Juno's most peculiar care. [Most cannot, in strict propriety, be prefixed to peculiar but it is used to give emphasis to the word.]	Belonging to a nation, system or other thing, and not to others.
+peculiar	PECULIAR	n.	Exclusive property; that which belongs to a person in exclusion of others.	In the canon law, a particular parish or church which has the probate of wills within itself, exempt from the jurisdiction of the ordinary or bishop's court. Court of peculiars, in England, is a branch of the court of arches. It has jurisdiction over all the parishes dispersed through the province of Canterbury, in the midst of other dioceses, which are exempt from the ordinary jurisdiction, and subject to the metropolitan only.
+peculiarity	PECULIARITY	n.	Something peculiar to a person or thing; that which belongs to or is found in one person or thing and in no other; as a peculiarity of style or manner of thinking; peculiarity in dress.
+peculiarize	PECULIARIZE	v.t.	To appropriate; to make peculiar.
+peculiarly	PECULIARLY	adv.	In a manner not common to others.
+peculiarness	PECULIARNESS	n.	The state of being peculiar; appropriation. [Little used.]
+pecuniary	PECUNIARY	a.	Relating to money; as pecuniary affairs or losses.	Consisting of money; as a pecuniary mulct or penalty.
+pecunious	PECUNIOUS	a.	Full of money. [Not used.]

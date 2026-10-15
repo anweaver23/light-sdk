@@ -1,0 +1,104 @@
+stub	STUB	n.	The stump of a tree; that part of the stem of a tree which remains fixed int he earth when the tree is cut down. [Stub, in the United States, I believe is never used for the stump of an herbaceous plant.]	A log; a block. [Not in use.]
+stub	STUB	v.t.	To grub up by the roots; to extirpate; as, to stub up edible roots.	To strike the toes against a stump, stone or other fixed object.
+stub-nail	STUB-NAIL	n.	A nail broken off; a short thick nail
+stubbed	STUBBED	a.	Short and thick like something truncated; blunt; obtuse.	Hardy; not nice or delicate.
+stubbedness	STUBBEDNESS	n.	Bluntness; obtuseness.
+stubble	STUBBLE	n.	The stumps of wheat, rye, barley, oats or buckwheat, left in the ground; the part of the stalk left by the sythe or sickle. After the first crop is off, they plow in the stubble
+stubble-goose	STUBBLE-GOOSE	n.	A goose fed among stubble
+stubble-rake	STUBBLE-RAKE	n.	A rake with long teeth for raking together stubble.
+stubblegoose	stubble-goose
+stubblerake	stubble-rake
+stubborn	STUBBORN	a.	Unreasonably obstinate; inflexibly fixed in opinion; not to be moved or persuaded by reasons; inflexible; as a stubborn son; a stubborn mind or soul. The queen is obstinate--stubborn to justice.	Persevering; persisting; steady; constant; as stubborn attention.	Stiff; not flexible; as a stubborn bow. Take a plant of stubborn oak.	Hardy; firm; enduring without complaint; as stubborn Stoics.	Harsh; rough; rugged. [Little used.]	Refractory; not easily melted or worked; as a stubborn ore or metal.	Refractory; obstinately resisting command, the goad or the whip; as a stubborn ass or horse.
+stubbornly	STUBBORNLY	adv.	Obstinately; inflexibly; contumaciously.
+stubbornness	STUBBORNNESS	n.	Perverse and unreasonable obstinacy; inflexibility; contumacy. STUBBORNNESS and obstinate disobedience must be mastered with blows.	Stiffness; want of pliancy.	Refractoriness, as of ores.
+stubby	STUBBY	a.	Abounding with stubs.	Short and thick; short and strong; as stubby bristles.
+stubnail	stub-nail
+stucco	STUCCO	n.	A fine plaster composed of lime, sand, whiting and pounded marble; used for covering walls, etc.	Work made of stucco
+stucco	STUCCO	v.t.	To plaster; to overlay with fine plaster.
+stuccoed	STUCCOED	pp.	Overlaid with stucco.
+stuccoing	STUCCOING	ppr.	Plastering with stucco.
+stuck	STUCK	pret.	and participle passive of stick. STUCK oer with titles, and hung round with strings.
+stuck	STUCK	n.	A thrust. [Not in use.]
+stuckle	STUCKLE	n.	A number of sheaves set together in the field. [Not in use in the United States.]
+stud	STUD	n.	In building, a small piece of timber or joist inserted in the sills and beams, between the posts, to support he beams or other main timbers. The boards on the outside and the laths on the inside of a building, are also nailed to the studs.	A nail with a large head, inserted in work chiefly for ornament; an ornamental knob. A belt of straw, and ivy buds, with coral clasps and amber studs. Crystal and myrrhine cups, embossd with gems and studs of pearl.	A collection of breeding horses and mares; or the place where they are kept. In the studs of Ireland, where care is taken, we see horses bred of excellent shape, vigor and fire.	A button for a shirt sleeve.
+stud	STUD	v.t.	To adorn with shining studs or knobs. Their horses shall be trappd, their harness studded all with gold and pearl.	To set with detached ornaments or prominent objects.
+stud-horse	STUD-HORSE	n.	A breeding horse; a horse kept for propagating his kind
+studded	STUDDED	pp.	Adorned with studs.	Set with detached ornaments. The sloping sides and summits of our hills, and the extensive plains that stretch before our view, are studded with substantial, neat and commodious dwelling of freemen.
+studding	STUDDING	ppr.	Setting or adorning with studs or shining knobs.
+studding-sail	STUDDING-SAIL	n.	In navigation, a sail that is set beyond the skirts of the principal sails. The studding-sails are set only when the wind is light. They appear like wings upon the yard-arms.
+studdingsail	studding-sail
+student	STUDENT	n.	A person engaged in study; one who is devoted to learning, either in a seminary or in private; a scholar; as the students of an academy, of a college or university; a medical student; a law student	A man devoted to books; a bookish man; as a hard student; a close student Keep a gamester from dice, and a good student from his books.	One who studies or examines; as a student of natures works.
+studhorse	stud-horse
+studied	STUDIED	pp.	Read; closely examined; read with diligence and attention; well considered. The book has been studied The subject has been well studied	adjective Learned; well versed in any branch of learning; qualified by study; as a man well studied in geometry, or in law or medical science.	Having a particular inclination. [Not in use.]
+studier	STUDIER	n.	One who studies; a student. Lipsius was a great studier in the stoical philosophy
+studious	STUDIOUS	a.	Given to books or to learning; devoted to the acquisition of knowledge from books; as a studious scholar.	Contemplative; given to thought, or to the examination of subjects by contemplation.	Diligent; eager to discover something, or to effect some object; as, be studious to please; studious to find new friends and allies.	Attentive to; careful; with of. Divines must become studious of pious and venerable antiquity.	Planned with study; deliberate. For the frigid villany of studious lewdness, for the calm malignity of labored impiety, what apology can be invented?	Favorable to study; suitable for thought and contemplation; as the studious shade. et my due feet never fail, To walk the studious cloister pale. [The latter signification is forced and not much used.]
+studiously	STUDIOUSLY	adv.	With study; with close attention to books.	With diligent contemplation.	Diligently; with zeal and earnestness.	Carefully; attentively.
+studiousness	STUDIOUSNESS	n.	The habit or practice of study; addictedness to books. Men of sprightly imagination are not generally the most remarkable for studiousness
+study	STUDY	n.	Literally, a setting of the mind or thoughts upon a subject; hence, application of mind of books, to arts or science, or to any subject, for the purpose of learning what is not before known. Hammond generally spent thirteen hours of the day in study STUDY gives strength to the mind; conversation, grace.	Attention; meditation; contrivance. Just men they seemd, and all their study bent to worship God aright and know his works.	Any particular branch of learning that is studied. Let your studies be directed by some learned and judicious friend.	Subject of attention. The Holy Scriptures, especially the New Testament, are her daily study	A building or an apartment devoted to study or to literary employment.	Deep cogitation; perplexity. [Little used.]
+study	STUDY	v.i.	To fix the mind closely upon a subject; to muse; to dwell upon in thought. I found a moral first, and then studied for a fable.	To apply the mind to books. He studies eight hours in the day.	To endeavor diligently. That ye study to be quiet and do your own business. 1 Thessalonians 4:11.
+study	STUDY	v.t.	To apply the mind to; to read and examine for the purpose of learning and understanding; as, to study law or theology; to study languages.	To consider attentively; to examine closely. study the works of nature.
+study	STUDY		thyself; what rank or what degree thy wise Creator has ordaind for thee.	To form or arrange by previous thought; to con over; or to commit to memory; as, to study a speech.
+stuff	STUFF	n.	A mass of matter, indefinitely; or a collection of substances; as a heap of dust, of chips or of dross.	The matter of which any thing is formed; materials. The carpenter and joiner speak of the stuff with which they build; mechanics pride themselves on having their wares made of good stuff Time is the stuff which life is made of. Degrading prose explains his meaning ill, and shows the stuff and not the workmans skill. Cesar hath wept; ambition should be made of sterner stuff	Furniture; goods; domestic vessels in general. He took away locks, and gave away the kings stuff [Nearly obsolete.]	That which fills any thing. Cleanse the suffd bosom of that perilous stuff that weighs upon the heart.	Essence; elemental part; as the stuff of the conscience.	A medicine. [Vulgar.]	Cloth; fabrics of the loom; as silk stuffs; woolen stuffs. In this sense the word has a plural. stuff comprehends all cloths, but it signifies particularly woolen cloth of slight texture for linings.	Matter or thing; particularly, that which is trifling or worthless; a very extensive use of the word. Flattery is fulsome stuff; poor poetry is miserable stuff Anger would indite such woful stuff as I or Shadwell write.	Among seamen, a melted mass of turpentine, tallow, etc. With which the masts, sides and bottom of a ship are smeared.
+stuff	STUFF	v.t.	To fill; as, to stuff a bedtick.	To fill very full; to crowd. This crook drew hazel boughs adown, and stuffd her apron wide with nuts so brown.	To thrust in; to crowd; to press. Put roses into a glass with a narrow mouth, stuffing them close together.	To fill by being put into nay thing. With inward arms the dire machine they load, and iron bowels stuff the dark abode.	To swell or cause to bulge out by putting something in. STUFF me out with straw.	To fill with something improper. For thee I dim these eyes, and stuff this head with all such reading as was never read.	To obstruct, as any of the organs. Im stuffd, cousin; I cannot smell.	To fill meat with seasoning; as, to stuff a leg of veal.	To fill the skin of a dead animal for presenting and preserving his form; as, to stuff a bird or a lions skin.	To form by filling. An eastern king put a judge to death for an iniquitous sentence, and ordered his hide to be stuffed into a cushion, and placed upon the tribunal.
+stuff	STUFF	v.i.	To feed gluttonously. Taught harmless man to cram and stuff
+stuffed	STUFFED	pp.	Filled; crowded; crammed.
+stuffing	STUFFING	ppr.	Filling; crowding.
+stuffing	STUFFING	n.	That which is used for filling any thing; as the stuffing of a saddle or cushion.	Seasoning for meat; that which is put into meat to give it a higher relish.
+stuke	STUKE		for stucco, not in use.
+stulm	STULM	n.	A shaft to draw water out of a mine.
+stulp	STULP	n.	A post. [Local.]
+stultify	STULTIFY	v.t.	To make foolish; to make one a fool.	In law, to alledge or prove to be insane, for avoiding some act.
+stultiloquence	STULTILOQUENCE	n.	Foolish talk; a babbling
+stultiloquy	STULTILOQUY	n.	Foolish talk; silly discourse; babbling
+stum	STUM	n.	Must; wine unfermented.	New wine used to raise fermentation in dead or vapid wines.	Wine revived by a new fermentation.
+stum	STUM	v.t.	To renew wine by mixing must with it, and raising a new fermentation. We stum our wines to renew their spirits.	To fume a cask or liquor with burning brimstone. [Local.]
+stumble	STUMBLE	v.i.	To trip in walking or moving in any way upon the legs; to strike the foot so as to fall, or to endanger a fall; applied to any animal. A man may stumble as well as a horse. The way of the wicked is as darkness; they know not at what they stumble Proverbs 4:12.	To err; to slide into a crime or an error. He that loveth his brother, abideth in the light, and there is none occasion of stumbling in him. 1 John 2:1.	To strike upon without design; to fall on; to light on by chance. Men often stumble upon valuable discoveries. Ovid stumbled by some inadvertence upon Livia in a bath.
+stumble	STUMBLE	v.t.	To obstruct in progress; to cause to trip or stop.	To confound; to puzzle; to put to a nonplus; to perplex. One thing more stumbles me in the very foundation of this hypothesis.
+stumble	STUMBLE	n.	A trip in walking or running.	A blunder; a failure. One stumble is enough to deface the character of an honorable life.
+stumbled	STUMBLED	pp.	Obstructed; puzzled.
+stumbler	STUMBLER	n.	One that stumbles or makes a blunder.
+stumbling	STUMBLING	ppr.	Tripping; erring; puzzling.
+stumbling-block	STUMBLING-BLOCK		STUMBLING-STONE, noun [stumble and block or stone.] Any cause of stumbling; that which causes to err.
+stumbling-stone	STUMBLING-BLOCK		STUMBLING-STONE noun [stumble and block or stone.] Any cause of stumbling; that which causes to err. We preach Christ crucified, to the Jews a stumbling-block, and to the Greeks foolishness. 1 Corinthians 1:1. This stumbling stone we hope to take away.
+stumblingblock	stumbling-block
+stumblingstone	stumbling-stone
+stump	STUMP	n.	The stub of a tree; the part of a tree remaining int he earth after the tree is cut down, or the part of any plant left in the earth by the sythe or sickle.	The part of a limb or other body remaining after a part is amputated or destroyed; as the stump of a leg, of a finger or a tooth.
+stump	STUMP	v.t.	To strike any thing fixed and hard with the toe. [Vulgar.	To challenge. [Vulgar.]
+stumpy	STUMPY	a.	Full of stumps.	Hard; strong. [Little used.]	Short; stubby. [Little used.]
+stun	STUN	v.t.	To make senseless or dizzy with a blow on the head; as, to be stunned by a fall, or by a falling timber. One hung a pole-ax at his saddle bow, and one a heavy mace to stun the foe.	To overpower the sense of hearing; to blunt or stupefy the organs of hearing. To prevent being stunned, cannoneers sometimes fill their ears with wool.	To confound or make dizzy by loud and mingled sound. --An universal hubbub wild of stunning sounds and voices all confusd.
+stung	STUNG	pret.	and participle passive of sting.
+stunk	STUNK	pret.	of stink.
+stunned	STUNNED	pp.	Having the sense of hearing overpowered; confounded with noise.
+stunning	STUNNING	ppr.	Overpowering the organs of hearing; confounding with noise.
+stunt	STUNT	v.t.	[See Stint.] To hinder from growth; applied to animals and plants; as, to stunt a child; to stunt a plant.
+stunted	STUNTED	pp.	Hindered from growth or increase.
+stuntedness	STUNTEDNESS	n.	The state of being stunted.
+stunting	STUNTING	ppr.	Hindering from growth or increase.
+stupe	STUPE	n.	Cloth or flax dipped in warm medicaments and applied to a hurt or sore; fomentation; sweating bath
+stupe	STUPE	v.t.	To foment.
+stupe	STUPE	n.	A stupid person. [Not in use.]
+stupefaction	STUPEFACTION	n.	The act of rendering stupid.	A stupid or senseless state; insensibility; dullness; torpor; stupidity. Resistance of the dictates of conscience brings a hardness and stupefaction upon it.
+stupefactive	STUPEFACTIVE	a.	Causing insensibility; deadening or blunting the sense of felling or understanding; narcotic. Opium hath a stupefactive part.
+stupefier	STUPEFIER	n.	That which causes dullness or stupidity
+stupefy	STUPEFY	v.t.	To make stupid; to make dull; to blunt the faculty of perception or understanding; to deprive of sensibility. It is a great sin to attempt to stupefy the conscience. The fumes of passion intoxicate his discerning faculties, as the fumes of drink stupefy the brain.	To deprive of material motion. It is not malleable nor fluent, but stupefied. [Not in use.]
+stupefying	STUPEFYING	ppr.	Rendering extremely dull or insensible; as the stupefying virtues of opium. [It would be convenient to write stupifaction, stupifactive, and place these words after stupidly.]
+stupendous	STUPENDOUS	a.	Literally, striking dumb by its magnitude; hence, astonishing; wonderful; amazing; particularly, of astonishing magnitude or elevation; as a stupendous pile; a stupendous edifice; a stupendous mountain; a stupendous bridge
+stupendously	STUPENDOUSLY	adv.	In a manner to excite astonishment.
+stupendousness	STUPENDOUSNESS	n.	The quality or state of being stupendous or astonishing.
+stupid	STUPID	a.	Very dull; insensible; senseless; wanting in understanding; heavy; sluggish. O that men should be so stupid grown, as to forsake the living God. With wild surprise, a moment stupid motionless he stood.	Dull; heavy; formed without skill or genius. Observe what loads of stupid rhymes oppress us in corrupted times.
+stupidity	STUPIDITY	n.	Extreme dullness of perception or understanding; insensibility; sluggishness
+stupidly	STUPIDLY	adv.	With extreme dullness; with suspension or inactivity of understanding; sottishly; absurdly; without the exercise of reason or judgment.
+stupidness	STUPIDNESS	n.	Stupidity.
+stupor	STUPOR	n.	Great diminution or suspension of sensibility; suppression of sense; numbness; as the stupor of a limb.	Intellectual insensibility; moral stupidity; heedlessness or inattention to ones interests.
+stuprate	STUPRATE	v.t.	To ravish; to debauch
+stupration	STUPRATION	n.	Rape; violation of chastity by force.
+sturdily	STURDILY	adv.	Hardily; stoutly; lustily
+sturdiness	STURDINESS	n.	Stoutness; hardiness; as the sturdiness of a school boy.	Brutal strength.
+sturdy	STURDY	a.	Hardy; stout; foolishly obstinate; implying coarseness or rudeness. This must be done, and I would fain see mortal so sturdy as to gainsay. A sturdy hardened sinner advances to the utmost pitch of impiety with less reluctance than he took the first step.	Strong; forcible; lusty; as a sturdy lout.	Violent; laid on with strength; as sturdy strokes.	Stiff; stout; strong; as a sturdy oak. He was not of a delicate contexture, his limbs rather sturdy than dainty.
+sturdy	STURDY	n.	A disease in sheep, marked by dullness and stupor.
+sturgeon	STURGEON	n.	A large fish of the genus Acipenser, caught in large rivers. Its flesh is valued for food
+sturk	STURK	n.	A young ox or heifer.
+stutter	STUTTER	v.i.	To stammer; to hesitate in uttering words
+stutterer	STUTTERER	n.	A stammerer.
+stuttering	STUTTERING	ppr.	Stammering; speaking with hesitation.
+stutteringly	STUTTERINGLY	adv.	With stammering.

@@ -1,0 +1,427 @@
+fracas	FRACAS	n.	An uproar; a noisy quarrel; a disturbance.
+fract	FRACT	v.t.	To break. [Not used.]
+fraction	FRACTION	n.	The act of breaking or state of being broken, especially by violence.	In arithmetic and algebra, a broken part of an integral or integer; any division of a whole number or unit, as 2/5, two fifths, 1/4, one fourth, which are called vulgar fractions. In these, the figure above the line is called the numerator, and the figure below the line the denominator. In decimal fractions, the denominator is a unit, or 1, with as many cyphers annexed, as the numerator has places. They are commonly expressed by writing the numerator only, with a point before it by which it is separated from the whole number; thus.5, which denotes five tenths, 5/10, or half the whole number;.25, that is 25/100, or a fourth part of the whole number.
+fractional	FRACTIONAL	a.	Belonging to a broken number; comprising a part or the parts of a unit; as fractional numbers.
+fractious	FRACTIOUS	a.	Apt to break out into a passion; apt to quarrel; cross; snappish; as a fractious man.
+fractiously	FRACTIOUSLY	adv.	Passionately; snappishly.
+fractiousness	FRACTIOUSNESS	n.	A cross or snappish temper.
+fracture	FRACTURE	n.	A breach in any body, especially a breach caused by violence; a rupture of a solid body.	In surgery, the rupture or disruption of a bone. A fracture is simple or compound; simple, when the bone only is divided; compound, when the bone is broken, with a laceration of the integuments.	In mineralogy, the manner in which a mineral breaks, and by which its texture is displayed; as a compact fracture; a fibrous fracture; foliated, striated or conchoidal fracture etc.
+fracture	FRACTURE	v.t.	To break; to burst asunder; to crack; to separate continuous parts; as, to fracture a bone; to fracture the skull.
+fractured	FRACTURED	pp.	Broken; cracked.
+fracturing	FRACTURING	ppr.	Breaking; bursting asunder; cracking.
+fragile	FRAGILE	a.	Brittle; easily broken. The stalk of ivy is tough, and not fragile	Weak; liable to fail; easily destroyed; as fragile arms.
+fragility	FRAGILITY	n.	Brittleness; easiness to be broken.	Weakness; liableness to fail.	Frailty; liableness to fault.
+fragment	FRAGMENT	n.	A part broken off; a piece separated from any thing by breaking. Gather up the fragments that remain, that nothing is lost. John 6:12.	A part separated from the rest; an imperfect part; as fragments of ancient writings.	A small detached portion; as fragments of time.
+fragmentary	FRAGMENTARY	a.	Composed of fragments.
+fragor	FRAGOR	n.	A loud and sudden sound; the report of any thing bursting; a loud harsh sound; a crash.	A strong or sweet scent. obsolete
+fragrance	FRAGRANCE		'GRANCY, noun [Latin fragrantia, from fragro, to smell strong.]
+fragrant	FRAGRANT	a.	Sweet of smell; odorous. Fragrant the fertile earth after soft showers.
+fragrantly	FRAGRANTLY	adv.	With sweet scent.
+frail	FRAIL	a.	Weak; infirm; liable to fail and decay; subject to casualties; easily destroyed; perishable; not firm or durable. That I may know how frail I am. Psalms 39:4.	Weak in mind or resolution; liable to error deception. Man is frail and prone to evil.	Weak; easily broken or overset; as a frail bark.
+frail	FRAIL	n.	A basket made of rushes.	A rush for weaving baskets.	A certain quantity of raisins, about 75 pounds.
+frailness	FRAILNESS	n.	Weakness; infirmity; as the frailness of the body.
+frailty	FRAILTY	n.	Weakness of resolution; infirmity; liableness to be deceived or seduced. God knows our frailty and pities our weakness.	Frailness; infirmity of body.	Fault proceeding from weakness; foible; sin of infirmity; in this sense it has a plural.
+fraischeur	FRAISCHEUR	n.	Freshness; coolness. [Not English.]
+fraise	FRAISE	n.	In fortification, a defense consisting of pointed stakes driven into the retrenchments, parallel to the horizon.	A pancake with bacon in it. obsolete
+frame	FRAME	v.t.	To fit or prepare and unite several parts in a regular structure or entire thing; to fabricate by orderly construction and union of various parts; as, to frame a house or other building.	To fit one thing to another; to adjust; to make suitable.	To make; to compose; as, to frame a law. For thou art framed of the firm truth of valor.	To regulate; to adjust; to shape; to conform; as, to frame our lives according to the rules of the gospel.	To form and digest by thought; as, to frame ideas in the mind. How many excellent reasonings are framed in the mind of a man of wisdom and study in a length of years!	To contrive; to plan; to devise; as, to frame a project or design.	To invent; to fabricate, in a bad sense; as, to frame a story or lie.
+frame	FRAME	v.i.	To contrive. Judges 12:6.
+frame	FRAME	n.	The timbers of an edifice fitted and joined in the form proposed, for the purpose of supporting the covering; as the frame of a house, barn, bridge or ship.	Any fabric or structure composed of parts united; as the frame of an ox or horse. So we say, the frame of the heavenly arch; the frame of the world.	Any kind of case or structure made for admitting, inclosing or supporting things; as the frame of a window, door, picture or looking glass.	Among printers, a stand to support the cases in which the types are distributed.	Among founders, a kind of ledge, inclosing a board, which being filled with wet sand, serves as a mold for castings.	A sort of loom on which linen, silk, etc. is stretched for quilting or embroidering.	Order; regularity; adjusted series or composition of parts. We say, a person is out of frame; the mind is not in a good frame Your steady soul preserves her frame	Form; scheme; structure; constitution; system; as a frame of government.	Contrivance; projection. John the bastard, whose spirits toil in frame of villainies.	Shape; form; proportion.
+framed	FRAMED	pp.	Fitted and united in due form; made; composed; devised; adjusted.
+framer	FRAMER	n.	One who frames; a maker; a contriver.
+framework	FRAMEWORK	n.	Work done in a frame.
+framing	FRAMING	ppr.	Fitting and joining in due construction; making; fabricating; composing; adjusting; inventing; contriving.
+frampold	FRAMPOLD	a.	Peevish; rugged. [Low and not in use.]
+franc	FRANC	n.	An ancient coin of France. The value of the gold frank was something more than that of the gold crown. The silver franc was in value a third of the gold one. The gold coin is no longer in circulation. The present franc or frank, is a silver coin of the value nearly of nineteen cents, or ten pence sterling.	A letter which is exempted from postage; or the writing which renders it free.	A sty for swine. [Not used.]
+franchise	FRANCHISE	n.	[See Frank.] Properly, liberty, freedom. Hence,	A particular privilege or right granted by a prince or sovereign to an individual or to a number of persons; as the right to be a body corporate with perpetual succession; the right to hold a court leet or other court; to have waifs, wrecks, treasure-treve, or forfeitures. So the right to vote for governor, senators and representatives, is a franchise belonging to citizens, and not enjoyed by aliens. The right to establish a bank, is a franchise	Exemption from a burden or duty to which others are subject.	The district or jurisdiction to which a particular privilege extends; the limits of an immunity.	An asylum or sanctuary, where persons are secure from arrest. Churches and monasteries in Spain are franchises for criminals.
+franchise	FRANCHISE	v.t.	To make free; but enfranchise is more generally used.
+franchisement	FRANCHISEMENT	n.	Release from burden or restriction; freedom.
+francic	FRANCIC	a.	Pertaining to the Franks or French.
+franciscan	FRANCISCAN	a.	Belonging to the order of St. Francis.
+franciscan	FRANCISCAN	n.	One of the order of St. Francis; an order of monks founded by him in 1209. They are called also Gray Friars.
+frangibility	FRANGIBILITY	n.	The state or quality of being frangible.
+frangible	FRANGIBLE	a.	That may be broken; brittle; fragile; easily broken
+franion	FRANION	n.	A paramour, or a boon companion. [Not used.]
+frank	FRANK	a.	Open; ingenuous; candid; free in uttering real sentiments; not reserved; using no disguise. Young persons are usually frank; old persons are more reserved.	Open; ingenuous; as a frank disposition or heart.	Liberal; generous; not niggardly. [This sense is now rare.]	Free; without conditions or compensation; as a frank gift.	Licentious; unrestrained. [Not used.]
+frankalmoigne	FRANKALMOIGNE	n.	Free alms; in English law, a tenure by which a religious corporation holds lands to them and their successors forever, on condition of praying for the souls of the donor.
+frankchase	FRANKCHASE	n.	A liberty of free chase, whereby persons having lands within the compass of the same, are prohibited to cut down any wood, etc. out of the view of the forester. Free chase, is the liberty of keeping beasts of chase or royal game therein, protected even from the owner of the land himself, with a power of hunting them thereon.
+franked	FRANKED	pp.	Exempted from postage.
+frankfee	FRANKFEE	n.	Freehold; a holding of lands in fee simple.
+frankincense	FRANKINCENSE	n.	A dry resinous substance in pieces or drops, of a pale yellowish white color, of a bitterish acrid taste, and very inflammable; used as a perfume
+franking	FRANKING	ppr.	Exempting from postage.
+franklaw	FRANKLAW	n.	Free or common law, or the benefit a person has by it.
+franklin	FRANKLIN	n.	A freeholder. obsolete
+franklinite	FRANKLINITE	n.	A mineral compound of iron, zinc and manganese, found in New Jersey, and named from Dr. Franklin.
+frankly	FRANKLY	adv.	Openly; freely; ingenuously; without reserve, constraint or disguise; as, to confess one's faults frankly	Liberally; freely; readily. Luke 7:42.
+frankmarriage	FRANKMARRIAGE	n.	A tenure in tail special; or an estate of inheritance given to a person, together with a wife, and descendible to the heirs of their two bodies begotten.
+frankness	FRANKNESS	n.	Plainness of speech; candor; freedom in communication; openness; ingenuousness. He told me his opinions with frankness	Fairness; freedom from art or craft; as frankness of dealing.	Liberality; bounteousness. [Little used.]
+frankpledge	FRANKPLEDGE	n.	A pledge or surety for the good behavior of freemen. Anciently in England, a number of neighbors who were bound for each other's good behavior.
+franktenement	FRANKTENEMENT	n.	An estate of freehold; the possession of the soil by a freeman.
+frantic	FRANTIC	a.	Mad; raving; furious; outrageous; wild and disorderly; distracted; as a frantic person; frantic with fear or grief.	Characterized by violence, fury and disorder; noisy; mad; wild; irregular; as the frantic rites of Bacchus.
+franticly	FRANTICLY	adv.	Madly; distractedly; outrageously.
+franticness	FRANTICNESS	n.	Madness; fury of passion; distraction.
+frap	FRAP	v.t.	In seamen's language, to cross and draw together the several parts of a tackle to increase the tension.
+fraternal	FRATERNAL	a.	Brotherly; pertaining to brethren; becoming brothers; as fraternal love or affection; a fraternal embrace
+fraternally	FRATERNALLY	adv.	In a brotherly manner.
+fraternity	FRATERNITY	n.	The state or quality of a brother; brotherhood.	A body of men associated for their common interest or pleasure; a company; a brotherhood; a society; as the fraternity of free masons.	Men of the same class, profession, occupation or character. With what terms of respect knaves and sots will speak of their own fraternity
+fraternization	FRATERNIZATION	n.	The act of associating and holding fellowship as brethren.
+fraternize	FRATERNIZE	v.i.	To associate or hold fellowship as brothers, or as men of like occupation or character.
+fratricide	FRATRICIDE	n.	The crime of murdering a brother.	One who murders or kills a brother.
+fraud	FRAUD	n.	Deceit; deception; trick; artifice by which the right or interest of another is injured; a stratagem intended to obtain some undue advantage; an attempt to gain or the obtaining of an advantage over another by imposition or immoral means, particularly deception in contracts, or bargain and sale, either by stating falsehoods, or suppressing truth. If success a lover's toil attends, who asks if force or fraud obtained his ends
+fraudful	FRAUDFUL	a.	Deceitful in making bargains; trickish; treacherous; applied to persons.	Containing fraud or deceit; applied to things.
+fraudfully	FRAUDFULLY	adv.	Deceitfully; with intention to deceive and gain an undue advantage; trickishly; treacherously; by stratagem.
+fraudulence	FRAUDULENCE		FRAUD'ULENCY, noun Deceitfulness; trickishness in making bargains, or in social concerns.
+fraudulency	FRAUDULENCY	n.	Deceitfulness; trickishness in making bargains, or in social concerns.
+fraudulent	FRAUDULENT	a.	Deceitful in making contracts; trickish; applied to persons.	Containing fraud; founded on fraud; proceeding from fraud; as a fraudulent bargain.	Deceitful; treacherous; obtained or performed by artifice.
+fraudulently	FRAUDULENTLY	adv.	By fraud; by deceit; by artifice or imposition.
+fraught	FRAUGHT	a.	Laden; loaded; charged; as a vessel richly fraught with goods from India. This sense is used in poetry; but in common business, freighted only is used.	Filled; stored; full; as a scheme fraught with mischief; the scriptures are fraught with excellent precepts.
+fraught	FRAUGHT	n.	A freight; a cargo. [Not now used.]
+fraught	FRAUGHT	v.t.	To load; to fill; to crowd. obsolete
+fraughtage	FRAUGHTAGE	n.	Loading; cargo. [Not used.]
+fray	FRAY	n.	A boil, quarrel or violent riot, that puts men in fear. This is the vulgar word for affray, and the sense seems to refer the word to Fr. effrayer.	A combat; a battle; also, a single combat or duel.	A contest; contention.	A rub; a fret or chafe in cloth; a place injured by rubbing.
+fray	FRAY	v.t.	To fright; to terrify. obsolete
+fray	FRAY	v.t.	To rub; to fret, as cloth by wearing.	To rub; as, a deer frays his head.
+frayed	FRAYED	pp.	Frightened; rubbed; worn.
+fraying	FRAYING	ppr.	Frightening; terrifying; rubbing.
+fraying	FRAYING	n.	Peel of a deer's horn.
+freak	FREAK	n.	Literally, a sudden starting or change of place. Hence,	A sudden causeless change or turn of the mind; a whim or fancy; a capricious prank. She is restless and peevish, and sometimes in a freak will instantly change her habitation.
+freak	FREAK	v.t.	To variegate; to checker. FREAKed with many a mingled hue
+freakish	FREAKISH	a.	Apt to change the mind suddenly; whimsical; capricious. It may be a question, whether the wife or the woman was the more freakish of the two.
+freakishly	FREAKISHLY	adv.	Capriciously; with sudden change of mind, without cause.
+freakishness	FREAKISHNESS	n.	Capriciousness; whimsicalness.
+freckle	FRECKLE	n.	A spot of a yellowish color in the skin, particularly on the face, neck and hands. Freckles may be natural or produced by the action of the sun on the skin, or from the jaundice.	Any small spot or discoloration.
+freckled	FRECKLED	a.	Spotted; having small yellowish spots on the skin or surface; as a freckled face or neck.	Spotted; as a freckled cowslip.
+freckledness	FRECKLEDNESS	n.	The state or being freckled.
+frecklefaced	FRECKLEFACED	a.	Having a face full of freckles.
+freckly	FRECKLY	a.	Full of freckles; sprinkled with spots.
+fred	FRED		Victorious peace. Our ancestors called a sanctuary, fredstole, a seat of peace.
+free	FREE	n.	Being at liberty; not being under necessity or restraint, physical or moral; a word of general application to the body, the will or mind, and to corporations.	In government, not enslaved; not in a state of vassalage or dependence; subject only to fixed laws, made by consent, and to a regular administration of such laws; not subject to the arbitrary will of a sovereign or lord; as a free state, nation or people.	Instituted by a free people, or by consent or choice of those who are to be subjects, and securing private rights and privileges by fixed laws and principles; not arbitrary or despotic; as a free constitution or government. There can be no free government without a democratical branch in the constitution.	Not imprisoned, confined or under arrest; as, the prisoner is set free	Unconstrained; unrestrained; not under compulsion or control. A man is free to pursue his own choice; he enjoys free will.	Permitted; allowed; open; not appropriated; as, places of honor and confidence are free to all; we seldom hear of a commerce perfectly free	Not obstructed; as, the water has a free passage or channel; the house is open to a free current of air.	Licentious; unrestrained. The reviewer is very free in his censures.	Open; candid; frank; ingenuous; unreserved; as, we had a free conversation together. Will you be free and candid to your friend?	Liberal in expenses; not parsimonious; as a free purse; a man is free to give to all useful institutions.	Gratuitous; not gained by importunity or purchase. He made him a free offer of his services. It is a free gift. The salvation of men is of free grace.	Clear of crime or offense; guiltless; innocent. My hands are guilty, but my heart is free	Not having feeling or suffering; clear; exempt; with from; as free from pain or disease; free from remorse.	Not encumbered with; as free from a burden.	Open to all, without restriction or without expense; as a free school.	Invested with franchises; enjoying certain immunities; with of; as a man free of the city of London.	Possessing without vassalage or slavish conditions; as free of his farm.	Liberated from the government or control of parents, or of a guardian or master. A son or an apprentice, when of age, is free	Ready; eager; not dull; acting without spurring or shipping; as a free horse.	Genteel; charming. [Not in use.]
+free	FREE	v.t.	To remove from a thing any encumbrance or obstruction; to disengage from; to rid; to strip; to clear; as, to free the body from clothes; to free the feet from fetters; to free a channel from sand.	To set at liberty; to rescue or release from slavery, captivity or confinement; to loose. The prisoner is freed from arrest.	To disentangle; to disengage.	To exempt. He that is dead is freed from sin. Romans 6:18.	To manumit; to release from bondage; as, to free a slave.	To clear from water, as a ship by pumping.	To release from obligation or duty. To free from or free of, is to rid of, by removing, in any manner.
+freebench	FREEBENCH	n.	A widow's dower in a copyhold.
+freebooter	FREEBOOTER	n.	[ See Booty.] One who wanders about for plunder; a robber; a pillager; a plunderer.
+freebooting	FREEBOOTING	n.	Robbery; plunder; a pillaging.
+freeborn	FREEBORN	a.	Born free; not in vassalage; inheriting liberty.
+freechapel	FREECHAPEL	n.	In England, a chapel founded by the king and not subject to the jurisdiction of the ordinary. The kind may also grant license to a subject to found such a chapel. Free city, in Germany, an imperial city, not subject to a prince, but governed by its own magistrates.
+freecost	FREECOST	n.	Without expense; freedom from charges.
+freed	FREED	pp.	Set at liberty; loosed; delivered from restraint; cleared of hinderance or obstruction.
+freedenizen	FREEDENIZEN	n.	A citizen.
+freedman	FREEDMAN	n.	A man who has been a slave and is manumitted.
+freedom	FREEDOM	n.	A state of exemption from the power or control of another; liberty; exemption from slavery, servitude or confinement. freedom is personal, civil, political, and religious. [See Liberty.]	Particular privileges; franchise; immunity; as the freedom of a city.	Power of enjoying franchises.	Exemption from fate, necessity, or any constraint in consequence of predetermination or otherwise; as the freedom of the will.	Any exemption from constraint or control.	Ease or facility of doing any thing. He speaks or acts with freedom	Frankness; boldness. He addressed his audience with freedom	License; improper familiarity; violation of the rules of decorum; with a plural. Beware of what are called innocent freedoms.
+freefishery	FREEFISHERY	n.	A royal franchise or exclusive privilege of fishing in a public river.
+freefooted	FREEFOOTED	a.	Not restrained in marching. [Not used.]
+freehearted	FREEHEARTED	a.	Open; frank; unreserved.	Liberal; charitable; generous.
+freeheartedness	FREEHEARTEDNESS	n.	Frankness; openness of heart; liberality.
+freehold	FREEHOLD	a.	That land or tenement which is held in fee-simple, fee-tail, or for term of life. It is of two kinds; in deed, and in law. The first is the real possession of such land or tenement; the last is the right a man has to such land or tenement, before his entry or seizure. Freehold is also extended to such offices as a man holds in fee or for life. It is also taken in opposition to villenage. In the United States, a freehold is an estate which a man holds in his own right, subject to no superior nor to conditions.
+freeholder	FREEHOLDER	n.	One who owns an estate in fee-simple, fee-tail or for life; the possessor of a freehold. Every juryman must be a freeholder
+freeing	FREEING	ppr.	Delivering from restraint; releasing from confinement; removing incumbrances or hinderances from any thing; clearing.
+freely	FREELY	adv.	At liberty; without vassalage, slavery or dependence.	Without restraint, constraint or compulsion; voluntarily. To render a moral agent accountable, he must act freely	Plentifully; in abundance; as, to eat or drink freely	Without scruple or reserve; as, to censure freely	Without impediment or hinderance. Of every tree of the garden thou mayest freely eat. Genesis 2:16.	Without necessity, or compulsion from divine predetermination. Freely they stood who stood, and fell who fell.	Without obstruction; largely; copiously. The patient bled freely	Spontaneously; without constraint or persuasion.	Liberally; generously; as, to give freely to the poor.	Gratuitously; of free will or grace, with out purchase or consideration. Freely ye have received, freely give. Matthew 10:8.
+freeman	FREEMAN	n.	One who enjoys liberty, or who is not subject to the will of another; one not a slave or vassal.	One who enjoys or is entitled to a franchise or peculiar privilege; as the freemen of a city or state.
+freemason	FREEMASON	n.	One of the fraternity of masons.
+freeminded	FREEMINDED	a.	Not perplexed; free from care.
+freeness	FREENESS	n.	The state or quality of being free, unconstrained, unconfined, unincumbered, or unobstructed.	Openness; unreservedness; frankness; ingenuousness; candor; as the freeness of a confession.	Liberality; generosity; as freeness in giving.	Gratuitousness; as the freeness of divine grace.
+freeschool	FREESCHOOL	n.	A school supported by funds, etc., in which pupils are taught without paying for tuition.	A school open to admit pupils without restriction.
+freespoken	FREESPOKEN	a.	Accustomed to speak without reserve.
+freestone	FREESTONE	n.	Any species of stone composed of sand or grit, so called because it is easily cut or wrought.
+freethinker	FREETHINKER	n.	A softer name for a deist; an unbeliever; one who discards revelation.
+freethinking	FREETHINKING	n.	Unbelief.
+freetongued	FREETONGUED	a.	Speaking without reserve.
+freewarren	FREEWARREN	n.	A royal franchise or exclusive right of killing beasts and fowls of warren within certain limits.
+freewill	FREEWILL	n.	The power of directing our own actions without restraint by necessity or fate.	Voluntariness; spontaneousness.
+freewoman	FREEWOMAN	n.	A woman not a slave.
+freeze	FREEZE	v.i.; pret. froze; pp. frozen, or froze	To be congealed by cold; to be changed from a liquid to a solid state by the abstraction of heat; to be hardened into ice or a like solid body. Water freezes at the temperature of 32 degrees above zero by Fahrenheit's thermometer. Mercury freezes at 40 degrees below zero.	To be of that degree of cold at which water congeals.	To chill; to stagnate, or to retire from the extreme vessels; as, the blood freezes in the veins.	To be chilled; to shiver with cold.	To die by means of cold. We say a man freezes to death.
+freeze	FREEZE	v.t.	To congeal; to harden into ice; to change from a fluid to a solid form by cold or abstraction of heat. This weather will freeze the rivers and lakes.	To kill by cold; but we often add the words to death. this air will freeze you, or freeze you to death.	To chill; to give the sensation of cold and shivering. This horrid tale freezes my blood.
+freeze	FREEZE		in architecture. [See Frieze.]
+freight	FREIGHT	n.	The cargo, or any part of the cargo of a ship; lading; that which is carried by water. The freight of a ship consists of cotton; the ship has not a full freight; the owners have advertised for freight; freight will be paid for by the ton.	Transportation of goods. We paid four dollars a ton for the freight from London to Barcelona.	The hire of a ship, or money charged or paid for the transportation of goods. After paying freight and charges, the profit is trifling.
+freight	FREIGHT	v.t.	To load with goods, as a ship or vessel of any kind, for transporting them from one place to another. We freighted the ship for Amsterdam; the ship was freighted with flour for Havana.	To load as the burden.
+freighted	FREIGHTED	pp.	Loaded, as a ship or vessel.
+freighter	FREIGHTER	n.	One who loads a ship, or one who charters and loads a ship.
+freighting	FREIGHTING	ppr.	Loading, as a ship or vessel.
+freisleben	FREISLEBEN	n.	A mineral of a blue or bluish gray color, brittle and soft to the touch.
+fren	FREN	n.	A stranger. [Not used.]
+french	FRENCH	a.	Pertaining to France or its inhabitants. FRENCH Chalk, scaly talc, a variety of indurated talc, in masses composed of small scales; its color is pearly white or grayish.
+french	FRENCH	n.	The language spoken by the people of France.
+french-horn	FRENCH-HORN	n.	A wind instrument of music made of metal.
+frenchhorn	french-horn
+frenchify	FRENCHIFY	v.t.	To make French; to infect with the manner of the French.
+frenchlike	FRENCHLIKE	a.	Resembling the French.
+frenetic	FRENETIC	a.	[See Frantic and Phrenetic.]
+frenzied	FRENZIED		part. adjective Affected with madness.
+frenzy	FRENZY	n.	Madness; distraction; rage; or any violent agitation of the mind approaching to distraction. All else is towering frenzy and distraction
+frequence	FREQUENCE	n.	A crowd; a throng; a concourse; an assembly. [Little used.]
+frequency	FREQUENCY	n.	A return or occurrence of a thing often repeated at short intervals. The frequency of crimes abates our horror at the commission; the frequency of capital punishments tends to destroy their proper effect.	A crowd; a throng. [Not used.]
+frequent	FREQUENT	a.	Often seen or done; often happening at short intervals; often repeated or occurring. We made frequent visits to the hospital.	Used often to practice any thing. He was frequent and loud in his declamations against the revolution.	Full; crowded; thronged. [Not used.]
+frequent	FREQUENT	v.t.	To visit often; to resort to often or habitually. The man who frequents a dram-shop, an ale house, or a gaming table, is in the road to poverty, disgrace and ruin. He frequented the court of Augustus
+frequentable	FREQUENTABLE	a.	Accessible. [Not used.]
+frequentation	FREQUENTATION	n.	The act of frequenting.	The habit of visiting often.
+frequentative	FREQUENTATIVE	a.	In grammar, signifying the frequent repetition of an action; as a frequentative verb.
+frequented	FREQUENTED	pp.	Often visited.
+frequenter	FREQUENTER	n.	One who often visits or resorts to customarily.
+frequently	FREQUENTLY	adv.	Often; many times; at short intervals; commonly.
+frequentness	FREQUENTNESS	n.	The quality of being frequent or often repeated.
+fresco	FRESCO	n.	Coolness; shade; a cool refreshing state of the air; duskiness.	A picture not drawn in glaring light, but in dusk.	A method of painting in relief on walls, performed with water-colors on fresh plaster, or on a wall laid with mortar not yet dry. the colors, incorporating with the mortar, and drying with it, become very durable. It is called fesco, either because it is done on fresh plaster, or because it is used on walls and buildings in the open air.	A cool refreshing liquor.
+fresh	FRESH	a.	Moving with celerity; brisk; strong; somewhat vehement; as a fresh breeze; fresh wind; the primary sense.	Having the color and appearance of young thrifty plants; lively; not impaired or faded; as when we say, the fields look fresh and green.	Having the appearance of a healthy youth; florid; ruddy; as a fresh-colored young man.	New; recently grown; as fresh vegetables.	New; recently made or obtained. We have a fresh supply of goods from the manufactory, or from India; fresh tea; fresh raisins.	Not impaired by time; not forgotten or obliterated. The story is fresh in my mind; the ideas are fresh in my recollection.	Not salt; as fresh water; fresh meat.	Recently from the well or spring; pure and cool; not warm or vapid. Bring a glass of fresh water.	In a state like that of recent growth or recentness; as, to preserve flowers and fruit fresh FRESH as April, sweet as May.	Repaired from loss or diminution; having new vigor. He rose fresh for the combat.	New; that has lately come or arrived; as fresh news; fresh dispatches.	Sweet; in a good state; not stale.	Unpracticed; unused; not before employed; as a fresh hand on board of a ship.	Moderately rapid; as, the ship makes fresh way.
+fresh	FRESH	n.	A freshet.
+freshen	FRESHEN	v.t.	To make fresh; to dulcify; to separate, as water from saline particles; to take saltiness from any thing; as, to freshen water, fish or flesh.	To refresh; to revive. [Not used.]	In seaman's language, to apply new service to a cable; as, to freshen hawse.
+freshen	FRESHEN	v.i.	To grow fresh; to lose salt or saltiness.	To grow brisk or strong; as, the wind freshens.
+freshened	FRESHENED	pp.	Deprived of saltiness; sweetened.
+freshes	FRESHES	n.	The mingling of fresh water with salt water in rivers or bays, or the increased current of an ebb tide by means of a flood of fresh water, flowing towards or into the sea, and discoloring the water.	A flood; an overflowing; an inundation; a freshet.
+freshet	FRESHET		A flood or overflowing of a river, by means of heavy rains or melted snow; an inundation.	A stream of fresh water.
+freshly	FRESHLY	adv.	Newly; in the former state renewed; in a new or fresh state.	With a healthy look; ruddily.	Briskly; strongly.	Coolly.
+freshman	FRESHMAN	n.	A novice; one in the rudiments of knowledge.	In colleges, one of the youngest class of students.
+freshmanship	FRESHMANSHIP	n.	The state of a freshman.
+freshness	FRESHNESS	n.	Newness; vigor; spirit; the contrary to vapidness; as the freshness of liquors or odors.	Vigor; liveliness; the contrary to a faded state; as the freshness of plants or of green fields.	Newness of strength; renewed vigor; opposed to weariness or fatigue. The Scots had the advantage both for number and freshness of men.	Coolness; invigorating quality or state. And breathe the freshness of the open air.	Color of youth and health; ruddiness. Her cheeks their freshness lose and wonted grace.	Freedom from saltiness; as the freshness of water or flesh.	A new or recent state or quality; rawness.	Briskness, as of wind.
+freshnew	FRESHNEW	a.	Unpracticed. [Not used.]
+freshwater	FRESHWATER	a.	Accustomed to sail on freshwater only, or in the coasting trade; as a freshwater sailor.	Raw; unskilled.
+freshwatered	FRESHWATERED	a.	Newly watered; supplied with fresh water.
+fret	FRET	v.t.	To rub; to wear away a substance by friction; as, to fret cloth; to fret a piece of gold or other metal.	To corrode; to gnaw; to ear away; as, a worm frets the planks of a ship.	To impair; to wear away. By starts, his fretted fortunes give him hope and fear.	To form into raised work.	To variegate; to diversify. Yon gray lines that fret the clouds are messengers of day.	To agitate violently.	To agitate; to disturb; to make rough; to cause to ripple; as, to fret the surface of water.	To tease; to irritate; to vex; to make angry. FRET not thyself because of evil doers. Psalms 37:1.	To wear away; to chafe; to gall. Let not a saddle or harness fret the skin of your horse.
+fret	FRET	v.i.	To be worn away; to be corroded. Any substance will in time fret away by friction.	To eat or wear in; to make way of attrition or corrosion. Many wheels arose, and fretted one into another with great excoriation.	To be agitated; to be in violent commotion; as the rancor that frets in the malignant breast.	To be vexed; to be chafed or irritated; to be angry; to utter peevish expressions. He frets, he fumes, he stares, he stamps the ground.
+fret	FRET	n.	The agitation of the surface of a fluid by fermentation or other cause; a rippling on the surface of water; small undulations continually repeated.	Work raised in protuberances; or a kind of knot consisting of two lists or small fillets interlaced, used as an ornament in architecture.	Agitation of mind; commotion of temper; irritation; as, he keeps his mind in a continual fret Yet then did Dennis rave in furious fret	A short piece of wire fixed on the fingerboard of a guitar, etc., which being pressed against the strings varies the tone.	In heraldry, a bearing composed of bars crossed and interlaced.
+fret	FRET	v.t.	To furnish with frets, as an instrument of music.
+fret	FRET	n.	A frith, which see
+fretful	FRETFUL	a.	Disposed to fret; ill-humored; peevish; angry; in a state of vexation; as a fretful temper.
+fretfully	FRETFULLY	adv.	Peevishly; angrily.
+fretfulness	FRETFULNESS	n.	Peevishness; ill-humor; disposition to fret and complain.
+frett	FRETT	n.	With miners, the worn side of the bank of a river.
+fretted	FRETTED	pp.	Eaten; corroded; rubbed or worn away; agitated; vexed; made rough on the surface; variegated; ornamented with fretwork; furnished with frets.
+fretter	FRETTER	n.	That which frets.
+fretting	FRETTING	ppr.	Corroding; wearing away; agitating; vexing; making rough on the surface; variegating.
+fretting	FRETTING	n.	Agitation; commotion.
+fretty	FRETTY	a.	Adorned with fretwork.
+fretum	FRETUM	n.	An arm of the sea
+fretwork	FRETWORK	n.	Raised work; work adorned with frets.
+friability	FRIABILITY		FRI'ABLE, adjective [Latin friabilis, from frio, to break or crumble. Heb. to break.] Easily crumbled or pulverized; easily reduced to powder. Pumice and calcined stones are very friable.
+friable	FRIABLE	a.	Easily crumbled or pulverized; easily reduced to powder. Pumice and calcined stones are very friable
+friableness	FRIABLENESS	n.	[See Friable.] The quality of being easily broken, crumbled and reduced to powder.
+friar	FRIAR	n.	An appellation common to the monks of all orders; those who enter religious orders considering themselves as a fraternity or brotherhood. Friars are generally distinguished into four principal branches, viz:1. Minors, gray friars or Franciscans; 2. Augustines; 3. Dominicans or black friars; 4. White Friars or Carmelites.	In a restricted sense, a monk who is not a priest; those friars who are in orders being called fathers.
+friarlike	FRIARLIKE	a.	Like a friar; monastic; unskilled in the world.
+friarly	FRIARLY	a.	Like a friar; untaught in the affairs of life.
+friars-cowl	FRIAR'S-COWL	n.	A plant, a species of Arum, with a flower resembling a cowl.
+friars-lantern	FRIAR'S-LANTERN	n.	The ignis fatuus.
+friarscowl	friars-cowl
+friarslantern	friars-lantern
+friary	FRIARY	n.	A monastery; a convent of friars.
+friary	FRIARY	a.	Like a friar; pertaining to friars.
+fribble	FRIBBLE	a.	Frivolous; trifling; silly
+fribble	FRIBBLE	n.	A frivolous, trifling, contemptible fellow.
+fribble	FRIBBLE	v.i.	To trifle; also, to totter.
+fribbler	FRIBBLER	n.	A trifler.
+friborg	FRIBORG	n.	The same as frankpledge
+fricace	FRICACE	n.	[See Fricassee.] Meat sliced and dressed with strong sauce; also, an unguent prepared by frying things together. obsolete
+fricassee	FRICASSEE	n.	A dish of food made by cutting chickens, rabbits or other small animals into pieces, and dressing them in a frying pan, or a like utensil
+fricassee	FRICASSEE	v.t.	To dress in fricassee
+frication	FRICATION	n.	The act of rubbing; friction. [Little used.]
+friction	FRICTION	n.	The act of rubbing the surface of one body against that of another; attrition. Many bodies by friction emit light, and friction generates or evolves heat.	In mechanics, the effect of rubbing, or the resistance which a moving body meets with from the surface on which it moves.	In medicine, the rubbing of the body with the hand, or with a brush, flannel, etc.; or the rubbing of a diseased part with oil, unguent or other medicament.
+frid-stole	FRID-STOLE		[See Fred.]
+friday	FRIDAY	n.	The sixth day of the week, formerly consecrated to Frigga.
+fridge	FRIDGE	v.t.	To move hastily. [Not in use.]
+fridstole	frid-stole
+friend	FRIEND	n.	One who is attached to another by affection; one who entertains for another sentiments of esteem, respect and affection, which lead him to desire his company, and to seek to promote his happiness and prosperity; opposed to foe or enemy. A friend loveth at all times. Proverbs 17:17.	One not hostile; opposed to an enemy in war.	One reconciled after enmity. Let us be friends again.	An attendant; a companion.	A favorer; one who is propitious; as a friend to commerce; a friend to poetry; a friend to charitable institution.	A favorite. Hushai was David's friend	A term of salutation; a familiar compellation.
+friend	FRIEND		how camest thou in hither? Matthew 22:12. So Christ calls Judas his friend though a traitor. Mat 26.	Formerly, a paramour.	A friend at court, one who has sufficient interest to serve another.
+friend	FRIEND	v.t.	To favor; to countenance; to befriend; to support or aid. [But we now use befriend.]
+friended	FRIENDED	pp.	Favored; befriended.	adjective Inclined to love; well disposed.
+friendless	FRIENDLESS	a.	Destitute of friends; wanting countenance or support; forlorn.
+friendlike	FRIENDLIKE	a.	Having the dispositions of a friend.
+friendliness	FRIENDLINESS	n.	A disposition to friendship; friendly disposition.	Exertion of benevolence or kindness.
+friendly	FRIENDLY	a.	Having the temper and disposition of a friend; kind; favorable; disposed to promote the good of another. Thou to mankind be good and friendly still, and oft return.	Disposed to peace.	Amicable. We are on friendly terms.	Not hostile; as a friendly power or state.	Favorable; propitious; salutary; promoting the good of; as a friendly breeze or gale. Excessive rains are not friendly to the ripening fruits. Temperance is friendly to longevity.
+friendly	FRIENDLY	adv.	In the manner of friends; amicably. [Not much used.]
+friendship	FRIENDSHIP	n.	An attachment to a person, proceeding from intimate acquaintance, and a reciprocation of kind offices, or from a favorable opinion of the amiable and respectable qualities of his mind. friendship differs from benevolence, which is good will to mankind in general, and from that love which springs from animal appetite. True friendship is a noble and virtuous attachment, springing from a pure source, a respect for worth or amiable qualities. False friendship may subsist between bad men, as between thieves and pirates. This is a temporary attachment springing from interest, and may change in a moment to enmity and rancor. There can be no friendship without confidence, and no confidence without integrity. There is little friendship in the world. The first law of friendship is sincerity.	Mutual attachment; intimacy. If not in friendship live at least in peace.	Favor; personal kindness. His friendships, still a few confined, were always of the middling kind.	Friendly aid; help; assistance.	Conformity; affinity; correspondence; aptness to unite. We know those colors which have a friendship with each other. [Not common and hardly legitimate.]
+frieze	FRIEZE	n.	Properly, the nap on woolen cloth; hence, a kind of coarse woolen cloth or stuff, with a nap on one side.	In architecture, that part of the entablature of a column which is between the architrave and cornice. It is a flat member or face, usually enriched with figures of animals or other ornaments of sculpture, whence its name. Cornice or frieze with bossy sculptures graven.
+friezed	FRIEZED	a.	Napped; shaggy with nap or frieze.
+friezelike	FRIEZELIKE	a.	Resembling frieze.
+frigate	FRIGATE	n.	A ship of war, of a size larger than a sloop or brig, and less than a ship of the line; usually having two decks and carrying from thirty to forty four guns. But ships mounting a less number than thirty guns are sometimes called frigates; as are ships carrying a larger number.	Any small vessel on the water. [Not used.]
+frigate-built	FRIGATE-BUILT	a.	Having a quarter deck and forecastle raised above the main deck.
+frigatebuilt	frigate-built
+frigatoon	FRIGATOON	n.	A Venetian vessel with a square stern, without a foremast, having only a mainmast and mizenmast.
+frigefaction	FRIGEFACTION	n.	The act of making cold. [Little used.]
+fright	FRIGHT	n.	Sudden and violent fear; terror; a passion excited by the sudden appearance of danger. It expresses more than fear, and is distinguished from fear and dread, by its sudden invasion and temporary existence; fright being usually of short duration, whereas fear and dread may be long continued
+frighted	FRIGHTED		FRIGHTEN, verb transitive To terrify; to scare; to alarm suddenly with danger; to shock suddenly with the approach of evil; to daunt; to dismay. Nor exile or danger can fright a brave spirit.
+frighten	FRIGHTEN	v.t.	To terrify; to scare; to alarm suddenly with danger; to shock suddenly with the approach of evil; to daunt; to dismay. Nor exile or danger can fright a brave spirit.
+frightened	FRIGHTENED	pp.	Terrified; suddenly alarmed with danger.
+frightful	FRIGHTFUL	a.	Terrible; dreadful; exciting alarm; impressing terror; as a frightful chasm or precipice; a frightful tempest.
+frightfully	FRIGHTFULLY	adv.	Terribly; dreadfully; in a manner to impress terror and alarm; horribly.	Very disagreeably; shockingly. She looks frightfully to day.
+frightfulness	FRIGHTFULNESS	n.	The quality of impressing terror.
+frigid	FRIGID	a.	Cold; wanting heat or warmth; as the frigid zone.	Wanting warmth of affection; unfeeling; as a frigid temper or constitution.	Wanting natural heat or vigor sufficient to excite the generative power; impotent.	Dull; jejune; unanimated; wanting the fire of genius or fancy; as a frigid style; frigid rhymes.	Stiff; formal; forbidding; as a frigid look or manner.	Wanting zeal; dull; formal; lifeless; as frigid services.
+frigidity	FRIGIDITY	n.	Coldness; want of warmth. But not applied to the air or weather.	Want of natural heat, life and vigor of body; impotency; imbecility; as the frigidity of old age.	Coldness of affection.	Dullness; want of animation or intellectual fire; as the frigidity of sentiments or style.
+frigidly	FRIGIDLY	adv.	Coldly; dully; without affection.
+frigidness	FRIGIDNESS	n.	Coldness; dullness; want of heat or vigor; want of affection. [See Frigidity.]
+frigorific	FRIGORIFIC	a.	Causing cold; producing or generating cold
+frill	FRILL	n.	An edging of fine linen on the bosom of a shirt or other similar thing; a ruffle
+frill	FRILL	v.i.	To shake; to quake; to shiver as with cold; as, the hawk frills.
+fringe	FRINGE	n.	An ornamental appendage to the borders of garments or furniture, consisting of loose threads. The golden fringe ev'n set the ground on flame.	Something resembling fringe; an open broken border.
+fringe	FRINGE	v.t.	To adorn or border with fringe or a loose edging.
+fringed	FRINGED	pp.	Bordered with fringe.
+fringemaker	FRINGEMAKER	n.	One who makes fringe.
+fringing	FRINGING	ppr.	Bordering with fringe.
+fringy	FRINGY	a.	Adorned with fringes.
+fripperer	FRIPPERER	n.	[See Frippery.] One who deals in old cloths.
+frippery	FRIPPERY	n.	Old clothes; cast dresses; clothes thrown aside, after wearing. Hence, waste matter; useless things; trifles; as the frippery of wit.	The place where old clothes are sold.	The trade or traffic in old clothes.
+friseur	FRISEUR	n.	A hair dresser.
+frisk	FRISK	v.i.	To leap; to skip; to spring suddenly one way and the other. The fish fell a frisking in the net.	To dance, skip and gambol in frolic and gaiety. The frisking satyrs on the summits danced. In vain to frisk or climb he tries.
+frisk	FRISK	a.	Lively; brisk; blithe.
+frisk	FRISK	n.	A frolic; a fit of wanton gaiety.
+friskal	FRISKAL	n.	A leap or caper. [Not in use.]
+frisker	FRISKER	n.	One who leaps or dances in gaiety; a wanton; an inconstant or unsettled person.
+frisket	FRISKET	n.	[See Frisk.] In printing, the light frame in which a sheet of paper is confined to be laid on the form for impression.
+friskful	FRISKFUL	a.	Brisk; lively.
+friskiness	FRISKINESS	n.	Briskness and frequency of motion; gaiety; liveliness; a dancing or leaping in frolic.
+frisking	FRISKING	ppr.	Leaping; skipping; dancing about; moving with life and gaiety.
+frisky	FRISKY	a.	Gay; lively.
+frit	FRIT	n.	In the manufacture of glass, the matter of which glass is made after it has been calcined or baked in a furnace. It is a composition of silex and fixed alkali, occasionally with other ingredients
+frith	FRITH	n.	A narrow passage of the sea; a strait. It is used for the opening of a river into the sea; as the frith of Forth, or of Clyde.	A kind of wear for catching fish.
+frith	FRITH	n.	A forest; a woody place.	A small field taken out of a common. [Not used in America.]
+frithy	FRITHY	a.	Woody. [Not in use.]
+fritillary	FRITILLARY	n.	The crown imperial, a genus of plants, called in the Spanish dictionary checkered lily
+fritter	FRITTER	n.	A small pancake; also, a small piece of meat fried.	A fragment; a shred; a small piece. And cut whole giants into fritters.
+fritter	FRITTER	v.t.	To cut meat into small pieces to be fried.	To break into small pieces or fragments. Break all their nerves, and fritter all their sense. To fritter away, is to diminish; to pare off; to reduce to nothing by taking away a little at a time.
+frivolity	FRIVOLITY	n.	[See Frivolousness.]
+frivolous	FRIVOLOUS	a.	Slight; trifling; trivial; of little weight, worth or importance; not worth notice; as a frivolous argument; a frivolous objection or pretext
+frivolously	FRIVOLOUSLY	adv.	In a trifling manner.
+frivolousness	FRIVOLOUSNESS	n.	The quality of being trifling or of very little worth or importance; want of consequence.
+friz	FRIZ	v.t.	To curl; to crisp to form into small curls with a crisping-pin.	To form the nap of cloth into little hard burs, prominences or knobs.
+frized	FRIZED	pp.	Curled; formed into little burs on cloth.
+frizing	FRIZING	ppr.	Curling; forming little hard burs on cloth.
+frizzle	FRIZZLE	v.t.	To curl; to crisp; as hair.
+frizzled	FRIZZLED	pp.	Curled; crisped.
+frizzler	FRIZZLER	n.	One who makes short curls.
+frizzling	FRIZZLING	ppr.	Curling; crisping.
+fro	FRO	adv.	FROm; away; back or backward; as in the phrase, to and fro that is, to and from, forward or toward and backward, hither and thither
+frock	FROCK	n.	An upper coat, or an outer garment. The word is now used for a loose garment or shirt worn by men over their other clothes, and for a kind of gown open behind, worn by females. The frock was formerly a garment worn by monks.
+frog	FROG	n.	An amphibious animal of the genus Rana, with four feet, a naked body, and without a tail. It is remarkable for swimming with rapidity, and for taking large leaps on land. Frogs lie torpid during winter.	In farriery. [See Frush.]
+frogbit	FROGBIT	n.	A plant, the Hydrocharis.
+frogfish	FROGFISH	n.	An animal of surinam, which is said to change from a fish to a frog and then to a fish again. It is cartilaginous, and exquisite food.	The Lophius, or fishing frog.
+froggrass	FROGGRASS	n.	A plant.
+froggy	FROGGY	a.	Having frogs.
+froise	FROISE	n.	A kind of food made by frying bacon inclosed in a pancake.
+frolick	FROLICK	a.	Gay; merry; full of levity; dancing, playing or frisking about; full of pranks. The frolick wind that breathes the spring. The gay, the frolick and the loud. [This adjective is seldom used except in poetry. As a noun and a verb, its use is common.]
+frolick	FROLICK	n.	A wild prank; a flight of levity, or gaiety and mirth. He would be at his frolick once again.	A scene of gaiety and mirth, as in dancing or play. [This is a popular use of the word in America.]
+frolick	FROLICK	v.i.	To play wild pranks; to play tricks of levity, mirth and gaiety. The buzzing insects frolick in the air.
+frolickly	FROLICKLY	adv.	With mirth and gaiety. obsolete
+frolicksome	FROLICKSOME	a.	Full of gaiety and mirth; given to pranks.
+frolicksomeness	FROLICKSOMENESS	n.	Gaiety; wild pranks.
+from	FROM	prep.	The sense of from may be expressed by the noun distance, or by the adjective distant, or by the participles, departing, removing to a distance. Thus it is one hundred miles from Boston to Hartford. He took his sword from his side. Light proceeds from the sun. Water issues from the earth in springs. Separate the coarse wool from the fine. Men have all sprung from Adam. Men often go from good to bad, and from bad to worse. The merit of an action depends on the principle from which it proceeds. Men judge of facts from personal knowledge, or from testimony. We should aim to judge from undeniable premises. The sense of from is literal or figurative, but it is uniformly the same. In certain phrases, generally or always elliptical, from is followed by certain adverbs, denoting place, region or position, indefinitely, no precise point being expressed; as, FROM above, from the upper regions. FROM afar, from a distance. FROM beneath, from a place or region below. FROM below, from a lower place. FROM behind, from a place or position in the rear. FROM far, from a distant place. FROM high, from on high, from a high place, from an upper region, or from heaven. FROM hence, from this place; but from is superfluous before hence. The phrase however is common. FROM thence, from that place; from being superfluous. FROM whence, from which place; from being superfluous. FROM where, from which place. FROM within, from the interior or inside. FROM without, from the outside, from abroad. FROM precedes another preposition, followed by its proper object or case. FROM amidst, as from amidst the waves. FROM among, as from among the trees. FROM beneath, as from beneath my head. FROM beyond, as from beyond the river. FROM forth, as from forth his bridal bower. But this is an inverted order of the words; forth from his bower. FROM off, as from off the mercy seat, that is, from the top or surface. FROM out, as from out a window, that is, through an opening or from the inside. FROM out of, is an ill combination of words and not to be used. FROM under, as from under the bed, from under the ashes, that is, from beneath or the lower side. FROM within, as from within the house, that is, from the inner part or interior.
+fromward	FROMWARD	adv.	Away from; the contrary of toward.
+frond	FROND	n.	In botany, a term which Linne applies to the peculiar leafing of palms and ferns. He defines it, a kind of stem which has the branch united with the leaf and frequently with the fructification. The term seems to import the union of a leaf and a branch
+frondation	FRONDATION	n.	A lopping of trees.
+frondescence	FRONDESCENCE	n.	In botany, the precise time of the year and month in which each species of plants unfolds its leaves
+frondiferous	FRONDIFEROUS	a.	Producing fronds
+frondous	FRONDOUS	a.	A frondous flower is one which is leafy, one which produces branches charged with both leaves and flowers. Instances of this luxuriance sometimes occur in the rose and anemone.
+front	FRONT	n.	Properly, the forehead, or part of the face above the eyes; hence, the whole face. His front yet threatens, and his frowns command.	The forehead or face, as expressive of the temper or disposition; as a fold front equivalent to boldness or impudence. So a hardened front is shamelessness.	The forepart of any thing; as the front of a house, the principal face or side.	The forepart or van of an army or a body of troops.	The part or place before the face, or opposed to it, or to the forepart of a thing. He stood in front of his troops. The road passes in front of his house.	The most conspicuous part or particular.	Impudence; as men of front
+front	FRONT	v.t.	To oppose face to face; to oppose directly. I shall front thee, like some staring ghost, with all my wrongs about me.	To stand opposed or opposite, or over against any thing; as, his house fronts the church.
+front	FRONT	v.i.	To stand foremost.	To have the face or front towards any point of compass.
+frontal	FRONTAL	n.	In medicine, a medicament or preparation to be applied to the forehead.	In architecture, a little pediment or frontpiece, over a small door or window.	In Jewish ceremonies, a frontlet or browband, consisting of four pieces of vellum, laid on leather, and tied round the forehead in the synagogue; each piece containing some text of scripture.
+frontbox	FRONTBOX	n.	The box in a playhouse before the rest.
+fronted	FRONTED	a.	Formed with a front.
+frontier	FRONTIER	n.	The marches; the border, confine, or extreme part of a country, bordering on another country; that is, the part furthest advanced, or the part that fronts an enemy, or which an invading enemy meets in front, or which fronts another country.
+frontier	FRONTIER	a.	Lying on the exterior part; bordering; conterminous; as a frontier town.
+frontiered	FRONTIERED	a.	Guarded on the frontiers.
+frontinac	FRONTINAC		FRONTINIAC, noun A species of French wine, named from the place in Languedoc where it is produced.
+frontiniac	FRONTINIAC	n.	A species of French wine, named from the place in Languedoc where it is produced.
+frontispiece	FRONTISPIECE	n.	In architecture, the principal face of a building; the face that directly presents itself to the eye.	An ornamental figure or engraving fronting the first page of a book, or at the beginning.
+frontless	FRONTLESS	a.	Wanting shame or modesty; not diffident; as frontless vice; frontless flattery.
+frontlet	FRONTLET	n.	A frontal or browband; a fillet or band worn on the forehead. Deuteronomy 6:8
+frontroom	FRONTROOM	n.	a room or apartment in the forepart of a house.
+froppish	FROPPISH	a.	Peevish; froward. [Not in use.]
+frore	FRORE	a.	Frozen
+frorne	FRORNE	a.	Frozen
+frory	FRORY	a.	Frozen.	Covered with a froth resembling hoarfrost. [Not in use.]
+frost	FROST	n.	A fluid congealed by cold into ice or crystals; as hoar-frost, which is dew or vapor congealed. He scattereth the hoar-frost like ashes. Psalms 147:1.	The act of freezing; congelation of fluids. The third day comes a frost a killing frost	In physiology, that state or temperature of the air which occasions freezing or the coagelation of water.	The appearance of plants sparkling with icy crystals.
+frost	FROST	v.t.	In cookery, to cover or sprinkle with a composition of sugar, resembling hoar-frost; as, to frost cake.	To cover with any thing resembling hoarfrost.
+frostbitten	FROSTBITTEN	a.	Nipped, withered or affected by frost.
+frosted	FROSTED	pp.	Covered with a composition like white frost.	adjective Having hair changed to a gray or white color, as if covered with hoar-frost; as a head frosted by age.
+frostily	FROSTILY	adv.	With frost or excessive cold.	Without warmth of affection; coldly.
+frostiness	FROSTINESS	n.	The state or quality of being frosty; freezing cold.
+frosting	FROSTING	ppr.	covering with something resembling hoar-frost.
+frosting	FROSTING	n.	the composition resembling hoar-frost, used to cover cake, etc.
+frostless	FROSTLESS	a.	Free from frost; as a frostless winter.
+frostnail	FROSTNAIL	n.	a nail driven into a horse-shoe, to prevent the horse from slipping on ice. In some of the United States, the ends of the shoe are pointed for this purpose, and these points are called calks.
+frostwork	FROSTWORK	n.	Work resembling hoar-frost on shrubs.
+frosty	FROSTY	a.	Producing frost; having power to congeal water; as a frosty night; frosty weather.	Containing frost; as, the grass is frosty	Chill in affection; without warmth of affection or courage.	Resembling hoar-frost; white gray-haired; as a frosty head.
+froth	FROTH	n.	Spume; foam; the bubbles causes in liquors by fermentation or agitation.	Any empty, senseless show of wit or eloquence.	Light, unsubstantial matter.
+froth	FROTH	v.t.	To cause to foam.
+froth	FROTH	v.i.	To foam; to throw up spume; to throw out foam or bubbles. Beer froths in fermentation. The sea froths when violently agitated. A horse froths at the mouth when heated.
+frothily	FROTHILY	adv.	With foam or spume.	In an empty trifling manner.
+frothiness	FROTHINESS	n.	The state of being frothy; emptiness; senseless matter.
+frothy	FROTHY	a.	Full of foam or froth, or consisting of froth or light bubbles.	Soft; not firm or solid.	Vain; light; empty; unsubstantial; as a vain frothy speaker; a frothy harangue.
+frounce	FROUNCE	n.	A distemper of hawks, in which white spittle gathers about the bill. [See the Verb.]
+frounce	FROUNCE	v.t.	To curl or frizzle the hair about the face. Not tricked and frounced as she was wont.
+frounce	FROUNCE	n.	A wrinkle, plait or curl; an ornament of dress.
+frounced	FROUNCED	pp.	Curled; frizzled.
+frounceless	FROUNCELESS	a.	Having no plait or wrinkle.
+frouncing	FROUNCING	ppr.	Curling; crisping.
+frouzy	FROUZY	a.	Fetid; musty; rank; dim; cloudy.
+frow	FROW	n.	A woman. [Not used.]
+froward	FROWARD	a.	Perverse, that is, turning from, with aversion or reluctance; not willing to yield or comply with what is required; unyielding; ungovernable; refractory; disobedient; peevish; as a froward child. They are a very froward generation, children in whom is no faith. Deuteronomy 32:20
+frowardly	FROWARDLY	adv.	Perversely; in a peevish manner.
+frowardness	FROWARDNESS	n.	Perverseness; reluctance to yield or comply; disobedience; peevishness.
+frower	FROWER	n.	A sharp edged tool to cleave laths.
+frown	FROWN	v.i.	To express displeasure by contracting the brow, and looking grim or surly; to look stern; followed by on or at; as, to frown on a profligate man, or to frown at his vices. Heroes in animated marble frown	To manifest, displeasure in any manner. When providence frowns on our labors, let us be humble and submissive.	To lower; to look threatening.
+frown	FROWN	v.t.	To repel by expressing displeasure; to rebuke. frown the impudent fellow into silence.
+frown	FROWN	n.	A wrinkled look, particularly expressing dislike; a sour, severe or stern look, expressive of displeasure. His front yet threatens and his frowns command.	Any expression of displeasure; as the frowns of providence; the frown of fortune.
+frowning	FROWNING	ppr.	Knitting the brow in anger or displeasure; expressing displeasure by a surly, stern or angry look; lowering; threatening.
+frowningly	FROWNINGLY	adv.	Sternly; with a look of displeasure.
+frowy	FROWY	a.	Musty; rancid; rank; as frowy butter
+frozen	FROZEN	pp.	Congealed by cold.	Cold; frosty; chill; as the frozen climates of the north.	Chill or cold in affection.	Void of natural heat or vigor.
+frubish	FRUBISH		for furbish, is not used.
+fructed	FRUCTED	a.	In heraldry, bearing fruit
+fructescence	FRUCTESCENCE	n.	In botany, the precise time when the fruit of a plant arrives at maturity, and its seeds are dispersed; the fruiting season
+fructiferous	FRUCTIFEROUS	a.	Bearing or producing fruit
+fructification	FRUCTIFICATION	n.	The act of fructifying, or rendering productive of fruit; fecundation.	In botany, the temporary part of a plant appropriated to generation, terminating the old vegetable and beginning the new. It consists of seven parts, the calyx, impalement or flower-cup, the corol or petals, the stamens, and the pistil, which belong to the flower, the pericarp and seed, which pertain to the fruit, and the receptacle or base, on which the other parts are seated. The receptacle belongs both to the flower and fruit.
+fructify	FRUCTIFY	v.t.	To make fruitful; to render productive; to fertilize; as, to fructify the earth
+fructify	FRUCTIFY	v.i.	To bear fruit. [Unusual.]
+fructuation	FRUCTUATION	n.	Produce; fruit. [Not used.]
+fructuous	FRUCTUOUS	a.	Fruitful; fertile; also, impregnating with fertility.
+fructure	FRUCTURE	n.	Use; fruition; enjoyment. [Not used.]
+frugal	FRUGAL	a.	Economical in the use or appropriation of money, goods or provisions of any kind; saving unnecessary expense, either of money or of any thing else which is to be used or consumed; sparing; not profuse, prodigal or lavish. We ought to be frugal not only in the expenditure of money and of goods, but in the employment of time. It is followed by of, before the thing saved; as frugal of time. It is not synonymous with parsimonious, nor with thrifty, as now used
+frugality	FRUGALITY	n.	Prudent economy; good husbandry or housewifery; a sparing use or appropriation of money or commodities; a judicious use of any thing to be expended or employed; that careful management of money or goods which expends nothing unnecessarily, and applies what is used to a profitable purpose; that use in which nothing is wasted. It is not equivalent to parsimony, the latter being an excess of frugality and a fault. frugality is always a virtue. Nor is it synonymous with thrift, in its proper sense; for thrift is the effect of frugality Without frugality none can become rich, and with it few would be poor.	A prudent and sparing use or appropriation of any thing; as frugality of praise.
+frugally	FRUGALLY	adv.	With economy; with good management; in a saving manner. He seldom lives frugally that lives by chance.
+frugiferous	FRUGIFEROUS	a.	Producing fruit or corn
+frugivorous	FRUGIVOROUS	a.	Feeding on fruits, seeds or corn, as birds and other animals
+fruit	FRUIT	n.	In a general sense, whatever the earth produces for the nourishment of animals, or for clothing or profit. Among the fruits of the earth are included not only corn of all kinds, but grass, cotton, flax, grapes and all cultivated plants. In this comprehensive sense, the word is generally used in the plural.	In a more limited sense, the produce of a tree or other plant; the last production for the propagation or multiplication of its kind; the seed of plants, or the part that contains the seeds; as wheat, rye, oats, apples, quinces, pears, cherries, acorns, melons, etc.	In botany, the seed of a plant, or the seed with the pericarp.	Production; that which is produced. The fruit of the spirit is in all goodness, and righteousness, and truth. Ephesians 5:9.	The produce of animals; offspring; young; as the fruit of the womb, of the loins, of the body.	Effect or consequence. They shall eat the fruit of their doings. Isaiah 3:10.	Advantage; profit; good derived. What fruit had ye then in those things whereof ye are now ashamed? Romans 6:21.	Production, effect or consequence; in an ill sense; as the fruits of sin; the fruits of intemperance.
+fruit	FRUIT	v.i.	To produce fruit [Not well authorized.]
+fruit-grove	FRUIT-GROVE	n.	A grove or close plantation of fruit trees.
+fruit-loft	FRUIT-LOFT	n.	A place for the preservation of fruit.
+fruit-time	FRUIT-TIME	n.	The time for gathering fruit.
+fruit-tree	FRUIT-TREE	n.	A tree cultivated for its fruit, or a tree whose principal value consists in the fruit it produces, as the cherry tree, apple tree, pear tree. The oak and beech produce valuable fruit, but the fruit is not their principal value.
+fruitage	FRUITAGE	n.	Fruit collectively; various fruits.
+fruitbearer	FRUITBEARER	n.	That which produces fruit.
+fruitbearing	FRUITBEARING	a.	Producing fruit; having the quality of bearing fruit.
+fruiterer	FRUITERER	n.	One who deals in fruit; a seller of fruits.
+fruitery	FRUITERY	n.	Fruit collectively taken.	A fruitloft; a repository for fruit.
+fruitful	FRUITFUL	a.	Very productive; producing fruit in abundance; as fruitful soil; a fruitful tree; a fruitful season.	Prolific; bearing children; not barren. Be fruitful and multiply - Genesis 1:22.	Plenteous; abounding in any thing.	Productive of any thing; fertile; as fruitful in expedients.	Producing in abundance; generating; as fruitful in crimes.
+fruitfully	FRUITFULLY	adv.	In such a manner as to be prolific.	Plenteously; abundantly.
+fruitfulness	FRUITFULNESS	n.	The quality of producing fruit in abundance; productiveness; fertility; as the fruitfulness of land.	Fecundity; the quality of being prolific, or producing many young; applied to animals.	Productiveness of the intellect; as the fruitfulness of the brain.	Exuberant abundance.
+fruitgrove	fruit-grove
+fruition	FRUITION	n.	Use accompanied with pleasure, corporeal or intellectual; enjoyment; the pleasure derived from use or possession. If the affliction is on his body, his appetites are weakened, and capacity of fruition destroyed
+fruitive	FRUITIVE	a.	Enjoying.
+fruitless	FRUITLESS	a.	Not bearing fruit; barren; destitute of fruit; as a fruitless plant.	Productive of no advantage or good effect; vain; idle; useless; unprofitable; as a fruitless attempt; a fruitless controversy.	Having no offspring.
+fruitlessly	FRUITLESSLY	a.	Without any valuable effect; idly; vainly; unprofitably
+fruitlessness	FRUITLESSNESS	n.	The quality of being vain or unprofitable.
+fruitloft	fruit-loft
+fruittime	fruit-time
+fruittree	fruit-tree
+frumentaceous	FRUMENTACEOUS	a.	Made of wheat, or like grain.	Resembling wheat, in respect to leaves, ears, fruit, and the like.
+frumentarious	FRUMENTARIOUS	a.	Pertaining to wheat or grain
+frumentation	FRUMENTATION	n.	Among the Romans, a largess of grain bestowed on the people to quiet them when uneasy or turbulent
+frumenty	FRUMENTY	n.	Food made of wheat boiled in milk
+frump	FRUMP	n.	A joke, jeer or flout. [Not used.]
+frump	FRUMP	v.t.	To insult. [Not in use.]
+frush	FRUSH	v.t.	To bruise; to crush. obsolete
+frush	FRUSH	n.	In farriery, a sort of tender horn that grows in the middle of the sole of a horse, at some distance from the toe, dividing into two branches, and running toward the heel in the form of a fork.
+frustrable	FRUSTRABLE	a.	[See Frustrate.] That may be frustrated or defeated.
+frustraneous	FRUSTRANEOUS	a.	[See Frustrate.] Vain; useless; unprofitable. [Little used.]
+frustrate	FRUSTRATE	v.t.	Literally, to break or interrupt; hence, to defeat; to disappoint; to balk; to bring to nothing; as, to frustrate a plan, design or attempt; to frustrate the will or purpose.	To disappoint; applied to persons.	To make null; to nullify; to render of no effect; as, to frustrate a conveyance or deed.
+frustrate	FRUSTRATE		part. adjective Vain; ineffectual; useless; unprofitable; null; void; of no effect.
+frustrated	FRUSTRATED	pp.	Defeated; disappointed; rendered vain or null.
+frustrating	FRUSTRATING	ppr.	Defeating; disappointing; making vain or of no effect.
+frustration	FRUSTRATION	n.	The act of frustrating; disappointment; defeat; as the frustration of one's attempt or design.
+frustrative	FRUSTRATIVE	a.	Tending to defeat; fallacious.
+frustratory	FRUSTRATORY	a.	That makes void; that vacates or renders null; as a frustatory appeal.
+frustum	FRUSTUM	n.	a piece or part of a solid body separated from the rest. The frustum of a cone, is the part that remains after the top is cut off by a plane parallel to the base; called otherwise a truncated cone
+frutescent	FRUTESCENT	a.	In botany, from herbaceous becoming shrubby; as a frutescent stem
+frutex	FRUTEX	n.	In botany, a shrub; a plant having a woody, durable stem, but less than a tree
+fruticant	FRUTICANT	a.	Full of shoots.
+fruticous	FRUTICOUS	a.	Shrubby; as a fruticous stem
+fry	FRY	v.t.	To dress with fat by heating or roasting in a pan over a fire; to cook and prepare for eating in a fryingpan; as, to fry meat or vegetables
+fry	FRY	v.i.	To be heated and agitated; to suffer the action of fire or extreme heat.	To ferment, as in the stomach.	To be agitated; to boil.
+fry	FRY	n.	A swarm or crowd of little fish; so called from their crowding, tumbling and agitation. [Latin ferveo.]	A dish of any thing fried.	A kind of sieve. [Not used in America.]
+frying	FRYING	ppr.	Dressing in a fryingpan; heating; agitating.
+fryingpan	FRYINGPAN	n.	a pan with a long handle, used for frying meat and vegetables.

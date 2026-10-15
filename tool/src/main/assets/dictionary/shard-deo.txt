@@ -1,0 +1,25 @@
+deobstruct	DEOBSTRUCT	v.t.	To remove obstructions, or impediments to a passage; to clear from any thing that hinders the passage of fluids in the proper ducts of the body; as, to deobstruct the pores or lacteals
+deobstructed	DEOBSTRUCTED	pp.	Cleared of obstructions; opened.
+deobstructing	DEOBSTRUCTING	ppr.	Removing impediments to a passage.
+deobstruent	DEOBSTRUENT	a.	Removing obstructions; having power to clear or open the natural ducts of the fluids and secretions of the body; resolving viscidities; aperient.
+deobstruent	DEOBSTRUENT	n.	Any medicine which removes obstructions and opens the natural passages of the fluids of the body, as the pores and lacteal vessels; an aperient Calomel is a powerful deobstruent
+deodand	DEODAND	n.	In England, a personal chattel which is the immediate occasion of the death of a rational creature, and for that reason, given to God, that is, forfeited to the king, to be applied to pious uses, and distributed in alms by his high almoner. Thus, if a cart runs over a man and kills him, the cart is forfeited as a deodand
+deonerate	DEONERATE	v.t.	To unload.
+deoppilate	DEOPPILATE	v.t.	To free from obstructions; to clear a passage.
+deoppilation	DEOPPILATION	n.	The removal of obstructions.
+deoppilative	DEOPPILATIVE	a.	Deobstruent; aperient.
+deordination	DEORDINATION	n.	Disorder.
+deosculate	DEOSCULATE	v.t.	To kiss.
+deosculation	DEOSCULATION	n.	A kissing.
+deosydated	DEOSYDATED	pp.	Reduced from the state of an oxyd.
+deoxydate	DEOXYDATE	v.t.	To deprive of oxygen, or reduce from the state of an oxyd.
+deoxydating	DEOXYDATING	ppr.	Reducing from the state of an oxyd.
+deoxydation	DEOXYDATION	n.	The act or process of reducing from the state of an oxyd.
+deoxydization	DEOXYDIZATION	n.	Deoxydation.
+deoxydize	DEOXYDIZE	v.t.	To deoxydate.
+deoxydized	DEOXYDIZED	pp.	Deoxydated.
+deoxydizing	DEOXYDIZING	ppr.	Deoxydating. NOTE. Deoxydate and deoxydize are synonymous; but the former is preferable, on account of the length of the word deoxydization.
+deoxygenate	DEOXYGENATE	v.t.	To deprive of oxygen.
+deoxygenated	DEOXYGENATED	v.t.	Deprived of oxygen.
+deoxygenating	DEOXYGENATING	ppr.	Depriving of oxygen.
+deoxygenation	DEOXYGENATION	n.	The act or operation of depriving of oxygen.

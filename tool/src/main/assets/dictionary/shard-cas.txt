@@ -1,0 +1,130 @@
+casarca	CASARCA	n.	A fowl of the genus Anas, called also ruddy-goose, larger than a mallard, found in Russia and Siberia.
+cascabel	CASCABEL	n.	The knob or pummelion of a cannon.
+cascade	CASCADE	n.	A waterfall; a steep fall or flowing of water over a precipice, in a river or natural stream; or an artificial fall in a garden. The word is applied to falls that are less than a cataract.
+cascalho	CASCALHO	n.	In Brazil, a deposit of pebbles, gravel and sand in which the diamond is usually found.
+case	CASE	n.	A covering, box or sheath; that which incloses or contains; as a case for knives; a case for books; a watch case; a printers case; a pillow case	The outer part of a building.	A certain quantity; as a case of crown glass.	A building unfurnished.
+case	CASE	v.t.	To cover with a case; to surround with any material that shall inclose or defend.	To put in a case or box.	To strip off a case covering, or the skin.
+case	CASE	n.	Literally, that which falls, comes, or happens; an event. Hence, the particular state, condition, or circumstances that befall a person, or in which he is placed; as, make the case your own; this is the case with my friend; this is his present case	The state of the body, with respect to health or disease; as a case of fever; he is in a consumptive case; his case is desperate. To be in good case is to be fat, and this phrase is customarily abridged, to be in case; applied to beasts, but not to men, except in a sense rather ludicrous.	A question; a state of facts involving a question for discussion or decision; as, the lawyer stated the case	A cause or suit in court; as, the case was tried at the last term. In this sense, case is nearly synonymous with cause, whose primary sense is nearly the same.	In grammar, the inflection of nouns, or a change of termination, to express a difference of relation in the word to others, or to the thing represented. The variation of nouns and adjectives is called declension; both case and declension signifying, falling or leaning from the first state of the word. Thus, liber is a book; libri, of a book; libro, to a book. In other words, case denotes a variation in the termination of a noun, to show how the noun acts upon the verb with which it is connected, or is acted upon by it, or by an agent. The cases, except the nominative, are called oblique cases. In case is a phrase denoting condition or supposition; literally, in the event or contingency; if it should so fall out or happen. Put the case suppose the event, or a certain state of things. Action on the case in law, is an action in which the whole cause of complaint is set out in the writ.
+case	CASE	v.i.	To put cases.
+case-harden	CASE-HARDEN	v.t.	To harden the outer part or superficies, as of iron, by converting it into steel. This may be done by putting the iron into an iron box, with a cement, and exposing it, for some hours, to a red heat.
+case-knife	CASE-KNIFE	n.	A large table knife, often kept in a case.
+case-worm	CASE-WORM	n.	A worm that makes itself a case.
+cased	CASED	pp.	Covered with a case.
+caseharden	case-harden
+caseic	CASEIC	a.	The caseic acid is the acid of cheese, or a substance so called, extracted from cheese.
+caseknife	case-knife
+casemate	CASEMATE	n.	In fortification, a vault of masons work in the flank of a bastion, next to the curtain, somewhat inclined toward the capital of the bastion, serving as a battery to defend the face of the opposite bastion, and the moat or ditch.	A well, with its subterraneous branches, dug in the passage of the bastion, till the miner is heard at work, and air given to the mine.
+casement	CASEMENT	n.	A hollow molding, usually one sixth or one fourth of a circle.	A little movable window, usually within a large, made to turn and open on hinges.
+caseous	CASEOUS	a.	Like cheese; having the qualities of cheese.
+casern	CASERN	n.	A lodging for soldiers in garrison towns, usually near the rampart, containing each two beds.
+caseshot	CASESHOT	n.	Musket balls, stones, old iron, etc., put in cases, to be discharged from cannon.
+caseworm	case-worm
+cash	CASH	n.	Money; primarily, ready money, money in chest or on hand, in bank or at command. It is properly silver and gold; but since the institution of banks, it denotes also bank notes equivalent to money. To pay in cash is opposed to payment in goods, commodities, or labor, as in barter.
+cash	CASH	v.t.	To turn into money, or to exchange for money; as, to cash a note or an order.	To pay money for; as, the clerks of a bank cash notes when presented.
+cash	CASH	v.t.	To discard.
+cash-account	CASH-ACCOUNT	n.	An account of money received, paid, or on hand.
+cash-book	CASH-BOOK	n.	A book in which is kept a register or account of money.
+cash-keeper	CASH-KEEPER	n.	One entrusted with the keeping of money.
+cashaccount	cash-account
+cashbook	cash-book
+cashew-nut	CASHEW-NUT	n.	A tree of the West-Indies, Anacardium, bearing a kidney-shaped nut. The fruit is as large as an orange, and full of an acid juice, which is often used to make punch. To the apex of this fruit grows a nut, of the size of a hares kidney, the shell of which is hard, and the kernel, which is sweet, is covered with a thin film.
+cashewnut	cashew-nut
+cashier	CASHIER	n.	One who has charge of money; as cash-keeper. In a banking institution, the cashier is the officer who superintends the books, payments and receipts of the bank. He also signs or countersigns the notes, and superintends all the transactions, under the order of the directors.
+cashier	CASHIER	v.t.	To dismiss from an office or place of trust, by annulling the commission; to break, as for mal-conduct, and therefore with reproach; as, to cashier an officer of the army.	To dismiss or discard from service or from society.	To reject; to annul or vacate.
+cashiered	CASHIERED	pp.	Dismissed; discarded; annulled.
+cashierer	CASHIERER	n.	One who rejects discards or breaks; as a cashierer of monarchs.
+cashiering	CASHIERING	ppr.	Discarding; dismissing from service.
+cashkeeper	cash-keeper
+cashoo	CASHOO	n.	The juice or gum of a tree in the East Indies.
+casing	CASING	ppr.	Covering with a case.
+casing	CASING	n.	The act or operation of plastering a house with mortar on the outside, and striking it while wet, by a ruler, with the corner of a trowel, to make it resemble the joints of free-stone.	A covering; a case.
+cask	CASK	n.	A head-piece; a helmet; a piece of defensive armor, to cover and protect the head and neck, in battle.
+cask	CASK	n.	A close vessel for containing liquors, formed by staves, heading and hoops. This is a general term comprehending the pipe, hogshead, butt, barrel, etc.
+casket	CASKET	n.	A small chest or box, for jewels or other small articles.	In seamens language, a small rope, fastened to gromets or little rings upon the yards, used to fasten the sail to the yard in furling. This is usually written gasket.
+caspian	CASPIAN	a.	An epithet given to a large lake between Persia and Astracan, called the caspian Sea.
+cass	CASS	v.t.	To quash; to defeat; to annul.
+cassada	CASSADA		CASSAMUNAIR, noun An aromatic vegetable brought from the east.
+cassamunair	CASSAMUNAIR	n.	An aromatic vegetable brought from the east.
+cassate	CASSATE	v.t.	To vacate, annul, or make void.
+cassation	CASSATION	n.	The act of annulling. In France there is a court of cassation
+cassavi	CASSAVI	n.	A plant, of the genus Jatropha, of different species. The roots of the manihot or bitter cassada, and of the janipha, are made into a kind of bread which serves for food to the natives of Africa and the West Indies, and they are also roasted and eaten like potatoes. They yield also a great quantity of starch, which the Brasilians export in small lumps under the name of tapioca.
+cassia	CASSIA	n.	A genus of plants of many species, among which are the fistula, or purging cassia and the senna. The former is a native of Egypt and both Indies; the latter is a native of Persia, Syria and Arabia. The latter is a shrubby plant, the leaves of which are much used in medicine. The purging cassia is the pulp of the pods, and is a gentle laxative. CASSIA is also the name of a species of Laurus, the bark of which usually passes under the name of cinnamon, differing from real cinnamon chiefly in the strength of its qualities. From a plant of this kind was extracted an aromatic oil, used as a perfume by the Jews.
+cassidony	CASSIDONY	n.	A species of plant, Gnaphalium, cotton-weed, cudweed or goldylocks; also, Lavandula stoechas or French lavender.
+cassimer	CASSIMER	n.	A thin twilled woolen cloth.
+cassino	CASSINO	n.	A game at cards.
+cassiobury	CASSIOBURY	n.	A species of plant, of the genus Cassine, of which the most remarkable species is the Yapon of the Southern States of America. The berries are of a beautiful red color. The Yapon is now arranged in the genus Ilex.
+cassiopeia	CASSIOPEIA	n.	A constellation in the Northern Hemisphere, situated near to Cepheus, as the fabulous cassiopeia was wife to Cepheus, king of Ethiopia. It contains fifty five stars.
+cassiteria	CASSITERIA	n.	A kind of crystals which appear to have an admixture of tin. The color is brown or whitish.
+cassock	CASSOCK	n.	A robe or gown worn over the other garments, particularly by the clergy. A close garment, now generally that which clergymen wear under their gowns.
+cassocked	CASSOCKED	a.	Clothed with a cassock. The cassockd huntsman.
+cassonade	CASSONADE	n.	Cask-sugar; sugar not refined.
+cassowary	CASSOWARY	n.	A large fowl of the genus Struthio, nearly as large as the ostrich, but its legs are thicker and stronger in proportion. The wings are so small as not to appear, being hid under the feathers. The head is armed with a helmet of horny substance, consisting of plates one over another. It runs with great rapidity, outstripping the swiftest racer. It is now arranged in a separate genus, Casuarius.
+cast	CAST	v.t.; pret. And pp. cast	To throw, fling or send; that is, to drive from, by force, as from the hand, or from an engine. Hagar cast the child under a shrub. Genesis 21:10. Uzziah prepared slings to cast stones. 2 Chronicles 26:14.	To sow; to scatter seed. If a man should cast seen into the ground. Mark 4:26.	To drive or impel by violence. A mighty west wind cast the locusts into the sea. Exodus 10:19.	To shed or throw off; as, trees cast their fruit; a serpent casts his skin.	To throw or let fall; as, to cast anchor. Hence, to east anchor is to moor, as a ship, the effect of casting the anchor.	To throw, as dice or lots; as, to cast lots.	To throw on the ground, as in wrestling.	To throw away, as worthless. His carcase was cast in the way. 1 Kings 13:24.	To emit or throw out. This casts a sulphurous smell.	To throw, to extend, as a trench or rampart, including the sense of digging, raising, or forming. Thy enemies shall cast a trench about thee. Luke 19:35.	To thrust; as, to cast into prison.	To put, or set, in a particular state. Both chariot and horse were cast into a dead sleep. Psalms 76:6.	To condemn; to convict; as a criminal. Both tried and both were cast	To overcome in a civil suit, or in any contest of strength or skill; as, to cast the defendant or an antagonist.	To cashier or discard.	To lay aside, as unfit for use; to reject; as a garment.	To make to preponderate; to throw into one scale, for the purpose of giving it superior weight; to decide by a vote that gives a superiority in numbers; as, to cast the balance in ones favor; a casting vote or voice.	To throw together several particulars, to find the sum; as, to cast accounts. Hence, to throw together circumstances and facts, to find the result; to compute; to reckon; to calculate; as, to cast the event of war. To cast and see how many things there are which a man cannot do himself.	To contrive; to plan.	To judge, or to consider, in order to judge.	To fix, or distribute the parts of a play among the actors.	To throw, as the sight; to direct, or turn, as the eye; to glance; as, to cast a look, or glance, or the eye.	To found; to form into a particular shape, by pouring liquid metal into a mold; to run; as, to cast cannon. Thou shalt cast four rings of gold for it. Exodus 25:12.	Figuratively, to shape; to form by a model.	To communicate; to spread over; as, to cast a luster upon posterity; to cast splendor upon actions, or light upon a subject. To cast aside, to dismiss or reject as useless or inconvenient. To cast away, to reject. Leviticus 26:30. Isaiah 5:24. Romans 11:1. Also, to throw away; to lavish or waste by profusion; to turn to no use; as, to cast away life. Also, to wreck, as a ship. To cast by, to reject; to dismiss or discard with neglect or hate, or as useless. To cast down, to throw down; to deject or depress the mind. Why art thou cast down, O my soul. Psalms 42:5. To cast forth, to throw out, or eject, as from an inclosed place; to emit, or send abroad; to exhale. To cast off, to discard or reject; to drive away; to put off; to put away; to disburden. Among huntsmen, to leave behind, as dogs; to set loose, or free. Among seamen, to loose, or untie. To cast out, to send forth; to reject or turn out; to throw out, as words; to speak or give vent to. To cast up, to compute; to reckon; to calculate; as, to cast up accounts, or the cost. Also, to eject; to vomit. To cast on, to refer or resign to. To cast ones self on, to resign or yield ones self to the disposal of, without reserve. To cast young, to miscarry; to suffer abortion. Genesis 31:38. To cast in the teeth, to upbraid; to charge; to twit. So in Danish, kaster in I noesen, to cast in the nose.
+cast	CAST	v.i.	To throw forward, as the thoughts, with a view to some determination; or to turn or revolve in the mind; to contrive; sometimes followed by about. I cast in careful mind to seek her out. Spenser. To cast about how to perform or obtain. Bacon.	To receive form or shape. Metal will cast and mold.	To warp; to twist from regular shape. Stuff is said to cast or warp, when it alters its flatness or straightness. Note. cast like throw and warp, implies a winding motion.	In seamens language, to fall off, or incline, so as to bring the side of a ship to the wind; applied particularly to a ship riding with her head to the wind, when her anchor is first loosened.
+cast	CAST	n.	The act of casting; a throw; the thing thrown; the form or state of throwing; kind or manner of throwing.	The distance passed by a thing thrown; or the space through which a thing thrown may ordinarily pass; as, about a stones cast Luke 22:41.	A stroke; a touch. This was a cast of Woods politics.	Motion or turn of the eye; direction, look or glance; a squinting. Thy let you see by one cast of the eye.	A throw of dice; hence, a state of chance or hazard. It is an even cast whether the army should march this way or that way. Hence the phrase, the last cast is used to denote that all is ventured on one throw, or one effort.	Form; shape. A heroic poem in another cast	A tinge; a slight coloring, or slight degree of a color; as a cast of green. Hence, a slight alteration in external appearance. The native hue of resolution is sicklied oer with the pale cast of thought. Shak.	Manner; air; mien; as, a peculiar cast of countenance. This sense implies, the turn or manner of throwing; as, the neat cast f verse.	A flight; a number of hawks let go at once.	A small statue of bronze.	Among founders, a tube of wax, fitted into a mold, to give shape to metal.	A cylindrical piece of brass or copper, slit in two lengthwise, to form a canal or conduit, in a mold, for conveying metal.	Among plumbers, a little brazen funnel, at one end of a mold, for casting pipes without sodering, by means of which the melted metal is poured into the mold.	A breed, race, lineage, kind, sort.	In Hindoostan, a tribe or class of the same rank or profession; as the cast of Bramins, or priests; of rajahs, or princes; of choutres, or artificers; and of parias, or poor people. Or according to some writers, of Bramins; of cuttery, or soldiers; of shuddery, or merchants; and of wyse, or mechanics. The four casts of the Hindoos are the Brahmins or sacred order; the Chechteres or soldiers and rulers; the Bice, Vaissya, or husbandmen and merchants; and the Sooders, Sudras, or laborers and mechanics.	A trick.
+castalian	CASTALIAN	a.	Pertaining to Castalia, a cool spring on Parnassus, sacred to the muses; as castalian fount.
+castanet	CASTANET	n.	An instrument of music formed of small concave shells of ivory or hard wood, shaped like spoons, placed together, fastened to the thumb and beat with the middle finger. This instrument is used by the Spaniards, Moors and Bohemians, as an accompaniment to their dances, sarabands and guitars.
+castaway	CASTAWAY	n.	That which is thrown away. A person abandoned by God, as unworthy of his favor; a reprobate. 1 Corinthians 9:27.
+castaway	CASTAWAY	a.	Rejected; useless; of no value.
+casted	CASTED	pp.	For cast, is not in use.
+castellan	CASTELLAN	n.	A governor or constable of a castle. In Poland, the name of a dignity or charge; a kind of lieutenant of a province, commanding part of a palatinate under a palatine. The castellans are senators, of the lower class, sitting, in the diets, on low seats behind the palatines.
+castellany	CASTELLANY	n.	[See Castle.] The lordship belonging to a castle; or the extent, of its land and jurisdiction.
+castellated	CASTELLATED	a.	Inclosed in a building, as a fountain or cistern.	Adorned with turrets, and battlements, like a castle.
+castellation	CASTELLATION	n.	The act of fortifying a house and rendering it a castle.
+caster	CASTER	n.	One who throws or casts; one who computes; a calculator; one who calculates fortunes.	A small phial or vessel for the table; as a set of casters.	A small wheel on a swivel, on which furniture is cast, or rolled, on the floor.
+castigate	CASTIGATE	v.t.	To chastise; to punish by stripes; to correct; to chasten; to check.
+castigated	CASTIGATED	pp.	Punished; corrected.
+castigating	CASTIGATING	ppr.	Punishing; correcting; chastising.
+castigation	CASTIGATION	n.	Punishment; correction; penance; discipline; emendation; restraint.	Among the Romans, a military punishment inflicted on offenders, by beating with a wand or switch.
+castigator	CASTIGATOR	n.	One who corrects.
+castigatory	CASTIGATORY	a.	Tending to correction; corrective; punitive.
+castigatory	CASTIGATORY	n.	An engine formerly used to punish and correct arrant scolds, called also a ducking stool, or trebucket.
+castile-soap	CASTILE-SOAP	n.	A kind of pure, refined soap.
+castilesoap	castile-soap
+castilian	CASTILIAN	a.	Pertaining to Castile in Spain.
+castilian	CASTILIAN	n.	An inhabitant or native of Castile in Spain.
+casting	CASTING	ppr.	Throwing; sending; computing; calculating; turning; giving a preponderancy; deciding; running, or throwing into a mold to give shape. [See Cast.]
+casting	CASTING	n.	The act of casting or founding.	That which is cast in a mold; any vessel formed by casting melted metal into a mold, or in sand.	The taking of casts and impressions of figures, busts, medals, etc.
+casting-net	CASTING-NET	n.	A net which is cast and drawn, in distinction from a net that is set and left.
+casting-voice	CASTING-VOICE	n.	The vote of a presiding officer, in an assembly or council, which decides a question, when the votes of the assembly or house are equally divided between the affirmative and negative. When there was an equal vote, the Governor had the casting voice.
+casting-vote	CASTING-VOTE		A house fortified for defense against an enemy; a fortress. The term seems to include the house and the walls or other works around it. In old writers, the word is used for a town or village fortified.	The house or mansion of a nobleman or prince.	In a ship, there are two parts called by this name; the forecastle, a short deck in the fore part of the ship, above the upper deck; and the hindcastle, at the stern. Castle in the air, a visionary project; a scheme that has no solid foundation.
+castingnet	casting-net
+castingvoice	casting-voice
+castingvote	casting-vote
+castle	CASTLE	n.	A house fortified for defense against an enemy; a fortress. The term seems to include the house and the walls or other works around it. In old writers, the word is used for a town or village fortified.	The house or mansion of a nobleman or prince.	In a ship, there are two parts called by this name; the forecastle, a short deck in the fore part of the ship, above the upper deck; and the hindcastle, at the stern.Castle in the air, a visionary project; a scheme that has no solid foundation.
+castle	CASTLE	v.t.	In the game of chess, to cover the king with a castle, by a certain move.
+castle-builder	CASTLE-BUILDER	n.	One who forms visionary schemes.
+castle-builder	CASTLE-BUILDER	n.	The act of building castles in the air.
+castle-crowned	CASTLE-CROWNED	a.	Crowned with a castle.
+castle-guard	CASTLE-GUARD	n.	A feudal tenure, or knight service, which obliged the tenant to perform service within the realm, without limitation of time.
+castle-ward	CASTLE-WARD	n.	An imposition laid upon subjects dwelling within a certain distance of a castle, for the purpose of maintaining watch and ward in the castle.
+castlebuilder	castle-builder
+castlecrowned	castle-crowned
+castled	CASTLED	a.	Furnished with castles; as a castled elephant.
+castleguard	castle-guard
+castlery	CASTLERY	n.	The government of a castle.
+castlet	CASTLET	n.	A small castle.
+castleward	castle-ward
+castling	CASTLING	n.	An abortion or abortive.
+castor	CASTOR	n.	A beaver, an amphibious quadruped, with a flat ovate tail, short ears, a blunt nose, small fore feet, and large hind feet.	A reddish brown substance of a strong penetrating smell, taken from bags or cods in the groin of the beaver; a powerful antispasmodic.	In astronomy, a moiety of the constellation Gemini, called also Apollo. CASTOR and Pollux, in meterology, a fiery meteor, which, at sea, appears sometimes adhering to a part of a ship, in the form of one, two and even three or four balls. When one is seen alone, it is called Helena, which portends that the severest part of the storm is yet to come. Two appearing at once are denominated castor and Pollux, or Tyndaridoe, and portend a cessation of the storm.
+castor-oil	CASTOR-OIL	n.	The oil of the Ricinus, or Palma Christi, a plant of the West Indies, which grows to the highth of twenty feet, in one season. The oil is obtained from the nuts or seeds by expression or decoction. That obtained by decoction is preferred, as less liable to become rancid, being free from the mucilage and acrid matter, which is mixed with the oil when expressed. It is a mild cathartic.
+castorin	CASTORIN		CASTORINE, noun An animal principle discovered in castor, and prepared by boiling castor in six times its weight of alcohol, and filtering the liquor. From this is deposited the castorin
+castorine	CASTORINE	n.	An animal principle discovered in castor, and prepared by boiling castor in six times its weight of alcohol, and filtering the liquor. From this is deposited the Castorin.
+castoroil	castor-oil
+castrametation	CASTRAMETATION	n.	The art or act of encamping; the marking or laying out of a camp.
+castrate	CASTRATE	v.t.	To geld; to deprive of the testicles; to emasculate.	To take away or retrench, as the obscene parts of a writing.	To take out a leaf or sheet from a book, and render it imperfect.
+castrated	CASTRATED	pp.	Gelded; emasculated; purified from obscene expressions.
+castrating	CASTRATING	ppr.	Gelding; taking away the obscene parts of a writing.
+castration	CASTRATION	n.	The act of gelding; the act or practice of making eunuchs; the act of taking away the obscene parts of a writing; the act of taking out a leaf or sheet of a book. In botany, the cutting off of the anthers, or tops of the stamens of flowers, before the ripening of the pollen.
+castrato	CASTRATO	n.	A male person emasculated for the purpose of improving his voice for a singer.
+castrel	CASTREL		CASTREL or KESTREL, noun A kind of hawk, resembling the lanner in shape and the hobby in size.
+castrensian	CASTRENSIAN	a.	Belonging to a camp.
+casual	CASUAL	a.	Falling; happening or coming to pass without design in the person or persons affected, and without being foreseen, or expected; accidental; fortuitous; coming by chance; as, the parties had a casual rencounter.	Occasional; coming at certain times, without regularity, in distinction from stated, or regular; as casual expenses.	Taking place, or beginning to exist without an efficient intelligent cause, and without design. Atheists assert that the existence of things is casual
+casually	CASUALLY	adv.	Accidentally; fortuitously; without design; by chance.
+casualness	CASUALNESS	n.	Accidentalness; the quality of being casual.
+casualty	CASUALTY	n.	Accident; that which comes by chance or without design, or without being foreseen; contingency.	An accident that produces unnatural death; and by a metonymy, death, or other misfortune, occasioned by an accident.	In Scots law, an emolument due from a vassal to his superior, beyond the stated yearly duties, upon certain casual events.
+casuist	CASUIST	n.	One who studies and resolves cases of conscience. The judgment of any casuist or leaned divine is not sufficient to give him confidence.
+casuist	CASUIST	v.i.	To play the part of a casuist
+casuistic	CASUISTIC		CASUISTICAL, adjective Relating to cases of conscience, or to cases of doubtful propriety.
+casuistical	CASUISTICAL	a.	Relating to cases of conscience, or to cases of doubtful propriety.
+casuistry	CASUISTRY	n.	The science or doctrine of cases of conscience; the science of resolving cases of doubtful propriety, or of determining the lawfulness or unlawfulness of what a man may do, by rules and principles drawn from the scriptures, from the laws of society, or from equity and natural reason. Casus foederia. The case stipulated by treaty; that which comes within the terms of compact.

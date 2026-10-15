@@ -1,0 +1,14 @@
+bevel	BEVEL	n.	Among masons, carpenters, joiners, etc., an instrument, or kind of square, one leg of which is frequently crooked, according to the sweep of an arch or vault. It is movable on a point or center, and so may be set to any angle. An angle that is not square is called a bevel angle, whether obtuse or acute.	A curve or inclination of a surface from a right line; as, the proper bevel of a piece of timber.
+bevel	BEVEL	a.	Crooked; awry; oblique.
+bevel	BEVEL	v.t.	To cut a bevel angle.
+bevel	BEVEL	v.i.	To curve; to incline towards a point, or from a direct line.
+beveled	BEVELED	pp.	Formed to a bevel angle.
+beveling	BEVELING	ppr.	Forming to a bevel angle.
+beveling	BEVELING	a.	Curving; bending from a right line.
+beveling	BEVELING	n.	A hewing of timber with a proper and regular curve, according to a mold laid on one side of its surface.	The curve or bevel of timber.
+bevelment	BEVELMENT	n.	In mineralogy, bevelment supposes the removal of two contiguous segments from the edges, angles or terminal faces of the predominant form, thereby producing two new faces, inclined to each other at a certain angle and forming an edge.
+bever	BEVER	n.	A collation or small repast between meals. [Not used.]
+bever	BEVER	v.i.	To take a small repast between meals.
+beverage	BEVERAGE	n.	Drink; liquor for drinking. It is generally used of a mixed liquor. Nectar is called the beverage of the gods. In the middle ages, beverage beveragium, or biberagium was money for drink given to an artificer of other person over and above his hire or wages. The practice has existed, to a certain extent, in American, within my memory, and I know not but it still exists in some parts of this country. A person who had a new garment, was called onto pay beverage that is, to treat with liquor. Hence	A treat on wearing a new suit of clothes, or on receiving a suit from the tailor; also a treat on first coming into prison; a garnish. In England, water-cider, a mixture of cider and water, made by putting water into pumice before it is pressed.
+bevile	BEVILE	n.	[See Bevel.] In heraldry, a thing broken or opening, like a carpenter's bevel.
+bevy	BEVY	n.	A flock of birds; hence, a company; an assembly or collection of persons; usually applied to females

@@ -1,0 +1,12 @@
+ink	INK	n.	A black liquor or substance used for writing, generally made of an infusion of galls, copperas and gum-arabic.	Any liquor used for writing or forming letters, as red ink etc.	A pigment. Printing ink is made by boiling lintseed oil, and burning it about a minute, and mixing it with lampblack, with an addition of soap and rosin. INK for the rolling press, is made with lintseed oil burnt as above, and mixed with Frankfort black. Indian ink from China, is composed of lampblack, and size or animal glue. Sympathetic ink a liquor used in writing, which exhibits no color or appearance till some other means are used, such as holding it to the fire, or rubbing something over it.
+ink	INK	v.t.	To black or daub with ink
+ink-stone	INK-STONE	n.	A kind of small round stone of a white, red, gray, yellow or black color, containing a quantity of native vitriol or sulphate of iron; used in making ink.
+inkhorn	INKHORN	n.	A small vessel used to hold ink on a writing table or desk, or for carrying it about the person. Inkhorns are made of horn, glass or stone.	A portable case for the instruments of writing.
+inkiness	INKINESS	n.	The state or quality of being inky
+inkle	INKLE	n.	A kind or narrow fillet; tape.
+inkling	INKLING	n.	A hint or whisper; an intimation. [Little used.]
+inkmaker	INKMAKER	n.	One whose occupation is to make ink.
+inknot	INKNOT	v.t.	To bind as with a knot
+inkstand	INKSTAND	n.	A vessel for holding ink and other writing utensils.
+inkstone	ink-stone
+inky	INKY	a.	Consisting of ink; resembling ink; black.	Tarnished or blackened with ink.

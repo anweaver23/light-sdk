@@ -1,0 +1,296 @@
+insafety	INSAFETY	n.	Want of safety.
+insalubrious	INSALUBRIOUS	a.	Not salubrious; not healthful; unfavorable to health; unwholesome; as an insalubrious air or climate
+insalubrity	INSALUBRITY	n.	Want of salubrity; unhealthfulness; unwholesomeness; as the insalubrity of air, water or climate
+insalutary	INSALUTARY	a.	Not salutary; not favorable to health or soundness	Not tending to safety; productive of evil.
+insanable	INSANABLE	a.	Incurable; that cannot be healed
+insane	INSANE	a.	Unsound in mind or intellect; mad; deranged in mind; delirious; distracted. [In this sense of making mad, it is little used.]	Used by or appropriated to insane persons; as an insane hospital.
+insane	INSANE	n.	An insane person; as a hospital for the insane
+insanely	INSANELY	adv.	Madly; foolishly; without reason.
+insaneness	INSANENESS		INSAN'ITY, noun The state of being unsound in mind; derangement of intellect; madness. Insanity is chiefly used, and the word is applicable to any degree of mental derangement, from slight delirium or wandering, to distraction. It is however rarely used to express slight, temporary delirium, occasioned by fever or accident.
+insanity	INSANITY	n.	The state of being unsound in mind; derangement of intellect; madness. Insanity is chiefly used, and the word is applicable to any degree of mental derangement, from slight delirium or wandering, to distraction. It is however rarely used to express slight, temporary delirium, occasioned by fever or accident.
+insapory	INSAPORY	a.	Tasteless; wanting flavor. [Not used.]
+insatiable	INSATIABLE	a.	Incapable of being satisfied or appeased; very greedy; as an insatiable appetite or desire; insatiable thirst
+insatiableness	INSATIABLENESS	n.	Greediness of appetite that cannot be satisfied or appeased.
+insatiably	INSATIABLY	adv.	With greediness not to be satisfied.
+insatiate	INSATIATE	a.	Not to be satisfied; insatiable; as insatiate thirst
+insatiately	INSATIATELY	adv.	So greedily as not to be satisfied.
+insatiety	INSATIETY	n.	Insatiableness.
+insatisfaction	INSATISFACTION	n.	Want of satisfaction.
+insaturabale	INSATURABALE	a.	Not to be saturated, filled or glutted
+inscience	INSCIENCE	n.	Ignorance; want of knowledge
+inscribe	INSCRIBE	v.t.	To write on; to engrave on for perpetuity or duration; as, to inscribe a line or verse on a monument, on a column or pillar.	To imprint on; as, to inscribe any thing on the mind or memory.	To assign or address to; to comment to by a short address, less formal than a dedication; as, to inscribe an ode or a book to a prince.	To mark with letters, characters or words; as, to inscribe a stone with a name.	To draw a figure within another, so that all the angles of the figure inscribed touch the angles, sides or planes of the other figure.
+inscribed	INSCRIBED	pp.	Written on; engraved; marked; addressed.
+inscriber	INSCRIBER	n.	One who inscribes.
+inscribing	INSCRIBING	ppr.	Writing on; engraving; marking; addressing.
+inscription	INSCRIPTION	n.	Something written or engraved to communicate knowledge to after ages; any character, word, line or sentence written or engraved on a solid substance for duration; as inscriptions on monuments, called epitaphs, on pillars, etc. We do not call by this name writings on paper or parchment.	A title.	An address or consignment of a book to a person, as a mark of respect, or an invitation of patronage. It is less formal than a dedication.
+inscriptive	INSCRIPTIVE	a.	Bearing inscription.
+inscroll	INSCROLL	v.t.	To write on a scroll.
+inscrutable	INSCRUTABLE	a.	Unsearchable; that cannot be searched into and understood by inquiry or study. The designs of the emperor appear to be inscrutable	That cannot be penetrated, discovered or understood by human reason. The ways of Providence are often inscrutable Mysteries are inscrutable
+inscrutableness	INSCRUTABLENESS	n.	The quality of being inscrutable.
+inscrutably	INSCRUTABLY	adv.	In a manner or degree not to be found out or understood. The moral government of an infinite being must often be inscrutably dark and mysterious.
+insculp	INSCULP	v.t.	To engrave; to carve. [Little used.]
+insculption	INSCULPTION	n.	Inscription. [Little used.]
+insculpture	INSCULPTURE	n.	An engraving; sculpture. [See Sculpture, which is generally used.]
+inseam	INSEAM	v.t.	To impress or make with a seam or cicatrix. [Poetical.]
+insearch	INSEARCH	v.t.	To make search. [Not used.]
+insecable	INSECABLE	a.	That cannot be divided by a cutting instrument; indivisible
+insect	INSECT	n.	In zoology, a small invertebral animal, breathing by lateral spiracles, and furnished with articulated extremities and movable antennae. Most insects pass through three states or metamorphoses, the larva, the chrysalis, and the perfect insect The class of insects, in the Linnean system, is divided into seven orders, the last of which [Aptera] includes the Crustacea, which breathe by gills, and the Arachnids, which have no antennae, now forming two distinct classes. The term insect has been applied, but improperly, to other small invertebral animals of the Linnean class Vermes.	Any thing small or contemptible.
+insect	INSECT	a.	Small; mean; contemptible.
+insectator	INSECTATOR	n.	A persecutor. [Little used.]
+insected	INSECTED	a.	Having the nature of an insect.
+insectile	INSECTILE	a.	Having the nature of insects.
+insectile	INSECTILE	n.	An insect. [Not used.]
+insection	INSECTION	n.	A cutting in; incisure; incision.
+insectivorous	INSECTIVOROUS	a.	Feeding or subsisting on insects. Many winged animals are insectivorous
+insectologer	INSECTOLOGER	n.	One who studies insects. [Not in use. See Entomologist.]
+insecure	INSECURE	a.	Not secure; not safe; exposed to danger or loss. Goods on the ocean are insecure Hay and grain unhoused are insecure Debts are often insecure
+insecurely	INSECURELY	adv.	Without security or safety; without certainty.
+insecurity	INSECURITY	n.	Want of safety, or want of confidence in safety. Seamen in a tempest must be conscious of their insecurity	Uncertainty. With what insecurity of truth we ascribe effects or unseen causes.	Want of safety; danger; hazard; exposure to destruction or loss; applied to things; as the insecurity of a building exposed to fire; the insecurity of a debt.
+insecution	INSECUTION	n.	Pursuit
+inseminate	INSEMINATE	v.t.	To sow. [Little used.]
+insemination	INSEMINATION	n.	The act of sowing. [Little used.]
+insensate	INSENSATE	a.	Destitute of sense; stupid; foolish; wanting sensibility
+insensibility	INSENSIBILITY	n.	Want of sensibility, or the power of feeling or perceiving. A frozen limb is in a state of insensibility as is an animal body after death.	Want of the power to be moved or affected; want of tenderness or susceptibility of emotion and passion. Not to be moved at the distresses of others denotes an insensibility extremely unnatural.	Dullness; stupidity; torpor.
+insensible	INSENSIBLE	a.	Imperceptible; that cannot be felt or perceived. The motion of the earth is insensible to the eye. A plant grows, and the body decays by insensible degrees. The humors of the body are evacuated by insensible perspiration. The dense and bright light of the circle will obscure the rare and weak light of these dark colors round about it, and render them almost insensible	Destitute of the power of feeling or perceiving; wanting corporeal sensibility. An injury to the spine often renders the inferior parts of the body insensible	Not susceptible of emotion or passion; void of feeling; wanting tenderness. To be insensible to the sufferings of our fellow men is inhuman. To be insensible of danger is not always evidence of courage.	Dull; stupid; torpid.	Void of sense or meaning; as insensible words.
+insensibleness	INSENSIBLENESS	n.	Inability to perceive; want of sensibility. [See Insensibility, which is generally used.]
+insensibly	INSENSIBLY	adv.	Imperceptibly; in a manner not to be felt or perceived by the senses. The hills rise insensibly	By slow degrees; gradually. Men often slide insensibly into vicious habits.
+insentient	INSENTIENT	a.	Not having perception or the power of perception
+inseparability	INSEPARABILITY	n.	The quality of being inseparable, or incapable of disfunction. [The latter word is rarely used.]
+inseparable	INSEPARABLE	a.	That cannot be separated or disjoined; not to be parted. There is an inseparable connection between vice and suffering or punishment
+inseparableness	INSEPARABLENESS		INSEP'ARABLY, adverb In a manner that prevents separation; with indissoluble union.
+inseparably	INSEPARABLY	adv.	In a manner that prevents separation; with indissoluble union.
+inseparate	INSEPARATE	a.	Not separate. [Not used.]
+inseparately	INSEPARATELY	adv.	So as not to be separated. [Not used.]
+insert	INSERT	v.t.	Literally, to thrust in; hence, to set in or among; as, to insert a cion in a stock; to insert a letter, word or passage in a composition; to insert an advertisement or other writing in a paper
+inserted	INSERTED	pp.	Set in or among.
+inserting	INSERTING	ppr.	Setting in or among.
+insertion	INSERTION	n.	The act of setting or placing in or among other things; as the insertion of cions in stocks; the insertion of words or passages in writings; the insertion of notices or essays in a public paper; the insertion of vessels, tendons, etc. in other parts of the body.	The thing inserted.
+inservient	INSERVIENT	a.	Conducive.
+inset	INSET	v.t.	To infix or implant.
+inshaded	INSHADED	a.	Marked with different shades.
+inshell	INSHELL	v.t.	To hide in a shell.
+inshelter	INSHELTER	v.i.	To shelter.
+inship	INSHIP	v.t.	To ship; to embark.
+inshrine	INSHRINE		[See Enshrine.]
+inside	INSIDE	n.	The interior part of a thing; internal part; opposed to outside; as the inside of a church; the inside of a letter
+insidiate	INSIDIATE	v.t.	To lie in ambush for
+insidiator	INSIDIATOR	n.	One who lies in ambush.
+insidious	INSIDIOUS	a.	Properly, lying in wait; hence, watching an opportunity to insnare or entrap; deceitful; sly; treacherous; used of persons.	Intended to entrap; as insidious arts.
+insidiously	INSIDIOUSLY	adv.	With intention to insnare; deceitfully; treacherously; with malicious artifice or stratagem.
+insidiousness	INSIDIOUSNESS	n.	A watching for an opportunity to insnare; deceitfulness; treachery.
+insight	INSIGHT	n.	Sight or view of the interior of any thing; deep inspection or view; introspection; thorough knowledge or skill. A garden gives us a great insight into the contrivance and wisdom of Providence
+insignia	INSIGNIA	n.	Badges or distinguishing marks of office or honor	Marks, signs or visible impressions, by which any thing is known or distinguished.
+insignificance	INSIGNIFICANCE		INSIGNIF'ICANCY, noun [in and significance.]	Want of significance or meaning; as the insignificance of words or phrases.	Unimportance; want of force or effect; as the insignificance of human art or of ceremonies.	Want of weight; meanness.
+insignificancy	INSIGNIFICANCY	n.	Want of significance or meaning; as the insignificance of words or phrases.	Unimportance; want of force or effect; as the insignificance of human art or of ceremonies.	Want of weight; meanness.
+insignificant	INSIGNIFICANT	a.	Void of signification; destitute of meaning; as insignificant words.	Unimportant; answering no purpose; having no weight or effect; as insignificant rites.	Without weight of character; mean; contemptible; as an insignificant being or fellow.
+insignificant	INSIGNIFICANT	n.	An insignificant trifling or worthless thing.
+insignificantly	INSIGNIFICANTLY	adv.	Without meaning, as words.	Without importance or effect; to no purpose.
+insignificative	INSIGNIFICATIVE	a.	Not expressing by external signs.
+insincere	INSINCERE	a.	Not sincere; not being in truth what one appears to be; dissembling; hypocritical; false; used of persons; as an insincere heart.	Deceitful; hypocritical; false; used of things; as insincere declarations or professions.	Not sound.
+insincerely	INSINCERELY	adv.	Without sincerity; hypocritically.
+insincerity	INSINCERITY	n.	Dissimulation; want of sincerity or of being in reality what one appears to be; hypocrisy; used of persons.	Deceitfulness; hollowness; used of things; as the insincerity of professions.
+insinew	INSINEW	v.t.	To strengthen; to give vigor to
+insinuant	INSINUANT	a.	Insinuating; having the power to gain favor. [Little used.]
+insinuate	INSINUATE	v.t.	To introduce gently, or into a narrow passage; to wind in. Water insinuates itself into the crevices of rocks.	To push or work one's self into favor; to introduce by slow, gentle or artful means. He insinuated himself into the very good grace of the duke of Buckingham.	To hint; to suggest by remote allusion. And all the fictions bards pursue, Do but insinuate what's true.	To instill; to infuse gently; to introduce artfully. All the art of rhetoric, besides order and clearness, are for nothing else but to insinuate wrong ideas, move the passions and thereby mislead the judgment.
+insinuate	INSINUATE	v.i.	To creep in; to wind in; to flow in; to enter gently, slowly or imperceptibly, as into crevices.	To gain on the affections by gentle or artful means, or by imperceptible degrees; as insinuating flattery.	To wind along.
+insinuated	INSINUATED	pp.	Introduced or conveyed gently; imperceptibly or by winding into crevices; hinted.
+insinuating	INSINUATING	ppr.	Creeping or winding in; flowing in; gaining on gently; hinting.	Tending to enter gently; insensibly winning favor and confidence.
+insinuation	INSINUATION	n.	The act of insinuating; a creeping or winding in; a flowing into crevices.	The act of gaining on favor or affections, by gentle or artful means.	The art or power of pleasing and stealing on the affections. He had a natural insinuation and address; which made him acceptable in the best company.	A hint; a suggestion or intimation by distant allusion. Slander may be conveyed by insinuation
+insinuative	INSINUATIVE	a.	Stealing on the affections.
+insinuator	INSINUATOR	n.	One who insinuates; one that hints.
+insipid	INSIPID	a.	Tasteless; destitute of taste; wanting the qualities which affect the organs of taste; vapid; as insipid liquor.	Wanting spirit, life or animation; wanting pathos, or the power of exciting emotions; flat; dull; heavy; as an insipid address; an insipid composition.	Wanting power to gratify desire; as insipid pleasure.
+insipidity	INSIPIDITY		INSIP'IDLY, adverb Without taste; without spirit or life; without enjoyment.
+insipidly	INSIPIDLY	adv.	Without taste; without spirit or life; without enjoyment.
+insipidness	INSIPIDNESS	n.	Want of taste, or the power of exciting sensation in the tongue.	Want of life or spirit. Dryden's lines shine strongly through the insipidity of Tate's.
+insipience	INSIPIENCE	n.	Want of wisdom; folly; foolishness; want of understanding
+insist	INSIST	v.i.	Literally, to stand or rest on. [Rarely used.]	In geometry, an angle is said to insist upon the arc of the circle intercepted between the two lines which contain the angle.	To dwell on in discourse; as, to insist on a particular topic. To insist on, to press or urge for any thing with immovable firmness; to persist in demands; as, to insist on oppressive terms in a treaty; to insist on immediate payment of a debt.
+insistent	INSISTENT	a.	Standing or resting on; as an insistent wall. [Little used.]
+insisture	INSISTURE	n.	A dwelling or standing on; fixedness.
+insitiency	INSITIENCY	n.	Freedom from thirst
+insition	INSITION	n.	The insertion of a cion in a stock; ingraftment
+insnare	INSNARE	v.t.	To catch in a snare; to entrap; to take by artificial means	To inveigle; to seduce by artifice; to take by wiles, stratagem or deceit. The flattering tongue is apt to insnare the artless youth.	To entangle; to involve in difficulties or perplexities. [This word is often written ensnare, but insnare is the true orthography.]
+insnared	INSNARED	pp.	Caught in a snare; entrapped; inveigled; involved in perplexities.
+insnarer	INSNARER	n.	One that insnares.
+insnaring	INSNARING	ppr.	Catching in a snare; entrapping; seducing; involving in difficulties.
+insobriety	INSOBRIETY	n.	Want of sobriety; intemperance; drunkenness
+insociable	INSOCIABLE	a.	Not inclined to unite in social converse; not given to conversation; unsociable; taciturn.	That cannot be joined or connected. Lime and wood are insociable [Not in use.]
+insolate	INSOLATE	v.t.	To dry in the sun's rays; to expose to the heat of the sun; to ripen or prepare by exposure to the sun
+insolated	INSOLATED	pp.	Exposed to the sun; dried or matured in the sun's rays.
+insolating	INSOLATING	ppr.	Exposing to the action of sun-beams.
+insolation	INSOLATION	n.	The act of exposing to the rays of the sun for drying or maturing, as fruits, drugs, etc. or for rendering acid, as vinegar, or for promoting some chimical action of one substance on another.	A stroke of the sun; the action of extreme heat on the brain.
+insolence	INSOLENCE	n.	Pride or haughtiness manifested in contemptuous and overbearing treatment of others; petulant contempt; impudence. Blown with insolence and wine
+insolence	INSOLENCE	v.t.	To treat with haughty contempt. [Not used.]
+insolent	INSOLENT	a.	Proud and haughty, with contempt of others; overbearing; domineering in power; as an insolent master.	Proceeding from insolence; haughty and contemptuous; as insolent words or behavior.	Unaccustomed; the primary sense. [Not used.]
+insolently	INSOLENTLY	adv.	With contemptuous pride; haughtily; rudely; saucily.
+insolidity	INSOLIDITY	n.	Want of solidity; weakness
+insolubility	INSOLUBILITY	n.	The quality of not being soluble or dissolvable, particularly in a fluid
+insoluble	INSOLUBLE	a.	That cannot be dissolved, particularly by a liquid. We say a substance is insoluble in water, when its parts will not separate and mix with that fluid.	Not to be solved or explained; not to be resolved; as a doubt or difficulty. [Not much used.]
+insolvable	INSOLVABLE	a.	Not to be cleared of difficulty or uncertainty; not to be solved or explained; not admitting solution or explication; as an insolvable problem or difficulty.	That cannot be paid or discharged.
+insolvency	INSOLVENCY	n.	Inability of a person to pay all his debts; or the state of wanting property sufficient for such payment; as a merchant's insolvency	Insufficiency to discharge all debts of the owner; as the insolvency of an estate. Act of insolvency [See infra, Insolvent law.]
+insolvent	INSOLVENT	a.	Not having money, goods or estate sufficient to pay all debts; as an insolvent debtor.	Not sufficient to pay all the debts of the owner; as an insolvent estate.	Respecting insolvent debtors; relieving an insolvent debtor from imprisonment for debt, or form liability to arrest and imprisonment for debts previously contracted; as an insolvent law. Insolvent law, or act of insolvency, a law which liberates a debtor from imprisonment, or exempts him from liability to arrest and imprisonment on account of any debt previously contracted. These terms may be considered as generic, comprehending also bankrupt laws, which protect a man's future acquisitions from his creditors. But in a limited sense, as the words are now generally used, an insolvent law extends only to protect the person of the debtor form imprisonment on account of debts previously contracted.
+insolvent	INSOLVENT	n.	A debtor unable to pay his debts.
+insomnious	INSOMNIOUS	a.	Troubled with dreams; restless in sleep
+insomuch	INSOMUCH	adv.	So that; to that degree. Simonides was an excellent poet, insomuch that he made his fortune by it. [This word or combination of words is not deemed elegant, and is obsolescent, at least in classical composition.]
+inspect	INSPECT	v.t.	To look on; to view or oversee for the purpose of examination. It is the duty of parents to inspect the conduct or manners of their children.	To look into; to view and examine, for the purpose of ascertaining the quality or condition of a thing; as, to inspect potash; to inspect flour; to inspect arms.	To view and examine for the purpose of discovering and correcting errors; as, to inspect the press, or the proof-sheets of a book.	To superintend.
+inspect	INSPECT	n.	Close examination. [Not used.]
+inspected	INSPECTED	pp.	Viewed with care; examined by the eye or officially.
+inspecting	INSPECTING	ppr.	Looking on or into; viewing with care; examining for ascertaining the quality or condition.
+inspection	INSPECTION	n.	A looking on or into; prying examination; close or careful survey; as the divine inspection into the affairs of the world.	Watch; guardianship; as a youth placed at school under the inspection of a friend.	Superintendence; oversight. The fortifications are to be executed under the inspection of an officer of the army.	Official view; a careful viewing and examining of commodities or manufactures, to ascertain their quality; as the inspection of flour.	Official examination, as of arms, to see that they are in good order for service.
+inspector	INSPECTOR	n.	One who inspects, views or oversees; as an inspector of morals; an inspector of the press.	A superintendent; one to whose care the execution of any work is committed, for the purpose of seeing it faithfully performed.	An officer whose duty is to examine the quality of goods or commodities offered for sale.	An officer of the customs.	A military officer whose duty is to inspect the troops and examine their arms.
+inspectorate	INSPECTORATE		INSPECT'ORSHIP, noun The office of an inspector.
+inspectorship	INSPECTORSHIP	n.	The office of an inspector.
+inspersed	INSPERSED	a.	Sprinkled on. [Not used.]
+inspersion	INSPERSION	n.	The act of sprinkling on
+inspeximus	INSPEXIMUS	n.	An exemplification
+insphere	INSPHERE	v.t.	To place in an orb or sphere
+inspirable	INSPIRABLE	a.	That may be inspired	That may be drawn into the lungs; inhalable; as air or vapors.
+inspiration	INSPIRATION	n.	The act of drawing air into the lungs; the inhaling of air; a branch of respiration, and opposed to expiration.	The act of breathing into any thing.	The infusion of ideas into the mind by the Holy Spirit; the conveying into the minds of men, ideas, notices or monitions by extraordinary or supernatural influence; or the communication of the divine will to the understanding by suggestions or impressions on the mind, which leave no room to doubt the reality of their supernatural origin. All Scripture is given by inspiration of God. 2 Timothy 3:16.	The infusion of ideas or directions by the supposed deities of pagans.	The infusion or communication of ideas or poetic spirit, by a superior being or supposed presiding power; as the inspiration of Homer or other poet.
+inspiratory	INSPIRATORY	a.	Pertaining to inspiration, or inhaling air into the lungs.
+inspire	INSPIRE	v.i.	To draw in breath; to inhale air into the lungs; opposed to expire
+inspire	INSPIRE	v.t.	To breathe into. Ye nine, descend and sing, The breathing instruments inspire	To infuse by breathing. He knew not his Maker, and him that inspired into him an active soul.	To infuse into the mind; as, to inspire with new life.	To infuse or suggest ideas or monitions supernaturally; to communicate divine instructions to the mind. In this manner, we suppose the prophets to have been inspired, and the Scriptures to have been composed under divine influence or direction.	To infuse ideas or poetic spirit.	To draw into the lungs; as, to inspire and expire the air with difficulty.
+inspired	INSPIRED	pp.	Breathed in; inhaled; infused.	Informed or directed by the Holy Spirit.
+inspirer	INSPIRER	n.	He that inspires.
+inspiring	INSPIRING	ppr.	Breathing in; inhaling into the lungs; infusing into the mind supernaturally.	Infusing spirit or courage; animating.
+inspirit	INSPIRIT	v.t.	To infuse or excite spirit in; to enliven; to animate; to give new lift to; to encourage; to invigorate. The courage of Agamemnon is inspirited by the love of empire and ambition
+inspirited	INSPIRITED	pp.	Enlivened; animated; invigorated.
+inspiriting	INSPIRITING	ppr.	Infusing spirit; giving new life to.
+inspissate	INSPISSATE	v.t.	To thicken, as fluids; to bring to greater consistence by evaporating the thinner parts, etc
+inspissated	INSPISSATED	pp.	Thickened, as a liquor.
+inspissating	INSPISSATING	ppr.	Thickening, as a liquor.
+inspissation	INSPISSATION	n.	The act or operation of rendering a fluid substance thicker by evaporation, etc.
+instability	INSTABILITY	n.	Want of stability; want of firmness in purpose; inconstancy; fickleness; mutability of opinion or conduct. instability is the characteristic of weak minds.	Changeableness; mutability; as the instability of laws, plans or measures.
+instable	INSTABLE	a.	Inconstant; prone to change or recede from a purpose; mutable; of persons	Not steady or fixed; changeable; of things. [Instable and unstable are synonymous, and the latter is more commonly used.]
+instableness	INSTABLENESS	n.	Unstableness; mutability; instability.
+install	INSTALL	v.t.	To set, place or instate, in an office, rank or order; to invest with any charge, office or rank, with the customary ceremonies. To install a clergyman or minister of the gospel, is to place one who has been previously ordained, over a particular church and congregation, or to invest an ordained minister with a particular pastoral charge; in England, to induct a dean, prebendary or other ecclesiastical dignitary into possession of the church to which he belongs
+installation	INSTALLATION	n.	The act of giving possession of an office, rank or order, with the customary ceremonies. On the election, the bishop gives a mandate for his installation
+installed	INSTALLED	pp.	Placed in a seat, office or order.
+installing	INSTALLING	ppr.	Placing in a seat, office or order.
+installment	INSTALLMENT	n.	The act of installing, or giving possession of an office with the usual ceremonies or solemnities.	The seat in which one is placed. [Unusual.]	In commerce, a part of a large sum of money paid or to be paid at a particular period. In constituting a capital stock by subscriptions of individuals, it is customary to afford facilities to subscribers by dividing the sum subscribed into installments, or portions payable at distinct periods. In large contracts also, it is not unusual to agree that the money shall be paid by installments.
+instance	INSTANCE	n.	Literally, a standing on. Hence	Urgency; a pressing; solicitation; importunity; application. The request was granted at the instance of the defendant's advocate.	Example; a case occurring; a case offered. Howard furnished a remarkable instance of disinterested benevolence. The world may never witness a second instance of the success of daring enterprise and usurpation, equal to that of Buonaparte. Suppose the earth should be removed nearer to the sun, and revolve, for instance in the orbit of Mercury, the whole ocean would boil with heat. The use of instances, is to illustrate and explain a difficulty.	Time; occasion; occurrence. These seem as if, in the time of Edward I, they were drawn up into the form of a law, in the first instance	Motive; influence.	Process of a suit. Instance-court, a branch of the court of admiralty, in England, distinct from the prize-court.
+instance	INSTANCE	v.i.	To give or offer an example or case. As to false citations--I shall instance in two or three.
+instance	INSTANCE	v.t.	To mention as an example or case. He instanced the event of Caesar's death.
+instanced	INSTANCED	pp.	or adjective Given in proof or as an example.
+instant	INSTANT	a.	Pressing; urgent; importunate; earnest. Rejoicing in hope; patient in tribulation; continuing instant in prayer. Romans 12:12.	Immediate; without intervening time; present. Impending death is thine and instant doom.	Quick; making no delay. Instant he flew with hospitable haste.	Present; current. On the tenth of July instant
+instant	INSTANT	n.	A point in duration; a moment; a part of duration in which we perceive no succession, or a part that occupies the time of a single thought.	A particular time.
+instantaneity	INSTANTANEITY	n.	Unpremeditated production.
+instantaneous	INSTANTANEOUS	a.	Done in an instant; occurring or acting without any perceptible succession; very speedily. The passage of electricity through any given space appears to be instantaneous
+instantaneously	INSTANTANEOUSLY	adv.	In an instant; in a moment; in an indivisible point of duration. The operations of the human mind are wonderful; our thoughts fly from world to world instantaneously In the western parts of the Atlantic states of America, showers of rain sometimes begin instantaneously
+instantaneousness	INSTANTANEOUSNESS	n.	The quality of being done in an instant.
+instanter	INSTANTER	adv.	In law, immediately; at the present time; without delay. The party was compelled to plead instanter
+instantly	INSTANTLY	adv.	Immediately; without any intervening time; at the moment. Lightning often kills instantly	With urgent importunity. And when they came to Jesus, they besought him instantly saying, that he was worthy for whom he should do this. Luke 7:4.	With diligence and earnestness. Acts 26:7.
+instar	INSTAR	v.t.	To set or adorn with stars, or with brilliants. A golden throne Instarr'd with gems
+instate	INSTATE	v.t.	To set or place; to establish, as in a rank or condition; as, to instate a person in greatness or in favor	To invest.
+instated	INSTATED	pp.	Set or placed.
+instating	INSTATING	ppr.	Setting or placing.
+instauration	INSTAURATION	n.	Renewal; repair; re-establishment; the restoration of a thing to its former state, after decay, lapse or dilapidation
+instaurator	INSTAURATOR	n.	One who renews or restores to a former condition.
+instead	INSTEAD		In the place or room of. Let thistles grow instead of wheat. Job 31:40. Absalom made Amasa captain of the hose instead of Joab. 2 Samuel 17:25. This consideration is instead of a thousand arguments. In this use, instead may be equivalent to equal to. When instead is used without of following, there is an ellipsis, or some words are understood
+insteep	INSTEEP	v.t.	To steep or soak; to drench; to macerate in moisture	To keep under or in water.
+insteeped	INSTEEPED	ppr.	Steeped; soaked; drenched; lying under water.
+insteeping	INSTEEPING	ppr.	Steeping; soaking.
+instep	INSTEP	n.	The instep of the human foot, is the fore part of the upper side of the foot, near its junction with the leg	The instep of a horse, is that part of the hind leg, which reaches form the ham to the paster-joint.
+instigate	INSTIGATE	v.t.	To incite; to set on; to provoke; to urge; used chiefly or wholly in an ill sense; as, to instigate one to evil; to instigate to a crime
+instigated	INSTIGATED	pp.	Incited or persuaded, as to evil.
+instigating	INSTIGATING	ppr.	Inciting; tempting to evil.
+instigation	INSTIGATION	n.	Incitement, as to evil or wickedness; the act of encouraging to commit a crime or some evil act.	Temptation; impulse to evil; as the instigation of the devil.
+instigator	INSTIGATOR	n.	One who incites another to an evil act; a tempter.	That which incites; that which moves persons to commit wickedness.
+instill	INSTILL	v.t.	To infuse by drops.	To infuse slowly, or by small quantities; as, to instill good principles into the mind.
+instillation	INSTILLATION	n.	The act of infusing by drops or by small quantities	The act of infusing slowly into the mind.	That which is instilled or infused.
+instilled	INSTILLED	pp.	Infused by drops or by slow degrees.
+instiller	INSTILLER	n.	He that instills.
+instilling	INSTILLING	ppr.	Infusing by drops or by slow degrees.
+instillment	INSTILLMENT	n.	Any thing instilled.
+instimulate	INSTIMULATE	v.t.	To stimulate; to excite. [Not used.]
+instimulating	INSTIMULATING	ppr.	Not stimulating; not exciting vital powers.
+instimulation	INSTIMULATION	n.	The act of stimulating, inciting or urging forward
+instinct	INSTINCT	a.	Moved; animated; excited; as instinct with spirit. Betulia--instinct with life
+instinct	INSTINCT	n.	A certain power or disposition of mind by which, independent of all instruction or experience, without deliberation and without having any end in view, animals are unerringly directed to do spontaneously whatever is necessary for the preservation of the individual, or the continuation of the kind. Such, in the human species, is the instinct of sucking exerted immediately after birth, and that of insects in depositing their eggs in situations most favorable for hatching. INSTINCT may be defined, the operation of the principle of organized life by the exercise of certain natural powers directed to the present or future good of the individual. INSTINCT is the general property of the living principle, or the law of organized life in a state of action. And reason raise o'er instinct as you can, In this 'tis God directs, in that 'tis man
+instincted	INSTINCTED	a.	Impressed; as an animating power. [Little used.]
+instinction	INSTINCTION	n.	Instinct. [Not in use.]
+instinctive	INSTINCTIVE	a.	Prompted by instinct; spontaneous; acting without reasoning, deliberation, instruction or experience; determined by natural impulse or propensity. The propensity of bees to form hexagonal cells for holding their honey and their young, must be instinctive
+instinctively	INSTINCTIVELY	adv.	By force of instinct; without reasoning, instruction or experience; by natural impulse.
+institute	INSTITUTE	v.t.	To establish; to appoint; to enact; to form and prescribe; as, to institute laws; to institute rules and regulations.	To found; to originate and establish, as to institute a new order of nobility; to institute a court.	To ground or establish in principles; to educate; to instruct; as, to institute children in the principles of a science.	To begin; to commence; to set in operation; as, to institute an inquiry; to institute a suit.	To invest with the spiritual part of a benefice or the care of souls.
+institute	INSTITUTE	n.	Established law; settled order.	Precept; maxim; principle. To make the Stoic institutes thy own.	A book of elements or principles; particularly, a work containing the principles of the Roman law.
+instituted	INSTITUTED	pp.	Established; appointed; founded; enacted; invested with the care of souls.
+instituting	INSTITUTING	ppr.	Establishing; founding; enacting; investing with the care of souls.
+institution	INSTITUTION	n.	The act of establishing.	Establishment; that which is appointed, prescribed or founded by authority, and intended to be permanent. Thus we speak of the institutions of Moses or Lycurgus. We apply the word institution to laws, rites, and ceremonies, which are enjoined by authority as permanent rules of conduct or of government.	A system, plan or society established, either by law or by the authority of individuals for promoting any object, public or social. We call a college or an academy, a literary institution; a bible society, a benevolent or charitable institution; a banking company and an insurance company are commercial institutions.	A system of the elements or rules of any art or science.	Education; instruction. His learning was not the effect of precept or institution	The act or ceremony of investing a clerk with the spiritual part of a benefice, by which the care of souls is committed to his charge.
+institutional	INSTITUTIONAL	a.	Enjoined; instituted by authority.
+institutionary	INSTITUTIONARY	a.	Elemental; containing the first principles or doctrines.
+institutist	INSTITUTIST	n.	A writer of institutes or elementary rules and instructions.
+institutive	INSTITUTIVE	a.	That establishes; having power to establish.	Established; depending on institution.
+institutor	INSTITUTOR	n.	The person who establishes; one who enacts laws, rites and ceremonies, and enjoins the observance of them	The person who founds an order, sect, society or scheme for the promotion of a public or social object.	An instructor; one who educates; as an institutor of youth.
+instop	INSTOP	v.t.	To stop; to close; to make fast. [Little used.]
+instratified	INSTRATIFIED	a.	Stratified within something else.
+instruct	INSTRUCT	v.t.	To teach; to inform the mind; to educate; to impart knowledge to one who was destitute of it. The first duty of parents is to instruct their children in the principles of religion and morality.	To direct; to enjoin; to persuade or admonish. She being before instructed by her mother, said, give me here the head of John the Baptist in a charger. Matthew 14:8.	To direct or command; to furnish with orders. The president instructed his envoy to insist on the restitution of the property.	To inform; to advise or give notice to. On this question the court is not instructed.	To model; to form; to prepare. [Not used.]
+instructed	INSTRUCTED	pp.	Taught; informed; trained up; educated.
+instructible	INSTRUCTIBLE	a.	Able to instruct.
+instructing	INSTRUCTING	ppr.	Teaching; informing the mind; directing.
+instruction	INSTRUCTION	n.	The act of teaching or informing the understanding in that of which it was before ignorant; information.	Precepts conveying knowledge. Receive my instruction and not silver. Proverbs 8:10.	Direction; order; command; mandate. The minister received instructions from his sovereign to demand a categorical answer.
+instructive	INSTRUCTIVE	a.	Conveying knowledge; serving to instruct or inform. Affliction furnishes very instructive lessons.
+instructively	INSTRUCTIVELY	adv.	So as to afford instruction.
+instructor	INSTRUCTOR	n.	A teacher; a person who imparts knowledge to another by precept or information. 1 Corinthians 4:15.	The preceptor of a school or seminary of learning; any president, professor or tutor, whose business is to teach languages, literature or the sciences; any professional man who teaches the principles of his profession.
+instructress	INSTRUCTRESS	n.	A female who instructs; a preceptress; a tutoress.
+instrument	INSTRUMENT	n.	A tool; that by which work is performed or any thing is effected; as a knife, a hammer, a saw, a plow, etc. Swords, muskets and cannon are instruments of destruction. A telescope is an astronomical instrument	That which is subservient to the execution of a plan or purpose, or to the production of any effect; means used or contributing to an effect; applicable to persons or things. Bad men are often instruments of ruin to others. The distribution of the Scriptures may be the instrument of a vastly extensive reformation in morals and religion.	An artificial machine or body constructed for yielding harmonious sounds; as an organ, a harpsichord, a violin, or flute, etc., which are called musical instruments, or instruments of music.	In law, a writing containing the terms of a contract, as a deed of conveyance, a grant, a patent, an indenture, etc.; in general, a writing by which some fact is recorded for evidence, or some right conveyed.	A person who acts for another, or is employed by another for a special purpose, and if the purpose is dishonorable, the term implies degradation or meanness.
+instrumental	INSTRUMENTAL	a.	Conducive as an instrument or means to some end; contributing aid; serving to promote or effect an object; helpful. The press has been instrumental in enlarging the bounds of knowledge.	Pertaining to instruments; made by instruments; as instrumental music, distinguished form vocal music, which is made by the human voice.
+instrumentality	INSTRUMENTALITY	n.	Subordinate or auxiliary agency; agency of any thing as means to an end; as the instrumentality of second causes.
+instrumentally	INSTRUMENTALLY	adv.	By way of an instrument; in the nature of an instrument; as means to an end.	With instruments of music.
+instrumentalness	INSTRUMENTALNESS	n.	Usefulness, as of means to an end; instrumentality.
+instyle	INSTYLE	v.t.	To call; to denominate. [Not used.]
+insuavity	INSUAVITY	n.	Unpleasantness
+insubjection	INSUBJECTION	n.	State of disobedience to government.
+insubmission	INSUBMISSION	n.	Defect of submission; disobedience.
+insubordinate	INSUBORDINATE	a.	Not submitting to authority.
+insubordination	INSUBORDINATION	n.	Want of subordination; disorder; disobedience to lawful authority.
+insubstantial	INSUBSTANTIAL	a.	Unsubstantial; not real.
+insuccation	INSUCCATION	n.	The act of soaking or moistening; maceration; solution in the juice of herbs
+insufferable	INSUFFERABLE	a.	Intolerable; that cannot be borne or endured; as insufferable heat, cold or pain.	That cannot be permitted or tolerated. Our wrongs are insufferable	Detestable; contemptible; disgusting beyond endurance. A multitude of scribblers who daily pester the world with their insufferable stuff--
+insufferably	INSUFFERABLY	adv.	To a degree beyond endurance; as a blaze insufferably bright; a person insufferably proud.
+insufficiency	INSUFFICIENCY	n.	Inadequateness; want of sufficiency; deficiency; as an insufficiency of provisions to supply the garrison.	Inadequacy of power or skill; inability; incapacity; incompetency; as the insufficiency of a man for an office.	Want of the requisite strength, value or force; defect. The insufficiency of the light of nature is supplied by the light of Scripture.
+insufficient	INSUFFICIENT	a.	Not sufficient; inadequate to any need, use or purpose. The provisions are insufficient in quantity and defective in quality.	Wanting in strength, power, ability, or skill; incapable; unfit; as a person insufficient to discharge the duties of an office.
+insufficiently	INSUFFICIENTLY	adv.	With want of sufficiency; with want of proper ability or skill; inadequately.
+insufflation	INSUFFLATION	n.	The act of breathing on.	The act of blowing a substance into a cavity of the body.
+insuitable	INSUITABLE	a.	Unsuitable. [Little used.]
+insular	INSULAR	a.	Belonging to an isle; surrounded by water; as an insular situation
+insular	INSULAR	n.	One who dwells in an isle.
+insulate	INSULATE	v.t.	To place in a detached situation, or in a state to have no communication with surrounding objects	In architecture, to set a column alone or not contiguous to a wall.	In electrical experiments, to place on a non-conducting substance, or in a situation to prevent communication with the earth.	To make an isle. [Little used.]
+insulated	INSULATED	pp.	or adjective Standing by itself; not being contiguous to other bodies; as an insulated house or column.	In electrical experiments, placed on an electric or non-conducting substance; not communicating with the earth.
+insulating	INSULATING	ppr.	Setting in a detached position. In electrical experiments, preventing communication by the interposition of an electric body.
+insulation	INSULATION	n.	The act of insulating; the state of being detached from other objects.	In electrical experiments, that state in which the communication of electrical fluid is prevented by the interposition of an electric body.
+insulator	INSULATOR	n.	In electrical experiments, the substance or body that insulates, or interrupts the communication of electricity to surrounding objects; a non-conductor or electric.
+insulse	INSULSE	a.	Dull; insipid. [Not used.]
+insult	INSULT	n.	The act of leaping on. [Little used.]	Any gross abuse offered to another, either by words or actions; act or speech of insolence or contempt. The ruthless sneer that insult adds to grief.
+insult	INSULT	v.t.	To treat with gross abuse, insolence or contempt, by words or actions; as, to call a man a coward or a liar, or to sneer at him, is to insult him. To insult over, to triumph over with insolence and contempt
+insult	INSULT	v.i.	To behave with insolent triumph.
+insultation	INSULTATION	n.	The act of insulting; abusive treatment.
+insulted	INSULTED	pp.	Abused or treated with insolence and contempt.
+insulter	INSULTER	n.	One who insults.
+insulting	INSULTING	ppr.	Treating with insolence or contempt.
+insultingly	INSULTINGLY	adv.	With insolent contempt; with contemptuous triumph.
+insume	INSUME	v.t.	To take in. [Not used.]
+insuperability	INSUPERABILITY	n.	The quality of being insuperable. [Little used.]
+insuperable	INSUPERABLE	a.	That cannot be overcome or surmounted; insurmountable; as insuperable difficulties, objections or obstacles.	That cannot be passed over. And middle natures, how they long to join, Yet never pass th' insuperable line. The latter application is unusual. This word is rarely or never used in reference to any enemy, in the sense of invincible or unconquerable. We do not say that troops or enemies are insuperable; but the word is applied chiefly to difficulties, objections, obstacles or impediments.
+insuperableness	INSUPERABLENESS	n.	The quality of being insuperable or insurmountable.
+insuperably	INSUPERABLY	adv.	In a manner or degree not to be overcome; insurmountably.
+insupportable	INSUPPORTABLE	a.	That cannot be supported or borne; as the weight or burden is insupportable	That cannot be borne or endured; insufferable; intolerable. We say of heat or cold, insult, indignity or disgrace, it is insupportable
+insupportableness	INSUPPORTABLENESS	n.	The quality of being insupportable; insufferableness; the state of being beyond endurance.
+insupportably	INSUPPORTABLY	adv.	In a manner or degree that cannot be supported or endured.
+insuppressible	INSUPPRESSIBLE	a.	Not to be suppressed or concealed.
+insuppressive	INSUPPRESSIVE	a.	Not to be suppressed.
+insurable	INSURABLE	a.	That may be insured against loss or damage; proper to be insured. The French law annuls the latter policies so far as they exceed the insurable interest which remained in the insured at the time of the subscription thereof
+insurance	INSURANCE	n.	The act of insuring or assuring against loss or damage; or a contract by which one engages for a stipulated consideration or premium per cent to make up a loss which another may sustain. insurance is usually made on goods or property exposed to uncommon hazard, or on lives. Insurance company, a company or corporation whose business is to insure against loss or damage
+insurancer	INSURANCER	n.	An underwriter. [Not in use.]
+insure	INSURE	v.t.	To make sure or secure; to contract or covenant for a consideration to secure a person against loss; or to engage to indemnify another for the loss of any specified property, at a certain stipulated rate per cent, called a premium. The property usually insured is such as is exposed to extraordinary hazard. Thus the merchant insures his ship or its cargo, or both, against the dangers of the sea; houses are insured against fire; sometimes hazardous debts ar insured, and sometimes lives
+insure	INSURE	v.i.	To underwrite; to practice making insurance. This company insures at 3 per cent, or at a low premium.
+insured	INSURED	pp.	Made sure; assured; secured against loss.
+insurer	INSURER	n.	One who insures; the person who contracts to pay the losses of another for a premium; an underwriter.
+insurgent	INSURGENT	a.	in opposition to lawful civil or political authority; as insurgent chiefs
+insurgent	INSURGENT	n.	A person who rises in opposition to civil or political authority; one who openly and actively resists the execution of laws. [See Insurrection.] An insurgent differs from a rebel. The insurgent opposes the execution of a particular law or laws; the rebel attempts to overthrow or change the government, or he revolts and attempts to place his country under another jurisdiction. All rebels are insurgents, but all insurgents are not rebels.
+insuring	INSURING	ppr.	Making secure; assuring against loss; engaging to indemnify for losses.
+insurmountable	INSURMOUNTABLE	a.	Insuperable; that cannot be surmounted or overcome; as an insurmountable difficulty, obstacle or impedient.	Not to be surmounted; not to be passed by ascending; as an insurmountable wall or rampart.
+insurmountably	INSURMOUNTABLY	adv.	In a manner or degree not to be overcome.
+insurrection	INSURRECTION	n.	A rising against civil or political authority; the open and active opposition of a number of persons to the execution of a law in a city or state. It is equivalent to sedition, except that sedition expresses a less extensive rising of citizens. It differs from rebellion, for the latter expresses a revolt, or an attempt to overthrow the government, to establish a different one or to place the country under another jurisdiction. It differs from mutiny, as it respects the civil or political government; whereas a mutiny is an open opposition to law in the army or navy. insurrection is however used with such latitude as to comprehend either sedition or rebellion. It is found that this city of old time hath made insurrection against kings, and that rebellion and sedition have been made therein. Ezra 4:19.	A rising in mass to oppose an enemy. [Little used.]
+insurrectional	INSURRECTIONAL	a.	Pertaining to insurrection; consisting in insurrection.
+insurrectionary	INSURRECTIONARY	a.	Pertaining or suitable to insurrection.
+insusceptibility	INSUSCEPTIBILITY	n.	Want of susceptibility, or capacity to feel or perceive
+insusceptible	INSUSCEPTIBLE	a.	Not susceptible; not capable of being moved, affected or impressed; as a limb insusceptible of pain; a heart insusceptible of pity.	Not capable of receiving or admitting.
+insusurration	INSUSURRATION	n.	The act of whispering into something

@@ -1,0 +1,636 @@
+scab	SCAB	n.	An encrusted substance, dry and rough, formed over a sore in healing.	The itch or mange in horses; a disease of sheep.	A mean, dirty paltry fellow. [Low.]
+scabbard	SCABBARD	n.	The sheath of a sword.
+scabbard	SCABBARD	v.t.	To put in a sheath.
+scabbed	SCABBED	a.	Abounding with scabs; diseased with scabs.	Mean; paltry; vile; worthless.
+scabbedness	SCABBEDNESS	n.	The state of being scabbed.
+scabbiness	SCABBINESS	n.	The quality of being scabby
+scabby	SCABBY	a.	Affected with scabs; full of scabs.	Diseased with the scab or mange; mangy.
+scabious	SCABIOUS	a.	Consisting of scabs; rough itch; leprous; as scabious eruptions
+scabious	SCABIOUS	n.	A plant of the genus Scabiosa.
+scabredity	SCABREDITY	n.	Roughness; ruggedness. [Not in use.]
+scabrous	SCABROUS	a.	Rough; rugged; having sharp points.	Harsh; unmusical.
+scabrousness	SCABROUSNESS	n.	Roughness; ruggedness.
+scabwort	SCABWORT	n.	A plant, a species of Helenium.
+scad	SCAD	n.	A fish, the shad which see.	A fish of the genus Caranx.
+scaffold	SCAFFOLD	n.	Among builders, an assemblage or structure of timbers, boards or planks, erected by the wall of a building to support the workmen.	A temporary gallery or stage raised either for shows or spectators.	A stage or elevated platform for the execution of a criminal.
+scaffold	SCAFFOLD	v.t.	To furnish with a scaffold; to sustain; to uphold.
+scaffoldage	SCAFFOLDAGE	n.	A gallery; a hollow floor.
+scaffolding	SCAFFOLDING	n.	A frame or structure for support in an elevated place.	That which sustains; a frame; as the scaffolding of the body.	Temporary structure for support.	Materials for scaffolds.
+scalable	SCALABLE	a.	That may be sealed.
+scalade	SCALADE		SCALA'DO, noun [Latin scala, a latter. See Scale.] A storm or assault on a fortified place, in which the soldiers enter the place by means of ladders. It is written also escalade.
+scalado	SCALADO	n.	A storm or assault on a fortified place, in which the soldiers enter the place by means of ladders. It is written also escalade
+scalary	SCALARY	a.	Resembling a ladder; formed with steps. [Little used.]
+scald	SCALD	v.t.	To burn or painfully affect and injure by immersion in or contact with a liquor of a boiling heat, or a heat approaching it; as, to scald the hand or foot. We scald the part, when the heat of the liquor applied is so violent as to injure the skin and flesh. scald is sometimes used to express the effect of the heat of other substances than liquids. Here the blue flames of scalding brimstone fall.	To expose to a boiling or violent heat over a fire, or in water or other liquor; as, to scald meat or milk.
+scald	SCALD	n.	A burn, or injury to the skin and flesh by hot liquor
+scald	SCALD	n.	Scab; scurf on the head.
+scald	SCALD	a.	Scurvy; paltry; poor; as scald rhymers.
+scald	SCALD	n.	Among the ancient Scandinavians, a poet; one whose occupation was to compose poems in honor of distinguished men and their achievements, and to recite and sing them on public occasions. The scalds of Denmark and Sweden answered to the bards of the Britons or Celts.
+scalded	SCALDED	pp.	Injured by a hot liquor; exposed to boiling heat.
+scalder	SCALDER	n.	A scald; a Scandinavian poet.
+scaldhead	SCALDHEAD	n.	[See Scald.] A lothesome affection of the head, in which it is covered with a continuous scab.
+scaldic	SCALDIC	a.	Pertaining to the scalds or poets of antiquity; composed by scalds.
+scalding	SCALDING	ppr.	Burning or injuring by hot liquor.	Exposing to a boiling heat in liquor.
+scalding-hot	SCALDING-HOT	a.	So hot as to scald the skin.
+scaldinghot	scalding-hot
+scale	SCALE	n.	The dish of a balance; and hence, the balance itself, or whole instrument; as, to turn the scale Long time in even scale the battle hung. But in general, we use the plural, scales, for the whole instrument. The scales are turn'd; her kindness weights no more now than my vows.	The sign of the balance or Libra, in the zodiac.	The small shell or crust which composes a part of the covering of a fish; and hence, any thin layer or leaf exfoliated or separated; a thin lamin; as scales of iron or of bone. The scales of fish consist of alternate layers of membrane and phosphate of lime. The scales of serpents are composed of a horny membrane, without the calcarious phosphate.	A ladder; series of steps; means of ascending. [Latin scala.]	The art of storming a place by mounting the wall on ladders; an escalade, or scalade.	A mathematical instrument of wood or metal, on which are marked line and figures for the purpose of measuring distances, extent or proportions; as a plain scale; a diagonal scale	Regular gradation; a series rising by steps or degrees like those of a ladder. Thus we speak of the scale of being, in which man occupies a higher rank than brutes, and angels a higher rank than man.	Any instrument, figure or scheme, graduated for the purpose of measuring extent or proportions as a map drawn by a scale of half an inch to a league.	In music, a gamut; a diagram; or a series of lines and spaces rising one above another, on which notes are placed; or a scale consists of the regular gradations of sounds. A scale may be limited to an octave, called by the Greeks a tetrachord, or it may extend to the compass of any voice or instrument.	Any thing graduated or marked with degrees at equal distances.
+scale	SCALE	v.t.	To climb, as by a ladder; to ascend by steps; and applied to the walls of a fortified place, to mount in assault or storm. Oft have I scal'd the craggy oak.	[from scale a balance.] To measure; to compare; to weight.	[from scale the covering of a fish.] to strip or clear of scales; as, to scale a fish.	To take off in thin lamins or scales.	To pare off a surface. If all the mountains were scaled, and the earth made even -	In the north of England, to spread, as manure or loose substances; also, to disperse; to waste.	In gunnery, to clean the inside of a cannon by the explosion of a small quantity of powder.
+scale	SCALE	v.i.	To separate and come off in thin layers or lamins. The old shells of the lobster scale off.
+scale-stone	SCALE-STONE	n.	A rare mineral, called also tafelspath and tabular spar, occurring in masses composed of thin lamins collected into large prismatic concretions or hexahedral prisms. It color is grayish or pearly white, tinged with green, yellow or red.
+scaled	SCALED	pp.	Ascended by ladders or steps; cleared of scales; pared; scattered.	adjective Having scales like a fish; squamous; as a scaled snake.
+scaleless	SCALELESS	a.	Destitute of scales.
+scalene	SCALENE		SCALE'NOUS, adjective [Gr. oblique, unequal.] A scalene triangle, is one whose sides and angles are unequal.
+scalene	SCALENE	n.	a scalene triangle.
+scalenous	SCALENOUS	a.	A scalene triangle, is one whose sides and angles are unequal
+scalestone	scale-stone
+scaliness	SCALINESS	n.	the state of being scaly; roughness
+scaling	SCALING	ppr.	Ascending by ladders or steps; storming.	Stripping of scales.	Peeling; paring.
+scaling-ladder	SCALING-LADDER	n.	a ladder made for enabling troops to scale a wall.
+scalingladder	scaling-ladder
+scall	SCALL	n.	[See Scald and Scaldhead.] Scab; scabbiness; leprosy. It is a dry scall even a leprosy on the head. Leviticus 13:30.
+scallion	SCALLION	n.	a plant of the genus Allium; a variety of the common onion, which never forms a bulb at the root
+scallop	SCALLOP	n.	A shell fish, or rather a genus of shell fish, called pecten. The shell is bivalvular, the hinge toothless, having a small ovated hollow. The great scallop is rugged and imbricated with scales, grows to a large size, and in some countries is taken and barreled for market.	A recess or curving of the edge of any thing, like the segment of a circle; written also scallop
+scallop	SCALLOP	v.t.	To mark or cut the edge or border of any thing into segments of circles.
+scalp	SCALP	n.	The skin of the top of the head; as a hairless scalp	The skin of the top of the head cut or torn off. A scalp among the Indians of America is a trophy of victory.
+scalp	SCALP	v.t.	To deprive of the scalp or integuments of the head.
+scalped	SCALPED	pp.	Deprived of the skin of the head.
+scalpel	SCALPEL	n.	In surgery, a knife used in anatomical dissections and surgical operations
+scalper	SCALPER		SCALP'ING, participle present tense Depriving of the skin of the top of the head.
+scalping	SCALPING	ppr.	Depriving of the skin of the top of the head.
+scalping-iron	SCALPING-IRON	n.	An instrument of surgery, used in scraping foul and carious bones; a raspatory.
+scalpingiron	scalping-iron
+scaly	SCALY	a.	Covered or abounding with scales; rough; as a scaly fish; the scaly crocodile.	Resembling scales, lamina or layers.	In botany, composed of scales lying over each other, as a scaly bulb; having scales scattered over it, as a scaly stem.
+scamble	SCAMBLE	v.i.	To stir quick; to be busy; to scramble; to be bold or turbulent.	To shift awkwardly.
+scamble	SCAMBLE	v.t.	To mangle; to maul.
+scambler	SCAMBLER	n.	A bold intruder upon the generosity or hospitality of others.
+scambling	SCAMBLING	ppr.	Stirring; scrambling; intruding.
+scamblingly	SCAMBLINGLY	adv.	With turbulence and noise; with bold intrusiveness.
+scammel	SCAMMEL	n.	A bird.
+scammoniate	SCAMMONIATE	a.	Made with scammony. [Not used.]
+scammony	SCAMMONY	n.	A plant of the genus convolvulus.	A gum resin, obtained from the plant of that name, of a blackish gray color, a strong nauseous smell, and a bitter and very acrid taste. The best scammony comes from Aleppo, in light spungy masses, easily friable. That of Smyrna is black, ponderous, and mixed with extraneous matter.
+scamper	SCAMPER	v.i.	To run with speed; to hasten escape.
+scampering	SCAMPERING	ppr.	Running with speed; hastening in flight.
+scan	SCAN	v.t.	To examine with critical care; to scrutinize. The actions of men in high stations are all conspicuous, and liable to be scanned and sifted.	To examine a verse by counting the feet; or according to modern usage, to recite or measure verse by distinguishing the feet in pronunciation. Thus in Latin and Greek, a hexameter verse is resolved into six feet by scanning, and the true quantities are determined.
+scandal	SCANDAL	n.	Offense given by the faults of another. His lustful orgies he enlarg'd even to the hill of scandal [In this sense, we now generally use offense.]	Reproachful aspersion; opprobrious censure; defamatory speech or report; something uttered which is false and injurious to reputation. My known virtue is from scandal free.	Shame; reproach; disgrace. Such is the perverted state of the human mind that some of the most heinous crimes bring little scandal upon the offender.
+scandal	SCANDAL	v.t.	To treat opprobriously; to defame; to asperse; to traduce; to blacken character. I do fawn on men, and hug them hard, and after scandal them. [Little used.]	To scandalize; to offend. [Not used.]
+scandalize	SCANDALIZE	v.t.	To offend by some action supposed criminal. I demand who they are whom we scandalize by using harmless things?	To reproach; to disgrace; to defame; as a scandalizing libeler.
+scandalized	SCANDALIZED	pp.	Offended; defamed; disgraced.
+scandalizing	SCANDALIZING	ppr.	Giving offense to; disgracing.
+scandalous	SCANDALOUS	a.	Giving offense. Nothing scandalous or offensive to any.	Opprobrious; disgraceful to reputation; that brings shame or infamy; as a scandalous crime or vice. How perverted must be the mind that considers seduction or dueling less scandalous than larceny!	Defamatory.
+scandalously	SCANDALOUSLY	adv.	Shamefully; in a manner to give offense. His discourse at table was scandalously unbecoming the dignity of his station.	Censoriously; with a disposition to find fault; as a critic scandalously nice.
+scandalousness	SCANDALOUSNESS	n.	The quality of being scandalous; the quality of giving offense, or of being disgraceful. Scandalum magnatum, in law, a defamatory speech or writing made or published to the injury of a person of dignity.
+scandent	SCANDENT	a.	Climbing, either with spiral tendrils for its support, or by adhesive fibers, as a stalk; climbing; performing the office of a tendril, as a petiole
+scanned	SCANNED	pp.	Critically sifted or examined; resolved into feet in recital.
+scanning	SCANNING	ppr.	Critically examining; resolving into feet, as verse.
+scansion	SCANSION	n.	The act of scanning.
+scant	SCANT	v.t.	To limit; to straiten; as, to scant one in provisions; to scant ourselves in the use of necessaries; to scant a garment in cloth. I am scanted in the pleasure of dwelling on your actions.
+scant	SCANT	v.i.	To fail or become less; as, the wind scants.
+scant	SCANT	a.	Not full, large or plentiful; scarcely sufficient; rather less than is wanted for the purpose; as a scant allowance of provisions or water; a scant pattern of cloth for a garment.	Sparing; parsimonious; cautiously affording. Be somewhat scanter of your maiden presence. [Not in use.]	Not fair, free or favorable for a ship's course; as a scant wind.
+scant	SCANT	adv.	Scarcely; hardly; not quite. The people - received of the bankers scant twenty shillings for thirty. [Obsolete or vulgar.]
+scantily	SCANTILY	adv.	Not fully; not plentifully. the troops were scantily supplied with flour.	Sparingly; niggardly; as, to speak scantily of one. [Unusual.]
+scantiness	SCANTINESS	n.	Narrowness; want of space or compass; as the scantiness of our heroic verse.	Want of amplitude, greatness or abundance; limited extent. Alexander was much troubled at the scantiness of nature itself.	Want of fullness; want of sufficiency; as the scantiness of supplies.
+scantle	SCANTLE	v.t.	To be deficient; to fail.
+scantle	SCANTLE	v.i.	To divide into thin or small pieces; to shiver.
+scantlet	SCANTLET	n.	[See Scantling.] A small pattern; a small quantity. [Not in use.]
+scantling	SCANTLING	n.	A pattern; a quantity cut for a particular purpose.	A small quantity; as a scantling of wit.	A certain proportion or quantity.	In the United States, timber sawed or cut into pieces of a small size, as for studs, rails, etc. This seems to be allied to the Latin scandula, and it is the sense in which I have ever heard it used in this country.	In seamen's language, the dimensions of a piece of timber, with regard to its breadth and thickness.
+scantling	SCANTLING	a.	Not plentiful; small. [Not in use.]
+scantly	SCANTLY	adv.	Scarcely; hardly. obsolete	Not fully or sufficiently; narrowly; penuriously; without amplitude.
+scantness	SCANTNESS	n.	Narrowness; smallness; as the scantness of our capacities
+scanty	SCANTY	a.	Narrow; small; wanting amplitude or extent. His dominions were very narrow and scanty Now scantier limits the proud arch confine.	Poor; not copious or full; not ample; hardly sufficient; as a scanty language; a scanty supply of words; a scantly supply of bread.	Sparing; niggardly; parsimonious. In illustrating a point of difficulty, be not too scanty of words.
+scapaism	SCAPAISM	n.	Among the Persians, a barbarous punishment inflicted on criminals by confining them in a hollow tree till they died
+scape	SCAPE	v.t.	To escape; a contracted word, not now used except in poetry, and with a mark of elision. [See Escape.]
+scape	SCAPE	n.	An escape. [See Escape.]	Means of escape; evasion.	Freak; aberration; deviation.	Loose act of vice or lewdness. [Obsolete in all its senses.
+scape	SCAPE	n.	In botany, a stem bearing the fructification without leaves, as in the narcissus and hyacinth
+scape-goat	SCAPE-GOAT	n.	In the Jewish ritual, a goat which was brought to the door of the tabernacle, where the high priest laid his hands upon him, confessing the sins of the people, and putting them on the heat of the goat; after which the goat was sent into the wilderness, bearing the iniquities of the people. Leviticus 16:10
+scapegoat	scape-goat
+scapeless	SCAPELESS	a.	In botany, destitute of a scape
+scapement	SCAPEMENT	n.	The method of communicating the impulse of the wheels to the pendulum of a clock.
+scaphite	SCAPHITE	n.	Fossil remains of the scapha
+scapolite	SCAPOLITE	n.	A mineral which occurs massive, or more commonly in four or eight sides prisms, terminated by four sided pyramids. It takes its name from its long crystals, often marked with deep longitudinal channels, and collected in groups or masses of parallel, diverging or intermingled prisms. It is the radiated, foliated and compact scapolite of Jameson, and the paranthine and Wernerite of Hauy and Brongniart
+scapula	SCAPULA	n.	The shoulder blade
+scapular	SCAPULAR	a.	Pertaining to the shoulder, or to the scapula; as the scapular arteries
+scapular	SCAPULAR	n.	In anatomy, the name of two pairs of arteries, and as many veins.	In ornithology, a feather which springs from the shoulder of the wing, and lies along the side of the back.
+scapulary	SCAPULARY	n.	A part of the habit of certain religious orders in the Romish church, consisting of two narrow slips of cloth worn over the gown, covering the back and breast, and extending to the feet. This is worn as a badge of peculiar veneration for the virgin Mary.
+scar	SCAR	n.	A mark in the skin or flesh of an animal made by a wound or an ulcer, and remaining after the wound or ulcer is healed. The soldier is proud of his scars.	Any mark or injury; a blemish. The earth had the beauty of youth - and not a wrinkle, scar or fracture on its body.	[Latin scarus; Gr.] A fish of the Labrus kind.
+scar	SCAR	v.t.	To mark with a scar
+scarab	SCARAB		SCAR'ABEE, noun [Latin scarabaeus, from Gr.] A beetle; an insect of the genus Scarabaeus, whose wings are cased. [See Beetle.]
+scarabee	SCARABEE	n.	A beetle; an insect of the genus Scarabaeus, whose wings are cased. [See Beetle.]
+scaramouch	SCARAMOUCH	n.	A buffoon in motley dress.
+scarce	SCARCE	a.	Not plentiful or abundant; being in small quantity in proportion to the demand. We say, water is scarce wheat, rye, barley is scarce money is scarce when the quantity is not fully adequate to the demand.	Being few in number and scattered; rare; uncommon. Good horses are scarce The scarcest of all is a Pescennius Niger on a medallion well preserved.
+scarcely	SCARCELY	adv.	Hardly; scantly. We scarcely think our miseries our foes.	Hardly; with difficulty. Slowly he sails, and scarcely stems the tides.
+scarceness	SCARCENESS		Smallness of quantity, or smallness in proportion to the wants or demands; deficiency defeat of plenty; penury; as a scarcity of grain; a great scarcity of beauties; a scarcity of lovely women. Praise, like gold and diamonds, owes its value to its scarcity. A scarcity of snow would raise a mutiny at Naples.	Rareness; infrequency. The value of an advantage is enhanced by its scarceness Root of scarcity, the mangold-wurzel, a variety of the white beet.
+scarcity	SCARCITY	n.	Smallness of quantity, or smallness in proportion to the wants or demands; deficiency defeat of plenty; penury; as a scarcity of grain; a great scarcity of beauties; a scarcity of lovely women.Praise, like gold and diamonds, owes its value to its scarcity.A scarcity of snow would raise a mutiny at Naples.	Rareness; infrequency.The value of an advantage is enhanced by its scarceness.Root of scarcity, the mangold-wurzel, a variety of the white beet.
+scare	SCARE	v.t.	To fright; to terrify suddenly; to strike with sudden terror. The noise of thy crow-bow will scare the herd, and so my shot is lost. To scare away, to drive away by frightening
+scarecrow	SCARECROW	n.	Any frightful thing set up to frighten crows or other fowls from corn fields; hence, any thing terrifying without danger; a vain terror. A scarecrow set to frighten fools away.	A fowl of the sea gull kind; the black gull.
+scared	SCARED	pp.	Frightened; suddenly terrified.
+scarefire	SCAREFIRE	n.	A fire breaking out so as to frighten people. [Not used.]
+scarf	SCARF	n. pl.	scarfs Something that hangs loose upon the shoulders; as a piece of cloth. Put on your hood and scarf
+scarf	SCARF	v.t.	To throw loosely on.	To dress in a loose vesture.
+scarf	SCARF	v.t.	To join; to piece; to unite two pieces of timber at the ends, by letting the end of one into the end of the other, or by laying the two ends together and fastening a third piece to both.
+scarfskin	SCARFSKIN	n.	The cuticle; the epidermis; the outer thin integument of the body
+scarification	SCARIFICATION	n.	In surgery, the operation of making several incisions in the skin with a lancet or other cutting instrument, particularly the cupping instrument
+scarificator	SCARIFICATOR	n.	An instrument used in scarification.
+scarifier	SCARIFIER	n.	The person who scarifies.	The instrument used for scarifying.
+scarify	SCARIFY	v.t.	To scratch or cut the skin of an animal, or to make small incisions by means of a lancet or cupping instrument, so as to draw blood from the smaller vessels without opening a large vein
+scarifying	SCARIFYING	ppr.	Making small incisions in the skin with an instrument.
+scarious	SCARIOUS	a.	In botany, tough, thin
+scarious	SCARIOUS	a.	In botany, tough, thin and semi-transparent, dry and sonorous to the touch; as a perianth
+scarlatina	SCARLATINA	n.	the scarlet fever; called in popular language, the canker rash.
+scarlatinous	SCARLATINOUS	a.	Of a scarlet color; pertaining to the scarlet fever.
+scarlet	SCARLET	n.	A beautiful bright red color, brighter than crimson.	Cloth of a scarlet color. All her household are clothed with scarlet Proverbs 31:21.
+scarlet	SCARLET	a.	of the color called scarlet; of a bright red color; as a scarlet cloth or thread; a scarlet lip.
+scarlet-bean	SCARLET-BEAN	n.	A plant; a red bean.
+scarlet-fever	SCARLET-FEVER	n.	a disease in which the body is covered with an efflorescence or red color, first appearing about the neck and breast, and accompanied with a sore throat
+scarlet-oak	SCARLET-OAK	n.	a species of oak, the Quercus coccifera, or kermes oak, producing small glandular excrescences, called kermes or scarlet grain.
+scarletbean	scarlet-bean
+scarletfever	scarlet-fever
+scarletoak	scarlet-oak
+scarmage	SCARMAGE		SC'ARMOGE, peculiar modes of spelling skirmish. [Not in use or local.]
+scarmoge	SCARMOGE		peculiar modes of spelling skirmish. [Not in use or local.]
+scarn	SCARN	n.	Dung. [Not in use or local.]
+scarn-bee	SCARN-BEE	n.	a beetle. [Not in use or local.]
+scarnbee	scarn-bee
+scarp	SCARP	n.	In fortification, the interior talus or slope of the ditch next the place, at the foot of the rampart.
+scarp	SCARP	n.	In heraldry, the scarf which military commanders wear for ornament; borne somewhat like a battoon sinister, but broader, and continued to the edges of the field.
+scarus	SCARUS	n.	A fish. [See Scar.]
+scary	SCARY	n.	Barren land having only a thin coat of grass upon it. [Local.]
+scatch	SCATCH	n.	A kind of horsebit for bridles.
+scatches	SCATCHES	n. pl.	Stilts to put the feet in for walking in dirty places.
+scate	SCATE	n.	A wooden shoe furnished with a steel plate for sliding on ice
+scate	SCATE	v.i.	To slide or move on scates.
+scate	SCATE	n.	A fish, a species of ray
+scatebrous	SCATEBROUS	a.	Abounding with springs
+scath	SCATH	v.t.	To damage; to waste; to destroy. [Little used.]
+scath	SCATH	n.	Damage; injury; waste; harm. [Little used.]
+scathful	SCATHFUL	a.	Without waste or damage. [Little used.]
+scathless	SCATHLESS	a.	Without waste or damage. [Little used.]
+scatter	SCATTER	v.t.	To disperse; to dissipate; to separate or remove things to a distance from each other. From thence did the Lord scatter them abroad upon the face of all the earth. Genesis 11:9. I will scatter you among the heathen. Leviticus 26:33.	To throw loosely about; to sprinkle; as, to scatter seed in sowing. Teach the glad hours to scatter as they fly, soft quiet, gentle love and endless joy.	To spread or set thinly. Why should my muse enlarge on Libyan swains, their scatter'd cottages, and ample plains.
+scatter	SCATTER	v.i.	To be dispersed or dissipated. The clouds scatter after a storm.	To be liberal to the poor; to be charitable. Proverbs 11:24.
+scattered	SCATTERED	pp.	Dispersed; dissipated; thinly spread; sprinkled or thinly spread over.	In botany, irregular in position; without any apparent regular order; as scattered branches.
+scatteredly	SCATTEREDLY	adv.	In a dispersed manner; separately. [Not much used.]
+scattering	SCATTERING	ppr.	Dispersing; spreading thinly; sprinkling.	adjective Not united; divided among many; as scattering votes.
+scatteringly	SCATTERINGLY	adv.	Loosely; in a dispersed manner; thinly; as habitations scatteringly placed over the country.
+scatterling	SCATTERLING	n.	A vagabond; one that no fixed habitation or residence. [Little used.]
+scaturient	SCATURIENT	a.	Springing, as the water of a fountain. [Not used.]
+scaturiginous	SCATURIGINOUS	a.	Abounding with springs. [Not used.]
+scaup	SCAUP	n.	A fowl of the duck kind.
+scavage	SCAVAGE	n.	In ancient customs, a toll or duty exacted of merchant-strangers by mayors, sheriffs, etc. for goods shown or offered for sale within their precincts.
+scavenger	SCAVENGER	n.	A person whose employment is to clean the streets of a city, by scraping or sweeping and carrying off the filth
+scelerat	SCELERAT	n.	a villain; a criminal. [Not in use.]
+scene	SCENE	n.	A stage; the theater or place where dramatic pieces and other shows are exhibited. It does not appear that the ancients changed the scenes in different parts of the play. Indeed the original scene for acting was an open plat of ground, shaded or slightly covered.	The whole series of actions and events connected and exhibited; or the whole assemblage of objects displayed at one view. Thus we say, the execution of a malefactor is a melancholy scene The crucifixion of our Saviour was the most solemn scene ever presented to the view of man. We say also, a scene of sorrow or of rejoicing, a noble scene a sylvan scene A charming scene of nature is display'd.	A part of a play; a division of an act. A play is divided into acts, and acts are divided into scenes.	So much of an act of a play as represents what passes between the same persons in the same place.	The place represented by the sate. The scene was laid in the king's palace.	The curtain or hanging of a theater adapted to the play.	The place where any thing is exhibited. The world is a vast scene of strife.	Any remarkable exhibition. The shepherds, while watching their flocks upon the plains of Bethehem, were suddenly interrupted by one of the most sublime and surprising scenes which have ever been exhibited on earth.
+scenery	SCENERY	n.	The appearance of a place, or of the various objects presented to view; or the various objects themselves as seen together. Thus we may say, the scenery of the landscape presented to the view from mount Holyoke, in Hampshire county, Massachusetts, is highly picturesque, and exceeded only by the scenery of Boston and its vicinity, as seen from the State house. Never need an American look beyond his own country for the sublime and beautiful of natural scenery	The representation of the place in which an action is performed.	The disposition and consecution of the scenes of a play.	The paintings representing the scenery of a play.
+scenic	SCENIC		SCEN'ICAL, adjective [Latin scenicus.] Pertaining to scenery; dramatic; theatrical.
+scenical	SCENICAL	a.	Pertaining to scenery; dramatic; theatrical
+scenographic	SCENOGRAPHIC		SCENOGRAPH'ICAL, adjective [See scenography.] Pertaining to scenography; drawn in perspective.
+scenographical	SCENOGRAPHICAL	a.	[See scenography.] Pertaining to scenography; drawn in perspective.
+scenographically	SCENOGRAPHICALLY	adv.	In perspective.
+scenography	SCENOGRAPHY	n.	the representation of a body on a perspective plane; or a description of it in all its dimensions as it appears to the eye
+scent	SCENT	n.	Odor; smell; that substance which issuing from a body, affects the olfactory organs of animals; as the scent of an orange or an apple; the scent of musk. The word is applicable to any odor, agreeable or offensive.	The power of smelling; the smell; as a house of nice scent	chase followed by the scent; course of pursuit; track. He travelled upon the same scent into Ethiopia.
+scent	SCENT	v.t.	to smell; to perceive by the olfactory organs; as, to scent game, as a hound.	To perfume; to imbue or fill with odor, good or bad. Aromatic plants scent the room. some persons scent garments with musk; others scent their snuff.
+scentful	SCENTFUL	a.	Odorous; yielding much smell.	Of quick smell.
+scentless	SCENTLESS	a.	Inodorous; destitute of smell.
+scepter	SCEPTER	n.	A staff or batoon borne by kings on solemn occasions, as a badge of authority. Hence,	The appropriate ensign of royalty; an ensign of higher antiquity than the crown. Hence,	Royal power or authority; as, to assume the scepter The scepter shall not depart from Judah, nor a lawgiver from between his feet, till Shiloh come. Genesis 49:1.	A constellation.
+scepter	SCEPTER	v.t.	To invest with royal authority, or with the ensign of authority.
+sceptered	SCEPTERED	a.	Bearing a scepter; as a sceptered prince. To Britain's queen the scepter'd suppliant bends. Gold-scepter'd Juno.
+sceptic	SCEPTIC	n.	One who doubts the truth and reality of any principle or system of principles or doctrines. In philosophy, a Pyrrhonist or follower of Pyrrho, the founder of a sect of sceptical philosophers, who maintained that no certain inferences can be drawn from the reports of the senses, and who therefore doubted of every thing.	In theology, a person who doubts the existence and perfections of God, or the truth of revelation; one who disbelieves the divine original of the christian religion. Suffer not your faith to be shaken by the sophistries of sceptics.
+sceptical	SCEPTICAL	a.	Doubting; hesitating to admit the certainty of doctrines or principles; doubting of every thing.	Doubting or denying the truth of revelation. The sceptical system subverts the whole foundation of morals.
+sceptically	SCEPTICALLY	adv.	With doubt; in a doubting manner.
+scepticism	SCEPTICISM	n.	The doctrines and opinions of the Pyrrhonists or sceptical philosophers; universal doubt; the scheme of philosophy which denies the certainty of any knowledge respecting the phenomena of nature.	In theology, a doubting of the truth of revelation, or a denial of the divine origin of the christian religion, or of the being, perfections or truth of God. Irreligious scepticism or atheistic profaneness. Let no despondency or timidity or secret scepticism lead any one to doubt whether this blessed prospect will be realized.
+scepticize	SCEPTICIZE	v.i.	To doubt; to pretend to doubt of every thing. [Little used.]
+scession	SCESSION	n.	The act of withdrawing, particularly from followship and communion.	The act of departing; departure.
+schaalstein	SCHAALSTEIN		SCHED'ULE, noun [Latin schedula, from scheda, a sheet or leaf of paper; Gr. from to cut or divide; Latin scindo, for scido. The pronunciation ought to follow the analogy of scheme, etc.]	A small scroll or piece of paper or parchment, containing some writing.	A piece of paper or parchment annexed to a larger writing, as to a will, a deed, a lease, etc.	A piece of paper or parchment containing an inventory of goods.
+schedule	SCHEDULE	n.	A small scroll or piece of paper or parchment, containing some writing.	A piece of paper or parchment annexed to a larger writing, as to a will, a deed, a lease, &c.	A piece of paper or parchment containing an inventory of goods.
+scheelin	SCHEELIN		SCHEICH, Among the Arabians and Moors, an old man, and hence a chief, a lord, a man of eminence.
+scheich	SCHEICH		Among the Arabians and Moors, an old man, and hence a chief, a lord, a man of eminence.
+schelium	SCHELIUM	n.	A different, name of tungsten, a hard brittle metal of a grayish white color, and brilliant.
+schematism	SCHEMATISM	n.	Combination of the aspects of heavenly bodies.	Particular form or disposition of a thing. [A word not much used.]
+schematist	SCHEMATIST	n.	A projector; one given to forming schemes. [Schemer is more generally used.]
+scheme	SCHEME	n.	A plan; a combination of things connected and adjusted by design; a system. We shall never be able to give ourselves a satisfactory account of the divine conduct without forming such a scheme of things as shall take in time and eternity.	A project; a contrivance; a plan of something to be done; a design. Thus we say, to form a scheme to lay a scheme to contrive a scheme The stoical scheme of supplying our wants by lopping off our desires, is like cutting off our feet when we want shoes.	A representation of the aspects of the celestial bodies; any lineal or mathematical diagram.
+scheme	SCHEME	v.t.	To plan; to contrive.
+scheme	SCHEME	v.i.	To form a plan; to contrive.
+schemer	SCHEMER	n.	One that contrives; a projector; a contriver.
+scheming	SCHEMING	ppr.	Planning; contriving.	adjective Given to forming schemes; artful.
+schemist	SCHEMIST	n.	A schemer; a projector.
+schene	SCHENE	n.	An Egyptian measure of length, equal to sixty stadia, or about 7 1/2 miles
+schesis	SCHESIS	n.	Habitude; general state or disposition of the body or mind, or of one thing with regard to other things
+schiller-spar	SCHILLER-SPAR	n.	A mineral containing two subspecies, bronzite and common schiller-spar
+schillerspar	schiller-spar
+schism	SCHISM	n.	In a general sense, division or separation; but appropriately, a division or separation in a church or denomination of christians, occasioned by diversity of opinions; breach of unity among people of the same religious faith. - Set bounds to our passions by reason, to our errors by truth, and to our schisms by charity. In Scripture, the word seems to denote a breach of charity, rather than a difference of doctrine.	Separation; division among tribes or classes of people.
+schismatic	SCHISMATIC		sizmat'ic,
+schismatical	SCHISMATICAL	a.	Pertaining to schism; implying schism; partaking of the nature of schism; tending to schism; as schismatical opinions or proposals.
+schismatically	SCHISMATICALLY	adv.	In a schismatical manner; by separation from a church on account of a diversity of opinions.
+schismaticalness	SCHISMATICALNESS	n.	The state of being schismatical.
+schismatize	SCHISMATIZE	v.i.	To commit or practice schism; to make a breach of communion in the church.
+schismless	SCHISMLESS	a.	Free from schism; not affected by schism. [Little used.]
+schist	SCHIST		[See Shist.]
+scholar	SCHOLAR	n.	One who learns of a teacher; one who is under the tuition of a preceptor; a pupil; a disciple; hence, any member of a college, academy or school; applicable to the learner of any art, science or branch of literature.	A man of letters.	Emphatically used, a man eminent for erudition; a person of high attainments in science or literature.	One that learns any thing; as an apt scholar in the school of vice.	A pedant; a man of books. [But the word scholar seldom conveys the idea of a pedant.]
+scholar-like	SCHOLAR-LIKE	a.	Like a scholar; becoming a scholar.
+scholarity	SCHOLARITY	n.	Scholarship. [Not used.]
+scholarlike	scholar-like
+scholarship	SCHOLARSHIP	n.	Learning; attainments in science or literature; as a man of great scholarship	Literary education; as any other house of scholarship [Unusual.]	Exhibition or maintenance for a scholar; foundation for the support of a student.
+scholastic	SCHOLASTIC		SCHOLAS'TICAL, adjective [Latin scholasticus.]	Pertaining to a scholar, to a school or to schools; as scholastic manners or pride; scholastic learning.	Scholar-like; becoming a scholar; suitable to schools; as scholastic precision.	Pedantic; formal. Scholastic divinity, that species of divinity taught in some schools or colleges, which consists in discussing and settling points by reason and argument. It has now fallen into contempt, except in some universities, where the charters require it to be taught.
+scholastic	SCHOLASTIC	n.	One who adheres to the method or subtilties of the schools.
+scholastical	SCHOLASTICAL	a.	Pertaining to a scholar, to a school or to schools; as scholastic manners or pride; scholastic learning.	Scholar-like; becoming a scholar; suitable to schools; as scholastic precision.	Pedantic; formal.Scholastic divinity, that species of divinity taught in some schools or colleges, which consists in discussing and settling points by reason and argument. It has now fallen into contempt, except in some universities, where the charters require it to be taught.
+scholastically	SCHOLASTICALLY	adv.	In the manner of schools; according to the niceties or method of the schools.
+scholasticism	SCHOLASTICISM	n.	The method or subtilties of the schools. The spirit of the old scholasticism which spurned laborious investigation and slow induction -
+scholiast	SCHOLIAST	n.	A commentator or annotator; one who writes notes upon the works of another for illustrating his writings
+scholiaze	SCHOLIAZE	v.i.	To write notes on an author's works. [Not used.]
+scholical	SCHOLICAL	a.	Scholastic. [Not in use.]
+scholium	SCHOLIUM	n. pl.	scholia or scholiums. [Latin scholion; Gr. from leisure, lucubration.] In mathematics, a remark or observation subjoined to a demonstration.
+scholy	SCHOLY	n.	A scholium. [Not in use.]
+scholy	SCHOLY	v.i.	To write comments. [Not in use.]
+school	SCHOOL	n.	A place or house in which persons are instructed in arts, science, languages or any species of learning; or the pupils assembled for instruction. In American usage, school more generally denotes the collective body of pupils in any place of instruction, and under the direction and discipline of one or more teachers. Thus we say, a school consists of fifty pupils. The preceptor has a large school or a small school His discipline keeps the school well regulated and quiet.	The instruction or exercises of a collection of pupils or students, or the collective body of pupils while engaged in their studies. Thus we say, the school begins or opens at eight o'clock, that is, the pupils at that hour begin their studies. so we say, the teacher is now in school the school hours are from nine to twelve, and from two to five.	The state of instruction. Set him betimes to school	A place of education, or collection of pupils, of any kind; as the schools of the prophets. In modern usage, the word school comprehends every place of education, as university, college, academy, common or primary schools, dancing schools, riding schools, etc.; but ordinarily the word is applied to seminaries inferior to universities and colleges. What is the great community of christians, but one of the innumerable schools in the vast plan, which God has instituted for the education of various intelligences?	Separate denomination or sect; or a system of doctrine taught by particular teachers, or peculiar to any denomination of christians or philosophers. Let no man be less confident in his faith - by reason of any difference in the several schools of christians - Thus we say, the Socratic school the Platonic school the Peripatetic or Ionic school; by which we understand all those who adopted and adhered to a particular system of opinions.	The seminaries for teaching logic, metaphysics and theology, which were formed in the middle ages, and which were characterized by academical disputations and subtilties of reasoning; or the learned men who were engaged in discussing nice points in metaphysics or theology. The supreme authority of Aristotle in the schools of theology as well as of philosophy - Hence, school divinity is the divinity which discusses nice points, and proves every thing by argument.	Any place of improvement or learning. The world is an excellent school to wise men, but a school of vice to fools.
+school	SCHOOL	v.t.	To instruct; to train; to educate. He's gentle, never school'd, yet learn'd.	To teach with superiority; to tutor; to chide and admonish; to reprove. SCHOOL your child, and ask why God's anointed he revil'd.
+school-boy	SCHOOL-BOY	n.	[See boy.] A boy belonging to a school or one who is learning rudiments.
+school-dame	SCHOOL-DAME	n.	[See Dame.] The female teacher of a school
+school-day	SCHOOL-DAY	n.	[See Day.] The age in which youth are sent to school [Not now used.]
+school-district	SCHOOL-DISTRICT	n.	A division of a town or city for establishing and conducting school [United States.]
+school-fellow	SCHOOL-FELLOW	n.	[See Fellow.] One bred at the same school; an associate in school.
+school-house	SCHOOL-HOUSE	n.	[See House.] A house appropriated for the use of schools, or for instruction; but applied only to building for subordinate schools, not to colleges. In Connecticut and some other states, every town is divided into school-districts, and each district erects its own school-house by a tax on the inhabitants.
+schoolboy	school-boy
+schooldame	school-dame
+schoolday	school-day
+schooldistrict	school-district
+schoolery	SCHOOLERY	n.	Something taught; precepts. [Not used.]
+schoolfellow	school-fellow
+schoolhouse	school-house
+schooling	SCHOOLING	ppr.	Instructing; teaching; reproving.
+schooling	SCHOOLING	n.	Instruction in school; tuition.	Compensation for instruction; price or reward paid to an instructor for teaching pupils.	Reproof; reprimand. He gave his son a good schooling
+schoolmaid	SCHOOLMAID	n.	[See Maid.] A girl at school.
+schoolman	SCHOOLMAN	n.	A man versed in the niceties of academical disputation or of school divinity. Unlearn'd, he knew no schoolman's subtil art.	A writer of scholastic divinity or philosophy. Let subtil schoolmen teach these friends to fight.
+schoolmaster	SCHOOLMASTER	n.	The man who presides over and teaches a school; a teacher, instructor or preceptor of a school. [Applied now only or chiefly to the teachers of primary school.] Adrian VI. was sometimes schoolmaster to Charles V.	He or that which disciplines, instructs and leads. The law was our schoolmaster to bring us to Christ. Galatians 3:24.
+schoolmistress	SCHOOLMISTRESS	n.	[See Mistress.] A woman who governs and teaches a school.
+schooner	SCHOONER	n.	A vessel with two masts, whose main-sail and fore- sail are suspended by gaffs, like a sloop's main-sail, and stretched below by booms.
+schorl	SCHORL		[See Shorl.]
+schware	SCHWARE	n.	A copper coin and money of account in Bremen, value one fifth of a groat, and 72 groats make a thaler, [dollar.]
+sciagraphical	SCIAGRAPHICAL	a.	Pertaining to sciagraphy.
+sciagraphy	SCIAGRAPHY	n.	The art of sketching or delineating.	In architecture, the profile or section of a building to exhibit its interior structure.	In astronomy, the art of finding the hour of the day or night by the shadows of objects, caused by the sun, moon or stars; the art of dialing.
+sciatheric	SCIATHERIC		SCIATHER'ICAL, adjective [Gr. a shadow, and a catching.] Belonging to a sun-dial. [Little used.]
+sciatherical	SCIATHERICAL	a.	Belonging to a sun-dial. [Little used.]
+sciatherically	SCIATHERICALLY	adv.	After the manner of a sun-dial.
+sciatic	SCIATIC		SCIAT'ICA, noun [Latin sciatica, from Gr. pain in the hips, from the hip, from the loin.] Rheumatism in the hip.
+sciatica	SCIATICA	n.	Rheumatism in the hip
+sciatical	SCIATICAL	a.	Pertaining to the hip; as the sciatic artery.	Affecting the hip; as sciatic pains.
+science	SCIENCE	n.	In a general sense, knowledge, or certain knowledge; the comprehension or understanding of truth or facts by the mind. The science of God must be perfect.	In philosophy, a collection of the general principles or leading truths relating to any subject. Pure science as the mathematics, is built on self-evident truths; but the term science is also applied to other subjects founded on generally acknowledged truths, as metaphysics; or on experiment and observation, as chimistry and natural philosophy; or even to an assemblage of the general principles of an art, as the science of agriculture; the science of navigation. Arts relate to practice, as painting and sculpture. A principle in science is a rule in art.	Art derived from precepts or built on principles. Science perfects genius.	Any art or species of knowledge. No science doth make known the first principles on which it buildeth.	One of the seven liberal branches of knowledge, viz grammar, logic, rhetoric, arithmetic, geometry, astronomy and music. [Note - Authors have not always been careful to use the terms art and science with due discrimination and precision. Music is an art as well as a science In general, an art is that which depends on practice or performance, and science that which depends on abstract or speculative principles. The theory of music is a science; the practice of it an art.]
+scient	SCIENT	a.	Skillful. [Not used.]
+sciential	SCIENTIAL		Producing science.
+scientific	SCIENTIFIC		SCIENTIF'ICAL, adjective [Latin scientia and facio, to make.]	Producing certain knowledge or demonstration; as scientific evidence.	According to the rules or principles of science; as a scientific arrangement of fossils.	Well versed in science; as a scientific physician.
+scientifical	SCIENTIFICAL	a.	Producing certain knowledge or demonstration; as scientific evidence.	According to the rules or principles of science; as a scientific arrangement of fossils.	Well versed in science; as a scientific physician.
+scientifically	SCIENTIFICALLY	adv.	In such a manner as to produce knowledge. It is easier to believe, than to be scientifically instructed.	According to the rules or principles of science.
+scillitin	SCILLITIN	n.	[See Squill.] a white transparent acrid substance, extracted from squills by Vogel.
+scimitar	SCIMITAR		[See cimiter.]
+scink	SCINK	n.	a cast calf. [Not in use or local.]
+scintillant	SCINTILLANT	a.	[See Scintillate.] emitting sparks or fine igneous particles; sparkling.
+scintillate	SCINTILLATE	v.i.	To emit sparks or fine igneous particles. Marbles do not scintillate with steel.	to sparkle, as the fixed stars.
+scintillating	SCINTILLATING	ppr.	emitting sparks; sparkling.
+scintillation	SCINTILLATION	n.	the act of emitting sparks or igneous particles; the act of sparkling.
+sciolism	SCIOLISM	n.	[See Sciolist.] Superficial knowledge.
+sciolist	SCIOLIST	n.	One who knows little, or who knows many things superficially; a smatterer. These passages in that book, were enough to humble the presumption of our modern sciolists, if their pride were not as great as their ignorance
+sciolous	SCIOLOUS	a.	Superficially or imperfectly knowing.
+sciomachy	SCIOMACHY	n.	A battle with a shadow. [Little used.]
+scion	SCION		[See Cion.]
+scioptic	SCIOPTIC	a.	Pertaining to the camera obscura, or to the art of exhibiting images through a hole in a darkened room
+scioptic	SCIOPTIC	n.	A sphere or globe with a lens made to turn like the eye; used in experiments with the camera obscura.
+scioptics	SCIOPTICS	n.	The science of exhibiting images of external objects, received through a double convex glass into a darkened room.
+scire facias	SCIRE FACIAS	n.	In law, a judicial writ summoning a person to show cause to the court why something should not be done, as to require sureties to show cause why the plaintiff should not have execution against them for debt and damages, or to require a third person to show cause why goods in his hands by replevin, should not be delivered to satisfy the execution, etc
+sciroc	SCIROC		SCIROC'CO, noun In Italy, a southeast wind; a hot suffocating wind, blowing from the burning deserts of Africa. This name is given also, in the northeast of Italy, to a cold bleak wind from the Alps.
+scirocco	SCIROCCO	n.	In Italy, a southeast wind; a hot suffocating wind, blowing from the burning deserts of Africa. This name is given also, in the northeast of Italy, to a cold bleak wind from the Alps.
+scirrosity	SCIRROSITY	n.	[See Scirrus.] An induration of the glands.
+scirrous	SCIRROUS	a.	Indurated; hard; knotty; as a gland.	Proceeding from scirrus; as scirrous affections; scirrous disease.
+scirrus	SCIRRUS	n.	In surgery and medicine, a hard tumor on any part of the body, usually proceeding from the induration of a gland, and often terminating in a cancer
+sciscitation	SCISCITATION	n.	The act of inquiring; inquiry; demand. [Little used.]
+scissible	SCISSIBLE	a.	Capable of being cut or divided by a sharp instrument; as scissible matter or bodies
+scissile	SCISSILE	a.	That may be cut or divided by a sharp instrument
+scission	SCISSION	n.	The act of cutting or dividing by an edged instrument
+scissors	SCISSORS	n.	siz'zors, plural [Latin scissor, from scindo, to cut, Gr.] A cutting instrument resembling shears, but smaller, consisting of two cutting blades movable on a pin in the center, by which they are fastened. Hence we usually say, a pair of scissors
+scissure	SCISSURE	n.	A longitudinal opening in a body, made by cutting. [This cannot legitimately be a crack, rent or fissure. In this use it may be an error of the press for fissure
+scitamineous	SCITAMINEOUS	a.	Belonging to the Scitamineae, one of Linne's natural orders of plants.
+sclavonian	SCLAVONIAN		SCLEROT'IC, adjective [Gr. hard; hardness.] Hard; firm; as the sclerotic coat or tunicle of the eye.
+sclerotic	SCLEROTIC	a.	Hard; firm; as the sclerotic coat or tunicle of the eye
+sclerotic	SCLEROTIC	n.	The firm white outer coat of the eye.	A medicine which hardens and consolidates the parts to which it is applied.
+scoat	SCOAT		[See Scot.]
+scobiform	SCOBIFORM	a.	Having the form of saw dust or raspings
+scobs	SCOBS	n.	Raspings of ivory, hartshorn or other hard substance; dross of metals, etc
+scoff	SCOFF	v.i.	To treat with insolent ridicule, mockery or contumelious language; to manifest contempt by derision; with at. To scoff at religion and sacred things is evidence of extreme weakness and folly, as well as of wickedness. They shall scoff at the kings. Habakkuk 1:10
+scoff	SCOFF	v.t.	To treat with derision or scorn.
+scoff	SCOFF	n.	Derision, ridicule, mockery or reproach, expressed in language of contempt; expression of scorn or contempt. With scoffs and scorns and contumelious taunts.
+scoffer	SCOFFER	n.	One who scoffs; one that mocks, derides or reproaches in the language of contempt; a scorner. There shall come in the last days scoffers, walking after their own lusts, and saying, 'Where is the promise of his coming?' 2 Peter 3:3.
+scoffing	SCOFFING	ppr.	Deriding or mocking; treating with reproachful language.
+scoffingly	SCOFFINGLY	adv.	In mockery or contempt; by way of derision. Aristotle applied this hemistich scoffingly to the sycophants at Athens.
+scold	SCOLD	v.i.	To find fault or rail with rude clamor; to brawl; to utter railing or harsh, rude, boisterous rebuke; with at; as, to scold at a servant. A scolding tongue, a scolding wife, a scolding husband, a scolding master, who can endure? Pardon me, 'tis the first time that ever I'm forc'd to scold
+scold	SCOLD	v.t.	To chide with rudeness and boisterous clamor; to rate. [The transitive use of this word is of recent origin, at least within my knowledge.]
+scold	SCOLD	n.	A rude, clamorous, foul-mouthed woman. SCOLDs answer foul-mouth'd scolds.	A scolding; a brawl.
+scolder	SCOLDER	n.	One that scolds or rails.
+scolding	SCOLDING	ppr.	Railing with clamor; uttering rebuke in rude and boisterous language.	adjective Given to scolding
+scolding	SCOLDING		The uttering of rude, clamorous language by way of rebuke or railing; railing language.
+scoldingly	SCOLDINGLY	adv.	With rude clamor or railing.
+scollop	SCOLLOP	n.	A pectinated shell. [See Scallop.]	An indenting or cut like those of a shell.
+scollop	SCOLLOP	v.t.	To form or cut with scollops.
+scolopendra	SCOLOPENDRA	n.	A venomous serpent.	A genus of insects of the order of Apters, destitute of wings. These insects have as many feet on each side as there are segments in the body. There are several species.	A plant. [Latin scolopendrium.]
+scomm	SCOMM	n.	A buffoon. [Not in use.]	A flout; a jeer. [Not in use.]
+sconce	SCONCE	n.	A fort or bulwark; a work for defense. obsolete	A hanging or projecting candlestick, generally with a mirror to reflect the light. Golden sconces hang upon the walls.	The circular tube with a brim in a candlestick, into which the candle is inserted, that is, the support, the holder of the candle; and from this sense the candlestick, in the preceding definition, has its name.	A fixed seat or shelf. [Local.]
+sconce	SCONCE	n.	Sense; judgment; discretion or understanding. This sense has been in vulgar use in New England within my memory.	The head; a low word.	A mulet or fine.
+sconce	SCONCE	v.t.	To mulet; to fine. [A low word and not in use.]
+scoop	SCOOP	n.	A large ladle; a vessel with a long handle fastened to a dish, used for dipping liquors; also, a little hollow piece of wood for bailing boats.	An instrument of surgery.	A sweep; a stroke; a swoop.
+scoop	SCOOP	v.t.	To lade out; properly, to take out with a scoop or with a sweeping motion. He scoop'd the water from the crystal flood.	To empty by lading; as, he scooped it dry.	To make hollow, as a scoop or dish; to excavate; as, the Indians scoop the trunk of a tree into a canoe. Those carbuncles the Indians will scoop so as to hold above a pint.	To remove, so as to leave a place hollow. A spectator would think this circular mount had been actually scooped out of that hollow space.
+scoop-net	SCOOP-NET	n.	A net so formed as to sweep the bottom of a river.
+scooped	SCOOPED	pp.	Taken out as with a scoop or ladle; hollowed; excavated; removed so as to leave a hollow.
+scooper	SCOOPER	n.	One that scoops; also, a water fowl.
+scooping	SCOOPING	ppr.	Lading out; making hollow; excavating; removing so as to leave a hollow.
+scoopnet	scoop-net
+scope	SCOPE	n.	The primary sense is to stretch or extend, to reach; properly, the whole extent, space or reach, hence the whole space viewed, and hence the limit or ultimate end.]	Space; room; amplitude of intellectual view; as a free scope for inquiry; full scope for the fancy or imagination; ample scope for genius.	The limit of intellectual view; the end or thing to which the mind directs its view; that which is purposed to be reached or accomplished; hence, ultimate design, aim or purpose; intention; drift. It expresses both the purpose and thing purposed. Your scope is as mine own, so to enforce and qualify the laws, as to your soul seems good. The scope of all their pleading against man's authority, is to overthrow such laws and constitutions of the church -	Liberty; freedom from restraint; room to move in.	Liberty beyond just limits; license. Give him line and scope	Act of riot; sally; excess. obsolete	Extended quantity; as a scope of land. obsolete	Length; extent; sweep; as scope of cable.
+scopiform	SCOPIFORM	a.	Having the form of a broom or besom. Zeolite, stelliform or scopiform
+scoppet	SCOPPET	v.t.	To lade out. [Not in use.]
+scoptical	SCOPTICAL	a.	Scoffing. [Not in use.]
+scopulous	SCOPULOUS	a.	Full of rocks; rocky. [Not in use.]
+scorbute	SCORBUTE	n.	Scurvy. [Not in use.]
+scorbutic	SCORBUTIC		SCORBU'TICAL, adjective [Latin scorbutus, the scurvy. See Scurf, Scurvy.]	Affected or diseased with scurvy; as a scorbutic person.	Pertaining to scurvy, or partaking of its nature; as scorbutic complaints or symptoms.	Subject to scurvy; as a scorbutic habit.
+scorbutical	SCORBUTICAL	a.	Affected or diseased with scurvy; as a scorbutic person.	Pertaining to scurvy, or partaking of its nature; as scorbutic complaints or symptoms.	Subject to scurvy; as a scorbutic habit.
+scorbutically	SCORBUTICALLY	adv.	With the scurvy, or with a tendency to it; as a woman scorbutically affected.
+scorce	SCORCE		[See Scorse.]
+scorch	SCORCH	v.t.	To burn superficially; to subject to a degree of heat that changes the color of a thing, or both the color and texture of the surface. Fire will scorch linen or cotton very speedily in extremely cold weather.	To burn; to affect painfully with heat. Scorched with the burning sun or burning sands of Africa.
+scorch	SCORCH	v.i.	To be burnt on the surface; to be parched; to be dried up. Scatter a little mungy straw and fern among your seedlings, to prevent the roots from scorching.
+scorched	SCORCHED	pp.	Burnt on the surface; pained by heat.
+scorching	SCORCHING	ppr.	Burning on the surface; paining by heat.
+scorching-fennel	SCORCHING-FENNEL	n.	A plant of the genus Thapsia; deadly carrot.
+scorchingfennel	scorching-fennel
+scordium	SCORDIUM	n.	A plant, the water-germander, a species of Teucrium
+score	SCORE	n.	A notch or incision; hence, the number twenty. Our ancestors, before the knowledge of writing, numbered and kept accounts of numbers by cutting notches on a stick or tally, and making one notch the representative of twenty. A simple mark answered the same purpose.	A line drawn.	An account or reckoning; as, he paid his score	An account kept of something past; an epoch; an era.	Debt, or account of debt.	Account; reason; motive. But left the trade, as many more have lately done on the same score	Account; sake. You act your kindness of Cydaria's score	In music, the original and entire draught of any composition, or its transcript. To quit scores, to pay fully; to make even by giving an equivalent. A song in score the words with the musical notes of a song annexed.
+score	SCORE	v.t.	To notch; to cut and chip for the purpose of preparing for hewing; as, to score timber.	To cut; to engrave.	To mark by a line.	To set down as a debt. Madam, I know when, instead of five, you scored me ten.	To set down or take as an account; to charge; as, to score follies.	To form a score in music.
+scored	SCORED	pp.	Notched; set down; marked; prepared for hewing. In botany, a scored stem is marked with parallel lines or grooves.
+scoria	SCORIA	n.	Dross; the recrement of metals in fusion, or the mass produced by melting metals and ores
+scoriaceous	SCORIACEOUS	a.	Pertaining to dross; like dross or the recrement of metals; partaking of the nature of scoria.
+scorification	SCORIFICATION	n.	In metallurgy, the act or operation of reducing a body, either wholly or in part, into scoria.
+scorified	SCORIFIED	pp.	Reduced to scoria.
+scoriform	SCORIFORM	a.	Like scoria; in the form of dross
+scorify	SCORIFY	v.t.	To reduce to scoria or drossy matter.
+scorifying	SCORIFYING	ppr.	Reducing to scoria.
+scoring	SCORING	ppr.	Notching; marking; setting down as an account or debt; forming a score.
+scorious	SCORIOUS	a.	Drossy; recrementitious.
+scorn	SCORN	n.	Extreme contempt; that disdain which springs from a person's opinion of the meanness of an object, and a consciousness or belief of his own superiority or worth. He thought scorn to lay hands on Mordecai alone. Esther 3:6. Every sullen frown and bitter scorn but fann'd the fuel that too fast did burn.	A subject of extreme contempt, disdain or derision; that which is treated with contempt. Thou makest us a reproach to our neighbors, a scorn and a derision to them that are around us. Psalms 44:13. To think scorn to disdain; to despise. obsolete To laugh to scorn to deride; to make a mock of; to ridicule as contemptible. They laughed us to scorn Nehemiah 2:19.
+scorn	SCORN	v.t.	to hold in extreme contempt; to despise; to contemn; to disdain. job. 16. Surely he scorneth the scorner; but he giveth grace to the lowly. Proverbs 3:34.	to think unworth; to disdain. Fame that delights around the world to stray, scorns not to take our Argos in her way.	To slight; to disregard; to neglect. This my long suff'rance and my day of grace, those who neglect and scorn shall never taste.
+scorn	SCORN	v.i.	To scorn at, to scoff at; to treat with contumely, derision or reproach. obsolete
+scorned	SCORNED	pp.	Extremely contemned or despised; disdained.
+scorner	SCORNER	n.	One that scorns; a contemner; a despiser. They are great scorners of death.	A scoffer; a derider; in Scripture, one who scoffs at religion, its ordinances and teachers, and who makes a mock of sin and the judgments and threatenings of God against sinners. Proverbs 1:22, Proverbs 19:25
+scornful	SCORNFUL	a.	Contemptuous; disdainful; entertaining scorn; insolent. Th' enamor'd deity the scornful damsel shuns.	Acting in defiance or disregard. Scornful of winter's frost and summer's sun.	In Scripture, holding religion in contempt; treating with disdain religion and the dispensations of God.
+scornfully	SCORNFULLY	adv.	With extreme contempt; contemptuously; insolently. The sacred rights of the christian church are scornfully trampled on in print -
+scornfulness	SCORNFULNESS	n.	The quality of being scornful.
+scorning	SCORNING	ppr.	Holding in great contempt; despising; disdaining.
+scorning	SCORNING	n.	The act of contemning; a treating with contempt, slight or disdain. How long will the scorners delight in their scorning? Proverbs 1:22. Psalms 123:4.
+scorpion	SCORPION	n.	In zoology, an insect of the genus Scorpio, or rather the genus itself, containing several species, natives of southern or warm climates. This animal has eight feet, two claws in front, eight eyes, three on each side of the thorax and two on the back, and a long jointed tail ending in a pointed weapon or sting. It is found in the south of Europe, where it seldom exceeds four inches in length. In tropical climates, it grows to a foot in length, and resembles a lobster. The sting of this animal is sometimes fatal to life.	In Scripture, a painful scourge; a kind of whip armed with points like a scorpion's tail. 1 Kings 12:11. Malicious and crafty men, who delight in injuring others, are compared to scorpions. Ezekiel 2:6.	In astronomy, the eighth sign of the zodiac, which the sun enters, Oct. 23.	A sea fish. [Latin scorpius.] Water scorpion an aquatic insect of the genus Nepa.
+scorpion-fly	SCORPION-FLY	n.	An insect of the genus Panorna, having a tail which resembles that of a scorpion.
+scorpion-grass	SCORPION-GRASS		SCOR'PION'S TAIL, noun A plant of the genus Scorpiurus, with trailing herbaceous stalks, and producing a pod resembling a caterpillar, whence it is called caterpillars. The mouse-ear scorpion-grass is of the genus Myosotis.
+scorpion-senna	SCORPION-SENNA	n.	A plant of the genus Coronilla.
+scorpion-wort	SCORPION-WORT	n.	A plant, the Ornithopus scorpioides.
+scorpionfly	scorpion-fly
+scorpiongrass	scorpion-grass
+scorpions-thorn	SCORPION'S-THORN	n.	A plant of the genus Ulex.
+scorpionsenna	scorpion-senna
+scorpionsthorn	scorpions-thorn
+scorpionwort	scorpion-wort
+scorse	SCORSE	n.	A course or dealing; barter. obsolete
+scorse	SCORSE	v.t.	To chase. obsolete	To barter or exchange. obsolete
+scorse	SCORSE	v.i.	To deal for the purchase of a horse. obsolete
+scortatory	SCORTATORY	a.	Pertaining to or consisting in lewdness
+scorza	SCORZA	n.	In mineralogy, a variety of epidote
+scot	SCOT		SCOT'AL, SCOT'ALE, noun [scot and ale.] In law, the keeping of an alehouse by the officer of a forest, and drawing people to spend their money for liquor, for fear of his displeasure.
+scotale	SCOTALE	n.	In law, the keeping of an alehouse by the officer of a forest, and drawing people to spend their money for liquor, for fear of his displeasure
+scotch	SCOTCH	v.t.	To support, as a wheel, by placing some obstacle to prevent its rolling. Our wagoners and cartmen scot the wheels of their wagons and carts, when in ascending a hill they stop to give their team rest, or for other purpose. In Connecticut, I have generally heard this word pronounced scot, in Massachusetts, scotch
+scotch-collops	SCOTCH-COLLOPS		SCOTCH-HOPPER, noun A play in which boys hop over scotches or lines in the ground.
+scotch-hopper	SCOTCH-HOPPER	n.	A play in which boys hop over scotches or lines in the ground.
+scotchcollops	scotch-collops
+scotched-collops	SCOTCHED-COLLOPS	n.	Veal cut into small pieces.
+scotchedcollops	scotched-collops
+scotchhopper	scotch-hopper
+scoter	SCOTER	n.	The black diver or duck, a species of Anas.
+scotfree	SCOTFREE	a.	Free from payment or scot; untaxed.	Unhurt; clear; safe.
+scotia	SCOTIA	n.	In architecture, a semicircular cavity or channel between the tores in the bases of columns.
+scotish	SCOTISH		SCO'TIST, noun One of the followers of Scotus, a sect of school divines who maintained the immaculate conception of the virgin, or that she was born without original sin; in opposition to the Thomists, or followers of Thomas Aquinas.
+scotist	SCOTIST	n.	One of the followers of Scotus, a sect of school divines who maintained the immaculate conception of the virgin, or that she was born without original sin; in opposition to the Thomists, or followers of Thomas Aquinas.
+scotomy	SCOTOMY	n.	Dizziness or swimming of the head, with dimness of sight
+scottering	SCOTTERING	n.	A provincial word in Herefordshire, England, denoting the burning of a wad of pease straw at the end of harvest.
+scotticism	SCOTTICISM	n.	An idiom or peculiar expression of the natives of Scotland.
+scottish	SCOTTISH	a.	Pertaining to the inhabitants of Scotland, or to their country or language; as scottish industry or economy; a Scotish chief; the scottish dialect.
+scoundrel	SCOUNDREL	n.	A mean, worthless fellow; a rascal; a low petty villain; a man without honor or virtue. Go, if your ancient but ignoble blood has crept through scoundrels ever since the flood
+scoundrel	SCOUNDREL	a.	Low; base; mean; unprincipled.
+scoundrelism	SCOUNDRELISM	n.	Baseness; turpitude; rascality.
+scour	SCOUR	v.t.	To rub hard with something rough, for the purpose of cleaning; as, to scour a kettle; to scour a musket; to scour armor.	To clean by friction; to make clean or bright.	To purge violently.	To remove by scouring. Never came reformation in a flood with such a heady current, scouring faults.	To range about for taking all that can be found; as, to scour the sea of pirates.	To pass swiftly over; to brush along; as, to scour the coast. Not so when swift Camilla scours the plain.
+scour	SCOUR	v.i.	To perform the business of cleaning vessels by rubbing.	To clean. Warm water is softer than cold, for it scoureth better.	To be purged to excess.	To rove or range for sweeping or taking something. Barbarossa, thus scouring along the coast of Italy -	To run with celerity; to scamper. So four fierce coursers, starting to the race, scour through the plain, and lengthen every pace.
+scoured	SCOURED	pp.	Rubbed with something rough, or made clean by rubbing; severely purged; brushed along.
+scourer	SCOURER	n.	One that scours or cleans by rubbing.	A drastic cathartic.	One that runs with speed.
+scourge	SCOURGE	n.	To whip; a lash consisting of a strap or cord; an instrument of punishment or discipline. A scourge of small cords. John 2:15.	A punishment; vindictive affliction. Famine and plague are sent as scourges for amendment.	He or that which greatly afflicts, harasses or destroys; particularly, any continued evil or calamity. Attila was called the scourge of God, for the miseries he inflicted in his conquests. Slavery is a terrible scourge	A whip for a top.
+scourge	SCOURGE	v.t.	To whip severely; to lash. It is lawful for you to scourge a man that is a Roman? Acts 22:25.	To punish with severity; to chastise; to afflict for sins or faults, and with the purpose of correction. He will scourge us for our iniquities, and will have mercy again. Whom the Lord loveth he chasteneth, and scourgeth every son whom he receiveth. Hebrews 12:1.	To afflict greatly; to harass, torment or injure.
+scourged	SCOURGED	pp.	Whipped; lashed; punished severely; harassed.
+scourger	SCOURGER	n.	One that scourges or punishes; one that afflicts severely.
+scourging	SCOURGING	ppr.	Whipping; lashing with severity; punishing or afflicting severely.
+scouring	SCOURING	ppr.	Rubbing hard with something rough; cleaning by rubbing; cleansing with a drastic cathartic; ranging over for clearing.
+scouring	SCOURING	n.	A rubbing hard for cleaning; a cleansing by a drastic purge; looseness; flux.
+scourse	SCOURSE		[See Scorse.]
+scout	SCOUT	n.	In military affairs, a person sent before an army, or to a distance, for the purpose of observing the motions of an enemy or discovering any danger, and giving notice to the general. Horsemen are generally employed as scouts.	A high rock. [Not in use.]
+scout	SCOUT	v.i.	To go on the business of watching the motions of an enemy; to act as a scout With obscure wing scout far and wide into the realm of night.
+scout	SCOUT	v.t.	To sneer at; to treat with disdain and contempt. [This word is in good use in America.]
+scovel	SCOVEL	n.	A mop for sweeping ovens; a maulkin
+scow	SCOW	n.	A large flat bottomed boat; used as a ferry boat, or for loading and unloading vessels. [A word in good use in New England.
+scow	SCOW	v.t.	To transport in a scow
+scowl	SCOWL	v.i.	To wrinkle the brows, as in frowning or displeasure; to put on a frowning look; to look sour, sullen, severe or angry. She scowl'd and frown'd with froward countenance.	To look gloomy, frowning, dark or tempestuous; as the scowling heavens.
+scowl	SCOWL	v.t.	To drive with a scowl or frowns.
+scowl	SCOWL	n.	The wrinkling of the brows in frowning; the expression of displeasure, sullenness or discontent in the countenance.	Gloom; dark or rude aspect; as of the heavens.
+scowling	SCOWLING	ppr.	contracting the brows into wrinkles; frowning; expressing displeasure or sullenness.
+scowlingly	SCOWLINGLY	adv.	With a wrinkled, frowning aspect; with a sullen look.
+scrabble	SCRABBLE	v.i.	To scrape, paw or scratch with the hands; to move along on the hands and knees by clawing with the hands; to scramble; as, to scrabble up a cliff or a tree. [a word in common popular use in New England, but not elegant.]	To make irregular or crooked marks; as, children scrabble when they begin to write; hence, to make irregular and unmeaning marks. David - scrabbled on the doors of the gate. 1 Samuel 21:13.
+scrabble	SCRABBLE	v.t.	To mark with irregular lines or letters; as, to scrabble paper.
+scrabbling	SCRABBLING	ppr.	Scraping; scratching; scrambling; making irregular marks.
+scrag	SCRAG	n.	Something thin or lean with roughness. A raw boned person is called a scrag but the word is vulgar
+scragged	SCRAGGED		SCRAG'GEDNESS, SCRAG'GILY, adverb With leanness and roughness.
+scraggily	SCRAGGILY	adv.	With leanness and roughness.
+scragginess	SCRAGGINESS	n.	Leanness, or leanness with roughness; ruggedness; roughness occasioned by broken irregular points.
+scraggy	SCRAGGY	a.	Rough with irregular points or a broken surface; as a scraggy hill; a scragged back bone.	Lean with roughness.
+scramble	SCRAMBLE	v.i.	To move or climb by seizing objects with the hand, and drawing the body forward; as, to scramble up a cliff.	To seize or catch eagerly at any thing that is desired; to catch with haste preventive of another; to catch at without ceremony. Man originally was obliged to scramble with wild beasts for nuts and acorns. Of other care they little reck'ning make, than how to scramble at the shearer's feast.
+scramble	SCRAMBLE	n.	An eager contest for something, in which one endeavors to get the thing before another. The scarcity of money enhances the price and increases the scramble	The act of climbing by the help of the hands.
+scrambler	SCRAMBLER	n.	One who scrambles; one who climbs by the help of the hands.
+scrambling	SCRAMBLING	ppr.	Climbing by the help of the hands.	Catching at eagerly and without ceremony.
+scrambling	SCRAMBLING	n.	The act of climbing by the help of the hands.	The act of seizing or catching at with eager haste and without ceremony.
+scranch	SCRANCH	v.t.	To grind with the teeth, and with a crackling sound; to craunch. [This is in vulgar use in America.]
+scrannel	SCRANNEL	a.	Slight; poor. Grate on their scrannel pipes of wretched straw. [Not in use.]
+scrap	SCRAP	n.	A small piece; properly something scraped off, but used for any thing cut off; a fragment; a crumb; as scraps of meat.	A part; a detached piece; as scraps of history or poetry; scraps of antiquity; scraps of authors.	A small piece of paper. [If used for script, it is improper.]
+scrape	SCRAPE	v.t.	To rub the surface of any thing with a sharp or rough instrument, or with something hard; as, to scrap the floor; to scrape a vessel for cleaning it; to scrape the earth; to scrape the body. Job 2:8.	To clean by scraping. Leviticus 14:41.	To remove or take off by rubbing. I will also scrape her dust from her, and make her like the top of a rock. Ezekiel 26:4.	To act upon the surface with a grating noise. The chiming clocks to dinner call; a hundred footsteps scrape the marble hall. To scrape off, to remove by scraping; to clear away by rubbing. To scrape together, to gather by close industry or small gains or savings; as, to scrape together a good estate.
+scrape	SCRAPE	v.i.	To make a harsh noise.	To play awkwardly on a violin.	To make an awkward bow. To scrape acquaintance, to make one's self acquainted; to curry favor. [A low phrase introduced from the practice of scraping in bowing.]
+scrape	SCRAPE	n.	A rubbing.	The sound of the foot drawn over the floor.	A bow.	Difficulty; perplexity; distress; that which harasses. [A low word.]
+scraped	SCRAPED	pp.	Rubbed on the surface with a sharp or rough instrument; cleaned by rubbing; cleared away by scraping.
+scraper	SCRAPER	n.	An instrument with which any thing is scraped; as a scraper for shoes.	An instrument drawn by oxen or horses, and used for scraping earth in making or repairing roads, digging cellars, canals, etc.	An instrument having two or three sides or edges, for cleaning the planks, masts or decks of a ship, etc.	A miser; one who gathers property by penurious diligence and small savings; a scrape-penny.	An awkward fiddler.
+scraping	SCRAPING	ppr.	Rubbing the surface with something sharp or hard; cleaning by a scraper; removing by rubbing; playing awkwardly on a violin.
+scrat	SCRAT	v.t.	To scratch. [Not in use.]
+scrat	SCRAT	v.i.	To rake; to search. [Not in use.]
+scrat	SCRAT	n.	An hermaphrodite. [Not in use.]
+scratch	SCRATCH	v.t.	To rub and tear the surface of any thing with something sharp or ragged; as, to scratch the cheeks with the nails; to scratch the earth with a rake; to scratch the hands or face by riding or running among briers. A sort of small sand-colored stones, so hard as to scratch glass.	To wound slightly.	To rub with the nails. Be mindful, when invention fails, to scratch your head and bite your nails.	To write or draw awkwardly; as, to scratch out a pamphlet. [Not in use.]	To dig or excavate with the claws. Some animals scratch holes in which they burrow. To scratch out, to ease; to rub out; to obliterate.
+scratch	SCRATCH	v.i.	To use the claws in tearing the surface. The gallinaceous hen scratches for her chickens. - Dull tame things that will neither bite nor scratch
+scratch	SCRATCH	n.	A rent; a break in the surface of a thing made by scratching, or by rubbing with any thing pointed or ragged; as a scratch on timber or glass. The coarse file - makes deep scratches in the work. These nails with scratches shall deform my breast.	A slight wound. Heav'n forbid a shallow scratch should drive the prince of Wales from such a field as this.	A kind of wig worn for covering baldness or gray hairs, or for other purpose.
+scratched	SCRATCHED	pp.	Torn by the rubbing of something rough or pointed.
+scratcher	SCRATCHER	n.	He or that which scratches.
+scratches	SCRATCHES	n. pl.	Cracked ulcers on a horse's foot, just above the hoof.
+scratching	SCRATCHING	ppr.	Rubbing with something pointed or rough; rubbing and tearing the surface.
+scratchingly	SCRATCHINGLY	adv.	With the action of scratching.
+scraw	SCRAW	n.	Surface; cut turf. [Not in use.]
+scrawl	SCRAWL	v.t.	To draw or mark awkwardly and irregularly.	To write awkwardly.
+scrawl	SCRAWL	v.i.	To write unskillfully and inelegantly. Though with a golden pen you scrawl	To creep; to crawl. [This is from crawl, but I know not that it is in use.]
+scrawl	SCRAWL	n.	Unskillful or inelegant writing; or a piece of hasty bad writing.	In New England, a ragged, broken branch of a tree, or other brush wood.
+scrawler	SCRAWLER	n.	One who scrawls; a hasty or awkward writer.
+scray	SCRAY	n.	A fowl called the sea swallow, of the genus Terna.
+screable	SCREABLE	a.	That may be spit out. obsolete
+screak	SCREAK	v.i.	To utter suddenly a sharp shrill sound or outcry; to scream; as in a sudden fright; also, to creak, as a door or wheel. [See Screech.] [When applied to things, we use creak, and when to persons, shriek, both of which are elegant.]
+screak	SCREAK	n.	A creaking; a screech.
+scream	SCREAM	v.i.	To cry out with a shrill voice; to utter a sudden, sharp outcry, as in a fright or in extreme pain; to shriek. The fearful matrons raise a screaming cry.	To utter a shrill harsh cry; as the screaming owl.
+scream	SCREAM	n.	A shriek or sharp shrill cry uttered suddenly, as in terror or in pain; or the shrill cry of a fowl; as screams of horror.
+screamer	SCREAMER	n.	A fowl, or genus of fowls, of the grallic order, of two species, natives of America.
+screaming	SCREAMING	ppr.	Uttering suddenly a sharp shrill cry; crying with a shrill voice.
+screaming	SCREAMING	n.	The act of crying out with a shriek of terror or agony.
+screech	SCREECH	v.i.	[See Screak and Shriek.]	To cry out with a sharp shrill voice; to utter a sudden shrill cry, as in terror or acute pain; to scream; to shriek.	To utter a sharp cry, as an owl; thence called screech-owl.
+screech	SCREECH	n.	A sharp shrill cry uttered in acute pain, or in a sudden fright.	A harsh shrill cry, as of a fowl.
+screech-owl	SCREECH-OWL	n.	An owl that utters a harsh disagreeable cry at night, no more ominous of evil than the notes of the nightingale.
+screeching	SCREECHING	ppr.	Uttering a shrill or harsh cry.
+screechowl	screech-owl
+screed	SCREED	n.	With plasterers, the floated work behind a cornice.
+screen	SCREEN	n.	Any thing that separates or cuts off inconvenience, injury or danger,; and hence, that which shelters or protects from danger, or prevents inconvenience. Thus a screen is used to intercept the sight, to intercept the heat of fire on the light of a candle. Some ambitious men seem as screens to princes in matters of danger and envy.	A riddle or sieve.
+screen	SCREEN	v.t.	To separate or cut off from inconvenience, injury or danger; to shelter; to protect; to protect by hiding; to conceal; as fruits screened from cold winds by a forest or hill. Our houses and garments screen us from cold; an umbrella screens us from rain and the sun's rays. Neither rank nor money should screen from punishment the man who violates the laws.	To sift or riddle; to separate the coarse part of any thing from the fine, or the worthless from the valuable.
+screened	SCREENED	pp.	Protected or sheltered from injury or danger; sifted.
+screening	SCREENING	ppr.	Protecting from injury or danger.
+screw	SCREW	n.	A cylinder of wood or metal, grooved spirally; or a cylinder with a spiral channel or thread cut in such a manner that it is equally inclined to the base of the cylinder throughout the whole length. A screw is male or female. In the male screw the thread rises from the surface of the cylinder; in the female, the groove or channel is sunk below the surface to receive the thread of the male screw	One of the six mechanical powers.
+screw	SCREW	v.t.	To turn or apply a screw to; to press, fasten or make firm by a screw; as, to screw a lock on a door; to screw a press.	To force; to squeeze; to press.	To oppress by exactions. Landlords sometimes screw and rack their tenants without mercy.	To deform by contortions; to distort. He screw'd his face into a harden'd smile. To screw out, to press out; to extort. To screw up to force; to bring by violent pressure; as, to screw up the pins of power too high. To screw in, to force in by turning or twisting.
+screw-tree	SCREW-TREE	n.	A plant of the genus Helicteres, of several species, natives of warm climates. They are shrubby plants, with yellow flowers, and capsules intorted or twisted inward.
+screwed	SCREWED	pp.	Fastened with screws; pressed with screws; forced.
+screwer	SCREWER	n.	He or that which screws.
+screwing	SCREWING	ppr.	Turning a screw; fastening or pressing with a screw.
+screwtree	screw-tree
+scribble	SCRIBBLE	v.t.	To write with haste, or without care or regard to correctness or elegance; as, to scribble a letter or pamphlet.	To fill with artless or worthless writing.
+scribble	SCRIBBLE	v.i.	To write without care or beauty. If Maevius scribble in Apollo's spite.
+scribble	SCRIBBLE	n.	Hasty or careless writing; a writing of little value; as a hasty scribble
+scribbled	SCRIBBLED	pp.	Written hastily and without care.
+scribbler	SCRIBBLER	n.	A petty author; a writer of no reputation. The scribbler pinch'd with hunger, writes to dine.
+scribe	SCRIBE	n.	In a general sense, a writer. Hence,	A notary; a public writer.	In ecclesiastical meetings and associations in America, a secretary or clerk; one who records the transactions of an ecclesiastical body.	In Scripture and the Jewish history, a clerk or secretary to the king. Seraiah was scribe to king David. 2 Samuel 8:17.	An officer who enrolled or kept the rolls of the army, and called over the names and reviewed them. 2 Chronicles 24:11. 2 Kings 25:19.	A writer and a doctor of the law; a man of learning; one skilled in the law; one who read and explained the law to the people. Ezra 8:1.
+scribe	SCRIBE	v.t.	To mark by a model or rule; to mark so as to fit one piece to another; a term used by carpenters and joiners.
+scrimer	SCRIMER	n.	A fencing-master. obsolete
+scrimp	SCRIMP	v.t.	To contract; to shorten; to make too small or short; to limit or straiten; as, to scrimp the pattern of a coat.
+scrimp	SCRIMP	a.	Short; scanty.
+scrimp	SCRIMP	n.	A pinching miser; a niggard; a close fisted person.
+scrine	SCRINE	n.	A shrine; a chest, book-case or other place where writings or curiosities are deposited. [See shrine, which is generally used.]
+scringe	SCRINGE	v.i.	To cringe, of which this word is a corruption.
+scrip	SCRIP	n.	A small bag; a wallet; a satchel. David put five smooth stones in a scrip 1 Samuel 17:40. Matthew 10:10
+scrip	SCRIP	n.	A small writing, certificate or schedule; a piece of paper containing a writing. Bills of exchange cannot pay our debts abroad, till scrips of paper can be made current coin. A certificate of stock subscribed to a bank or other company, or of a share of other joint property, is called in America a scrip
+scrippage	SCRIPPAGE	n.	That which is contained in a scrip. [Not in use.]
+script	SCRIPT	n.	A scrip. [Not in use.]
+scriptory	SCRIPTORY	a.	Written; expressed in writing; not verbal. [Little used.]
+scriptural	SCRIPTURAL	a.	Contained in the Scriptures, so called by way of eminence, that is, in the Bible; as a scriptural word, expression or phrase.	According to the Scriptures or sacred oracles; as a scriptural doctrine.
+scripturalist	SCRIPTURALIST	n.	One who adheres literally to the Scriptures and makes them the foundation of all philosophy.
+scripture	SCRIPTURE	n.	In its primary sense, a writing; any thing written.	Appropriately, and by way of distinction, the books of the Old and New Testament; the Bible. The word is used either in the singular or plural number, to denote the sacred writings or divine oracles, called sacred or holy, as proceeding from God and containing sacred doctrines and precepts. There is not any action that a man ought to do or forbear, but the scripture will give him a clear precept or prohibition for it. Compared with the knowledge which the Scriptures contain, every other subject of human inquiry is vanity and emptiness.
+scripturist	SCRIPTURIST	n.	One well versed in the Scriptures.
+scrivener	SCRIVENER	n.	A writer; one whose occupation is to draw contracts or other writings.	One whose business is to place money at interest.
+scrofula	SCROFULA	n.	A disease, called vulgarly the king's evil, characterized by hard, scirrous, and often indolent tumors in the glands of the neck, under the chin, in the arm-pits, etc
+scrofulous	SCROFULOUS	a.	Pertaining to scrofula, or partaking of its nature; as scrofulous tumors; a scrofulous habit of body.	Diseased or affected with scrofula. Scrofulous persons can never be duly nourished.
+scroll	SCROLL	n.	A roll of paper or parchment; or a writing formed into a roll. Here is the scroll of every man's name. The heavens shall be rolled together as a scroll Isaiah 34:4
+scrotum	SCROTUM	n.	The bag which contains the testicles.
+scroyle	SCROYLE	n.	A mean fellow; a wretch. [Not in use.]
+scrub	SCRUB	v.t.	To rub hard, either with the hand or with a cloth or an instrument; usually, to rub hard with a brush, or with something coarse or rough, for the purpose of cleaning, scouring or making bright; as, to scrub a floor; to scrub a deck; to scrub vessels of brass or other metal
+scrub	SCRUB	v.i.	To be diligent and penurious; as, to scrub hard for a living.
+scrub	SCRUB	n.	A mean fellow; one that labors hard and lives meanly.	Something small and mean. No little scrub joint shall come on my board.	A worn out brush.
+scrubbed	SCRUBBED		SCRUB'BY, adjective Small and mean; stunted in growth; as a scrubbed boy; a scrubby cur; a scrubby tree.
+scrubby	SCRUBBY	a.	Small and mean; stunted in growth; as a scrubbed boy; a scrubby cur; a scrubby tree.
+scruf	SCRUF		for scurf, not in use.
+scruple	SCRUPLE	n.	Doubt; hesitation from the difficulty of determining what is right or expedient; backwardness; reluctance to decide or to act. A man of fashionable honor makes no scruple to take another's life, or expose his own. He has no scruples of conscience, or he despises them.	A weight of twenty grains, the third part of a dram; among goldsmiths, the weight of 24 grains.	Proverbially, a very small quantity.	In Chaldean chronology, the 1/1080 part of an hour; a division of time used by the Jews, Arabs, etc.. Scruple of half duration, an arch of the moon's orbit, which the moon's center describes from the beginning of an eclipse to the middle. Scruples of immersion or incidence, an arch of the moon's orbit, which her center describes from the beginning of the eclipse to the time when its center falls into the shadow. Scruples of emersion, an arch of the moon's orbit, which her center describes in the time from the first emersion of the moon's limb to the end of the eclipse.
+scruple	SCRUPLE	v.i.	To doubt; to hesitate. He scrupl'd not to eat, against his better knowledge.
+scruple	SCRUPLE	v.t.	To doubt; to hesitate to believe; to question; as, to scruple the truth or accuracy of an account or calculation.
+scrupled	SCRUPLED	pp.	Doubted; questioned.
+scrupler	SCRUPLER	n.	A doubter; one who hesitates.
+scrupling	SCRUPLING	ppr.	Doubting; hesitating; questioning.
+scrupulosity	SCRUPULOSITY	n.	The quality or state of being scrupulous; doubt; doubtfulness respecting some difficult point, or proceeding from the difficulty or delicacy of determining how to act; hence, the caution or tenderness arising from the fear of doing wrong or offending. The first sacrilege is looked upon with some horror; but when they have once made the breach, their scrupulosity soon retires.	Nicety of doubt; or nice regard to exactness and propriety. So careful, even to scrupulosity were they to keep their sabbath.	Niceness; preciseness.
+scrupulous	SCRUPULOUS	a.	Nicely doubtful; hesitating to determine or to act; cautious in decision from a fear of offending or doing wrong. Be careful in moral conduct, not to offend scrupulous brethren. ***************************************************************** The judges that say upon the jail, and those that attended, sickened upon it and died.	To be satiated; to be filled to disgust.	To become disgusting or tedious. The toiling pleasure sickens into pain.	To be disgusted; to be filled with aversion or abhorrence. He sickened at the sight of so much human misery.	To become weak to decay; to languish. Plants often sicken and die. All pleasures sicken, and all glories sink.
+scrupulously	SCRUPULOUSLY	adv.	With a nice regard to minute particulars or to exact propriety. The duty consists not scrupolously in minutes and half hours. Taylor. Henry was scrupulously careful not to ascribe the sucess to himself. Addison.
+scrupulousness	SCRUPULOUSNESS	n.	The state or quality of being scrupulous; niceness, exactness or caution in determining or in acting, from a regard to truth, propriety or expedience.
+scrutable	SCRUTABLE	a.	[See Scrutiny.] Discoverable by inquiry or critical examination.
+scrutation	SCRUTATION	n.	Search; scrutiny.
+scrutator	SCRUTATOR	n.	One that scrutinizes; a close examiner or inquirer
+scrutinize	SCRUTINIZE	v.t.	To search closely; to examine or inquire into critically; as, to scrutinize the measures of administration; to scrutinize the private conduct or motives of individuals
+scrutinized	SCRUTINIZED	pp.	Examined closely.
+scrutinizer	SCRUTINIZER	n.	One who examines with critical care.
+scrutinous	SCRUTINOUS	a.	Closely inquiring or examining; captious.
+scrutiny	SCRUTINY	n.	Close search; minute inquiry; critical examinatiion; as a scrutiny of votes; narrower scrutiny. In the heat of debate, observations may escape a prudent man which will not bear the test of scrutiny.	In the primitive church, an examination of catechumens in the last week of Lent, who were to receive baptism on Easter-day. This was performed with prayers, exorcisms and many other ceremonies.	In the canon law, a ticket or little paper billet on which a vote is written.
+scrutoir	SCRUTOIR	n.	A kind of desk, case of drawers or cabinet, with a lid opening downward for the convenience of writing on it.
+scruze	SCRUZE	v.t.	To crowd; to squeeze.
+scud	SCUD	v.i.	In a gereral sense, to be driven or to flee or fly with haste. In seamen's language, to be driven with precipitation before a tempest. This is done with a sail extended on the foremast of the ship, or when the wind is too violent, without any sail set, which is called scudding under bare poles.	To run with precipitation; to fly.
+scud	SCUD	n.	A low thin cloud, or thin clould driven by the wind.	A driving along; a rushing with precipitation.
+scudding	SCUDDING	ppr.	Driving or being driven before a tempest; running with fleetness.
+scuddle	SCUDDLE	v.i.	To run with a kind of affected haste; commonly pronounced scuttle.
+scuffle	SCUFFLE	n.	A contention or trial of strength between two persons, who embrace each other's bodies; a struggle with close embrace, to decide which shall throw the other; in distinction from from wrestling, which is a trial of strength and dexterity at arm's lenght. Among our common people, it is not unusual for two persons to commence a contest by wrestling, and at last close in, as it is called, and decide the contest by a scuffle.	A confused contest; a tumultuous struggle for victory or superiority; a fight. The dog leaps upon the serpent and tears it to pieces; but in the scuffle, the cradle happened to be overturned. L' Estrange.
+scuffle	SCUFFLE	v.i.	To strive or struggle with close embrace, as two men or boys,	To strive or contend tumultuously, as small parties. A gallant man prefers to fight to great disadvantages in the field, in an orderly way, rather than to scuffle with an undisciplined rabble. K. Charles.
+scuffler	SCUFFLER	n.	One who scuffles.
+scuffling	SCUFFLING	ppr.	Striving for superiority with close embrace; struggling for contending without order.
+scug	SCUG	v.t.	To hide.
+sculk	SCULK	v.i.	To retire into a close or covered place for concealment; to lurl; to lie close from shame, fear of injury or detection. No news of Phyl! the bridegroom came, and thought his bride had sculk'd for shame. Swift. And sculk behind the subterfuge of art. Prior.
+sculker	SCULKER	n.	A lurker; one that lies close for hiding.
+sculking	SCULKING	ppr.	Withdrawing into a close or covered place for concealment; lying close.
+scull	SCULL	n.	The brain pan.	A boat; a cock boat.	One who scull a boat. But properly.	A short oar, whose loom is only equal in length to half the breadth of the boat to be rowed, so that one man can manage two, one on each side.	A shoal or multitude of fish.
+scull	SCULL	v.t.	To impel a boat by moving and turning an oar over the stern.
+scullcap	SCULLCAP		[See Skull-cap.]
+sculler	SCULLER	n.	A boat rowed by one man with two sculls or short oars.	One that sculls, or rows with sculls; one that impels a boat by an oar over the stern.
+scullery	SCULLERY	n.	A place where dishes, kettles and other culinary utensils are kept
+scullion	SCULLION	n.	A servant taht cleans pots and kettles, and does other menial services in the kitchen.
+scullionly	SCULLIONLY	a.	Like a scullion; base; low; mean.
+sculp	SCULP	v.t.	To carve; to engrave
+sculptile	SCULPTILE	a.	Formed by carving; as sculptile images
+sculptor	SCULPTOR	n.	One whose occupation is to carve wood or stone int images; a carver
+sculpture	SCULPTURE	n.	The art of carving, cutting or hewing wood or stone into images of men, beasts or other things. Sculpture is a generic term, including carving or statuary and engraving.	Carved work. There too, in living sculpture, might be seen The mad affection of the Cretan queen. Dryden.	The art of engraving on copper.
+sculpture	SCULPTURE	v.t.	To carve; to engrave; to form images or figures with the chisel on wood, stone or metal.
+sculptured	SCULPTURED	pp.	Carved; engraved; as a sculptured vase; sculptured marble.
+sculpturing	SCULPTURING	ppr.	Carving; engraving.
+scum	SCUM	n.	The extraneous matter or impurities which rise to the surface of liquors in boiling or fermentation, or which form on the surface by other means. The word is also applied to the scoria of metals.	The refuse; the recrement; that which is vile or worthless. The great and the innocent are insulted by the scum and refuse of the people. Addison.
+scum	SCUM	v.t.	To take the scum from; to clear off the impure matter from the surface; to skim. You that scum the molten lead. Dryden.
+scumber	SCUMBER	n.	The dung of the fox.
+scummed	SCUMMED	pp.	Cleaned of scum; skimmed.
+scummer	SCUMMER	n.	An instrument used for taking off the scum of liquors; a skimmer.
+scumming	SCUMMING	ppr.	Clearing of scum; slimming.
+scummings	SCUMMINGS	n.	The matter skimmed from boiling liquors; as the scummings of the boiling house.
+scupper	SCUPPER	n.	The scuppers or scupper holes of a ship, are channels cut through the water ways and sides of a ship at proper distances, and lined with lead for carrying off the water from the deck.
+scupper-hose	SCUPPER-HOSE	n.	A lethern pipe attached to the mouth of the scuppers of the lower deck of a ship, to prevent the water from entering.
+scupper-nail	SCUPPER-NAIL	n.	A nail with a very broad head for covering a large surface of the hose.
+scupper-plug	SCUPPER-PLUG	n.	A plug to stop a scupper.
+scupperhose	scupper-hose
+scuppernail	scupper-nail
+scupperplug	scupper-plug
+scurf	SCURF	n.	A dry military scab or crust formed on the skin of an animal.	The soil or foul remains of any thing adherent; as the scurf of crimes. [Not common nor elegant.] Dryden.	Any thing adhering to the surface. There stood a hill, whose grisly top Shone with a glossy scurf. Milton.
+scurff	SCURFF	n.	Another name for the bulltrout.
+scurfiness	SCURFINESS	n.	The state of being scurfy.
+scurfy	SCURFY	a.	Having scurf; covered with scurf.	Resembling scurf.
+scurril	SCURRIL	a.	Such as befits a buffoon or vulgar jester; low; mean; grossly opprobrious in language; scurrilour; as scurril jests; scurril scoffing; scurril taunts
+scurrility	SCURRILITY	n.	Such low. vulgar, indecent or abusive language as is used by mean fellows, buffoons, jesters and the like; grossness of reproach or invective; obscene jests, etc. Banish scurrility and profaneness. Dryden
+scurrilous	SCURRILOUS	a.	Using the low and indecent language of the meaner sort of people, or such as only the licence of buffoons can warrant; as a scurrilous fellow.	Containing low indecency or abuse; mean; foul; vile; obscenely jocular; as scurrilous language.
+scurrilously	SCURRILOUSLY	adv.	With gross reproach; with low indecent language. It is barbarous incivility, scurrilously to sport with what others count religion. Tillotson.
+scurrilousness	SCURRILOUSNESS	n.	Indecency of language; vulgarity; baseness of manners.
+scurtinizing	SCURTINIZING	ppr.	Inquiring into with critical minuteness or exactness.
+scurvily	SCURVILY	adv.	Basely; meanly; with coarse and vulgar incivility. The clergy were never more learned, or so scurvily treated. Swift
+scurviness	SCURVINESS	n.	The state of being scurvy
+scurvogel	SCURVOGEL	n.	A Brazilian fowl of the stork kind, the jabiru guacu.
+scurvy	SCURVY	n.	A disease characterized by great debility, a pale bloated face, bleeding spongy gums, large livid tumors on the body, offensive breath, aversion to exercise, oppression at the breast or difficult respiration, a smooth, dry, shining skin, etc.; a disease most incident to persons who live confined, or on salted meats without fresh vegetables in cold climates
+scurvy	SCURVY	a.	Scurfy; covered or affected by scurf or scabs; scabby; diseased with scurvy	Vile; mean; low; vulgar; worthless; contemptible; as a scurvy fellow. He spoke scurvy and provoking terms. Shak. That scurvy custom of taking tobacco. Swift.
+scurvy-grass	SCURVY-GRASS	n.	A plant of the genus Cochlearia; spoonwort. It grows on rocks near the sea, has an acrid, bitter taste, and is remarkable as a remedy for the scurvy. It is eaten raw as a salad.
+scurvygrass	scurvy-grass
+scuses	SCUSES		for excuses.
+scut	SCUT	n.	The tail of a hare or other animal whose tail is short.
+scutage	SCUTAGE	n.	In English history, a tax or contributiion levied upon those who held lands by knight service; originally, a composition for personal service which the tenant owed to his lord, but afterward levied as an assessment. Blackstone
+scutcheon	SCUTCHEON		A contractiion of escutcheon, which see.
+scute	SCUTE	n.	A french gold coin of 3s. 4d. sterling
+scutellated	SCUTELLATED	a.	Formed like a pan; divided into small surfaces; as the scutellated bone of a sturgeon
+scutiform	SCUTIFORM	a.	Having a form of a buckler or shield
+scuttle	SCUTTLE	n.	A broad shallow basket; so called from its resemblance to a dish
+scuttle	SCUTTLE	n.	In ships, a small hatchway or opening in the deck, large enough to admit a man, and with a lid for covering it; also, a like hole in the side of a ship, and through the coverings of her hatchways, etc.	A square hole in the roof of a house, with a lid.	[from scud, and properly scuddle.] A quick pace; a short run.
+scuttle	SCUTTLE	v.i.	To run with affected precipitation.
+scuttle	SCUTTLE	v.t.	To cut large holes through the bottom or sides of a ship for any purpose.	To sink by making holes through the bottom; as, to scuttle a ship.
+scuttle-butt	SCUTTLE-BUTT	n.	A butt or cask having a square piece sawn out of its lilge, and lashed
+scuttle-cask	SCUTTLE-CASK		upon deck.
+scuttle-fish	SCUTTLE-FISH	n.	The cuttle-fich, so called. [See Cuttle-fish.]
+scuttlebutt	scuttle-butt
+scuttlecask	scuttle-cask
+scuttled	SCUTTLED	pp.	Having holes made in the bottom or sides; sunk by means of cutting holes in the bottom or side.
+scuttlefish	scuttle-fish
+scuttling	SCUTTLING	ppr.	Cutting holes in the bottom or sides; sinking by such holes.
+scytale	SCYTALE	n.	A species of serpent.
+scythe	SCYTHE		A wrong spelling. [See Sythe.]
+scythian	SCYTHIAN	a.	Pretaining to Scythia, a name given to the northern part of Asia, and Europe adjoining to Asia.
+scythian	SCYTHIAN	n.	[See Scot.] A native of Scythia.

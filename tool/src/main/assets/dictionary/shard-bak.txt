@@ -1,0 +1,14 @@
+bake	BAKE	v.t.	To heat, dry and harden, as in an oven or furnace, or under coals of fire; to dress and prepare for food, in a close place heated; as, to bake bread.	To dry and harden by heat, either in an oven, kiln or furnace, or by the solar rays; as, to bake bricks; to bake the ground.
+bake	BAKE	v.i.	To do the work of baking; as, she brews, washes and bakes.	To be baked; to dry and harden in heat; as, the bread bakes, the ground bakes in a hot sun.
+baked	BAKED	pp.	Dried and hardened by heat; dressed in heat; as baked meat.
+bakehouse	BAKEHOUSE	n.	A house or building for baking
+bakemeats	BAKEMEATS	n.	Meats prepared for food in an oven. Gen.xl.
+baken	BAKEN	pp.	The same as baked, and nearly obsolete.
+baker	BAKER	n.	One whose occupation is to bake bread, biscuit, etc.
+baker-foot	BAKER-FOOT	n.	An ill-shaped or distorted foot.
+baker-legged	BAKER-LEGGED	a.	One who has crooked legs, or legs that bend inward at the knees.
+bakerfoot	baker-foot
+bakerlegged	baker-legged
+bakery	BAKERY	n.	The trade of a baker.	A place occupied with the business of baking bread, etc.
+baking	BAKING	ppr.	Drying and hardening in heat; dressing or cooking in a close place, or in heat.
+baking	BAKING	n.	The quantity baked at once; as a baking of bread.

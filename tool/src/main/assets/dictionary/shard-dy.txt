@@ -1,0 +1,24 @@
+dye	DYE	v.t.	To stain; to color; to give a new and permanent color to; applied particularly to cloth or the materials of cloth, as wool, cotton, silk and linen; also to hats, leather, etc. It usually expresses more or a deeper color than tinge
+dyed	DYED	pp.	Stained; colored.
+dyeing	DYEING	ppr.	Staining; giving a new and permanent color.
+dyeing	DYEING	n.	The art or practice of giving new and permanent colors; the art of coloring cloth, hats, etc.
+dyer	DYER	n.	One whose occupation is to dye cloth and the like.
+dying	DYING	ppr.	Losing life; perishing; expiring; fading away; languishing	adjective Mortal; destined to death; as dying bodies.
+dynameter	DYNAMETER	n.	An instrument for determining the magnifying power of telescopes
+dynametrical	DYNAMETRICAL	a.	Pertaining to a dynameter.
+dynamical	DYNAMICAL	a.	Pertaining to strength or power
+dynamics	DYNAMICS	n.	That branch of mechanical philosophy which treats of the force of moving bodies; the science of moving powers, and the effect of moving bodies acting on each other and producing motion
+dynamometer	DYNAMOMETER	n.	[See Dynameter.] An instrument for measuring the relative strength of men and other animals.
+dynast	DYNAST	n.	[See Dynasty.] a ruler; a governor; a prince; a government.
+dynastic	DYNASTIC	a.	Relating to a dynasty or line of kings.
+dynasty	DYNASTY	n.	Government; sovereignty; or rather a race or succession of kings of the same line or family, who govern a particular country; as the dynastics of Egypt or Persia. The obligation of treaties and contracts is allowed to survive the change of dynasties
+dyscrasy	DYSCRASY	a.	In medicine, an ill habit or state of the humors; distemperature of the juices
+dysenteric	DYSENTERIC	a.	Pertaining to dysentery; accompanied with dysentery; proceeding from dysentery.	Afflicted with dysentery; as a dysenteric patient.
+dysentery	DYSENTERY	n.	A flux in which the stools consist chiefly of blood and mucus or other morbid matter, accompanied with griping of the bowels, and followed by tenesmus
+dysodile	DYSODILE	n.	A species of coal of a greenish or yellowish gray color, in masses composed of thin layers. When burning, it emits a very fetid odor.
+dysorexy	DYSOREXY	n.	A bad or depraved appetite; a want of appetite
+dyspepsy	DYSPEPSY	n.	Bad digestion; indigestion, or difficulty of digestion
+dyspeptic	DYSPEPTIC	a.	Afflicted with indigestion; as a dyspeptic person.	Pertaining to or consisting in dyspepsy; as a dyspeptic complaint.
+dysphony	DYSPHONY	n.	A difficulty of speaking, occasioned by an ill disposition of the organs of speech
+dyspnoea	DYSPNOEA	n.	A difficulty of breathing.
+dysury	DYSURY	n.	Difficulty in discharging the urine, attended with pain and a sensation of heat

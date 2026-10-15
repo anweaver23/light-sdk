@@ -1,0 +1,8 @@
+map	MAP	n.	A representation of the surface of the earth or of any part of it, drawn on paper or other material, exhibiting the lines of latitude and longitude, and the positions of countries, kingdoms, states, mountains, rivers, etc. A map of the earth, or of a large portion of it, comprehends a representation of land and water; but a representation of a continent or any portion of land only, is properly a map and a representation of the ocean only or any portion of it, is called a chart. We say, a map of England, of France, of Europe; but a chart of the Atlantic, of the Pacific, etc
+map	MAP	v.t.	To draw or delineate, as the figure of any portion of land.
+maple	MAPLE		MAPLE-SU'GAR, noun Sugar obtained by evaporation from the juice of the rock maple
+maple-sugar	MAPLE-SUGAR	n.	Sugar obtained by evaporation from the juice of the rock maple.
+maple-tree	MAPLE-TREE	n.	A tree of the genus Acer, of several species. Of the sap of the rock maple, sugar is made in America, in great quantities, by evaporation.
+maplesugar	maple-sugar
+mapletree	maple-tree
+mappery	MAPPERY	n.	The art of planning and designing maps

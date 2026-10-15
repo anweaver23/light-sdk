@@ -1,0 +1,7 @@
+pew	PEW	n.	An inclosed seat in a church. Pews were formerly made square; in modern churches in America they are generally long and narrow, and sometimes called slips
+pew	PEW	v.t.	To furnish with pews. [Little used.]
+pew-fellow	PEW-FELLOW	n.	A companion.
+pewet	PEWET	n.	An aquatic fowl, the sea crow or mire crow, of the genus Larus.	The lapwing.
+pewfellow	pew-fellow
+pewter	PEWTER	n.	A composition or factitious metal, consisting of tin and lead, or tin, lead and brass, in the proportions of a hundred pounds of tin to fifteen of lead, and six of brass. This was formerly in extensive use in domestic utensils or vessels; but being a soft composition and easily melted, is now less used.	Vessels or utensils made of pewter; as plates, dishes, porringers and the like.
+pewterer	PEWTERER	n.	One whose occupation is to make vessels and utensils of pewter.

@@ -1,0 +1,89 @@
+mat	MAT	n.	A texture of sedge, rushes, flags, husks, straw, or other material, to be laid on a floor for cleaning the boots and shoes of those who enter a house, and for other purposes.	A web of rope-yard, used in ships to secure the standing rigging from the friction of the yards, etc.
+mat	MAT	v.t.	To cover or lay with mats.	To twist together; to interweave like a mat; to entangle. And o'er his eyebrows hung his matted hair.	To press together; to lay flat; as matted grass.
+matachin	MATACHIN	n.	An old dance.
+matadore	MATADORE	n.	One of the three principal cards in the game of omber and quadrille, which are always two black aces and the deuce in spades and clubs, and the seven in hearts and diamonds.
+match	MATCH	n.	Some very combustible substance used for catching fire from a spark, as hemp, flax, cotton, tow dipped in sulphur, or a species of dry wood, called vulgarly touch-wood.	A rope or cord made of hempen tow, composed of three strands slightly twisted, and again covered with tow and boiled in the lees of old wine. This when lighted at one end, retains fire and burns slowly till consumed. It is used in firing artillery, etc.
+match	MATCH	n.	A person who is equal to another in strength or other quality; one able to cope with another. Government--makes an innocent man of the lowest ranks a match for the mightiest of his fellow subjects.	One that suits or tallies with another; or any thing that equals another.	Union by marriage. Love doth seldom suffer itself to be confined by other matches than those of its own making. In popular language, it is applied to the engagement of lovers before marriage.	One to be married. She inherited a fair fortune of her own--and was looked upon as the richest match in the west.
+match	MATCH	n.	A context; competition for victory; or a union of parties for contest; as in games or sports. A solemn match was made; he lost the prize
+match	MATCH	v.t.	To equal. No settled senses of the world can match The pleasure of that madness.	To show an equal. No history or antiquity can match his policies and his conduct.	To oppose as equal; to set against as equal in contest. Eternal might To match with their inventions they presumed. So easy, and of his thunder made a scorn.	To suit; to make equal; to proportion. Let poets match their subject to their strength-- --To match patterns and colors.	To marry; to give in marriage. A senator of Rome, while Rome survived, Would not have match'd his daughter with a king.	To purify vessels by burning a match in them.
+match	MATCH	v.i.	To be united in marriage. I hold it a sin to match in my kindred. Let tigers match with hinds, and wolves with sheep.	To suit; to correspond; to be of equal size, figure or quality; to tally. We say of a piece of cloth, it does not match with another.
+matchable	MATCHABLE	a.	Equal; suitable; fit to be joined.	Correspondent. [Little used.]
+matched	MATCHED	pp.	Equaled; suited; placed in opposition; married.
+matching	MATCHING	ppr.	Equaling; suiting; setting in opposition; uniting in marriage.
+matchless	MATCHLESS	a.	Having no equal; as matchless impudence; a matchless queen; matchless love or charms.
+matchlessly	MATCHLESSLY	adv.	In a manner or degree not to be equaled.
+matchlessness	MATCHLESSNESS	n.	The state or quality of being without an equal.
+matchlock	MATCHLOCK	n.	Formerly, the lock of a musket which was fired by a match.
+matchmaker	MATCHMAKER	n.	One who makes matches for burning.	One who contrives or effects a union by marriage.
+mate	MATE	n.	A companion; an associate; one who customarily associates with another. Young persons nearly of an age, and frequently associating, are called mates or playmates.	A husband or wife.	The male or female of animals which associate for propagation and the care of their young.	One that eats at the same table.	One that attends the same school; a school-mate.	An officer in a merchant ship or ship of war, whose duty is to assist the master or commander. In a merchant ship, the mate in the absence of the master, takes command of the ship. Large ships have a first, second, and third mate In general, mate in compound words, denotes an assistant, and ranks next in subordination to the principal; as master's mate; surgeon's mate etc.
+mate	MATE	n.	In chess, the state of the king so situated that he cannot escape.
+mate	MATE	v.t.	To match; to marry.	To equal; to be equal to. For thus the mastful chestnut mates the skies.	To oppose; to equal. --I i' th' way of loyalty and truth, Dare mate a sounder man than Surrey can be.
+mate	MATE	v.t.	To enervate; to subdue; to crush. Audacity doth almost bind and mate the weaker sort of minds. [Not used.]
+mateless	MATELESS	a.	Having no mate or companion. Materia Medica, a general name for every substance used in medicine.	An auxiliary branch of the science of medicine, which treats of the nature and properties of all the substances that are employed for the cure of diseases.
+material	MATERIAL	a.	Consisting of matter; not spiritual; as material substance; material bodies.	Important; momentous; more or less necessary; having influence or effect. Hold them for catholics or heretics, it is not a thing very material in this question. In the account of simple ideas, I shall set down only such as are most material to our present purpose. So we say, a material point; a material fault or error; a material fact or consideration.	Not formal; substantial.	Furnishing materials; as material men.
+material	MATERIAL	n.	The substance or matter of which any thing is made; as, wool is the material of cloth; rags are the material of paper.
+materialism	MATERIALISM	n.	The doctrine of materialists; the opinion of those who maintain that the soul of man is not a spiritual substance distinct from matter, but that it is the result or effect or the organization of matter in the body. The irregular fears of a future state had been supplanted by the materialism of Epicurus.
+materialist	MATERIALIST	n.	One who denies the existence of spiritual substances, and maintains that the soul of man is the result of a particular organization of matter in the body.
+materiality	MATERIALITY	n.	Material existence; corporeity; not spirituality.	Importance; as the materiality of facts.
+materialize	MATERIALIZE	v.t.	To reduce to a state of matter; also, to regard as matter.
+materially	MATERIALLY	adv.	In the state of matter.	Not formally; substantially. An ill intention may spoil an act materially good.	In an important manner or degree; essentially. It materially concerns us to know the real motives of our actions.
+materiate	MATERIATE		MATE'RIATED,. [Latin materiatus.] Consisting of matter. [Little used.]
+materiated	MATERIATED		Consisting of matter. [Little used.]
+materiation	MATERIATION	n.	The act of forming matter. [Not used.]
+maternal	MATERNAL	a.	Motherly; pertaining to a mother; becoming a mother; as maternal love; maternal tenderness
+maternity	MATERNITY	n.	The character or relation of a mother.
+matfelon	MATFELON	n.	A plant of the genus Centaurea, knap-weed.
+math	MATH	n.	A mowing; as in aftermath.
+mathematic	MATHEMATIC		MATHEMAT'ICAL, adjective [Latin mathematicus.] Pertaining to mathematics; as mathematical knowledge; mathematical instruments.	According to the principles of mathematics; as mathematical exactness.
+mathematical	MATHEMATICAL	a.	Pertaining to mathematics; as mathematical knowledge; mathematical instruments	According to the principles of mathematics; as mathematical exactness.
+mathematically	MATHEMATICALLY	adv.	According to the laws or principles of mathematical science.	With mathematical certainty; demonstrably.
+mathematician	MATHEMATICIAN	n.	One versed in mathematics.
+mathematics	MATHEMATICS	n.	The science of quantity; the science which treats of magnitude and number, or of whatever can be measured or numbered. This science is divided into pure or speculative, which considers quantity abstractly, without relation to matter; and mixed, which treats of magnitude as subsisting in material bodies, and is consequently interwoven with physical considerations. It is the peculiar excellence of mathematics that its principles are demonstrable. Arithmetic, geometry, algebra, trigonometry, and conic sections, are branches of mathematics
+mathemeg	MATHEMEG	n.	A fish of the cod kind, inhabiting Hudson's bay.
+mathes	MATHES	n.	An herb.
+mathesis	MATHESIS	n.	The doctrine of mathematics.
+matin	MATIN	a.	Pertaining to the morning; used in the morning; as a matin trumpet
+matin	MATIN	n.	Morning. [Not used.]
+matins	MATINS	n.	Morning worship or service; morning prayers or songs. The vigils are celebrated before them, and the nocturne and matins for the saints whose the relics are. The winged choristers began To chirp their matins	Time of morning service; the first canonical hour in the Romish church.
+matrass	MATRASS	n.	A cucurbit; a chimical vessel in the shape of an egg, or with a tapering neck, open at the top, serving the purposes of digestion, evaporation, etc
+matress	MATRESS	n.	A quilted bed; a bed stuffed with hair, moss or other soft material, and quilted.
+matrice	MATRICE		MAT'RICIDAL, adjective Pertaining to matricide.
+matricidal	MATRICIDAL	a.	Pertaining to matricide.
+matricide	MATRICIDE	n.	The killing or murder of a mother.	The killer or murderer of his mother.
+matriculate	MATRICULATE	v.t.	To enter or admit to membership in a body or society, particularly in a college or university, by enrolling the name in a register
+matriculate	MATRICULATE	n.	One enrolled in a register, and thus admitted to membership in a society.
+matriculation	MATRICULATION	n.	The act of registering a name and admitting to membership.
+matrimonial	MATRIMONIAL	a.	Pertaining to marriage; connubial; nuptial; hymeneal; as matrimonial rights or duties.	Derived from marriage. If he relied on that title, he could be but a king at curtesy, and have rather a matrimonial than a regal power.
+matrimonially	MATRIMONIALLY	adv.	According to the manner or laws of marriage.
+matrimonious	MATRIMONIOUS	a.	Matrimonial. [Little used.]
+matrimony	MATRIMONY	n.	Marriage; wedlock; the union of man and woman for life; the nuptial state. If any man know cause why this couple should not be joined in holy matrimony they are to declare it
+matrix	MATRIX	n.	The womb; the cavity in which the fetus of an animal is formed and nourished till its birth.	A mold; the cavity in which any thing is formed, and which gives it shape; as the matrix of a type.	The place where any thing is formed or produced; as the matrix of metals; gang.	In dyeing, the five simple colors, black, white, blue, red and yellow, of which all the rest are composed.
+matron	MATRON	n.	An elderly married woman, or an elderly lady
+matronal	MATRONAL	a.	Pertaining to a matron, suitable to an elderly lady or to a married woman; grave; motherly
+matronize	MATRONIZE	v.t.	To render matronlike.
+matronlike	MATRONLIKE	a.	Having the manners of an elderly woman; grave; sedate; becoming a matron.
+matronly	MATRONLY	a.	Elderly; advanced in years.
+matross	MATROSS	n.	Matrosses are soldiers in a train of artillery, who are next to the gunners and assist them in loading, firing and sponging the guns. They carry fire-locks, and march with the store wagons as guards and assistants.
+mattamore	MATTAMORE	n.	In the east, a subterranean repository for wheat.
+matter	MATTER	n.	Substance excreted from living animal bodies; that which is thrown our of discharged in a tumor, boil or abscess; pus; purulent substance collected in an abscess, the effect of suppuration more or less perfect; as digested matter; sanious matter	Body; substance extended; that which is visible or tangible; as earth, wood, stone, air, vapor, water.	In a more general and philosophic sense, the substance of which all bodies are composed; the substratum of sensible qualities, though the parts composing the substratum may not be visible or tangible. Matter is usually divided by philosophical writers into four kinds or classes; solid, liquid; aeriform, and imponderable. Solid substances are those whose parts firmly cohere and resist impression, as wood or stone; liquids have free motion among their parts, and easily yield to impression, as water and wine. Aeriform substances are elastic fluids, called vapors and gases, as air and oxygen gas. The imponderable substances are destitute of weight, as light, caloric, electricity, and magnetism.	Subject; thing treated; that about which we write or speak; that which employs thought or excites emotion; as, this is matter of praise, of gratitude, or of astonishment. Son of God, Savior of men, thy name Shall be the copious matter of my song.	The very thing supposed or intended. He grants the deluge to have come so very near the matter that few escaped.	Affair; business; event; thing; course of things. Matters have succeeded well thus far; observe how matters stand; thus the matter rests at present; thus the matter ended. To help the matter the alchimists call in many vanities from astrology. Some young female seems to have carried matters so far, that she is ripe for asking advice.	Cause of any event, as of any disturbance, of a disease, or of a difficulty. When a moving machine stops suddenly, we ask, what is the matter? When a person is ill, we ask, what is the matter? When a tumult or quarrel takes place, we ask, what is the matter?	Subject of complaint; suit; demand. If the matter should be tried by duel between two champions-- Every great matter they shall bring to thee, but every small matter they shall judge-- Exodus 18:16.	Import; consequence; importance; moment. A prophet some, and some a poet cry, No matter which, so neither of them lie.	Space of time; a portion of distance. I have thoughts to tarry a small matter Away he goes, a matter of seven miles-- [In these last senses, the use of matter is now vulgar.] Upon the matter considering the whole; taking all things into view. This phrase is now obsolete; but in lieu of it, we sometimes use, upon the whole matter Waller, with Sir William Balfour, exceeded in horse, but were, upon the whole matter equal in foot. Matter of record, that which is recorded, or which may be proved by record.
+matter	MATTER	v.i.	To be of importance; to import; used with it, this, that, or what. This matters not; that matters not; chiefly used in negative phrases; as, what matters it? It matters not how they are called, so we know who they are.	To maturate; to form pus; to collect, as matter in an abscess. Each slight sore mattereth. [Little used.] [We now use maturate.]
+matter	MATTER	v.t.	To regard. [Not used.]
+matterless	MATTERLESS	a.	Void of matter.
+mattery	MATTERY	a.	Purulent; generating pus; as a mattery cough.
+mattock	MATTOCK	n.	A tool to grub up weeds or roots; a grubbing hoe.
+mattress	MATTRESS		[See Matress, a more correct orthography.]
+maturant	MATURANT	n.	In pharmacy, a medicine or application to a tumor, which promotes suppuration
+maturate	MATURATE	v.t.	To ripen; to hasten or promote suppuration
+maturate	MATURATE	v.i.	To become ripe; to suppurate, as a tumor, and form pus.
+maturation	MATURATION	n.	The process of ripening or coming to maturity; ripeness.	The process of suppurating; suppuration; the forming of pus in tumors.
+maturative	MATURATIVE	a.	Ripening; conducing to ripeness.	Conducing to suppuration, or the formation of matter in a tumor or abscess.
+mature	MATURE	a.	Ripe; perfected by time or natural growth; as a man of mature age. We apply it to a young man of mature age. We apply it to a young man who has arrived to the age when he is supposed to be competent to manage his own concerns; to a young woman who is fit to be married; and to elderly men who have much experience. Their prince is a man of learning and virtue, mature in years-- Mature the virgin was, of Egypt's race. How shall I meet or how accost the sage, Unskilled in speech, nor yet mature of age.	Brought to perfection; used of plants. The wheat is mature	Completed; prepared; ready. The plan or scheme was mature This lies glowing, and is mature for the violent breaking out.	Ripe; come to suppuration; as, the tumor is mature
+mature	MATURE	v.t.	To ripen; to hasten to a perfect state; to promote ripeness. Prick an apple with a pin full of holes, not deep, and smear it with sack, to see if the virtual heat of the wine will not mature it	To advance towards perfection. Love indulged my labors past, Matures my present, and shall bound my last.
+mature	MATURE	v.i.	To advance toward ripeness; to become ripe or perfect. Wine matures by age, or by agitation in a long voyage. The judgment matures by age and experience.
+matured	MATURED	pp.	Ripened; advanced to perfection; prepared.
+maturely	MATURELY	adv.	With full deliberation. A prince entering on war, ought, maturely to consider the state of his finances.	Early; soon. [A Latinism, little used.]
+matureness	MATURENESS	n.	Ripeness; a state of perfection or completeness; as the maturity of age or of judgment; the maturity of corn or of grass; the maturity of a plan or scheme.
+maturing	MATURING	ppr.	Ripening; being in or coming to a complete state.
+maturity	MATURITY		MAT'UTINAL MAT'UTINE, adjective [Latin matutinus.] Pertaining to the morning.
+matutine	MATUTINE	a.	Pertaining to the morning
+matweed	MATWEED	n.	A plant of the genus Lygeum.

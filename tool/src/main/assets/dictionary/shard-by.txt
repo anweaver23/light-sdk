@@ -1,0 +1,67 @@
+by	BY	prep.	Near; close; as, sit by me; that house stands by a river. [Latin pressus.]	Near, in motion; as, to move, go or pass by a church. But it seems, in other phrases, or with a verb in the past time, to signify past, gone beyond. 'The procession is gone by; ' 'the hour is gone by; ' 'John went by ' We now use past as an equivalent word. The procession is gone past. Gone by is in strictness tautology, as now used; but I apprehend by signifies primarily near.	Through, or with, denoting the agent, means, instrument or cause; as, 'a city is destroyed by fire; ' 'profit is made by commerce; ' 'to take by force.' This use answers to that of the Latin per, through, denoting a passing, acting, agency, or instrumentality.	'Day by day; ' 'year by year; ' 'article by article.' In these phrases, by denotes passing from one to another, or each particular separately taken.	'By the space of seven years.' In this phrase, by denotes through, passing or continuing, during.	'By this time, the sun had risen.' The word here seems to denote, at, present or come to.	According to; as, 'this appears by his own account; ' 'these are good rules to live by '	On; as, 'to pass by land or water; ' 'great battles by sea and land.' In the latter phrase, at or on might be substituted for by	It is placed before words denoting quantity, measure or proportion; as, to sell by the pound; to work by the rod or perch; this line is longer by a tenth.	It is used to represent the means or instrument of swearing, or affirming; as, to swear by heaven, or by earth; to affirm by all that is sacred.	In the phrase, 'he has a cask of wine by him, ' by denotes nearness or presence.	'To sit by one's self, ' is to sit alone, or without company.	'To be present by attorney.' In this phrase, by denotes means or instrument; through or in the presence of a substitute.	In the phrase, 'North by West, ' the sense seems to be north passing to the west, inclining or going westward, or near west. As an adverb, by denotes also nearness, or presence; as, there was no person by at the time. But some noun is understood. So in the phrase, 'to pass or go by ' there is a noun understood. BY and by is a phrase denoting nearness in time; in a short time after; presently; soon. When persecution ariseth, because of the word, by and by he is offended. Math.13. BY the by signifies, as we proceed or pass. To stand by is to stand near, or to support. BY in lullaby, and in the nursery, a word used in lulling infants to sleep, is evidently allied to words found in many languages, signifying to rest, or be quiet, or to appease; that is, to press, to stop. [Latin paco.] BY or bye, in by-law. In the common phrase, good-bye, bye signifies passing, going. The phrase signifies, a good going, a prosperous passage, and it is precisely equivalent to farewell. BY is used in many compound words, in most of which we observe the sense of nearness, closeness, or a withdrawing or seclusion.
+by-coffee-house	BY-COFFEE-HOUSE	n.	A coffee house in an obscure place.
+by-concernment	BY-CONCERNMENT	n.	An affair distinct from the main business.
+by-corner	BY-CORNER	n.	A private corner.
+by-dependence	BY-DEPENDENCE	n.	An appendage; that which depends on something else, or is distinct from the main dependence.
+by-design	BY-DESIGN	n.	An incidental design, or purpose.
+by-drinking	BY-DRINKING	n.	A private drinking.
+by-end	BY-END	n.	Private end; secret purpose or advantage.
+by-gone	BY-GONE	a.	Past; gone by.
+by-interest	BY-INTEREST	n.	Self interest; private advantage.
+by-lane	BY-LANE	n.	A private lane, or one out of the usual road.
+by-law	BY-LAW	n.	A town law; the law of a city, town or private corporation.
+by-matter	BY-MATTER	n.	Something incidental.
+by-name	BY-NAME	n.	Nickname; an incidental appellation.
+by-past	BY-PAST	a.	Past; gone by.
+by-path	BY-PATH	n.	A private path; an obscure way.
+by-respect	BY-RESPECT	n.	Private end, or view.
+by-road	BY-ROAD	n.	A private or obscure road.
+by-room	BY-ROOM	n.	A private room or apartment.
+by-speech	BY-SPEECH	n.	An incidental or casual speech, not directly relating to the point.
+by-spell	BY-SPELL	n.	A proverb. [Not used.]
+by-stander	BY-STANDER	n.	One who stands near; a spectator; one who has no concern with the business transacting.
+by-street	BY-STREET	n.	A separate, private or obscure street.
+by-turning	BY-TURNING	n.	An obscure road.
+by-view	BY-VIEW	n.	Private view; self interested purpose.
+by-walk	BY-WALK	n.	A secluded or private walk.
+by-way	BY-WAY	n.	A secluded, private or obscure way.
+by-west	BY-WEST	adv.	Westward;; to the west of.
+by-wipe	BY-WIPE	n.	A secret stroke or sarcasm.
+by-word	BY-WORD	n.	A common saying; a proverb; a saying that has a general currency.
+bycoffeehouse	by-coffee-house
+byconcernment	by-concernment
+bycorner	by-corner
+bydependence	by-dependence
+bydesign	by-design
+bydrinking	by-drinking
+bye	BYE	n.	A dwelling.
+byend	by-end
+bygone	by-gone
+byinterest	by-interest
+bylane	by-lane
+bylaw	by-law
+bymatter	by-matter
+byname	by-name
+bypast	by-past
+bypath	by-path
+byrespect	by-respect
+byroad	by-road
+byroom	by-room
+byspeech	by-speech
+byspell	by-spell
+byssin	BYSSIN		BYS'SINE, adjective Made of silk.
+byssine	BYSSINE	a.	Made of silk.
+byssolite	BYSSOLITE	n.	A rare mineral, occurring in very delicate filaments, short, flexible and elastic. Their color is olive green, or brownish yellow, and their luster a little silky. Jameson places byssolite under actinolite; Hauy arranges it under amianthoid
+byssus	BYSSUS	n.	A silk or linen hood. [Not in use.]
+bystander	by-stander
+bystreet	by-street
+byturning	by-turning
+byview	by-view
+bywalk	by-walk
+byway	by-way
+bywest	by-west
+bywipe	by-wipe
+byword	by-word
+byzant	BYZANT		BYZAN'TIAN, adjective Pertaining to Byzantium, an ancient city of Thrace situated on the Bosporus. In the year 330, Constantine the Great took possession of Byzantium, enlarged and embellished it, and changed its name to Constantinople.
+byzantian	BYZANTIAN	a.	Pertaining to Byzantium, an ancient city of Thrace situated on the Bosporus. In the year 330, Constantine the Great took possession of Byzantium, enlarged and embellished it, and changed its name to Constantinople.
+byzantine	BYZANTINE	n.	A gold coin of the value of fifteen pounds sterling, so called from being coined at Byzantium. Also, a piece of gold offered by the king on certain festivals

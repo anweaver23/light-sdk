@@ -1,0 +1,10 @@
+seg	SEG	n.	Sedge. [Not in use.]
+seghol	SEGHOL	n.	a Hebrew vowel-point, or short vowel.
+segholate	SEGHOLATE	a.	Marked with a seghol.
+segment	SEGMENT	n.	In geometry, that part of the circle contained between a chord and an arch of that circle, or so much of the circle as is cut off by the chord.	In general, a part cut off or divided; as the segments of a calyx.
+segnity	SEGNITY	n.	Sluggishness; dullness; inactivity. [Not used.]
+segregate	SEGREGATE	v.	[Latin segrego; se, from, and grex, flock.] To separate from others; to set apart.
+segregate	SEGREGATE	a.	Select. [Little used.] Segregate polygamy, (Polygamia segregata, Linne, ) a mode of inflorescence, when several florets comprehended within a common calyx, are furnished also with their proper perianths. Martyn.
+segregated	SEGREGATED	pp.	Separated; parted from others.
+segregating	SEGREGATING	ppr.	Separating.
+segregation	SEGREGATION	n.	Separation from others; a parting.

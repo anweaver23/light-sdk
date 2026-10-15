@@ -1,0 +1,26 @@
+dedalian	DEDALIAN	a.	Various; variegated; intricate; complex; expert.
+dedalous	DEDALOUS	a.	Having a margin with various windings and turnings; of a beautiful and delicate texture; a term applied to the leaves of plants.
+dedecorate	DEDECORATE	v.t.	To disgrace.
+dedecoration	DEDECORATION	n.	A disgracing.
+dedentition	DEDENTITION	n.	The shedding of teeth.
+dedicate	DEDICATE	v.t.	To set apart and consecrate to a divine Being, or to a sacred purpose; to devote to a sacred use, by a solemn act, or by religious ceremonies; as, to dedicate vessels, treasures, a temple, an altar, or a church, to God or to a religious use. Vessels of silver, of gold, and of brass, which king David did dedicate to the Lord. 2 Sam. Viii.	To appropriate solemnly to any person or purpose; to give wholly or chiefly to. The ministers of the gospel dedicate themselves, their time and their studies, to the service of Christ. A soldier dedicates himself to the profession of arms.	To inscribe or address to a patron; as, to dedicate a book.
+dedicate	DEDICATE	a.	Consecrated; devoted; appropriated.
+dedicated	DEDICATED	pp.	Devoted to a divine Being, or to a sacred use; consecrated; appropriated; given wholly to.
+dedicating	DEDICATING	ppr.	Devoting to a divine Being, or to a sacred purpose; consecrating; appropriating; giving wholly to.
+dedication	DEDICATION	n.	The act of consecrating to a divine Being, or to a sacred use, often with religious solemnities; solemn appropriation; as the dedication of Solomons temple.	The act of devoting or giving to.	An address to a patron, prefixed to a book, testifying respect and recommending the work to his protection and favor.
+dedicator	DEDICATOR	n.	One who dedicates; one who inscribes a book to the favor of a patron.
+dedicatory	DEDICATORY	a.	Composing a dedication; as an epistle dedicatory
+dedition	DEDITION	n.	The act of yielding any thing; surrendry
+dedolent	DEDOLENT	a.	Feeling no compunction.
+deduce	DEDUCE	v.t.	To draw from; to bring from. O goddess, say, shall I deduce my rhymes From the dire nation in its early times?	To draw from, in reasoning; to gather a truth, opinion or proposition from premises; to infer something from what precedes. Reasoning is nothing but the faculty of deducing unknown truths from principles already known.	To deduct.	To transplant.
+deduced	DEDUCED	pp.	Drawn from; inferred; as a consequence from principles or premises.
+deducement	DEDUCEMENT	n.	The thing drawn from or deduced; inference; that which is collected from premises.
+deducible	DEDUCIBLE	a.	That may be deduced; inferable; collectible by reason from premises; consequential. The properties of a triangle are deducible from the complex idea of three lines including a space.
+deducing	DEDUCING	ppr.	Drawing from; inferring; collecting from principles or facts already established or known.
+deducive	DEDUCIVE	a.	Performing the act of deduction.
+deduct	DEDUCT	v.t.	To take from; to subtract; to separate or remove, in numbering, estimating or calculating. Thus we say, from the sum of two numbers, deduct the lesser number; from the amount of profits, deduct the charges of freight.
+deducted	DEDUCTED	pp.	Taken from; subtracted.
+deducting	DEDUCTING		Taking from; subtracting.
+deduction	DEDUCTION	n.	The act of deducting.	That which is deducted; sum or amount taken from another; defalcation; abatement; as, this sum is a deduction from the yearly rent.	That which is drawn from premises; fact, opinion, or hypothesis, collected from principles or facts stated, or established data; inference; consequence drawn; conclusion; as, this opinion is a fair deduction from the principles you have advanced.
+deductive	DEDUCTIVE	a.	Deducible; that is or may be deduced from premises. All knowledge is deductive
+deductively	DEDUCTIVELY	adv.	By regular deduction; by way of inference; by consequence.

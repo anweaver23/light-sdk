@@ -1,0 +1,102 @@
+detach	DETACH	v.t.	To separate or disunite; to disengage; to part from; as, to detach the coats of a bulbous root from each other; to detach a man from the interest of the minister, or from a party.	To separate men from their companies or regiments; to draw from companies or regiments, as a party of men, and send them on a particular service.	To select ships from a fleet and send them on a separate service.
+detached	DETACHED	pp.	Separated; parted from; disunited; drawn and sent on a separate service.	adjective Separate; as detached parcels or portions.
+detaching	DETACHING	ppr.	Separating; parting from; drawing and sending on a separate employment.
+detachment	DETACHMENT	n.	The act of detaching.	A body of troops, selected or taken from the main army, and employed on some special service or expedition.	A number of ships, taken from a fleet, and sent on a separate service.
+detail	DETAIL	v.t.	To relate, report or narrate in particulars; to recite the particulars of; to particularize; to relate minutely and distinctly; as, he detailed all the facts in due order.	To select, as an officer or soldier from a division, brigade, regiment or battalion.
+detail	DETAIL	n.	A narration or report of particulars; a minute and particular account. He related the story in detail He gave a detail of all the transactions.	A selecting of officer or soldiers from the rosters.
+detailed	DETAILED	pp.	Related in particulars; minutely recited; selected.
+detailer	DETAILER	n.	One who details.
+detailing	DETAILING	ppr.	Relating minutely; telling the particulars.	Selecting from the rosters.
+detainder	DETAINDER	n.	A writ. [See Detinue.]
+detained	DETAINED	pp.	Withheld; kept back; prevented from going or coming; held; restrained.
+detainer	DETAINER	n.	One who withholds what belongs to another; one who detains, stops or prevents from going.	In law, a holding or keeping possession of what belongs to another; detention of what is anothers, though the original taking may be lawful.
+detaing	DETAING	v.t.	To keep back or from; to withhold; to keep what belongs to another. Detain not the wages of the hireling.	To keep or restrain from proceeding, either going or coming; to stay or stop. We were detained by the rain.Let us detain thee, till we have made ready a kid. Judges 13.	To hold in custody.
+detaining	DETAINING	ppr.	Withholding what belongs to another; holding back; restraining from going or coming; holding in custody.
+detainment	DETAINMENT	n.	The act of detaining; detention.
+detect	DETECT	v.t.	Literally, to uncover; hence, to discover; to find out; to bring to light; as, to detect the ramifications and inosculations of the fine vessels. But this word is especially applied to the discovery of secret crimes and artifices. We detect a thief, or the crime of stealing. We detect the artifices of the man, or the man himself. We detect what is concealed, especially what is concealed by design
+detected	DETECTED	pp.	Discovered; found out; laid open; brought to light.
+detecter	DETECTER	n.	A discoverer; one who finds out what another attempts to conceal.
+detecting	DETECTING	ppr.	Discovering; finding out.
+detection	DETECTION	n.	The act of detecting; discovery of a person or thing attempted to be concealed; as the detection of a thief or burglarian; the detection of fraud or forgery; the detection of artifice, device or a plot.	Discovery of any thing before hidden, or unknown. The sea and rivers are instrumental to the detection of amber and other fossils, by washing away the earth that concealed them.
+detenebrate	DETENEBRATE	v.t.	To remove darkness. [Not in use.]
+detent	DETENT	n.	A stop in a clock, which by being lifted up or let down, locks and unlocks the clock in striking
+detention	DETENTION	n.	The act of detaining; a withholding from another his right; a keeping what belongs to another, and ought to be restored.	Confinement; restraint; as detention in custody.	Delay from necessity; a detaining; as the detention of the mail by bad roads.
+deter	DETER	v.t.	To discourage and stop by fear; to stop or prevent from acting or proceeding, by danger, difficulty or other consideration which disheartens, or countervails the motive for an act. We are often deterred from out duty by trivial difficulties. The state of the road or a cloudy sky may deter a man from undertaking a journey. A million of frustrated hopes will not deter us from new experiments.	To prevent by prohibition or danger.
+deterge	DETERGE	v.t.	To cleanse; to purge away foul or offending matter, from the body, or from an ulcer
+deterged	DETERGED	pp.	Cleansed; purged.
+detergent	DETERGENT	a.	Cleansing; purging.
+detergent	DETERGENT	n.	A medicine that has the power of cleansing the vessels or skin from offending matter.
+deterging	DETERGING	ppr.	Cleansing; carrying off obstructions or foul matter.
+deteriorate	DETERIORATE	v.i.	To grow worse; to be impaired in quality to degenerate; opposed to meliorate
+deteriorate	DETERIORATE	v.t.	To make worse; to reduce in quality; as, to deteriorate a race of men of their condition.
+deteriorated	DETERIORATED	pp.	Made worse; impaired in quality.
+deteriorating	DETERIORATING	ppr.	Becoming worse or inferior in quality.
+deterioration	DETERIORATION	n.	A growing or making worse; the state of growing worse.
+deteriority	DETERIORITY	n.	Worse sate or quality; as deteriority of diet.
+determent	DETERMENT	n.	[See Deter.] The act of deterring; the cause of deterring; that which deters.
+determinable	DETERMINABLE	a.	That may be decided with certainty.	That may end or be determined.
+determinate	DETERMINATE	a.	Limited; fixed; definite; as a determinate quantity of matter.	Established; settled; positive; as a determinate rule or order. The determinate counsel of God. Acts 2:23.	Decisive; conclusive; as a determinate resolution or judgment.	Resolved on.	Fixed; resolute.
+determinate	DETERMINATE	v.t.	To limit. [Not used. See Determine.]
+determinately	DETERMINATELY	adv.	With certainty. The principles of religion are determinately true or false.	Resolutely; with fixed resolve. [Unusual.]
+determinateness	DETERMINATENESS	n.	The state of being determinate, certain, or precise.
+determination	DETERMINATION	n.	The act of determining or deciding.	Decision of a question in the mind; firm resolution; settled purpose; as, they have acquainted me with their determination	Judicial decision; the ending of a controversy or suit by the judgment of a court. Justice is promoted by a speedy determination of causes, civil and criminal.	Absolute direction to a certain end. Remissness can by no means consist with a constant determination of the will to the greatest apparent good.	An ending; a putting an end to; as the determination of a will.
+determinative	DETERMINATIVE	a.	That uncontrollably directs to a certain end. The determinative power of a just cause.	Limiting; that limits or bounds; as, a word may be determinative and limit the subject.
+determinator	DETERMINATOR	n.	One who determines.
+determine	DETERMINE	v.t.	To end; particularly, to end by the decision or conclusion of a cause, or of a doubtful or controverted point; applicable to the decisions of the mind, or to judicial decisions. We say, I had determined this question in my own mind; the court has determined the cause.	To end and fix; to settle ultimately; as, this event determined his fate.	To fix on; to settle or establish; as, to determine the proper season for planting seeds. God--hath determined the times before appointed. Acts 17:26.	To end; to limit; to bound; to confine. Yonder hill determines our view. Knowledge is determined by the sight.	To give a direction to; to influence the choice; that is, to limit to a particular purpose or direction; as, this circumstance determined him to the study of law. Also, to give a direction to material bodies in their course; as, impulse may determine a moving body to this or that point.	To resolve, that is, to end or settle a point in the mind, as in Definition first. I determined this with myself. 2 Corinthians 2:1. Paul had determined to sail by Ephesus. Acts 20:16.	To destroy. [Not used.]	To put an end to; as, to determine a will.	To settle or ascertain, as something uncertain. The character of the soul is determined by the character of its God.
+determine	DETERMINE	v.i.	To resolve; to conclude; to come to a decision. He shall pay as the judges determine Exodus 21:22. It is indifferent how the learned shall determine concerning this matter.	To end; to terminate. The danger determined by the death of the conspirators. Revolutions often determine in setting up tyranny at home, or in conquest from abroad. Some estates may determine on future contingencies.
+determined	DETERMINED	pp.	Ended; concluded; decided; limited; fixed; settled; resolved; directed.	adjective Having a firm or fixed purpose, as a determined man; or manifesting a firm resolution, as a determined countenance.
+determining	DETERMINING	ppr.	Ending; deciding; fixing; settling; resolving; limiting; directing.
+deterration	DETERRATION	n.	The uncovering of any thing which is buried or covered with earth; a taking from out of the earth
+deterred	DETERRED	pp.	[See Deter.] Discouraged or prevented from proceeding or acting, by fear, difficulty or danger.
+deterring	DETERRING	pp.	Discouraging or influencing not to proceed or act, by fear, difficulty, danger, or prospect of evil.	adjective Discouraging; frightening.
+detersion	DETERSION	n.	The act of cleansing, as a sore
+detersive	DETERSIVE	a.	[See Deterge.] Cleansing; having power to cleanse from offending matter.
+detersive	DETERSIVE	n.	A medicine which has the power of cleansing ulcers, or carrying off foul matter.
+detest	DETEST	v.t.	To abhor; to abominate; to hate extremely; as, to detest crimes or meanness
+detestable	DETESTABLE	a.	Extremely hateful; abominable; very odious; deserving abhorrence. Thou hast defiled my sanctuary with all thy detestable things. Ezekiel 5:11.
+detestableness	DETESTABLENESS	n.	Extreme hatefulness.
+detestably	DETESTABLY	adv.	Very hatefully; abominably.
+detestation	DETESTATION	n.	Extreme hatred; abhorrence; with of. The good man entertains uniformly a detestation of sin.
+detested	DETESTED	pp.	Hated extremely; abhorred.
+detester	DETESTER	n.	One who abhors.
+detesting	DETESTING	ppr.	Hating extremely; abhorring; abominating.
+dethrone	DETHRONE	v.t.	To remove or drive from a throne; to depose; to divest of royal authority and dignity.	To divest of rule or power, or of supreme power. The protector was dethroned.
+dethroned	DETHRONED	pp.	Removed from a throne; deposed.
+dethronement	DETHRONEMENT	n.	Removal from a throne; deposition of a king, emperor or prince.
+dethroner	DETHRONER	n.	One who dethrones.
+dethroning	DETHRONING	ppr.	Driving from a throne; depriving of regal power.
+detinue	DETINUE	n.	In law, a writ of detinue is one that lies against him who wrongfully detains goods or chattels delivered to him, or in his possession. This writ lies for a thing certain and valuable, as for a horse, cow, sheep, plate, cloth, etc., to recover the thing itself or damages for the detainer.
+detonate	DETONATE	v.t.	In chemistry, to cause to explode; to burn or inflame with a sudden report
+detonate	DETONATE	v.i.	To explode; to burn with a sudden report. Niter detonates with sulphur.
+detonated	DETONATED	pp.	Exploded; burnt with explosion.
+detonating	DETONATING	ppr.	Exploding; inflaming with a sudden report.
+detonation	DETONATION	n.	An explosion or sudden report made by the inflammation of certain combustible bodies, as fulminating gold. detonation is not decrepitation.
+detonization	DETONIZATION	n.	The acct of exploding, as certain combustible bodies.
+detonize	DETONIZE	v.i.	[See Detonate.] To cause to explode; to burn with an explosion; to calcine with detonation.
+detonize	DETONIZE	v.i.	To explode; to burn with a sudden report. This precipitate-detonizes with a considerable noise.
+detonized	DETONIZED	pp.	Exploded, as a combustible body.
+detonizing	DETONIZING	ppr.	Exploding with a sudden report.
+detorsion	DETORSION	n.	A turning or wresting; perversion.
+detort	DETORT	v.t.	To twist; to wrest; to pervert; to turn from the original or plain meaning
+detorted	DETORTED	pp.	Twisted; wrested; perverted.
+detorting	DETORTING	ppr.	Wresting; perverting.
+detour	DETOUR	n.	A turning; a circuitous way.
+detract	DETRACT	v.t.	Literally, to draw from. Hence, to take away from reputation or merit, through envy, malice or other motive; hence, to detract from, is to lessen or depreciate reputation or worth; to derogate from. Never circulate reports that detract from the reputation or honor of your neighbor, without obvious necessity to justify the act.	To take away; to withdraw, in a literal sense.
+detraction	DETRACTION	n.	The act of taking something from the reputation or worth of another, with the view to lessen him in estimation; censure; a lessening of worth; the act of depreciating another, from envy or malice. detraction may consist in representing merit, as less than it really is; or in the imputation of faults, vices or crimes, which impair reputation; and if such imputation is false, it is slander or defamation
+detractious	DETRACTIOUS	a.	Containing detraction; lessening reputation. [Not in use.]
+detractive	DETRACTIVE	a.	Having the quality or tendency to lessen the worth or estimation.
+detractor	DETRACTOR	n.	One who takes away or impairs the reputation of another injuriously; one who attempts to lessen the worth or honor of another.
+detractory	DETRACTORY	a.	Derogatory; defamatory by denial of desert; with from.
+detractress	DETRACTRESS	n.	A female detractor; a censorious woman.
+detrect	DETRECT	v.t.	To refuse. [Not in use.]
+detriment	DETRIMENT	n.	Loss; damage; injury; mischief; harm; diminution. We speak of detriment to interest, property, religion, morals, reputation, and to land or buildings. It is a word of very general application
+detrimental	DETRIMENTAL	a.	Injurious; hurtful; causing loss or damage. A spirit of speculation may be detrimental to regular commerce.
+detrition	DETRITION	n.	A wearing off
+detritus	DETRITUS	n.	In geology, a mass of substances worn off or detached from solid bodies by attrition; as diluvial detritus
+detrude	DETRUDE	v.t.	To thrust down; to push down with force
+detruded	DETRUDED	pp.	Thrust or forced down.
+detruding	DETRUDING	ppr.	Thrusting or forcing down.
+detruncate	DETRUNCATE	v.t.	To cut off; to lop; to shorten by cutting
+detruncation	DETRUNCATION	n.	The act of cutting off.
+detrusion	DETRUSION	n.	s as z. [See Detrude.] The act of thrusting or driving down.
+deturpate	DETURPATE	v.t.	To defile. [Little used.]

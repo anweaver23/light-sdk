@@ -1,0 +1,64 @@
+chrism	CHRISM	n.	Unguent; unction. In the Romish and Greek churches, oil consecrated by the bishop, and used in the administration of baptism, confirmation, ordination, and extreme unction. It is prepared on holy Thursday with much ceremony, and in some cases, mixed with balsam.
+chrismal	CHRISMAL	a.	Pertaining to chrism.
+chrismation	CHRISMATION	n.	The act of applying the chrism, or consecrated oil; in baptism, by the priest; in confirmation, by the bishop. In ordination, it is usually styled unction.
+chrismatory	CHRISMATORY	n.	A vessel to hold the oil for chrism.
+chrisom	CHRISOM	n.	[See Chrism.] a child that dies within a month after its birth; so called from the chrisom-cloth, a linen cloth anointed with holy oil, which was formerly laid over a childs face when it was baptized. Also, the cloth itself.
+christ	CHRIST	n.	THE ANOINTED; an appellation given to the Savior of the World, and synonymous with the Hebrew Messiah. It was a custom of antiquity to consecrate persons to the sacerdotal and regal offices by anointing them with oil.
+christanize	CHRISTANIZE	v.t.	To make Christian; to convert to Christianity; as, to Christianize pagans.
+christen	CHRISTEN	v.t.	To baptize, or rather to baptize and name; to initiate into the visible church of Christ by the application of water; applied to persons. And as a name is given to the person in the ceremony, hence,	To name; to denominate; applied to things.
+christendom	CHRISTENDOM	n.	The territories, countries or regions inhabited by Christians, or those who profess to believe in the Christian religion.	The whole body of Christians.	Christianity; the Christian religion; as, while christendom prevailed.
+christened	CHRISTENED	pp.	Baptized and named; initiated into Christianity.
+christening	CHRISTENING	ppr.	The act or ceremony of baptizing and naming; initiation into the Christian religion.
+christian	CHRISTIAN	n.	A believer in the religion of Christ.	A professor of his belief in the religion of Christ.	A real disciple of Christ; one who believes in the truth of the christian religion, and studies to follow the example, and obey the precepts, of Christ; a believer in Christ who is characterized by real piety.	In a general sense, the word Christians includes all who are born in a christian country or of christian parents.
+christian	CHRISTIAN	a.	Pertaining to Christ, taught by him, or received from him; as the christian religion; christian doctrines.	Professing the religion of Christ; as a christian friend.	Belonging to the religion of Christ; relating to Christ, or to his doctrines, precepts and example; as christian profession and practice.	Pertaining to the church; ecclesiastical; as courts christian
+christian	CHRISTIAN	v.t.	To baptize.
+christian-name	CHRISTIAN-NAME	n.	The name given in baptism, as distinct from the gentilitious or surname.
+christianism	CHRISTIANISM	n.	The Christian religion.	The nations professing Christianity.
+christianite	CHRISTIANITE	n.	A newly discovered Vesuvian mineral; its primitive form is that of an oblique rectangular prism; its colors brown, yellow or reddish.
+christianlike	CHRISTIANLIKE	a.	Becoming a Christian.
+christianly	CHRISTIANLY	adv.	In a Christian manner; in a manner becoming the principles of the Christian religion, or the profession of that religion.
+christianname	christian-name
+christianography	CHRISTIANOGRAPHY	n.	A description of Christian nations.
+christmas	CHRISTMAS	n.	The festival of the Christian church observed annually on the 25th day of December, in memory of the birth of Christ, and celebrated by a particular church service. The festival includes twelve days	Christmas-day.
+christmas-box	CHRISTMAS-BOX	n.	A box in which little presents are deposited at Christmas.
+christmas-day	CHRISTMAS-DAY	n.	The twenty fifth day of December, when Christmas is celebrated.
+christmas-flower	CHRISTMAS-FLOWER	n.	Hellebore.
+christmas-rose	CHRISTMAS-ROSE	n.	A plant of the genus Helleborus, producing beautiful white flowers about Christmas.
+christmasbox	christmas-box
+christmasday	christmas-day
+christmasflower	christmas-flower
+christmasrose	christmas-rose
+christs-thorn	CHRISTS-THORN	n.	The Rhamnus paliurus, a deciduous shrub, a native of Palestine and the South of Europe. It has two thorns at each joint, and is supposed to have been the sort of which the crown of thorns for our Savior was made.
+christsthorn	christs-thorn
+chroastaces	CHROASTACES	n.	In natural history, a genus of pellucid gems, comprehending all those of variable colors, as viewed in different lights.
+chromate	CHROMATE	n.	[See chrome.] A salt or compound formed by the chromic acid with a base.
+chromatic	CHROMATIC	a.	Relating to color.	Noting a particular species of music, which proceeds by several semitones in succession.
+chromatically	CHROMATICALLY	adv.	In the chromatic manner.
+chromatics	CHROMATICS	n.	The science of colors; that part of optics which treats of the properties of the colors of light and of natural bodies.
+chrome	CHROME	n.	A metal consisting of a porous mass of agglutinated grains, very hard, brittle, and of a grayish white color. Its texture is radiated. In its highest degree of oxydation, it passes into the state of an acid, of a ruby red color. It takes its name from the various and beautiful colors which its oxyd and acid communicate to minerals into whose composition they enter. chrome is employed to give a fine deep green to the enamel of porcelain, to glass, etc. The oxyd of chrome is of a bright grass green or pale yellow color.
+chromic	CHROMIC	a.	Pertaining to chrome, or obtained from it; as chromic acid. CHROMIC yellow, the artificial chromate of lead, a beautiful pigment.
+chronic	CHRONIC		CHRONICAL, adjective Continuing a long time, as a disease. A chronic disease is one which is inveterate or of long continuance, in distinction from an acute disease, which speedily terminates.
+chronical	CHRONICAL	a.	Continuing a long time, as a disease. A chronic disease is one which is inveterate or of long continuance, in distinction from an acute disease, which speedily terminates.
+chronicle	CHRONICLE	n.	A historical account of facts or events disposed in the order of time. It is nearly synonymous with annals. In general, this species of writing is more strictly confined to chronological order, and is less diffuse than the form of writing called history.	In a more general sense, a history.	That which contains history. Europe - her very ruins tell the history of times gone by, and every moldering stone is a chronicle	Chronicles, plural Two books of the Old Testament.
+chronicle	CHRONICLE	v.t.	To record in history, or chronicle; to record; to register.
+chronicler	CHRONICLER	n.	A writer of a chronicle; a recorder of events in the order of time; a historian.
+chronique	CHRONIQUE	n.	A chronicle.
+chronogram	CHRONOGRAM	n.	An inscription in which a certain date or epoch is expressed by numeral letters; as in the motto of a medal struck by Gustavus Adolphus in 1632. ChrIstVs DVX; ergo trIVMphVs.
+chronogrammatic	CHRONOGRAMMATIC		CHRONOGRAMMATICAL, adjective Belonging to a chronogram, or containing one.
+chronogrammatical	CHRONOGRAMMATICAL	a.	Belonging to a chronogram, or containing one.
+chronogrammatist	CHRONOGRAMMATIST	n.	A writer of chronograms.
+chronographer	CHRONOGRAPHER	n.	One who writes concerning time or the events of time; a chronologer.
+chronography	CHRONOGRAPHY	n.	The description of time past.
+chronologer	CHRONOLOGER		CHRONOLOGIC, CHRONOLOGICAL, adjective Relating to chronology; containing an account of events in the order of time; according to the order of time.
+chronological	CHRONOLOGICAL	a.	Relating to chronology; containing an account of events in the order of time; according to the order of time.
+chronologically	CHRONOLOGICALLY	adv.	In a chronological manner; in a manner according with the order of time, the series of events, or rules of chronology.
+chronologist	CHRONOLOGIST	n.	A person who attempts to discover the true dates of past events and transactions, and to arrange them under their proper years, or divisions of time, in the order in which they happened.	One who studies chronology, or is versed in the science.
+chronology	CHRONOLOGY	n.	The science of time; the method of measuring, or computing time by regular divisions or periods, according to the revolutions of the sun, or moon; of ascertaining the true periods or years when past events or transactions took place; and arranging them in their proper order according to their dates. If history without chronology is dark and confused; chronology without history is dry and insipid.
+chronometer	CHRONOMETER	n.	Any instrument that measures time or that divides time into equal portions, or that is used for that purpose, as a clock, watch or dial; particularly an instrument that measures time with great exactness.
+chrysalid	CHRYSALID	n.	[See Chrysalis.]
+chrysalis	CHRYSALIS	n.	The particular form which butterflies, moths, and some other insects assume, before they arrive at their winged or perfect state. It is called also aurelia, from aurum, gold. In this form, the animal is in a state of rest or insensibility; having no organs for taking nourishment, nor wings, nor legs. The external covering is cartilaginous, and usually smooth and glossy; sometimes hairy. The name is taken from the yellow color of certain species; but they are of different colors, as green, black, etc.
+chrysoberyl	CHRYSOBERYL	n.	A siliceous gem, of a dilute yellowish green color.
+chrysoberyl	CHRYSOBERYL		the cymophane of Hauy, is a mineral usually found in round pieces, about the size of a pea; but it is also found crystalized in eight-sided prisms. It is next to the sapphire in hardness, and employed in jewelry.
+chrysocolla	CHRYSOCOLLA	n.	Carbonate of copper, of two subspecies, the blue and the green; formerly called blue and green chrysocolla also mountain blue and mountain green. It occurs in crystals, stalactites and other forms.
+chrysolite	CHRYSOLITE	n.	A mineral, called by Hauy and Brongniart, peridote and by Jameson, prismatic chrysolite Its prevailing color is some shade of green. It is harder than glass, but less hard than quartz; often transparent, sometimes only translucent. It occurs sometimes in crystals, sometimes in small amorphous masses or grains, and sometimes in rolled pieces.
+chrysoprase	CHRYSOPRASE	n.	A mineral, a subspecies of quartz. Its color is commonly apple green, and often extremely beautiful. It is translucent, or sometimes semi-transparent; its fracture even and dull, sometimes a little splintery, sometimes smooth and slightly conchoidal; its harness a little inferior to that of flint.

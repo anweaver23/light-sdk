@@ -1,0 +1,58 @@
+bet	BET	n.	A wager; that which is laid, staked or pledges in a contest, to be won, either by the victorious party himself, or by another person, in consequence of his victory. At a race, a man lays a bet on his own horse, or on the horse of another man.
+bet	BET	v.t.	To lay a bet; to lay a wager; to stake or pledge something upon the event of a context.
+bet	BET		the old participle of beat, is obsolete or vulgar.
+betake	BETAKE	v.t.; pret. betook; pp. betaken	To take to; to have recourse to; to apply; to resort; with the reciprocal pronoun; as, to betake ourselves to arms, or to action. It generally implies a motion towards an object, as to betake ourselves to a shade grove; or an application of the mind or faculties, corresponding with such motion, as to betake ourselves to study or to vice.	Formerly, to take or seize.
+betaken	BETAKEN		part of betake.
+betaking	BETAKING	ppr.	Having recourse to; applying; resorting.
+betaught	BETAUGHT	pret.	of betake. [Not used.]
+beteem	BETEEM	v.t.	To bring forth; to produce; to shed; to bestow. [Not used.]
+betel	BETEL		BETHINK', verb transitive preterit tense and participle passive bethought. [be and think.] To call to mind; to recall or bring to recollection, reflection, or consideration; generally followed by a reciprocal pronoun, with of before the subject of thought. I have bethought myself of another fault.
+bethink	BETHINK	v.t.	pret. and pp.bethought. [be and think.] To call to mind; to recall or bring to recollection, reflection, or consideration; generally followed by a reciprocal pronoun, with of before the subject of thought. I have bethought myself of another fault.
+bethink	BETHINK	v.i.	To have in recollection; to consider.
+bethlehem	BETHLEHEM	n.	A town or village in Judea, about six miles south-east of Jerusalem; famous for its being the place of Christ's nativity.	A hospital for lunatics; corrupted into bedlam.
+bethlemite	BETHLEMITE	n.	An inhabitant of Bethlehem; a lunatic.	In church history, the Bethlemites were a sort of Monks, introduced into England in the year 1257, who were habited like the Dominicans, except that they wore a star with five rays, in memory of the comet or star which appeared over Bethlehem at the nativity of our Savior. There is an order of Bethlemites also in Peru.
+bethought	BETHOUGHT		bethaut;, preterit tense and participle passive of bethink.
+bethrall	BETHRALL	v.t.	To enslave; to reduce to bondage; to bring into subjection. [Little used.]
+bethump	BETHUMP	v.t.	To beat soundly. [Little used.]
+betide	BETIDE	v.t.; pret. betid, or betided; pp. betid	To happen; to befall; to come to; used of good or evil. What will betide the few?
+betide	BETIDE	v.i.	To come to pass; to happen. What news else betideth here? Shakespeare has used it with of. What would betide of thee? but this is unusual or improper.
+betime	BETIME		BETI'MES, adverb [be and time, that is, by the time.]	Seasonably; in good season or time; before it is late. To measure life learn thou betimes.	Soon; in a short time. He tires betimes, that spurs too fast betimes.
+betimes	BETIMES	adv.	Seasonably; in good season or time; before it is late. To measure life learn thou betimes.	Soon; in a short time. He tires betimes, that spurs too fast betimes.
+betle	BETLE	n.	A species of pepper, the leaves of which are chewed by the inhabitants of the East Indies. It is a creeping or climbing plant like the ivy, the leaves somewhat resembling those of the citron. It is planted by a tree, or supported by props. In India, betel is taken after meals; during a visit, it is offered to friends when they meet, and when they separate; in short, nothing is to be done without betel. To correct the bitterness of the leaves, a little areca is wrapped in them with the chinam, a kind of burnt lime made of shells.
+betoken	BETOKEN	v.t.	To signify by some visible object; to show by signs. A dewy cloud, and in the cloud a bow Betokening peace from God.	To foreshow by present signs; to indicate something future by that which is seen or known; as, a dark cloud often betokens a storm.
+betokened	BETOKENED	pp.	Foreshown; previously indicated.
+betokening	BETOKENING	ppr.	Indicating by previous signs.
+betony	BETONY	n.	A genus of plants of several species. The purple or wood betony grows in woods and shady places, and is deemed useful as a mild corroborant
+betook	BETOOK	pret.	of betake.
+betorn	BETORN	a.	Torn in pieces.
+betoss	BETOSS	v.t.	To toss; to agitate; to disturb; to put in violent motion
+betrap	BETRAP	v.t.	To entrap; to ensnare. [Not used.]
+betray	BETRAY	v.t.	To deliver into the hands of an enemy by treachery or fraud, in violation of trust; as, an officer betrayed the city. The son of man shall be betrayed into the hands of men. Matthew 17:22.	To violate by fraud, or unfaithfulness; as, to betray a trust. If the people of America ever betray their trust, their guilt will merit even greater punishment than other nations have suffered, and the indignation of heaven.	To violate confidence by disclosing a secret, or that which was intrusted; to expose; followed by the person, or the thing; as, my friend betrayed me, or betrayed the secret.	To disclose, or permit to appear, what is intended to be kept secret, or what prudence would conceal. Be swift to hear, but cautions of your tongue, lest you betray your ignorance. Hence,	To mislead or expose to inconvenience not foreseen; as, great confidence betrays a man into errors.	To show; to discover; to indicate what is not obvious at first view, or would otherwise be concealed. Nor, after length of years, a stone betray The place where once the very ruins lay. This river betrays its original in its name. All the names in the country betray great antiquity.	To fail, or deceive. But when I rise, I shall find my legs betraying me.
+betrayed	BETRAYED	pp.	Delivered up in breach of trust; violated by unfaithfulness; exposed by breach of confidence; disclosed contrary to expectation or intention; made known; discoverd.
+betrayer	BETRAYER	n.	One who betrays; a traitor.
+betraying	BETRAYING	ppr.	Delivering up treacherously; violating confidence; disclosing contrary to intention; exposing; discovering.
+betrim	BETRIM	v.t.	To deck; to dress; to adorn; to grace; to embellish; to beautify; to decorate
+betrimmed	BETRIMMED	pp.	Adorned; decorated.
+betrimming	BETRIMMING	ppr.	Decking; adorning; embellishing.
+betroth	BETROTH	v.t.	To contract to any one, in order to a future marriage; to promise or pledge one to be the future spouse of another; to affiance; used of either sex. 'The father betroths his daughter.'	To contract with one for a future spouse; to espouse; as, a man betroths a lady.	To nominate to a bishopric, in order to consecration.
+betrothed	BETROTHED	pp.	Contracted for future marriage.
+betrothing	BETROTHING	ppr.	Contracting to any one, in order to a future marriage, as the father or guardian; contracting with one for a future wife, as the intended husband; espousing.
+betrothment	BETROTHMENT	n.	A mutual promise or contract between two parties, for a future marriage between the persons betrothed; espousals.
+betrust	BETRUST	v.t.	To entrust; to commit to another in confidence of fidelity; to confide. This is less used than entrust
+betrusted	BETRUSTED	pp.	Entrusted; confided; committed in trust.
+betrusting	BETRUSTING	ppr.	Entrusting; committing in trust.
+betrustment	BETRUSTMENT	n.	The act of entrusting; the thing entrusted.
+betso	BETSO	n.	The smallest Venetian coin.
+better	BETTER		a comparative of bet. See Best.]	Having good qualities in a greater degree than another; applied to physical, acquired or moral qualities; as a better soil, a better man, a better physician, a better house, a better air, a better harvest.	More advantageous. Were it not better for us to return to Egypt:Exodus 14:12.	More acceptable. To obey is better than sacrifice. 1 Samuel 15:22.	More safe. It is better to trust in the Lord, than to put confidence in man. Psalms 118:8.	Improved in health; less affected with disease; as, the patient is better	To be better off, to be in a better condition. Beddoes, Hygeia. This is a very common phrase; but ought not off, to be of? It is not elegant.	To have the better is to have the advantage or superiority, followed by of before him or that over which the advantage is enjoyed; as, the English had the better of the Spaniards.	To get or gain the better is to obtain the advantage, superiority or victory; as, to get the better of an enemy.	For the better is for the advantage or improvement.
+better	BETTER	adv.	In a more excellent manner; with more skill and wisdom, virtue, advantage or success; as, to perform work better; to plan a scheme better; land better cultivated; laws better executed; government better administered.	More correctly, or fully; as, to understand a subject better than another.	With superior excellence; as, to write or speak better than another.	With more affection; in a higher degree; as, to love one better than another. It is not easy to specify and exemplify the various applications of better In general, it implies what is more excellent, advantageous, useful, or virtuous, than something else.
+better	BETTER	v.t.	To improve; to meliorate; to increase the good qualities of; as, manure betters land; discipline may better the morals.	To surpass; to exceed. The works of nature do always aim at that which cannot be bettered. Qu.is not the sense, made better:	To advance; to support; to give advantage to; as, to better a party; to better a cause.
+better	BETTER	n.	A superior; one who has a claim to precedence on account of his rank, age, or office; as, give place to your betters. It is generally or always used in the plural.
+bettered	BETTERED	pp.	Improved; meliorated; made better.
+bettering	BETTERING	ppr.	Making better; improving.
+bettering-house	BETTERING-HOUSE	n.	A house for the reformation of offenders.
+betteringhouse	bettering-house
+bettor	BETTOR	n.	One who bets or lays a wager
+betty	BETTY	n.	An instrument to break open doors
+betumbled	BETUMBLED	a.	Rolled about; tumbled; disordered
+between	BETWEEN	prep.	In the intermediate space, without regard to distance; as, New York is between Boston and Philadelphia; the Delaware river runs between Pennsylvania and New Jersey.	From one another; passing from one to another, noting exchange of actions or intercourse; as, things go well between the parties.	Belonging to two or more, in common or partnership; as, two friends have but one soul between them; twenty proprietors own a tract of land between them. We observe that between is not restricted to two.	Having mutual relation to two or more; as, discords exist between the families.	Noting difference, or discrimination of one from another; as, to distinguish between right and wrong.
+betwixt	BETWIXT	prep.	Between; in the space that separates two persons or things; as, betwixt two oaks.	Passing between; from one to another, noting intercourse. [See Between.]

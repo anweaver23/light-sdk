@@ -1,0 +1,12 @@
+pauciloquy	PAUCILOQUY	n.	The utterance of few words. [Little used.]
+paucity	PAUCITY	n.	Fewness; smallness of number; as the paucity of schools.	Smallness of quantity; as paucity of blood.
+paum	PAUM	v.t.	To impose by fraud; a corruption of palm.
+paunch	PAUNCH	n.	The belly and its contents. The paunch in ruminating quadrupeds, is the first and largest stomach, into which the food is received before rumination
+paunch	PAUNCH	v.t.	To pierce or rip the belly; to eviscerate; to take out the contents of the belly.
+pauper	PAUPER	n.	A poor person; particularly, one so indigent as to depend on the parish or town for maintenance
+pauperism	PAUPERISM	n.	The state of being poor or destitute of the means of support; the state of indigent persons requiring support from the community. The increase of pauperism is an alarming evil.
+pause	PAUSE	n.	A stop; a cessation or intermission of action, of speaking, singing, playing or the like; a temporary stop or rest.	Cessation proceeding from doubt; suspense. I stand in pause where I shall first begin.	Break or paragraph in writing.	A temporary cessation in reading. The use of punctuation is to mark the pauses in writing. In verse, there are two kinds of pauses, the cesural and the final. The cesural pause divides the verse; the final pause closes it. The pauses which mark the sense, and which may be called sentential, are the same in prose and verse.	A mark of cessation or intermission of the voice; a point.
+pause	PAUSE	v.i.	To make a short stop; to cease to speak for a time; to intermit speaking or action. Pausing a while, thus to herself she mused.	To stop; to wait; to forbear for a time. Tarry, pause a day or two, Before you hazard.	To be intermitted. The music pauses. To pause upon, to deliberate.
+pauser	PAUSER	n.	s as z. One who pauses; one who deliberates.
+pausing	PAUSING	ppr.	Stopping for a time; ceasing to speak or act; deliberating.
+pausingly	PAUSINGLY	adv.	After a pause; by breaks.

@@ -1,0 +1,75 @@
+spud	SPUD	n.	A short knife. [Little used.]	Any short thing; in contempt.	A tool of the fork kind, used by farmers.
+spud	SPUD	v.t.	To dig or loosen the earth with a spud [Local.]
+spume	SPUME	n.	Froth; foam; scum; frothy matter raised on liquors or fluid substances by boiling, effervescence or agitation
+spume	SPUME	v.i.	To froth; to foam.
+spumescence	SPUMESCENCE	n.	Frothiness; the state of foaming.
+spumous	SPUMOUS		SPUMY, adjective [Latin] Consisting of froth or scum; foamy.
+spumy	SPUMOUS		SPUMY adjective [Latin] Consisting of froth or scum; foamy. The SPUMY waves proclaim the watry war. The spumous and florid state of the blood.
+spun	SPUN	pret.	and participle passive of spin.
+spun-hay	SPUN-HAY	n.	Hay twisted into ropes for convenient carriage on a military expedition.
+spun-yarn	SPUN-YARN	n.	Among seamen, a line or cord formed of two or three rope yarns twisted.
+spunge	SPUNGE	n.	A porous marine substance, found adhering to rocks, shells, etc. Under water, and on rocks about the shore at low water. It is generally supposed to be of animal origin, and consists of a fibrous reticulated substance, covered by a soft gelatinous matter, but in which no polypes have hitherto been observed. It is so porous as to imbibe a great quantity of water, and is used for various purposes in the arts and in surgery.	In gunnery, an instrument for cleaning cannon after a discharge. It consists of a cylinder of wood, covered with lamb skin. For small guns, it is commonly fixed to one end of the handle of the rammer.	In the manege, the extremity or point of a horse-shoe, answering to the heel. Pyrotechnical spunge is made of mushrooms or fungi, growing on old oaks, ash, fir, etc. which are boiled in water, dried and beaten, then put in a strong lye prepared with saltpeter, and again dried in an oven. This makes the black match or tinder brought from Germany.
+spunge	SPUNGE	v.t.	To wipe with a wet spunge; as, to spunge a slate.	To wipe out with a spunge as letters or writing.	To cleanse with a spunge; as, to spunge a cannon.	To wipe out completely; to extinguish or destroy.
+spunge	SPUNGE	v.i.	To suck in or imbibe, as a spunge	To gain by mean arts, by intrusion or hanging on; as an idler who spunges on his neighbor.
+spunged	SPUNGED	pp.	Wiped with a spunge; wiped out; extinguished.
+spunger	SPUNGER	n.	One who uses a spunge; a hanger on.
+spungiform	SPUNGIFORM	a.	Resembling a spunge; soft and porous; porous
+spunginess	SPUNGINESS	n.	The quality or state of being spungy, or porous like spunge.
+spunging-house	SPUNGING-HOUSE	n.	A bailiffs house to put debtors in.
+spunginghouse	spunging-house
+spungious	SPUNGIOUS	a.	Full of small cavities, like a spunge; as spungious bones.
+spungy	SPUNGY	a.	Soft and full of cavities; of an open, loose, pliable texture; as a spungy excrescence; spungy earth; spungy cake; the spungy substance of the lungs.	Full of small cavities; as spungy bones.	Wet; drenched; soaked and soft, like spunge.	Having the quality of imbibing fluids.
+spunhay	spun-hay
+spunk	SPUNK	n.	Touchwood; wood that readily takes fire. Hence,	Vulgarly, an inflammable temper; spirit; as a man of spunk Ill natured observations touched his spunk [Low.]
+spunyarn	spun-yarn
+spur	SPUR	n.	An instrument having a rowel or little wheel with sharp points, worn on horsemens heels, to prick the horses for hastening their pace. Girt with rusty sword and spur Hence, to set spurs to a horse, is to prick him and put him upon a run.	Incitement; instigation. The love of glory is the spur to heroic deeds.	The largest or principal root of a tree; hence perhaps, the short wooden buttress of a post; [that is, in both cases, a shoot.]	The hard pointed projection on a cocks leg, which serves as an instrument of defense and annoyance.	Something that projects; a snag.	In America, a mountain that shoots from any other mountain or range of mountains, and extends to some distance in a lateral direction, or at right angles.	That which excites. We say, upon the spur of the occasion; that is, the circumstances or emergency which calls for immediate action.	A sea swallow.	The hinder part of the nectary in certain flowers, shaped like a cocks spur	A morbid shoot or excrescence in grain, particularly in rye.	In old fortifications, a wall that crosses a part of the rampart and joins to the town wall.
+spur	SPUR	v.t.	To prick with spurs; to incite to a more hasty pace; as, to spur a horse.	To incite; to instigate; to urge or encourage to action, or to a more vigorous pursuit of an object. Some men are spurred to action by the love of glory, others by the love of power. Let affection spur us to social and domestic duties.	To impel; to drive. Love will not be spurrd to what it lothes.	To put spurs on. SPURs of the beams, in a ship, are curving timbers, serving as half beams to support the deck, where whole beams cannot be used.
+spur	SPUR	v.i.	To travel with great expedition. The Parthians shall be there, and spurring from the fight, confess their fear. [Unusual.]	To press forward. Some bold men--by spurring on, refine themselves.
+spur-royal	SPUR-ROYAL	n.	A gold coin, first made in the reign of Edward IV. IN the reign of James I. its value was fifteen shillings. Sometimes written spur-rial or ryal.
+spurgall	SPURGALL	v.t.	To gall or wound with a spur
+spurgall	SPURGALL	n.	A place galled or excoriated by much using of the spur.
+spurgalled	SPURGALLED	pp.	Galled or hurt by a spur; as a spurgalled hackney.
+spurge	SPURGE	n.	A plant of the genus Euphorbia
+spurge-flax	SPURGE-FLAX	n.	A plant. [Latin]
+spurge-laurel	SPURGE-LAUREL	n.	The Daphne laureola, a shrub, a native of Europe.
+spurge-olive	SPURGE-OLIVE	n.	Mezereon, a shrub of the genus Daphne.
+spurge-wort	SPURGE-WORT	n.	A plant. [Latin]
+spurgeflax	spurge-flax
+spurgelaurel	spurge-laurel
+spurgeolive	spurge-olive
+spurgewort	spurge-wort
+spurging	SPURGING		for purging, not in use.
+spurious	SPURIOUS	a.	Not genuine; not proceeding from the true source, or from the source pretended; counterfeit; false; adulterate. spurious writings are such as are not composed by the authors to whom they are ascribed. spurious drugs are common. The reformed churches reject spurious ceremonies and traditions.	Not legitimate; bastard; as spurious issue. By the laws of England, one begotten and born out of lawful matrimony, is a spurious child. SPURIOUS disease, a disease not of the genuine type, but bearing a resemblance in its symptoms.
+spuriously	SPURIOUSLY	adv.	Counterfeitly; falsely.
+spuriousness	SPURIOUSNESS	n.	The state or quality of being counterfeit, false or not genuine; as the spuriousness of drugs, of coin or of writings.	Illegitimacy; the state of being bastard, or not of legitimate birth; as the spuriousness of issue.
+spurling	SPURLING	n.	A small sea fish.
+spurling-line	SPURLING-LINE	n.	Among seamen, the line which forms the communication between the wheel and the tell-tale.
+spurlingline	spurling-line
+spurn	SPURN	v.t.	To kick; to drive back or away, as with the foot.	To reject with disdain; to scorn to receive or accept. What multitudes of rational beings spurn the offers of eternal happiness!	To treat with contempt.
+spurn	SPURN	v.i.	To manifest disdain in rejecting any thing; as, to spurn at the gracious offers of pardon.	To make contemptuous opposition; to manifest disdain in resistance. Nay more, to spurn at your most royal image.	To kick or toss up the heels. The drunken chairman in the kennel spurns.
+spurn	SPURN	n.	Disdainful rejection; contemptuous treatment. The insolence of office, and the spurns that patient merit of the unworthy takes.
+spurn-water	SPURN-WATER		In ships, a channel at the end of a deck to restrain the water.
+spurned	SPURNED	pp.	Rejected with disdain; treated with contempt.
+spurner	SPURNER	n.	One who spurns.
+spurney	SPURNEY	n.	A plant.
+spurning	SPURNING	ppr.	Rejecting with contempt.
+spurnwater	spurn-water
+spurre	SPURRE	n.	A name of the sea swallow.
+spurred	SPURRED	pp.	Furnished with spurs.	adjective Wearing spurs, or having shoots like spurs.
+spurrer	SPURRER	n.	One who uses spurs.
+spurrier	SPURRIER	n.	One whose occupation is to make spurs.
+spurroyal	spur-royal
+spurry	SPURRY	n.	A plant of the genus Spergula.
+spurt	SPURT	v.t.	To throw out, as liquid in a stream; to drive or force out with violence, as a liquid from a pipe or small orifice; as, to spurt water from the mouth, or other liquid from a tube
+spurt	SPURT	v.i.	To gush or issue out in a stream, as liquor from a cask; to rush from a confined place in a small stream. Then the small jet, which hasty hands unlock, spurts in the gardners eyes who turns the cock.
+spurt	SPURT	n.	A sudden or violent ejection or gushing of a liquid substance from a tube, orifice or other confined place; a jet.	A sudden or short occasion or exigency; sudden effort. [Vulgar.]
+spurtle	SPURTLE	v.t.	To shoot in a scattering manner. [Little used.]
+spurway	SPURWAY	n.	A horse path; a narrow way; a bridle road; a way for a single beast. [Not used in the United States.]
+sputation	SPUTATION	n.	The act of spitting. [Not used.]
+sputative	SPUTATIVE	a.	Spitting much; inclined to spit. [Not used.]
+sputter	SPUTTER	v.i.	To spit, or to emit saliva from the mouth in small or scattered portions, as in rapid speaking.	To throw out moisture in small detached parts; as green wood sputtering in the flame.	To fly off in small particles with some crackling or noise. When sparkling lamps their sputtering lights advance.	To utter words hastily and indistinctly; literally, to spout small; to speak so rapidly as to emit saliva. They could neither of them speak their rage, and so they fell a sputtering at one another, like two roasting apples.
+sputter	SPUTTER	v.t.	To throw out with haste and noise; to utter with indistinctness. In the midst of caresses--to sputter out the basest accusations.
+sputter	SPUTTER	n.	Moist matter thrown out in small particles.
+sputtered	SPUTTERED	pp.	Thrown out in small portions, as liquids; uttered with haste and indistinctness, as words.
+sputterer	SPUTTERER	n.	One that sputters.
+sputtering	SPUTTERING	ppr.	Emitting in small particles; uttering rapidly and indistinctly; speaking hastily; spouting.

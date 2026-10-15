@@ -1,0 +1,8 @@
+poach	POACH	v.t.	To boil slightly.	To dress by boiling slightly and mixing in a soft mass.	To begin and not complete.	To tread soft ground, or snow and water, as cattle, whose feet penetrate the soil of soft substance and leave deep tracks.	To steal game; properly, to pocket game, or steal it and convey it away in a bag.	To steal; to plunder by stealth. They poach Parnassus, and lay claim for praise.
+poach	POACH	v.t.	To stab; to pierce; to spear; as, to poach fish
+poach	POACH	v.i.	To be trodden with deep tracks, as soft ground. We say, the ground is soft in spring, and poaches badly. Chalky and clay lands burn in hot weather, chap in summer, and poach in winter.
+poachard	POACHARD		POACHED, participle passive Slightly boiled or softened; trodden with deep footsteps; stolen.
+poached	POACHED	pp.	Slightly boiled or softened; trodden with deep footsteps; stolen.
+poacher	POACHER	n.	One that steals game.
+poachiness	POACHINESS	n.	Wetness and softness; the state of being easily penetrable by the feet of beasts; applied to land.
+poachy	POACHY	a.	Wet and soft; such as the feet of cattle will penetrate to some depth; applied to land or ground of any kind.

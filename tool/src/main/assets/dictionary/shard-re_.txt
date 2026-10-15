@@ -1,0 +1,75 @@
+re	RE		a prefix or inseparable particle in the composition of words, denotes return, repetition, iteration. It is contracted from red, which the Latins retained in words beginning with a vowel, as in redamo, redeo, redintegro. In a few English words, all or most of which, I believe, we receive from the French, it has lost its appropriate signification, as in rejoice, recommend, receive.
+re-collect	RE-COLLECT	v.t.	To gather again; to collect what has been scattered; as, to re-collect routed troops.
+re-create	RE-CREATE	v.t.	To create or form anew. An opening the campaign of 1776, instead of reinforcing, it was necessary to re-create the army.
+re-created	RE-CREATED	pp.	Created or formed anew.
+re-creating	RE-CREATING	ppr.	Creating or forming anew.
+re-creation	RE-CREATION	n.	A forming anew.
+re-echo	RE-ECHO	v.i.	To echo back; to reverberate again; as, the hills re-echo the roar of cannon
+re-echo	RE-ECHO	v.i.	To echo back; to return back or be reverberated; as an echo. And a loud groan re-echoes from the main
+re-echo	RE-ECHO	n.	The echo of an echo.
+re-echoed	RE-ECHOED	pp.	Returned, as sound; reverberated again
+re-echoing	RE-ECHOING	ppr.	Returning or reverberating an echo.
+re-edification	RE-EDIFICATION	n.	Act or operation of rebuilding; state of being rebuilt
+re-edified	RE-EDIFIED	pp.	Rebuilt.
+re-edify	RE-EDIFY	v.t.	To rebuild; to build again after destruction.
+re-edifying	RE-EDIFYING	ppr.	Rebuilding.
+re-elect	RE-ELECT	v.t.	To elect again; as, to re-elect the former governor
+re-elected	RE-ELECTED	pp.	Elected again; re-chosen.
+re-electing	RE-ELECTING	ppr.	Electing again.
+re-election	RE-ELECTION	n.	Election a second time, or repeated election; as the re-election of a former representative.
+re-eligibility	RE-ELIGIBILITY	n.	The capacity of being re-elected to the same office.
+re-eligible	RE-ELIGIBLE	a.	Capable of being elected again to the same office
+re-embark	RE-EMBARK	v.t.	To embark or put on board again
+re-embark	RE-EMBARK	v.i.	To embark or go on board again.
+re-embarkation	RE-EMBARKATION	n.	A putting on board or a going on board again.
+re-embattle	RE-EMBATTLE	v.t.	To array again for battle; to arrange again in the order of battle
+re-embattled	RE-EMBATTLED	pp.	Arrayed again for battle.
+re-embattling	RE-EMBATTLING	ppr.	Arranging again in battle array.
+re-embody	RE-EMBODY	v.t.	To embody again
+re-enact	RE-ENACT	v.t.	To enact again
+re-enacted	RE-ENACTED	pp.	Enacted again.
+re-enacting	RE-ENACTING	ppr.	Enacting anew; passing again into a law.
+re-enaction	RE-ENACTION	n.	The passing into a law again.
+re-enactment	RE-ENACTMENT	n.	The enacting or passing of a law a second time; the renewal of a law.
+re-enforce	RE-ENFORCE	v.t.	To strengthen with new force, assistance or support, as to re-enforce an argument; but particularly, to strengthen an army or a fort with additional troops, or a navy with additional ships
+re-enforced	RE-ENFORCED	pp.	Strengthened by additional force, troops or ships.
+re-enforcement	RE-ENFORCEMENT	n.	The act of re-enforcing.	Additional force; fresh assistance; particularly, additional troops or force to augment the strength of an army or of ships.	Any augmentation of strength or force by something added.
+re-enforcing	RE-ENFORCING	ppr.	Strengthening by additional force.
+re-engage	RE-ENGAGE	v.t.	To engage a second time.
+re-engage	RE-ENGAGE	v.i.	To engage again; to enlist a second time; to covenant again.
+re-enjoy	RE-ENJOY	v.t.	To enjoy anew or a second time
+re-enjoyed	RE-ENJOYED	pp.	Enjoyed again.
+re-enjoying	RE-ENJOYING	ppr.	Enjoying anew.
+re-enjoyment	RE-ENJOYMENT	n.	A second or repeated enjoyment.
+re-enkindle	RE-ENKINDLE	v.t.	To enkindle again; to rekindle
+re-enkindled	RE-ENKINDLED	pp.	Enkindled again.
+re-enkindling	RE-ENKINDLING	ppr.	Enkindling anew.
+re-enlist	RE-ENLIST	v.t.	To enlist a second time. [See Re-inlist.]
+re-enter	RE-ENTER	v.t.	To enter again or anew
+re-enter	RE-ENTER	v.i.	To enter anew.
+re-entered	RE-ENTERED	pp.	Entered again.
+re-entering	RE-ENTERING	ppr.	Entering anew.	Entering in return; as salient and re-entering angles.
+re-enthrone	RE-ENTHRONE	v.t.	To enthrone again; to replace on a throne
+re-enthroned	RE-ENTHRONED	pp.	Raised again to a throne.
+re-enthroning	RE-ENTHRONING	ppr.	Replacing on a throne.
+re-entrance	RE-ENTRANCE	n.	The act of entering again
+re-establish	RE-ESTABLISH	v.t.	To establish anew; to fix or confirm again; as, to re-establish a covenant; to re-establish health
+re-established	RE-ESTABLISHED	pp.	Established or confirmed again.
+re-establisher	RE-ESTABLISHER	n.	One who establishes again.
+re-establishing	RE-ESTABLISHING	ppr.	Establishing anew; confirming again.
+re-establishment	RE-ESTABLISHMENT	n.	The act of establishing again; the state of being re-established; renewed confirmation; restoration.
+re-estate	RE-ESTATE	v.t.	To re-establish. [Not used.]
+re-examination	RE-EXAMINATION	n.	A renewed or repeated examination.
+re-examine	RE-EXAMINE	v.t.	To examine anew
+re-examined	RE-EXAMINED	ppr.	Examined again.
+re-examining	RE-EXAMINING	ppr.	Examining anew.
+re-exchange	RE-EXCHANGE	n.	A renewed exchange.	In commerce, the exchange chargeable on the redraft of a bill of exchange. The rate of re-exchange is regulated with respect to the drawer, at the course of exchange between the place where the bill of exchange was payable, and the place where it was drawn. Re-exchanges cannot be emulated.
+re-export	RE-EXPORT	v.t.	To export again; to export what has been imported. In the United States, a drawback is allowed on commodities re-exported
+re-export	RE-EXPORT	n.	Any commodity re-exported.
+re-exportation	RE-EXPORTATION	n.	The act of exporting what has been imported.
+re-exported	RE-EXPORTED	pp.	Exported after being imported.
+re-exporting	RE-EXPORTING	ppr.	Exporting what has been imported.
+re-ferment	RE-FERMENT	v.t.	To ferment again
+re-find	RE-FIND	v.t.	To find again; to experience anew
+re-formation	RE-FORMATION	n.	The act of forming anew; a second forming in order; as the re-formation of a column of troops into a hollow square.
+re-resolve	RE-RESOLVE	v.t.	re-rezolv'. To resolve a second time.

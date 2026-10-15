@@ -1,0 +1,3 @@
+xanthid	XANTHID		XANTHIDE, noun A compound of xanthogene and a metal.
+xanthide	XANTHID		XANTHIDE noun A compound of xanthogene and a metal.
+xanthogene	XANTHOGENE	n.	The base of a new acid, produced by the mixture of a solution of pure potassa with bisulphuret of carbon. This acid contains sulphur, carbon, and hydrogen. It is named from the yellow color of its compounds

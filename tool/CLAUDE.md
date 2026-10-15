@@ -35,6 +35,16 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   KJV/Book of Mormon English), bundled offline. For OT/NT we also show the **original** Hebrew/Greek word
   (Strong's). This is NOT a translation of the English word. It comes from a Strong's-tagged KJV aligned
   word-by-word to our text, which is a separate index. Other volumes have no original-language data.
+- **2026-10-14 Dictionary source and format:** Webster's 1828 comes from `akaitsurugi/webster1828`
+  (pinned commit in `assets/dictionary/SOURCE.md`). It's the only clean, structured, *genuinely 1828* digital
+  copy we found: numbered senses and labelled parts of speech. Its digital edition is **CC BY-SA 4.0**, so the
+  generated shards are CC BY-SA too, and the app must credit it (the underlying 1828 text is public domain).
+  Rejected sources: `sktzofrenic/webster1828` is really the 1913 edition, and `kayson-argyle/websters_1828` is
+  unlicensed OCR.
+  - Shards are plain TSV text by first 2-3 letters (~700 files, largest ~270 KB), so a lookup reads one small
+    file.
+  - Archaic and British forms fall back in `core/WebsterLookup` (giveth→give, honour→honor, firstborn→first-born).
+  - Coverage of lowercase words in our scripture text: 99.9% of tokens.
 - **2026-10-14 Word indexes are the anchor:** highlights, notes, footnotes and Strong's tags all point at
   `(VerseRef, word index)` as produced by `core/Words.spans`. Changing the tokenizer is a data-format change.
 - **2026-10-14 Strong's sources and format:** word tags come from eBible.org's `eng-kjv2006` (CrossWire's

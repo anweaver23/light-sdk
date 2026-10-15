@@ -1,0 +1,61 @@
+food	FOOD	n.	In a general sense, whatever is eaten by animals for nourishment, and whatever supplies nutriment to plants.	Meat; aliment; flesh or vegetables eaten for sustaining human life; victuals; provisions; whatever is or may be eaten for nourishment. Feed me with food convenient for me. Proverbs 30:8.	Whatever supplies nourishment and growth to plants, as water, carbonic acid gas, etc. Manuring substances furnish plants with food	Something that sustains, nourishes and augments. Flattery is the food of vanity.
+food	FOOD	v.t.	To feed. [Not in use.]
+foodful	FOODFUL	a.	Supplying food; full of food.
+foodless	FOODLESS	a.	Without food; destitute of provisions; barren.
+foody	FOODY	a.	Eatable; fit for food. [Not used.]
+fool	FOOL	n.	One who is destitute of reason, or the common powers of understanding; an idiot. Some persons are born fools, and are called natural fools; others may become fools by some injury done to the brain.	In common language, a person who is somewhat deficient in intellect, but not an idiot; or a person who acts absurdly; one who does not exercise his reason; one who pursues a course contrary to the dictates of wisdom. Experience keeps a dear school, but fools will learn in no other.	In scripture, fool is often used for a wicked or depraved person; one who acts contrary to sound wisdom in his moral deportment; one who follows his own inclinations, who prefers trifling and temporary pleasures to the service of God and eternal happiness. The fool hath said in his heart, there is no God. Psalms 14:1.	A weak christian; a godly person who has much remaining sin and unbelief. O fools, and slow of heart to believe all the prophets have written. Luke 24:25. Also, one who is accounted or called a fool by ungodly men. 1 Corinthians 4:10.	A term of indignity and reproach. To be thought knowing, you must first put the fool upon all mankind.	One who counterfeits folly; a buffoon; as a king's fool I scorn, although their drudge, to be their fool or jester.	To play the fool to act the buffoon; to jest; to make sport.	To act like one void of understanding. To put the fool on, to impose on; to delude. To make a fool of, to frustrate; to defeat; to disappoint.
+fool	FOOL	v.i.	To trifle; to toy; to spend time in idleness, sport or mirth. Is this a time for fooling?
+fool	FOOL	v.t.	To treat with contempt; to disappoint; to defeat; to frustrate; to deceive; to impose on. When I consider life, 'tis all a cheat; for fooled with hope, men favor the deceit.	To infatuate; to make foolish.	To cheat; as, to fool one out of his money.	To fool away, to spend in trifles, idleness, folly, or without advantage; as, to fool away time.	To spend for things of no value or use; to expend improvidently; as, to fool away money.
+fool	FOOL	n.	A liquid made of gooseberries scalded and pounded, with cream.
+foolborn	FOOLBORN	a.	Foolish from the birth.
+fooled	FOOLED	pp.	Disappointed; defeated; deceived; imposed on.
+foolery	FOOLERY	n.	The practice of folly; habitual folly; attention to trifles.	An act of folly or weakness.	Object of folly.
+foolhappy	FOOLHAPPY	a.	Lucky without judgment or contrivance.
+foolhardiness	FOOLHARDINESS	n.	Courage without sense or judgment; mad rashness.
+foolhardise	FOOLHARDISE	n.	Foolhardiness. [Not in use.]
+foolhardy	FOOLHARDY	a.	Daring without judgment; madly rash and adventurous; foolishly bold
+fooling	FOOLING	ppr.	Defeating; disappointing; deceiving.
+foolish	FOOLISH	a.	Void of understanding or sound judgment; weak in intellect; applied to general character.	Unwise; imprudent; acting without judgment or discretion in particular things.	Proceeding from folly, or marked with folly; silly; vain; trifling. But foolish questions avoid. 2 Timothy 2:23.	Ridiculous; despicable. A foolish figure he must make.	In scripture, wicked; sinful; acting without regard to the divine law and glory, or to one's own eternal happiness. O foolish Galatians - Galatians 3:1.	Proceeding from depravity; sinful; as foolish lusts. 1 Timothy 6:9.
+foolishly	FOOLISHLY	adv.	Weakly; without understanding or judgment; unwisely; indiscreetly.	Wickedly; sinfully. I have done very foolishly 2 Samuel 24:10.
+foolishness	FOOLISHNESS	n.	Folly; want of understanding.	Foolish practice; want of wisdom or good judgment.	In a scriptural sense, absurdity; folly. The preaching of the cross is to them that perish foolishness 1 Corinthians 1:18.
+fools-parsley	FOOL'S-PARSLEY	n.	A plant, of the genus Aethusa.
+foolscap	FOOLSCAP	n.	A kind of paper of small size
+foolsparsley	fools-parsley
+foolstones	FOOLSTONES	n.	A plant, the Orchis.
+fooltrap	FOOLTRAP	n.	A trap to catch fools; as a fly trap.
+foot	FOOT	n. pl.	In animal bodies, the lower extremity of the leg; the part of the leg which treads the earth in standing or walking, and by which the animal is sustained and enabled to step.	That which bears some resemblance to an animal's foot in shape or office; the lower end of any thing that supports a body; as the foot of a table.	The lower part; the base; as the foot of a column or of a mountain.	The lower part; the bottom; as the foot of an account; the foot of a sail.	Foundation; condition; state. We are not on the same foot with our fellow citizens. In this sense, it is more common, in America, to use footing; and in this sense the plural is not used.	Plan of establishment; fundamental principles. Our constitution may hereafter be placed on a better foot [In this sense the plural is not used.]	In military language, soldiers who march and fight on foot; infantry, as distinguished from cavalry. [In this sense the plural is not used.]	A measure consisting of twelve inches; supposed to be taken from the length of a man's foot Geometricians divide the foot into 10 digits, and the digit into 10 lines.	In poetry, a certain number of syllables, constituting part of a verse; as the iambus, the dactyl, and the spondee.	Step; pace.	Level; par. obsolete	The part of a stocking or boot which receives the foot By foot or rather, on foot by walking, as to go or pass on foot; or by fording, as to pass a stream on foot See the next definition. To set on foot to originate; to begin; to put in motion; as, to set on foot a subscription. Hence, to be on foot is to be in motion, action or process of execution.
+foot	FOOT	v.i.	To dance; to tread to measure or music; to skip.	To walk; opposed to ride or fly. In this sense, the word is commonly followed by it. If you are for a merry jaunt, I'll try, for once, who can foot it farthest.
+foot	FOOT	v.t.	To kick; to strike with the foot; to spurn.	To settle; to begin to fix. [Little used.]	To tread; as, to foot the green.	To add the numbers in a column, and set the sum at the foot; as, to foot an account.	To seize and hold with the foot [Not used.]	To add or make a foot; as, to foot a stocking or boot.
+football	FOOTBALL	n.	A ball consisting of an inflated bladder, cased in leather, to be driven by the foot.	The sport or practice of kicking the football
+footband	FOOTBAND	n.	A band of infantry.
+footboy	FOOTBOY	n.	A menial; an attendant in livery.
+footbreadth	FOOTBREADTH	n.	The breadth of the foot. Deuteronomy 2:1.
+footbridge	FOOTBRIDGE	n.	A narrow bridge for foot passengers.
+footcloth	FOOTCLOTH	n.	A sumpter cloth.
+footed	FOOTED	pp.	Kicked; trod; summed up; furnished with a foot, as a stocking.
+footed	FOOTED	a.	Shaped in the foot; as footed like a goat.
+footfall	FOOTFALL	n.	A trip or stumble.
+footfight	FOOTFIGHT	n.	A conflict by persons on foot, in opposition to a fight on horseback.
+footguards	FOOTGUARDS	n. pl.	Guards of infantry.
+foothalt	FOOTHALT	n.	A disease incident to sheep, and said to proceed from a worm, which enters between the claws.
+foothold	FOOTHOLD	n.	That which sustains the feet firmly and prevents them from slipping of moving; that on which one may tread or rest securely.
+foothot	FOOTHOT	adv.	Immediately; a word borrowed from hunting.
+footing	FOOTING	ppr.	Dancing; treading; settling; adding a new foot.
+footing	FOOTING	n.	Ground for the foot; that which sustains; firm foundation to stand on In ascents, every step gained is a footing and help to the next.	Support; root.	Basis; foundation.	Place; stable position.	Permanent settlement. Let not these evils gain footing	Tread; step; walk.	Dance; tread to measure.	Steps; road; track. [Little used.]	State; condition; settlement. Place both parties on an equal footing
+footlicker	FOOTLICKER	n.	A mean flatterer; a sycophant; a fawner.
+footman	FOOTMAN	n.	A soldier who marches and fights on foot.	A menial servant; a runner; a servant in livery.
+footmanship	FOOTMANSHIP	n.	The art or faculty of a runner.
+footmantle	FOOTMANTLE	n.	A garment to keep the gown clean in riding.
+footpace	FOOTPACE	n.	A slow step, as in walking; a broad stair.
+footpad	FOOTPAD	n.	A highwayman or robber on foot.
+footpath	FOOTPATH	n.	A narrow path or way for foot passengers only.
+footplow	FOOTPLOW	n.	A kind of swing-plow.
+footpost	FOOTPOST	n.	A post or messenger that travels on foot.
+footrope	FOOTROPE	n.	The lower boltrope, to which the lower edge of a sail is sewed. Also, a horse or rope to support men when reefing, etc.
+footrot	FOOTROT	n.	An ulcer in the feet of sheep.
+footsoldier	FOOTSOLDIER	n.	A soldier that serves on foot.
+footstalk	FOOTSTALK	n.	In botany, a petiole; a partial stem supporting the leaf, or connecting it with the stem or branch. Sometimes, but rarely, the same footstalk supports both the leaf and fructification, as in Turnera and Hibiscus
+footstall	FOOTSTALL	n.	A woman's stirrup.
+footstep	FOOTSTEP	n.	A track; the mark or impression of the foot.	Token; mark; visible sign of a course pursued; as the footsteps of divine wisdom.	Footsteps, plural, example; as, follow the footsteps of good men.	Way; course. Psalms 78:1.
+footstool	FOOTSTOOL	n.	A stool for the feet; that which supports the feet of one when sitting. To make enemies a footstool is to reduce them to entire subjection. Psalms 110:1.
+footwaling	FOOTWALING	n.	The whole inside planks or lining of a ship.

@@ -1,0 +1,42 @@
+foss	FOSS	n.	A ditch or moat; a word used in fortification.	In anatomy, a kind of cavity in a bone, with a large aperture.
+fossil	FOSSIL	a.	Dug out of the earth; as fossil coal; fossil salt. The term fossil is now usually appropriated to those inorganic substances, which have become penetrated by earthy or metallic particles. Thus we say, fossil shells, fossil bones, fossil wood.	That may be taken from the earth by digging.
+fossil	FOSSIL	n.	A substance dug from the earth, or penetrated with earthy or metallic particles. Fossils are native or extraneous. Native fossils are minerals, properly so called, as earth, salts, combustibles and metallic bodies. Extraneous fossils are bodies of vegetable or animal origin accidentally buried in the early, as plants, shells, bones and other substances, many of which are petrified.
+fossil-copal	FOSSIL-COPAL	n.	Highgate resin; a resinous substance found in perforating the bed of blue clay at Highgate, near London. It appears to be a true vegetable gum or resin, partly changed by remaining in the earth.
+fossilcopal	fossil-copal
+fossilist	FOSSILIST	n.	One who studies the nature and properties of fossils; one who is versed in the science of fossils.
+fossilization	FOSSILIZATION	n.	The act or process of converting into a fossil or petrification.
+fossilize	FOSSILIZE	v.t.	To convert into a fossil; as, to fossilize bones or wood.
+fossilize	FOSSILIZE	v.i.	To become or be changed into a fossil.
+fossilized	FOSSILIZED	pp.	Converted into a fossil.
+fossilizing	FOSSILIZING	ppr.	Changing into a fossil.
+fossilogy	FOSSILOGY	n.	A discourse or treatise on fossils; also, the science of fossils
+fossroad	FOSSROAD		FOSS'WAY, noun A Roman military way in England, leading from Totness through Exeter to Barton on the Humber; so called from the ditches on each side.
+fossway	FOSSWAY	n.	A Roman military way in England, leading from Totness through Exeter to Barton on the Humber; so called from the ditches on each side.
+foster	FOSTER	v.t.	To feed; to nourish; to support; to being up. Some say that ravens foster forlorn children.	To cherish; to forward; to promote growth. The genial warmth of spring fosters the plants.	To cherish; to encourage; to sustain and promote; as, to foster passion or genius.
+foster	FOSTER	v.i.	To be nourished or trained up together.
+foster-brother	FOSTER-BROTHER	n.	A male nursed as the same breast, or fed by the same nurse.
+foster-child	FOSTER-CHILD	n.	A child nursed by a woman not the mother, or bred by a man not the father.
+foster-dam	FOSTER-DAM	n.	A nurse; one that performs the office of a mother by giving food to a child.
+foster-earth	FOSTER-EARTH	n.	Earth by which a plant is nourished, though not its native soil.
+foster-father	FOSTER-FATHER	n.	One who takes the place of a father in feeding and educating a child.
+foster-mother	FOSTER-MOTHER	n.	A nurse.
+foster-nurse	FOSTER-NURSE	n.	A nurse.
+foster-sister	FOSTER-SISTER	n.	A female nursed by the same person.
+foster-son	FOSTER-SON	n.	One fed and educated, like a son, though not a son by birth.
+fosterage	FOSTERAGE	n.	The charge of nursing.
+fosterbrother	foster-brother
+fosterchild	foster-child
+fosterdam	foster-dam
+fosterearth	foster-earth
+fostered	FOSTERED	pp.	Nourished; cherished; promoted.
+fosterer	FOSTERER	n.	A nurse; one that feeds and nourishes in the place of parents.
+fosterfather	foster-father
+fostering	FOSTERING	ppr.	Nursing; cherishing; bringing up.
+fostering	FOSTERING	n.	The act of nursing, nourishing and cherishing.	Nourishment.
+fosterling	FOSTERLING	n.	A fosterchild.
+fosterment	FOSTERMENT	n.	Food; nourishment. [Not used.]
+fostermother	foster-mother
+fosternurse	foster-nurse
+fostersister	foster-sister
+fosterson	foster-son
+fostress	FOSTRESS	n.	A female who feeds and cherishes; a nurse.

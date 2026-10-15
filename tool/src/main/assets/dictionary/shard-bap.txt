@@ -1,0 +1,10 @@
+baptism	BAPTISM	n.	The application of water to a person, as a sacrament or religious ceremony, by which he is initiated into the visible church of Christ. This is usually performed by sprinkling or immersion.	The sufferings of Christ. Matt.xx22.23.	So much of the gospel as was preached by John, the Baptist. Acts 18:25.
+baptismal	BAPTISMAL	a.	Pertaining to baptist; as a baptismal vow.
+baptist	BAPTIST	n.	One who administers baptism. This appellation is appropriately given to John, the forerunner of Christ.	As a contraction of Anabaptist, one who denies the doctrine of infant baptism, and maintains that baptism ought to be administered only to adults by immersing the body in water.
+baptistery	BAPTISTERY	n.	A place where the sacrament of baptism is administered. Primitively, baptisteries were in buildings separate from the church; but in the sixth century, they were taken into the church-porch, and afterwards into the church itself
+baptistic	BAPTISTIC		BAPTIS'TICAL, adjective Pertaining to baptism.
+baptistical	BAPTISTICAL	a.	Pertaining to baptism.
+baptize	BAPTIZE	v.t.	[See Baptism.] To administer the sacrament of baptism to; to christen. By some denominations of christians, baptism is performed by plunging, or immersing the whole body in water, and this is done to none but adults. More generally the ceremony is performed by sprinkling water on the face of a person, whether an infant or an adult, and in the case of an infant, by giving him a name, in the name of the Father, Son and Holy Spirit, which is called Christening.
+baptized	BAPTIZED	pp.	Having received baptism; christened.
+baptizer	BAPTIZER	n.	One who christens, or administers baptism.
+baptizing	BAPTIZING	ppr.	Administering baptism to; christening.

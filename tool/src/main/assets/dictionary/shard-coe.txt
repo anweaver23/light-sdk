@@ -1,0 +1,40 @@
+coefficacy	COEFFICACY	n.	Joint efficacy; the power of two or more things acting together to produce an effect.
+coefficiency	COEFFICIENCY	n.	Cooperation; joint power of two or more things or causes, acting to the same end.
+coefficient	COEFFICIENT	n.	That which unites in action with something else to produce the same effect.	In algebra, a number or known quantity put before letters, or quantities, known or unknown, and into which it is supposed to be multiplied; as in 3x and ax, 3 and a are the coefficients of x.	In fluxions, the coefficient of any generating term is the quantity which arises from the division of that term by the generated quantity.
+coefficiently	COEFFICIENTLY	adv.	By cooperation.
+coelder	co-elder
+coeliac	COELIAC		CELIAC, adjective Pertaining to the belly, or to the intestinal canal. COELIAC artery is the artery which issues from the aorta just below the diaphragm. COELIAC passion, the lientery, a flux or diarrhoea of undigested food. COELIAC vein, a vein of the intestinum rectum.
+coemption	COEMPTION	n.	The act of purchasing the whole quantity of any commodity.
+coenjoy	COENJOY	v.t.	To enjoy together.
+coequal	COEQUAL	a.	Equal with another person or thing; of the same rank, dignity or power.
+coequal	COEQUAL	n.	One who is equal to another.
+coequality	COEQUALITY	n.	The state of being equal with another; equality in rank, dignity or power.
+coequally	COEQUALLY	adv.	With joint equality.
+coerce	COERCE		To restrain by force; to keep from acting, or transgressing, particularly by moral force, as by law or authority; to repress.	To compel; to constrain. These causes--coerced by those which preceded and coercing those which followed.
+coerced	COERCED	pp.	Restrained by force; compelled.
+coercible	COERCIBLE	a.	That may or ought to be restrained or compelled.
+coercing	COERCING	ppr.	Restraining by force; constraining.
+coercion	COERCION	n.	Restraint, check, particularly by law or authority; compulsion; force.
+coercive	COERCIVE	a.	That has power to restrain, particularly by moral force, as of law or authority.	Compulsory; constraining; forcing.
+coercively	COERCIVELY	adv.	By constraint.
+coessential	COESSENTIAL	a.	Partaking of the same essence. We bless and magnify that coessential spirit, eternally proceeding from the father and son.
+coessentiality	COESSENTIALITY	n.	Participation of the same essence.
+coessentially	COESSENTIALLY	adv.	In a coessential manner.
+coestablishment	COESTABLISHMENT	n.	Joint establishment.
+coetaneous	COETANEOUS	a.	Of the same age with another; beginning to exist at the same time; with to. Every fault has penal effects, coetaneous to the act. But with may be preferable to to. This word is sometimes used as synonymous with cotemporary; but coetaneous seems properly to denote cotemporary in origin, rather than cotemporary in existence at any other period. It may however be used in both senses.
+coetenrnal	COETENRNAL	a.	Equally eternal with another.
+coeternally	COETERNALLY	adv.	With equal eternity.
+coeternity	COETERNITY	n.	Existence from eternity equal with another eternal being; equal eternity.
+coeval	COEVAL	a.	Of the same age; beginning to exist at the same time; of equal age; usually and properly followed by with.
+coeval	COEVAL	n.	One of the same age; one who begins to exist at the same time. It is not properly used as synonymous with cotemporary.
+coevous	COEVOUS	a.	The same as coeval, but not used.
+coexecutor	co-executor
+coexist	COEXIST	v.i.	To exist at the same time with another; followed by with.
+coexistence	COEXISTENCE	n.	Existence at the same time with another; followed regularly by with.
+coexistent	COEXISTENT	a.	Existing at the same time with another; regularly followed by with.
+coextend	COEXTEND	v.i.	To extend through the same space or duration with another; to extend equally; as, one line coextends with another; or perhaps in a transitive sense, to coextend a line with another.
+coextended	COEXTENDED	pp.	Being equally extended.
+coextending	COEXTENDING	ppr.	Extending through the same space or duration with another.
+coextension	COEXTENSION	n.	The act of extending equally, or the state of being equally extended.
+coextensive	COEXTENSIVE	a.	Equally extensive; having equal extent.
+coextensiveness	COEXTENSIVENESS	n.	Equal extension or extent.

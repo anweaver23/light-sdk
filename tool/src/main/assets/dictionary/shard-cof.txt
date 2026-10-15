@@ -1,0 +1,18 @@
+coffee	COFFEE	n.	The berry of a tree belonging to the genus Coffea, growing in Arabia, Persia, and in other warm climates of Asia and America. It will grow to the highth of 16 or 18 feet, but its growth is generally stinted to five feet, for the convenience of gathering the fruit. The stem is upright, and covered with a light brown bark; the branches are horizontal and opposite, crossing each other at every joint, and forming a sort of pyramid. The flowers grow in clusters at the root of the leaves, and close to the branches; they are of a pure white and of an agreeable odor. The fruit which is a berry, grows in clusters, along the branches, under the axils of the leaves.	A drink made from the berry of the coffee-tree, by decoction. The berry is first roasted, and then ground in a mill, and boiled. The use of it is said to have been introduced into France by Thevenot, the traveler, and into England, in 1652, by a Greek servant, called Pasqua. The best coffee is said to be the Mocha coffee from Arabia Felix. The coffee of Java, Bourbon and the West Indies constitutes an important article of commerce.
+coffee-cup	COFFEE-CUP	n.	A cup from which coffee is drank.
+coffee-house	COFFEE-HOUSE	n.	A house of entertainment, where guests are supplied with coffee and other refreshments, and where men meet for conversation.	A house of entertainment; an inn; which in some cities is also an exchange where merchants meet to transact business.
+coffee-man	COFFEE-MAN	n.	One who keeps a coffee-house.
+coffee-pot	COFFEE-POT	n.	A covered pot in which coffee is boiled, or in which it is brought upon the table for drinking.
+coffeecup	coffee-cup
+coffeehouse	coffee-house
+coffeeman	coffee-man
+coffeepot	coffee-pot
+coffer	COFFER	n.	A chest or trunk; and as a chest is customarily used for keeping money, hence,	A chest of money; a treasure.	In architecture, a square depression or sinking in each interval between the modillions of the Corinthian cornice, ordinarily filled with a rose, a pomegranate or other enrichment.	In fortification, a hollow lodgment across a dry moat, from 6 to 7 feet deep and from 16 to 18 broad; the upper part made of pieces of timber, raised two feet above the level of the moat; which little elevation has hurdles laden with earth for its covering, and serves as a parapet with embrasures. It is raised by the besieged to repulse besiegers when they endeavor to pass the ditch.
+coffered	COFFERED	pp.	Laid up in a coffer.
+cofferer	COFFERER	n.	The cofferer of the kings household in Great Britain, a principal officer of the court, next under the Controller. He was also a white-staff officer, and a member of the privy council. He had the special charge and oversight of the other officers of the household. This office is now suppressed, and the business is transacted by the lord steward and paymaster of the household.
+coffin	COFFIN	n.	The chest or box in which a dead human body is buried, or deposited in a vault.	A mold of paste for a pie.	A paper case, in the form of a cone, used by grocers.	In farriery, the hollow part of a horses hoof; or the whole hoof above the coronet, including the coffin-bone, which is a small spungy bone in the midst of the hoof, and possessing the whole form of the hoof.
+coffin	COFFIN	v.t.	To put in or inclose in a coffin
+coffin-maker	COFFIN-MAKER	n.	One who makes, or whose occupation is to make coffins.
+coffined	COFFINED	pp.	Inclosed in a coffin.
+coffinmaker	coffin-maker
+cofounder	COFOUNDER	n.	A joint founder.
