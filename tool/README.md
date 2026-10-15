@@ -43,21 +43,41 @@ Note: audio downloaded *inside* the Gospel Library app is stored privately by th
 
 ```
 src/main/kotlin/io/github/anweaver23/scriptures/
-  core/   Catalog models, FileMatcher, ImportPlanner, Words tokenizer, Search (verse matching,
-          snippets, "Alma 32:21" labels), StrongsData (Strong's asset parsing). Plain Kotlin, no Android.
+  core/   Plain Kotlin, no Android:
+          Catalog models, Targets/VerseRef, Words (tokenizer), Lexicon (Dictionary/OriginalLanguage),
+          FileMatcher, ImportPlanner, Search (verse matching, snippets, "Alma 32:21" labels),
+          Selection (WordPos/WordRange/Selection, quoteOf), Study (Annotation/Bookmark models, JSON
+          format, highlight merge rules, reference labels), VerseLayout (verse display text + word and
+          footnote-marker offsets), Footnotes (asset format), Strongs (root links), StrongsData
+          (Strong's asset parsing)
   data/   AppGraph (singletons), Importer, AudioLibrary (files on disk), ProgressStore (DataStore),
-          SearchIndex (all verse text, loaded on the first search, held softly),
-          StrongsOriginalLanguage (lazy per-book Strong's lookups, LRU cached)
+          StudyStore (highlights/notes/bookmarks as JSON), AssetFootnotes, SearchIndex (all verse text,
+          loaded on the first search, held softly), StrongsOriginalLanguage (lazy per-book Strong's
+          lookups, LRU cached)
   ui/     Screens: Home (book grid + Search/Bookmarks/Annotations bar), BookTile, Search, BookList,
-          ChapterGrid, Reader, Hymns, Player, AddAudio, Review, TargetPicker
-src/main/res/drawable/   ic_bookmark_{white,black}.xml (no LightIcons bookmark glyph exists)
+          ChapterGrid, Reader, Hymns, Player, AddAudio, Review, TargetPicker, Bookmarks, Annotations,
+          StudyScreens (note editor, Define, highlight detail, footnote)
   ToolEntryPoint.kt   Tool Manager folders + sorting after an upload
+src/main/res/drawable/   ic_bookmark_{white,black}.xml (no LightIcons bookmark glyph exists)
 src/main/assets/scriptures/   index.json + one JSON per book: {"c": [[verse, ...], ...]}
 src/main/assets/hymns/        hymns-1985.json, hymns-home-church.json (numbers and titles only)
 src/main/assets/strongs/      <ot|nt>/<book>.json word tags + dict/<H|G>/<n/100>.json dictionary shards
+src/main/assets/footnotes/    Format doc only (README.md); no footnote data is bundled
 scripts/build_scripture_assets.py   Rebuilds the scripture assets from bcbooks/scriptures-json
 scripts/build_strongs_assets.py     Aligns a Strong's-tagged KJV onto our text and builds the dictionaries
 ```
+
+## Reading and study
+
+- **Select:** press and hold a word. Keep holding and drag to extend word by word (across verses), or
+  lift and tap another word to extend to it. Tapping outside the words, or ✕, clears it.
+- **Actions** (bottom bar while selecting): Highlight, Note, and Define (one word only).
+- **Highlights and notes:** tap a highlighted word to read or edit its note, or remove it. Notes are
+  highlighted and underlined.
+- **Bookmarks:** the star in the reader bookmarks the verse at the top of the screen. When the chapter
+  has a bookmark the star is filled, and tapping it removes the bookmark nearest the top verse.
+- **Study data** lives in the tool's private storage as `study/annotations.json` and
+  `study/bookmarks.json` (`{"version": 1, ...}`), anchored to (verse, word index).
 
 Sorted files live in the tool's private storage as `library/audio/<key>.<ext>` and `library/lyrics/<key>.txt`, where the key is something like `scriptures/bofm/alma/32` or `hymns/hymns-1985/85`. The folder tree is the index; there's no database.
 

@@ -46,6 +46,28 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   explicit list, never fuzzy matching: a wrong tag is worse than a missing one. Each tag file stores a token
   CRC that a unit test recomputes with `Words.spans`, so **a tokenizer or verse-text change fails the build
   until the Strong's assets are regenerated.**
+- **2026-10-14 Selection gestures:** the reader draws each verse as one `BasicText` (an `AnnotatedString`
+  styled like `LightTextVariant.Paragraph`) and hit-tests its `TextLayoutResult`. One custom gesture
+  detector on the chapter column: lift before the long-press timeout = tap; move past touch slop first =
+  scroll (not consumed, so `LightScrollView` keeps scrolling); hold = select the word, then the drag is
+  consumed and extends word by word. While selecting, tapping a word extends to it and tapping off the
+  words clears. Range math (order, per-verse words, merge) is pure in `core/Selection.kt`/`Study.kt`.
+- **2026-10-14 Highlight look:** translucent content colour, so it's a soft grey on AMOLED black and works
+  on the light theme: highlight `HIGHLIGHT_ALPHA` 0.22, notes add an underline, selection 0.45. Constants
+  at the top of `ui/ReaderScreen.kt`.
+- **2026-10-14 Highlight merging:** highlighting over or next to plain highlights merges them into one.
+  Notes never merge and are never removed by a highlight; a highlight fully inside another is a no-op.
+- **2026-10-14 Study storage:** `filesDir/study/annotations.json` and `bookmarks.json`, each
+  `{"version":1,...}`, anchors as `{"ref":"bofm/alma/32/21","word":3}`. Written to a temp file then
+  renamed. A file that can't be read (or is from a newer version) is set aside as
+  `<name>.unreadable-<time>`, never overwritten.
+- **2026-10-14 Study sub-views are screens:** Define, the note editor, a highlight's detail and a
+  footnote open as their own screens (not overlays), because hardware BACK pops the screen without
+  asking the view model (SDK bug), which would otherwise close the reader.
+- **2026-10-14 Bookmark star:** fills when the chapter has any bookmark. Tapping it adds one at the top
+  visible verse, or removes the one nearest it, so two taps undo each other. Continue reading also
+  remembers the top verse (`ProgressStore.lastReadVerse`).
+- **2026-10-14 Footnote format:** documented in `src/main/assets/footnotes/README.md`.
 
 ## Hard rules
 
@@ -68,7 +90,8 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 ```
 src/main/kotlin/io/github/anweaver23/scriptures/
   core/   Plain Kotlin, no Android: catalog models, Targets/VerseRef, Words tokenizer, Lexicon
-          interfaces, file matching. Everything testable on the JVM lives here.
+          interfaces, file matching, selection ranges, study models + JSON format, verse display
+          mapping, footnote format. Everything testable on the JVM lives here.
   data/   AppGraph (process singletons), stores (DataStore / JSON files in filesDir), asset loaders,
           importer, audio library.
   ui/     One file per screen or screen family. Shared bits (ScreenFrame, ListRow, Note) in Common.kt.
