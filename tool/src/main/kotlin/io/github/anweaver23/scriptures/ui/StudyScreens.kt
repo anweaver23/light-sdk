@@ -113,7 +113,9 @@ class DefineScreen private constructor(
 
     @Composable
     override fun Content() {
-        val result by produceState<DefineResult?>(null) {
+        // Keyed: a root link opens another DefineScreen in the same composition slot, which would
+        // otherwise keep the previous screen's result.
+        val result by produceState<DefineResult?>(null, word, ref, wordIndex, strongs) {
             value = withContext(Dispatchers.IO) {
                 if (strongs != null) {
                     DefineResult(emptyList(), listOfNotNull(AppGraph.originalLanguage.entry(strongs)))

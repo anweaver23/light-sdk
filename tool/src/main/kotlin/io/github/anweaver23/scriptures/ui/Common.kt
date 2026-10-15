@@ -130,7 +130,8 @@ fun ActionBar(items: List<LightBarButton>) {
         modifier = Modifier
             .fillMaxWidth()
             .height(ACTION_BAR_UNITS.gridUnitsAsDp())
-            .padding(horizontal = 1f.gridUnitsAsDp()),
+            // Tight padding: four items in Button type (wide letter-spacing) only just fit 1080px.
+            .padding(horizontal = 0.5f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
@@ -138,7 +139,7 @@ fun ActionBar(items: List<LightBarButton>) {
             val modifier = Modifier
                 .height(ACTION_BAR_UNITS.gridUnitsAsDp())
                 .lightClickable { item.onClick?.invoke() }
-                .padding(horizontal = 0.5f.gridUnitsAsDp())
+                .padding(horizontal = 0.25f.gridUnitsAsDp())
             Box(modifier, contentAlignment = Alignment.Center) {
                 when (item) {
                     is LightBarButton.Text -> LightText(item.text, variant = LightTextVariant.Button, maxLines = 1)
