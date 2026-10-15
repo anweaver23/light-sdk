@@ -37,6 +37,15 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   word-by-word to our text, which is a separate index. Other volumes have no original-language data.
 - **2026-10-14 Word indexes are the anchor:** highlights, notes, footnotes and Strong's tags all point at
   `(VerseRef, word index)` as produced by `core/Words.spans`. Changing the tokenizer is a data-format change.
+- **2026-10-14 Strong's sources and format:** word tags come from eBible.org's `eng-kjv2006` (CrossWire's
+  KJV2006 tagging, declared public domain there; CrossWire's own SWORD module is labelled GPL, so we don't use
+  it). Dictionaries come from the openscriptures/strongs **XML** (public domain), never its JSON (CC BY-SA).
+  `scripts/build_strongs_assets.py` re-anchors the tags onto our text by word index: per-book
+  `assets/strongs/<ot|nt>/<book>.json` (flat `[word, number, ...]` per verse) plus 100-entry dictionary shards
+  `assets/strongs/dict/<H|G>/<n/100>.json`, so a lookup loads one book and one shard. Spelling variants are an
+  explicit list, never fuzzy matching: a wrong tag is worse than a missing one. Each tag file stores a token
+  CRC that a unit test recomputes with `Words.spans`, so **a tokenizer or verse-text change fails the build
+  until the Strong's assets are regenerated.**
 
 ## Hard rules
 
