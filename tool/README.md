@@ -42,9 +42,13 @@ Note: audio downloaded *inside* the Gospel Library app is stored privately by th
 
 ```
 src/main/kotlin/io/github/anweaver23/scriptures/
-  core/   Catalog models, FileMatcher, ImportPlanner. Plain Kotlin, no Android.
-  data/   AppGraph (singletons), Importer, AudioLibrary (files on disk), ProgressStore (DataStore)
-  ui/     Screens: Home, BookList, ChapterGrid, Reader, Hymns, Player, AddAudio, Review, TargetPicker
+  core/   Catalog models, FileMatcher, ImportPlanner, Words tokenizer, Search (verse matching,
+          snippets, "Alma 32:21" labels). Plain Kotlin, no Android.
+  data/   AppGraph (singletons), Importer, AudioLibrary (files on disk), ProgressStore (DataStore),
+          SearchIndex (all verse text, loaded on the first search, held softly)
+  ui/     Screens: Home (book grid + Search/Bookmarks/Annotations bar), BookTile, Search, BookList,
+          ChapterGrid, Reader, Hymns, Player, AddAudio, Review, TargetPicker
+src/main/res/drawable/   ic_bookmark_{white,black}.xml (no LightIcons bookmark glyph exists)
   ToolEntryPoint.kt   Tool Manager folders + sorting after an upload
 src/main/assets/scriptures/   index.json + one JSON per book: {"c": [[verse, ...], ...]}
 src/main/assets/hymns/        hymns-1985.json, hymns-home-church.json (numbers and titles only)
@@ -61,4 +65,4 @@ Playback uses the SDK's detached player (`detached-audio` capability), so it kee
 ./gradlew :tool:testDebugUnitTest
 ```
 
-`FileMatcherTest`, `ChurchFilenamesTest` and `ImporterTest` run against the real bundled catalog.
+`FileMatcherTest`, `ChurchFilenamesTest`, `ImporterTest` and `SearchTest` run against the real bundled catalog. `SearchTest` also prints how long a full-text scan takes.
