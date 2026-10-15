@@ -198,8 +198,7 @@ class SearchScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, Sear
             Modifier
                 .fillMaxWidth()
                 .lightClickable {
-                    // TODO(coordinator): pass focus verse (hit.ref.verse) once ReaderScreen takes one.
-                    navigateTo({ ReaderScreen(it, hit.ref.chapterTarget) })
+                    navigateTo({ ReaderScreen(it, hit.ref.chapterTarget, focusVerse = hit.ref.verse) })
                 }
                 .padding(bottom = RESULT_GAP_UNITS.gridUnitsAsDp()),
         ) {

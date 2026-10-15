@@ -7,7 +7,6 @@ import io.github.anweaver23.scriptures.core.BookText
 import io.github.anweaver23.scriptures.core.Catalog
 import io.github.anweaver23.scriptures.core.Dictionary
 import io.github.anweaver23.scriptures.core.NoDictionary
-import io.github.anweaver23.scriptures.core.NoOriginalLanguage
 import io.github.anweaver23.scriptures.core.OriginalLanguage
 import io.github.anweaver23.scriptures.core.FileMatcher
 import io.github.anweaver23.scriptures.core.FootnoteSource
@@ -62,8 +61,11 @@ object AppGraph {
     /** Webster's 1828. Placeholder until the bundled dictionary is wired in. */
     val dictionary: Dictionary by lazy { NoDictionary }
 
-    /** Strong's Hebrew/Greek behind the KJV text. Placeholder until the bundled data is wired in. */
-    val originalLanguage: OriginalLanguage by lazy { NoOriginalLanguage }
+    /** Strong's Hebrew/Greek behind the KJV text (OT/NT only). */
+    val originalLanguage: OriginalLanguage by lazy {
+        val c = ctx()
+        StrongsOriginalLanguage(load = { path -> runCatching { c.readAsset(path) }.getOrNull() })
+    }
 
     /** For work that should finish even if the screen that started it closes (imports, file moves). */
     val scope: CoroutineScope = CoroutineScope(

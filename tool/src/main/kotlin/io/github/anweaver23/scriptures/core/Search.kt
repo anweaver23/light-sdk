@@ -134,13 +134,3 @@ object Search {
     }
 }
 
-/** "Alma 32:21", "D&C 4:2", or "Enos 1:3" for a one-chapter book. */
-fun Catalog.verseLabel(ref: VerseRef): String {
-    val book = scriptures.book(ref.bookId)
-    val chapterLabel = label(ref.chapterTarget)
-    return if (book != null && book.chapters == 1 && book.id != "dc") {
-        "$chapterLabel ${ref.chapter}:${ref.verse}"
-    } else {
-        "$chapterLabel:${ref.verse}"
-    }
-}
