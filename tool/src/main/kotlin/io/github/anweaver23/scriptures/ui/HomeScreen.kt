@@ -12,6 +12,10 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -48,26 +52,30 @@ import kotlinx.coroutines.launch
 
 // Home grid layout. Units are Light grid units (1/27 of the screen width).
 
-/** Book proportions, width / height. 0.72 is a little squatter than a real 2:3 book so titles fit. */
-const val TILE_ASPECT = 0.72f
+/** Book proportions, width / height. A little squatter than a real 2:3 book so titles fit. */
+const val TILE_ASPECT = 0.75f
 
-/** Smallest tile height. Below this the titles get cramped, so the grid scrolls instead of shrinking. */
-const val TILE_MIN_HEIGHT_UNITS = 6f
+/**
+ * Smallest tile height. Below this the grid scrolls instead of shrinking. With both quiet rows
+ * showing, tiles come out at about 5.9 units, so on the LP3 the home screen never scrolls.
+ */
+const val TILE_MIN_HEIGHT_UNITS = 5f
 
 /** Space between the two books in a row. */
 const val TILE_COLUMN_GAP_UNITS = 2.5f
 
 /** Space between rows of books. */
-const val TILE_ROW_GAP_UNITS = 0.75f
+const val TILE_ROW_GAP_UNITS = 0.5f
 
 /** Space above the grid and between the grid and the quiet rows below it. */
-const val GRID_TOP_GAP_UNITS = 0.5f
-const val GRID_BOTTOM_GAP_UNITS = 0.75f
+const val GRID_TOP_GAP_UNITS = 0.25f
+const val GRID_BOTTOM_GAP_UNITS = 0.5f
 
 /** Height of the secondary rows (Resume listening, Add audio). Shorter than a [ListRow] on purpose. */
-const val QUIET_ROW_UNITS = 2.5f
+const val QUIET_ROW_UNITS = 2.25f
 
 private const val GRID_COLUMNS = 2
+private val ROUNDING_SLACK = 2.dp
 
 class HomeViewModel : LightViewModel<Unit>() {
     val catalog: Catalog = AppGraph.catalog
@@ -131,8 +139,16 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
                 val quietRows = 1 + (if (lastPlayed != null) 1 else 0)
                 BoxWithConstraints(Modifier.fillMaxSize()) {
                     val tile = tileSize(maxWidth, maxHeight, quietRows)
-                    // Inside: no scroll-bar gutter, so the books stay centred on the screen.
-                    LightScrollView(Modifier.fillMaxSize(), scrollBarPosition = LightScrollBarPosition.Inside) {
+                    val guess = rememberSharedTitleStep(shelves.map { it.title }, tile.width)
+                    // One title size for every tile. If a tile's rendered title still breaks
+                    // mid-word, all tiles step down together.
+                    var step by remember(guess) { mutableIntStateOf(guess) }
+                    val stepDown = { if (step < BOOK_TITLE_SIZES_PX.lastIndex) step++ }
+                    // Normally everything fits, nothing scrolls, and no gutter is reserved, so the
+                    // books stay centred. If it can't fit, reserve the gutter so the bar never
+                    // draws over the rows.
+                    val barPosition = if (tile.scrolls) LightScrollBarPosition.Outside else LightScrollBarPosition.Inside
+                    LightScrollView(Modifier.fillMaxSize(), scrollBarPosition = barPosition) {
                         Spacer(Modifier.height(GRID_TOP_GAP_UNITS.gridUnitsAsDp()))
                         shelves.chunked(GRID_COLUMNS).forEachIndexed { i, row ->
                             if (i > 0) Spacer(Modifier.height(TILE_ROW_GAP_UNITS.gridUnitsAsDp()))
@@ -143,9 +159,11 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
                                     Alignment.CenterHorizontally,
                                 ),
                             ) {
-                                row.forEach { shelf -> BookTile(shelf.title, tile.first, tile.second, shelf.open) }
+                                row.forEach { shelf ->
+                                    BookTile(shelf.title, tile.width, tile.height, step, stepDown, shelf.open)
+                                }
                                 // Keep a lone last book in the left column.
-                                repeat(GRID_COLUMNS - row.size) { Spacer(Modifier.width(tile.first)) }
+                                repeat(GRID_COLUMNS - row.size) { Spacer(Modifier.width(tile.width)) }
                             }
                         }
                         Spacer(Modifier.height(GRID_BOTTOM_GAP_UNITS.gridUnitsAsDp()))
@@ -167,16 +185,19 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
      * Tile (width, height): as tall as possible so the grid and the quiet rows fit without
      * scrolling, but never shorter than [TILE_MIN_HEIGHT_UNITS] or wider than a column allows.
      */
+    private class TileSize(val width: Dp, val height: Dp, val scrolls: Boolean)
+
     @Composable
-    private fun tileSize(maxWidth: Dp, maxHeight: Dp, quietRows: Int): Pair<Dp, Dp> {
+    private fun tileSize(maxWidth: Dp, maxHeight: Dp, quietRows: Int): TileSize {
         val rows = 3
         val reserved = (GRID_TOP_GAP_UNITS + GRID_BOTTOM_GAP_UNITS + quietRows * QUIET_ROW_UNITS +
             (rows - 1) * TILE_ROW_GAP_UNITS).gridUnitsAsDp()
-        val fitHeight = (maxHeight - reserved) / rows
+        // A couple of dp of slack so pixel rounding can't tip a fitting layout into scrolling.
+        val fitHeight = (maxHeight - reserved - ROUNDING_SLACK) / rows
         val columnWidth = (maxWidth - TILE_COLUMN_GAP_UNITS.gridUnitsAsDp()) / GRID_COLUMNS
-        val height = min(fitHeight, columnWidth / TILE_ASPECT)
-            .coerceAtLeast(TILE_MIN_HEIGHT_UNITS.gridUnitsAsDp())
-        return (height * TILE_ASPECT) to height
+        val minHeight = TILE_MIN_HEIGHT_UNITS.gridUnitsAsDp()
+        val height = min(fitHeight, columnWidth / TILE_ASPECT).coerceAtLeast(minHeight)
+        return TileSize(width = height * TILE_ASPECT, height = height, scrolls = fitHeight < minHeight)
     }
 
     private fun openVolume(volume: Volume) {
