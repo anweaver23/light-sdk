@@ -2,7 +2,7 @@
 
 This file records the Scriptures tool's decisions, structure and conventions. Read it before making changes.
 Update it in the same commit as any decision or structural change. The task backlog lives in
-**GitHub issues** on `anweaver23/light-scriptures`, grouped by milestone. This file holds the *why* and the
+**GitHub issues** on `anweaver23/light-sdk` (the fork), grouped by label. This file holds the *why* and the
 rules; issues hold the *what's next*.
 
 A reader for the LDS standard works and hymnbooks on the Light Phone III, with the user's own audio.
@@ -78,6 +78,12 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   visible verse, or removes the one nearest it, so two taps undo each other. Continue reading also
   remembers the top verse (`ProgressStore.lastReadVerse`).
 - **2026-10-14 Footnote format:** documented in `src/main/assets/footnotes/README.md`.
+- **2026-10-26 Home repo is the fork:** Light's docs build tools from forks of `lightphone/light-sdk`, so the
+  tool lives on branch `andy/scripture-app` of the fork `anweaver23/light-sdk`, next to `andy/chess-app`.
+  The standalone private `anweaver23/light-scriptures` copy is retired. The fork is public (GitHub allows no
+  private forks of public repos), which Light requires for release anyway.
+- **2026-10-26 Tool id `com.andyweaver.scriptures`:** matches the chess tool's `com.andyweaver.chess`.
+  The Kotlin package stays `io.github.anweaver23.scriptures`; only the id is user-visible and permanent.
 
 ## Hard rules
 
@@ -126,7 +132,7 @@ From the **repo root** (never a subdirectory). Confirm `BUILD SUCCESSFUL`, not j
 export JAVA_HOME="C:\Program Files\Android\Android Studio\jbr"
 ./gradlew :tool:assembleDebug :tool:testDebugUnitTest
 adb -s emulator-5554 install -r tool/build/outputs/apk/debug/tool-debug.apk
-adb -s emulator-5554 shell am start -n io.github.anweaver23.scriptures/com.thelightphone.sdk.LightActivity
+adb -s emulator-5554 shell am start -n com.andyweaver.scriptures/com.thelightphone.sdk.LightActivity
 ```
 
 - **Emulator:** if the LightOS emulator app is missing (it has vanished twice), run
@@ -151,8 +157,7 @@ trusted. One emulator is shared, so on-device verification happens after the mer
 
 ## Git
 
-- Branch `andy/scripture-app` tracks `scriptures/main` on `anweaver23/light-scriptures` (private for now); plain
-  `git push` works because `push.default = upstream`. The
-  older `fork` remote (`anweaver23/light-sdk`) is the chess app's home.
+- Branch `andy/scripture-app` lives on the fork `anweaver23/light-sdk` (remote `fork` locally), next to
+  the chess app's `andy/chess-app`. One app per branch; GitHub allows only one fork per account.
 - SDK updates: `git checkout main && git pull --ff-only origin main`, then merge `main` into this branch.
 - Never push to `origin` (the upstream `lightphone/light-sdk`, read-only for us).

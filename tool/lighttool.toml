@@ -1,5 +1,5 @@
 [tool]
-id = "io.github.anweaver23.scriptures"
+id = "com.andyweaver.scriptures"
 label = "Scriptures"
 versionCode = 1
 versionName = "0.1.0"
