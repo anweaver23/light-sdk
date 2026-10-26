@@ -115,6 +115,12 @@ private const val MARKER_TOUCH_SLOP_PX = 28f
 /** Extra room either side of a word that still counts as tapping it, in px. */
 private const val WORD_TOUCH_SLOP_PX = 6f
 
+/** A swipe turns the chapter when it travels this share of the screen width sideways... */
+private const val SWIPE_MIN_FRACTION = 0.2f
+
+/** ...and is at least this many times wider than it is tall. */
+private const val SWIPE_RATIO = 1.5f
+
 /** Space above a focused verse when scrolling to it, in grid units. */
 private const val FOCUS_TOP_MARGIN_UNITS = 0.5f
 
@@ -128,16 +134,17 @@ sealed interface TapAction {
 /**
  * Ask the screen to scroll to [verse] and mark it; [id] makes repeated requests distinct. With
  * [offset] (a display character, used by find) it brings that line into view instead, scrolling
- * only if it's off screen, and doesn't mark the verse.
+ * if it's off screen, and doesn't mark the verse. Without [flash] it scrolls but doesn't mark (used
+ * when reopening where the reader left off).
  */
-data class FocusRequest(val verse: Int, val id: Long, val offset: Int? = null)
+data class FocusRequest(val verse: Int, val id: Long, val offset: Int? = null, val flash: Boolean = true)
 
 /** Find in chapter: what was searched, every hit, and which one the find bar is on. */
 data class FindState(val query: String, val matches: List<FindMatch>, val current: Int) {
     val currentMatch: FindMatch? get() = matches.getOrNull(current)
 }
 
-class ReaderViewModel(start: Target.Chapter, focusVerse: Int?) : LightViewModel<Unit>() {
+class ReaderViewModel(start: Target.Chapter, focusVerse: Int?, quietFocus: Boolean = false) : LightViewModel<Unit>() {
     val catalog: Catalog = AppGraph.catalog
     val library = AppGraph.library.index
     private val study = AppGraph.study
@@ -180,7 +187,7 @@ class ReaderViewModel(start: Target.Chapter, focusVerse: Int?) : LightViewModel<
     init {
         viewModelScope.launch { study.load() }
         saveReadingPosition()
-        load(start, focusVerse)
+        load(start, focusVerse, quietFocus)
     }
 
     fun previous() {
@@ -191,8 +198,6 @@ class ReaderViewModel(start: Target.Chapter, focusVerse: Int?) : LightViewModel<
         neighbor(1)?.let { load(it, null) }
     }
 
-    fun hasPrevious() = neighbor(-1) != null
-    fun hasNext() = neighbor(1) != null
 
     fun onTopVerse(verse: Int) {
         _topVerse.value = VerseRef(_chapter.value.volumeId, _chapter.value.bookId, _chapter.value.chapter, verse)
@@ -317,7 +322,7 @@ class ReaderViewModel(start: Target.Chapter, focusVerse: Int?) : LightViewModel<
 
     // --- loading ---
 
-    private fun load(target: Target.Chapter, focusVerse: Int?) {
+    private fun load(target: Target.Chapter, focusVerse: Int?, quietFocus: Boolean = false) {
         _chapter.value = target
         _verses.value = null
         _displays.value = null
@@ -325,7 +330,7 @@ class ReaderViewModel(start: Target.Chapter, focusVerse: Int?) : LightViewModel<
         _find.value = null
         _topVerse.value = null
         scrollState = ScrollState(0)
-        _focus.value = focusVerse?.let { FocusRequest(it, ++focusCounter) }
+        _focus.value = focusVerse?.let { FocusRequest(it, ++focusCounter, flash = !quietFocus) }
         viewModelScope.launch {
             val (verses, displays) = withContext(Dispatchers.IO) {
                 val verses = AppGraph.bookText(target.volumeId, target.bookId).c.getOrNull(target.chapter - 1).orEmpty()
@@ -373,6 +378,8 @@ class ReaderScreen(
     sealedActivity: SealedLightActivity,
     private val start: Target.Chapter,
     private val focusVerse: Int? = null,
+    /** Scroll to [focusVerse] without marking it, as when the app reopens where you left off. */
+    private val quietFocus: Boolean = false,
 ) : LightScreen<Unit, ReaderViewModel>(sealedActivity) {
 
     init {
@@ -380,7 +387,7 @@ class ReaderScreen(
     }
 
     override val viewModelClass = ReaderViewModel::class.java
-    override fun createViewModel() = ReaderViewModel(start, focusVerse)
+    override fun createViewModel() = ReaderViewModel(start, focusVerse, quietFocus)
 
     @Composable
     override fun Content() {
@@ -409,11 +416,12 @@ class ReaderScreen(
                     MenuItem("Find in chapter", MenuIcon.Light(LightIcons.SEARCH), onSelect = ::openFind),
                 ),
             ),
-            bottomBar = listOf(
-                LightBarButton.Text("Prev", onClick = viewModel::previous).takeIf { viewModel.hasPrevious() },
-                if (hasAudio) LightBarButton.Text("Listen", onClick = { navigateTo({ PlayerScreen(it, chapter) }) }) else null,
-                LightBarButton.Text("Next", onClick = viewModel::next).takeIf { viewModel.hasNext() },
-            ),
+            // Chapters change by swiping, so the bar only appears when there's audio to play.
+            bottomBar = if (hasAudio) {
+                listOf(LightBarButton.Text("Listen", onClick = { navigateTo({ PlayerScreen(it, chapter) }) }))
+            } else {
+                null
+            },
             bottomContent = when {
                 currentSelection != null -> {
                     {
@@ -460,6 +468,7 @@ class ReaderScreen(
                     onLongPress = viewModel::startSelection,
                     onDrag = viewModel::extendSelection,
                     onWordTap = { pos -> handle(viewModel.onWordTap(pos)) },
+                    onSwipe = { direction -> if (direction > 0) viewModel.next() else viewModel.previous() },
                     onMarkerTap = { verse, marker -> handle(viewModel.onMarkerTap(verse, marker)) },
                 )
             }
@@ -536,6 +545,7 @@ private fun ChapterText(
     onDrag: (WordPos) -> Unit,
     onWordTap: (WordPos?) -> Unit,
     onMarkerTap: (Int, MarkerSpan) -> Unit,
+    onSwipe: (Int) -> Unit,
 ) {
     val colors = LightThemeTokens.colors
     val geometry = remember(displays) { mutableStateMapOf<Int, VerseGeometry>() }
@@ -582,6 +592,7 @@ private fun ChapterText(
             }
             scrollState.scrollTo((target.top - focusTopMarginPx).toInt().coerceIn(0, scrollState.maxValue))
             onFocusHandled(request)
+            if (!request.flash) return@collect
             flashVerse = verse
             flash.snapTo(1f)
             delay(FOCUS_HOLD_MS)
@@ -603,6 +614,7 @@ private fun ChapterText(
     val currentOnDrag by rememberUpdatedState(onDrag)
     val currentOnWordTap by rememberUpdatedState(onWordTap)
     val currentOnMarkerTap by rememberUpdatedState(onMarkerTap)
+    val currentOnSwipe by rememberUpdatedState(onSwipe)
 
     LightScrollView(Modifier.fillMaxSize(), scrollState = scrollState) {
         Column(
@@ -613,6 +625,7 @@ private fun ChapterText(
                         val down = awaitFirstDown(requireUnconsumed = false)
                         val slop = viewConfiguration.touchSlop
                         var tapAt: Offset? = null
+                        var movedTo: Offset? = null
                         // Wait for the long-press timeout. Lifting first is a tap; moving past touch
                         // slop first is a scroll, which we leave to the scroll view by not consuming.
                         val held = withTimeoutOrNull(viewConfiguration.longPressTimeoutMillis) {
@@ -622,10 +635,32 @@ private fun ChapterText(
                                     if (!change.isConsumed) tapAt = change.position
                                     break
                                 }
-                                if (change.isConsumed || (change.position - down.position).getDistance() > slop) break
+                                if (change.isConsumed) break
+                                if ((change.position - down.position).getDistance() > slop) {
+                                    movedTo = change.position
+                                    break
+                                }
                             }
                         } == null
                         val geo = currentGeometry
+                        val moved = movedTo
+                        if (!held && moved != null) {
+                            // Mostly sideways: follow it to the end and turn the page if it went far
+                            // enough. Not consumed, so a drift up or down still scrolls.
+                            val first = moved - down.position
+                            if (abs(first.x) <= abs(first.y)) return@awaitEachGesture
+                            var last = moved
+                            while (true) {
+                                val change = awaitPointerEvent().changes.firstOrNull { it.id == down.id } ?: break
+                                last = change.position
+                                if (change.changedToUpIgnoreConsumed()) break
+                            }
+                            val d = last - down.position
+                            if (abs(d.x) > size.width * SWIPE_MIN_FRACTION && abs(d.x) > SWIPE_RATIO * abs(d.y)) {
+                                currentOnSwipe(if (d.x < 0) 1 else -1)
+                            }
+                            return@awaitEachGesture
+                        }
                         if (!held) {
                             tapAt?.let { at ->
                                 when (val hit = hitTest(geo, displays, at, strict = true)) {

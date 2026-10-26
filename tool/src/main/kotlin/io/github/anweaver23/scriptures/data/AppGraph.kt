@@ -57,6 +57,10 @@ object AppGraph {
 
     val settings: SettingsStore by lazy { SettingsStore(ctx().dataStore) }
 
+    /** Set once home has reopened the reader where the user left off, so it happens once per launch. */
+    @Volatile
+    var resumedReading: Boolean = false
+
     /**
      * The text size setting, shared by every screen. Starts at the default until the first read, so
      * screens can collect it without a null check.

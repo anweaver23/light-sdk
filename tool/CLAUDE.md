@@ -24,8 +24,8 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 
 - **2026-10-14 Home is a 2-column grid of book-shaped tiles:** the 5 volumes + Hymns. Bottom bar:
   Search · Bookmarks · Annotations.
-- **2026-10-14 Bookmarks:** multiple manual bookmarks are allowed. An automatic **Continue reading** entry
-  (last chapter read) is always pinned at the top of the Bookmarks tab.
+- **2026-10-14 Bookmarks:** multiple manual bookmarks are allowed. *(The pinned Continue reading entry is
+  gone, see 2026-10-26 Reopen where you left off.)*
 - **2026-10-14 Annotations tab:** a plain list of highlights and notes for now. Visualization comes later (issue).
 - **2026-10-14 Footnotes are plumbing only:** the Church's footnotes are copyrighted, so we don't bundle them.
   We build the data format, the in-text markers and the modal, and ship no footnote data. Choosing a source
@@ -105,7 +105,7 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-10-26 Home tiles are square** and follow the text size: 3 columns at Small/Default, 2 at
   Large and up (the grid scrolls then, and the tiles leave room for the scroll bar gutter). Home bar:
   Settings (left) · Search (middle) · Bookmarks (right). Annotations and Add audio are in the "…" menu;
-  Add audio is also in Settings. No Add audio row on home. Continue reading lives only in Bookmarks.
+  Add audio is also in Settings. No Add audio row on home.
 - **2026-10-26 Note editor is full screen, like LightOS Notes:** reading-size text fills the page (no
   field underline), scrolls to keep the caret in view, Return is a new line, SAVE returns the text. It
   hosts its own LP3 keyboard view model in the screen's store (`ui/NoteEditorScreen.kt`), because
@@ -113,6 +113,20 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-10-26 Removing a highlight or note asks first** (`ConfirmScreen`), from the highlight screen
   and from the Annotations list.
 - **2026-10-26 Chapter number grid rows are taller** (`NUMBER_ROW_UNITS` 4.5) so rows don't crowd.
+- **2026-10-26 Reopen where you left off:** no Continue reading button anywhere. On launch, home opens the
+  reader at the last chapter and top verse (`ProgressStore.lastRead`/`lastReadVerse`) once per process
+  (`AppGraph.resumedReading`), scrolled there without the focus mark. Back returns to home.
+- **2026-10-26 Chapters turn by swiping:** no Prev/Next. A mostly sideways swipe (≥ 20% of the width and
+  1.5× wider than tall) on the text goes to the next/previous chapter, crossing books. The bottom bar only
+  shows when the chapter has audio (Listen).
+- **2026-10-26 Home tiles are plain outlines:** the spine (second line) is gone.
+- **2026-10-26 Search reads references** (`core/References.kt`): "genesis" lists the book (opens its
+  chapter grid), "genesis 1" the chapter, "1 ne 3:7" the verse; "jude 5" in a one-chapter book is a
+  verse. Titles and abbreviations match exactly, or by title prefix (3+ letters); exact beats prefix.
+  References list above the full-text verse results, which still run.
+- **2026-10-26 Note tools:** holding anywhere in the note (empty space included) replaces the keys with
+  Copy (whole note) / Paste (at caret) / Clear, using the LP3 keyboard's `overlay` slot; its close arrow
+  brings the keys back. The keyboard has no clipboard support of its own.
 
 ## Hard rules
 

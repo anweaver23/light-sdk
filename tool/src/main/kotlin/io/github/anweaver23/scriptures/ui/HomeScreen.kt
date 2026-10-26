@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -39,6 +40,7 @@ import io.github.anweaver23.scriptures.core.Volume
 import io.github.anweaver23.scriptures.core.label
 import io.github.anweaver23.scriptures.data.AppGraph
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
@@ -90,6 +92,15 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
         val textSize by viewModel.textSize.collectAsState()
         val catalog = viewModel.catalog
         val colors by LightThemeController.colors.collectAsState()
+
+        // On launch, open the scriptures where the user left off (Back returns here).
+        LaunchedEffect(Unit) {
+            if (AppGraph.resumedReading) return@LaunchedEffect
+            AppGraph.resumedReading = true
+            val chapter = AppGraph.progress.lastRead.first() ?: return@LaunchedEffect
+            val verse = AppGraph.progress.lastReadVerse.first()?.verse
+            navigateTo({ ReaderScreen(it, chapter, focusVerse = verse, quietFocus = true) })
+        }
 
         val shelves = catalog.scriptures.volumes.map { volume -> Shelf(volume.title) { openVolume(volume) } } +
             Shelf("Hymns") { navigateTo(::HymnBooksScreen) }

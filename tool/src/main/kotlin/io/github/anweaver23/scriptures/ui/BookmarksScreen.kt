@@ -22,8 +22,8 @@ import io.github.anweaver23.scriptures.data.AppGraph
 import kotlinx.coroutines.launch
 
 /**
- * Continue reading (automatic, always first), then manual bookmarks newest first.
- * EDIT in the top bar shows a remove control on each bookmark.
+ * Manual bookmarks, newest first. "Remove bookmarks" in the menu shows a remove control on each.
+ * (Where you left off isn't listed: the app reopens there on launch.)
  */
 class BookmarksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
     init {
@@ -33,8 +33,6 @@ class BookmarksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<U
     @Composable
     override fun Content() {
         val catalog = AppGraph.catalog
-        val lastRead by AppGraph.progress.lastRead.collectAsState(initial = null)
-        val lastVerse by AppGraph.progress.lastReadVerse.collectAsState(initial = null)
         val bookmarks by AppGraph.study.bookmarks.collectAsState()
         var editing by remember { mutableStateOf(false) }
         LaunchedEffect(Unit) { AppGraph.study.load() }
@@ -55,15 +53,6 @@ class BookmarksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<U
             },
         ) {
             LightScrollView(Modifier.fillMaxSize()) {
-                lastRead?.let { chapter ->
-                    val verse = lastVerse?.takeIf { it.chapterTarget == chapter }
-                    StackRow(
-                        title = "Continue reading",
-                        lines = listOf((verse?.let(catalog::verseLabel) ?: catalog.label(chapter)) to 1),
-                    ) {
-                        navigateTo({ ReaderScreen(it, chapter, focusVerse = verse?.verse) })
-                    }
-                }
                 if (sorted.isEmpty()) {
                     Note("Open the … menu in the reader and choose Bookmark to mark where you are.")
                 }

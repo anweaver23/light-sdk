@@ -29,6 +29,10 @@ import com.thelightphone.sdk.ui.LightThemeTokens
 import com.thelightphone.sdk.ui.gridUnitsAsDp
 import com.thelightphone.sdk.ui.lightClickable
 import io.github.anweaver23.scriptures.core.Catalog
+import io.github.anweaver23.scriptures.core.RefMatch
+import io.github.anweaver23.scriptures.core.References
+import io.github.anweaver23.scriptures.core.Target
+import io.github.anweaver23.scriptures.core.label
 import io.github.anweaver23.scriptures.core.Search
 import io.github.anweaver23.scriptures.core.SearchHit
 import io.github.anweaver23.scriptures.core.SearchResults
@@ -56,8 +60,8 @@ class SearchViewModel : LightViewModel<Unit>() {
     sealed interface State {
         /** Typing the query. */
         data object Editing : State
-        data class Searching(val query: String) : State
-        data class Done(val query: String, val results: SearchResults) : State
+        data class Searching(val query: String, val refs: List<RefMatch>) : State
+        data class Done(val query: String, val refs: List<RefMatch>, val results: SearchResults) : State
     }
 
     private val _state = MutableStateFlow<State>(State.Editing)
@@ -79,14 +83,16 @@ class SearchViewModel : LightViewModel<Unit>() {
     fun submit(raw: CharSequence) {
         val query = raw.toString().trim()
         lastQuery = query
-        if (Search.parse(query).isEmpty()) return
+        // A reference ("genesis 1") is answered straight away; the verse text is searched as well.
+        val refs = References.find(catalog.scriptures, query)
+        if (Search.parse(query).isEmpty() && refs.isEmpty()) return
         job?.cancel()
-        _state.value = State.Searching(query)
+        _state.value = State.Searching(query, refs)
         job = viewModelScope.launch {
             val results = withContext(Dispatchers.Default) {
                 SearchIndex.search(query, SEARCH_RESULT_LIMIT) { ensureActive() }
             }
-            _state.value = State.Done(query, results)
+            _state.value = State.Done(query, refs, results)
         }
     }
 
@@ -106,7 +112,7 @@ class SearchViewModel : LightViewModel<Unit>() {
     }
 }
 
-/** Full-text search over all bundled verses. Opens on the keyboard; results show after submit. */
+/** Search: scripture references ("genesis 1") and full-text search over all bundled verses. Opens on the keyboard; results show after submit. */
 class SearchScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, SearchViewModel>(sealedActivity) {
     init {
         AppGraph.init(lightContext)
@@ -121,14 +127,10 @@ class SearchScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, Sear
         when (val s = state) {
             SearchViewModel.State.Editing -> Editor()
             is SearchViewModel.State.Searching -> Results(s.query) {
-                Note("Searching…")
+                ResultList(s.query, s.refs, null)
             }
             is SearchViewModel.State.Done -> Results(s.query) {
-                if (s.results.total == 0) {
-                    Note("No verses contain every word of “${s.query}”.")
-                } else {
-                    ResultList(s.results)
-                }
+                ResultList(s.query, s.refs, s.results)
             }
         }
     }
@@ -181,14 +183,43 @@ class SearchScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, Sear
         }
     }
 
+    /** References first (books, chapters, verses the query names), then verses containing the words. */
     @Composable
-    private fun ResultList(results: SearchResults) {
+    private fun ResultList(query: String, refs: List<RefMatch>, results: SearchResults?) {
         val catalog = viewModel.catalog
         LightScrollView(Modifier.fillMaxSize()) {
-            Note(if (results.total == 1) "1 verse" else "${results.total} verses")
-            results.hits.forEach { hit -> ResultRow(catalog, hit) }
-            if (results.more > 0) {
-                Note("and ${results.more} more. Add a word to narrow it down.")
+            refs.forEach { ref -> ReferenceRow(catalog, ref) }
+            when {
+                results == null -> Note("Searching…")
+                results.total == 0 && refs.isEmpty() -> Note("No verses contain every word of “$query”.")
+                results.total == 0 -> Unit
+                else -> {
+                    Note(if (results.total == 1) "1 verse" else "${results.total} verses")
+                    results.hits.forEach { hit -> ResultRow(catalog, hit) }
+                    if (results.more > 0) {
+                        Note("and ${results.more} more. Add a word to narrow it down.")
+                    }
+                }
+            }
+        }
+    }
+
+    /** A book opens its chapter list; a chapter or verse opens the reader there. */
+    @Composable
+    private fun ReferenceRow(catalog: Catalog, ref: RefMatch) {
+        when (ref) {
+            is RefMatch.BookRef -> ListRow(ref.book.title, catalog.scriptures.volume(ref.volumeId)?.title) {
+                if (ref.book.chapters == 1) {
+                    navigateTo({ ReaderScreen(it, Target.Chapter(ref.volumeId, ref.book.id, 1)) })
+                } else {
+                    navigateTo({ ChapterGridScreen(it, ref.volumeId, ref.book.id) })
+                }
+            }
+            is RefMatch.ChapterRef -> ListRow(catalog.label(ref.target)) {
+                navigateTo({ ReaderScreen(it, ref.target) })
+            }
+            is RefMatch.VerseRefMatch -> ListRow(catalog.verseLabel(ref.ref)) {
+                navigateTo({ ReaderScreen(it, ref.ref.chapterTarget, focusVerse = ref.ref.verse) })
             }
         }
     }

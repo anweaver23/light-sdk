@@ -2,11 +2,14 @@ package io.github.anweaver23.scriptures.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -23,11 +26,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.TextStyle
@@ -48,6 +54,8 @@ import com.thelightphone.sdk.rememberKeyboardOptions
 import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightBottomBar
 import com.thelightphone.sdk.ui.LightIcons
+import com.thelightphone.sdk.ui.LightText
+import com.thelightphone.sdk.ui.LightTextVariant
 import com.thelightphone.sdk.ui.LightTheme
 import com.thelightphone.sdk.ui.LightThemeController
 import com.thelightphone.sdk.ui.LightThemeTokens
@@ -55,6 +63,7 @@ import com.thelightphone.sdk.ui.LightTopBar
 import com.thelightphone.sdk.ui.LightTopBarCenter
 import com.thelightphone.sdk.ui.LocalHapticsEnabled
 import com.thelightphone.sdk.ui.gridUnitsAsDp
+import com.thelightphone.sdk.ui.lightClickable
 import com.thelightphone.sdk.ui.keyboard.LightEmbeddedLp3Keyboard
 import io.github.anweaver23.scriptures.data.AppGraph
 import kotlinx.coroutines.flow.StateFlow
@@ -103,6 +112,9 @@ class NoteEditorScreen(
             )
         }
 
+        // Holding the note swaps the keys for Copy / Paste / Clear; the keyboard's close arrow brings them back.
+        var tools by remember { mutableStateOf(false) }
+
         LightTheme(colors = colors) {
             Column(
                 Modifier
@@ -113,7 +125,7 @@ class NoteEditorScreen(
                     leftButton = LightBarButton.LightIcon(LightIcons.BACK, onClick = { goBack(null) }),
                     center = LightTopBarCenter.Text(title),
                 )
-                NoteBody(state, readerTextStyle(textSize.scale), Modifier.weight(1f))
+                NoteBody(state, readerTextStyle(textSize.scale), Modifier.weight(1f), onLongPress = { tools = true })
                 // The same extra bottom room LightTextInputEditor gives the keyboard.
                 LightEmbeddedLp3Keyboard(
                     viewModel = keyboard,
@@ -122,6 +134,12 @@ class NoteEditorScreen(
                         LightBottomBar(
                             items = listOf(LightBarButton.Text("SAVE", onClick = { goBack(state.text.toString()) })),
                         )
+                    },
+                    onOverlayDismissed = { tools = false },
+                    overlay = if (tools) {
+                        { NoteTools(state, onDone = { tools = false }) }
+                    } else {
+                        null
                     },
                 )
             }
@@ -148,11 +166,12 @@ class NoteEditorScreen(
 }
 
 /**
- * The note's text filling the page, with a caret. Tapping moves the caret there; dragging scrolls.
- * Keeps the caret's line in view as the note grows.
+ * The note's text filling the page, with a caret. Tapping moves the caret there (below the text, to
+ * the end); holding anywhere, empty space included, calls [onLongPress]; dragging scrolls. Keeps the
+ * caret's line in view as the note grows.
  */
 @Composable
-private fun NoteBody(state: TextFieldState, style: TextStyle, modifier: Modifier) {
+private fun NoteBody(state: TextFieldState, style: TextStyle, modifier: Modifier, onLongPress: () -> Unit) {
     val colors = LightThemeTokens.colors
     var layout by remember { mutableStateOf<TextLayoutResult?>(null) }
     val scroll = rememberScrollState()
@@ -172,36 +191,89 @@ private fun NoteBody(state: TextFieldState, style: TextStyle, modifier: Modifier
         }
     }
 
-    Box(
-        modifier
-            .fillMaxWidth()
-            .verticalScroll(scroll)
-            .padding(horizontal = 1f.gridUnitsAsDp())
-            .pointerInput(Unit) {
-                detectTapGestures { at ->
-                    layout?.let { l -> state.edit { selection = TextRange(l.getOffsetForPosition(at)) } }
-                }
-            },
-    ) {
-        BasicText(
-            text = text,
-            style = style,
-            onTextLayout = { layout = it },
-            modifier = Modifier.fillMaxWidth(),
-        )
-        if (text.isEmpty()) {
-            BasicText(text = "Write a note…", style = style.copy(color = colors.contentSecondary))
-        }
-        layout?.let { l ->
-            val rect = l.getCursorRect(caret.coerceAtMost(l.layoutInput.text.length))
-            Box(
-                Modifier
-                    .offset { IntOffset(rect.left.toInt(), rect.top.toInt()) }
-                    .width(2.dp)
-                    .height(with(LocalDensity.current) { rect.height.toDp() })
-                    .background(colors.content),
+    val currentOnLongPress by rememberUpdatedState(onLongPress)
+    // The touch area is at least the page's height, so the empty space under a short note responds too.
+    BoxWithConstraints(modifier.fillMaxWidth()) {
+        val page = maxHeight
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .verticalScroll(scroll)
+                .heightIn(min = page)
+                .padding(horizontal = 1f.gridUnitsAsDp())
+                .pointerInput(Unit) {
+                    detectTapGestures(onLongPress = { currentOnLongPress() }) { at ->
+                        layout?.let { l -> state.edit { selection = TextRange(l.getOffsetForPosition(at)) } }
+                    }
+                },
+        ) {
+            BasicText(
+                text = text,
+                style = style,
+                onTextLayout = { layout = it },
+                modifier = Modifier.fillMaxWidth(),
             )
+            if (text.isEmpty()) {
+                BasicText(text = "Write a note…", style = style.copy(color = colors.contentSecondary))
+            }
+            layout?.let { l ->
+                val rect = l.getCursorRect(caret.coerceAtMost(l.layoutInput.text.length))
+                Box(
+                    Modifier
+                        .offset { IntOffset(rect.left.toInt(), rect.top.toInt()) }
+                        .width(2.dp)
+                        .height(with(LocalDensity.current) { rect.height.toDp() })
+                        .background(colors.content),
+                )
+            }
         }
+    }
+}
+
+/**
+ * Copy, Paste and Clear, shown where the keys were. Copy takes the whole note; Paste goes in at the
+ * caret; Clear empties the note (BACK out of the editor still discards, so nothing is lost for good).
+ */
+@Composable
+private fun NoteTools(state: TextFieldState, onDone: () -> Unit) {
+    val clipboard = LocalClipboardManager.current
+    Column(
+        Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        ToolRow("Copy") {
+            clipboard.setText(AnnotatedString(state.text.toString()))
+            onDone()
+        }
+        ToolRow("Paste") {
+            val pasted = clipboard.getText()?.text.orEmpty()
+            if (pasted.isNotEmpty()) {
+                state.edit {
+                    val start = selection.min
+                    replace(start, selection.max, pasted)
+                    selection = TextRange(start + pasted.length)
+                }
+            }
+            onDone()
+        }
+        ToolRow("Clear") {
+            state.edit { replace(0, length, "") }
+            onDone()
+        }
+    }
+}
+
+@Composable
+private fun ToolRow(label: String, onClick: () -> Unit) {
+    Box(
+        Modifier
+            .fillMaxWidth()
+            .height(ROW_UNITS.gridUnitsAsDp())
+            .lightClickable(onClick = onClick),
+        contentAlignment = Alignment.Center,
+    ) {
+        LightText(text = label, variant = LightTextVariant.Copy)
     }
 }
 

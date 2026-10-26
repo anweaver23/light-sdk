@@ -32,10 +32,7 @@ import com.thelightphone.sdk.ui.lightClickable
 /** Outline thickness, in design px (the same scale as the text input's 3px underline). */
 const val BOOK_STROKE_PX = 2.5f
 
-/** Width of the spine band at the book's left edge. */
-const val BOOK_SPINE_UNITS = 0.35f
-
-/** Gap between the outline (or spine) and the title, on each side. */
+/** Gap between the outline and the title, on each side. */
 const val BOOK_TITLE_PADDING_UNITS = 0.25f
 
 /**
@@ -54,9 +51,8 @@ private class TitleInsets(val start: Dp, val end: Dp)
 private fun titleInsets(): TitleInsets {
     val stroke = BOOK_STROKE_PX.designVerticalPxToDp()
     val padding = BOOK_TITLE_PADDING_UNITS.gridUnitsAsDp()
-    // The spine line is centred on BOOK_SPINE_UNITS, so half its stroke sits to the right of it.
     return TitleInsets(
-        start = BOOK_SPINE_UNITS.gridUnitsAsDp() + stroke / 2 + padding,
+        start = stroke + padding,
         end = stroke + padding,
     )
 }
@@ -95,8 +91,8 @@ fun rememberSharedTitleStep(titles: List<String>, tileWidth: Dp, scale: Float): 
 }
 
 /**
- * A square book [side] across, drawn in thin strokes: an outlined cover with a spine band down the
- * left edge (a second vertical line), and the title centred on the cover at size [step] × [scale].
+ * A square book [side] across, drawn as a single thin outline, with the title centred at size
+ * [step] × [scale].
  * [onMidWordBreak] fires if the rendered title still breaks inside a word, so the caller can
  * step every tile down together.
  */
@@ -111,7 +107,6 @@ fun BookTile(
 ) {
     val content = LightThemeTokens.colors.content
     val stroke = BOOK_STROKE_PX.designVerticalPxToDp()
-    val spine = BOOK_SPINE_UNITS.gridUnitsAsDp()
     val insets = titleInsets()
 
     Box(
@@ -127,8 +122,6 @@ fun BookTile(
                     size = Size(size.width - w, size.height - w),
                     style = Stroke(width = w),
                 )
-                val x = spine.toPx()
-                drawLine(content, Offset(x, 0f), Offset(x, size.height), strokeWidth = w)
             },
         contentAlignment = Alignment.Center,
     ) {
