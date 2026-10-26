@@ -39,7 +39,7 @@ class BookListScreen(sealedActivity: SealedLightActivity, private val volumeId: 
         val volume = AppGraph.catalog.scriptures.volume(volumeId) ?: return
         val index by AppGraph.library.index.collectAsState()
 
-        ScreenFrame(title = volume.title, onBack = { goBack() }) {
+        ScreenFrame(title = volume.title, onBack = { goBack() }, rightButton = pageMenu()) {
             LightScrollView(Modifier.fillMaxSize()) {
                 volume.books.forEach { book ->
                     val withAudio = index.audioCount("scriptures/${volume.id}/${book.id}/")
@@ -72,7 +72,7 @@ class ChapterGridScreen(
         val book = AppGraph.catalog.scriptures.book(bookId) ?: return
         val index by AppGraph.library.index.collectAsState()
 
-        ScreenFrame(title = book.title, onBack = { goBack() }) {
+        ScreenFrame(title = book.title, onBack = { goBack() }, rightButton = pageMenu()) {
             if (index.audioCount("scriptures/$volumeId/$bookId/") > 0) {
                 Note("Underlined ${book.chapterLabel.lowercase()}s have audio.")
             }

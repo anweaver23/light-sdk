@@ -37,10 +37,15 @@ class AnnotationsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen
         ScreenFrame(
             title = "Annotations",
             onBack = { goBack() },
-            rightButton = if (sorted.isEmpty()) {
-                null
+            rightButton = if (editing && sorted.isNotEmpty()) {
+                LightBarButton.Text("DONE", onClick = { editing = false })
             } else {
-                LightBarButton.Text(if (editing) "DONE" else "EDIT", onClick = { editing = !editing })
+                pageMenu(
+                    listOfNotNull(
+                        MenuItem("Remove annotations", MenuIcon.Light(LightIcons.CLOSE)) { editing = true }
+                            .takeIf { sorted.isNotEmpty() },
+                    ),
+                )
             },
         ) {
             if (sorted.isEmpty()) {

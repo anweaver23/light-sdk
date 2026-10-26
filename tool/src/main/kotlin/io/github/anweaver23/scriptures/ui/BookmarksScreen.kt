@@ -43,10 +43,15 @@ class BookmarksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<U
         ScreenFrame(
             title = "Bookmarks",
             onBack = { goBack() },
-            rightButton = if (sorted.isEmpty()) {
-                null
+            rightButton = if (editing && sorted.isNotEmpty()) {
+                LightBarButton.Text("DONE", onClick = { editing = false })
             } else {
-                LightBarButton.Text(if (editing) "DONE" else "EDIT", onClick = { editing = !editing })
+                pageMenu(
+                    listOfNotNull(
+                        MenuItem("Remove bookmarks", MenuIcon.Light(LightIcons.CLOSE)) { editing = true }
+                            .takeIf { sorted.isNotEmpty() },
+                    ),
+                )
             },
         ) {
             LightScrollView(Modifier.fillMaxSize()) {
@@ -60,7 +65,7 @@ class BookmarksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<U
                     }
                 }
                 if (sorted.isEmpty()) {
-                    Note("Open the menu in the reader and choose Bookmark to mark where you are.")
+                    Note("Open the … menu in the reader and choose Bookmark to mark where you are.")
                 }
                 sorted.forEach { bookmark ->
                     StackRow(

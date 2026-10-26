@@ -6,6 +6,6 @@ versionName = "0.1.0"
 permissions = []
 capabilities = ["detached-audio", "tool-manager-provider"]
 orientation = "portrait"
-# change if you run this on an LP3!
-# serverPackage = "com.lightos"
-serverPackage = "com.thelightphone.sdk.emulator"
+# com.lightos on a real LP3; com.thelightphone.sdk.emulator for the emulator.
+# serverPackage = "com.thelightphone.sdk.emulator"
+serverPackage = "com.lightos"

@@ -87,8 +87,11 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   The Kotlin package stays `io.github.anweaver23.scriptures`; only the id is user-visible and permanent.
   The generated `R` class follows the id: import `com.andyweaver.scriptures.R`.
 - **2026-10-26 Never a star for bookmarks:** bookmarks always use our `ic_bookmark` glyph, everywhere.
-- **2026-10-26 Reader menu:** the reader's top-right button is a menu (`LightIcons.LIST`), opening
-  `ReaderMenuScreen`: Bookmark / Remove bookmark, and Find in chapter. New reading tools go in this menu.
+- **2026-10-26 Every landing page has a "…" menu** (`LightIcons.ELLIPSES`, top right) built with
+  `pageMenu(items)` in `ui/MenuScreen.kt`. Each page passes its own items, and **Add audio** is always
+  appended. A chosen item runs on the opening page after the menu closes. Home: Annotations. Reader:
+  Bookmark / Remove bookmark, Find in chapter. Bookmarks / Annotations: Remove ... (DONE then takes the
+  top-right slot). Sub-views (Define, footnote, highlight detail, editors, Add audio itself) have none.
 - **2026-10-26 Find in chapter:** case-insensitive, verse numbers skipped, footnote markers ignored
   (`core/Find.kt`). Matches get a translucent background (`FIND_ALPHA`, current `FIND_CURRENT_ALPHA`);
   a find bar (close · PREV · n OF m · NEXT) replaces the bottom bar and scrolls only when the match is
@@ -100,8 +103,9 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   `core/TextSize` (Small 0.85× … Largest 1.5×), stored by `SettingsStore`, shared as `AppGraph.textSize`.
   It scales the reader text, the note editor and the home tile titles.
 - **2026-10-26 Home tiles are square** and follow the text size: 3 columns at Small/Default, 2 at
-  Large and up (the grid scrolls then). Home bar: Settings · Search · Bookmarks · Annotations.
-  Continue reading lives only in the Bookmarks tab, never on home.
+  Large and up (the grid scrolls then, and the tiles leave room for the scroll bar gutter). Home bar:
+  Settings (left) · Search (middle) · Bookmarks (right). Annotations and Add audio are in the "…" menu;
+  Add audio is also in Settings. No Add audio row on home. Continue reading lives only in Bookmarks.
 - **2026-10-26 Note editor is full screen, like LightOS Notes:** reading-size text fills the page (no
   field underline), scrolls to keep the caret in view, Return is a new line, SAVE returns the text. It
   hosts its own LP3 keyboard view model in the screen's store (`ui/NoteEditorScreen.kt`), because
@@ -124,8 +128,10 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   `getSystemService`, raw Intents. Stay within the SDK (`SealedLightContext`, `LightScreen`, `LightIcons`...).
 - **Icons:** use `LightIcons` first. Add a custom vector drawable only when no Light glyph fits.
 - **Offline first:** reading, dictionary and Strong's work with no network.
-- **`serverPackage`** in `lighttool.toml` is `com.thelightphone.sdk.emulator` for local work. It must be
-  `com.lightos` for a real device or a submission.
+- **`serverPackage`** in `lighttool.toml` is `com.lightos` (the real LP3, and submissions). With the
+  emulator's package on a phone, `bindService` fails and every server feature (haptics prefs, audio,
+  Tool Manager) silently breaks. Switch to `com.thelightphone.sdk.emulator` only for emulator work, and
+  don't commit that.
 
 ## Structure
 

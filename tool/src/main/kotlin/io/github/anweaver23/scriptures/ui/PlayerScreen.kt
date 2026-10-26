@@ -333,6 +333,7 @@ class PlayerScreen(private val sealedActivity: SealedLightActivity, private val 
         ScreenFrame(
             title = "Listening",
             onBack = { goBack() },
+            rightButton = pageMenu(),
             bottomBar = listOf(
                 LightBarButton.LightIcon(LightIcons.REWIND, viewModel::previous, contentDescription = "Previous"),
                 LightBarButton.LightIcon(LightIcons.SKIP_BACKWARD_FIFTEEN, viewModel::skipBack.takeIf { canSeek }),

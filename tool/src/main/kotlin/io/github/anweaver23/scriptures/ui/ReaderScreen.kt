@@ -399,10 +399,15 @@ class ReaderScreen(
         ScreenFrame(
             title = viewModel.catalog.label(chapter),
             onBack = { goBack() },
-            rightButton = LightBarButton.LightIcon(
-                icon = LightIcons.LIST,
-                onClick = { openMenu(hasBookmark = bookmarks.isNotEmpty()) },
-                contentDescription = "Menu",
+            rightButton = pageMenu(
+                listOf(
+                    MenuItem(
+                        if (bookmarks.isEmpty()) "Bookmark" else "Remove bookmark",
+                        MenuIcon.Res(R.drawable.ic_bookmark),
+                        onSelect = viewModel::toggleBookmark,
+                    ),
+                    MenuItem("Find in chapter", MenuIcon.Light(LightIcons.SEARCH), onSelect = ::openFind),
+                ),
             ),
             bottomBar = listOf(
                 LightBarButton.Text("Prev", onClick = viewModel::previous).takeIf { viewModel.hasPrevious() },
@@ -479,16 +484,9 @@ class ReaderScreen(
         )
     }
 
-    private fun openMenu(hasBookmark: Boolean) {
-        navigateTo({ ReaderMenuScreen(it, hasBookmark) }) { action ->
-            when (action) {
-                ReaderMenuAction.TOGGLE_BOOKMARK -> viewModel.toggleBookmark()
-                ReaderMenuAction.FIND -> {
-                    val last = viewModel.find.value?.query.orEmpty()
-                    navigateTo({ FindInputScreen(it, last) }) { query -> viewModel.find(query) }
-                }
-            }
-        }
+    private fun openFind() {
+        val last = viewModel.find.value?.query.orEmpty()
+        navigateTo({ FindInputScreen(it, last) }) { query -> viewModel.find(query) }
     }
 
     private fun handle(action: TapAction) {

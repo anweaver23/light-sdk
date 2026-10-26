@@ -28,7 +28,7 @@ import kotlinx.coroutines.launch
 /** A verse to preview the text size with. */
 private const val SAMPLE = "1  In the beginning God created the heaven and the earth."
 
-/** Settings, opened from home. Only the text size for now: pick one, see a verse drawn at that size. */
+/** Settings, opened from home: text size (pick one, see a verse drawn at that size) and Add audio. */
 class SettingsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
     init {
         AppGraph.init(lightContext)
@@ -37,6 +37,7 @@ class SettingsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Un
     @Composable
     override fun Content() {
         val current by AppGraph.textSize.collectAsState()
+        val pending by AppGraph.importer.pending.collectAsState()
 
         ScreenFrame(title = "Settings", onBack = { goBack() }) {
             LightScrollView(Modifier.fillMaxSize()) {
@@ -64,6 +65,10 @@ class SettingsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Un
                     style = readerTextStyle(current.scale),
                     modifier = Modifier.padding(top = 1f.gridUnitsAsDp(), bottom = 1f.gridUnitsAsDp()),
                 )
+                LightText(text = "Audio", variant = LightTextVariant.Fine, lighten = true)
+                ListRow("Add audio", if (pending.isEmpty()) null else "${pending.size} to review") {
+                    navigateTo(::AddAudioScreen)
+                }
             }
         }
     }

@@ -25,6 +25,7 @@ import com.thelightphone.sdk.SealedLightActivity
 import com.thelightphone.sdk.SimpleLightScreen
 import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightIcons
+import com.thelightphone.sdk.ui.LightScrollBarPosition
 import com.thelightphone.sdk.ui.LightScrollView
 import com.thelightphone.sdk.ui.LightText
 import com.thelightphone.sdk.ui.LightTextVariant
@@ -53,14 +54,16 @@ const val TILE_GAP_UNITS = 1f
 const val GRID_TOP_GAP_UNITS = 0.25f
 const val GRID_BOTTOM_GAP_UNITS = 0.5f
 
-/** Height of the secondary rows (Resume listening, Add audio). Shorter than a [ListRow] on purpose. */
+/** Width LightScrollView keeps for its bar when it's [LightScrollBarPosition.Outside] (SDK constant). */
+private const val SCROLL_GUTTER_UNITS = 2f
+
+/** Height of the secondary row under the grid (Resume listening). Shorter than a [ListRow] on purpose. */
 const val QUIET_ROW_UNITS = 2.25f
 
 class HomeViewModel : LightViewModel<Unit>() {
     val catalog: Catalog = AppGraph.catalog
     val lastPlayed = AppGraph.progress.lastPlayed.stateIn(viewModelScope, SharingStarted.Eagerly, null)
     val textSize = AppGraph.textSize
-    val pending = AppGraph.importer.pending
 
     override fun onScreenShow(screen: SimpleLightScreen<Unit>) {
         super.onScreenShow(screen)
@@ -84,7 +87,6 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
     @Composable
     override fun Content() {
         val lastPlayed by viewModel.lastPlayed.collectAsState()
-        val pending by viewModel.pending.collectAsState()
         val textSize by viewModel.textSize.collectAsState()
         val catalog = viewModel.catalog
         val colors by LightThemeController.colors.collectAsState()
@@ -98,6 +100,13 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
             ScreenFrame(
                 title = "Scriptures",
                 onBack = null,
+                rightButton = pageMenu(
+                    listOf(
+                        MenuItem("Annotations", MenuIcon.Light(LightIcons.PENCIL)) {
+                            navigateTo({ AnnotationsScreen(it) })
+                        },
+                    ),
+                ),
                 bottomBar = listOf(
                     LightBarButton.LightIcon(
                         LightIcons.SETTINGS,
@@ -110,23 +119,28 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
                         onClick = { navigateTo({ BookmarksScreen(it) }) },
                         contentDescription = "Bookmarks",
                     ),
-                    LightBarButton.LightIcon(
-                        LightIcons.PENCIL,
-                        onClick = { navigateTo({ AnnotationsScreen(it) }) },
-                        contentDescription = "Annotations",
-                    ),
                 ),
             ) {
                 BoxWithConstraints(Modifier.fillMaxSize()) {
                     val columns = textSize.homeColumns
                     val gap = TILE_GAP_UNITS.gridUnitsAsDp()
-                    val side = (maxWidth - gap * (columns - 1)) / columns
+                    val rows = (shelves.size + columns - 1) / columns
+                    // If the squares fit without scrolling, use the full width (no scroll bar gutter);
+                    // otherwise leave room for the gutter so the last column isn't clipped.
+                    val fullSide = (maxWidth - gap * (columns - 1)) / columns
+                    val reserved = (GRID_TOP_GAP_UNITS + GRID_BOTTOM_GAP_UNITS + (if (lastPlayed != null) QUIET_ROW_UNITS else 0f))
+                        .gridUnitsAsDp()
+                    val fits = fullSide * rows + gap * (rows - 1) + reserved <= maxHeight
+                    val side = if (fits) fullSide else (maxWidth - SCROLL_GUTTER_UNITS.gridUnitsAsDp() - gap * (columns - 1)) / columns
                     val guess = rememberSharedTitleStep(shelves.map { it.title }, side, textSize.scale)
                     // One title size for every tile. If a tile's rendered title still breaks
                     // mid-word, all tiles step down together.
                     var step by remember(guess) { mutableIntStateOf(guess) }
                     val stepDown = { if (step < BOOK_TITLE_SIZES_PX.lastIndex) step++ }
-                    LightScrollView(Modifier.fillMaxSize()) {
+                    LightScrollView(
+                        Modifier.fillMaxSize(),
+                        scrollBarPosition = if (fits) LightScrollBarPosition.Inside else LightScrollBarPosition.Outside,
+                    ) {
                         Spacer(Modifier.height(GRID_TOP_GAP_UNITS.gridUnitsAsDp()))
                         shelves.chunked(columns).forEachIndexed { i, row ->
                             if (i > 0) Spacer(Modifier.height(gap))
@@ -141,9 +155,6 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
                             QuietRow("Resume listening", catalog.label(target)) {
                                 navigateTo({ PlayerScreen(it, request = null) })
                             }
-                        }
-                        QuietRow("Add audio", if (pending.isEmpty()) null else "${pending.size} to review") {
-                            navigateTo(::AddAudioScreen)
                         }
                     }
                 }

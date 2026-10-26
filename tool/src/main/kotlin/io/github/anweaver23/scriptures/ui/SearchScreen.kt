@@ -163,6 +163,7 @@ class SearchScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, Sear
         ScreenFrame(
             title = "Search",
             onBack = { goBack() },
+            rightButton = pageMenu(),
             bottomBar = listOf(LightBarButton.LightIcon(LightIcons.SEARCH, onClick = viewModel::edit)),
         ) {
             // The query itself; tapping it edits it.

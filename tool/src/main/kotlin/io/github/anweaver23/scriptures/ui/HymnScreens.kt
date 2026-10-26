@@ -31,7 +31,7 @@ class HymnBooksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<U
     @Composable
     override fun Content() {
         val index by AppGraph.library.index.collectAsState()
-        ScreenFrame(title = "Hymns", onBack = { goBack() }) {
+        ScreenFrame(title = "Hymns", onBack = { goBack() }, rightButton = pageMenu()) {
             LightScrollView(Modifier.fillMaxSize()) {
                 AppGraph.catalog.hymnBooks.forEach { book ->
                     val withAudio = index.audioCount("hymns/${book.id}/")
@@ -56,7 +56,7 @@ class HymnListScreen(sealedActivity: SealedLightActivity, private val hymnBookId
         val book = AppGraph.catalog.hymnBook(hymnBookId) ?: return
         val index by AppGraph.library.index.collectAsState()
 
-        ScreenFrame(title = book.title, onBack = { goBack() }) {
+        ScreenFrame(title = book.title, onBack = { goBack() }, rightButton = pageMenu()) {
             LightLazyScrollView(Modifier.fillMaxSize(), uniformItemHeightGridUnits = ROW_UNITS) {
                 items(book.hymns, key = { it.n }) { hymn ->
                     val target = Target.HymnRef(book.id, hymn.n)
@@ -94,6 +94,7 @@ class HymnScreen(sealedActivity: SealedLightActivity, private val target: Target
         ScreenFrame(
             title = "${hymn.n}. ${hymn.title}",
             onBack = { goBack() },
+            rightButton = pageMenu(),
             bottomBar = if (index.hasAudio(target)) {
                 listOf(LightBarButton.Text("Listen", onClick = { navigateTo({ PlayerScreen(it, target) }) }))
             } else {
@@ -110,7 +111,7 @@ class HymnScreen(sealedActivity: SealedLightActivity, private val target: Target
                             "\"${hymn.n}.txt\" to Hymn lyrics in the Tool Manager.",
                     )
                     if (!index.hasAudio(target)) {
-                        Note("No audio yet either. See Add audio on the home screen.")
+                        Note("No audio yet either. Open the … menu and choose Add audio.")
                     }
                 }
             }
