@@ -58,7 +58,9 @@ class AnnotationsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen
                                     LightIcons.CLOSE,
                                     contentDescription = "Remove",
                                     modifier = Modifier.lightClickable {
-                                        AppGraph.scope.launch { AppGraph.study.deleteAnnotation(a.id) }
+                                        navigateTo({ confirmRemove(it, a) }) { confirmed ->
+                                            if (confirmed) AppGraph.scope.launch { AppGraph.study.deleteAnnotation(a.id) }
+                                        }
                                     },
                                 )
                             }

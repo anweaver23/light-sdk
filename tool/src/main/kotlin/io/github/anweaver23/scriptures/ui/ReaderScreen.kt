@@ -52,10 +52,13 @@ import com.thelightphone.sdk.ui.LightScrollView
 import com.thelightphone.sdk.ui.LightThemeTokens
 import com.thelightphone.sdk.ui.designVerticalPxToSp
 import com.thelightphone.sdk.ui.gridUnitsAsDp
+import com.andyweaver.scriptures.R
 import io.github.anweaver23.scriptures.core.Annotation
 import io.github.anweaver23.scriptures.core.Annotations
 import io.github.anweaver23.scriptures.core.Bookmark
 import io.github.anweaver23.scriptures.core.Catalog
+import io.github.anweaver23.scriptures.core.Find
+import io.github.anweaver23.scriptures.core.FindMatch
 import io.github.anweaver23.scriptures.core.Footnote
 import io.github.anweaver23.scriptures.core.MarkerSpan
 import io.github.anweaver23.scriptures.core.Selection
@@ -99,6 +102,10 @@ const val FOCUS_ALPHA = 0.16f
 const val FOCUS_HOLD_MS = 500L
 const val FOCUS_FADE_MS = 1400
 
+/** Background of find-in-chapter matches, and of the one the find bar is on. */
+const val FIND_ALPHA = 0.3f
+const val FIND_CURRENT_ALPHA = 0.6f
+
 /** Footnote markers, relative to the verse text. */
 private const val MARKER_SIZE_EM = 0.62f
 
@@ -118,8 +125,17 @@ sealed interface TapAction {
     data class OpenFootnote(val ref: VerseRef, val footnote: Footnote) : TapAction
 }
 
-/** Ask the screen to scroll to [verse] and mark it; [id] makes repeated requests distinct. */
-data class FocusRequest(val verse: Int, val id: Long)
+/**
+ * Ask the screen to scroll to [verse] and mark it; [id] makes repeated requests distinct. With
+ * [offset] (a display character, used by find) it brings that line into view instead, scrolling
+ * only if it's off screen, and doesn't mark the verse.
+ */
+data class FocusRequest(val verse: Int, val id: Long, val offset: Int? = null)
+
+/** Find in chapter: what was searched, every hit, and which one the find bar is on. */
+data class FindState(val query: String, val matches: List<FindMatch>, val current: Int) {
+    val currentMatch: FindMatch? get() = matches.getOrNull(current)
+}
 
 class ReaderViewModel(start: Target.Chapter, focusVerse: Int?) : LightViewModel<Unit>() {
     val catalog: Catalog = AppGraph.catalog
@@ -154,6 +170,9 @@ class ReaderViewModel(start: Target.Chapter, focusVerse: Int?) : LightViewModel<
     private var focusCounter = 0L
     private val _focus = MutableStateFlow<FocusRequest?>(null)
     val focus: StateFlow<FocusRequest?> = _focus.asStateFlow()
+
+    private val _find = MutableStateFlow<FindState?>(null)
+    val find: StateFlow<FindState?> = _find.asStateFlow()
 
     /** The verse at the top of the screen, reported by the UI as the user scrolls. */
     private val _topVerse = MutableStateFlow<VerseRef?>(null)
@@ -243,10 +262,43 @@ class ReaderViewModel(start: Target.Chapter, focusVerse: Int?) : LightViewModel<
         AppGraph.scope.launch { study.addNote(chapter, range, quote, note) }
     }
 
+    // --- find in chapter ---
+
+    fun find(query: String) {
+        val displays = _displays.value ?: return
+        if (query.isBlank()) return
+        clearSelection()
+        val matches = Find.matches(displays, query)
+        // Start at the first hit at or below the top of the screen, so finding doesn't jump backwards.
+        val top = _topVerse.value?.verse ?: 1
+        val first = matches.indexOfFirst { it.verse >= top }.coerceAtLeast(0)
+        _find.value = FindState(query.trim(), matches, first)
+        focusCurrentMatch()
+    }
+
+    fun findNext() = stepFind(1)
+    fun findPrevious() = stepFind(-1)
+
+    fun closeFind() {
+        _find.value = null
+    }
+
+    private fun stepFind(delta: Int) {
+        val f = _find.value ?: return
+        if (f.matches.isEmpty()) return
+        _find.value = f.copy(current = Math.floorMod(f.current + delta, f.matches.size))
+        focusCurrentMatch()
+    }
+
+    private fun focusCurrentMatch() {
+        val m = _find.value?.currentMatch ?: return
+        _focus.value = FocusRequest(m.verse, ++focusCounter, offset = m.start)
+    }
+
     // --- bookmarks ---
 
     /**
-     * The star: with no bookmark in this chapter, bookmarks the top verse on screen. With one or
+     * Bookmark (from the menu): with no bookmark in this chapter, bookmarks the top verse on screen. With one or
      * more, removes the one nearest the top verse, so two taps always undo each other.
      */
     fun toggleBookmark() {
@@ -270,6 +322,7 @@ class ReaderViewModel(start: Target.Chapter, focusVerse: Int?) : LightViewModel<
         _verses.value = null
         _displays.value = null
         _selection.value = null
+        _find.value = null
         _topVerse.value = null
         scrollState = ScrollState(0)
         _focus.value = focusVerse?.let { FocusRequest(it, ++focusCounter) }
@@ -336,34 +389,55 @@ class ReaderScreen(
         val selection by viewModel.selection.collectAsState()
         val annotations by viewModel.chapterAnnotations.collectAsState()
         val bookmarks by viewModel.chapterBookmarks.collectAsState()
+        val find by viewModel.find.collectAsState()
+        val textSize by AppGraph.textSize.collectAsState()
         val index by viewModel.library.collectAsState()
         val hasAudio = index.hasAudio(chapter)
         val currentSelection = selection
+        val currentFind = find
 
         ScreenFrame(
             title = viewModel.catalog.label(chapter),
             onBack = { goBack() },
             rightButton = LightBarButton.LightIcon(
-                icon = if (bookmarks.isEmpty()) LightIcons.STAR_OUTLINE else LightIcons.STAR,
-                onClick = viewModel::toggleBookmark,
-                contentDescription = if (bookmarks.isEmpty()) "Bookmark" else "Remove bookmark",
+                icon = LightIcons.LIST,
+                onClick = { openMenu(hasBookmark = bookmarks.isNotEmpty()) },
+                contentDescription = "Menu",
             ),
             bottomBar = listOf(
                 LightBarButton.Text("Prev", onClick = viewModel::previous).takeIf { viewModel.hasPrevious() },
                 if (hasAudio) LightBarButton.Text("Listen", onClick = { navigateTo({ PlayerScreen(it, chapter) }) }) else null,
                 LightBarButton.Text("Next", onClick = viewModel::next).takeIf { viewModel.hasNext() },
             ),
-            bottomContent = currentSelection?.let { sel ->
-                {
-                    ActionBar(
-                        listOfNotNull(
-                            LightBarButton.LightIcon(LightIcons.CLOSE, onClick = viewModel::clearSelection),
-                            LightBarButton.Text("HIGHLIGHT", onClick = viewModel::highlightSelection),
-                            LightBarButton.Text("NOTE", onClick = { openNoteEditor(chapter, sel.range) }),
-                            LightBarButton.Text("DEFINE", onClick = ::openDefine).takeIf { sel.range.isSingleWord },
-                        ),
-                    )
+            bottomContent = when {
+                currentSelection != null -> {
+                    {
+                        ActionBar(
+                            listOfNotNull(
+                                LightBarButton.LightIcon(LightIcons.CLOSE, onClick = viewModel::clearSelection),
+                                LightBarButton.Icon(
+                                    painter = tintedIcon(R.drawable.ic_highlight),
+                                    onClick = viewModel::highlightSelection,
+                                    contentDescription = "Highlight",
+                                ),
+                                LightBarButton.Icon(
+                                    painter = tintedIcon(R.drawable.ic_note),
+                                    onClick = { openNoteEditor(chapter, currentSelection.range) },
+                                    contentDescription = "Note",
+                                ),
+                                LightBarButton.Icon(
+                                    painter = tintedIcon(R.drawable.ic_define),
+                                    onClick = ::openDefine,
+                                    contentDescription = "Define",
+                                ).takeIf { currentSelection.range.isSingleWord },
+                            ),
+                        )
+                    }
                 }
+                currentFind != null -> {
+                    { FindBar(currentFind) }
+                }
+                else -> null
             },
         ) {
             val list = displays
@@ -372,6 +446,8 @@ class ReaderScreen(
                     displays = list,
                     annotations = annotations,
                     selection = currentSelection?.range,
+                    find = currentFind,
+                    textStyle = readerTextStyle(textSize.scale),
                     scrollState = viewModel.scrollState,
                     focus = viewModel.focus,
                     onFocusHandled = viewModel::focusHandled,
@@ -381,6 +457,36 @@ class ReaderScreen(
                     onWordTap = { pos -> handle(viewModel.onWordTap(pos)) },
                     onMarkerTap = { verse, marker -> handle(viewModel.onMarkerTap(verse, marker)) },
                 )
+            }
+        }
+    }
+
+    /** Close, PREV, "n OF m", NEXT; or close and NO MATCHES. */
+    @Composable
+    private fun FindBar(find: FindState) {
+        val close = LightBarButton.LightIcon(LightIcons.CLOSE, onClick = viewModel::closeFind, contentDescription = "Close find")
+        ActionBar(
+            if (find.matches.isEmpty()) {
+                listOf(close, LightBarButton.Text("NO MATCHES", onClick = null))
+            } else {
+                listOf(
+                    close,
+                    LightBarButton.Text("PREV", onClick = viewModel::findPrevious),
+                    LightBarButton.Text("${find.current + 1} OF ${find.matches.size}", onClick = null),
+                    LightBarButton.Text("NEXT", onClick = viewModel::findNext),
+                )
+            },
+        )
+    }
+
+    private fun openMenu(hasBookmark: Boolean) {
+        navigateTo({ ReaderMenuScreen(it, hasBookmark) }) { action ->
+            when (action) {
+                ReaderMenuAction.TOGGLE_BOOKMARK -> viewModel.toggleBookmark()
+                ReaderMenuAction.FIND -> {
+                    val last = viewModel.find.value?.query.orEmpty()
+                    navigateTo({ FindInputScreen(it, last) }) { query -> viewModel.find(query) }
+                }
             }
         }
     }
@@ -422,6 +528,8 @@ private fun ChapterText(
     displays: List<VerseDisplay>,
     annotations: List<Annotation>,
     selection: WordRange?,
+    find: FindState?,
+    textStyle: TextStyle,
     scrollState: ScrollState,
     focus: StateFlow<FocusRequest?>,
     onFocusHandled: (FocusRequest) -> Unit,
@@ -432,7 +540,6 @@ private fun ChapterText(
     onMarkerTap: (Int, MarkerSpan) -> Unit,
 ) {
     val colors = LightThemeTokens.colors
-    val textStyle = readerTextStyle()
     val geometry = remember(displays) { mutableStateMapOf<Int, VerseGeometry>() }
     val heights = remember(displays) { HashMap<Int, Float>() }
     val tops = remember(displays) { HashMap<Int, Float>() }
@@ -462,6 +569,19 @@ private fun ChapterText(
             // Wait until every verse is laid out, so the scroll range covers the whole chapter.
             snapshotFlow { geometry.size }.first { it >= displays.size }
             val target = geometry[verse] ?: return@collect
+            if (request.offset != null) {
+                // Find: bring the match's line into view, leaving the screen alone if it's already there.
+                val layout = target.layout
+                val line = layout.getLineForOffset(request.offset.coerceIn(0, layout.layoutInput.text.length))
+                val lineTop = target.top + layout.getLineTop(line)
+                val lineBottom = target.top + layout.getLineBottom(line)
+                val visible = scrollState.value..(scrollState.value + scrollState.viewportSize)
+                if (lineTop.toInt() !in visible || lineBottom.toInt() !in visible) {
+                    scrollState.scrollTo((lineTop - focusTopMarginPx).toInt().coerceIn(0, scrollState.maxValue))
+                }
+                onFocusHandled(request)
+                return@collect
+            }
             scrollState.scrollTo((target.top - focusTopMarginPx).toInt().coerceIn(0, scrollState.maxValue))
             onFocusHandled(request)
             flashVerse = verse
@@ -540,8 +660,8 @@ private fun ChapterText(
         ) {
             displays.forEach { display ->
                 val verse = display.verse
-                val text = remember(display, annotations, selection, colors) {
-                    styledVerse(display, annotations, selection, colors)
+                val text = remember(display, annotations, selection, find, colors) {
+                    styledVerse(display, annotations, selection, find, colors)
                 }
                 BasicText(
                     text = text,
@@ -567,22 +687,26 @@ private fun ChapterText(
     }
 }
 
-/** Paragraph style, scaled to the screen the way LightText scales it. */
+/**
+ * Paragraph style, scaled to the screen the way LightText scales it, then by the text size
+ * setting's [scale].
+ */
 @Composable
-private fun readerTextStyle(): TextStyle {
+fun readerTextStyle(scale: Float): TextStyle {
     val base = LightThemeTokens.typography.paragraph
     return base.copy(
         color = LightThemeTokens.colors.content,
-        fontSize = base.fontSize.value.designVerticalPxToSp(),
-        lineHeight = base.lineHeight.value.designVerticalPxToSp(),
+        fontSize = (base.fontSize.value * scale).designVerticalPxToSp(),
+        lineHeight = (base.lineHeight.value * scale).designVerticalPxToSp(),
     )
 }
 
-/** One verse with its number, highlights, notes, the selection and footnote markers as spans. */
+/** One verse with its number, highlights, notes, find matches, the selection and footnote markers as spans. */
 private fun styledVerse(
     display: VerseDisplay,
     annotations: List<Annotation>,
     selection: WordRange?,
+    find: FindState?,
     colors: LightColors,
 ): AnnotatedString = buildAnnotatedString {
     append(display.text)
@@ -599,6 +723,11 @@ private fun styledVerse(
             chars.first,
             chars.last + 1,
         )
+    }
+    find?.matches?.forEach { m ->
+        if (m.verse != verse) return@forEach
+        val alpha = if (m == find.currentMatch) FIND_CURRENT_ALPHA else FIND_ALPHA
+        addStyle(SpanStyle(background = colors.content.copy(alpha = alpha)), m.start, m.end)
     }
     selection?.wordsIn(verse, display.wordCount)?.let(display::charRange)?.let { chars ->
         addStyle(SpanStyle(background = colors.content.copy(alpha = SELECTION_ALPHA)), chars.first, chars.last + 1)

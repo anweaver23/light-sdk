@@ -9,11 +9,15 @@ import io.github.anweaver23.scriptures.core.Dictionary
 import io.github.anweaver23.scriptures.core.OriginalLanguage
 import io.github.anweaver23.scriptures.core.FileMatcher
 import io.github.anweaver23.scriptures.core.FootnoteSource
+import io.github.anweaver23.scriptures.core.TextSize
 import java.io.File
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.stateIn
 
 /**
  * Process-wide singletons. Screens call [init] with their context; the Tool
@@ -50,6 +54,16 @@ object AppGraph {
     }
 
     val progress: ProgressStore by lazy { ProgressStore(ctx().dataStore) }
+
+    val settings: SettingsStore by lazy { SettingsStore(ctx().dataStore) }
+
+    /**
+     * The text size setting, shared by every screen. Starts at the default until the first read, so
+     * screens can collect it without a null check.
+     */
+    val textSize: StateFlow<TextSize> by lazy {
+        settings.textSize.stateIn(scope, SharingStarted.Eagerly, TextSize.DEFAULT)
+    }
 
     /** Highlights, notes and bookmarks, as JSON in the private files dir. */
     val study: StudyStore by lazy { StudyStore(File(ctx().filesDir, StudyStore.DIR)) }

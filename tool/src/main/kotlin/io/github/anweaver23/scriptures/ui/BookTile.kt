@@ -39,10 +39,11 @@ const val BOOK_SPINE_UNITS = 0.35f
 const val BOOK_TITLE_PADDING_UNITS = 0.25f
 
 /**
- * Title font sizes to try, largest first, in design px. All tiles share one size: the largest at
- * which no title breaks inside a word. The last step is used even if something still breaks.
+ * Title font sizes to try at the default text size, largest first, in design px. Each is multiplied
+ * by the text size setting's scale. All tiles share one size: the largest at which no title breaks
+ * inside a word. The last step is used even if something still breaks.
  */
-val BOOK_TITLE_SIZES_PX = listOf(20f, 18f, 16f, 15f, 14f, 13f, 12f, 11f, 10f)
+val BOOK_TITLE_SIZES_PX = listOf(22f, 20f, 18f, 16f, 15f, 14f, 13f, 12f, 11f, 10f)
 
 private const val LINE_HEIGHT_FACTOR = 1.2f
 
@@ -61,8 +62,8 @@ private fun titleInsets(): TitleInsets {
 }
 
 @Composable
-private fun titleStyle(step: Int): TextStyle {
-    val size: TextUnit = BOOK_TITLE_SIZES_PX[step.coerceIn(BOOK_TITLE_SIZES_PX.indices)].designVerticalPxToSp()
+private fun titleStyle(step: Int, scale: Float): TextStyle {
+    val size: TextUnit = (BOOK_TITLE_SIZES_PX[step.coerceIn(BOOK_TITLE_SIZES_PX.indices)] * scale).designVerticalPxToSp()
     return LightThemeTokens.typography.detail.copy(
         color = LightThemeTokens.colors.content,
         textAlign = TextAlign.Center,
@@ -78,12 +79,12 @@ private fun titleStyle(step: Int): TextStyle {
  * break (e.g. if the font finished loading after this ran).
  */
 @Composable
-fun rememberSharedTitleStep(titles: List<String>, tileWidth: Dp): Int {
+fun rememberSharedTitleStep(titles: List<String>, tileWidth: Dp, scale: Float): Int {
     val measurer = rememberTextMeasurer()
     val insets = titleInsets()
     val density = LocalDensity.current
     val widthPx = with(density) { (tileWidth - insets.start - insets.end).roundToPx() }.coerceAtLeast(1)
-    val styles = BOOK_TITLE_SIZES_PX.indices.map { titleStyle(it) }
+    val styles = BOOK_TITLE_SIZES_PX.indices.map { titleStyle(it, scale) }
     return remember(titles, widthPx, styles) {
         styles.indexOfFirst { style ->
             titles.none { title ->
@@ -94,17 +95,17 @@ fun rememberSharedTitleStep(titles: List<String>, tileWidth: Dp): Int {
 }
 
 /**
- * A portrait book drawn in thin strokes: an outlined cover with a spine band down the left
- * edge (a second vertical line), and the title centred on the cover at size [step].
+ * A square book [side] across, drawn in thin strokes: an outlined cover with a spine band down the
+ * left edge (a second vertical line), and the title centred on the cover at size [step] × [scale].
  * [onMidWordBreak] fires if the rendered title still breaks inside a word, so the caller can
  * step every tile down together.
  */
 @Composable
 fun BookTile(
     title: String,
-    width: Dp,
-    height: Dp,
+    side: Dp,
     step: Int,
+    scale: Float,
     onMidWordBreak: () -> Unit,
     onClick: () -> Unit,
 ) {
@@ -115,7 +116,7 @@ fun BookTile(
 
     Box(
         modifier = Modifier
-            .size(width, height)
+            .size(side)
             .lightClickable(onClick = onClick)
             .drawBehind {
                 val w = stroke.toPx()
@@ -133,7 +134,7 @@ fun BookTile(
     ) {
         BasicText(
             text = title,
-            style = titleStyle(step),
+            style = titleStyle(step, scale),
             onTextLayout = { if (breaksMidWord(it)) onMidWordBreak() },
             modifier = Modifier
                 .fillMaxWidth()

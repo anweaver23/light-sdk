@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Outline bookmark, drawn on the same 40x40 grid and stroke weight as Light's search/pencil glyphs.
-     No LightIcons glyph fits "bookmark", so this is custom. Picked by LightThemeTokens.surfaceScheme. -->
+<!-- Note: a page with a folded corner and lines of writing. Same 40x40 grid and stroke as
+     ic_bookmark. Drawn white; tinted to the theme by tintedIcon(). -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="40dp"
     android:height="40dp"
     android:viewportWidth="40"
     android:viewportHeight="40">
     <path
-        android:pathData="M9.5,1.5L30.5,1.5L30.5,38.5L20,29.5L9.5,38.5Z"
-        android:strokeColor="#FF000000"
+        android:pathData="M8.5,2.5L24,2.5L31.5,10L31.5,37.5L8.5,37.5Z M24,2.5L24,10L31.5,10 M14,18L26,18 M14,24.5L26,24.5 M14,31L21,31"
+        android:strokeColor="#FFFFFFFF"
         android:strokeWidth="3"
         android:strokeLineJoin="round"
         android:strokeLineCap="round" />

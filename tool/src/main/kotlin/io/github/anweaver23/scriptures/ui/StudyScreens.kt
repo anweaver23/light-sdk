@@ -1,12 +1,10 @@
 package io.github.anweaver23.scriptures.ui
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -15,17 +13,13 @@ import androidx.compose.runtime.produceState
 import androidx.compose.ui.Modifier
 import com.thelightphone.sdk.SealedLightActivity
 import com.thelightphone.sdk.SimpleLightScreen
-import com.thelightphone.sdk.rememberKeyboardOptions
 import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightScrollView
 import com.thelightphone.sdk.ui.LightText
-import com.thelightphone.sdk.ui.LightTextInputEditor
 import com.thelightphone.sdk.ui.LightTextVariant
-import com.thelightphone.sdk.ui.LightTheme
-import com.thelightphone.sdk.ui.LightThemeController
-import com.thelightphone.sdk.ui.LightThemeTokens
 import com.thelightphone.sdk.ui.gridUnitsAsDp
+import io.github.anweaver23.scriptures.core.Annotation
 import io.github.anweaver23.scriptures.core.Definition
 import io.github.anweaver23.scriptures.core.Footnote
 import io.github.anweaver23.scriptures.core.OriginalWord
@@ -37,33 +31,6 @@ import io.github.anweaver23.scriptures.data.AppGraph
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-
-/** Full-screen note entry. Returns the text on SAVE; backing out returns nothing. */
-class NoteEditorScreen(
-    sealedActivity: SealedLightActivity,
-    private val title: String,
-    private val initial: String,
-) : SimpleLightScreen<String>(sealedActivity) {
-
-    @Composable
-    override fun Content() {
-        val keyboardOptions = rememberKeyboardOptions()
-        val state = rememberTextFieldState(initial)
-        val colors by LightThemeController.colors.collectAsState()
-        LightTheme(colors = colors) {
-            LightTextInputEditor(
-                title = title,
-                state = state,
-                keyboardOptionsFlow = keyboardOptions,
-                onSubmit = { goBack(it.toString()) },
-                onBack = { goBack(null) },
-                submitLabel = "SAVE",
-                initialCaps = initial.isEmpty(),
-                modifier = Modifier.background(LightThemeTokens.colors.background),
-            )
-        }
-    }
-}
 
 /** A section label inside the study screens, e.g. "Webster's 1828". */
 @Composable
@@ -202,8 +169,11 @@ class AnnotationScreen(sealedActivity: SealedLightActivity, private val id: Stri
             bottomBar = annotation?.let { a ->
                 listOf(
                     LightBarButton.LightIcon(LightIcons.TRASH, contentDescription = "Remove", onClick = {
-                        AppGraph.scope.launch { AppGraph.study.deleteAnnotation(a.id) }
-                        goBack()
+                        navigateTo({ confirmRemove(it, a) }) { confirmed ->
+                            if (!confirmed) return@navigateTo
+                            AppGraph.scope.launch { AppGraph.study.deleteAnnotation(a.id) }
+                            goBack()
+                        }
                     }),
                     LightBarButton.Text(if (a.hasNote) "EDIT NOTE" else "ADD NOTE", onClick = {
                         navigateTo({ NoteEditorScreen(it, title = "Note", initial = a.note.orEmpty()) }) { text ->
@@ -228,6 +198,14 @@ class AnnotationScreen(sealedActivity: SealedLightActivity, private val id: Stri
         }
     }
 }
+
+/** Asks before removing a highlight or note; the note goes with it, so it says so. */
+fun confirmRemove(sealedActivity: SealedLightActivity, annotation: Annotation) = ConfirmScreen(
+    sealedActivity,
+    title = if (annotation.hasNote) "Remove note" else "Remove highlight",
+    message = if (annotation.hasNote) "Remove this note and its highlight?" else "Remove this highlight?",
+    confirmLabel = "REMOVE",
+)
 
 /** A footnote's text and references. Tapping a reference opens the reader at that verse. */
 class FootnoteScreen(

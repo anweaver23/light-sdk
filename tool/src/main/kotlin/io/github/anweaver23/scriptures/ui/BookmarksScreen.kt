@@ -60,7 +60,7 @@ class BookmarksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<U
                     }
                 }
                 if (sorted.isEmpty()) {
-                    Note("Tap the star in the reader to bookmark where you are.")
+                    Note("Open the menu in the reader and choose Bookmark to mark where you are.")
                 }
                 sorted.forEach { bookmark ->
                     StackRow(

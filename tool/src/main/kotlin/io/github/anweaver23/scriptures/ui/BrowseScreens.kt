@@ -88,6 +88,9 @@ class ChapterGridScreen(
 
 private const val GRID_COLUMNS = 5
 
+/** Height of one row of numbers, in grid units. Taller than a [ListRow] so rows don't crowd. */
+const val NUMBER_ROW_UNITS = 4.5f
+
 @Composable
 fun NumberGrid(numbers: List<Int>, isMarked: (Int) -> Boolean, onClick: (Int) -> Unit) {
     LightScrollView(Modifier.fillMaxSize()) {
@@ -97,7 +100,7 @@ fun NumberGrid(numbers: List<Int>, isMarked: (Int) -> Boolean, onClick: (Int) ->
                     Box(
                         modifier = Modifier
                             .weight(1f)
-                            .height(ROW_UNITS.gridUnitsAsDp())
+                            .height(NUMBER_ROW_UNITS.gridUnitsAsDp())
                             .lightClickable { onClick(number) },
                         contentAlignment = Alignment.Center,
                     ) {

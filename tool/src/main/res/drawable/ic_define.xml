@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Outline bookmark, drawn on the same 40x40 grid and stroke weight as Light's search/pencil glyphs.
-     No LightIcons glyph fits "bookmark", so this is custom. Picked by LightThemeTokens.surfaceScheme. -->
+<!-- Define: an open book (the dictionary). Same 40x40 grid and stroke as ic_bookmark. Drawn white;
+     tinted to the theme by tintedIcon(). -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="40dp"
     android:height="40dp"
     android:viewportWidth="40"
     android:viewportHeight="40">
     <path
-        android:pathData="M9.5,1.5L30.5,1.5L30.5,38.5L20,29.5L9.5,38.5Z"
+        android:pathData="M20,10C15,7 9,6.5 3.5,8L3.5,32.5C9,31 15,31.5 20,34.5C25,31.5 31,31 36.5,32.5L36.5,8C31,6.5 25,7 20,10Z M20,10L20,34.5"
         android:strokeColor="#FFFFFFFF"
         android:strokeWidth="3"
         android:strokeLineJoin="round"

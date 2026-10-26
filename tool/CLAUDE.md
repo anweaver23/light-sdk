@@ -74,7 +74,8 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-10-14 Study sub-views are screens:** Define, the note editor, a highlight's detail and a
   footnote open as their own screens (not overlays), because hardware BACK pops the screen without
   asking the view model (SDK bug), which would otherwise close the reader.
-- **2026-10-14 Bookmark star:** fills when the chapter has any bookmark. Tapping it adds one at the top
+- **2026-10-14 Bookmark star** *(the star is gone, see 2026-10-26 Reader menu; the toggle rule stands)*:
+  fills when the chapter has any bookmark. Tapping it adds one at the top
   visible verse, or removes the one nearest it, so two taps undo each other. Continue reading also
   remembers the top verse (`ProgressStore.lastReadVerse`).
 - **2026-10-14 Footnote format:** documented in `src/main/assets/footnotes/README.md`.
@@ -84,6 +85,30 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   private forks of public repos), which Light requires for release anyway.
 - **2026-10-26 Tool id `com.andyweaver.scriptures`:** matches the chess tool's `com.andyweaver.chess`.
   The Kotlin package stays `io.github.anweaver23.scriptures`; only the id is user-visible and permanent.
+  The generated `R` class follows the id: import `com.andyweaver.scriptures.R`.
+- **2026-10-26 Never a star for bookmarks:** bookmarks always use our `ic_bookmark` glyph, everywhere.
+- **2026-10-26 Reader menu:** the reader's top-right button is a menu (`LightIcons.LIST`), opening
+  `ReaderMenuScreen`: Bookmark / Remove bookmark, and Find in chapter. New reading tools go in this menu.
+- **2026-10-26 Find in chapter:** case-insensitive, verse numbers skipped, footnote markers ignored
+  (`core/Find.kt`). Matches get a translucent background (`FIND_ALPHA`, current `FIND_CURRENT_ALPHA`);
+  a find bar (close · PREV · n OF m · NEXT) replaces the bottom bar and scrolls only when the match is
+  off screen. Changing chapter closes it.
+- **2026-10-26 Selection actions are icons:** close, highlight (`ic_highlight`), note (`ic_note`), define
+  (`ic_define`). Custom icons are single white vectors tinted to the theme by `tintedIcon()`; no
+  white/black pairs.
+- **2026-10-26 Text size setting:** Settings (bottom-left on home) holds only text size for now:
+  `core/TextSize` (Small 0.85× … Largest 1.5×), stored by `SettingsStore`, shared as `AppGraph.textSize`.
+  It scales the reader text, the note editor and the home tile titles.
+- **2026-10-26 Home tiles are square** and follow the text size: 3 columns at Small/Default, 2 at
+  Large and up (the grid scrolls then). Home bar: Settings · Search · Bookmarks · Annotations.
+  Continue reading lives only in the Bookmarks tab, never on home.
+- **2026-10-26 Note editor is full screen, like LightOS Notes:** reading-size text fills the page (no
+  field underline), scrolls to keep the caret in view, Return is a new line, SAVE returns the text. It
+  hosts its own LP3 keyboard view model in the screen's store (`ui/NoteEditorScreen.kt`), because
+  `LightTextInputEditor` only draws heading-size underlined text.
+- **2026-10-26 Removing a highlight or note asks first** (`ConfirmScreen`), from the highlight screen
+  and from the Annotations list.
+- **2026-10-26 Chapter number grid rows are taller** (`NUMBER_ROW_UNITS` 4.5) so rows don't crowd.
 
 ## Hard rules
 

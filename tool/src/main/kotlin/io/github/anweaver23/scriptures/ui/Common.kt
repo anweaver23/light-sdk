@@ -1,5 +1,7 @@
 package io.github.anweaver23.scriptures.ui
 
+import androidx.annotation.DrawableRes
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -10,12 +12,23 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.drawscope.DrawScope
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import com.thelightphone.sdk.SealedLightActivity
+import com.thelightphone.sdk.SimpleLightScreen
 import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightBottomBar
 import com.thelightphone.sdk.ui.LightIcon
@@ -144,7 +157,11 @@ fun ActionBar(items: List<LightBarButton>) {
                 when (item) {
                     is LightBarButton.Text -> LightText(item.text, variant = LightTextVariant.Button, maxLines = 1)
                     is LightBarButton.LightIcon -> LightIcon(item.icon, size = item.sizeUnits)
-                    is LightBarButton.Icon -> Unit
+                    is LightBarButton.Icon -> Image(
+                        painter = item.painter,
+                        contentDescription = item.contentDescription,
+                        modifier = Modifier.size(item.sizeUnits.gridUnitsAsDp()),
+                    )
                 }
             }
         }
@@ -180,6 +197,55 @@ fun StackRow(
         }
         if (trailing != null) {
             Box(Modifier.padding(start = 1f.gridUnitsAsDp())) { trailing() }
+        }
+    }
+}
+
+/**
+ * One of our own white vector icons, tinted to the theme's content colour like a [LightIcons] glyph,
+ * for use in a [LightBarButton.Icon] (which draws painters untinted). One drawable serves both themes.
+ */
+@Composable
+fun tintedIcon(@DrawableRes id: Int): Painter {
+    val painter = painterResource(id)
+    val color = LightThemeTokens.colors.content
+    return remember(painter, color) { TintedPainter(painter, color) }
+}
+
+private class TintedPainter(private val inner: Painter, color: Color) : Painter() {
+    private val filter = ColorFilter.tint(color)
+    override val intrinsicSize: Size get() = inner.intrinsicSize
+    override fun DrawScope.onDraw() {
+        with(inner) { draw(size, colorFilter = filter) }
+    }
+}
+
+/**
+ * Asks before something can't be undone: [message] centred, CANCEL and [confirmLabel] below.
+ * Returns true on confirm; CANCEL or BACK returns nothing. A screen rather than an overlay so
+ * hardware BACK behaves (see the study sub-views decision in CLAUDE.md).
+ */
+class ConfirmScreen(
+    sealedActivity: SealedLightActivity,
+    private val title: String,
+    private val message: String,
+    private val confirmLabel: String,
+) : SimpleLightScreen<Boolean>(sealedActivity) {
+
+    @Composable
+    override fun Content() {
+        ScreenFrame(
+            title = title,
+            onBack = { goBack() },
+            bottomBar = listOf(
+                LightBarButton.Text("CANCEL", onClick = { goBack() }),
+                null,
+                LightBarButton.Text(confirmLabel, onClick = { goBack(true) }),
+            ),
+        ) {
+            Box(Modifier.weight(1f).fillMaxWidth(), contentAlignment = Alignment.Center) {
+                LightText(text = message, variant = LightTextVariant.Copy, align = TextAlign.Center)
+            }
         }
     }
 }
