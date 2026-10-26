@@ -43,8 +43,14 @@ import com.thelightphone.sdk.ui.LightTopBarCenter
 import com.thelightphone.sdk.ui.gridUnitsAsDp
 import com.thelightphone.sdk.ui.lightClickable
 
-/** Height of one list row, in Light grid units. Lazy lists need it to size their scroll bar. */
-const val ROW_UNITS = 3f
+/**
+ * Height of one list row, in Light grid units: a Subheading line with a unit above and below, as
+ * LightOS lists are (Settings, pickers). Lazy lists need it to size their scroll bar.
+ */
+const val ROW_UNITS = 4f
+
+/** Row text, as LightOS lists use it: labels and their dimmed values both at this size. */
+val ROW_TEXT = LightTextVariant.Subheading
 
 /**
  * Top bar, a content area that fills the middle, and an optional bottom bar. [bottomContent], when
@@ -70,6 +76,7 @@ fun ScreenFrame(
                 leftButton = onBack?.let { LightBarButton.LightIcon(LightIcons.BACK, onClick = it) },
                 center = LightTopBarCenter.Text(title),
                 rightButton = rightButton,
+                modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
             )
             Column(
                 Modifier
@@ -86,7 +93,7 @@ fun ScreenFrame(
     }
 }
 
-/** A tappable single-line row: label on the left, optional detail on the right. */
+/** A tappable single-line row: label on the left, optional value dimmed on the right (LightOS style). */
 @Composable
 fun ListRow(label: String, detail: String? = null, lighten: Boolean = false, onClick: () -> Unit) {
     Row(
@@ -99,7 +106,7 @@ fun ListRow(label: String, detail: String? = null, lighten: Boolean = false, onC
     ) {
         LightText(
             text = label,
-            variant = LightTextVariant.Copy,
+            variant = ROW_TEXT,
             lighten = lighten,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
@@ -108,12 +115,26 @@ fun ListRow(label: String, detail: String? = null, lighten: Boolean = false, onC
         if (detail != null) {
             LightText(
                 text = detail,
-                variant = LightTextVariant.Fine,
+                variant = ROW_TEXT,
                 lighten = true,
                 maxLines = 1,
                 modifier = Modifier.padding(start = 1f.gridUnitsAsDp()),
             )
         }
+    }
+}
+
+/** One choice in a picker list; the current one is underlined, as LightOS pickers show it. */
+@Composable
+fun SelectableRow(label: String, selected: Boolean, onClick: () -> Unit) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(ROW_UNITS.gridUnitsAsDp())
+            .lightClickable(onClick = onClick),
+        contentAlignment = Alignment.CenterStart,
+    ) {
+        LightText(text = label, variant = ROW_TEXT, underline = selected, maxLines = 1)
     }
 }
 
@@ -180,11 +201,11 @@ fun StackRow(
         modifier = Modifier
             .fillMaxWidth()
             .lightClickable(onClick = onClick)
-            .padding(vertical = 0.5f.gridUnitsAsDp()),
+            .padding(vertical = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(Modifier.weight(1f)) {
-            LightText(title, variant = LightTextVariant.Copy, maxLines = 1, overflow = TextOverflow.Ellipsis)
+            LightText(title, variant = ROW_TEXT, maxLines = 1, overflow = TextOverflow.Ellipsis)
             lines.forEach { (text, maxLines) ->
                 LightText(
                     text = text,
@@ -221,8 +242,9 @@ private class TintedPainter(private val inner: Painter, color: Color) : Painter(
 }
 
 /**
- * Asks before something can't be undone: [message] centred, CANCEL and [confirmLabel] below.
- * Returns true on confirm; CANCEL or BACK returns nothing. A screen rather than an overlay so
+ * Asks before something can't be undone: [message] centred, then [confirmLabel] in the middle of the
+ * bar and a close icon on the right, as LightOS confirmations are. Returns true on confirm; close or
+ * BACK returns nothing. A screen rather than an overlay so
  * hardware BACK behaves (see the study sub-views decision in CLAUDE.md).
  */
 class ConfirmScreen(
@@ -238,9 +260,9 @@ class ConfirmScreen(
             title = title,
             onBack = { goBack() },
             bottomBar = listOf(
-                LightBarButton.Text("CANCEL", onClick = { goBack() }),
                 null,
                 LightBarButton.Text(confirmLabel, onClick = { goBack(true) }),
+                LightBarButton.LightIcon(LightIcons.CLOSE, onClick = { goBack() }, contentDescription = "Cancel"),
             ),
         ) {
             Box(Modifier.weight(1f).fillMaxWidth(), contentAlignment = Alignment.Center) {

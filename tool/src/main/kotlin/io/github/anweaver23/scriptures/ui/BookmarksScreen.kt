@@ -16,7 +16,6 @@ import com.thelightphone.sdk.ui.LightIcon
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightScrollView
 import com.thelightphone.sdk.ui.lightClickable
-import io.github.anweaver23.scriptures.core.label
 import io.github.anweaver23.scriptures.core.verseLabel
 import io.github.anweaver23.scriptures.data.AppGraph
 import kotlinx.coroutines.launch
@@ -46,7 +45,7 @@ class BookmarksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<U
             } else {
                 pageMenu(
                     listOfNotNull(
-                        MenuItem("Remove bookmarks", MenuIcon.Light(LightIcons.CLOSE)) { editing = true }
+                        MenuItem("Remove bookmarks") { editing = true }
                             .takeIf { sorted.isNotEmpty() },
                     ),
                 )

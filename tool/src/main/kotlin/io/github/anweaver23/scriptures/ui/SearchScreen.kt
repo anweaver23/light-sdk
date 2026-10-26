@@ -171,7 +171,7 @@ class SearchScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, Sear
             // The query itself; tapping it edits it.
             LightText(
                 text = query,
-                variant = LightTextVariant.Copy,
+                variant = ROW_TEXT,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier
@@ -236,7 +236,7 @@ class SearchScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, Sear
         ) {
             LightText(
                 text = catalog.verseLabel(hit.ref),
-                variant = LightTextVariant.Copy,
+                variant = ROW_TEXT,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )

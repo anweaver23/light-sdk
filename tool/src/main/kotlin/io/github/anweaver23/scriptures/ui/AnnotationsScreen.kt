@@ -42,7 +42,7 @@ class AnnotationsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen
             } else {
                 pageMenu(
                     listOfNotNull(
-                        MenuItem("Remove annotations", MenuIcon.Light(LightIcons.CLOSE)) { editing = true }
+                        MenuItem("Remove annotations") { editing = true }
                             .takeIf { sorted.isNotEmpty() },
                     ),
                 )

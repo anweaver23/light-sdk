@@ -113,7 +113,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
                 onBack = null,
                 rightButton = pageMenu(
                     listOf(
-                        MenuItem("Annotations", MenuIcon.Light(LightIcons.PENCIL)) {
+                        MenuItem("Annotations") {
                             navigateTo({ AnnotationsScreen(it) })
                         },
                     ),

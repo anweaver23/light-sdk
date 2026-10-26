@@ -55,7 +55,6 @@ import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightBottomBar
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightText
-import com.thelightphone.sdk.ui.LightTextVariant
 import com.thelightphone.sdk.ui.LightTheme
 import com.thelightphone.sdk.ui.LightThemeController
 import com.thelightphone.sdk.ui.LightThemeTokens
@@ -273,7 +272,7 @@ private fun ToolRow(label: String, onClick: () -> Unit) {
             .lightClickable(onClick = onClick),
         contentAlignment = Alignment.Center,
     ) {
-        LightText(text = label, variant = LightTextVariant.Copy)
+        LightText(text = label, variant = ROW_TEXT)
     }
 }
 

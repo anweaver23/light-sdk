@@ -408,12 +408,8 @@ class ReaderScreen(
             onBack = { goBack() },
             rightButton = pageMenu(
                 listOf(
-                    MenuItem(
-                        if (bookmarks.isEmpty()) "Bookmark" else "Remove bookmark",
-                        MenuIcon.Res(R.drawable.ic_bookmark),
-                        onSelect = viewModel::toggleBookmark,
-                    ),
-                    MenuItem("Find in chapter", MenuIcon.Light(LightIcons.SEARCH), onSelect = ::openFind),
+                    MenuItem(if (bookmarks.isEmpty()) "Bookmark" else "Remove bookmark", onSelect = viewModel::toggleBookmark),
+                    MenuItem("Find in chapter", onSelect = ::openFind),
                 ),
             ),
             // Chapters change by swiping, so the bar only appears when there's audio to play.

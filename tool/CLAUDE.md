@@ -99,7 +99,7 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-10-26 Selection actions are icons:** close, highlight (`ic_highlight`), note (`ic_note`), define
   (`ic_define`). Custom icons are single white vectors tinted to the theme by `tintedIcon()`; no
   white/black pairs.
-- **2026-10-26 Text size setting:** Settings (bottom-left on home) holds only text size for now:
+- **2026-10-26 Text size setting:** Settings (bottom-left on home) holds text size and Add audio:
   `core/TextSize` (Small 0.85× … Largest 1.5×), stored by `SettingsStore`, shared as `AppGraph.textSize`.
   It scales the reader text, the note editor and the home tile titles.
 - **2026-10-26 Home tiles are square** and follow the text size: 3 columns at Small/Default, 2 at
@@ -124,6 +124,13 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   chapter grid), "genesis 1" the chapter, "1 ne 3:7" the verse; "jude 5" in a one-chapter book is a
   verse. Titles and abbreviations match exactly, or by title prefix (3+ letters); exact beats prefix.
   References list above the full-text verse results, which still run.
+- **2026-10-26 Lists and menus follow LightOS** (matched to the chess tool's Settings / pickers, which
+  match the system): rows are `ROW_TEXT` (Subheading) text, `ROW_UNITS` 4 tall (a unit above and below),
+  a value sits dimmed on the right at the same size (`ListRow`), the current choice in a picker is
+  underlined (`SelectableRow`, never a checkmark), on/off uses `LightIcons.TOGGLE_STATE_ON/OFF`, and
+  there are **no icons in menus or lists**. `ScreenFrame` leaves one unit under the top bar.
+  Confirmations: message centred, bar `[ —, CONFIRM-LABEL, ✕ ]`. Text size is a picker screen
+  (`TextSizeScreen`), not inline radio rows.
 - **2026-10-26 Note tools:** holding anywhere in the note (empty space included) replaces the keys with
   Copy (whole note) / Paste (at caret) / Clear, using the LP3 keyboard's `overlay` slot; its close arrow
   brings the keys back. The keyboard has no clipboard support of its own.
