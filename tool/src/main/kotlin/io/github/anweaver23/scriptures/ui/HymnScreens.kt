@@ -3,6 +3,7 @@ package io.github.anweaver23.scriptures.ui
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -92,6 +93,7 @@ class HymnScreen(sealedActivity: SealedLightActivity, private val target: Target
 
         ScreenFrame(
             title = "${hymn.n}. ${hymn.title}",
+            reading = true,
             onBack = { goBack() },
             rightButton = pageMenu(),
             bottomBar = if (index.hasAudio(target)) {
@@ -103,7 +105,13 @@ class HymnScreen(sealedActivity: SealedLightActivity, private val target: Target
             LightScrollView(Modifier.fillMaxSize()) {
                 val text = lyrics
                 if (text != null) {
-                    AppText(text = text.trim(), variant = LightTextVariant.Paragraph, modifier = Modifier.fillMaxWidth())
+                    // Hymn words are reading text: Display size, spacing and invert apply.
+                    val display by AppGraph.display.collectAsState()
+                    BasicText(
+                        text = text.trim(),
+                        style = readerTextStyle(display.textSize.scale, display.lineSpacing),
+                        modifier = Modifier.fillMaxWidth(),
+                    )
                 } else {
                     Note(
                         "No words saved for this hymn. To add them, upload a text file named " +

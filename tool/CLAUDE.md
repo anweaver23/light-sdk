@@ -147,14 +147,18 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   and labels follow text size alone. Between verses the gap is `VERSE_GAP_UNITS` plus whatever line
   spacing adds, so a verse break always reads bigger than a line break.
 - **2026-10-27 Display is for reading text only:** text size, line spacing and invert colours change
-  scripture (reader), the note editor and a note's page (`reading = true` on `ScreenFrame` / `AppTheme`),
-  nothing else. Everything else is "system" UI at fixed Light sizes. `AppText` is LightText's look plus
+  scripture (reader), hymn words, the note editor and a note's page (`reading = true` on `ScreenFrame` /
+  `AppTheme`). Define and footnotes follow size and spacing (`AppText(reading = true)` / `readingStyle`)
+  but not invert. Nothing else. Everything else is "system" UI at fixed Light sizes. `AppText` is LightText's look plus
   styled-text support; it never scales.
 - **2026-10-27 System sizes match LightOS** (measured from LightOS Settings on the LP3; 1 design px is
   about 2.07 screen px): list, menu and picker rows are **Heading** text (38), `ROW_UNITS` 5 tall, text
   inset to 2 grid units (`LIST_INSET_UNITS` on top of the frame's 1). Values sit dimmed on the right
   at the same size. The chapter number grid uses the same row. Hints/empty states: Fine, dimmed.
-  Two-line rows: Heading title, Fine lines. Home tiles: 3 columns, titles auto-fit (22 down to 10).
+  Measured from LightOS Notes, Podcasts and Messages: two-line rows (`StackRow`) are a Subheading title
+  over a white Detail line; the player is Subheading (what's playing) and Detail (time); message-style
+  reading text is Paragraph, which is our scripture base size. Home tile titles are Subtitle (52), and
+  `tileColumns` picks as many columns (max 3) as keep the longest word whole at that size.
 - **2026-10-27 Haptics fallback:** a sideloaded (not Light-signed) tool is refused a LightOS service token,
   so `LocalHapticsEnabled` stays false and every tap is silent. `AppTheme` provides it as
   `sdk || HAPTICS_FALLBACK`, as the chess tool does. Keyboard keys use `HapticFeedbackType.VirtualKey`.

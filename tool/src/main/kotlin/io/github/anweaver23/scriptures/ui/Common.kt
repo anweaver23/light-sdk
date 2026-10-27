@@ -50,6 +50,15 @@ val ROW_TEXT = LightTextVariant.Heading
 /** Height of one list row, in grid units. Lazy lists also need it to size their scroll bar. */
 const val ROW_UNITS = 5f
 
+// Two-line rows follow LightOS Notes / Podcasts: a Subheading title (30) over a Detail line (20), both
+// white; "Plan" draws 46 px tall and its date ~39 px, rows ~190 px apart.
+
+/** Title of a two-line row. */
+val TWO_LINE_TITLE = LightTextVariant.Subheading
+
+/** Second line of a two-line row (a date, a reference, a quote). */
+val TWO_LINE_DETAIL = LightTextVariant.Detail
+
 /** How far list text sits in from the frame's own padding, in grid units. */
 const val LIST_INSET_UNITS = 1f
 
@@ -215,16 +224,15 @@ fun StackRow(
         modifier = Modifier
             .fillMaxWidth()
             .lightClickable(onClick = onClick)
-            .padding(start = LIST_INSET_UNITS.gridUnitsAsDp(), top = 1f.gridUnitsAsDp(), bottom = 1f.gridUnitsAsDp()),
+            .padding(start = LIST_INSET_UNITS.gridUnitsAsDp(), top = 0.75f.gridUnitsAsDp(), bottom = 0.75f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(Modifier.weight(1f)) {
-            AppText(title, variant = ROW_TEXT, maxLines = 1, overflow = TextOverflow.Ellipsis)
+            AppText(title, variant = TWO_LINE_TITLE, maxLines = 1, overflow = TextOverflow.Ellipsis)
             lines.forEach { (text, maxLines) ->
                 AppText(
                     text = text,
-                    variant = LightTextVariant.Fine,
-                    lighten = true,
+                    variant = TWO_LINE_DETAIL,
                     maxLines = maxLines,
                     overflow = TextOverflow.Ellipsis,
                 )

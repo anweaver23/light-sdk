@@ -343,14 +343,15 @@ class PlayerScreen(private val sealedActivity: SealedLightActivity, private val 
         ) {
             Spacer(Modifier.weight(1f))
             AppText(
+                // LightOS's podcast player: Subheading for what's playing, Detail for date and time.
                 text = current?.let(viewModel::label) ?: message ?: "Loading…",
-                variant = LightTextVariant.Heading,
+                variant = LightTextVariant.Subheading,
                 align = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth(),
             )
             AppText(
                 text = "${formatDuration(position)}  /  ${if (canSeek) formatDuration(duration) else "--:--"}",
-                variant = LightTextVariant.Fine,
+                variant = LightTextVariant.Detail,
                 align = TextAlign.Center,
                 monospace = true,
                 modifier = Modifier
@@ -368,7 +369,7 @@ class PlayerScreen(private val sealedActivity: SealedLightActivity, private val 
             error?.let {
                 AppText(
                     text = errorMessage(it),
-                    variant = LightTextVariant.Fine,
+                    variant = LightTextVariant.Detail,
                     align = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth(),
                 )

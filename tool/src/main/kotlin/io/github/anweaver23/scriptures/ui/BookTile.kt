@@ -36,13 +36,17 @@ const val BOOK_STROKE_PX = 2.5f
 const val BOOK_TITLE_PADDING_UNITS = 0.25f
 
 /**
- * Title font sizes to try, largest first, in design px. All tiles share one size: the largest at which
- * no title breaks inside a word. The last step is used even if something still breaks. Home is system
- * UI, so the Display text size never changes these.
+ * Title font sizes, in design px. Titles are Light's Subtitle (52); home lays the tiles out so its
+ * longest word fits at that size ([tileColumns]). The smaller steps are only a fallback, used if a
+ * rendered title still breaks inside a word. Home is system UI: Display never changes these.
  */
-val BOOK_TITLE_SIZES_PX = listOf(22f, 20f, 18f, 16f, 15f, 14f, 13f, 12f, 11f, 10f)
+val BOOK_TITLE_SIZES_PX = listOf(52f, 46f, 42f, 38f, 34f, 30f, 26f, 22f, 18f)
 
+/** Subtitle's own line height. */
 private const val LINE_HEIGHT_FACTOR = 1.2f
+
+/** Room around the longest word beyond the outline and padding, so it never touches the box, in grid units. */
+private const val TITLE_BREATHING_UNITS = 0.5f
 
 /** Horizontal insets around the title inside a tile of any width. */
 private class TitleInsets(val start: Dp, val end: Dp)
@@ -60,12 +64,33 @@ private fun titleInsets(): TitleInsets {
 @Composable
 private fun titleStyle(step: Int): TextStyle {
     val size: TextUnit = BOOK_TITLE_SIZES_PX[step.coerceIn(BOOK_TITLE_SIZES_PX.indices)].designVerticalPxToSp()
-    return LightThemeTokens.typography.detail.copy(
+    return LightThemeTokens.typography.subtitle.copy(
         color = LightThemeTokens.colors.content,
         textAlign = TextAlign.Center,
         fontSize = size,
         lineHeight = size * LINE_HEIGHT_FACTOR,
     )
+}
+
+/**
+ * How many square tiles share a row on home: as many as fit in [width] (with [gap] between them) while
+ * each is still wide enough for the longest single word in [titles] at Subtitle size, so no title breaks
+ * mid-word. At least 1, at most [maxColumns].
+ */
+@Composable
+fun tileColumns(titles: List<String>, width: Dp, gap: Dp, maxColumns: Int): Int {
+    val measurer = rememberTextMeasurer()
+    val insets = titleInsets()
+    val style = titleStyle(0)
+    val density = LocalDensity.current
+    val breathing = TITLE_BREATHING_UNITS.gridUnitsAsDp()
+    return remember(titles, width, gap, style) {
+        val words = titles.flatMap { it.split(' ', '-', '—') }.filter { it.isNotBlank() }
+        val longest = words.maxOf { measurer.measure(it, style).size.width }
+        val minSide = with(density) { longest.toDp() } + insets.start + insets.end + breathing
+        // c tiles fit when c * minSide + (c - 1) * gap <= width.
+        ((width + gap) / (minSide + gap)).toInt().coerceIn(1, maxColumns)
+    }
 }
 
 /**

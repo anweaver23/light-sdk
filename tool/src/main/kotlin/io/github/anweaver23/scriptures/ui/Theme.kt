@@ -80,6 +80,24 @@ fun appTextStyle(variant: LightTextVariant): TextStyle {
     )
 }
 
+/**
+ * [variant] as reading text (Define, footnotes): sized by the Display text size, with its line height
+ * also stretched by line spacing, like scripture.
+ */
+@Composable
+fun readingStyle(variant: LightTextVariant): TextStyle {
+    val display by AppGraph.display.collectAsState()
+    val base = appTextStyle(variant)
+    val size = display.textSize.scale
+    return base.copy(
+        fontSize = base.fontSize.times(size),
+        lineHeight = base.lineHeight.times(size * display.lineSpacing),
+        letterSpacing = base.letterSpacing.times(size),
+    )
+}
+
+private fun TextUnit.times(by: Float): TextUnit = if (this == TextUnit.Unspecified) this else this * by
+
 @Composable
 private fun TextUnit.scaled(): TextUnit =
     if (this == TextUnit.Unspecified) this else value.designVerticalPxToSp()
@@ -101,7 +119,8 @@ fun AppText(
     overflow: TextOverflow = TextOverflow.Clip,
     color: Color? = null,
     fontFamily: FontFamily? = null,
-) = AppText(AnnotatedString(text), variant, modifier, align, lighten, underline, monospace, maxLines, overflow, color, fontFamily)
+    reading: Boolean = false,
+) = AppText(AnnotatedString(text), variant, modifier, align, lighten, underline, monospace, maxLines, overflow, color, fontFamily, reading)
 
 /** [AppText] for styled text, e.g. Greek or Hebrew runs in their own font ([withScriptFonts]). */
 @Composable
@@ -117,9 +136,11 @@ fun AppText(
     overflow: TextOverflow = TextOverflow.Clip,
     color: Color? = null,
     fontFamily: FontFamily? = null,
+    /** Follow the Display text size and line spacing ([readingStyle]); system text never does. */
+    reading: Boolean = false,
 ) {
     val colors = LightThemeTokens.colors
-    val style = appTextStyle(variant).copy(
+    val style = (if (reading) readingStyle(variant) else appTextStyle(variant)).copy(
         color = color ?: if (lighten) colors.contentSecondary else colors.content,
         textAlign = align ?: TextAlign.Unspecified,
         textDecoration = if (underline) TextDecoration.Underline else null,

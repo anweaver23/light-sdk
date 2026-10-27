@@ -47,6 +47,7 @@ private fun SectionLabel(text: String) {
 @Composable
 private fun Body(text: String, lighten: Boolean = false) {
     AppText(
+        reading = true,
         // Definitions and derivations quote Greek and Hebrew too.
         text = withScriptFonts(text),
         variant = LightTextVariant.Paragraph,
@@ -127,6 +128,7 @@ class DefineScreen private constructor(
         AppText(
             text = listOfNotNull(d.headword, d.partOfSpeech).joinToString("  "),
             variant = LightTextVariant.Copy,
+            reading = true,
             modifier = Modifier.padding(top = 0.5f.gridUnitsAsDp()),
         )
         if (d.senses.size == 1) {
@@ -141,6 +143,7 @@ class DefineScreen private constructor(
         AppText(
             text = withScriptFonts(w.lemma),
             variant = LightTextVariant.Heading,
+            reading = true,
             modifier = Modifier.padding(top = 0.5f.gridUnitsAsDp()),
         )
         Body(listOfNotNull(w.transliteration, w.pronunciation?.let { "($it)" }, w.strongs).joinToString("  "), lighten = true)

@@ -49,7 +49,7 @@ import kotlinx.coroutines.launch
  */
 const val TILE_GAP_UNITS = 1f
 
-/** Books per row. */
+/** Most books per row; fewer when the Subtitle titles need wider tiles ([tileColumns]). */
 const val TILE_COLUMNS = 3
 
 /** Space above the grid and between the grid and the quiet rows below it. */
@@ -133,8 +133,15 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
                 ),
             ) {
                 BoxWithConstraints(Modifier.fillMaxSize()) {
-                    val columns = TILE_COLUMNS
                     val gap = TILE_GAP_UNITS.gridUnitsAsDp()
+                    // As many columns as keep every title's longest word whole at Subtitle size.
+                    // Measured against the narrower, scrolling width so the choice can't flip-flop.
+                    val columns = tileColumns(
+                        shelves.map { it.title },
+                        maxWidth - SCROLL_GUTTER_UNITS.gridUnitsAsDp(),
+                        gap,
+                        TILE_COLUMNS,
+                    )
                     val rows = (shelves.size + columns - 1) / columns
                     // If the squares fit without scrolling, use the full width (no scroll bar gutter);
                     // otherwise leave room for the gutter so the last column isn't clipped.
