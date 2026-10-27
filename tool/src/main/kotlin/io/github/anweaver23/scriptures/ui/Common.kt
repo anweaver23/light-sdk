@@ -49,7 +49,7 @@ val ROW_TEXT = LightTextVariant.Subheading
 /**
  * Top bar, a content area that fills the middle, and an optional bottom bar. [bottomContent], when
  * set, replaces [bottomBar] with a custom bar (e.g. the reader's selection actions). The content area
- * follows the Display text size and line spacing unless [scaleContent] is false (menus, which are
+ * follows the Display text size unless [scaleContent] is false (menus, which are
  * chrome); the bars never do.
  */
 @Composable
@@ -63,7 +63,7 @@ fun ScreenFrame(
     content: @Composable ColumnScope.() -> Unit,
 ) {
     val display by AppGraph.display.collectAsState()
-    val scale = if (scaleContent) TextScale(display.textSize.scale, display.lineSpacing) else TextScale()
+    val scale = if (scaleContent) TextScale(display.textSize.scale) else TextScale()
     AppTheme {
         Column(
             Modifier

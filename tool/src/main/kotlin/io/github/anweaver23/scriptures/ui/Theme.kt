@@ -37,8 +37,11 @@ import io.github.anweaver23.scriptures.data.AppGraph
  */
 const val HAPTICS_FALLBACK = true
 
-/** How much the app's own content text is scaled: size and line spacing multipliers. */
-data class TextScale(val size: Float = 1f, val spacing: Float = 1f)
+/**
+ * How much the app's own content text is scaled (the Display text size). Line spacing isn't here: it
+ * applies only to reading text (scripture and notes, via [readerTextStyle]), not to lists and labels.
+ */
+data class TextScale(val size: Float = 1f)
 
 /**
  * The scale for content text. [ScreenFrame] provides the Display settings to its content area;
@@ -84,7 +87,7 @@ fun appTextStyle(variant: LightTextVariant): TextStyle {
     val scale = LocalTextScale.current
     return base.copy(
         fontSize = base.fontSize.scaled(scale.size),
-        lineHeight = base.lineHeight.scaled(scale.size * scale.spacing),
+        lineHeight = base.lineHeight.scaled(scale.size),
         letterSpacing = base.letterSpacing.scaled(scale.size),
     )
 }
@@ -95,7 +98,7 @@ private fun TextUnit.scaled(by: Float): TextUnit =
 
 /**
  * The app's content text: [com.thelightphone.sdk.ui.LightText]'s look and arguments, but following
- * the Display text size and line spacing ([LocalTextScale]). Use LightText only for chrome.
+ * the Display text size ([LocalTextScale]). Use LightText only for chrome.
  */
 @Composable
 fun AppText(
@@ -191,10 +194,7 @@ fun withScriptFonts(text: String): AnnotatedString = buildAnnotatedString {
 
 /**
  * Height of one list row in grid units: a line of row text with a unit above and below. 4 at the
- * default size, growing with text size and spacing so larger text never crowds the rows.
+ * default size, growing with text size so larger text never crowds the rows.
  */
 @Composable
-fun rowUnits(): Float {
-    val s = LocalTextScale.current
-    return 2f + 2f * s.size * s.spacing
-}
+fun rowUnits(): Float = 2f + 2f * LocalTextScale.current.size

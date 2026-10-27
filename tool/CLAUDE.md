@@ -89,8 +89,8 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-10-26 Never a star for bookmarks:** bookmarks always use our `ic_bookmark` glyph, everywhere.
 - **2026-10-26 Every landing page has a "…" menu** (`LightIcons.ELLIPSES`, top right) built with
   `pageMenu(items)` in `ui/MenuScreen.kt`. Each page passes its own items, and **Add audio** is always
-  appended, then **Display** and **Add audio**. A chosen item runs on the opening page after the menu
-  closes. Home: Annotations. Reader: Bookmark / Remove bookmark, Find in chapter. Bookmarks /
+  appended, then **Display** and **Add audio**. An item that `opens` a screen opens it on top of the menu
+  (BACK returns to the menu); an action (`onSelect`) closes the menu and runs on the opening page. Home: Annotations. Reader: Bookmark / Remove bookmark, Find in chapter. Bookmarks /
   Annotations: Edit … (DONE then takes the top-right slot). Sub-views (Define, footnote, highlight detail, editors, Add audio itself) have none.
 - **2026-10-26 Find in chapter:** case-insensitive, verse numbers skipped, footnote markers ignored
   (`core/Find.kt`). Matches get a translucent background (`FIND_ALPHA`, current `FIND_CURRENT_ALPHA`);
@@ -145,7 +145,10 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   line spacing (slider over `LineSpacing.STEPS`, snapping, no drawn notches, a haptic per step) and
   invert colours (Light toggle). Size and spacing pickers show a preview. Stored in `SettingsStore`,
   shared as `AppGraph.display`.
-- **2026-10-27 Display applies to all content, never chrome:** `ScreenFrame` provides `LocalTextScale` to
+- **2026-10-27 Line spacing is for reading text only** (scripture and notes, via `readerTextStyle`); lists
+  and labels follow text size alone. Between verses the gap is `VERSE_GAP_UNITS` plus whatever line
+  spacing adds, so a verse break always reads bigger than a line break.
+- **2026-10-27 Display text size applies to all content, never chrome:** `ScreenFrame` provides `LocalTextScale` to
   its content area only; content text uses `AppText` (LightText's look, scaled) and rows size with
   `rowUnits()`. Top bar, bottom bars and menus (`scaleContent = false`) use plain `LightText`. Every screen
   draws inside `AppTheme` (never `LightTheme` directly): it applies invert colours and the haptics fallback.
@@ -222,6 +225,11 @@ adb -s emulator-5554 shell am start -n com.andyweaver.scriptures/com.thelightpho
   URL it shows (including the `#token`) in a desktop browser.
 - **Prefix `MSYS_NO_PATHCONV=1`** to any adb command that carries a device-absolute path (Git Bash mangles it).
 - **Pass `-s <serial>`** whenever the phone and the emulator are both attached.
+- **Animation trap:** run `Animatable` animations in a composition scope (`rememberCoroutineScope`), never
+  `viewModelScope`: it has no `MonotonicFrameClock` and crashes on the first frame.
+- **Loading audio without Tool Manager:** debug builds allow `adb shell run-as com.andyweaver.scriptures`.
+  Push files to `/data/local/tmp/…`, then `run-as … cp` them into `files/shared/scripture-audio`
+  (or `hymn-audio`, `hymn-lyrics`); the importer sorts them when home next shows.
 - **Screen state trap:** navigating away takes a screen out of composition, so `remember`ed state is
   gone when it returns, and a menu callback that sets it changes a dead copy. Keep state that must
   survive a trip to another screen (e.g. an Edit mode) in a view model or a `mutableStateOf` field on the

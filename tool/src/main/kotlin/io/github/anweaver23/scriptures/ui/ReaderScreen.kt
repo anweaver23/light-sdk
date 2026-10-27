@@ -6,6 +6,8 @@ import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.Box
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.PointerEventPass
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.withTimeoutOrNull
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.gestures.awaitEachGesture
@@ -135,6 +137,9 @@ private const val PAGE_IN_MS = 220
 
 /** Longest wait for the next chapter's text before sliding it in anyway. */
 private const val PAGE_LOAD_WAIT_MS = 1500L
+
+/** Space between verses at normal line spacing, in grid units. */
+private const val VERSE_GAP_UNITS = 0.75f
 
 /** Space above a focused verse when scrolling to it, in grid units. */
 private const val FOCUS_TOP_MARGIN_UNITS = 0.5f
@@ -420,6 +425,9 @@ class ReaderScreen(
         val hasAudio = index.hasAudio(chapter)
         val currentSelection = selection
         val currentFind = find
+        // Page animations need a frame clock, which the composition's scope has and the view model's
+        // doesn't (animating in viewModelScope crashed on the first swipe).
+        val pageScope = rememberCoroutineScope()
 
         ScreenFrame(
             title = viewModel.catalog.label(chapter),
@@ -475,8 +483,8 @@ class ReaderScreen(
                     .fillMaxSize()
                     .pageSwipe(
                         enabled = currentSelection == null,
-                        onDrag = ::dragPage,
-                        onRelease = ::releasePage,
+                        onDrag = { dx -> dragPage(pageScope, dx) },
+                        onRelease = { dx, width -> releasePage(pageScope, dx, width) },
                     ),
             ) {
             Box(Modifier.fillMaxSize().graphicsLayer { translationX = pageOffset.value }) {
@@ -487,6 +495,7 @@ class ReaderScreen(
                     selection = currentSelection?.range,
                     find = currentFind,
                     textStyle = readerTextStyle(display.textSize.scale, display.lineSpacing),
+                    lineSpacing = display.lineSpacing,
                     scrollState = viewModel.scrollState,
                     focus = viewModel.focus,
                     onFocusHandled = viewModel::focusHandled,
@@ -506,19 +515,19 @@ class ReaderScreen(
     private val pageOffset = Animatable(0f)
 
     /** Follows the finger. Past the first or last chapter the page only gives a little. */
-    private fun dragPage(dx: Float) {
+    private fun dragPage(scope: CoroutineScope, dx: Float) {
         val direction = if (dx < 0) 1 else -1
         val target = if (viewModel.canTurn(direction)) dx else dx * EDGE_RESISTANCE
-        viewModel.viewModelScope.launch { pageOffset.snapTo(target) }
+        scope.launch { pageOffset.snapTo(target) }
     }
 
     /**
      * Far enough: the page slides off, the next chapter loads and slides in from the other side.
      * Otherwise it springs back, so a drag started by accident can be slid back.
      */
-    private fun releasePage(dx: Float, width: Float) {
+    private fun releasePage(scope: CoroutineScope, dx: Float, width: Float) {
         val direction = if (dx < 0) 1 else -1
-        viewModel.viewModelScope.launch {
+        scope.launch {
             if (abs(dx) > width * SWIPE_MIN_FRACTION && viewModel.canTurn(direction)) {
                 pageOffset.animateTo(-direction * width, tween(PAGE_OUT_MS))
                 if (direction > 0) viewModel.next() else viewModel.previous()
@@ -593,6 +602,7 @@ private fun ChapterText(
     selection: WordRange?,
     find: FindState?,
     textStyle: TextStyle,
+    lineSpacing: Float,
     scrollState: ScrollState,
     focus: StateFlow<FocusRequest?>,
     onFocusHandled: (FocusRequest) -> Unit,
@@ -609,7 +619,12 @@ private fun ChapterText(
     val layouts = remember(displays) { HashMap<Int, TextLayoutResult>() }
     val haptics = LocalHapticFeedback.current
     val hapticsOn = LocalHapticsEnabled.current
-    val verseGap = 0.75f.gridUnitsAsDp()
+    // The gap between verses grows by whatever line spacing adds between lines, so at wide spacing a
+    // verse break still reads as bigger than a line break.
+    val verseGap = with(LocalDensity.current) {
+        val line = textStyle.lineHeight.toDp()
+        VERSE_GAP_UNITS.gridUnitsAsDp() + (line - line / lineSpacing)
+    }
     val focusTopMarginPx = with(LocalDensity.current) { FOCUS_TOP_MARGIN_UNITS.gridUnitsAsDp().toPx() }
 
     val flash = remember { Animatable(0f) }

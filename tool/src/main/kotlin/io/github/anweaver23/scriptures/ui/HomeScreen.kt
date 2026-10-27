@@ -110,9 +110,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
                 onBack = null,
                 rightButton = pageMenu(
                     listOf(
-                        MenuItem("Annotations") {
-                            navigateTo({ AnnotationsScreen(it) })
-                        },
+                        MenuItem("Annotations", opens = { AnnotationsScreen(it) }),
                     ),
                 ),
                 bottomBar = listOf(

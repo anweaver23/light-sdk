@@ -139,7 +139,10 @@ class NoteEditorScreen(
                     // Only while the tools show: otherwise the keyboard's own down arrow (numbers,
                     // emoji) must reach the keyboard, not this.
                     onOverlayDismissed = if (tools) {
-                        { tools = false }
+                        {
+                            if (hapticsOn) haptics.performHapticFeedback(HapticFeedbackType.VirtualKey)
+                            tools = false
+                        }
                     } else {
                         null
                     },
@@ -307,6 +310,9 @@ private class NoteKeyboardCallback(
         when (key) {
             SpecialKey.Backspace -> deleteBefore(if (before().lastOrNull()?.isLowSurrogate() == true) 2 else 1)
             SpecialKey.Return -> insert("\n")
+            // The down arrow (numbers / emoji layouts) is a plain button that only sends a release,
+            // never a press, so it gets its haptic here.
+            SpecialKey.Close -> onHaptic()
             else -> Unit
         }
     }
