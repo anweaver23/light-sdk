@@ -157,12 +157,12 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   at the same size. The chapter number grid uses the same row. Hints/empty states: Fine, dimmed.
   Measured from LightOS Notes, Podcasts and Messages: two-line rows (`StackRow`) are a Subheading title
   over a white Detail line; the player is Subheading (what's playing) and Detail (time); message-style
-  reading text is Paragraph, which is our scripture base size. Home tile titles are Subheading (30), and
-  `tileColumns` picks as many columns (max 3) as keep the longest word whole at that size (Subtitle 52
-  gave one huge column).
-- **2026-10-27 No gap under the top bar:** LightOS content starts right under the 120 px bar, so
-  `ScreenFrame` adds no padding there, and list rows put their text at the top of the row with the
-  spare space below (`Alignment.Top`), keeping the 5-unit pitch. The number grid does the same.
+  reading text is Paragraph, which is our scripture base size. Home: 3 columns; tile titles start at
+  Subheading (30) and shrink together until no word breaks (Subtitle 52 gave one huge column).
+- **2026-10-27 Small gap under the top bar:** LightOS content starts just under the 120 px bar, so
+  `ScreenFrame` adds only `CONTENT_TOP_UNITS` (0.5) there, and list rows put their text at the top of the
+  row with the spare space below (`Alignment.Top`), keeping the 5-unit pitch. The number grid does the
+  same. Two-line rows dim their second line.
 - **2026-10-27 Notes are for empty / no-data states only,** plus status (Searching…, counts). No
   explanatory blurbs on screens that work (e.g. none on Display, none on the chapter grid).
 - **2026-10-27 Hymns have two recordings:** the plain slot is vocal (or unlabelled); a file named
@@ -251,6 +251,14 @@ adb -s emulator-5554 shell am start -n com.andyweaver.scriptures/com.thelightpho
 - **Loading audio without Tool Manager:** debug builds allow `adb shell run-as com.andyweaver.scriptures`.
   Push files to `/data/local/tmp/…`, then `run-as … cp` them into `files/shared/scripture-audio`
   (or `hymn-audio`, `hymn-lyrics`); the importer sorts them when home next shows.
+- **Zips from Windows:** Explorer's "Compressed folder" writes Zip64 records that Android's `ZipFile`
+  rejects ("invalid CEN header"); the importer falls back to `ZipInputStream`, and logs (tag
+  `ScripturesImport`) why a zip couldn't be read.
+- **Keyboard down arrow:** on the number/emoji layouts the LP3 keyboard handles it internally and never
+  calls our callback, so the note editor buzzes when `layoutFlow` returns to the root layout (deduped
+  against a key's own buzz).
+- **TextUnit trap:** don't name an extension `times` on `TextUnit`: the member wins and throws on
+  `Unspecified`.
 - **Screen state trap:** navigating away takes a screen out of composition, so `remember`ed state is
   gone when it returns, and a menu callback that sets it changes a dead copy. Keep state that must
   survive a trip to another screen (e.g. an Edit mode) in a view model or a `mutableStateOf` field on the

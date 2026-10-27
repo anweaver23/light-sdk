@@ -27,6 +27,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import android.os.SystemClock
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.drop
+import kotlinx.coroutines.flow.map
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.input.pointer.pointerInput
@@ -66,6 +70,9 @@ import com.thelightphone.sdk.ui.keyboard.LightEmbeddedLp3Keyboard
 import io.github.anweaver23.scriptures.data.AppGraph
 import kotlinx.coroutines.flow.StateFlow
 
+/** A layout change this soon after a key's buzz is that key's doing, so it doesn't buzz again. */
+private const val BUZZ_DEDUPE_MS = 250L
+
 /** Height of each COPY / PASTE / CLEAR row in the keyboard area, in grid units. */
 private const val TOOL_ROW_UNITS = 4f
 
@@ -103,14 +110,24 @@ class NoteEditorScreen(
         // Read out here, outside AppTheme, so apply the same fallback AppTheme does (see HAPTICS_FALLBACK).
         val hapticsOn by rememberUpdatedState(LocalHapticsEnabled.current || HAPTICS_FALLBACK)
         val state = viewModel.text
+        // One buzz per action: the time of the last one stops a key's buzz and a layout change from
+        // doubling up.
+        val lastBuzz = remember { longArrayOf(0L) }
+        val buzz = remember {
+            {
+                if (hapticsOn) haptics.performHapticFeedback(HapticFeedbackType.VirtualKey)
+                lastBuzz[0] = SystemClock.uptimeMillis()
+            }
+        }
         val keyboard = remember {
-            keyboardViewModel(
-                NoteKeyboardCallback(state) {
-                    if (hapticsOn) haptics.performHapticFeedback(HapticFeedbackType.VirtualKey)
-                },
-                keyboardOptions,
-                initialCaps = initial.isEmpty(),
-            )
+            keyboardViewModel(NoteKeyboardCallback(state, buzz), keyboardOptions, initialCaps = initial.isEmpty())
+        }
+        // The down arrow on the number and emoji layouts is handled inside the keyboard and never
+        // reaches the callback, so buzz when the keyboard returns to letters, unless a key just did.
+        LaunchedEffect(keyboard) {
+            keyboard.layoutFlow.map { it.isRootLayout }.distinctUntilChanged().drop(1).collect { root ->
+                if (root && SystemClock.uptimeMillis() - lastBuzz[0] > BUZZ_DEDUPE_MS) buzz()
+            }
         }
 
         // Holding the note swaps the keys for Copy / Paste / Clear; the keyboard's close arrow brings them back.

@@ -41,10 +41,14 @@ import com.thelightphone.sdk.ui.lightClickable
 
 // LightOS list metrics, measured from LightOS Settings on the LP3 (1080x1240): row text is Heading
 // (38 design px; "Notifications" draws 59 px tall), rows are 200 px apart (5 grid units), and the text
-// starts 80 px in (2 grid units: the frame's 1 plus LIST_INSET_UNITS). Content starts right under the
-// top bar (LightOS Podcasts: the first title's capitals at y=123, just under the 120 px bar), so a row's
-// text sits at the top of its row with the spare space below: the first item hugs the bar and the pitch
-// between items stays 5 units. Lists, menus and pickers are "system" UI: never Display-scaled.
+// starts 80 px in (2 grid units: the frame's 1 plus LIST_INSET_UNITS). Content starts just under the
+// top bar (LightOS Podcasts: the first title's capitals at y=123, under the 120 px bar), so a row's text
+// sits at the top of its row with the spare space below, after CONTENT_TOP_UNITS of room: the first item
+// sits close to the bar and the pitch between items stays 5 units. Lists, menus and pickers are
+// "system" UI: never Display-scaled.
+
+/** Room between the top bar and the content, in grid units. */
+const val CONTENT_TOP_UNITS = 0.5f
 
 /** Row text: labels and their dimmed values both at this size. */
 val ROW_TEXT = LightTextVariant.Heading
@@ -52,8 +56,9 @@ val ROW_TEXT = LightTextVariant.Heading
 /** Height of one list row, in grid units. Lazy lists also need it to size their scroll bar. */
 const val ROW_UNITS = 5f
 
-// Two-line rows follow LightOS Notes / Podcasts: a Subheading title (30) over a Detail line (20), both
-// white; "Plan" draws 46 px tall and its date ~39 px, rows ~190 px apart.
+// Two-line rows follow LightOS Notes / Podcasts: a Subheading title (30) over a Detail line (20); "Plan"
+// draws 46 px tall and its date ~39 px, rows ~190 px apart. The second line is dimmed (contentSecondary)
+// so the title leads.
 
 /** Title of a two-line row. */
 val TWO_LINE_TITLE = LightTextVariant.Subheading
@@ -94,7 +99,7 @@ fun ScreenFrame(
                 Modifier
                     .weight(1f)
                     .fillMaxWidth()
-                    .padding(horizontal = 1f.gridUnitsAsDp()),
+                    .padding(start = 1f.gridUnitsAsDp(), end = 1f.gridUnitsAsDp(), top = CONTENT_TOP_UNITS.gridUnitsAsDp()),
                 content = content,
             )
             when {
@@ -234,6 +239,7 @@ fun StackRow(
                 AppText(
                     text = text,
                     variant = TWO_LINE_DETAIL,
+                    lighten = true,
                     maxLines = maxLines,
                     overflow = TextOverflow.Ellipsis,
                 )

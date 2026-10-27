@@ -8,6 +8,8 @@ import io.github.anweaver23.scriptures.core.Target
 import io.github.anweaver23.scriptures.core.UploadKind
 import java.io.File
 import java.util.zip.ZipFile
+import java.util.zip.ZipInputStream
+import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -26,6 +28,8 @@ fun interface TagReader {
  * into the [library]. Anything it can't place stays put and is listed in [pending] for review.
  * Every operation is safe to repeat; a file is either in the inbox or in the library.
  */
+private const val TAG = "ScripturesImport"
+
 class Importer(
     private val inboxRoot: File,
     private val matcher: FileMatcher,
@@ -128,18 +132,32 @@ class Importer(
         for (zip in zips) {
             val dest = File(zip.parentFile, zip.nameWithoutExtension)
             val destPath = dest.canonicalPath + File.separator
-            val ok = runCatching {
+            // Refuse "../" entries that would escape the upload folder.
+            fun target(name: String): File? = File(dest, name).canonicalFile.takeIf { it.path.startsWith(destPath) }
+            val viaFile = runCatching {
                 ZipFile(zip).use { archive ->
                     for (entry in archive.entries()) {
                         if (entry.isDirectory) continue
-                        val out = File(dest, entry.name).canonicalFile
-                        // Refuse "../" entries that would escape the upload folder.
-                        if (!out.path.startsWith(destPath)) continue
+                        val out = target(entry.name) ?: continue
                         out.parentFile?.mkdirs()
                         archive.getInputStream(entry).use { input -> out.outputStream().use { input.copyTo(it) } }
                     }
                 }
-            }.isSuccess
+            }
+            // Windows' "Send to > Compressed folder" writes Zip64 records Android's ZipFile can refuse;
+            // reading the zip as a stream still works for those.
+            val ok = viaFile.isSuccess || runCatching {
+                Log.w(TAG, "ZipFile couldn't read ${zip.name}; trying as a stream", viaFile.exceptionOrNull())
+                ZipInputStream(zip.inputStream().buffered()).use { stream ->
+                    while (true) {
+                        val entry = stream.nextEntry ?: break
+                        if (entry.isDirectory) continue
+                        val out = target(entry.name) ?: continue
+                        out.parentFile?.mkdirs()
+                        out.outputStream().use { stream.copyTo(it) }
+                    }
+                }
+            }.onFailure { Log.w(TAG, "Couldn't unpack ${zip.name}", it) }.isSuccess
             if (ok) zip.delete()
         }
     }

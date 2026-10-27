@@ -90,13 +90,14 @@ fun readingStyle(variant: LightTextVariant): TextStyle {
     val base = appTextStyle(variant)
     val size = display.textSize.scale
     return base.copy(
-        fontSize = base.fontSize.times(size),
-        lineHeight = base.lineHeight.times(size * display.lineSpacing),
-        letterSpacing = base.letterSpacing.times(size),
+        fontSize = base.fontSize.scaleBy(size),
+        lineHeight = base.lineHeight.scaleBy(size * display.lineSpacing),
+        letterSpacing = base.letterSpacing.scaleBy(size),
     )
 }
 
-private fun TextUnit.times(by: Float): TextUnit = if (this == TextUnit.Unspecified) this else this * by
+// Not named "times": TextUnit has a member of that name, which would win and throw on Unspecified.
+private fun TextUnit.scaleBy(by: Float): TextUnit = if (this == TextUnit.Unspecified) this else this * by
 
 @Composable
 private fun TextUnit.scaled(): TextUnit =
