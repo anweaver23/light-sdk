@@ -101,7 +101,8 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   white/black pairs.
 - **2026-10-26 Text size setting** *(now part of Display, see 2026-10-27)*: `core/TextSize` (Small 0.85×
   … Largest 1.5×), stored by `SettingsStore`, shared as `AppGraph.display`.
-- **2026-10-26 Home tiles are square**, 3 columns (fixed since 2026-10-27; home doesn't follow Display). Home bar:
+- **2026-10-26 Home tiles are square**, 2 columns (fixed; home doesn't follow Display; 3 was tried on
+  2026-10-27 and dropped the next day). Home bar:
   Settings · Search · Bookmarks · Annotations (`ic_notebook`), via `navBar()`, which every browse page
   (books, chapters, hymnbooks, hymn lists) shows too. Home is books only: no Add audio or Resume
   listening rows. Add audio lives in the "…" menus and Settings.
@@ -158,7 +159,7 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   at the same size. The chapter number grid uses the same row. Hints/empty states: Fine, dimmed.
   Measured from LightOS Notes, Podcasts and Messages: two-line rows (`StackRow`) are a Subheading title
   over a white Detail line; the player is Subheading (what's playing) and Detail (time); message-style
-  reading text is Paragraph, which is our scripture base size. Home: 3 columns; tile titles start at
+  reading text is Paragraph, which is our scripture base size. Home: 2 columns; tile titles start at
   Subheading (30) and shrink together until no word breaks (Subtitle 52 gave one huge column).
 - **2026-10-27 Small gap under the top bar:** LightOS content starts just under the 120 px bar, so
   `ScreenFrame` adds only `CONTENT_TOP_UNITS` (0.5) there, and list rows put their text at the top of the
@@ -183,9 +184,23 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   hymns' slots.
 - **2026-10-27 Hymn lists are denser:** `DENSE_ROW_TEXT` (Subheading) on `DENSE_ROW_UNITS` (4) rows, so
   more of each long title shows.
-- **2026-10-27 Player:** the progress bar is always drawn (it flashed while the next track reported its
+- **2026-10-27 Player** (scripture chapters; hymns play on their own page since 2026-10-28): the progress bar is always drawn (it flashed while the next track reported its
   length). No speed or stop options. Playing: the full transport bar; paused (for 350 ms or more): just
   play and a stop square, which ends playback and goes back.
+- **2026-10-28 Hymns play on the hymn page; no player screen.** The bar is a centred play; with both
+  recordings it opens `HymnVersionScreen` (Vocal / Accompaniment, a LightOS picker screen: `LightModal`
+  is a self-dismissing 2-second overlay with no BACK, so it can't hold a choice). Playing: the
+  transport, with time and progress under the words; paused part way in: play and stop, and stop
+  empties the queue and forgets the position (`PlayerViewModel.end`). The page's view model is a
+  `PlayerViewModel` with `autoStart = false`: it adopts live playback and otherwise waits for `play`.
+  Hymns turn by swiping like chapters (`PageSlider` / `pageSwipe` in `ui/PageSwipe.kt`, shared with the
+  reader), and when playback moves on, a page that was showing the playing hymn slides along with it.
+  Swiping away while something plays just browses; play there replaces the queue.
+- **2026-10-28 Volume keys, lock-screen controls and hold-home-to-return are LightOS's.** A tool can't
+  reach them: volume keys go to LightOS (`DeviceKeyEvent`), which steps the ringer; `getSystemService`
+  and a tool-side `MediaController` are banned; the session's `setSessionActivity` lives in the SDK's
+  `LightAudioService`. LightOS's now-playing surface is described in `docs/design_decisions/detached_audio.md`
+  as future work. Our session already publishes title and album, so it should light up when LightOS does.
 - **2026-10-27 Find and back:** Find in chapter opens from the "…" menu (BACK returns to the menu); a
   search closes the menu (`MenuItem.onResult`). While a search is active, the reader's back arrow
   reopens the search bar with the term; backing out of that ends the search. `BackHandler` is blocked
@@ -292,7 +307,7 @@ trusted. One emulator is shared, so on-device verification happens after the mer
 
 ## Git
 
-- Branch `andy/scripture-app` lives on the fork `anweaver23/light-sdk` (remote `fork` locally), next to
+- Branch `andy/scripture-app` lives on the fork `anweaver23/light-sdk` (remote `origin` locally), next to
   the chess app's `andy/chess-app`. One app per branch; GitHub allows only one fork per account.
-- SDK updates: `git checkout main && git pull --ff-only origin main`, then merge `main` into this branch.
-- Never push to `origin` (the upstream `lightphone/light-sdk`, read-only for us).
+- SDK updates: `git fetch https://github.com/lightphone/light-sdk.git main`, then merge `FETCH_HEAD` into this branch.
+- Never push to the upstream `lightphone/light-sdk` (read-only for us); fetch it by URL for SDK updates.

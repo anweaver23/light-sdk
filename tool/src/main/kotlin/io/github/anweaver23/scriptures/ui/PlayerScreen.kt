@@ -58,12 +58,19 @@ import kotlinx.coroutines.withTimeoutOrNull
  * in a hymnbook that has audio, starting at the one asked for. Playback is detached, so it
  * keeps going after leaving the tool; position is saved so it can resume after the service stops.
  *
+ * With [autoStart] off (the hymn page), connecting only picks up playback that's already live;
+ * nothing plays until [play].
+ *
  * The detached handle is only held while this screen is showing. Only one may exist per
  * process, and releasing it doesn't stop playback, so letting go on hide/pause means a
  * forgotten screen can never block the next one from connecting.
  */
 @OptIn(ExperimentalCoroutinesApi::class)
-class PlayerViewModel(private val audio: LightAudio, private val request: Target?) : LightViewModel<Unit>() {
+class PlayerViewModel(
+    private val audio: LightAudio,
+    private val request: Target?,
+    private val autoStart: Boolean = true,
+) : LightViewModel<Unit>() {
     private val catalog: Catalog = AppGraph.catalog
     private val progress = AppGraph.progress
 
@@ -134,7 +141,9 @@ class PlayerViewModel(private val audio: LightAudio, private val request: Target
                 return@launch
             }
             _message.value = null
-            start(newPlayer)
+            val asked = pendingPlay
+            pendingPlay = null
+            if (asked != null) playNow(newPlayer, asked) else start(newPlayer)
         }
     }
 
@@ -159,6 +168,8 @@ class PlayerViewModel(private val audio: LightAudio, private val request: Target
             pendingSeek?.let { seekToSaved(player, it, autoplay = true) }
             return
         }
+        // The hymn page starts playback only when asked.
+        if (!autoStart) return
         // Coming back after the session ended on its own (stopped, or idle too long): rebuild
         // it from what was saved, but leave it paused. Only a fresh open starts playing.
         val autoplay = !started
@@ -178,6 +189,11 @@ class PlayerViewModel(private val audio: LightAudio, private val request: Target
                 return
             }
         }
+        startQueue(player, queue, first, autoplay)
+    }
+
+    private suspend fun startQueue(player: LightAudioPlayer, queue: List<Target>, first: Target, autoplay: Boolean) {
+        val index = AppGraph.library.index.value
         val startIndex = queue.indexOf(first)
         if (startIndex < 0) {
             _message.value = "That audio file is missing. Try uploading it again."
@@ -194,6 +210,25 @@ class PlayerViewModel(private val audio: LightAudio, private val request: Target
         player.speed = _speed.value
         player.setMediaQueue(items, startIndex)
         seekToSaved(player, first, autoplay)
+    }
+
+    /** Asked for before the player was ready (e.g. right after coming back from the version picker). */
+    private var pendingPlay: Target? = null
+
+    /** Plays [target] and the rest of its book or hymnbook after it, replacing whatever was queued. */
+    fun play(target: Target) {
+        val p = player
+        if (p != null && p.availability.value == LightAudioPlayerAvailability.Ready) {
+            viewModelScope.launch { playNow(p, target) }
+        } else {
+            pendingPlay = target
+        }
+    }
+
+    private suspend fun playNow(player: LightAudioPlayer, target: Target) {
+        started = true
+        stopped = false
+        startQueue(player, queueFor(target, AppGraph.library.index.value), target, autoplay = true)
     }
 
     /** An item whose saved position hasn't been applied yet; its stored position must not be overwritten. */
@@ -299,6 +334,21 @@ class PlayerViewModel(private val audio: LightAudio, private val request: Target
         player?.stop()
     }
 
+    /**
+     * Stops and empties the queue, so the hymn page goes back to its play button. Stopping means
+     * starting over next time, so the position isn't kept.
+     */
+    fun end() {
+        val target = current.value
+        stopped = true
+        player?.let {
+            it.stop()
+            it.setMediaQueue(emptyList())
+        }
+        _queue.value = emptyList()
+        if (target != null) AppGraph.scope.launch { progress.clearPosition(target) }
+    }
+
     private var stopped = false
 
     override fun onCleared() {
@@ -312,7 +362,7 @@ class PlayerViewModel(private val audio: LightAudio, private val request: Target
 }
 
 /** How long playback must stay paused before the bar becomes play / stop. */
-private const val PAUSED_BAR_DELAY_MS = 350L
+internal const val PAUSED_BAR_DELAY_MS = 350L
 
 class PlayerScreen(private val sealedActivity: SealedLightActivity, private val request: Target?) :
     LightScreen<Unit, PlayerViewModel>(sealedActivity) {
@@ -387,7 +437,7 @@ class PlayerScreen(private val sealedActivity: SealedLightActivity, private val 
             )
             error?.let {
                 AppText(
-                    text = errorMessage(it),
+                    text = playbackErrorMessage(it),
                     variant = LightTextVariant.Detail,
                     align = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth(),
@@ -398,7 +448,7 @@ class PlayerScreen(private val sealedActivity: SealedLightActivity, private val 
     }
 }
 
-private fun errorMessage(error: LightAudioError): String = when (error.kind) {
+fun playbackErrorMessage(error: LightAudioError): String = when (error.kind) {
     LightAudioErrorKind.Unsupported -> "This file's format can't be played. Try an MP3 or M4A."
     LightAudioErrorKind.Source -> "Couldn't read this file. Try uploading it again."
     else -> "Playback stopped (${error.diagnostic})."

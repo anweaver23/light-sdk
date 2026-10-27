@@ -37,7 +37,7 @@ import kotlinx.coroutines.launch
 const val TILE_GAP_UNITS = 1f
 
 /** Books per row. Titles shrink from 30 until no word breaks ([rememberSharedTitleStep]). */
-const val TILE_COLUMNS = 3
+const val TILE_COLUMNS = 2
 
 /** Space above and below the grid. Home is books only: nothing sits under the grid. */
 const val GRID_TOP_GAP_UNITS = 0.25f
