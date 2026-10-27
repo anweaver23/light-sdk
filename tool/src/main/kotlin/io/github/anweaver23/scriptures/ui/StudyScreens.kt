@@ -73,6 +73,9 @@ class DefineScreen private constructor(
     private val wordIndex: Int,
     private val strongs: String?,
 ) : SimpleLightScreen<Unit>(sealedActivity) {
+    /** Scroll positions, kept while the screen is on the back stack. */
+    private val scrolls = ScrollMemory()
+
 
     constructor(sealedActivity: SealedLightActivity, word: String, ref: VerseRef, wordIndex: Int) :
         this(sealedActivity, word, ref, wordIndex, null)
@@ -104,7 +107,7 @@ class DefineScreen private constructor(
 
         ScreenFrame(title = strongs ?: word, onBack = { goBack() }) {
             val r = result ?: return@ScreenFrame
-            LightScrollView(Modifier.fillMaxSize()) {
+            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 if (strongs == null) {
                     SectionLabel("Webster's 1828")
                     if (r.english.isEmpty()) Body("No definition found.", lighten = true)
@@ -161,6 +164,9 @@ class DefineScreen private constructor(
 /** A highlight or note, opened by tapping it in the reader: read, edit the note, or remove. */
 class AnnotationScreen(sealedActivity: SealedLightActivity, private val id: String) :
     SimpleLightScreen<Unit>(sealedActivity) {
+    /** Scroll positions, kept while the screen is on the back stack. */
+    private val scrolls = ScrollMemory()
+
 
     init {
         AppGraph.init(lightContext)
@@ -201,7 +207,7 @@ class AnnotationScreen(sealedActivity: SealedLightActivity, private val id: Stri
             // The quote and note are reading text: they follow the Display size and spacing.
             val display by AppGraph.display.collectAsState()
             val style = readerTextStyle(display.textSize.scale, display.lineSpacing)
-            LightScrollView(Modifier.fillMaxSize()) {
+            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 BasicText(
                     text = "“${annotation.quote}”",
                     style = style.copy(color = LightThemeTokens.colors.contentSecondary),
@@ -230,6 +236,9 @@ class FootnoteScreen(
     private val ref: VerseRef,
     private val footnote: Footnote,
 ) : SimpleLightScreen<Unit>(sealedActivity) {
+    /** Scroll positions, kept while the screen is on the back stack. */
+    private val scrolls = ScrollMemory()
+
 
     init {
         AppGraph.init(lightContext)
@@ -239,7 +248,7 @@ class FootnoteScreen(
     override fun Content() {
         val catalog = AppGraph.catalog
         ScreenFrame(title = "${catalog.verseLabel(ref)} ${footnote.marker}", onBack = { goBack() }) {
-            LightScrollView(Modifier.fillMaxSize()) {
+            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 if (footnote.text.isNotBlank()) Body(footnote.text)
                 footnote.verseRefs.filter { catalog.scriptures.book(it.bookId) != null }.forEach { target ->
                     ListRow(catalog.verseLabel(target)) {

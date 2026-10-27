@@ -10,6 +10,12 @@ data class DisplaySettings(
     val invertColors: Boolean = false,
 )
 
+/** Whether playback rolls on to the next chapter / hymn when one ends. Both on by default. */
+data class PlaybackSettings(
+    val autoplayChapters: Boolean = true,
+    val autoplayHymns: Boolean = true,
+)
+
 /** Line spacing is a multiplier on each text style's own line height, chosen on a slider in steps. */
 object LineSpacing {
     const val DEFAULT = 1f

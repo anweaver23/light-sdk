@@ -21,6 +21,9 @@ import kotlinx.coroutines.launch
 
 /** Every highlight and note, newest first. Tapping one opens the reader there. */
 class AnnotationsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
+    /** Scroll positions, kept while the screen is on the back stack. */
+    private val scrolls = ScrollMemory()
+
     // On the screen, not in remember: opening the "…" menu takes this screen out of composition, so
     // remembered state would be gone (and the menu's "Edit" would set a dead copy).
     private var editing by mutableStateOf(false)
@@ -54,7 +57,7 @@ class AnnotationsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen
                 Note("Press and hold a word in the reader to highlight it or add a note.")
                 return@ScreenFrame
             }
-            LightScrollView(Modifier.fillMaxSize()) {
+            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 sorted.forEach { a ->
                     StackRow(
                         title = catalog.label(a),

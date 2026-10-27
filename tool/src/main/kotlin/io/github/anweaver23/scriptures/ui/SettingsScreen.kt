@@ -57,6 +57,9 @@ private const val SLIDER_KNOB_PX = 22f
  * dimmed on the right.
  */
 class SettingsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
+    /** Scroll positions, kept while the screen is on the back stack. */
+    private val scrolls = ScrollMemory()
+
     init {
         AppGraph.init(lightContext)
     }
@@ -64,12 +67,20 @@ class SettingsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Un
     @Composable
     override fun Content() {
         val pending by AppGraph.importer.pending.collectAsState()
+        val playback by AppGraph.playback.collectAsState()
 
         ScreenFrame(title = "Settings", onBack = { goBack() }) {
-            LightScrollView(Modifier.fillMaxSize()) {
+            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 ListRow("Display") { navigateTo(::DisplayScreen) }
                 ListRow("Add audio", if (pending.isEmpty()) null else "${pending.size} to review") {
                     navigateTo(::AddAudioScreen)
+                }
+                // When a chapter or hymn ends, go on to the next one.
+                ToggleRow("Autoplay chapters", playback.autoplayChapters) {
+                    AppGraph.scope.launch { AppGraph.settings.setAutoplayChapters(!playback.autoplayChapters) }
+                }
+                ToggleRow("Autoplay hymns", playback.autoplayHymns) {
+                    AppGraph.scope.launch { AppGraph.settings.setAutoplayHymns(!playback.autoplayHymns) }
                 }
             }
         }
@@ -81,6 +92,9 @@ class SettingsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Un
  * "…" menu. Size and spacing apply to the app's content everywhere (not the bars or menus).
  */
 class DisplayScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
+    /** Scroll positions, kept while the screen is on the back stack. */
+    private val scrolls = ScrollMemory()
+
     init {
         AppGraph.init(lightContext)
     }
@@ -90,7 +104,7 @@ class DisplayScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Uni
         val display by AppGraph.display.collectAsState()
 
         ScreenFrame(title = "Display", onBack = { goBack() }) {
-            LightScrollView(Modifier.fillMaxSize()) {
+            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 ListRow("Text size", display.textSize.label) { navigateTo(::TextSizeScreen) }
                 ListRow("Line spacing", LineSpacing.label(display.lineSpacing)) { navigateTo(::LineSpacingScreen) }
                 ToggleRow("Invert colors", display.invertColors) {

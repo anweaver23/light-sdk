@@ -111,6 +111,9 @@ class SearchViewModel : LightViewModel<Unit>() {
 
 /** Search: scripture references ("genesis 1") and full-text search over all bundled verses. Opens on the keyboard; results show after submit. */
 class SearchScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, SearchViewModel>(sealedActivity) {
+    /** Scroll positions, kept while the screen is on the back stack. */
+    private val scrolls = ScrollMemory()
+
     init {
         AppGraph.init(lightContext)
     }
@@ -173,7 +176,7 @@ class SearchScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, Sear
     @Composable
     private fun ResultList(query: String, refs: List<RefMatch>, results: SearchResults?) {
         val catalog = viewModel.catalog
-        LightScrollView(Modifier.fillMaxSize()) {
+        LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
             refs.forEach { ref -> ReferenceRow(catalog, ref) }
             when {
                 results == null -> Note("Searching…")

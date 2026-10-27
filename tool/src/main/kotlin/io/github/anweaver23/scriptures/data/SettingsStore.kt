@@ -8,11 +8,12 @@ import androidx.datastore.preferences.core.floatPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import io.github.anweaver23.scriptures.core.DisplaySettings
 import io.github.anweaver23.scriptures.core.LineSpacing
+import io.github.anweaver23.scriptures.core.PlaybackSettings
 import io.github.anweaver23.scriptures.core.TextSize
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-/** User settings: the Display group (text size, line spacing, invert colours). */
+/** User settings: the Display group (text size, line spacing, invert colours) and autoplay. */
 class SettingsStore(private val dataStore: DataStore<Preferences>) {
 
     val display: Flow<DisplaySettings> = dataStore.data.map { prefs ->
@@ -21,6 +22,21 @@ class SettingsStore(private val dataStore: DataStore<Preferences>) {
             lineSpacing = LineSpacing.snap(prefs[LINE_SPACING] ?: LineSpacing.DEFAULT),
             invertColors = prefs[INVERT_COLORS] ?: false,
         )
+    }
+
+    val playback: Flow<PlaybackSettings> = dataStore.data.map { prefs ->
+        PlaybackSettings(
+            autoplayChapters = prefs[AUTOPLAY_CHAPTERS] ?: true,
+            autoplayHymns = prefs[AUTOPLAY_HYMNS] ?: true,
+        )
+    }
+
+    suspend fun setAutoplayChapters(on: Boolean) {
+        dataStore.edit { it[AUTOPLAY_CHAPTERS] = on }
+    }
+
+    suspend fun setAutoplayHymns(on: Boolean) {
+        dataStore.edit { it[AUTOPLAY_HYMNS] = on }
     }
 
     suspend fun setTextSize(size: TextSize) {
@@ -39,5 +55,7 @@ class SettingsStore(private val dataStore: DataStore<Preferences>) {
         val TEXT_SIZE = stringPreferencesKey("text_size")
         val LINE_SPACING = floatPreferencesKey("line_spacing")
         val INVERT_COLORS = booleanPreferencesKey("invert_colors")
+        val AUTOPLAY_CHAPTERS = booleanPreferencesKey("autoplay_chapters")
+        val AUTOPLAY_HYMNS = booleanPreferencesKey("autoplay_hymns")
     }
 }

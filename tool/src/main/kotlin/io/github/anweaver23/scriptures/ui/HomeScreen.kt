@@ -61,6 +61,9 @@ private data class Shelf(val title: String, val open: () -> Unit)
 
 @InitialScreen
 class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeViewModel>(sealedActivity) {
+    /** Scroll positions, kept while the screen is on the back stack. */
+    private val scrolls = ScrollMemory()
+
     init {
         AppGraph.init(lightContext)
     }
@@ -110,6 +113,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
                     val stepDown = { if (step < BOOK_TITLE_SIZES_PX.lastIndex) step++ }
                     LightScrollView(
                         Modifier.fillMaxSize(),
+                        scrollState = scrolls.scroll(),
                         scrollBarPosition = if (fits) LightScrollBarPosition.Inside else LightScrollBarPosition.Outside,
                     ) {
                         Spacer(Modifier.height(GRID_TOP_GAP_UNITS.gridUnitsAsDp()))

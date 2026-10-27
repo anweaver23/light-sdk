@@ -6,6 +6,7 @@ import com.thelightphone.toolmanager.LightFileProvider
 import io.github.anweaver23.scriptures.core.BookText
 import io.github.anweaver23.scriptures.core.Catalog
 import io.github.anweaver23.scriptures.core.Dictionary
+import io.github.anweaver23.scriptures.core.PlaybackSettings
 import io.github.anweaver23.scriptures.core.OriginalLanguage
 import io.github.anweaver23.scriptures.core.FileMatcher
 import io.github.anweaver23.scriptures.core.FootnoteSource
@@ -67,6 +68,11 @@ object AppGraph {
      */
     val display: StateFlow<DisplaySettings> by lazy {
         settings.display.stateIn(scope, SharingStarted.Eagerly, DisplaySettings())
+    }
+
+    /** Autoplay settings, read by the players when they build a queue. */
+    val playback: StateFlow<PlaybackSettings> by lazy {
+        settings.playback.stateIn(scope, SharingStarted.Eagerly, PlaybackSettings())
     }
 
     /** Highlights, notes and bookmarks, as JSON in the private files dir. */

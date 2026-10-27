@@ -190,17 +190,25 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-10-28 Hymns play on the hymn page; no player screen.** The bar is a centred play; with both
   recordings it opens `HymnVersionScreen` (Vocal / Accompaniment, a LightOS picker screen: `LightModal`
   is a self-dismissing 2-second overlay with no BACK, so it can't hold a choice). Playing: the
-  transport, with time and progress under the words; paused part way in: play and stop, and stop
-  empties the queue and forgets the position (`PlayerViewModel.end`). The page's view model is a
+  transport, and no time or progress bar; paused part way in: stop then play side by side in the
+  middle (`[null, STOP, PLAY, null]`), as the LightOS lock screen draws them; the scripture player's
+  paused bar matches. Stop empties the queue and forgets the position (`PlayerViewModel.end`). The page's view model is a
   `PlayerViewModel` with `autoStart = false`: it adopts live playback and otherwise waits for `play`.
   Hymns turn by swiping like chapters (`PageSlider` / `pageSwipe` in `ui/PageSwipe.kt`, shared with the
   reader), and when playback moves on, a page that was showing the playing hymn slides along with it.
   Swiping away while something plays just browses; play there replaces the queue.
-- **2026-10-28 Volume keys, lock-screen controls and hold-home-to-return are LightOS's.** A tool can't
-  reach them: volume keys go to LightOS (`DeviceKeyEvent`), which steps the ringer; `getSystemService`
-  and a tool-side `MediaController` are banned; the session's `setSessionActivity` lives in the SDK's
-  `LightAudioService`. LightOS's now-playing surface is described in `docs/design_decisions/detached_audio.md`
-  as future work. Our session already publishes title and album, so it should light up when LightOS does.
+- **2026-10-28 Volume keys and hold-home-to-return are LightOS's.** A tool can't reach them: volume
+  keys go to LightOS (`DeviceKeyEvent`), which steps the ringer; `getSystemService` and a tool-side
+  `MediaController` are banned; the session's `setSessionActivity` lives in the SDK's
+  `LightAudioService`. The LP3 lock screen already shows stop / play for our detached session.
+- **2026-10-28 Autoplay settings** (Settings: Autoplay chapters, Autoplay hymns; both on by default;
+  `PlaybackSettings`, `AppGraph.playback`). On, the queue is the rest of the book or hymnbook. Off, the
+  queue is just the one item, NEXT / PREVIOUS start the neighbour by hand (`PlayerViewModel.step`),
+  and a recording that finished starts over on play (`END_MARGIN_MS`).
+- **2026-10-28 Lists keep their scroll position** when you open something and come back: screens hold
+  their `ScrollState` / `LazyListState` in a `ScrollMemory` field, not in composition, so the spot is
+  there on the first frame (no jump). Keyed where one screen has several lists (picker levels, each
+  hymn). Every new scrolling screen should do the same.
 - **2026-10-27 Find and back:** Find in chapter opens from the "…" menu (BACK returns to the menu); a
   search closes the menu (`MenuItem.onResult`). While a search is active, the reader's back arrow
   reopens the search bar with the term; backing out of that ends the search. `BackHandler` is blocked

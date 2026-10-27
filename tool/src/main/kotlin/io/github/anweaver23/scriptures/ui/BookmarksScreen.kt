@@ -24,6 +24,9 @@ import kotlinx.coroutines.launch
  * (Where you left off isn't listed: the app reopens there on launch.)
  */
 class BookmarksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
+    /** Scroll positions, kept while the screen is on the back stack. */
+    private val scrolls = ScrollMemory()
+
     // On the screen, not in remember: opening the "…" menu takes this screen out of composition, so
     // remembered state would be gone (and the menu's "Edit" would set a dead copy).
     private var editing by mutableStateOf(false)
@@ -53,7 +56,7 @@ class BookmarksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<U
                 )
             },
         ) {
-            LightScrollView(Modifier.fillMaxSize()) {
+            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 if (sorted.isEmpty()) {
                     Note("Open the … menu in the reader and choose Bookmark to mark where you are.")
                 }

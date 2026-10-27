@@ -180,7 +180,7 @@ class PlayerViewModel(
         val queue: List<Target>
         val first: Target
         if (!resumeSaved && request != null) {
-            queue = queueFor(request, index)
+            queue = playbackQueue(request, index)
             first = request
         } else {
             queue = savedQueue.filter { index.hasAudio(it) }
@@ -228,7 +228,7 @@ class PlayerViewModel(
     private suspend fun playNow(player: LightAudioPlayer, target: Target) {
         started = true
         stopped = false
-        startQueue(player, queueFor(target, AppGraph.library.index.value), target, autoplay = true)
+        startQueue(player, playbackQueue(target, AppGraph.library.index.value), target, autoplay = true)
     }
 
     /** An item whose saved position hasn't been applied yet; its stored position must not be overwritten. */
@@ -239,12 +239,26 @@ class PlayerViewModel(
         // seekTo clamps to the known duration, which is 0 until setMediaQueue's prepare has loaded
         // the file. Seeking before play() also avoids a blip from the start of the recording.
         val saved = progress.position(target)
-        if (saved > 0 && withTimeoutOrNull(10.seconds) { player.durationMs.first { it > 0 } } != null) {
+        val duration = if (saved > 0) withTimeoutOrNull(10.seconds) { player.durationMs.first { it > 0 } } else null
+        // A recording that was left at its very end (it finished with autoplay off) starts over.
+        if (duration != null && saved < duration - END_MARGIN_MS) {
             player.seekTo(saved)
         }
         pendingSeek = null
         if (autoplay) player.play()
     }
+
+    /** Whether playback rolls on from [target] to the next chapter or hymn (Settings). */
+    private fun autoplays(target: Target): Boolean = AppGraph.playback.value.let {
+        when (target) {
+            is Target.Chapter -> it.autoplayChapters
+            is Target.HymnRef -> it.autoplayHymns
+        }
+    }
+
+    /** What to queue for [target]: the rest of its book or hymnbook with autoplay on, else just it. */
+    private fun playbackQueue(target: Target, index: AudioLibrary.Index): List<Target> =
+        if (autoplays(target)) queueFor(target, index) else listOf(target)
 
     /** Every item in the same book or hymnbook that has audio, so playback rolls on to the next one. */
     private fun queueFor(target: Target, index: AudioLibrary.Index): List<Target> {
@@ -306,14 +320,30 @@ class PlayerViewModel(
             p.pause()
             viewModelScope.launch { save() }
         } else {
+            // Finished (autoplay off): play starts it again.
+            val duration = durationMs.value
+            if (duration > 0 && positionMs.value >= duration - END_MARGIN_MS) p.seekTo(0)
             p.play()
         }
     }
 
     fun skipBack() { player?.skipBack() }
     fun skipForward() { player?.skipForward() }
-    fun previous() { player?.skipToPrevious() }
-    fun next() { player?.skipToNext() }
+    fun previous() = step(-1)
+    fun next() = step(1)
+
+    /** With autoplay on the queue holds the whole book; with it off, only one item, so step by hand. */
+    private fun step(direction: Int) {
+        val p = player ?: return
+        val now = current.value ?: return
+        if (_queue.value.size > 1) {
+            if (direction > 0) p.skipToNext() else p.skipToPrevious()
+            return
+        }
+        val all = queueFor(now, AppGraph.library.index.value)
+        val target = all.getOrNull(all.indexOf(now) + direction) ?: return
+        viewModelScope.launch { playNow(p, target) }
+    }
 
     fun seekToFraction(fraction: Float) {
         val duration = durationMs.value
@@ -357,6 +387,8 @@ class PlayerViewModel(
     }
 
     private companion object {
+        /** Within this of the end, a recording counts as finished. */
+        const val END_MARGIN_MS = 1500L
         val SPEEDS = listOf(1f, 1.25f, 1.5f, 1.75f, 2f, 0.75f)
     }
 }
@@ -402,12 +434,15 @@ class PlayerScreen(private val sealedActivity: SealedLightActivity, private val 
                     LightBarButton.LightIcon(LightIcons.FAST_FORWARD, viewModel::next, contentDescription = "Next"),
                 )
             } else {
+                // As the LightOS lock screen draws it: stop, then play, together in the middle.
                 listOf(
-                    LightBarButton.LightIcon(LightIcons.PLAY, viewModel::togglePlayPause, contentDescription = "Play"),
+                    null,
                     LightBarButton.LightIcon(LightIcons.STOP, contentDescription = "Stop", onClick = {
                         viewModel.stop()
                         goBack()
                     }),
+                    LightBarButton.LightIcon(LightIcons.PLAY, viewModel::togglePlayPause, contentDescription = "Play"),
+                    null,
                 )
             },
         ) {

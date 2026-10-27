@@ -20,6 +20,9 @@ import kotlinx.coroutines.launch
 
 /** How to bulk upload, what's in the library, and anything the importer couldn't place. */
 class AddAudioScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
+    /** Scroll positions, kept while the screen is on the back stack. */
+    private val scrolls = ScrollMemory()
+
     init {
         AppGraph.init(lightContext)
     }
@@ -33,7 +36,7 @@ class AddAudioScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Un
         val sorting by importer.busy.collectAsState()
 
         ScreenFrame(title = "Add audio", onBack = { goBack() }) {
-            LightScrollView(Modifier.fillMaxSize()) {
+            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 Note(
                     "Audio isn't included, so bring your own. On a computer on the same Wi-Fi, open the " +
                         "Tool Manager address shown on your phone, choose Scriptures, and drop files into " +
@@ -79,6 +82,9 @@ class AddAudioScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Un
 /** One file the importer couldn't place: assign it by hand or delete it. */
 class ReviewFileScreen(sealedActivity: SealedLightActivity, private val item: Importer.ReviewItem) :
     SimpleLightScreen<Unit>(sealedActivity) {
+    /** Scroll positions, kept while the screen is on the back stack. */
+    private val scrolls = ScrollMemory()
+
 
     init {
         AppGraph.init(lightContext)
@@ -91,7 +97,7 @@ class ReviewFileScreen(sealedActivity: SealedLightActivity, private val item: Im
         val isAudio = file.kind != UploadKind.HymnLyrics
 
         ScreenFrame(title = "Review file", onBack = { goBack() }) {
-            LightScrollView(Modifier.fillMaxSize()) {
+            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 AppText(file.relativePath, LightTextVariant.Copy, modifier = Modifier.fillMaxWidth())
                 Note("${file.kind.label}. ${item.reason.message}.")
                 if (item.reason != ImportDecision.Reason.WrongType) {

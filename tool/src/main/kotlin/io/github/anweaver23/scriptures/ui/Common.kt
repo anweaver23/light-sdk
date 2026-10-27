@@ -1,5 +1,7 @@
 package io.github.anweaver23.scriptures.ui
 
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.ScrollState
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -317,4 +319,18 @@ fun formatDuration(ms: Long): String {
     val minutes = (totalSeconds % 3600) / 60
     val seconds = totalSeconds % 60
     return if (hours > 0) "%d:%02d:%02d".format(hours, minutes, seconds) else "%02d:%02d".format(minutes, seconds)
+}
+
+/**
+ * Scroll positions held on a screen object (a field), not in composition. A screen stays on the back
+ * stack while the one it opened is showing, but its composition doesn't, so a `remember`ed scroll
+ * position would come back at the top. Held here, coming back lands on the same spot from the first
+ * frame, with no jump. [key] tells apart lists that share a screen (picker levels, hymns).
+ */
+class ScrollMemory {
+    private val scrolls = mutableMapOf<Any, ScrollState>()
+    private val lists = mutableMapOf<Any, LazyListState>()
+
+    fun scroll(key: Any = Unit): ScrollState = scrolls.getOrPut(key) { ScrollState(0) }
+    fun list(key: Any = Unit): LazyListState = lists.getOrPut(key) { LazyListState() }
 }

@@ -3,7 +3,6 @@ package io.github.anweaver23.scriptures.ui
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
@@ -29,9 +28,6 @@ import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightLazyScrollView
 import com.thelightphone.sdk.ui.LightScrollView
 import com.thelightphone.sdk.ui.LightTextVariant
-import com.thelightphone.sdk.ui.LightThemeTokens
-import com.thelightphone.sdk.ui.LightTouchableProgressBar
-import com.thelightphone.sdk.ui.gridUnitsAsDp
 import io.github.anweaver23.scriptures.core.Target
 import io.github.anweaver23.scriptures.data.AppGraph
 import kotlinx.coroutines.Dispatchers
@@ -39,6 +35,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 
 class HymnBooksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
+    /** Scroll positions, kept while the screen is on the back stack. */
+    private val scrolls = ScrollMemory()
+
     init {
         AppGraph.init(lightContext)
     }
@@ -46,7 +45,7 @@ class HymnBooksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<U
     @Composable
     override fun Content() {
         ScreenFrame(title = "Hymns", onBack = { goBack() }, rightButton = pageMenu(), bottomBar = navBar()) {
-            LightScrollView(Modifier.fillMaxSize()) {
+            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 AppGraph.catalog.hymnBooks.forEach { book ->
                     ListRow(book.title) {
                         navigateTo({ HymnListScreen(it, book.id) })
@@ -59,6 +58,9 @@ class HymnBooksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<U
 
 class HymnListScreen(sealedActivity: SealedLightActivity, private val hymnBookId: String) :
     SimpleLightScreen<Unit>(sealedActivity) {
+    /** Scroll positions, kept while the screen is on the back stack. */
+    private val scrolls = ScrollMemory()
+
 
     init {
         AppGraph.init(lightContext)
@@ -70,7 +72,11 @@ class HymnListScreen(sealedActivity: SealedLightActivity, private val hymnBookId
 
         // Long titles: the denser Subheading list, so more of each shows.
         ScreenFrame(title = book.title, onBack = { goBack() }, rightButton = pageMenu(), bottomBar = navBar()) {
-            LightLazyScrollView(Modifier.fillMaxSize(), uniformItemHeightGridUnits = DENSE_ROW_UNITS) {
+            LightLazyScrollView(
+                Modifier.fillMaxSize(),
+                listState = scrolls.list(),
+                uniformItemHeightGridUnits = DENSE_ROW_UNITS,
+            ) {
                 items(book.hymns, key = { it.n }) { hymn ->
                     val target = Target.HymnRef(book.id, hymn.n)
                     ListRow("${hymn.n}  ${hymn.title}", variant = DENSE_ROW_TEXT, heightUnits = DENSE_ROW_UNITS) {
@@ -90,6 +96,9 @@ class HymnListScreen(sealedActivity: SealedLightActivity, private val hymnBookId
  */
 class HymnScreen(private val sealedActivity: SealedLightActivity, target: Target.HymnRef) :
     LightScreen<Unit, PlayerViewModel>(sealedActivity) {
+    /** Scroll positions, kept while the screen is on the back stack. */
+    private val scrolls = ScrollMemory()
+
 
     init {
         AppGraph.init(lightContext)
@@ -182,9 +191,12 @@ class HymnScreen(private val sealedActivity: SealedLightActivity, target: Target
                     LightBarButton.LightIcon(LightIcons.SKIP_FORWARD_FIFTEEN, viewModel::skipForward.takeIf { canSeek }),
                     LightBarButton.LightIcon(LightIcons.FAST_FORWARD, viewModel::next, contentDescription = "Next"),
                 )
+                // As the LightOS lock screen draws it: stop, then play, together in the middle.
                 playingHere -> listOf(
-                    LightBarButton.LightIcon(LightIcons.PLAY, viewModel::togglePlayPause, contentDescription = "Play"),
+                    null,
                     LightBarButton.LightIcon(LightIcons.STOP, viewModel::end, contentDescription = "Stop"),
+                    LightBarButton.LightIcon(LightIcons.PLAY, viewModel::togglePlayPause, contentDescription = "Play"),
+                    null,
                 )
                 versions.isEmpty() -> null
                 else -> listOf(
@@ -207,9 +219,9 @@ class HymnScreen(private val sealedActivity: SealedLightActivity, target: Target
                     ),
             ) {
                 Box(Modifier.fillMaxSize().graphicsLayer { translationX = pages.offset.value }) {
-                    // A new hymn starts at the top.
+                    // Each hymn keeps its own spot; one not seen yet starts at the top.
                     key(shown) {
-                        LightScrollView(Modifier.fillMaxSize()) {
+                        LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll(shown)) {
                             val text = lyrics
                             if (text != null) {
                                 // Hymn words are reading text: Display size, spacing and invert apply.
@@ -233,24 +245,6 @@ class HymnScreen(private val sealedActivity: SealedLightActivity, target: Target
                 }
             }
             if (playingHere) {
-                AppText(
-                    text = "${formatDuration(position)}  /  ${if (canSeek) formatDuration(duration) else "--:--"}",
-                    variant = LightTextVariant.Detail,
-                    align = TextAlign.Center,
-                    monospace = true,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 0.5f.gridUnitsAsDp()),
-                )
-                // Always drawn while playing: hiding it while the next track reports its length made it flash.
-                LightTouchableProgressBar(
-                    colors = LightThemeTokens.colors,
-                    progress = if (canSeek) (position.toFloat() / duration).coerceIn(0f, 1f) else 0f,
-                    onValueChange = { if (canSeek) viewModel.seekToFraction(it) },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(bottom = 0.5f.gridUnitsAsDp()),
-                )
                 error?.let {
                     AppText(
                         text = playbackErrorMessage(it),

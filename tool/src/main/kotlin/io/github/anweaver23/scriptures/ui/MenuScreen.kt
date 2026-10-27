@@ -92,11 +92,14 @@ class MenuScreen(
     sealedActivity: SealedLightActivity,
     private val items: List<MenuItem>,
 ) : SimpleLightScreen<Int>(sealedActivity) {
+    /** Scroll positions, kept while the screen is on the back stack. */
+    private val scrolls = ScrollMemory()
+
 
     @Composable
     override fun Content() {
         ScreenFrame(title = "Menu", onBack = { goBack() }) {
-            LightScrollView(Modifier.fillMaxSize()) {
+            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 items.forEachIndexed { i, item ->
                     ListRow(item.label, item.detail) {
                         // Screens return any type; viewed as Any here, since only onResult reads it.

@@ -1,5 +1,7 @@
 package io.github.anweaver23.scriptures.ui
 
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -29,6 +31,9 @@ fun AudioLibrary.Index.audioCount(prefix: String): Int =
 /** The books of one volume. */
 class BookListScreen(sealedActivity: SealedLightActivity, private val volumeId: String) :
     SimpleLightScreen<Unit>(sealedActivity) {
+    /** Scroll positions, kept while the screen is on the back stack. */
+    private val scrolls = ScrollMemory()
+
 
     init {
         AppGraph.init(lightContext)
@@ -40,7 +45,7 @@ class BookListScreen(sealedActivity: SealedLightActivity, private val volumeId: 
         val index by AppGraph.library.index.collectAsState()
 
         ScreenFrame(title = volume.title, onBack = { goBack() }, rightButton = pageMenu(), bottomBar = navBar()) {
-            LightScrollView(Modifier.fillMaxSize()) {
+            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 volume.books.forEach { book ->
                     val withAudio = index.audioCount("scriptures/${volume.id}/${book.id}/")
                     ListRow(book.title, if (withAudio > 0) "$withAudio audio" else null) {
@@ -62,6 +67,9 @@ class ChapterGridScreen(
     private val volumeId: String,
     private val bookId: String,
 ) : SimpleLightScreen<Unit>(sealedActivity) {
+    /** Scroll positions, kept while the screen is on the back stack. */
+    private val scrolls = ScrollMemory()
+
 
     init {
         AppGraph.init(lightContext)
@@ -75,6 +83,7 @@ class ChapterGridScreen(
         ScreenFrame(title = book.title, onBack = { goBack() }, rightButton = pageMenu(), bottomBar = navBar()) {
             NumberGrid(
                 numbers = (1..book.chapters).toList(),
+                scrollState = scrolls.scroll(),
                 isMarked = { index.hasAudio(Target.Chapter(volumeId, bookId, it)) },
             ) { chapter ->
                 navigateTo({ ReaderScreen(it, Target.Chapter(volumeId, bookId, chapter)) })
@@ -87,8 +96,13 @@ private const val GRID_COLUMNS = 5
 
 
 @Composable
-fun NumberGrid(numbers: List<Int>, isMarked: (Int) -> Boolean, onClick: (Int) -> Unit) {
-    LightScrollView(Modifier.fillMaxSize()) {
+fun NumberGrid(
+    numbers: List<Int>,
+    isMarked: (Int) -> Boolean,
+    scrollState: ScrollState = rememberScrollState(),
+    onClick: (Int) -> Unit,
+) {
+    LightScrollView(Modifier.fillMaxSize(), scrollState = scrollState) {
         numbers.chunked(GRID_COLUMNS).forEach { row ->
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Start) {
                 row.forEach { number ->
