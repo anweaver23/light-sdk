@@ -58,9 +58,39 @@ class FileMatcher(private val catalog: Catalog) {
         val preferredBook = folders.asReversed().firstNotNullOfOrNull { hymnBookHint(tokenize(it)) }
             ?: hymnBookHint(fileTokens)
 
-        findHymn(fileTokens, preferredBook)?.let { return it }
-        if (!tagText.isNullOrBlank()) findHymn(tokenize(tagText), preferredBook)?.let { return it }
+        findHymn(fileTokens, preferredBook)?.let { return arrangement(it, fileTokens) }
+        if (!tagText.isNullOrBlank()) findHymn(tokenize(tagText), preferredBook)?.let { return arrangement(it, fileTokens) }
         return null
+    }
+
+    /**
+     * Some hymns share a title with another number: the 1985 book's women's (309–318) and men's
+     * (319–337) arrangements repeat earlier hymns, and #176/#177 are two tunes of one text. Picks the
+     * one the file name asks for: "women" or "men"/"mens" for the arrangements (words the title itself
+     * contains don't count: "Rise Up, O Men of God"), "choir" for the later of two arrangements in a
+     * section (#323 men / #324 men's choir), the tune name for #176 (Meredith) / #177 (Hancock) and
+     * #173 (Saul); otherwise the first, general hymn. A file that states its number keeps it.
+     */
+    private fun arrangement(ref: Target.HymnRef, tokens: List<String>): Target.HymnRef {
+        val book = catalog.hymnBook(ref.hymnBookId) ?: return ref
+        val title = book.hymn(ref.number)?.title?.let(::tokenize) ?: return ref
+        val same = book.hymns.filter { tokenize(it.title) == title }.map { it.n }.sorted()
+        if (same.size < 2) return ref
+        val numbers = tokens.numbers()
+        if (ref.number in numbers || ref.number * 10 in numbers) return ref
+        fun extra(vararg words: String) = tokens.count { it in words } > title.count { it in words }
+        fun inSection(section: IntRange): Int? {
+            val options = same.filter { it in section }
+            return if ("choir" in tokens) options.lastOrNull() else options.firstOrNull()
+        }
+        val pick = when {
+            extra("women", "womens") -> inSection(WOMENS_ARRANGEMENTS)
+            extra("men", "mens") -> inSection(MENS_ARRANGEMENTS)
+            "hancock" in tokens -> same.last()
+            "meredith" in tokens || "saul" in tokens -> same.first()
+            else -> same.firstOrNull { it !in WOMENS_ARRANGEMENTS && it !in MENS_ARRANGEMENTS }
+        } ?: same.first()
+        return ref.copy(number = pick)
     }
 
     // ---- scriptures ----
@@ -209,6 +239,10 @@ class FileMatcher(private val catalog: Catalog) {
         }
 
         /** Lowercase words and numbers. Numbers lose leading zeros; letters and digits are split apart. */
+        /** Hymns (1985) 309–318 are arrangements for women's voices, 319–337 for men's. */
+        private val WOMENS_ARRANGEMENTS = 309..318
+        private val MENS_ARRANGEMENTS = 319..337
+
         fun tokenize(text: String): List<String> {
             val spaced = text.lowercase()
                 .replace("&", " and ")

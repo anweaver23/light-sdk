@@ -66,6 +66,13 @@ val TWO_LINE_TITLE = LightTextVariant.Subheading
 /** Second line of a two-line row (a date, a reference, a quote). */
 val TWO_LINE_DETAIL = LightTextVariant.Detail
 
+/**
+ * A denser list for long titles (the hymn lists): Subheading text, 4 units a row, as LightOS's
+ * Subheading lists (chess Settings) are spaced, so more of each title shows.
+ */
+val DENSE_ROW_TEXT = LightTextVariant.Subheading
+const val DENSE_ROW_UNITS = 4f
+
 /** How far list text sits in from the frame's own padding, in grid units. */
 const val LIST_INSET_UNITS = 1f
 
@@ -120,12 +127,15 @@ fun ListRow(
     detail: String? = null,
     lighten: Boolean = false,
     underline: Boolean = false,
+    /** Long lists of long titles (hymns) use [DENSE_ROW_TEXT] / [DENSE_ROW_UNITS]. */
+    variant: LightTextVariant = ROW_TEXT,
+    heightUnits: Float = ROW_UNITS,
     onClick: () -> Unit,
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(ROW_UNITS.gridUnitsAsDp())
+            .height(heightUnits.gridUnitsAsDp())
             .lightClickable(onClick = onClick)
             .padding(start = LIST_INSET_UNITS.gridUnitsAsDp()),
         verticalAlignment = Alignment.Top,
@@ -133,7 +143,7 @@ fun ListRow(
     ) {
         AppText(
             text = label,
-            variant = ROW_TEXT,
+            variant = variant,
             lighten = lighten,
             underline = underline,
             maxLines = 1,
@@ -143,7 +153,7 @@ fun ListRow(
         if (detail != null) {
             AppText(
                 text = detail,
-                variant = ROW_TEXT,
+                variant = variant,
                 lighten = true,
                 maxLines = 1,
                 modifier = Modifier.padding(start = 1f.gridUnitsAsDp()),

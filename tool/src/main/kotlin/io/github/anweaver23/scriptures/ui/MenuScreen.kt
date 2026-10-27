@@ -15,6 +15,7 @@ import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightScrollView
 import com.thelightphone.sdk.ui.LightTextInputEditor
 import com.thelightphone.sdk.ui.LightThemeTokens
+import com.andyweaver.scriptures.R
 import io.github.anweaver23.scriptures.data.AppGraph
 
 /** A screen a menu item opens, built like [SimpleLightScreen.navigateTo]'s factory. */
@@ -62,6 +63,26 @@ fun SimpleLightScreen<*>.pageMenu(items: List<MenuItem> = emptyList()): LightBar
         contentDescription = "Menu",
     )
 }
+
+/**
+ * The bottom bar of home and the browse pages (volumes, books, chapters, hymnbooks, hymns):
+ * Settings · Search · Bookmarks · Annotations, so they're a tap away anywhere you browse.
+ */
+@Composable
+fun SimpleLightScreen<*>.navBar(): List<LightBarButton> = listOf(
+    LightBarButton.LightIcon(LightIcons.SETTINGS, onClick = { navigateTo(::SettingsScreen) }, contentDescription = "Settings"),
+    LightBarButton.LightIcon(LightIcons.SEARCH, onClick = { navigateTo(::SearchScreen) }, contentDescription = "Search"),
+    LightBarButton.Icon(
+        painter = tintedIcon(R.drawable.ic_bookmark),
+        onClick = { navigateTo({ BookmarksScreen(it) }) },
+        contentDescription = "Bookmarks",
+    ),
+    LightBarButton.Icon(
+        painter = tintedIcon(R.drawable.ic_notebook),
+        onClick = { navigateTo({ AnnotationsScreen(it) }) },
+        contentDescription = "Annotations",
+    ),
+)
 
 /**
  * A page's menu: plain text rows, as LightOS menus are. An item that opens a screen opens it from

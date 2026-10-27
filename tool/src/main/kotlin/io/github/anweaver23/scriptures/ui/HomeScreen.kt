@@ -7,38 +7,25 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextOverflow
-import androidx.lifecycle.viewModelScope
 import com.thelightphone.sdk.InitialScreen
 import com.thelightphone.sdk.LightScreen
 import com.thelightphone.sdk.LightViewModel
 import com.thelightphone.sdk.SealedLightActivity
 import com.thelightphone.sdk.SimpleLightScreen
-import com.thelightphone.sdk.ui.LightBarButton
-import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightScrollBarPosition
 import com.thelightphone.sdk.ui.LightScrollView
-import com.thelightphone.sdk.ui.LightTextVariant
 import com.thelightphone.sdk.ui.gridUnitsAsDp
-import com.thelightphone.sdk.ui.lightClickable
-import com.andyweaver.scriptures.R
 import io.github.anweaver23.scriptures.core.Catalog
 import io.github.anweaver23.scriptures.core.Volume
-import io.github.anweaver23.scriptures.core.label
 import io.github.anweaver23.scriptures.data.AppGraph
-import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 // Home grid layout. Units are Light grid units (1/27 of the screen width).
@@ -52,19 +39,15 @@ const val TILE_GAP_UNITS = 1f
 /** Books per row. Titles shrink from 30 until no word breaks ([rememberSharedTitleStep]). */
 const val TILE_COLUMNS = 3
 
-/** Space above the grid and between the grid and the quiet rows below it. */
+/** Space above and below the grid. Home is books only: nothing sits under the grid. */
 const val GRID_TOP_GAP_UNITS = 0.25f
 const val GRID_BOTTOM_GAP_UNITS = 0.5f
 
 /** Width LightScrollView keeps for its bar when it's [LightScrollBarPosition.Outside] (SDK constant). */
 private const val SCROLL_GUTTER_UNITS = 2f
 
-/** Height of the secondary row under the grid (Resume listening). Shorter than a [ListRow] on purpose. */
-const val QUIET_ROW_UNITS = 2.25f
-
 class HomeViewModel : LightViewModel<Unit>() {
     val catalog: Catalog = AppGraph.catalog
-    val lastPlayed = AppGraph.progress.lastPlayed.stateIn(viewModelScope, SharingStarted.Eagerly, null)
 
     override fun onScreenShow(screen: SimpleLightScreen<Unit>) {
         super.onScreenShow(screen)
@@ -87,7 +70,6 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
 
     @Composable
     override fun Content() {
-        val lastPlayed by viewModel.lastPlayed.collectAsState()
         val catalog = viewModel.catalog
 
         // On launch, open the scriptures where the user left off (Back returns here).
@@ -108,29 +90,8 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
             ScreenFrame(
                 title = "Scriptures",
                 onBack = null,
-                rightButton = pageMenu(
-                    listOf(
-                        MenuItem("Annotations", opens = { AnnotationsScreen(it) }),
-                    ),
-                ),
-                bottomBar = listOf(
-                    LightBarButton.LightIcon(
-                        LightIcons.SETTINGS,
-                        onClick = { navigateTo(::SettingsScreen) },
-                        contentDescription = "Settings",
-                    ),
-                    LightBarButton.LightIcon(LightIcons.SEARCH, onClick = { navigateTo(::SearchScreen) }),
-                    LightBarButton.Icon(
-                        painter = tintedIcon(R.drawable.ic_bookmark),
-                        onClick = { navigateTo({ BookmarksScreen(it) }) },
-                        contentDescription = "Bookmarks",
-                    ),
-                    LightBarButton.Icon(
-                        painter = tintedIcon(R.drawable.ic_notebook),
-                        onClick = { navigateTo({ AnnotationsScreen(it) }) },
-                        contentDescription = "Annotations",
-                    ),
-                ),
+                rightButton = pageMenu(),
+                bottomBar = navBar(),
             ) {
                 BoxWithConstraints(Modifier.fillMaxSize()) {
                     val gap = TILE_GAP_UNITS.gridUnitsAsDp()
@@ -139,8 +100,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
                     // If the squares fit without scrolling, use the full width (no scroll bar gutter);
                     // otherwise leave room for the gutter so the last column isn't clipped.
                     val fullSide = (maxWidth - gap * (columns - 1)) / columns
-                    val reserved = (GRID_TOP_GAP_UNITS + GRID_BOTTOM_GAP_UNITS + (if (lastPlayed != null) QUIET_ROW_UNITS else 0f))
-                        .gridUnitsAsDp()
+                    val reserved = (GRID_TOP_GAP_UNITS + GRID_BOTTOM_GAP_UNITS).gridUnitsAsDp()
                     val fits = fullSide * rows + gap * (rows - 1) + reserved <= maxHeight
                     val side = if (fits) fullSide else (maxWidth - SCROLL_GUTTER_UNITS.gridUnitsAsDp() - gap * (columns - 1)) / columns
                     val guess = rememberSharedTitleStep(shelves.map { it.title }, side)
@@ -162,11 +122,6 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
                             }
                         }
                         Spacer(Modifier.height(GRID_BOTTOM_GAP_UNITS.gridUnitsAsDp()))
-                        lastPlayed?.let { target ->
-                            QuietRow("Resume listening", catalog.label(target)) {
-                                navigateTo({ PlayerScreen(it, request = null) })
-                            }
-                        }
                     }
                 }
             }
@@ -183,33 +138,3 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
     }
 }
 
-/** A low-key row under the grid: dimmed label, optional dimmed detail on the right. */
-@Composable
-private fun QuietRow(label: String, detail: String?, onClick: () -> Unit) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(QUIET_ROW_UNITS.gridUnitsAsDp())
-            .lightClickable(onClick = onClick),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween,
-    ) {
-        AppText(
-            text = label,
-            variant = LightTextVariant.Fine,
-            lighten = true,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-            modifier = Modifier.weight(1f),
-        )
-        if (detail != null) {
-            AppText(
-                text = detail,
-                variant = LightTextVariant.Fine,
-                lighten = true,
-                maxLines = 1,
-                modifier = Modifier.padding(start = 1f.gridUnitsAsDp()),
-            )
-        }
-    }
-}

@@ -17,7 +17,6 @@ import com.thelightphone.sdk.SimpleLightScreen
 import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightLazyScrollView
 import com.thelightphone.sdk.ui.LightScrollView
-import com.thelightphone.sdk.ui.LightTextVariant
 import io.github.anweaver23.scriptures.core.Target
 import io.github.anweaver23.scriptures.data.AppGraph
 import kotlinx.coroutines.Dispatchers
@@ -30,12 +29,10 @@ class HymnBooksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<U
 
     @Composable
     override fun Content() {
-        val index by AppGraph.library.index.collectAsState()
-        ScreenFrame(title = "Hymns", onBack = { goBack() }, rightButton = pageMenu()) {
+        ScreenFrame(title = "Hymns", onBack = { goBack() }, rightButton = pageMenu(), bottomBar = navBar()) {
             LightScrollView(Modifier.fillMaxSize()) {
                 AppGraph.catalog.hymnBooks.forEach { book ->
-                    val withAudio = index.audioCount("hymns/${book.id}/")
-                    ListRow(book.title, if (withAudio > 0) "$withAudio audio" else null) {
+                    ListRow(book.title) {
                         navigateTo({ HymnListScreen(it, book.id) })
                     }
                 }
@@ -54,17 +51,13 @@ class HymnListScreen(sealedActivity: SealedLightActivity, private val hymnBookId
     @Composable
     override fun Content() {
         val book = AppGraph.catalog.hymnBook(hymnBookId) ?: return
-        val index by AppGraph.library.index.collectAsState()
 
-        ScreenFrame(title = book.title, onBack = { goBack() }, rightButton = pageMenu()) {
-            LightLazyScrollView(Modifier.fillMaxSize(), uniformItemHeightGridUnits = ROW_UNITS) {
+        // Long titles: the denser Subheading list, so more of each shows.
+        ScreenFrame(title = book.title, onBack = { goBack() }, rightButton = pageMenu(), bottomBar = navBar()) {
+            LightLazyScrollView(Modifier.fillMaxSize(), uniformItemHeightGridUnits = DENSE_ROW_UNITS) {
                 items(book.hymns, key = { it.n }) { hymn ->
                     val target = Target.HymnRef(book.id, hymn.n)
-                    val detail = listOfNotNull(
-                        "audio".takeIf { index.versions(target).isNotEmpty() },
-                        "words".takeIf { index.lyrics(target) != null },
-                    ).joinToString(" + ").ifEmpty { null }
-                    ListRow("${hymn.n}  ${hymn.title}", detail) {
+                    ListRow("${hymn.n}  ${hymn.title}", variant = DENSE_ROW_TEXT, heightUnits = DENSE_ROW_UNITS) {
                         navigateTo({ HymnScreen(it, target) })
                     }
                 }

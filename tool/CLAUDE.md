@@ -90,7 +90,7 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-10-26 Every landing page has a "…" menu** (`LightIcons.ELLIPSES`, top right) built with
   `pageMenu(items)` in `ui/MenuScreen.kt`. Each page passes its own items, and **Add audio** is always
   appended, then **Display** and **Add audio**. An item that `opens` a screen opens it on top of the menu
-  (BACK returns to the menu); an action (`onSelect`) closes the menu and runs on the opening page. Home: Annotations. Reader: Bookmark / Remove bookmark, Find in chapter. Bookmarks /
+  (BACK returns to the menu); an action (`onSelect`) closes the menu and runs on the opening page. Home: nothing extra. Reader: Bookmark / Remove bookmark, Find in chapter. Bookmarks /
   Annotations: Edit … (DONE then takes the top-right slot). Sub-views (Define, footnote, highlight detail, editors, Add audio itself) have none.
 - **2026-10-26 Find in chapter:** case-insensitive, verse numbers skipped, footnote markers ignored
   (`core/Find.kt`). Matches get a translucent background (`FIND_ALPHA`, current `FIND_CURRENT_ALPHA`);
@@ -102,8 +102,9 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-10-26 Text size setting** *(now part of Display, see 2026-10-27)*: `core/TextSize` (Small 0.85×
   … Largest 1.5×), stored by `SettingsStore`, shared as `AppGraph.display`.
 - **2026-10-26 Home tiles are square**, 3 columns (fixed since 2026-10-27; home doesn't follow Display). Home bar:
-  Settings · Search · Bookmarks · Annotations (`ic_notebook`). Annotations is in the "…" menu too;
-  Add audio is also in Settings. No Add audio row on home.
+  Settings · Search · Bookmarks · Annotations (`ic_notebook`), via `navBar()`, which every browse page
+  (books, chapters, hymnbooks, hymn lists) shows too. Home is books only: no Add audio or Resume
+  listening rows. Add audio lives in the "…" menus and Settings.
 - **2026-10-26 Note editor is full screen, like LightOS Notes:** reading-size text fills the page (no
   field underline), scrolls to keep the caret in view, Return is a new line, SAVE returns the text. It
   hosts its own LP3 keyboard view model in the screen's store (`ui/NoteEditorScreen.kt`), because
@@ -168,7 +169,19 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-10-27 Hymns have two recordings:** the plain slot is vocal (or unlabelled); a file named
   "accompaniment" or "instrumental" without "vocal" goes to `HymnRef(accompaniment = true)`
   (`…/85/accompaniment.mp3`). The hymn page shows VOCAL and MUSIC ONLY when both exist, else LISTEN;
-  the player keeps the chosen version from hymn to hymn. Lists count a hymn once.
+  the player keeps the chosen version from hymn to hymn. Lists show no audio/words indicators.
+  "music only" is accompaniment too; "words and music" (as a phrase) is vocal.
+- **2026-10-27 Hymns sharing a title** (`FileMatcher.arrangement`): the 1985 women's (309–318) and men's
+  (319–337) arrangements repeat earlier titles, and #173/174, #176/177 are two tunes. "women" / "men"
+  in the file name (beyond the title's own words) pick the arrangement, "choir" the later of two in a
+  section (#323 men / #324 men's choir), tune names pick #176 Meredith / #177 Hancock / #173 Saul, and a
+  file that states its number keeps it. On the user's 667-file Church zip this places 334 of 341; the
+  other 7 aren't in it, and the Spanish "musica_solo" files go to review.
+- **2026-10-27 Hymn lists are denser:** `DENSE_ROW_TEXT` (Subheading) on `DENSE_ROW_UNITS` (4) rows, so
+  more of each long title shows.
+- **2026-10-27 Player:** the progress bar is always drawn (it flashed while the next track reported its
+  length). No speed or stop options. Playing: the full transport bar; paused (for 350 ms or more): just
+  play and a stop square, which ends playback and goes back.
 - **2026-10-27 Find and back:** Find in chapter opens from the "…" menu (BACK returns to the menu); a
   search closes the menu (`MenuItem.onResult`). While a search is active, the reader's back arrow
   reopens the search bar with the term; backing out of that ends the search. `BackHandler` is blocked

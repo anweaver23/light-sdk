@@ -1,11 +1,10 @@
 package io.github.anweaver23.scriptures.ui
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -33,7 +32,6 @@ import com.thelightphone.sdk.ui.LightTextVariant
 import com.thelightphone.sdk.ui.LightThemeTokens
 import com.thelightphone.sdk.ui.LightTouchableProgressBar
 import com.thelightphone.sdk.ui.gridUnitsAsDp
-import com.thelightphone.sdk.ui.lightClickable
 import io.github.anweaver23.scriptures.core.Catalog
 import io.github.anweaver23.scriptures.core.Target
 import io.github.anweaver23.scriptures.core.label
@@ -313,6 +311,9 @@ class PlayerViewModel(private val audio: LightAudio, private val request: Target
     }
 }
 
+/** How long playback must stay paused before the bar becomes play / stop. */
+private const val PAUSED_BAR_DELAY_MS = 350L
+
 class PlayerScreen(private val sealedActivity: SealedLightActivity, private val request: Target?) :
     LightScreen<Unit, PlayerViewModel>(sealedActivity) {
 
@@ -330,21 +331,35 @@ class PlayerScreen(private val sealedActivity: SealedLightActivity, private val 
         val duration by viewModel.durationMs.collectAsState()
         val playing by viewModel.isPlaying.collectAsState()
         val error by viewModel.error.collectAsState()
-        val speed by viewModel.speed.collectAsState()
         val message by viewModel.message.collectAsState()
         val canSeek = duration > 0
+        // Switching tracks reports "not playing" for a moment; only a pause that lasts swaps the bar.
+        val paused by produceState(initialValue = !playing, playing) {
+            if (playing) value = false else { delay(PAUSED_BAR_DELAY_MS); value = true }
+        }
 
         ScreenFrame(
             title = "Listening",
             onBack = { goBack() },
             rightButton = pageMenu(),
-            bottomBar = listOf(
-                LightBarButton.LightIcon(LightIcons.REWIND, viewModel::previous, contentDescription = "Previous"),
-                LightBarButton.LightIcon(LightIcons.SKIP_BACKWARD_FIFTEEN, viewModel::skipBack.takeIf { canSeek }),
-                LightBarButton.LightIcon(if (playing) LightIcons.PAUSE else LightIcons.PLAY, viewModel::togglePlayPause),
-                LightBarButton.LightIcon(LightIcons.SKIP_FORWARD_FIFTEEN, viewModel::skipForward.takeIf { canSeek }),
-                LightBarButton.LightIcon(LightIcons.FAST_FORWARD, viewModel::next, contentDescription = "Next"),
-            ),
+            // Playing: the full transport. Paused: just play and stop, everything else out of the way.
+            bottomBar = if (!paused) {
+                listOf(
+                    LightBarButton.LightIcon(LightIcons.REWIND, viewModel::previous, contentDescription = "Previous"),
+                    LightBarButton.LightIcon(LightIcons.SKIP_BACKWARD_FIFTEEN, viewModel::skipBack.takeIf { canSeek }),
+                    LightBarButton.LightIcon(LightIcons.PAUSE, viewModel::togglePlayPause, contentDescription = "Pause"),
+                    LightBarButton.LightIcon(LightIcons.SKIP_FORWARD_FIFTEEN, viewModel::skipForward.takeIf { canSeek }),
+                    LightBarButton.LightIcon(LightIcons.FAST_FORWARD, viewModel::next, contentDescription = "Next"),
+                )
+            } else {
+                listOf(
+                    LightBarButton.LightIcon(LightIcons.PLAY, viewModel::togglePlayPause, contentDescription = "Play"),
+                    LightBarButton.LightIcon(LightIcons.STOP, contentDescription = "Stop", onClick = {
+                        viewModel.stop()
+                        goBack()
+                    }),
+                )
+            },
         ) {
             Spacer(Modifier.weight(1f))
             AppText(
@@ -363,14 +378,13 @@ class PlayerScreen(private val sealedActivity: SealedLightActivity, private val 
                     .fillMaxWidth()
                     .padding(vertical = 0.5f.gridUnitsAsDp()),
             )
-            if (canSeek) {
-                LightTouchableProgressBar(
-                    colors = LightThemeTokens.colors,
-                    progress = (position.toFloat() / duration).coerceIn(0f, 1f),
-                    onValueChange = viewModel::seekToFraction,
-                    modifier = Modifier.fillMaxWidth(),
-                )
-            }
+            // Always drawn: hiding it while the next track reports its length made it flash.
+            LightTouchableProgressBar(
+                colors = LightThemeTokens.colors,
+                progress = if (canSeek) (position.toFloat() / duration).coerceIn(0f, 1f) else 0f,
+                onValueChange = { if (canSeek) viewModel.seekToFraction(it) },
+                modifier = Modifier.fillMaxWidth(),
+            )
             error?.let {
                 AppText(
                     text = errorMessage(it),
@@ -380,13 +394,6 @@ class PlayerScreen(private val sealedActivity: SealedLightActivity, private val 
                 )
             }
             Spacer(Modifier.weight(1f))
-            Row(Modifier.fillMaxWidth()) {
-                PlayerOption("SPEED", "${speed.toString().removeSuffix(".0")}x", Modifier.weight(1f), viewModel::cycleSpeed)
-                PlayerOption("PLAYBACK", "STOP", Modifier.weight(1f)) {
-                    viewModel.stop()
-                    goBack()
-                }
-            }
         }
     }
 }
@@ -397,14 +404,3 @@ private fun errorMessage(error: LightAudioError): String = when (error.kind) {
     else -> "Playback stopped (${error.diagnostic})."
 }
 
-@Composable
-private fun PlayerOption(label: String, value: String, modifier: Modifier, onClick: () -> Unit) {
-    Column(
-        modifier
-            .lightClickable(onClick = onClick)
-            .padding(vertical = 0.5f.gridUnitsAsDp()),
-    ) {
-        AppText(label, LightTextVariant.Superfine, align = TextAlign.Center, modifier = Modifier.fillMaxWidth())
-        AppText(value, LightTextVariant.Fine, align = TextAlign.Center, modifier = Modifier.fillMaxWidth())
-    }
-}

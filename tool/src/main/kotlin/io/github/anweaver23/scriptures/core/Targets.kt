@@ -26,14 +26,18 @@ sealed interface Target {
         private const val ACCOMPANIMENT = "accompaniment"
 
         /**
-         * Whether a hymn audio file is the music-only version, by its name: "accompaniment" or
-         * "instrumental" without "vocal" ("the_morning_breaks_accompaniment_eng.mp3",
-         * "…-instrumental-192k-eng.mp3"; but "…_vocal_accompaniment_eng.mp3" and
-         * "…-vocal-and-instrumental-…" are vocal).
+         * Whether a hymn audio file is the music-only version, by its name: "accompaniment",
+         * "instrumental" or "music only" without "vocal" or "words" ("the_morning_breaks_accompaniment_eng.mp3",
+         * "…-instrumental-192k-eng.mp3", "…_women_music_only.mp3"; but "…_vocal_accompaniment_eng.mp3",
+         * "…-vocal-and-instrumental-…" and "…_words_and_music.mp3" are vocal).
          */
         fun isAccompanimentOnly(fileName: String): Boolean {
-            val words = fileName.lowercase().split(Regex("[^a-z]+")).toSet()
-            return ("accompaniment" in words || "instrumental" in words) && "vocal" !in words
+            val tokens = fileName.lowercase().split(Regex("[^a-z]+")).filter { it.isNotEmpty() }
+            val words = tokens.toSet()
+            val spaced = tokens.joinToString(" ", " ", " ")
+            val musicOnly = "accompaniment" in words || "instrumental" in words || " music only " in spaced
+            // "words and music" as a phrase: titles have "words" too ("Let Us Oft Speak Kind Words").
+            return musicOnly && "vocal" !in words && " words and music " !in spaced
         }
 
         fun fromKey(key: String): Target? {
