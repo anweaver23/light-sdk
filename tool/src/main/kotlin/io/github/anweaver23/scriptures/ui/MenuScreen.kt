@@ -18,19 +18,24 @@ import com.thelightphone.sdk.ui.LightThemeTokens
 import io.github.anweaver23.scriptures.data.AppGraph
 
 /** A screen a menu item opens, built like [SimpleLightScreen.navigateTo]'s factory. */
-typealias ScreenFactory = (SealedLightActivity) -> SimpleLightScreen<Unit>
+typealias ScreenFactory = (SealedLightActivity) -> SimpleLightScreen<*>
 
 /**
  * One row of a page's "…" menu. Either it [opens] a screen, which goes on top of the menu so BACK
  * returns to the menu; or it's an action, [onSelect], which runs on the page that opened the menu
- * after the menu closes (Bookmark, Find, Edit act on that page).
+ * after the menu closes (Bookmark, Edit act on that page). With [onResult], a screen it opened that
+ * returns a result (Find's query) closes the menu too, and [onResult] gets it on the page.
  */
 class MenuItem(
     val label: String,
     val detail: String? = null,
     val opens: ScreenFactory? = null,
+    val onResult: ((Any) -> Unit)? = null,
     val onSelect: () -> Unit = {},
-)
+) {
+    /** A result from the screen this item opened, carried through the menu's close to the page. */
+    internal var result: Any? = null
+}
 
 /**
  * The "…" button for a page's top bar. Opens [MenuScreen] with [items], then Display and Add audio,
@@ -46,7 +51,14 @@ fun SimpleLightScreen<*>.pageMenu(items: List<MenuItem> = emptyList()): LightBar
     )
     return LightBarButton.LightIcon(
         LightIcons.ELLIPSES,
-        onClick = { navigateTo({ MenuScreen(it, all) }) { index -> all.getOrNull(index)?.onSelect?.invoke() } },
+        onClick = {
+            all.forEach { it.result = null }
+            navigateTo({ MenuScreen(it, all) }) { index ->
+                val item = all.getOrNull(index) ?: return@navigateTo
+                val result = item.result
+                if (result != null) item.onResult?.invoke(result) else item.onSelect()
+            }
+        },
         contentDescription = "Menu",
     )
 }
@@ -66,8 +78,17 @@ class MenuScreen(
             LightScrollView(Modifier.fillMaxSize()) {
                 items.forEachIndexed { i, item ->
                     ListRow(item.label, item.detail) {
-                        val opens = item.opens
-                        if (opens != null) navigateTo(opens) else goBack(i)
+                        // Screens return any type; viewed as Any here, since only onResult reads it.
+                        @Suppress("UNCHECKED_CAST")
+                        val opens = item.opens as ((SealedLightActivity) -> SimpleLightScreen<Any>)?
+                        when {
+                            opens == null -> goBack(i)
+                            item.onResult == null -> navigateTo(opens)
+                            else -> navigateTo(opens) { result ->
+                                item.result = result
+                                goBack(i)
+                            }
+                        }
                     }
                 }
             }
@@ -75,10 +96,14 @@ class MenuScreen(
     }
 }
 
-/** One-line entry for find in chapter. Returns the query on FIND; backing out returns nothing. */
+/**
+ * One-line entry for find in chapter. Returns the query on FIND. Backing out returns nothing, or, with
+ * [blankOnBack], an empty string, so the reader knows to end a search that was being edited.
+ */
 class FindInputScreen(
     sealedActivity: SealedLightActivity,
     private val initial: String,
+    private val blankOnBack: Boolean = false,
 ) : SimpleLightScreen<String>(sealedActivity) {
 
     @Composable
@@ -91,7 +116,7 @@ class FindInputScreen(
                 state = state,
                 keyboardOptionsFlow = keyboardOptions,
                 onSubmit = { if (it.isNotBlank()) goBack(it.toString()) },
-                onBack = { goBack(null) },
+                onBack = { goBack(if (blankOnBack) "" else null) },
                 submitLabel = "FIND",
                 singleLine = true,
                 modifier = Modifier.background(LightThemeTokens.colors.background),

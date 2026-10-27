@@ -28,7 +28,10 @@ class FileMatcher(private val catalog: Catalog) {
 
     fun match(kind: UploadKind, relativePath: String, tagText: String? = null): Target? = when (kind) {
         UploadKind.ScriptureAudio -> matchScripture(relativePath, tagText)
-        UploadKind.HymnAudio, UploadKind.HymnLyrics -> matchHymn(relativePath, tagText)
+        UploadKind.HymnAudio -> matchHymn(relativePath, tagText)?.let {
+            if (Target.isAccompanimentOnly(relativePath.substringAfterLast('/'))) it.copy(accompaniment = true) else it
+        }
+        UploadKind.HymnLyrics -> matchHymn(relativePath, tagText)
     }
 
     fun matchScripture(relativePath: String, tagText: String? = null): Target.Chapter? {

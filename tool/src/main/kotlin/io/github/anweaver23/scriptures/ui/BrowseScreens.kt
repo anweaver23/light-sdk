@@ -22,7 +22,9 @@ import io.github.anweaver23.scriptures.data.AppGraph
 import io.github.anweaver23.scriptures.data.AudioLibrary
 
 /** Number of files under a key prefix, e.g. how many chapters of Alma have audio. */
-fun AudioLibrary.Index.audioCount(prefix: String): Int = audio.keys.count { it.startsWith(prefix) }
+fun AudioLibrary.Index.audioCount(prefix: String): Int =
+    // A hymn's two recordings count once.
+    audio.keys.filter { it.startsWith(prefix) }.map { it.removeSuffix("/accompaniment") }.distinct().size
 
 /** The books of one volume. */
 class BookListScreen(sealedActivity: SealedLightActivity, private val volumeId: String) :
@@ -71,9 +73,6 @@ class ChapterGridScreen(
         val index by AppGraph.library.index.collectAsState()
 
         ScreenFrame(title = book.title, onBack = { goBack() }, rightButton = pageMenu()) {
-            if (index.audioCount("scriptures/$volumeId/$bookId/") > 0) {
-                Note("Underlined ${book.chapterLabel.lowercase()}s have audio.")
-            }
             NumberGrid(
                 numbers = (1..book.chapters).toList(),
                 isMarked = { index.hasAudio(Target.Chapter(volumeId, bookId, it)) },
@@ -98,7 +97,7 @@ fun NumberGrid(numbers: List<Int>, isMarked: (Int) -> Boolean, onClick: (Int) ->
                             .weight(1f)
                             .height(ROW_UNITS.gridUnitsAsDp())
                             .lightClickable { onClick(number) },
-                        contentAlignment = Alignment.Center,
+                        contentAlignment = Alignment.TopCenter,
                     ) {
                         AppText(
                             text = number.toString(),

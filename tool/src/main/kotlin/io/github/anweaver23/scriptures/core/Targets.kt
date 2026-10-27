@@ -11,11 +11,31 @@ sealed interface Target {
         override val key: String get() = "scriptures/$volumeId/$bookId/$chapter"
     }
 
-    data class HymnRef(val hymnBookId: String, val number: Int) : Target {
-        override val key: String get() = "hymns/$hymnBookId/$number"
+    /**
+     * A hymn's audio slot. The plain slot holds the vocal recording (or any unlabelled one);
+     * [accompaniment] is the music-only recording, kept alongside so either can be played.
+     */
+    data class HymnRef(val hymnBookId: String, val number: Int, val accompaniment: Boolean = false) : Target {
+        override val key: String get() = "hymns/$hymnBookId/$number" + if (accompaniment) "/$ACCOMPANIMENT" else ""
+
+        /** The hymn itself, without a version. Words, bookmarks and lists use this. */
+        val base: HymnRef get() = copy(accompaniment = false)
     }
 
     companion object {
+        private const val ACCOMPANIMENT = "accompaniment"
+
+        /**
+         * Whether a hymn audio file is the music-only version, by its name: "accompaniment" or
+         * "instrumental" without "vocal" ("the_morning_breaks_accompaniment_eng.mp3",
+         * "…-instrumental-192k-eng.mp3"; but "…_vocal_accompaniment_eng.mp3" and
+         * "…-vocal-and-instrumental-…" are vocal).
+         */
+        fun isAccompanimentOnly(fileName: String): Boolean {
+            val words = fileName.lowercase().split(Regex("[^a-z]+")).toSet()
+            return ("accompaniment" in words || "instrumental" in words) && "vocal" !in words
+        }
+
         fun fromKey(key: String): Target? {
             val parts = key.split('/')
             return when {
@@ -23,6 +43,8 @@ sealed interface Target {
                     parts[3].toIntOrNull()?.let { Chapter(parts[1], parts[2], it) }
                 parts.size == 3 && parts[0] == "hymns" ->
                     parts[2].toIntOrNull()?.let { HymnRef(parts[1], it) }
+                parts.size == 4 && parts[0] == "hymns" && parts[3] == ACCOMPANIMENT ->
+                    parts[2].toIntOrNull()?.let { HymnRef(parts[1], it, accompaniment = true) }
                 else -> null
             }
         }
@@ -41,6 +63,7 @@ fun Catalog.label(target: Target): String = when (target) {
     }
     is Target.HymnRef -> {
         val title = hymnBook(target.hymnBookId)?.hymn(target.number)?.title
-        if (title == null) "Hymn ${target.number}" else "${target.number}. $title"
+        val name = if (title == null) "Hymn ${target.number}" else "${target.number}. $title"
+        if (target.accompaniment) "$name (accompaniment)" else name
     }
 }

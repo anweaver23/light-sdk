@@ -220,7 +220,12 @@ class PlayerViewModel(private val audio: LightAudio, private val request: Target
                 val book = catalog.scriptures.book(target.bookId)
                 (1..(book?.chapters ?: 0)).map { target.copy(chapter = it) }
             }
-            is Target.HymnRef -> catalog.hymnBook(target.hymnBookId)?.hymns.orEmpty().map { target.copy(number = it.n) }
+            // Keep to the chosen version (vocal or accompaniment); a hymn with only the other one
+            // plays that one rather than being skipped.
+            is Target.HymnRef -> return catalog.hymnBook(target.hymnBookId)?.hymns.orEmpty().mapNotNull { hymn ->
+                val same = target.copy(number = hymn.n)
+                if (index.hasAudio(same)) same else index.versions(same).firstOrNull()
+            }
         }
         return all.filter { index.hasAudio(it) }
     }

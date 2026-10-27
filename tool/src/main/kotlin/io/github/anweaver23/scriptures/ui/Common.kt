@@ -41,8 +41,10 @@ import com.thelightphone.sdk.ui.lightClickable
 
 // LightOS list metrics, measured from LightOS Settings on the LP3 (1080x1240): row text is Heading
 // (38 design px; "Notifications" draws 59 px tall), rows are 200 px apart (5 grid units), and the text
-// starts 80 px in (2 grid units: the frame's 1 plus LIST_INSET_UNITS). Lists, menus and pickers are
-// "system" UI: they never follow the Display settings.
+// starts 80 px in (2 grid units: the frame's 1 plus LIST_INSET_UNITS). Content starts right under the
+// top bar (LightOS Podcasts: the first title's capitals at y=123, just under the 120 px bar), so a row's
+// text sits at the top of its row with the spare space below: the first item hugs the bar and the pitch
+// between items stays 5 units. Lists, menus and pickers are "system" UI: never Display-scaled.
 
 /** Row text: labels and their dimmed values both at this size. */
 val ROW_TEXT = LightTextVariant.Heading
@@ -87,7 +89,6 @@ fun ScreenFrame(
                 leftButton = onBack?.let { LightBarButton.LightIcon(LightIcons.BACK, onClick = it) },
                 center = LightTopBarCenter.Text(title),
                 rightButton = rightButton,
-                modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
             )
             Column(
                 Modifier
@@ -122,7 +123,7 @@ fun ListRow(
             .height(ROW_UNITS.gridUnitsAsDp())
             .lightClickable(onClick = onClick)
             .padding(start = LIST_INSET_UNITS.gridUnitsAsDp()),
-        verticalAlignment = Alignment.CenterVertically,
+        verticalAlignment = Alignment.Top,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
         AppText(
@@ -155,7 +156,7 @@ fun SelectableRow(label: String, selected: Boolean, onClick: () -> Unit) {
             .height(ROW_UNITS.gridUnitsAsDp())
             .lightClickable(onClick = onClick)
             .padding(start = LIST_INSET_UNITS.gridUnitsAsDp()),
-        contentAlignment = Alignment.CenterStart,
+        contentAlignment = Alignment.TopStart,
     ) {
         AppText(text = label, variant = ROW_TEXT, underline = selected, maxLines = 1)
     }
@@ -224,7 +225,7 @@ fun StackRow(
         modifier = Modifier
             .fillMaxWidth()
             .lightClickable(onClick = onClick)
-            .padding(start = LIST_INSET_UNITS.gridUnitsAsDp(), top = 0.75f.gridUnitsAsDp(), bottom = 0.75f.gridUnitsAsDp()),
+            .padding(start = LIST_INSET_UNITS.gridUnitsAsDp(), bottom = 1.5f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(Modifier.weight(1f)) {

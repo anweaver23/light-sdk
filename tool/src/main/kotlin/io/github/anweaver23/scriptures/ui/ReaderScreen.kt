@@ -432,11 +432,17 @@ class ReaderScreen(
         ScreenFrame(
             title = viewModel.catalog.label(chapter),
             reading = true,
-            onBack = { goBack() },
+            // Back while searching goes back to the search bar to keep typing, not out of the chapter.
+            onBack = { if (viewModel.find.value != null) editFind() else goBack() },
             rightButton = pageMenu(
                 listOf(
                     MenuItem(if (bookmarks.isEmpty()) "Bookmark" else "Remove bookmark", onSelect = viewModel::toggleBookmark),
-                    MenuItem("Find in chapter", onSelect = ::openFind),
+                    // Opens from the menu (BACK returns to it); a search closes the menu and runs here.
+                    MenuItem(
+                        "Find in chapter",
+                        opens = { FindInputScreen(it, viewModel.find.value?.query.orEmpty()) },
+                        onResult = { query -> viewModel.find(query as String) },
+                    ),
                 ),
             ),
             // Chapters change by swiping, so the bar only appears when there's audio to play.
@@ -559,9 +565,12 @@ class ReaderScreen(
         )
     }
 
-    private fun openFind() {
+    /** Back to the search bar with the current query. Backing out of it ends the search. */
+    private fun editFind() {
         val last = viewModel.find.value?.query.orEmpty()
-        navigateTo({ FindInputScreen(it, last) }) { query -> viewModel.find(query) }
+        navigateTo({ FindInputScreen(it, last, blankOnBack = true) }) { query ->
+            if (query.isBlank()) viewModel.closeFind() else viewModel.find(query)
+        }
     }
 
     private fun handle(action: TapAction) {

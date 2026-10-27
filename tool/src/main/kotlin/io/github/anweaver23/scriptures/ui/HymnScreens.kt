@@ -61,7 +61,7 @@ class HymnListScreen(sealedActivity: SealedLightActivity, private val hymnBookId
                 items(book.hymns, key = { it.n }) { hymn ->
                     val target = Target.HymnRef(book.id, hymn.n)
                     val detail = listOfNotNull(
-                        "audio".takeIf { index.hasAudio(target) },
+                        "audio".takeIf { index.versions(target).isNotEmpty() },
                         "words".takeIf { index.lyrics(target) != null },
                     ).joinToString(" + ").ifEmpty { null }
                     ListRow("${hymn.n}  ${hymn.title}", detail) {
@@ -96,10 +96,17 @@ class HymnScreen(sealedActivity: SealedLightActivity, private val target: Target
             reading = true,
             onBack = { goBack() },
             rightButton = pageMenu(),
-            bottomBar = if (index.hasAudio(target)) {
-                listOf(LightBarButton.Text("Listen", onClick = { navigateTo({ PlayerScreen(it, target) }) }))
-            } else {
-                null
+            // Both recordings: VOCAL and MUSIC ONLY (accompaniment). One: LISTEN plays it.
+            bottomBar = index.versions(target).let { versions ->
+                fun play(version: Target.HymnRef) = { navigateTo({ PlayerScreen(it, version) }) }
+                when (versions.size) {
+                    0 -> null
+                    1 -> listOf(LightBarButton.Text("LISTEN", onClick = play(versions.single())))
+                    else -> listOf(
+                        LightBarButton.Text("VOCAL", onClick = play(versions[0])),
+                        LightBarButton.Text("MUSIC ONLY", onClick = play(versions[1])),
+                    )
+                }
             },
         ) {
             LightScrollView(Modifier.fillMaxSize()) {
@@ -117,7 +124,7 @@ class HymnScreen(sealedActivity: SealedLightActivity, private val target: Target
                         "No words saved for this hymn. To add them, upload a text file named " +
                             "\"${hymn.n}.txt\" to Hymn lyrics in the Tool Manager.",
                     )
-                    if (!index.hasAudio(target)) {
+                    if (index.versions(target).isEmpty()) {
                         Note("No audio yet either. Open the … menu and choose Add audio.")
                     }
                 }

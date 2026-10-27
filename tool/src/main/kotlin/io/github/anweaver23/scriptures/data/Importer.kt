@@ -91,8 +91,16 @@ class Importer(
     suspend fun assign(item: IncomingFile, target: Target) = mutex.withLock {
         withContext(Dispatchers.IO) {
             val file = fileOf(item)
+            // A hymn picked by hand still goes to the version its file name says it is.
+            val slot = if (target is Target.HymnRef && item.kind == UploadKind.HymnAudio &&
+                Target.isAccompanimentOnly(file.name)
+            ) {
+                target.copy(accompaniment = true)
+            } else {
+                target
+            }
             if (file.isFile) {
-                library.store(file, target, libraryKind(item.kind), file.extension.lowercase())
+                library.store(file, slot, libraryKind(item.kind), file.extension.lowercase())
                 pruneEmptyDirs(folder(item.kind))
                 library.refresh()
             }

@@ -157,8 +157,22 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   at the same size. The chapter number grid uses the same row. Hints/empty states: Fine, dimmed.
   Measured from LightOS Notes, Podcasts and Messages: two-line rows (`StackRow`) are a Subheading title
   over a white Detail line; the player is Subheading (what's playing) and Detail (time); message-style
-  reading text is Paragraph, which is our scripture base size. Home tile titles are Subtitle (52), and
-  `tileColumns` picks as many columns (max 3) as keep the longest word whole at that size.
+  reading text is Paragraph, which is our scripture base size. Home tile titles are Subheading (30), and
+  `tileColumns` picks as many columns (max 3) as keep the longest word whole at that size (Subtitle 52
+  gave one huge column).
+- **2026-10-27 No gap under the top bar:** LightOS content starts right under the 120 px bar, so
+  `ScreenFrame` adds no padding there, and list rows put their text at the top of the row with the
+  spare space below (`Alignment.Top`), keeping the 5-unit pitch. The number grid does the same.
+- **2026-10-27 Notes are for empty / no-data states only,** plus status (Searching…, counts). No
+  explanatory blurbs on screens that work (e.g. none on Display, none on the chapter grid).
+- **2026-10-27 Hymns have two recordings:** the plain slot is vocal (or unlabelled); a file named
+  "accompaniment" or "instrumental" without "vocal" goes to `HymnRef(accompaniment = true)`
+  (`…/85/accompaniment.mp3`). The hymn page shows VOCAL and MUSIC ONLY when both exist, else LISTEN;
+  the player keeps the chosen version from hymn to hymn. Lists count a hymn once.
+- **2026-10-27 Find and back:** Find in chapter opens from the "…" menu (BACK returns to the menu); a
+  search closes the menu (`MenuItem.onResult`). While a search is active, the reader's back arrow
+  reopens the search bar with the term; backing out of that ends the search. `BackHandler` is blocked
+  by the SDK's import rules, so this covers the on-screen arrow (the LP3's back) only.
 - **2026-10-27 Haptics fallback:** a sideloaded (not Light-signed) tool is refused a LightOS service token,
   so `LocalHapticsEnabled` stays false and every tap is silent. `AppTheme` provides it as
   `sdk || HAPTICS_FALLBACK`, as the chess tool does. Keyboard keys use `HapticFeedbackType.VirtualKey`.

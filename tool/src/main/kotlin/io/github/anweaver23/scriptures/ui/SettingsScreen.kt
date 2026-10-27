@@ -96,7 +96,6 @@ class DisplayScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Uni
                 ToggleRow("Invert colors", display.invertColors) {
                     AppGraph.scope.launch { AppGraph.settings.setInvertColors(!display.invertColors) }
                 }
-                Note("These change scripture and notes. The rest of the app stays as LightOS draws it.")
             }
         }
     }
@@ -146,7 +145,7 @@ class LineSpacingScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen
                         .height(ROW_UNITS.gridUnitsAsDp())
                         .padding(start = LIST_INSET_UNITS.gridUnitsAsDp()),
                     horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
+                    verticalAlignment = Alignment.Top,
                 ) {
                     AppText("Spacing", ROW_TEXT)
                     AppText(LineSpacing.label(steps[index]), ROW_TEXT, lighten = true)
@@ -170,13 +169,16 @@ private fun ToggleRow(label: String, on: Boolean, onClick: () -> Unit) {
             .height(ROW_UNITS.gridUnitsAsDp())
             .lightClickable(onClick = onClick)
             .padding(start = LIST_INSET_UNITS.gridUnitsAsDp()),
-        verticalAlignment = Alignment.CenterVertically,
+        verticalAlignment = Alignment.Top,
     ) {
-        AppText(text = label, variant = ROW_TEXT, modifier = Modifier.weight(1f))
-        LightIcon(
-            icon = if (on) LightIcons.TOGGLE_STATE_ON else LightIcons.TOGGLE_STATE_OFF,
-            contentDescription = if (on) "$label: on" else "$label: off",
-        )
+        // Text at the top of the row like every list row; the toggle centred on the text line.
+        Row(Modifier.weight(1f), verticalAlignment = Alignment.CenterVertically) {
+            AppText(text = label, variant = ROW_TEXT, modifier = Modifier.weight(1f))
+            LightIcon(
+                icon = if (on) LightIcons.TOGGLE_STATE_ON else LightIcons.TOGGLE_STATE_OFF,
+                contentDescription = if (on) "$label: on" else "$label: off",
+            )
+        }
     }
 }
 

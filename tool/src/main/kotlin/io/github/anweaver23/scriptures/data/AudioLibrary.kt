@@ -9,7 +9,8 @@ import kotlinx.coroutines.flow.asStateFlow
 /**
  * The user's sorted files, stored by target key in the tool's private files:
  *   library/audio/scriptures/bofm/alma/32.mp3
- *   library/audio/hymns/hymns-1985/85.m4a
+ *   library/audio/hymns/hymns-1985/85.m4a                  (vocal, or unlabelled)
+ *   library/audio/hymns/hymns-1985/85/accompaniment.m4a    (music only)
  *   library/lyrics/hymns/hymns-1985/85.txt
  * The directory tree is the source of truth; [index] is an in-memory view of it.
  */
@@ -20,6 +21,10 @@ class AudioLibrary(filesDir: File) {
         fun audio(target: Target): File? = audio[target.key]
         fun lyrics(target: Target): File? = lyrics[target.key]
         fun hasAudio(target: Target) = target.key in audio
+
+        /** The recordings a hymn has: vocal first, then accompaniment. */
+        fun versions(hymn: Target.HymnRef): List<Target.HymnRef> =
+            listOf(hymn.base, hymn.base.copy(accompaniment = true)).filter { hasAudio(it) }
     }
 
     private val root = File(filesDir, "library")
