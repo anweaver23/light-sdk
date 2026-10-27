@@ -36,30 +36,43 @@ object ImportPlanner {
     /**
      * Decides what to do with each file. [tagText] supplies embedded title/album
      * metadata for audio files and is only consulted when the name alone doesn't match.
+     * A file whose name matches claims its slot first; a match from tags alone only takes a slot no
+     * name claims (a foreign-language recording tagged with the English title must not displace the
+     * English one).
      */
     fun plan(
         files: List<IncomingFile>,
         matcher: FileMatcher,
         tagText: (IncomingFile) -> String? = { null },
     ): List<ImportDecision> {
+        val sorted = files.sortedBy { it.relativePath.lowercase() }
+        val byName = sorted.associateWith { file ->
+            if (accepts(file)) matcher.match(file.kind, file.relativePath) else null
+        }
         val claimed = mutableSetOf<Target>()
-        return files.sortedBy { it.relativePath.lowercase() }.map { file ->
+        fun decide(file: IncomingFile, target: Target?, extension: String) = when {
+            target == null -> ImportDecision.NeedsReview(file, ImportDecision.Reason.NoMatch)
+            !claimed.add(target) -> ImportDecision.NeedsReview(file, ImportDecision.Reason.Duplicate)
+            else -> ImportDecision.Matched(file, target, extension)
+        }
+        val named = sorted.filter { byName[it] != null }
+            .associateWith { decide(it, byName[it], extensionOf(it)) }
+        return sorted.map { file ->
             val name = file.relativePath.substringAfterLast('/')
-            val extension = name.substringAfterLast('.', "").lowercase()
-            val accepted = if (file.kind == UploadKind.HymnLyrics) LYRICS_EXTENSIONS else AUDIO_EXTENSIONS
-            when {
+            val extension = extensionOf(file)
+            named[file] ?: when {
                 name.startsWith(".") || extension in IGNORED_EXTENSIONS -> ImportDecision.Ignored(file)
-                extension !in accepted -> ImportDecision.NeedsReview(file, ImportDecision.Reason.WrongType)
-                else -> {
-                    val target = matcher.match(file.kind, file.relativePath)
-                        ?: matcher.match(file.kind, file.relativePath, tagText(file))
-                    when {
-                        target == null -> ImportDecision.NeedsReview(file, ImportDecision.Reason.NoMatch)
-                        !claimed.add(target) -> ImportDecision.NeedsReview(file, ImportDecision.Reason.Duplicate)
-                        else -> ImportDecision.Matched(file, target, extension)
-                    }
-                }
+                !accepts(file) -> ImportDecision.NeedsReview(file, ImportDecision.Reason.WrongType)
+                else -> decide(file, matcher.match(file.kind, file.relativePath, tagText(file)), extension)
             }
         }
+    }
+
+    private fun extensionOf(file: IncomingFile) = file.relativePath.substringAfterLast('/').substringAfterLast('.', "").lowercase()
+
+    private fun accepts(file: IncomingFile): Boolean {
+        val name = file.relativePath.substringAfterLast('/')
+        val accepted = if (file.kind == UploadKind.HymnLyrics) LYRICS_EXTENSIONS else AUDIO_EXTENSIONS
+        return !name.startsWith(".") && extensionOf(file) in accepted
     }
 }

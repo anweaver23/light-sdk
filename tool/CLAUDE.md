@@ -177,6 +177,10 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   section (#323 men / #324 men's choir), tune names pick #176 Meredith / #177 Hancock / #173 Saul, and a
   file that states its number keeps it. On the user's 667-file Church zip this places 334 of 341; the
   other 7 aren't in it, and the Spanish "musica_solo" files go to review.
+- **2026-10-27 A name match beats a tag match** (`ImportPlanner.plan`): files whose names match claim
+  their slots first; a match from ID3 tags alone only fills a slot no name claims. The Church's Spanish
+  "musica_solo" files carry the English title in their tags and, sorting first, had taken five English
+  hymns' slots.
 - **2026-10-27 Hymn lists are denser:** `DENSE_ROW_TEXT` (Subheading) on `DENSE_ROW_UNITS` (4) rows, so
   more of each long title shows.
 - **2026-10-27 Player:** the progress bar is always drawn (it flashed while the next track reported its

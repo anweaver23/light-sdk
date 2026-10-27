@@ -140,6 +140,24 @@ class FileMatcherTest {
     }
 
     @Test
+    fun nameMatchBeatsTagMatch() {
+        // A Spanish recording tagged with the English title sorts first, but the English file's name wins the slot.
+        val files = listOf(
+            IncomingFile(UploadKind.HymnAudio, "a_firme_cimientomusica_solo.mp3"),
+            IncomingFile(UploadKind.HymnAudio, "how_firm_a_foundation_vocal_accompaniment_eng.mp3"),
+        )
+        val byPath = ImportPlanner.plan(files, matcher) { "How Firm a Foundation" }.associateBy { it.file.relativePath }
+        assertEquals(
+            Target.HymnRef(Catalog.HYMNS_1985, 85),
+            (byPath.getValue("how_firm_a_foundation_vocal_accompaniment_eng.mp3") as ImportDecision.Matched).target,
+        )
+        assertEquals(
+            ImportDecision.Reason.Duplicate,
+            (byPath.getValue("a_firme_cimientomusica_solo.mp3") as ImportDecision.NeedsReview).reason,
+        )
+    }
+
+    @Test
     fun targetKeysRoundTrip() {
         val targets = listOf(Target.Chapter("bofm", "1-ne", 3), Target.HymnRef(Catalog.HYMNS_HOME_CHURCH, 1001))
         targets.forEach { assertEquals(it, Target.fromKey(it.key)) }
