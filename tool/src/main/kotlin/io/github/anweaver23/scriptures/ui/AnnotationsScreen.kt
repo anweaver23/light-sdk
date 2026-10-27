@@ -6,7 +6,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.thelightphone.sdk.SealedLightActivity
@@ -22,6 +21,10 @@ import kotlinx.coroutines.launch
 
 /** Every highlight and note, newest first. Tapping one opens the reader there. */
 class AnnotationsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
+    // On the screen, not in remember: opening the "…" menu takes this screen out of composition, so
+    // remembered state would be gone (and the menu's "Edit" would set a dead copy).
+    private var editing by mutableStateOf(false)
+
     init {
         AppGraph.init(lightContext)
     }
@@ -30,7 +33,6 @@ class AnnotationsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen
     override fun Content() {
         val catalog = AppGraph.catalog
         val annotations by AppGraph.study.annotations.collectAsState()
-        var editing by remember { mutableStateOf(false) }
         LaunchedEffect(Unit) { AppGraph.study.load() }
         val sorted = annotations.sortedByDescending { it.createdAt }
 
@@ -42,7 +44,7 @@ class AnnotationsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen
             } else {
                 pageMenu(
                     listOfNotNull(
-                        MenuItem("Remove annotations") { editing = true }
+                        MenuItem("Edit annotations") { editing = true }
                             .takeIf { sorted.isNotEmpty() },
                     ),
                 )

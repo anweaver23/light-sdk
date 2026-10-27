@@ -16,7 +16,6 @@ import com.thelightphone.sdk.SimpleLightScreen
 import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightScrollView
-import com.thelightphone.sdk.ui.LightText
 import com.thelightphone.sdk.ui.LightTextVariant
 import com.thelightphone.sdk.ui.gridUnitsAsDp
 import io.github.anweaver23.scriptures.core.Annotation
@@ -35,7 +34,7 @@ import kotlinx.coroutines.withContext
 /** A section label inside the study screens, e.g. "Webster's 1828". */
 @Composable
 private fun SectionLabel(text: String) {
-    LightText(
+    AppText(
         text = text,
         variant = LightTextVariant.Fine,
         lighten = true,
@@ -45,8 +44,9 @@ private fun SectionLabel(text: String) {
 
 @Composable
 private fun Body(text: String, lighten: Boolean = false) {
-    LightText(
-        text = text,
+    AppText(
+        // Definitions and derivations quote Greek and Hebrew too.
+        text = withScriptFonts(text),
         variant = LightTextVariant.Paragraph,
         lighten = lighten,
         modifier = Modifier
@@ -122,7 +122,7 @@ class DefineScreen private constructor(
 
     @Composable
     private fun DefinitionEntry(d: Definition) {
-        LightText(
+        AppText(
             text = listOfNotNull(d.headword, d.partOfSpeech).joinToString("  "),
             variant = LightTextVariant.Copy,
             modifier = Modifier.padding(top = 0.5f.gridUnitsAsDp()),
@@ -136,14 +136,18 @@ class DefineScreen private constructor(
 
     @Composable
     private fun OriginalEntry(w: OriginalWord) {
-        LightText(text = w.lemma, variant = LightTextVariant.Heading, modifier = Modifier.padding(top = 0.5f.gridUnitsAsDp()))
+        AppText(
+            text = withScriptFonts(w.lemma),
+            variant = LightTextVariant.Heading,
+            modifier = Modifier.padding(top = 0.5f.gridUnitsAsDp()),
+        )
         Body(listOfNotNull(w.transliteration, w.pronunciation?.let { "($it)" }, w.strongs).joinToString("  "), lighten = true)
         Body(w.definition)
         w.kjvUsage?.let { Body("KJV: $it", lighten = true) }
         w.derivation?.let { derivation ->
             Body(derivation, lighten = true)
             Strongs.refsIn(derivation, self = w.strongs).forEach { root ->
-                ListRow("Root $root") { navigateTo({ DefineScreen(it, root, null, -1, root) }) }
+                ListRow("Root $root", underline = true) { navigateTo({ DefineScreen(it, root, null, -1, root) }) }
             }
         }
     }

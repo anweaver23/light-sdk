@@ -105,7 +105,8 @@ fun BookTile(
     onMidWordBreak: () -> Unit,
     onClick: () -> Unit,
 ) {
-    val content = LightThemeTokens.colors.content
+    // The outline is the lighter secondary colour, so it frames the title without competing with it.
+    val outline = LightThemeTokens.colors.contentSecondary
     val stroke = BOOK_STROKE_PX.designVerticalPxToDp()
     val insets = titleInsets()
 
@@ -117,7 +118,7 @@ fun BookTile(
                 val w = stroke.toPx()
                 val half = w / 2
                 drawRect(
-                    color = content,
+                    color = outline,
                     topLeft = Offset(half, half),
                     size = Size(size.width - w, size.height - w),
                     style = Stroke(width = w),

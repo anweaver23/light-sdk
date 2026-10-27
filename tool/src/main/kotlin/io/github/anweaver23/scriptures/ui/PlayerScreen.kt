@@ -29,7 +29,6 @@ import com.thelightphone.sdk.audio.LightMediaMetadata
 import com.thelightphone.sdk.audio.NO_MEDIA_ITEM
 import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightIcons
-import com.thelightphone.sdk.ui.LightText
 import com.thelightphone.sdk.ui.LightTextVariant
 import com.thelightphone.sdk.ui.LightThemeTokens
 import com.thelightphone.sdk.ui.LightTouchableProgressBar
@@ -343,13 +342,13 @@ class PlayerScreen(private val sealedActivity: SealedLightActivity, private val 
             ),
         ) {
             Spacer(Modifier.weight(1f))
-            LightText(
+            AppText(
                 text = current?.let(viewModel::label) ?: message ?: "Loading…",
                 variant = LightTextVariant.Heading,
                 align = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth(),
             )
-            LightText(
+            AppText(
                 text = "${formatDuration(position)}  /  ${if (canSeek) formatDuration(duration) else "--:--"}",
                 variant = LightTextVariant.Fine,
                 align = TextAlign.Center,
@@ -367,7 +366,7 @@ class PlayerScreen(private val sealedActivity: SealedLightActivity, private val 
                 )
             }
             error?.let {
-                LightText(
+                AppText(
                     text = errorMessage(it),
                     variant = LightTextVariant.Fine,
                     align = TextAlign.Center,
@@ -399,7 +398,7 @@ private fun PlayerOption(label: String, value: String, modifier: Modifier, onCli
             .lightClickable(onClick = onClick)
             .padding(vertical = 0.5f.gridUnitsAsDp()),
     ) {
-        LightText(label, LightTextVariant.Superfine, align = TextAlign.Center, modifier = Modifier.fillMaxWidth())
-        LightText(value, LightTextVariant.Fine, align = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+        AppText(label, LightTextVariant.Superfine, align = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+        AppText(value, LightTextVariant.Fine, align = TextAlign.Center, modifier = Modifier.fillMaxWidth())
     }
 }

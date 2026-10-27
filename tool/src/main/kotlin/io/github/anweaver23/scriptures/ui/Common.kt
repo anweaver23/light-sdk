@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -35,26 +36,21 @@ import com.thelightphone.sdk.ui.LightIcon
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightText
 import com.thelightphone.sdk.ui.LightTextVariant
-import com.thelightphone.sdk.ui.LightTheme
-import com.thelightphone.sdk.ui.LightThemeController
 import com.thelightphone.sdk.ui.LightThemeTokens
 import com.thelightphone.sdk.ui.LightTopBar
 import com.thelightphone.sdk.ui.LightTopBarCenter
 import com.thelightphone.sdk.ui.gridUnitsAsDp
 import com.thelightphone.sdk.ui.lightClickable
-
-/**
- * Height of one list row, in Light grid units: a Subheading line with a unit above and below, as
- * LightOS lists are (Settings, pickers). Lazy lists need it to size their scroll bar.
- */
-const val ROW_UNITS = 4f
+import io.github.anweaver23.scriptures.data.AppGraph
 
 /** Row text, as LightOS lists use it: labels and their dimmed values both at this size. */
 val ROW_TEXT = LightTextVariant.Subheading
 
 /**
  * Top bar, a content area that fills the middle, and an optional bottom bar. [bottomContent], when
- * set, replaces [bottomBar] with a custom bar (e.g. the reader's selection actions).
+ * set, replaces [bottomBar] with a custom bar (e.g. the reader's selection actions). The content area
+ * follows the Display text size and line spacing unless [scaleContent] is false (menus, which are
+ * chrome); the bars never do.
  */
 @Composable
 fun ScreenFrame(
@@ -63,10 +59,12 @@ fun ScreenFrame(
     bottomBar: List<LightBarButton?>? = null,
     rightButton: LightBarButton? = null,
     bottomContent: (@Composable () -> Unit)? = null,
+    scaleContent: Boolean = true,
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    val colors by LightThemeController.colors.collectAsState()
-    LightTheme(colors = colors) {
+    val display by AppGraph.display.collectAsState()
+    val scale = if (scaleContent) TextScale(display.textSize.scale, display.lineSpacing) else TextScale()
+    AppTheme {
         Column(
             Modifier
                 .fillMaxSize()
@@ -78,13 +76,15 @@ fun ScreenFrame(
                 rightButton = rightButton,
                 modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
             )
-            Column(
-                Modifier
-                    .weight(1f)
-                    .fillMaxWidth()
-                    .padding(horizontal = 1f.gridUnitsAsDp()),
-                content = content,
-            )
+            CompositionLocalProvider(LocalTextScale provides scale) {
+                Column(
+                    Modifier
+                        .weight(1f)
+                        .fillMaxWidth()
+                        .padding(horizontal = 1f.gridUnitsAsDp()),
+                    content = content,
+                )
+            }
             when {
                 bottomContent != null -> bottomContent()
                 bottomBar != null -> LightBottomBar(items = bottomBar)
@@ -93,27 +93,37 @@ fun ScreenFrame(
     }
 }
 
-/** A tappable single-line row: label on the left, optional value dimmed on the right (LightOS style). */
+/**
+ * A tappable single-line row: label on the left, optional value dimmed on the right (LightOS style).
+ * [underline] marks it as a link (e.g. a root word in Define).
+ */
 @Composable
-fun ListRow(label: String, detail: String? = null, lighten: Boolean = false, onClick: () -> Unit) {
+fun ListRow(
+    label: String,
+    detail: String? = null,
+    lighten: Boolean = false,
+    underline: Boolean = false,
+    onClick: () -> Unit,
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(ROW_UNITS.gridUnitsAsDp())
+            .height(rowUnits().gridUnitsAsDp())
             .lightClickable(onClick = onClick),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
-        LightText(
+        AppText(
             text = label,
             variant = ROW_TEXT,
             lighten = lighten,
+            underline = underline,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier.weight(1f),
         )
         if (detail != null) {
-            LightText(
+            AppText(
                 text = detail,
                 variant = ROW_TEXT,
                 lighten = true,
@@ -130,18 +140,18 @@ fun SelectableRow(label: String, selected: Boolean, onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(ROW_UNITS.gridUnitsAsDp())
+            .height(rowUnits().gridUnitsAsDp())
             .lightClickable(onClick = onClick),
         contentAlignment = Alignment.CenterStart,
     ) {
-        LightText(text = label, variant = ROW_TEXT, underline = selected, maxLines = 1)
+        AppText(text = label, variant = ROW_TEXT, underline = selected, maxLines = 1)
     }
 }
 
 /** Short explanatory copy, used for empty states and instructions. */
 @Composable
 fun Note(text: String, modifier: Modifier = Modifier) {
-    LightText(
+    AppText(
         text = text,
         variant = LightTextVariant.Fine,
         lighten = true,
@@ -205,9 +215,9 @@ fun StackRow(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(Modifier.weight(1f)) {
-            LightText(title, variant = ROW_TEXT, maxLines = 1, overflow = TextOverflow.Ellipsis)
+            AppText(title, variant = ROW_TEXT, maxLines = 1, overflow = TextOverflow.Ellipsis)
             lines.forEach { (text, maxLines) ->
-                LightText(
+                AppText(
                     text = text,
                     variant = LightTextVariant.Fine,
                     lighten = true,
@@ -266,7 +276,7 @@ class ConfirmScreen(
             ),
         ) {
             Box(Modifier.weight(1f).fillMaxWidth(), contentAlignment = Alignment.Center) {
-                LightText(text = message, variant = LightTextVariant.Copy, align = TextAlign.Center)
+                AppText(text = message, variant = LightTextVariant.Copy, align = TextAlign.Center)
             }
         }
     }

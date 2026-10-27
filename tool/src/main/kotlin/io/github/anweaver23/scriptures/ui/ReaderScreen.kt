@@ -2,6 +2,11 @@ package io.github.anweaver23.scriptures.ui
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.spring
+import androidx.compose.foundation.layout.Box
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.pointer.PointerEventPass
+import kotlinx.coroutines.withTimeoutOrNull
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
@@ -115,11 +120,21 @@ private const val MARKER_TOUCH_SLOP_PX = 28f
 /** Extra room either side of a word that still counts as tapping it, in px. */
 private const val WORD_TOUCH_SLOP_PX = 6f
 
-/** A swipe turns the chapter when it travels this share of the screen width sideways... */
+/** A sideways drag turns the chapter when released past this share of the width. */
 private const val SWIPE_MIN_FRACTION = 0.2f
 
-/** ...and is at least this many times wider than it is tall. */
+/** A drag counts as sideways (a page turn, not a scroll) when it's this many times wider than tall. */
 private const val SWIPE_RATIO = 1.5f
+
+/** How much the page gives when there's no chapter that way. */
+private const val EDGE_RESISTANCE = 0.25f
+
+/** Page slide timings: off screen, then the new chapter in. */
+private const val PAGE_OUT_MS = 160
+private const val PAGE_IN_MS = 220
+
+/** Longest wait for the next chapter's text before sliding it in anyway. */
+private const val PAGE_LOAD_WAIT_MS = 1500L
 
 /** Space above a focused verse when scrolling to it, in grid units. */
 private const val FOCUS_TOP_MARGIN_UNITS = 0.5f
@@ -193,6 +208,9 @@ class ReaderViewModel(start: Target.Chapter, focusVerse: Int?, quietFocus: Boole
     fun previous() {
         neighbor(-1)?.let { load(it, null) }
     }
+
+    /** Whether there's a chapter to turn to in [delta]'s direction (1 = next, -1 = previous). */
+    fun canTurn(delta: Int) = neighbor(delta) != null
 
     fun next() {
         neighbor(1)?.let { load(it, null) }
@@ -397,7 +415,7 @@ class ReaderScreen(
         val annotations by viewModel.chapterAnnotations.collectAsState()
         val bookmarks by viewModel.chapterBookmarks.collectAsState()
         val find by viewModel.find.collectAsState()
-        val textSize by AppGraph.textSize.collectAsState()
+        val display by AppGraph.display.collectAsState()
         val index by viewModel.library.collectAsState()
         val hasAudio = index.hasAudio(chapter)
         val currentSelection = selection
@@ -450,13 +468,25 @@ class ReaderScreen(
             },
         ) {
             val list = displays
+            // The frame that reads sideways drags stays still; only the inner page slides, so drag
+            // distances are measured in steady coordinates.
+            Box(
+                Modifier
+                    .fillMaxSize()
+                    .pageSwipe(
+                        enabled = currentSelection == null,
+                        onDrag = ::dragPage,
+                        onRelease = ::releasePage,
+                    ),
+            ) {
+            Box(Modifier.fillMaxSize().graphicsLayer { translationX = pageOffset.value }) {
             if (list != null) {
                 ChapterText(
                     displays = list,
                     annotations = annotations,
                     selection = currentSelection?.range,
                     find = currentFind,
-                    textStyle = readerTextStyle(textSize.scale),
+                    textStyle = readerTextStyle(display.textSize.scale, display.lineSpacing),
                     scrollState = viewModel.scrollState,
                     focus = viewModel.focus,
                     onFocusHandled = viewModel::focusHandled,
@@ -464,9 +494,39 @@ class ReaderScreen(
                     onLongPress = viewModel::startSelection,
                     onDrag = viewModel::extendSelection,
                     onWordTap = { pos -> handle(viewModel.onWordTap(pos)) },
-                    onSwipe = { direction -> if (direction > 0) viewModel.next() else viewModel.previous() },
                     onMarkerTap = { verse, marker -> handle(viewModel.onMarkerTap(verse, marker)) },
                 )
+            }
+            }
+            }
+        }
+    }
+
+    /** How far the page is slid sideways, in px. Lives on the screen so it outlasts recomposition. */
+    private val pageOffset = Animatable(0f)
+
+    /** Follows the finger. Past the first or last chapter the page only gives a little. */
+    private fun dragPage(dx: Float) {
+        val direction = if (dx < 0) 1 else -1
+        val target = if (viewModel.canTurn(direction)) dx else dx * EDGE_RESISTANCE
+        viewModel.viewModelScope.launch { pageOffset.snapTo(target) }
+    }
+
+    /**
+     * Far enough: the page slides off, the next chapter loads and slides in from the other side.
+     * Otherwise it springs back, so a drag started by accident can be slid back.
+     */
+    private fun releasePage(dx: Float, width: Float) {
+        val direction = if (dx < 0) 1 else -1
+        viewModel.viewModelScope.launch {
+            if (abs(dx) > width * SWIPE_MIN_FRACTION && viewModel.canTurn(direction)) {
+                pageOffset.animateTo(-direction * width, tween(PAGE_OUT_MS))
+                if (direction > 0) viewModel.next() else viewModel.previous()
+                pageOffset.snapTo(direction * width)
+                withTimeoutOrNull(PAGE_LOAD_WAIT_MS) { viewModel.displays.first { it != null } }
+                pageOffset.animateTo(0f, tween(PAGE_IN_MS))
+            } else {
+                pageOffset.animateTo(0f, spring())
             }
         }
     }
@@ -541,7 +601,6 @@ private fun ChapterText(
     onDrag: (WordPos) -> Unit,
     onWordTap: (WordPos?) -> Unit,
     onMarkerTap: (Int, MarkerSpan) -> Unit,
-    onSwipe: (Int) -> Unit,
 ) {
     val colors = LightThemeTokens.colors
     val geometry = remember(displays) { mutableStateMapOf<Int, VerseGeometry>() }
@@ -610,7 +669,6 @@ private fun ChapterText(
     val currentOnDrag by rememberUpdatedState(onDrag)
     val currentOnWordTap by rememberUpdatedState(onWordTap)
     val currentOnMarkerTap by rememberUpdatedState(onMarkerTap)
-    val currentOnSwipe by rememberUpdatedState(onSwipe)
 
     LightScrollView(Modifier.fillMaxSize(), scrollState = scrollState) {
         Column(
@@ -621,7 +679,6 @@ private fun ChapterText(
                         val down = awaitFirstDown(requireUnconsumed = false)
                         val slop = viewConfiguration.touchSlop
                         var tapAt: Offset? = null
-                        var movedTo: Offset? = null
                         // Wait for the long-press timeout. Lifting first is a tap; moving past touch
                         // slop first is a scroll, which we leave to the scroll view by not consuming.
                         val held = withTimeoutOrNull(viewConfiguration.longPressTimeoutMillis) {
@@ -631,32 +688,10 @@ private fun ChapterText(
                                     if (!change.isConsumed) tapAt = change.position
                                     break
                                 }
-                                if (change.isConsumed) break
-                                if ((change.position - down.position).getDistance() > slop) {
-                                    movedTo = change.position
-                                    break
-                                }
+                                if (change.isConsumed || (change.position - down.position).getDistance() > slop) break
                             }
                         } == null
                         val geo = currentGeometry
-                        val moved = movedTo
-                        if (!held && moved != null) {
-                            // Mostly sideways: follow it to the end and turn the page if it went far
-                            // enough. Not consumed, so a drift up or down still scrolls.
-                            val first = moved - down.position
-                            if (abs(first.x) <= abs(first.y)) return@awaitEachGesture
-                            var last = moved
-                            while (true) {
-                                val change = awaitPointerEvent().changes.firstOrNull { it.id == down.id } ?: break
-                                last = change.position
-                                if (change.changedToUpIgnoreConsumed()) break
-                            }
-                            val d = last - down.position
-                            if (abs(d.x) > size.width * SWIPE_MIN_FRACTION && abs(d.x) > SWIPE_RATIO * abs(d.y)) {
-                                currentOnSwipe(if (d.x < 0) 1 else -1)
-                            }
-                            return@awaitEachGesture
-                        }
                         if (!held) {
                             tapAt?.let { at ->
                                 when (val hit = hitTest(geo, displays, at, strict = true)) {
@@ -717,16 +752,16 @@ private fun ChapterText(
 }
 
 /**
- * Paragraph style, scaled to the screen the way LightText scales it, then by the text size
- * setting's [scale].
+ * Paragraph style, scaled to the screen the way LightText scales it, then by the Display text size
+ * [scale] and line [spacing].
  */
 @Composable
-fun readerTextStyle(scale: Float): TextStyle {
+fun readerTextStyle(scale: Float, spacing: Float): TextStyle {
     val base = LightThemeTokens.typography.paragraph
     return base.copy(
         color = LightThemeTokens.colors.content,
         fontSize = (base.fontSize.value * scale).designVerticalPxToSp(),
-        lineHeight = (base.lineHeight.value * scale).designVerticalPxToSp(),
+        lineHeight = (base.lineHeight.value * scale * spacing).designVerticalPxToSp(),
     )
 }
 
@@ -830,4 +865,46 @@ private fun hitTest(
     val sameLine = layout.getLineForOffset(start) == layout.getLineForOffset(end - 1)
     if (sameLine && local.x !in left..right) return Hit.Nothing
     return Hit.Word(WordPos(verse, word))
+}
+
+/**
+ * Sideways page drags, read in the Initial pass so they win over the text's own tap / long-press /
+ * scroll handling. A drag is claimed once it passes touch slop mostly sideways and before the
+ * long-press timeout (holding still first means selecting text, so it's left alone); from then on
+ * it's consumed, so nothing scrolls. Off while [enabled] is false (a selection is active).
+ */
+private fun Modifier.pageSwipe(
+    enabled: Boolean,
+    onDrag: (Float) -> Unit,
+    onRelease: (dx: Float, width: Float) -> Unit,
+): Modifier = pointerInput(enabled) {
+    if (!enabled) return@pointerInput
+    awaitEachGesture {
+        val down = awaitFirstDown(requireUnconsumed = false, pass = PointerEventPass.Initial)
+        val slop = viewConfiguration.touchSlop
+        var dragging = false
+        var dx = 0f
+        while (true) {
+            val change = awaitPointerEvent(PointerEventPass.Initial).changes.firstOrNull { it.id == down.id }
+            if (change == null) {
+                if (dragging) onRelease(dx, size.width.toFloat())
+                break
+            }
+            val d = change.position - down.position
+            if (!dragging) {
+                if (change.changedToUpIgnoreConsumed() || change.isConsumed) break
+                if (change.uptimeMillis - down.uptimeMillis > viewConfiguration.longPressTimeoutMillis) break
+                if (d.getDistance() <= slop) continue
+                if (abs(d.x) < SWIPE_RATIO * abs(d.y)) break
+                dragging = true
+            }
+            change.consume()
+            dx = d.x
+            if (change.changedToUpIgnoreConsumed()) {
+                onRelease(dx, size.width.toFloat())
+                break
+            }
+            onDrag(dx)
+        }
+    }
 }

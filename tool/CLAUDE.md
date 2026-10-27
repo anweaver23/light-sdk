@@ -89,9 +89,9 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-10-26 Never a star for bookmarks:** bookmarks always use our `ic_bookmark` glyph, everywhere.
 - **2026-10-26 Every landing page has a "…" menu** (`LightIcons.ELLIPSES`, top right) built with
   `pageMenu(items)` in `ui/MenuScreen.kt`. Each page passes its own items, and **Add audio** is always
-  appended. A chosen item runs on the opening page after the menu closes. Home: Annotations. Reader:
-  Bookmark / Remove bookmark, Find in chapter. Bookmarks / Annotations: Remove ... (DONE then takes the
-  top-right slot). Sub-views (Define, footnote, highlight detail, editors, Add audio itself) have none.
+  appended, then **Display** and **Add audio**. A chosen item runs on the opening page after the menu
+  closes. Home: Annotations. Reader: Bookmark / Remove bookmark, Find in chapter. Bookmarks /
+  Annotations: Edit … (DONE then takes the top-right slot). Sub-views (Define, footnote, highlight detail, editors, Add audio itself) have none.
 - **2026-10-26 Find in chapter:** case-insensitive, verse numbers skipped, footnote markers ignored
   (`core/Find.kt`). Matches get a translucent background (`FIND_ALPHA`, current `FIND_CURRENT_ALPHA`);
   a find bar (close · PREV · n OF m · NEXT) replaces the bottom bar and scrolls only when the match is
@@ -104,7 +104,7 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   It scales the reader text, the note editor and the home tile titles.
 - **2026-10-26 Home tiles are square** and follow the text size: 3 columns at Small/Default, 2 at
   Large and up (the grid scrolls then, and the tiles leave room for the scroll bar gutter). Home bar:
-  Settings (left) · Search (middle) · Bookmarks (right). Annotations and Add audio are in the "…" menu;
+  Settings · Search · Bookmarks · Annotations (`ic_notebook`). Annotations is in the "…" menu too;
   Add audio is also in Settings. No Add audio row on home.
 - **2026-10-26 Note editor is full screen, like LightOS Notes:** reading-size text fills the page (no
   field underline), scrolls to keep the caret in view, Return is a new line, SAVE returns the text. It
@@ -116,14 +116,19 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-10-26 Reopen where you left off:** no Continue reading button anywhere. On launch, home opens the
   reader at the last chapter and top verse (`ProgressStore.lastRead`/`lastReadVerse`) once per process
   (`AppGraph.resumedReading`), scrolled there without the focus mark. Back returns to home.
-- **2026-10-26 Chapters turn by swiping:** no Prev/Next. A mostly sideways swipe (≥ 20% of the width and
-  1.5× wider than tall) on the text goes to the next/previous chapter, crossing books. The bottom bar only
+- **2026-10-26 Chapters turn by swiping:** no Prev/Next. The page follows the finger (`pageSwipe`, read
+  in the Initial pass on a frame that doesn't move, so it beats tap/long-press/scroll); released past
+  20% of the width it slides off and the next chapter slides in, otherwise it springs back. Claimed only
+  when the drag passes slop mostly sideways (1.5×) before the long-press timeout, and never while a
+  selection is active. Past the first/last chapter it only gives a little (`EDGE_RESISTANCE`). The bottom bar only
   shows when the chapter has audio (Listen).
-- **2026-10-26 Home tiles are plain outlines:** the spine (second line) is gone.
+- **2026-10-26 Home tiles are plain outlines:** the spine (second line) is gone; the outline is
+  `contentSecondary` (lighter grey) so it frames the title without competing.
 - **2026-10-26 Search reads references** (`core/References.kt`): "genesis" lists the book (opens its
   chapter grid), "genesis 1" the chapter, "1 ne 3:7" the verse; "jude 5" in a one-chapter book is a
   verse. Titles and abbreviations match exactly, or by title prefix (3+ letters); exact beats prefix.
-  References list above the full-text verse results, which still run.
+  References list above the full-text verse results, which still run. The results title is the search
+  term in quotes.
 - **2026-10-26 Lists and menus follow LightOS** (matched to the chess tool's Settings / pickers, which
   match the system): rows are `ROW_TEXT` (Subheading) text, `ROW_UNITS` 4 tall (a unit above and below),
   a value sits dimmed on the right at the same size (`ListRow`), the current choice in a picker is
@@ -133,7 +138,27 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   (`TextSizeScreen`), not inline radio rows.
 - **2026-10-26 Note tools:** holding anywhere in the note (empty space included) replaces the keys with
   Copy (whole note) / Paste (at caret) / Clear, using the LP3 keyboard's `overlay` slot; its close arrow
-  brings the keys back. The keyboard has no clipboard support of its own.
+  brings the keys back. The keyboard has no clipboard support of its own. Labels are Button type (caps).
+  `onOverlayDismissed` is passed only while the tools show, or the keyboard's own down arrow (numbers,
+  emoji) stops working.
+- **2026-10-27 Display settings** (`DisplayScreen`, from Settings and every "…" menu): text size (picker),
+  line spacing (slider over `LineSpacing.STEPS`, snapping, no drawn notches, a haptic per step) and
+  invert colours (Light toggle). Size and spacing pickers show a preview. Stored in `SettingsStore`,
+  shared as `AppGraph.display`.
+- **2026-10-27 Display applies to all content, never chrome:** `ScreenFrame` provides `LocalTextScale` to
+  its content area only; content text uses `AppText` (LightText's look, scaled) and rows size with
+  `rowUnits()`. Top bar, bottom bars and menus (`scaleContent = false`) use plain `LightText`. Every screen
+  draws inside `AppTheme` (never `LightTheme` directly): it applies invert colours and the haptics fallback.
+- **2026-10-27 Haptics fallback:** a sideloaded (not Light-signed) tool is refused a LightOS service token,
+  so `LocalHapticsEnabled` stays false and every tap is silent. `AppTheme` provides it as
+  `sdk || HAPTICS_FALLBACK`, as the chess tool does. Keyboard keys use `HapticFeedbackType.VirtualKey`.
+- **2026-10-27 Greek and Hebrew fonts:** Akkurat (LightOS) has 6 of the 133 Greek characters in Strong's,
+  no Hebrew points and a few transliteration letters missing. `withScriptFonts()` sets runs of those
+  scripts in the LP3's Roboto / Noto Sans Hebrew (`/system/fonts`, falling back to sans-serif). Every
+  character in the bundled data was checked against those fonts. Root links in Define are underlined.
+- **2026-10-27 Material Symbols when Light has no glyph:** Outlined, weight 300 (matches Light's stroke),
+  viewport cropped to the art so it fills the box like Light's glyphs, white and tinted by `tintedIcon()`.
+  Apache 2.0; source and licence noted in the drawable.
 
 ## Hard rules
 
@@ -197,6 +222,10 @@ adb -s emulator-5554 shell am start -n com.andyweaver.scriptures/com.thelightpho
   URL it shows (including the `#token`) in a desktop browser.
 - **Prefix `MSYS_NO_PATHCONV=1`** to any adb command that carries a device-absolute path (Git Bash mangles it).
 - **Pass `-s <serial>`** whenever the phone and the emulator are both attached.
+- **Screen state trap:** navigating away takes a screen out of composition, so `remember`ed state is
+  gone when it returns, and a menu callback that sets it changes a dead copy. Keep state that must
+  survive a trip to another screen (e.g. an Edit mode) in a view model or a `mutableStateOf` field on the
+  screen.
 - **Compose view-model trap:** fields read by a `MutableStateFlow(buildState())` initializer must be declared
   *above* it, or they're null at construction. Unit tests don't catch this; only the emulator does.
 

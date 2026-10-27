@@ -55,8 +55,7 @@ import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightBottomBar
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightText
-import com.thelightphone.sdk.ui.LightTheme
-import com.thelightphone.sdk.ui.LightThemeController
+import com.thelightphone.sdk.ui.LightTextVariant
 import com.thelightphone.sdk.ui.LightThemeTokens
 import com.thelightphone.sdk.ui.LightTopBar
 import com.thelightphone.sdk.ui.LightTopBarCenter
@@ -66,6 +65,9 @@ import com.thelightphone.sdk.ui.lightClickable
 import com.thelightphone.sdk.ui.keyboard.LightEmbeddedLp3Keyboard
 import io.github.anweaver23.scriptures.data.AppGraph
 import kotlinx.coroutines.flow.StateFlow
+
+/** Height of each COPY / PASTE / CLEAR row in the keyboard area, in grid units. */
+private const val TOOL_ROW_UNITS = 4f
 
 /** Space between the bottom of the cursor's line and the keyboard when the note scrolls, in grid units. */
 private const val CURSOR_MARGIN_UNITS = 1f
@@ -95,16 +97,16 @@ class NoteEditorScreen(
 
     @Composable
     override fun Content() {
-        val colors by LightThemeController.colors.collectAsState()
-        val textSize by AppGraph.textSize.collectAsState()
+        val display by AppGraph.display.collectAsState()
         val keyboardOptions = rememberKeyboardOptions()
         val haptics = LocalHapticFeedback.current
-        val hapticsOn by rememberUpdatedState(LocalHapticsEnabled.current)
+        // Read out here, outside AppTheme, so apply the same fallback AppTheme does (see HAPTICS_FALLBACK).
+        val hapticsOn by rememberUpdatedState(LocalHapticsEnabled.current || HAPTICS_FALLBACK)
         val state = viewModel.text
         val keyboard = remember {
             keyboardViewModel(
                 NoteKeyboardCallback(state) {
-                    if (hapticsOn) haptics.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                    if (hapticsOn) haptics.performHapticFeedback(HapticFeedbackType.VirtualKey)
                 },
                 keyboardOptions,
                 initialCaps = initial.isEmpty(),
@@ -114,7 +116,7 @@ class NoteEditorScreen(
         // Holding the note swaps the keys for Copy / Paste / Clear; the keyboard's close arrow brings them back.
         var tools by remember { mutableStateOf(false) }
 
-        LightTheme(colors = colors) {
+        AppTheme {
             Column(
                 Modifier
                     .fillMaxSize()
@@ -124,7 +126,7 @@ class NoteEditorScreen(
                     leftButton = LightBarButton.LightIcon(LightIcons.BACK, onClick = { goBack(null) }),
                     center = LightTopBarCenter.Text(title),
                 )
-                NoteBody(state, readerTextStyle(textSize.scale), Modifier.weight(1f), onLongPress = { tools = true })
+                NoteBody(state, readerTextStyle(display.textSize.scale, display.lineSpacing), Modifier.weight(1f), onLongPress = { tools = true })
                 // The same extra bottom room LightTextInputEditor gives the keyboard.
                 LightEmbeddedLp3Keyboard(
                     viewModel = keyboard,
@@ -134,7 +136,13 @@ class NoteEditorScreen(
                             items = listOf(LightBarButton.Text("SAVE", onClick = { goBack(state.text.toString()) })),
                         )
                     },
-                    onOverlayDismissed = { tools = false },
+                    // Only while the tools show: otherwise the keyboard's own down arrow (numbers,
+                    // emoji) must reach the keyboard, not this.
+                    onOverlayDismissed = if (tools) {
+                        { tools = false }
+                    } else {
+                        null
+                    },
                     overlay = if (tools) {
                         { NoteTools(state, onDone = { tools = false }) }
                     } else {
@@ -241,11 +249,11 @@ private fun NoteTools(state: TextFieldState, onDone: () -> Unit) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        ToolRow("Copy") {
+        ToolRow("COPY") {
             clipboard.setText(AnnotatedString(state.text.toString()))
             onDone()
         }
-        ToolRow("Paste") {
+        ToolRow("PASTE") {
             val pasted = clipboard.getText()?.text.orEmpty()
             if (pasted.isNotEmpty()) {
                 state.edit {
@@ -256,7 +264,7 @@ private fun NoteTools(state: TextFieldState, onDone: () -> Unit) {
             }
             onDone()
         }
-        ToolRow("Clear") {
+        ToolRow("CLEAR") {
             state.edit { replace(0, length, "") }
             onDone()
         }
@@ -268,11 +276,12 @@ private fun ToolRow(label: String, onClick: () -> Unit) {
     Box(
         Modifier
             .fillMaxWidth()
-            .height(ROW_UNITS.gridUnitsAsDp())
+            .height(TOOL_ROW_UNITS.gridUnitsAsDp())
             .lightClickable(onClick = onClick),
         contentAlignment = Alignment.Center,
     ) {
-        LightText(text = label, variant = ROW_TEXT)
+        // Button type: these are actions, in caps like every LightOS button.
+        LightText(text = label, variant = LightTextVariant.Button)
     }
 }
 

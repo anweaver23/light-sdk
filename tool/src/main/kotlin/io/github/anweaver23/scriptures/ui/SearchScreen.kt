@@ -20,11 +20,8 @@ import com.thelightphone.sdk.rememberKeyboardOptions
 import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightScrollView
-import com.thelightphone.sdk.ui.LightText
 import com.thelightphone.sdk.ui.LightTextInputEditor
 import com.thelightphone.sdk.ui.LightTextVariant
-import com.thelightphone.sdk.ui.LightTheme
-import com.thelightphone.sdk.ui.LightThemeController
 import com.thelightphone.sdk.ui.LightThemeTokens
 import com.thelightphone.sdk.ui.gridUnitsAsDp
 import com.thelightphone.sdk.ui.lightClickable
@@ -138,11 +135,10 @@ class SearchScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, Sear
     @Composable
     private fun Editor() {
         val session by viewModel.editorSession.collectAsState()
-        val colors by LightThemeController.colors.collectAsState()
         val keyboardOptions = rememberKeyboardOptions()
         key(session) {
             val text = rememberTextFieldState(viewModel.lastQuery)
-            LightTheme(colors = colors) {
+            AppTheme {
                 LightTextInputEditor(
                     title = "Search",
                     state = text,
@@ -162,23 +158,13 @@ class SearchScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, Sear
 
     @Composable
     private fun Results(query: String, body: @Composable () -> Unit) {
+        // The search term, in quotes, is the title; the search icon below edits it.
         ScreenFrame(
-            title = "Search",
+            title = "“$query”",
             onBack = { goBack() },
             rightButton = pageMenu(),
             bottomBar = listOf(LightBarButton.LightIcon(LightIcons.SEARCH, onClick = viewModel::edit)),
         ) {
-            // The query itself; tapping it edits it.
-            LightText(
-                text = query,
-                variant = ROW_TEXT,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .lightClickable(onClick = viewModel::edit)
-                    .padding(bottom = 0.5f.gridUnitsAsDp()),
-            )
             body()
         }
     }
@@ -234,13 +220,13 @@ class SearchScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, Sear
                 }
                 .padding(bottom = RESULT_GAP_UNITS.gridUnitsAsDp()),
         ) {
-            LightText(
+            AppText(
                 text = catalog.verseLabel(hit.ref),
                 variant = ROW_TEXT,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
-            LightText(
+            AppText(
                 text = Search.snippet(hit.verse, hit.matchStart),
                 variant = LightTextVariant.Fine,
                 lighten = true,

@@ -6,7 +6,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.thelightphone.sdk.SealedLightActivity
@@ -25,6 +24,10 @@ import kotlinx.coroutines.launch
  * (Where you left off isn't listed: the app reopens there on launch.)
  */
 class BookmarksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
+    // On the screen, not in remember: opening the "…" menu takes this screen out of composition, so
+    // remembered state would be gone (and the menu's "Edit" would set a dead copy).
+    private var editing by mutableStateOf(false)
+
     init {
         AppGraph.init(lightContext)
     }
@@ -33,7 +36,6 @@ class BookmarksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<U
     override fun Content() {
         val catalog = AppGraph.catalog
         val bookmarks by AppGraph.study.bookmarks.collectAsState()
-        var editing by remember { mutableStateOf(false) }
         LaunchedEffect(Unit) { AppGraph.study.load() }
         val sorted = bookmarks.sortedByDescending { it.createdAt }
 
@@ -45,7 +47,7 @@ class BookmarksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<U
             } else {
                 pageMenu(
                     listOfNotNull(
-                        MenuItem("Remove bookmarks") { editing = true }
+                        MenuItem("Edit bookmarks") { editing = true }
                             .takeIf { sorted.isNotEmpty() },
                     ),
                 )

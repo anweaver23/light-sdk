@@ -28,10 +28,7 @@ import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightScrollBarPosition
 import com.thelightphone.sdk.ui.LightScrollView
-import com.thelightphone.sdk.ui.LightText
 import com.thelightphone.sdk.ui.LightTextVariant
-import com.thelightphone.sdk.ui.LightTheme
-import com.thelightphone.sdk.ui.LightThemeController
 import com.thelightphone.sdk.ui.gridUnitsAsDp
 import com.thelightphone.sdk.ui.lightClickable
 import com.andyweaver.scriptures.R
@@ -65,7 +62,7 @@ const val QUIET_ROW_UNITS = 2.25f
 class HomeViewModel : LightViewModel<Unit>() {
     val catalog: Catalog = AppGraph.catalog
     val lastPlayed = AppGraph.progress.lastPlayed.stateIn(viewModelScope, SharingStarted.Eagerly, null)
-    val textSize = AppGraph.textSize
+    val display = AppGraph.display
 
     override fun onScreenShow(screen: SimpleLightScreen<Unit>) {
         super.onScreenShow(screen)
@@ -89,9 +86,9 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
     @Composable
     override fun Content() {
         val lastPlayed by viewModel.lastPlayed.collectAsState()
-        val textSize by viewModel.textSize.collectAsState()
+        val display by viewModel.display.collectAsState()
+        val textSize = display.textSize
         val catalog = viewModel.catalog
-        val colors by LightThemeController.colors.collectAsState()
 
         // On launch, open the scriptures where the user left off (Back returns here).
         LaunchedEffect(Unit) {
@@ -107,7 +104,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
 
         // ScreenFrame applies the theme too; this outer one is only so the bookmark glyph picks up
         // the theme's content colour.
-        LightTheme(colors = colors) {
+        AppTheme {
             ScreenFrame(
                 title = "Scriptures",
                 onBack = null,
@@ -129,6 +126,11 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
                         painter = tintedIcon(R.drawable.ic_bookmark),
                         onClick = { navigateTo({ BookmarksScreen(it) }) },
                         contentDescription = "Bookmarks",
+                    ),
+                    LightBarButton.Icon(
+                        painter = tintedIcon(R.drawable.ic_notebook),
+                        onClick = { navigateTo({ AnnotationsScreen(it) }) },
+                        contentDescription = "Annotations",
                     ),
                 ),
             ) {
@@ -194,7 +196,7 @@ private fun QuietRow(label: String, detail: String?, onClick: () -> Unit) {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
-        LightText(
+        AppText(
             text = label,
             variant = LightTextVariant.Fine,
             lighten = true,
@@ -203,7 +205,7 @@ private fun QuietRow(label: String, detail: String?, onClick: () -> Unit) {
             modifier = Modifier.weight(1f),
         )
         if (detail != null) {
-            LightText(
+            AppText(
                 text = detail,
                 variant = LightTextVariant.Fine,
                 lighten = true,

@@ -14,8 +14,6 @@ import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightScrollView
 import com.thelightphone.sdk.ui.LightTextInputEditor
-import com.thelightphone.sdk.ui.LightTheme
-import com.thelightphone.sdk.ui.LightThemeController
 import com.thelightphone.sdk.ui.LightThemeTokens
 import io.github.anweaver23.scriptures.data.AppGraph
 
@@ -30,13 +28,13 @@ class MenuItem(
 )
 
 /**
- * The "…" button for a page's top bar. Opens [MenuScreen] with [items], then Add audio, which every
- * page's menu ends with.
+ * The "…" button for a page's top bar. Opens [MenuScreen] with [items], then Display and Add audio,
+ * which every page's menu ends with.
  */
 @Composable
 fun SimpleLightScreen<*>.pageMenu(items: List<MenuItem> = emptyList()): LightBarButton {
     val pending by AppGraph.importer.pending.collectAsState()
-    val all = items + MenuItem(
+    val all = items + MenuItem("Display") { navigateTo(::DisplayScreen) } + MenuItem(
         label = "Add audio",
         detail = if (pending.isEmpty()) null else "${pending.size} to review",
     ) { navigateTo(::AddAudioScreen) }
@@ -55,7 +53,7 @@ class MenuScreen(
 
     @Composable
     override fun Content() {
-        ScreenFrame(title = "Menu", onBack = { goBack() }) {
+        ScreenFrame(title = "Menu", onBack = { goBack() }, scaleContent = false) {
             LightScrollView(Modifier.fillMaxSize()) {
                 items.forEachIndexed { i, item -> ListRow(item.label, item.detail) { goBack(i) } }
             }
@@ -73,8 +71,7 @@ class FindInputScreen(
     override fun Content() {
         val keyboardOptions = rememberKeyboardOptions()
         val state = rememberTextFieldState(initial)
-        val colors by LightThemeController.colors.collectAsState()
-        LightTheme(colors = colors) {
+        AppTheme {
             LightTextInputEditor(
                 title = "Find in chapter",
                 state = state,

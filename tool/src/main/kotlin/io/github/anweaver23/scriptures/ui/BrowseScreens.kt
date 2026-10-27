@@ -15,7 +15,6 @@ import androidx.compose.ui.text.style.TextAlign
 import com.thelightphone.sdk.SealedLightActivity
 import com.thelightphone.sdk.SimpleLightScreen
 import com.thelightphone.sdk.ui.LightScrollView
-import com.thelightphone.sdk.ui.LightText
 import com.thelightphone.sdk.ui.gridUnitsAsDp
 import com.thelightphone.sdk.ui.lightClickable
 import io.github.anweaver23.scriptures.core.Target
@@ -103,7 +102,7 @@ fun NumberGrid(numbers: List<Int>, isMarked: (Int) -> Boolean, onClick: (Int) ->
                             .lightClickable { onClick(number) },
                         contentAlignment = Alignment.Center,
                     ) {
-                        LightText(
+                        AppText(
                             text = number.toString(),
                             variant = ROW_TEXT,
                             align = TextAlign.Center,

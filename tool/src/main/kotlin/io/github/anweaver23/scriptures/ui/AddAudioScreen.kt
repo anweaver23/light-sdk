@@ -10,7 +10,6 @@ import androidx.compose.ui.Modifier
 import com.thelightphone.sdk.SealedLightActivity
 import com.thelightphone.sdk.SimpleLightScreen
 import com.thelightphone.sdk.ui.LightScrollView
-import com.thelightphone.sdk.ui.LightText
 import com.thelightphone.sdk.ui.LightTextVariant
 import com.thelightphone.sdk.ui.gridUnitsAsDp
 import io.github.anweaver23.scriptures.core.ImportDecision
@@ -53,7 +52,7 @@ class AddAudioScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Un
                 }
 
                 if (pending.isNotEmpty()) {
-                    LightText(
+                    AppText(
                         text = "Needs review (${pending.size})",
                         variant = LightTextVariant.Subheading,
                         modifier = Modifier
@@ -93,7 +92,7 @@ class ReviewFileScreen(sealedActivity: SealedLightActivity, private val item: Im
 
         ScreenFrame(title = "Review file", onBack = { goBack() }) {
             LightScrollView(Modifier.fillMaxSize()) {
-                LightText(file.relativePath, LightTextVariant.Copy, modifier = Modifier.fillMaxWidth())
+                AppText(file.relativePath, LightTextVariant.Copy, modifier = Modifier.fillMaxWidth())
                 Note("${file.kind.label}. ${item.reason.message}.")
                 if (item.reason != ImportDecision.Reason.WrongType) {
                     if (isAudio) {

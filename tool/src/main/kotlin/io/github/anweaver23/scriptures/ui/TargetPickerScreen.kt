@@ -90,7 +90,7 @@ class TargetPickerScreen(sealedActivity: SealedLightActivity, private val mode: 
                     }
                 } else {
                     ScreenFrame(hymnBook.title, back) {
-                        LightLazyScrollView(Modifier.fillMaxSize(), uniformItemHeightGridUnits = ROW_UNITS) {
+                        LightLazyScrollView(Modifier.fillMaxSize(), uniformItemHeightGridUnits = rowUnits()) {
                             items(hymnBook.hymns, key = { it.n }) { hymn ->
                                 ListRow("${hymn.n}  ${hymn.title}") { goBack(Target.HymnRef(hymnBook.id, hymn.n)) }
                             }

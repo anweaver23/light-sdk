@@ -16,7 +16,6 @@ import com.thelightphone.sdk.SimpleLightScreen
 import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightLazyScrollView
 import com.thelightphone.sdk.ui.LightScrollView
-import com.thelightphone.sdk.ui.LightText
 import com.thelightphone.sdk.ui.LightTextVariant
 import io.github.anweaver23.scriptures.core.Target
 import io.github.anweaver23.scriptures.data.AppGraph
@@ -57,7 +56,7 @@ class HymnListScreen(sealedActivity: SealedLightActivity, private val hymnBookId
         val index by AppGraph.library.index.collectAsState()
 
         ScreenFrame(title = book.title, onBack = { goBack() }, rightButton = pageMenu()) {
-            LightLazyScrollView(Modifier.fillMaxSize(), uniformItemHeightGridUnits = ROW_UNITS) {
+            LightLazyScrollView(Modifier.fillMaxSize(), uniformItemHeightGridUnits = rowUnits()) {
                 items(book.hymns, key = { it.n }) { hymn ->
                     val target = Target.HymnRef(book.id, hymn.n)
                     val detail = listOfNotNull(
@@ -104,7 +103,7 @@ class HymnScreen(sealedActivity: SealedLightActivity, private val target: Target
             LightScrollView(Modifier.fillMaxSize()) {
                 val text = lyrics
                 if (text != null) {
-                    LightText(text = text.trim(), variant = LightTextVariant.Paragraph, modifier = Modifier.fillMaxWidth())
+                    AppText(text = text.trim(), variant = LightTextVariant.Paragraph, modifier = Modifier.fillMaxWidth())
                 } else {
                     Note(
                         "No words saved for this hymn. To add them, upload a text file named " +

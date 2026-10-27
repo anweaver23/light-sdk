@@ -9,7 +9,7 @@ import io.github.anweaver23.scriptures.core.Dictionary
 import io.github.anweaver23.scriptures.core.OriginalLanguage
 import io.github.anweaver23.scriptures.core.FileMatcher
 import io.github.anweaver23.scriptures.core.FootnoteSource
-import io.github.anweaver23.scriptures.core.TextSize
+import io.github.anweaver23.scriptures.core.DisplaySettings
 import java.io.File
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
@@ -62,11 +62,11 @@ object AppGraph {
     var resumedReading: Boolean = false
 
     /**
-     * The text size setting, shared by every screen. Starts at the default until the first read, so
+     * The Display settings, shared by every screen. Starts at the defaults until the first read, so
      * screens can collect it without a null check.
      */
-    val textSize: StateFlow<TextSize> by lazy {
-        settings.textSize.stateIn(scope, SharingStarted.Eagerly, TextSize.DEFAULT)
+    val display: StateFlow<DisplaySettings> by lazy {
+        settings.display.stateIn(scope, SharingStarted.Eagerly, DisplaySettings())
     }
 
     /** Highlights, notes and bookmarks, as JSON in the private files dir. */
