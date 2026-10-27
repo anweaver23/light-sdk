@@ -116,7 +116,7 @@ class NoteEditorScreen(
         // Holding the note swaps the keys for Copy / Paste / Clear; the keyboard's close arrow brings them back.
         var tools by remember { mutableStateOf(false) }
 
-        AppTheme {
+        AppTheme(reading = true) {
             Column(
                 Modifier
                     .fillMaxSize()

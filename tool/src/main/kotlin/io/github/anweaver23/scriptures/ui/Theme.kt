@@ -5,7 +5,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
@@ -38,35 +37,25 @@ import io.github.anweaver23.scriptures.data.AppGraph
 const val HAPTICS_FALLBACK = true
 
 /**
- * How much the app's own content text is scaled (the Display text size). Line spacing isn't here: it
- * applies only to reading text (scripture and notes, via [readerTextStyle]), not to lists and labels.
- */
-data class TextScale(val size: Float = 1f)
-
-/**
- * The scale for content text. [ScreenFrame] provides the Display settings to its content area;
- * outside it (top bar, bottom bar) and in menus it stays 1, as LightOS chrome never scales.
- */
-val LocalTextScale = staticCompositionLocalOf { TextScale() }
-
-/**
- * [LightTheme] with the app's policies: Display's invert colours (light ⇄ dark) and the haptics
- * fallback. Every screen draws inside this, never [LightTheme] directly.
+ * [LightTheme] with the app's policies: the haptics fallback, and, on [reading] screens only (the
+ * reader, the note editor, a note), Display's invert colours (light ⇄ dark). Everything else is
+ * "system" UI and follows LightOS. Every screen draws inside this, never [LightTheme] directly.
  */
 @Composable
-fun AppTheme(content: @Composable () -> Unit) {
+fun AppTheme(reading: Boolean = false, content: @Composable () -> Unit) {
     val system by LightThemeController.colors.collectAsState()
     val display by AppGraph.display.collectAsState()
     val sdkHaptics = LocalHapticsEnabled.current
+    val colors = if (reading && display.invertColors) inverted(system) else system
     CompositionLocalProvider(LocalHapticsEnabled provides (sdkHaptics || HAPTICS_FALLBACK)) {
-        LightTheme(colors = if (display.invertColors) inverted(system) else system) { content() }
+        LightTheme(colors = colors) { content() }
     }
 }
 
-private fun inverted(colors: LightColors): LightColors =
+fun inverted(colors: LightColors): LightColors =
     if (colors == LightThemeColors.Dark) LightThemeColors.Light else LightThemeColors.Dark
 
-/** The Light style for [variant], at screen scale, then scaled by [LocalTextScale]. */
+/** The Light style for [variant], at screen scale, exactly as LightText draws it. */
 @Composable
 fun appTextStyle(variant: LightTextVariant): TextStyle {
     val t = LightThemeTokens.typography
@@ -84,21 +73,20 @@ fun appTextStyle(variant: LightTextVariant): TextStyle {
         LightTextVariant.Superfine -> t.superfine
         LightTextVariant.Micro -> t.micro
     }
-    val scale = LocalTextScale.current
     return base.copy(
-        fontSize = base.fontSize.scaled(scale.size),
-        lineHeight = base.lineHeight.scaled(scale.size),
-        letterSpacing = base.letterSpacing.scaled(scale.size),
+        fontSize = base.fontSize.scaled(),
+        lineHeight = base.lineHeight.scaled(),
+        letterSpacing = base.letterSpacing.scaled(),
     )
 }
 
 @Composable
-private fun TextUnit.scaled(by: Float): TextUnit =
-    if (this == TextUnit.Unspecified) this else (value * by).designVerticalPxToSp()
+private fun TextUnit.scaled(): TextUnit =
+    if (this == TextUnit.Unspecified) this else value.designVerticalPxToSp()
 
 /**
- * The app's content text: [com.thelightphone.sdk.ui.LightText]'s look and arguments, but following
- * the Display text size ([LocalTextScale]). Use LightText only for chrome.
+ * [com.thelightphone.sdk.ui.LightText]'s look and arguments, plus styled text ([withScriptFonts]) and a
+ * font override. "System" text: fixed at Light's sizes; only reading text follows Display settings.
  */
 @Composable
 fun AppText(
@@ -192,9 +180,3 @@ fun withScriptFonts(text: String): AnnotatedString = buildAnnotatedString {
     close(clean.length)
 }
 
-/**
- * Height of one list row in grid units: a line of row text with a unit above and below. 4 at the
- * default size, growing with text size so larger text never crowds the rows.
- */
-@Composable
-fun rowUnits(): Float = 2f + 2f * LocalTextScale.current.size

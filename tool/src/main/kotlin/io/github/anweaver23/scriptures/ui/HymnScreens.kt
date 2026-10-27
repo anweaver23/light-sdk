@@ -56,7 +56,7 @@ class HymnListScreen(sealedActivity: SealedLightActivity, private val hymnBookId
         val index by AppGraph.library.index.collectAsState()
 
         ScreenFrame(title = book.title, onBack = { goBack() }, rightButton = pageMenu()) {
-            LightLazyScrollView(Modifier.fillMaxSize(), uniformItemHeightGridUnits = rowUnits()) {
+            LightLazyScrollView(Modifier.fillMaxSize(), uniformItemHeightGridUnits = ROW_UNITS) {
                 items(book.hymns, key = { it.n }) { hymn ->
                     val target = Target.HymnRef(book.id, hymn.n)
                     val detail = listOfNotNull(

@@ -431,6 +431,7 @@ class ReaderScreen(
 
         ScreenFrame(
             title = viewModel.catalog.label(chapter),
+            reading = true,
             onBack = { goBack() },
             rightButton = pageMenu(
                 listOf(

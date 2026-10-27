@@ -1,6 +1,7 @@
 package io.github.anweaver23.scriptures.ui
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
@@ -20,6 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
@@ -29,7 +31,6 @@ import com.thelightphone.sdk.SimpleLightScreen
 import com.thelightphone.sdk.ui.LightIcon
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightScrollView
-import com.thelightphone.sdk.ui.LightTextVariant
 import com.thelightphone.sdk.ui.LightThemeTokens
 import com.thelightphone.sdk.ui.LocalHapticsEnabled
 import com.thelightphone.sdk.ui.designVerticalPxToDp
@@ -95,6 +96,7 @@ class DisplayScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Uni
                 ToggleRow("Invert colors", display.invertColors) {
                     AppGraph.scope.launch { AppGraph.settings.setInvertColors(!display.invertColors) }
                 }
+                Note("These change scripture and notes. The rest of the app stays as LightOS draws it.")
             }
         }
     }
@@ -138,7 +140,14 @@ class LineSpacingScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen
 
         ScreenFrame(title = "Line spacing", onBack = { goBack() }) {
             LightScrollView(Modifier.fillMaxSize()) {
-                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                Row(
+                    Modifier
+                        .fillMaxWidth()
+                        .height(ROW_UNITS.gridUnitsAsDp())
+                        .padding(start = LIST_INSET_UNITS.gridUnitsAsDp()),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
                     AppText("Spacing", ROW_TEXT)
                     AppText(LineSpacing.label(steps[index]), ROW_TEXT, lighten = true)
                 }
@@ -158,8 +167,9 @@ private fun ToggleRow(label: String, on: Boolean, onClick: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(rowUnits().gridUnitsAsDp())
-            .lightClickable(onClick = onClick),
+            .height(ROW_UNITS.gridUnitsAsDp())
+            .lightClickable(onClick = onClick)
+            .padding(start = LIST_INSET_UNITS.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         AppText(text = label, variant = ROW_TEXT, modifier = Modifier.weight(1f))
@@ -170,20 +180,24 @@ private fun ToggleRow(label: String, on: Boolean, onClick: () -> Unit) {
     }
 }
 
-/** Sample verses drawn as the reader would draw them at [scale] and [spacing]. */
+/**
+ * Sample verses drawn as the reader would draw them at [scale] and [spacing], in inverted colours when
+ * that's on, as the reader would show them.
+ */
 @Composable
 private fun Preview(scale: Float, spacing: Float) {
-    AppText(
-        text = "Preview",
-        variant = LightTextVariant.Fine,
-        lighten = true,
-        modifier = Modifier.padding(top = 1f.gridUnitsAsDp(), bottom = 0.5f.gridUnitsAsDp()),
-    )
-    BasicText(
-        text = SAMPLE,
-        style = readerTextStyle(scale, spacing),
-        modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
-    )
+    val display by AppGraph.display.collectAsState()
+    Note("Preview")
+    AppTheme(reading = true) {
+        BasicText(
+            text = SAMPLE,
+            style = readerTextStyle(scale, spacing),
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(if (display.invertColors) LightThemeTokens.colors.background else Color.Transparent)
+                .padding(LIST_INSET_UNITS.gridUnitsAsDp()),
+        )
+    }
 }
 
 /**

@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -17,6 +18,7 @@ import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightScrollView
 import com.thelightphone.sdk.ui.LightTextVariant
+import com.thelightphone.sdk.ui.LightThemeTokens
 import com.thelightphone.sdk.ui.gridUnitsAsDp
 import io.github.anweaver23.scriptures.core.Annotation
 import io.github.anweaver23.scriptures.core.Definition
@@ -170,6 +172,7 @@ class AnnotationScreen(sealedActivity: SealedLightActivity, private val id: Stri
         ScreenFrame(
             title = annotation?.let { AppGraph.catalog.label(it) } ?: "Highlight",
             onBack = { goBack() },
+            reading = true,
             bottomBar = annotation?.let { a ->
                 listOf(
                     LightBarButton.LightIcon(LightIcons.TRASH, contentDescription = "Remove", onClick = {
@@ -192,11 +195,18 @@ class AnnotationScreen(sealedActivity: SealedLightActivity, private val id: Stri
                 Note("This highlight was removed.")
                 return@ScreenFrame
             }
+            // The quote and note are reading text: they follow the Display size and spacing.
+            val display by AppGraph.display.collectAsState()
+            val style = readerTextStyle(display.textSize.scale, display.lineSpacing)
             LightScrollView(Modifier.fillMaxSize()) {
-                Body("“${annotation.quote}”", lighten = true)
+                BasicText(
+                    text = "“${annotation.quote}”",
+                    style = style.copy(color = LightThemeTokens.colors.contentSecondary),
+                    modifier = Modifier.padding(bottom = 0.5f.gridUnitsAsDp()),
+                )
                 if (annotation.hasNote) {
                     SectionLabel("Note")
-                    Body(annotation.note.orEmpty())
+                    BasicText(text = annotation.note.orEmpty(), style = style)
                 }
             }
         }

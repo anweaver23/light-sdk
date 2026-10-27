@@ -14,9 +14,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -41,16 +38,25 @@ import com.thelightphone.sdk.ui.LightTopBar
 import com.thelightphone.sdk.ui.LightTopBarCenter
 import com.thelightphone.sdk.ui.gridUnitsAsDp
 import com.thelightphone.sdk.ui.lightClickable
-import io.github.anweaver23.scriptures.data.AppGraph
 
-/** Row text, as LightOS lists use it: labels and their dimmed values both at this size. */
-val ROW_TEXT = LightTextVariant.Subheading
+// LightOS list metrics, measured from LightOS Settings on the LP3 (1080x1240): row text is Heading
+// (38 design px; "Notifications" draws 59 px tall), rows are 200 px apart (5 grid units), and the text
+// starts 80 px in (2 grid units: the frame's 1 plus LIST_INSET_UNITS). Lists, menus and pickers are
+// "system" UI: they never follow the Display settings.
+
+/** Row text: labels and their dimmed values both at this size. */
+val ROW_TEXT = LightTextVariant.Heading
+
+/** Height of one list row, in grid units. Lazy lists also need it to size their scroll bar. */
+const val ROW_UNITS = 5f
+
+/** How far list text sits in from the frame's own padding, in grid units. */
+const val LIST_INSET_UNITS = 1f
 
 /**
  * Top bar, a content area that fills the middle, and an optional bottom bar. [bottomContent], when
- * set, replaces [bottomBar] with a custom bar (e.g. the reader's selection actions). The content area
- * follows the Display text size unless [scaleContent] is false (menus, which are
- * chrome); the bars never do.
+ * set, replaces [bottomBar] with a custom bar (e.g. the reader's selection actions). [reading]
+ * screens (the reader, a note) take Display's invert colours; everything else follows LightOS.
  */
 @Composable
 fun ScreenFrame(
@@ -59,12 +65,10 @@ fun ScreenFrame(
     bottomBar: List<LightBarButton?>? = null,
     rightButton: LightBarButton? = null,
     bottomContent: (@Composable () -> Unit)? = null,
-    scaleContent: Boolean = true,
+    reading: Boolean = false,
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    val display by AppGraph.display.collectAsState()
-    val scale = if (scaleContent) TextScale(display.textSize.scale) else TextScale()
-    AppTheme {
+    AppTheme(reading = reading) {
         Column(
             Modifier
                 .fillMaxSize()
@@ -76,15 +80,13 @@ fun ScreenFrame(
                 rightButton = rightButton,
                 modifier = Modifier.padding(bottom = 1f.gridUnitsAsDp()),
             )
-            CompositionLocalProvider(LocalTextScale provides scale) {
-                Column(
-                    Modifier
-                        .weight(1f)
-                        .fillMaxWidth()
-                        .padding(horizontal = 1f.gridUnitsAsDp()),
-                    content = content,
-                )
-            }
+            Column(
+                Modifier
+                    .weight(1f)
+                    .fillMaxWidth()
+                    .padding(horizontal = 1f.gridUnitsAsDp()),
+                content = content,
+            )
             when {
                 bottomContent != null -> bottomContent()
                 bottomBar != null -> LightBottomBar(items = bottomBar)
@@ -108,8 +110,9 @@ fun ListRow(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(rowUnits().gridUnitsAsDp())
-            .lightClickable(onClick = onClick),
+            .height(ROW_UNITS.gridUnitsAsDp())
+            .lightClickable(onClick = onClick)
+            .padding(start = LIST_INSET_UNITS.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
@@ -140,8 +143,9 @@ fun SelectableRow(label: String, selected: Boolean, onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(rowUnits().gridUnitsAsDp())
-            .lightClickable(onClick = onClick),
+            .height(ROW_UNITS.gridUnitsAsDp())
+            .lightClickable(onClick = onClick)
+            .padding(start = LIST_INSET_UNITS.gridUnitsAsDp()),
         contentAlignment = Alignment.CenterStart,
     ) {
         AppText(text = label, variant = ROW_TEXT, underline = selected, maxLines = 1)
@@ -157,7 +161,7 @@ fun Note(text: String, modifier: Modifier = Modifier) {
         lighten = true,
         modifier = modifier
             .fillMaxWidth()
-            .padding(vertical = 0.5f.gridUnitsAsDp()),
+            .padding(start = LIST_INSET_UNITS.gridUnitsAsDp(), top = 0.5f.gridUnitsAsDp(), bottom = 0.5f.gridUnitsAsDp()),
     )
 }
 
@@ -211,7 +215,7 @@ fun StackRow(
         modifier = Modifier
             .fillMaxWidth()
             .lightClickable(onClick = onClick)
-            .padding(vertical = 1f.gridUnitsAsDp()),
+            .padding(start = LIST_INSET_UNITS.gridUnitsAsDp(), top = 1f.gridUnitsAsDp(), bottom = 1f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(Modifier.weight(1f)) {

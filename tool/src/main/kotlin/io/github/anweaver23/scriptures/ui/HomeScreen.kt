@@ -44,10 +44,13 @@ import kotlinx.coroutines.launch
 // Home grid layout. Units are Light grid units (1/27 of the screen width).
 
 /**
- * Space between tiles, across and down. Tiles are square; their side is whatever the columns leave,
- * and the column count comes from the text size setting ([TextSize.homeColumns]).
+ * Space between tiles, across and down. Tiles are square; their side is whatever the columns leave.
+ * Home is "system" UI: it never follows the Display text size.
  */
 const val TILE_GAP_UNITS = 1f
+
+/** Books per row. */
+const val TILE_COLUMNS = 3
 
 /** Space above the grid and between the grid and the quiet rows below it. */
 const val GRID_TOP_GAP_UNITS = 0.25f
@@ -62,7 +65,6 @@ const val QUIET_ROW_UNITS = 2.25f
 class HomeViewModel : LightViewModel<Unit>() {
     val catalog: Catalog = AppGraph.catalog
     val lastPlayed = AppGraph.progress.lastPlayed.stateIn(viewModelScope, SharingStarted.Eagerly, null)
-    val display = AppGraph.display
 
     override fun onScreenShow(screen: SimpleLightScreen<Unit>) {
         super.onScreenShow(screen)
@@ -86,8 +88,6 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
     @Composable
     override fun Content() {
         val lastPlayed by viewModel.lastPlayed.collectAsState()
-        val display by viewModel.display.collectAsState()
-        val textSize = display.textSize
         val catalog = viewModel.catalog
 
         // On launch, open the scriptures where the user left off (Back returns here).
@@ -133,7 +133,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
                 ),
             ) {
                 BoxWithConstraints(Modifier.fillMaxSize()) {
-                    val columns = textSize.homeColumns
+                    val columns = TILE_COLUMNS
                     val gap = TILE_GAP_UNITS.gridUnitsAsDp()
                     val rows = (shelves.size + columns - 1) / columns
                     // If the squares fit without scrolling, use the full width (no scroll bar gutter);
@@ -143,7 +143,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
                         .gridUnitsAsDp()
                     val fits = fullSide * rows + gap * (rows - 1) + reserved <= maxHeight
                     val side = if (fits) fullSide else (maxWidth - SCROLL_GUTTER_UNITS.gridUnitsAsDp() - gap * (columns - 1)) / columns
-                    val guess = rememberSharedTitleStep(shelves.map { it.title }, side, textSize.scale)
+                    val guess = rememberSharedTitleStep(shelves.map { it.title }, side)
                     // One title size for every tile. If a tile's rendered title still breaks
                     // mid-word, all tiles step down together.
                     var step by remember(guess) { mutableIntStateOf(guess) }
@@ -157,7 +157,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
                             if (i > 0) Spacer(Modifier.height(gap))
                             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(gap)) {
                                 row.forEach { shelf ->
-                                    BookTile(shelf.title, side, step, textSize.scale, stepDown, shelf.open)
+                                    BookTile(shelf.title, side, step, stepDown, shelf.open)
                                 }
                             }
                         }

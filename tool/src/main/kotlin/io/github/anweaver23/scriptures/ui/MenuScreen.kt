@@ -62,7 +62,7 @@ class MenuScreen(
 
     @Composable
     override fun Content() {
-        ScreenFrame(title = "Menu", onBack = { goBack() }, scaleContent = false) {
+        ScreenFrame(title = "Menu", onBack = { goBack() }) {
             LightScrollView(Modifier.fillMaxSize()) {
                 items.forEachIndexed { i, item ->
                     ListRow(item.label, item.detail) {

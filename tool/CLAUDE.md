@@ -99,11 +99,9 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-10-26 Selection actions are icons:** close, highlight (`ic_highlight`), note (`ic_note`), define
   (`ic_define`). Custom icons are single white vectors tinted to the theme by `tintedIcon()`; no
   white/black pairs.
-- **2026-10-26 Text size setting:** Settings (bottom-left on home) holds text size and Add audio:
-  `core/TextSize` (Small 0.85× … Largest 1.5×), stored by `SettingsStore`, shared as `AppGraph.textSize`.
-  It scales the reader text, the note editor and the home tile titles.
-- **2026-10-26 Home tiles are square** and follow the text size: 3 columns at Small/Default, 2 at
-  Large and up (the grid scrolls then, and the tiles leave room for the scroll bar gutter). Home bar:
+- **2026-10-26 Text size setting** *(now part of Display, see 2026-10-27)*: `core/TextSize` (Small 0.85×
+  … Largest 1.5×), stored by `SettingsStore`, shared as `AppGraph.display`.
+- **2026-10-26 Home tiles are square**, 3 columns (fixed since 2026-10-27; home doesn't follow Display). Home bar:
   Settings · Search · Bookmarks · Annotations (`ic_notebook`). Annotations is in the "…" menu too;
   Add audio is also in Settings. No Add audio row on home.
 - **2026-10-26 Note editor is full screen, like LightOS Notes:** reading-size text fills the page (no
@@ -129,8 +127,8 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   verse. Titles and abbreviations match exactly, or by title prefix (3+ letters); exact beats prefix.
   References list above the full-text verse results, which still run. The results title is the search
   term in quotes.
-- **2026-10-26 Lists and menus follow LightOS** (matched to the chess tool's Settings / pickers, which
-  match the system): rows are `ROW_TEXT` (Subheading) text, `ROW_UNITS` 4 tall (a unit above and below),
+- **2026-10-26 Lists and menus follow LightOS** *(sizes superseded 2026-10-27: Heading, 5 units)*:
+  rows are `ROW_TEXT` text, `ROW_UNITS` tall,
   a value sits dimmed on the right at the same size (`ListRow`), the current choice in a picker is
   underlined (`SelectableRow`, never a checkmark), on/off uses `LightIcons.TOGGLE_STATE_ON/OFF`, and
   there are **no icons in menus or lists**. `ScreenFrame` leaves one unit under the top bar.
@@ -148,10 +146,15 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-10-27 Line spacing is for reading text only** (scripture and notes, via `readerTextStyle`); lists
   and labels follow text size alone. Between verses the gap is `VERSE_GAP_UNITS` plus whatever line
   spacing adds, so a verse break always reads bigger than a line break.
-- **2026-10-27 Display text size applies to all content, never chrome:** `ScreenFrame` provides `LocalTextScale` to
-  its content area only; content text uses `AppText` (LightText's look, scaled) and rows size with
-  `rowUnits()`. Top bar, bottom bars and menus (`scaleContent = false`) use plain `LightText`. Every screen
-  draws inside `AppTheme` (never `LightTheme` directly): it applies invert colours and the haptics fallback.
+- **2026-10-27 Display is for reading text only:** text size, line spacing and invert colours change
+  scripture (reader), the note editor and a note's page (`reading = true` on `ScreenFrame` / `AppTheme`),
+  nothing else. Everything else is "system" UI at fixed Light sizes. `AppText` is LightText's look plus
+  styled-text support; it never scales.
+- **2026-10-27 System sizes match LightOS** (measured from LightOS Settings on the LP3; 1 design px is
+  about 2.07 screen px): list, menu and picker rows are **Heading** text (38), `ROW_UNITS` 5 tall, text
+  inset to 2 grid units (`LIST_INSET_UNITS` on top of the frame's 1). Values sit dimmed on the right
+  at the same size. The chapter number grid uses the same row. Hints/empty states: Fine, dimmed.
+  Two-line rows: Heading title, Fine lines. Home tiles: 3 columns, titles auto-fit (22 down to 10).
 - **2026-10-27 Haptics fallback:** a sideloaded (not Light-signed) tool is refused a LightOS service token,
   so `LocalHapticsEnabled` stays false and every tap is silent. `AppTheme` provides it as
   `sdk || HAPTICS_FALLBACK`, as the chess tool does. Keyboard keys use `HapticFeedbackType.VirtualKey`.
