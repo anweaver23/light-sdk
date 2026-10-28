@@ -71,7 +71,7 @@ class SettingsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Un
         val playback by AppGraph.playback.collectAsState()
         val homeLayout by AppGraph.homeLayout.collectAsState()
 
-        ScreenFrame(title = "Settings", onBack = { goBack() }) {
+        ScreenFrame(title = "Settings", onBack = { goBack() }, rightButton = nowPlayingButton()) {
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 ListRow("Display") { navigateTo(::DisplayScreen) }
                 // When a chapter or hymn ends, go on to the next one.

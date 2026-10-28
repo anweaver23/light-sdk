@@ -25,6 +25,10 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
+import com.thelightphone.sdk.audio.LightAudio
+import com.thelightphone.sdk.audio.DefaultLightAudio
+import com.thelightphone.sdk.SimpleLightScreen
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
@@ -148,10 +152,41 @@ data class FindState(val query: String, val matches: List<FindMatch>, val curren
     val currentMatch: FindMatch? get() = matches.getOrNull(current)
 }
 
-class ReaderViewModel(start: Target.Chapter, focusVerse: Int?, quietFocus: Boolean = false) : LightViewModel<Unit>() {
+class ReaderViewModel(
+    start: Target.Chapter,
+    focusVerse: Int?,
+    quietFocus: Boolean = false,
+    audio: LightAudio,
+) : LightViewModel<Unit>() {
     val catalog: Catalog = AppGraph.catalog
     val library = AppGraph.library.index
     private val study = AppGraph.study
+
+    /**
+     * The chapter's audio plays here, as a hymn's does on its page: no player screen. It shares this
+     * view model's scope and screen events; it adopts playback that's already live.
+     */
+    val player = PlayerViewModel(audio, request = null, autoStart = false, outerScope = viewModelScope)
+
+    override fun onScreenShow(screen: SimpleLightScreen<Unit>) {
+        super.onScreenShow(screen)
+        player.onScreenShow(screen)
+    }
+
+    override fun onScreenHide(screen: SimpleLightScreen<Unit>) {
+        player.onScreenHide(screen)
+        super.onScreenHide(screen)
+    }
+
+    override fun onAppPause() {
+        player.onAppPause()
+        super.onAppPause()
+    }
+
+    override fun onCleared() {
+        player.close()
+        super.onCleared()
+    }
 
     private val _chapter = MutableStateFlow(start)
     val chapter: StateFlow<Target.Chapter> = _chapter.asStateFlow()
@@ -200,6 +235,11 @@ class ReaderViewModel(start: Target.Chapter, focusVerse: Int?, quietFocus: Boole
 
     /** Whether there's a chapter to turn to in [delta]'s direction (1 = next, -1 = previous). */
     fun canTurn(delta: Int) = neighbor(delta) != null
+
+    /** Turns straight to [target] (playback moved on, or the now-playing button). */
+    fun open(target: Target.Chapter) {
+        if (target != _chapter.value) load(target, null)
+    }
 
     fun next() {
         neighbor(1)?.let { load(it, null) }
@@ -375,19 +415,32 @@ class ReaderViewModel(start: Target.Chapter, focusVerse: Int?, quietFocus: Boole
  * annotations, footnote references and search).
  */
 class ReaderScreen(
-    sealedActivity: SealedLightActivity,
+    private val sealedActivity: SealedLightActivity,
     private val start: Target.Chapter,
     private val focusVerse: Int? = null,
     /** Scroll to [focusVerse] without marking it, as when the app reopens where you left off. */
     private val quietFocus: Boolean = false,
+    /**
+     * Opened from the now-playing button: turn to whatever chapter is live once the player connects,
+     * in case autoplay moved on while no page was watching.
+     */
+    private var followPlayback: Boolean = false,
 ) : LightScreen<Unit, ReaderViewModel>(sealedActivity) {
+
+    /** Set when the page follows playback to a chapter that isn't simply the next one over. */
+    private var jumpTo: Target.Chapter? = null
+
+    /** The last chapter playback was on, to tell when it moves on. */
+    private var lastPlaying: Target.Chapter? = null
+
+    private var pageWidth = 0f
 
     init {
         AppGraph.init(lightContext)
     }
 
     override val viewModelClass = ReaderViewModel::class.java
-    override fun createViewModel() = ReaderViewModel(start, focusVerse, quietFocus)
+    override fun createViewModel() = ReaderViewModel(start, focusVerse, quietFocus, DefaultLightAudio(sealedActivity))
 
     @Composable
     override fun Content() {
@@ -399,11 +452,31 @@ class ReaderScreen(
         val display by AppGraph.display.collectAsState()
         val index by viewModel.library.collectAsState()
         val hasAudio = index.hasAudio(chapter)
+        val current by viewModel.player.current.collectAsState()
+        val playingHere = current == chapter
         val currentSelection = selection
         val currentFind = find
         // Page animations need a frame clock, which the composition's scope has and the view model's
         // doesn't (animating in viewModelScope crashed on the first swipe).
         val pageScope = rememberCoroutineScope()
+
+        // Playback moved on (the next chapter, or NEXT / PREVIOUS): if the page was showing the chapter
+        // that was playing, slide along to the new one.
+        LaunchedEffect(current) {
+            val now = current as? Target.Chapter ?: return@LaunchedEffect
+            val before = lastPlaying
+            lastPlaying = now
+            val shown = viewModel.chapter.value
+            if (followPlayback) {
+                followPlayback = false
+                viewModel.open(now)
+                return@LaunchedEffect
+            }
+            if (before == null || before != shown || now == shown) return@LaunchedEffect
+            jumpTo = now
+            val forward = now.bookId != shown.bookId || now.chapter > shown.chapter
+            pages.slide(pageScope, if (forward) 1 else -1, pageWidth)
+        }
 
         ScreenFrame(
             title = viewModel.catalog.label(chapter),
@@ -411,11 +484,16 @@ class ReaderScreen(
             // Back while searching goes back to the search bar to keep typing, not out of the chapter.
             onBack = { if (viewModel.find.value != null) editFind() else goBack() },
             zen = Zen.on,
-            // The app's bar, with play in the middle when the chapter has audio. Search leads with
-            // "Find in <chapter>", which comes back here as a find; Bookmarks leads with adding one here.
-            bottomBar = navBar(
+            // Something else playing: turn to its chapter here.
+            rightButton = nowPlayingButton(showing = chapter) { target ->
+                (target is Target.Chapter).also { if (it) viewModel.open(target as Target.Chapter) }
+            },
+            // Playing here: the transport. Otherwise the app's bar, with play in the middle when the
+            // chapter has audio. Search leads with "Find in <chapter>", which comes back here as a
+            // find; Bookmarks leads with adding one here.
+            bottomBar = viewModel.player.transportBar(playingHere) ?: navBar(
                 play = if (hasAudio) {
-                    LightBarButton.LightIcon(LightIcons.PLAY, onClick = { navigateTo({ PlayerScreen(it, chapter) }) }, contentDescription = "Listen")
+                    LightBarButton.LightIcon(LightIcons.PLAY, onClick = { viewModel.player.play(chapter) }, contentDescription = "Listen")
                 } else {
                     null
                 },
@@ -458,7 +536,9 @@ class ReaderScreen(
             // distances are measured in steady coordinates.
             Box(
                 Modifier
-                    .fillMaxSize()
+                    .weight(1f)
+                    .fillMaxWidth()
+                    .onSizeChanged { pageWidth = it.width.toFloat() }
                     // Double tap: zen mode on or off (no bars). Highlighting and swiping still work in it.
                     .doubleTap(Zen::toggle)
                     .pageSwipe(
@@ -488,6 +568,7 @@ class ReaderScreen(
             }
             }
             }
+            PlaybackError(viewModel.player, playingHere)
         }
     }
 
@@ -495,7 +576,13 @@ class ReaderScreen(
     private val pages = PageSlider(
         canTurn = { viewModel.canTurn(it) },
         turn = { direction ->
-            if (direction > 0) viewModel.next() else viewModel.previous()
+            val jump = jumpTo
+            jumpTo = null
+            when {
+                jump != null -> viewModel.open(jump)
+                direction > 0 -> viewModel.next()
+                else -> viewModel.previous()
+            }
             withTimeoutOrNull(PAGE_LOAD_WAIT_MS) { viewModel.displays.first { it != null } }
         },
     )

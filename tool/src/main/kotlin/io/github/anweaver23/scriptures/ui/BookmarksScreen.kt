@@ -48,6 +48,7 @@ class BookmarksScreen(sealedActivity: SealedLightActivity, private val here: Ver
         ScreenFrame(
             title = "Bookmarks",
             onBack = { goBack() },
+            rightButton = nowPlayingButton(),
             bottomBar = if (sorted.isEmpty()) {
                 null
             } else {

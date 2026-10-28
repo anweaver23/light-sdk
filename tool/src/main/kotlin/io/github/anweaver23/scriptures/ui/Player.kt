@@ -1,8 +1,6 @@
 package io.github.anweaver23.scriptures.ui
 
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.collectAsState
@@ -10,11 +8,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.lifecycle.viewModelScope
-import com.thelightphone.sdk.LightScreen
 import com.thelightphone.sdk.LightViewModel
-import com.thelightphone.sdk.SealedLightActivity
 import com.thelightphone.sdk.SimpleLightScreen
-import com.thelightphone.sdk.audio.DefaultLightAudio
 import com.thelightphone.sdk.audio.LightAudio
 import com.thelightphone.sdk.audio.LightAudioError
 import com.thelightphone.sdk.audio.LightAudioErrorKind
@@ -29,15 +24,13 @@ import com.thelightphone.sdk.audio.NO_MEDIA_ITEM
 import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightTextVariant
-import com.thelightphone.sdk.ui.LightThemeTokens
-import com.thelightphone.sdk.ui.LightTouchableProgressBar
-import com.thelightphone.sdk.ui.gridUnitsAsDp
 import io.github.anweaver23.scriptures.core.Catalog
 import io.github.anweaver23.scriptures.core.Target
 import io.github.anweaver23.scriptures.core.label
 import io.github.anweaver23.scriptures.data.AppGraph
 import io.github.anweaver23.scriptures.data.AudioLibrary
 import kotlin.time.Duration.Companion.seconds
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -57,9 +50,12 @@ import kotlinx.coroutines.withTimeoutOrNull
  * Plays a queue of the user's files: every chapter of a book that has audio, or every hymn
  * in a hymnbook that has audio, starting at the one asked for. Playback is detached, so it
  * keeps going after leaving the tool; position is saved so it can resume after the service stops.
+ * There's no player screen: the chapter and hymn pages play in place, their bar becoming the
+ * transport ([transportBar]).
  *
- * With [autoStart] off (the hymn page), connecting only picks up playback that's already live;
- * nothing plays until [play].
+ * With [autoStart] off (both pages), connecting only picks up playback that's already live; nothing
+ * plays until [play]. The reader keeps one inside its own view model, passing its scope as
+ * [outerScope] and forwarding the screen events; it calls [close] when it's cleared.
  *
  * The detached handle is only held while this screen is showing. Only one may exist per
  * process, and releasing it doesn't stop playback, so letting go on hide/pause means a
@@ -70,7 +66,10 @@ class PlayerViewModel(
     private val audio: LightAudio,
     private val request: Target?,
     private val autoStart: Boolean = true,
+    private val outerScope: CoroutineScope? = null,
 ) : LightViewModel<Unit>() {
+    private val scope: CoroutineScope get() = outerScope ?: viewModelScope
+
     private val catalog: Catalog = AppGraph.catalog
     private val progress = AppGraph.progress
 
@@ -84,15 +83,16 @@ class PlayerViewModel(
 
     private fun <T> fromPlayer(initial: T, pick: (LightAudioPlayer) -> StateFlow<T>): StateFlow<T> = playerFlow
         .flatMapLatest { it?.let(pick) ?: flowOf(initial) }
-        .stateIn(viewModelScope, SharingStarted.Eagerly, initial)
+        .stateIn(scope, SharingStarted.Eagerly, initial)
 
     private val currentIndex = fromPlayer(NO_MEDIA_ITEM) { it.currentMediaItemIndex }
     val current: StateFlow<Target?> = combine(_queue, currentIndex) { queue, i -> queue.getOrNull(i) }
-        .stateIn(viewModelScope, SharingStarted.Eagerly, null)
+        .stateIn(scope, SharingStarted.Eagerly, null)
     val positionMs = fromPlayer(0L) { it.positionMs }
     val durationMs = fromPlayer(0L) { it.durationMs }
     val isPlaying = fromPlayer(false) { it.isPlaying }
     val error = fromPlayer<LightAudioError?>(null) { it.error }
+    private val availability = fromPlayer<LightAudioPlayerAvailability?>(null) { it.availability }
 
     private val _speed = MutableStateFlow(1f)
     val speed = _speed.asStateFlow()
@@ -107,8 +107,25 @@ class PlayerViewModel(
     fun label(target: Target) = catalog.label(target)
 
     init {
-        viewModelScope.launch { autosave() }
-        viewModelScope.launch { clearFinishedPositions() }
+        scope.launch { autosave() }
+        scope.launch { clearFinishedPositions() }
+        scope.launch { publishNowPlaying() }
+    }
+
+    /**
+     * Keeps [NowPlaying] up to date while connected: what's live, or nothing once the player reports
+     * no item. The moment between connecting and adopting the live queue (an item, but no queue
+     * yet) is skipped, so the corner button doesn't blink.
+     */
+    private suspend fun publishNowPlaying() {
+        combine(availability, currentIndex, current, isPlaying) { ready, index, now, playing ->
+            when {
+                ready != LightAudioPlayerAvailability.Ready -> Unit
+                index == NO_MEDIA_ITEM -> NowPlaying.live.value = null
+                now != null -> NowPlaying.live.value = NowPlaying.Live(now, playing)
+            }
+            Unit
+        }.collect {}
     }
 
     override fun onScreenShow(screen: SimpleLightScreen<Unit>) {
@@ -135,7 +152,7 @@ class PlayerViewModel(
             return
         }
         playerFlow.value = newPlayer
-        connectJob = viewModelScope.launch {
+        connectJob = scope.launch {
             if (!newPlayer.awaitReady()) {
                 _message.value = "Couldn't connect to audio playback."
                 return@launch
@@ -219,7 +236,7 @@ class PlayerViewModel(
     fun play(target: Target) {
         val p = player
         if (p != null && p.availability.value == LightAudioPlayerAvailability.Ready) {
-            viewModelScope.launch { playNow(p, target) }
+            scope.launch { playNow(p, target) }
         } else {
             pendingPlay = target
         }
@@ -300,7 +317,7 @@ class PlayerViewModel(
         }
     }
 
-    /** Saves on a scope of its own, for when the screen is closing and viewModelScope is going away. */
+    /** Saves on a scope of its own, for when the screen is closing and scope is going away. */
     private fun saveDetached() {
         if (stopped || pendingSeek != null) return
         val target = current.value ?: return
@@ -318,7 +335,7 @@ class PlayerViewModel(
         val p = player ?: return
         if (isPlaying.value) {
             p.pause()
-            viewModelScope.launch { save() }
+            scope.launch { save() }
         } else {
             // Finished (autoplay off): play starts it again.
             val duration = durationMs.value
@@ -342,7 +359,7 @@ class PlayerViewModel(
         }
         val all = queueFor(now, AppGraph.library.index.value)
         val target = all.getOrNull(all.indexOf(now) + direction) ?: return
-        viewModelScope.launch { playNow(p, target) }
+        scope.launch { playNow(p, target) }
     }
 
     fun seekToFraction(fraction: Float) {
@@ -376,10 +393,14 @@ class PlayerViewModel(
             it.setMediaQueue(emptyList())
         }
         _queue.value = emptyList()
+        NowPlaying.live.value = null
         if (target != null) AppGraph.scope.launch { progress.clearPosition(target) }
     }
 
     private var stopped = false
+
+    /** Lets go of the player, as clearing does; for a player held inside another view model. */
+    fun close() = disconnect()
 
     override fun onCleared() {
         disconnect()
@@ -396,90 +417,53 @@ class PlayerViewModel(
 /** How long playback must stay paused before the bar becomes play / stop. */
 internal const val PAUSED_BAR_DELAY_MS = 350L
 
-class PlayerScreen(private val sealedActivity: SealedLightActivity, private val request: Target?) :
-    LightScreen<Unit, PlayerViewModel>(sealedActivity) {
-
-    init {
-        AppGraph.init(lightContext)
+/**
+ * The bar of a page whose chapter or hymn is the one playing ([here]): the transport while it plays;
+ * paused part way in, stop then play side by side in the middle, as the LightOS lock screen draws
+ * them. Null when the page isn't the one playing, so it shows the app's bar.
+ */
+@Composable
+fun PlayerViewModel.transportBar(here: Boolean): List<LightBarButton?>? {
+    val position by positionMs.collectAsState()
+    val duration by durationMs.collectAsState()
+    val playing by isPlaying.collectAsState()
+    // Starting and switching tracks report "not playing" for a moment; only a pause that lasts, part
+    // way in, swaps the bar.
+    val pauseHeld by produceState(initialValue = !playing, playing) {
+        if (playing) value = false else { delay(PAUSED_BAR_DELAY_MS); value = true }
     }
-
-    override val viewModelClass = PlayerViewModel::class.java
-    override fun createViewModel() = PlayerViewModel(DefaultLightAudio(sealedActivity), request)
-
-    @Composable
-    override fun Content() {
-        val current by viewModel.current.collectAsState()
-        val position by viewModel.positionMs.collectAsState()
-        val duration by viewModel.durationMs.collectAsState()
-        val playing by viewModel.isPlaying.collectAsState()
-        val error by viewModel.error.collectAsState()
-        val message by viewModel.message.collectAsState()
-        val canSeek = duration > 0
-        // Switching tracks reports "not playing" for a moment; only a pause that lasts swaps the bar.
-        val paused by produceState(initialValue = !playing, playing) {
-            if (playing) value = false else { delay(PAUSED_BAR_DELAY_MS); value = true }
-        }
-
-        ScreenFrame(
-            title = "Listening",
-            onBack = { goBack() },
-            // Playing: the full transport. Paused: just play and stop, everything else out of the way.
-            bottomBar = if (!paused) {
-                listOf(
-                    LightBarButton.LightIcon(LightIcons.REWIND, viewModel::previous, contentDescription = "Previous"),
-                    LightBarButton.LightIcon(LightIcons.SKIP_BACKWARD_FIFTEEN, viewModel::skipBack.takeIf { canSeek }),
-                    LightBarButton.LightIcon(LightIcons.PAUSE, viewModel::togglePlayPause, contentDescription = "Pause"),
-                    LightBarButton.LightIcon(LightIcons.SKIP_FORWARD_FIFTEEN, viewModel::skipForward.takeIf { canSeek }),
-                    LightBarButton.LightIcon(LightIcons.FAST_FORWARD, viewModel::next, contentDescription = "Next"),
-                )
-            } else {
-                // As the LightOS lock screen draws it: stop, then play, together in the middle.
-                listOf(
-                    null,
-                    LightBarButton.LightIcon(LightIcons.STOP, contentDescription = "Stop", onClick = {
-                        viewModel.stop()
-                        goBack()
-                    }),
-                    LightBarButton.LightIcon(LightIcons.PLAY, viewModel::togglePlayPause, contentDescription = "Play"),
-                    null,
-                )
-            },
-        ) {
-            Spacer(Modifier.weight(1f))
-            AppText(
-                // LightOS's podcast player: Subheading for what's playing, Detail for date and time.
-                text = current?.let(viewModel::label) ?: message ?: "Loading…",
-                variant = LightTextVariant.Subheading,
-                align = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth(),
-            )
-            AppText(
-                text = "${formatDuration(position)}  /  ${if (canSeek) formatDuration(duration) else "--:--"}",
-                variant = LightTextVariant.Detail,
-                align = TextAlign.Center,
-                monospace = true,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 0.5f.gridUnitsAsDp()),
-            )
-            // Always drawn: hiding it while the next track reports its length made it flash.
-            LightTouchableProgressBar(
-                colors = LightThemeTokens.colors,
-                progress = if (canSeek) (position.toFloat() / duration).coerceIn(0f, 1f) else 0f,
-                onValueChange = { if (canSeek) viewModel.seekToFraction(it) },
-                modifier = Modifier.fillMaxWidth(),
-            )
-            error?.let {
-                AppText(
-                    text = playbackErrorMessage(it),
-                    variant = LightTextVariant.Detail,
-                    align = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth(),
-                )
-            }
-            Spacer(Modifier.weight(1f))
-        }
+    if (!here) return null
+    val canSeek = duration > 0
+    return if (pauseHeld && position > 0) {
+        listOf(
+            null,
+            LightBarButton.LightIcon(LightIcons.STOP, ::end, contentDescription = "Stop"),
+            LightBarButton.LightIcon(LightIcons.PLAY, ::togglePlayPause, contentDescription = "Play"),
+            null,
+        )
+    } else {
+        listOf(
+            LightBarButton.LightIcon(LightIcons.REWIND, ::previous, contentDescription = "Previous"),
+            LightBarButton.LightIcon(LightIcons.SKIP_BACKWARD_FIFTEEN, ::skipBack.takeIf { canSeek }),
+            LightBarButton.LightIcon(LightIcons.PAUSE, ::togglePlayPause, contentDescription = "Pause"),
+            LightBarButton.LightIcon(LightIcons.SKIP_FORWARD_FIFTEEN, ::skipForward.takeIf { canSeek }),
+            LightBarButton.LightIcon(LightIcons.FAST_FORWARD, ::next, contentDescription = "Next"),
+        )
     }
+}
+
+/** Under the page, when its playback hit an error. */
+@Composable
+fun PlaybackError(player: PlayerViewModel, here: Boolean) {
+    val error by player.error.collectAsState()
+    val e = error
+    if (!here || e == null) return
+    AppText(
+        text = playbackErrorMessage(e),
+        variant = LightTextVariant.Detail,
+        align = TextAlign.Center,
+        modifier = Modifier.fillMaxWidth(),
+    )
 }
 
 fun playbackErrorMessage(error: LightAudioError): String = when (error.kind) {

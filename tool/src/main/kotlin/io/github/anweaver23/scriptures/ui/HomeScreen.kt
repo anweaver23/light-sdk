@@ -21,6 +21,7 @@ import com.thelightphone.sdk.InitialScreen
 import com.thelightphone.sdk.LightScreen
 import com.thelightphone.sdk.LightViewModel
 import com.thelightphone.sdk.SealedLightActivity
+import com.thelightphone.sdk.audio.DefaultLightAudio
 import com.thelightphone.sdk.SimpleLightScreen
 import com.thelightphone.sdk.ui.LightScrollBarPosition
 import com.thelightphone.sdk.ui.LightScrollView
@@ -63,7 +64,7 @@ class HomeViewModel : LightViewModel<Unit>() {
 private data class Shelf(val title: String, val open: () -> Unit)
 
 @InitialScreen
-class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeViewModel>(sealedActivity) {
+class HomeScreen(private val sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeViewModel>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack. */
     private val scrolls = ScrollMemory()
 
@@ -79,10 +80,19 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
         val catalog = viewModel.catalog
         val layout by AppGraph.homeLayout.collectAsState()
 
-        // On launch, open the chapter or hymn where the user left off (Back returns here).
+        // On launch, open what's playing, if the tool was closed while it played; otherwise the
+        // chapter or hymn where the user left off. Back returns here.
         LaunchedEffect(Unit) {
             if (AppGraph.resumedReading) return@LaunchedEffect
             AppGraph.resumedReading = true
+            val live = NowPlaying.probe(DefaultLightAudio(sealedActivity))
+            if (live != null && live.playing) {
+                when (val target = live.target) {
+                    is Target.Chapter -> navigateTo({ ReaderScreen(it, target, followPlayback = true) })
+                    is Target.HymnRef -> navigateTo({ HymnScreen(it, target.base, followPlayback = true) })
+                }
+                return@LaunchedEffect
+            }
             val page = AppGraph.progress.lastPage.first()
             if (page is Target.HymnRef) {
                 navigateTo({ HymnScreen(it, page) })
@@ -102,6 +112,7 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
             ScreenFrame(
                 title = "Scriptures",
                 onBack = null,
+                rightButton = nowPlayingButton(),
                 bottomBar = navBar(),
             ) {
                 // Settings › Home: the tiles, or a plain list.

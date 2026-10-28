@@ -11,14 +11,12 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.onSizeChanged
-import androidx.compose.ui.text.style.TextAlign
 import com.thelightphone.sdk.LightScreen
 import com.thelightphone.sdk.SealedLightActivity
 import com.thelightphone.sdk.SimpleLightScreen
@@ -27,11 +25,9 @@ import com.thelightphone.sdk.ui.LightBarButton
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightLazyScrollView
 import com.thelightphone.sdk.ui.LightScrollView
-import com.thelightphone.sdk.ui.LightTextVariant
 import io.github.anweaver23.scriptures.core.Target
 import io.github.anweaver23.scriptures.data.AppGraph
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 
 class HymnBooksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
@@ -44,7 +40,7 @@ class HymnBooksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<U
 
     @Composable
     override fun Content() {
-        ScreenFrame(title = "Hymns", onBack = { goBack() }, bottomBar = navBar()) {
+        ScreenFrame(title = "Hymns", onBack = { goBack() }, rightButton = nowPlayingButton(), bottomBar = navBar()) {
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 AppGraph.catalog.hymnBooks.forEach { book ->
                     ListRow(book.title) {
@@ -71,7 +67,7 @@ class HymnListScreen(sealedActivity: SealedLightActivity, private val hymnBookId
         val book = AppGraph.catalog.hymnBook(hymnBookId) ?: return
 
         // Long titles: the denser Subheading list, so more of each shows.
-        ScreenFrame(title = book.title, onBack = { goBack() }, bottomBar = navBar()) {
+        ScreenFrame(title = book.title, onBack = { goBack() }, rightButton = nowPlayingButton(), bottomBar = navBar()) {
             LightLazyScrollView(
                 Modifier.fillMaxSize(),
                 listState = scrolls.list(),
@@ -90,12 +86,16 @@ class HymnListScreen(sealedActivity: SealedLightActivity, private val hymnBookId
 
 /**
  * A hymn's words (if the user uploaded them), and its player. There's no separate player screen: the
- * bar's centred play asks Vocal or Accompaniment (when both exist), then becomes the transport, with
- * the time and progress under the words. Swiping turns to the next or previous hymn, as chapters do,
- * and when playback moves on to the next hymn the page slides along with it.
+ * bar's play asks Vocal or Accompaniment (when both exist), then becomes the transport. Swiping turns
+ * to the next or previous hymn, as chapters do, and when playback moves on to the next hymn the page
+ * slides along with it. Opened from the now-playing button ([followPlayback]), it turns to whatever
+ * hymn is live once it connects, in case autoplay moved on while no page was watching.
  */
-class HymnScreen(private val sealedActivity: SealedLightActivity, target: Target.HymnRef) :
-    LightScreen<Unit, PlayerViewModel>(sealedActivity) {
+class HymnScreen(
+    private val sealedActivity: SealedLightActivity,
+    target: Target.HymnRef,
+    private var followPlayback: Boolean = false,
+) : LightScreen<Unit, PlayerViewModel>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack. */
     private val scrolls = ScrollMemory()
 
@@ -139,10 +139,6 @@ class HymnScreen(private val sealedActivity: SealedLightActivity, target: Target
         val hymn = AppGraph.catalog.hymnBook(hymnBookId)?.hymn(shown.number) ?: return
         val index by AppGraph.library.index.collectAsState()
         val current by viewModel.current.collectAsState()
-        val position by viewModel.positionMs.collectAsState()
-        val duration by viewModel.durationMs.collectAsState()
-        val playing by viewModel.isPlaying.collectAsState()
-        val error by viewModel.error.collectAsState()
         // Page animations need a frame clock, which the composition's scope has.
         val pageScope = rememberCoroutineScope()
 
@@ -158,6 +154,11 @@ class HymnScreen(private val sealedActivity: SealedLightActivity, target: Target
             val now = current as? Target.HymnRef ?: return@LaunchedEffect
             val before = lastPlaying
             lastPlaying = now
+            if (followPlayback) {
+                followPlayback = false
+                if (now.hymnBookId == hymnBookId) shown = now.base
+                return@LaunchedEffect
+            }
             if (before == null || before.base != shown || now.base == shown || now.hymnBookId != hymnBookId) {
                 return@LaunchedEffect
             }
@@ -168,13 +169,6 @@ class HymnScreen(private val sealedActivity: SealedLightActivity, target: Target
         }
 
         val playingHere = (current as? Target.HymnRef)?.base == shown
-        val canSeek = duration > 0
-        // Starting and switching tracks report "not playing" for a moment; only a pause that lasts,
-        // part way into a hymn, swaps the bar.
-        val pauseHeld by produceState(initialValue = !playing, playing) {
-            if (playing) value = false else { delay(PAUSED_BAR_DELAY_MS); value = true }
-        }
-        val paused = pauseHeld && position > 0
         val versions = index.versions(shown)
         // A hymn counts as where you left off, as a chapter does: home reopens it on launch.
         LaunchedEffect(shown) { AppGraph.progress.setLastHymn(shown) }
@@ -184,27 +178,15 @@ class HymnScreen(private val sealedActivity: SealedLightActivity, target: Target
             reading = true,
             onBack = { goBack() },
             zen = Zen.on,
-            // Not playing: the app's bar, with play in the middle. Playing: the transport. Paused: stop and play.
-            bottomBar = when {
-                playingHere && !paused -> listOf(
-                    LightBarButton.LightIcon(LightIcons.REWIND, viewModel::previous, contentDescription = "Previous"),
-                    LightBarButton.LightIcon(LightIcons.SKIP_BACKWARD_FIFTEEN, viewModel::skipBack.takeIf { canSeek }),
-                    LightBarButton.LightIcon(LightIcons.PAUSE, viewModel::togglePlayPause, contentDescription = "Pause"),
-                    LightBarButton.LightIcon(LightIcons.SKIP_FORWARD_FIFTEEN, viewModel::skipForward.takeIf { canSeek }),
-                    LightBarButton.LightIcon(LightIcons.FAST_FORWARD, viewModel::next, contentDescription = "Next"),
-                )
-                // As the LightOS lock screen draws it: stop, then play, together in the middle.
-                playingHere -> listOf(
-                    null,
-                    LightBarButton.LightIcon(LightIcons.STOP, viewModel::end, contentDescription = "Stop"),
-                    LightBarButton.LightIcon(LightIcons.PLAY, viewModel::togglePlayPause, contentDescription = "Play"),
-                    null,
-                )
-                else -> navBar(
-                    play = LightBarButton.LightIcon(LightIcons.PLAY, onClick = { listen(versions) }, contentDescription = "Play")
-                        .takeIf { versions.isNotEmpty() },
-                )
+            // Another hymn in this book playing: turn to it here, as playback moving on would.
+            rightButton = nowPlayingButton(showing = shown) { target ->
+                (target is Target.HymnRef && target.hymnBookId == hymnBookId).also { if (it) shown = (target as Target.HymnRef).base }
             },
+            // Not playing here: the app's bar, with play in the middle. Playing here: the transport.
+            bottomBar = viewModel.transportBar(playingHere) ?: navBar(
+                play = LightBarButton.LightIcon(LightIcons.PLAY, onClick = { listen(versions) }, contentDescription = "Play")
+                    .takeIf { versions.isNotEmpty() },
+            ),
         ) {
             // The frame that reads sideways drags stays still; only the inner page slides.
             Box(
@@ -246,16 +228,7 @@ class HymnScreen(private val sealedActivity: SealedLightActivity, target: Target
                     }
                 }
             }
-            if (playingHere) {
-                error?.let {
-                    AppText(
-                        text = playbackErrorMessage(it),
-                        variant = LightTextVariant.Detail,
-                        align = TextAlign.Center,
-                        modifier = Modifier.fillMaxWidth(),
-                    )
-                }
-            }
+            PlaybackError(viewModel, playingHere)
         }
     }
 

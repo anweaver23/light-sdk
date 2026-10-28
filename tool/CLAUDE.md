@@ -184,7 +184,7 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   hymns' slots.
 - **2026-10-27 Hymn lists are denser:** `DENSE_ROW_TEXT` (Subheading) on `DENSE_ROW_UNITS` (4) rows, so
   more of each long title shows.
-- **2026-10-27 Player** (scripture chapters; hymns play on their own page since 2026-10-28): the progress bar is always drawn (it flashed while the next track reported its
+- **2026-10-27 Player** *(the player screen is gone since 2026-10-28; chapters and hymns play on their page)*: the progress bar is always drawn (it flashed while the next track reported its
   length). No speed or stop options. Playing: the full transport bar; paused (for 350 ms or more): just
   play and a stop square, which ends playback and goes back.
 - **2026-10-28 Hymns play on the hymn page; no player screen.** The bar is a centred play; with both
@@ -232,9 +232,9 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   and another brings them back, with no confirmation (`Zen`, `Modifier.doubleTap`, `ScreenFrame(zen)`).
   It's one state for the session. The highlight and find bars still show; swiping still turns pages.
 - **2026-10-28 Editing lists like LightOS Notes:** Bookmarks and Annotations put EDIT / DONE in the middle
-  of the bottom bar; editing shows Light's circled ✕ (`LightIcons.DENY`, `RemoveMark`) in the inset left of
-  each row, and removing asks first (`ConfirmScreen`). Dates are "Oct 28, 2026" (`formatDate`): beside the
-  reference in the annotations list, as the first (lighter) line of a note's page, under each bookmark.
+  of the bottom bar; editing shows Light's circled ✕ (`LightIcons.DELETE`, `RemoveMark`; not `DENY`, a bare ✕) in the inset left of
+  each row, and removing asks first (`ConfirmScreen`). Dates are "Oct 28, 2026" (`formatDate`): starting the first sub line in the annotations list
+  (`Oct 28, 2026 · “quote”`, as Notes lists notes), as the first (lighter) line of a note's page, under each bookmark.
 - **2026-10-28 Highlights take in punctuation:** a highlight, the selection and a quote run over
   punctuation touching their first and last words ("knowledge." keeps its full stop), via
   `Words.punctuationStart/End` and `VerseDisplay.markRange`. Anchors (word indexes) don't change.
@@ -245,8 +245,22 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   hymn; home reopens a hymn's page as it does a chapter.
 - **2026-10-28 Home layout setting:** Settings › Home flips between Tiles and List on a tap (two choices,
   no picker).
-- **2026-10-28 Search finds hymns:** by title (first) and by uploaded words (`Search.searchHymns`),
-  listed after references and before verses.
+- **2026-10-28 Search finds hymns:** by number ("85", "#85", "hymn 85") first, then title, then uploaded
+  words (`Search.searchHymns`), listed after references and before verses.
+- **2026-10-28 Chapters play in place, like hymns:** no player screen. The reader's view model holds a
+  `PlayerViewModel` (`outerScope` = its scope, screen events forwarded, `close()` on clear); play in the
+  bar starts the chapter, the bar becomes the transport (`transportBar`, shared with the hymn page), and
+  the page slides along when playback moves to the next chapter.
+- **2026-10-28 Now playing:** while something plays or is paused part way, the top bar's right corner
+  shows a small equalizer (Material "graphic_eq", drawn bar by bar, the bars breathing slowly while
+  playing, still while paused; `ui/NowPlaying.kt`) on the main pages. It opens the playing chapter or
+  hymn, or turns to it in place on a reader / same-hymnbook page, and is hidden on the page that's
+  playing. `NowPlaying.live` is set by whichever player is connected, so it can lag after autoplay moves
+  on with no page open; a page opened from it (`followPlayback`) turns to what's actually live. On launch,
+  home briefly connects (`NowPlaying.probe`) and, if something is playing, opens its page instead of
+  where you left off. An overlay over LightOS isn't possible for a tool.
+- **2026-10-28 Selection and notes icons are Material Symbols** (weight 300, same crop): note
+  `edit_square`, define `dictionary`, highlight `stylus_note`, Annotations (my notes) `note_stack`.
 
 ## Hard rules
 

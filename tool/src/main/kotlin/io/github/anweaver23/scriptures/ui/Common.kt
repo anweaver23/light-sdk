@@ -241,8 +241,6 @@ fun ActionBar(items: List<LightBarButton>) {
 fun StackRow(
     title: String,
     lines: List<Pair<String, Int>>,
-    /** Dimmed, smaller, on the title's line after it (a date). */
-    titleDetail: String? = null,
     /** Drawn in the list inset, left of the text, without moving it (edit mode's remove mark). */
     leading: (@Composable () -> Unit)? = null,
     trailing: (@Composable () -> Unit)? = null,
@@ -257,24 +255,7 @@ fun StackRow(
     ) {
         Box(Modifier.width(LIST_INSET_UNITS.gridUnitsAsDp()).align(Alignment.Top)) { leading?.invoke() }
         Column(Modifier.weight(1f)) {
-            Row(verticalAlignment = Alignment.Bottom) {
-                AppText(
-                    title,
-                    variant = TWO_LINE_TITLE,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                    modifier = Modifier.weight(1f, fill = false),
-                )
-                if (titleDetail != null) {
-                    AppText(
-                        titleDetail,
-                        variant = TWO_LINE_DETAIL,
-                        lighten = true,
-                        maxLines = 1,
-                        modifier = Modifier.padding(start = 0.75f.gridUnitsAsDp(), bottom = 0.1f.gridUnitsAsDp()),
-                    )
-                }
-            }
+            AppText(title, variant = TWO_LINE_TITLE, maxLines = 1, overflow = TextOverflow.Ellipsis)
             lines.forEach { (text, maxLines) ->
                 AppText(
                     text = text,
@@ -348,7 +329,7 @@ class ConfirmScreen(
 @Composable
 fun RemoveMark(label: String, onClick: () -> Unit) {
     LightIcon(
-        LightIcons.DENY,
+        LightIcons.DELETE,
         contentDescription = "Remove $label",
         modifier = Modifier
             .offset(x = (-0.65f).gridUnitsAsDp())

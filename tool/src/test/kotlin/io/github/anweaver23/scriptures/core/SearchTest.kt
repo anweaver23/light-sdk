@@ -9,6 +9,14 @@ import kotlin.test.assertTrue
 
 class SearchTest {
     @Test
+    fun `hymns match by number`() {
+        val book = HymnBook("h", "Hymns", listOf(Hymn(85, "How Firm a Foundation"), Hymn(185, "Reverently and Meekly Now")))
+        for (query in listOf("85", "#85", "hymn 85", "Hymn  85")) {
+            assertEquals(listOf(85), Search.searchHymns(listOf(book), query) { null }.map { it.ref.number }, query)
+        }
+    }
+
+    @Test
     fun `hymns match by title first, then by words`() {
         val book = HymnBook("h", "Hymns", listOf(Hymn(1, "How Firm a Foundation"), Hymn(2, "Abide with Me")))
         val hits = Search.searchHymns(listOf(book), "firm") { ref ->

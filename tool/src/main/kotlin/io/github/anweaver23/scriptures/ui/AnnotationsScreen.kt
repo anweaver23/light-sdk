@@ -42,6 +42,7 @@ class AnnotationsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen
         ScreenFrame(
             title = "Annotations",
             onBack = { goBack() },
+            rightButton = nowPlayingButton(),
             bottomBar = if (sorted.isEmpty()) {
                 null
             } else {
@@ -61,8 +62,8 @@ class AnnotationsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen
                     }
                     StackRow(
                         title = catalog.label(a),
-                        titleDetail = formatDate(a.createdAt),
-                        lines = listOfNotNull("“${a.quote}”" to 2, a.note?.let { it to 2 }),
+                        // As LightOS Notes lists a note: its date, a dot, then the start of the text.
+                        lines = listOfNotNull("${formatDate(a.createdAt)} · “${a.quote}”" to 2, a.note?.let { it to 2 }),
                         leading = if (editing) {
                             { RemoveMark(catalog.label(a), remove) }
                         } else {

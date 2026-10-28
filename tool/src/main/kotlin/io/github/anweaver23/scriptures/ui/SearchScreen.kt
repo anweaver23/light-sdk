@@ -183,6 +183,7 @@ class SearchScreen(sealedActivity: SealedLightActivity, private val findIn: Targ
         ScreenFrame(
             title = "“$query”",
             onBack = { goBack() },
+            rightButton = nowPlayingButton(),
             bottomBar = listOf(LightBarButton.LightIcon(LightIcons.SEARCH, onClick = viewModel::edit)),
         ) {
             body()

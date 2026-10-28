@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Notebook (Annotations). No LightIcons glyph fits, so this is Material Symbols "book_2", Outlined,
+<!-- My notes (Annotations). No LightIcons glyph fits, so this is Material Symbols "note_stack", Outlined,
      weight 300 to match Light's stroke (Apache License 2.0, github.com/google/material-design-icons).
      The viewport crops Material's 80-unit padding so the art fills the box like Light's glyphs.
      Drawn white; tinted to the theme by tintedIcon(). -->
@@ -13,6 +13,6 @@
         android:translateY="880">
         <path
             android:fillColor="#FFFFFFFF"
-            android:pathData="M302.31-100q-50.69 0-86.5-35.81T180-222.31V-730q0-54.15 37.92-92.08Q255.85-860 310-860h470v575.38q-25.77 0-44.04 18.27t-18.27 44.04q0 25.77 18.27 44.04T780-160v60H302.31ZM240-326.23q13.62-9.31 29.19-13.85 15.58-4.53 33.12-4.53h25.38V-800H310q-28.85 0-49.42 20.58Q240-758.85 240-730v403.77Zm147.69-18.38H720V-800H387.69v455.39ZM240-326.23v-466.08 466.08ZM302.31-160h373.77q-8.7-13.62-13.54-28.88-4.85-15.27-4.85-33.43 0-17.15 4.54-32.92 4.54-15.77 13.85-29.39H302.31q-26.77 0-44.54 18.27T240-222.31q0 26.77 17.77 44.54T302.31-160Z" />
+            android:pathData="M300-172.31v-416q0-29.92 21.5-50.8Q343-660 372.92-660h414.77q29.92 0 51.12 21.19Q860-617.61 860-587.69v299.23L671.54-100H372.31q-29.92 0-51.12-21.19Q300-142.39 300-172.31ZM101-703.08Q95.39-733 112.66-757q17.26-24 47.19-29.61L569.23-859q29.92-5.61 53.92 11.66 24 17.26 29.62 47.19l9.23 52.46h-61.23L593-791.54q-.77-4.23-4.62-6.73-3.84-2.5-8.46-1.73l-409.53 72.77q-5.39.77-8.08 5-2.69 4.23-1.93 9.62l51.93 293.31v178.22q-14.85-7.84-25.39-21.5-10.53-13.65-13.53-31.11L101-703.08Zm259 115.39v415.38q0 5.39 3.46 8.85t8.85 3.46H640v-160h160v-267.69q0-5.39-3.46-8.85t-8.85-3.46H372.31q-5.39 0-8.85 3.46t-3.46 8.85ZM580-380Z" />
     </group>
 </vector>

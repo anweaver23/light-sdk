@@ -117,17 +117,24 @@ object Search {
     }
 
     /**
-     * Hymns matching [query] by the same rules as verses: title matches first (in hymnbook order),
-     * then hymns whose words match. [lyricsOf] gives a hymn's uploaded words, or null.
+     * Hymns matching [query]: a hymn number ("85", "#85", "hymn 85") first, then title matches by the
+     * same rules as verses (in hymnbook order), then hymns whose words match. [lyricsOf] gives a
+     * hymn's uploaded words, or null.
      */
     fun searchHymns(books: List<HymnBook>, query: String, lyricsOf: (Target.HymnRef) -> String?): List<HymnHit> {
         val terms = parse(query)
         if (terms.isEmpty()) return emptyList()
+        val number = HYMN_NUMBER.matchEntire(query.trim())?.groupValues?.get(1)?.toIntOrNull()
+        val byNumber = ArrayList<HymnHit>()
         val byTitle = ArrayList<HymnHit>()
         val byWords = ArrayList<HymnHit>()
         for (book in books) {
             for (hymn in book.hymns) {
                 val ref = Target.HymnRef(book.id, hymn.n)
+                if (hymn.n == number) {
+                    byNumber += HymnHit(ref, hymn.title, null)
+                    continue
+                }
                 if (match(hymn.title, terms) != null) {
                     byTitle += HymnHit(ref, hymn.title, null)
                     continue
@@ -138,8 +145,11 @@ object Search {
                 byWords += HymnHit(ref, hymn.title, snippet(words, range.first))
             }
         }
-        return byTitle + byWords
+        return byNumber + byTitle + byWords
     }
+
+    /** "85", "#85", "hymn 85", "hymns 85". */
+    private val HYMN_NUMBER = Regex("""(?i)(?:hymns?\s*|#\s*)?(\d{1,4})""")
 
     /**
      * A short excerpt of [verse] around [start]: up to [before] characters of lead-in, cut at a
