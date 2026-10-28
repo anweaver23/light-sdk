@@ -257,7 +257,9 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   search, bookmarks, annotations, a note, Define, a footnote, Settings, Add audio), but not on menus and
   pickers (Display, text size, Listen, confirmations) or the note editor. It opens the playing chapter or
   hymn, or turns to it in place on a reader / same-hymnbook page, and is hidden on the page that's
-  playing. `NowPlaying.live` is set by whichever player is connected, so it can lag after autoplay moves
+  playing. `NowPlaying.live` is set by whichever player is connected, read from that player's own flows (the view
+  model's fall back to "no item" one by one on disconnect, which cleared it on leaving a page) and cleared
+  only after a connected player shows no item for `NOTHING_LIVE_MS`; it can lag after autoplay moves
   on with no page open; a page opened from it (`followPlayback`) turns to what's actually live. On launch,
   home briefly connects (`NowPlaying.probe`) and, if something is playing, opens its page instead of
   where you left off. An overlay over LightOS isn't possible for a tool.

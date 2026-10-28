@@ -40,6 +40,8 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
@@ -132,20 +134,37 @@ class PlayerViewModel(
         }.collect { Log.d(LOG_TAG, it) }
     }
 
+    private data class Reading(
+        val ready: LightAudioPlayerAvailability,
+        val index: Int,
+        val now: Target?,
+        val playing: Boolean,
+    )
+
     /**
-     * Keeps [NowPlaying] up to date while connected: what's live, or nothing once the player reports
-     * no item. The moment between connecting and adopting the live queue (an item, but no queue
-     * yet) is skipped, so the corner button doesn't blink.
+     * Keeps [NowPlaying] up to date while connected: what's live, or nothing once the player has
+     * reported no item for [NOTHING_LIVE_MS]. Read straight from the one connected player, so letting
+     * go of it (leaving the page) says nothing: the view model's own flows fall back to "no item" one
+     * at a time on disconnect, which had cleared the button on every page you went back to. The moment
+     * between connecting and adopting the live queue (an item, but no queue yet) is skipped too.
      */
     private suspend fun publishNowPlaying() {
-        combine(availability, currentIndex, current, isPlaying) { ready, index, now, playing ->
-            when {
-                ready != LightAudioPlayerAvailability.Ready -> Unit
-                index == NO_MEDIA_ITEM -> NowPlaying.live.value = null
-                now != null -> NowPlaying.live.value = NowPlaying.Live(now, playing)
+        playerFlow.flatMapLatest { p ->
+            if (p == null) {
+                emptyFlow()
+            } else {
+                combine(p.availability, p.currentMediaItemIndex, current, p.isPlaying, ::Reading).mapLatest { r ->
+                    if (r.ready == LightAudioPlayerAvailability.Ready && r.index == NO_MEDIA_ITEM) delay(NOTHING_LIVE_MS)
+                    r
+                }
             }
-            Unit
-        }.collect {}
+        }.collect { r ->
+            when {
+                r.ready != LightAudioPlayerAvailability.Ready -> Unit
+                r.index == NO_MEDIA_ITEM -> NowPlaying.live.value = null
+                r.now != null -> NowPlaying.live.value = NowPlaying.Live(r.now, r.playing)
+            }
+        }
     }
 
     override fun onScreenShow(screen: SimpleLightScreen<Unit>) {
@@ -444,6 +463,8 @@ class PlayerViewModel(
     private companion object {
         /** Within this of the end, a recording counts as finished. */
         const val END_MARGIN_MS = 1500L
+        /** How long a connected player must report no item before the now-playing button goes. */
+        const val NOTHING_LIVE_MS = 1000L
         const val LOG_TAG = "ScripturesPlayer"
         /** Longest a start holds the page in "playing" while waiting for the player to catch up. */
         const val START_SETTLE_MS = 5000L
