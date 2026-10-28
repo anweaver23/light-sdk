@@ -266,7 +266,8 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-10-28 Selection and notes icons:** note is Light's own compose glyph
   (`LightIcons.COMPOSE_MESSAGE`, as LightOS Notes starts a note); the rest are Material Symbols (weight
   300, same crop): define `dictionary`, highlight `stylus_highlighter`. Annotations is our own `ic_journal`: Material `menu_book_2`
-  without its fork and knife, beside Light's compose pencil (no plus) turned point-up.
+  without its fork and knife, flipped so the rings face out, with a pencil on its left in the shape of
+  Light's compose glyph (point-up, eraser band) redrawn at the journal's stroke weight.
 - **2026-10-28 Starting playback doesn't flash the bar:** from queueing an item until it's actually
   playing, `PlayerViewModel.starting` pins `current` to it and keeps the paused bar away; the player
   still reports the old track's index and position, and "not playing", until then (`START_SETTLE_MS`).
