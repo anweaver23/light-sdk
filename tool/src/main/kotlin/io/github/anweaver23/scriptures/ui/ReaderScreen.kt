@@ -123,7 +123,7 @@ private const val WORD_TOUCH_SLOP_PX = 6f
 private const val PAGE_LOAD_WAIT_MS = 1500L
 
 /** Space between verses at normal line spacing, in grid units. */
-private const val VERSE_GAP_UNITS = 0.75f
+internal const val VERSE_GAP_UNITS = 0.75f
 
 /** Space above a focused verse when scrolling to it, in grid units. */
 private const val FOCUS_TOP_MARGIN_UNITS = 0.5f
@@ -313,18 +313,11 @@ class ReaderViewModel(start: Target.Chapter, focusVerse: Int?, quietFocus: Boole
      * Bookmark (from the menu): with no bookmark in this chapter, bookmarks the top verse on screen. With one or
      * more, removes the one nearest the top verse, so two taps always undo each other.
      */
-    fun toggleBookmark() {
+    /** The verse at the top of the screen, where a bookmark added from here goes. */
+    fun topRef(): VerseRef {
         val ch = _chapter.value
         val top = _topVerse.value?.takeIf { it.chapterTarget == ch }?.verse ?: 1
-        val existing = chapterBookmarks.value
-        AppGraph.scope.launch {
-            val nearest = existing.minByOrNull { abs(it.ref.verse - top) }
-            if (nearest != null) {
-                study.deleteBookmark(nearest.id)
-            } else {
-                study.addBookmark(VerseRef(ch.volumeId, ch.bookId, ch.chapter, top))
-            }
-        }
+        return VerseRef(ch.volumeId, ch.bookId, ch.chapter, top)
     }
 
     // --- loading ---
@@ -402,7 +395,6 @@ class ReaderScreen(
         val displays by viewModel.displays.collectAsState()
         val selection by viewModel.selection.collectAsState()
         val annotations by viewModel.chapterAnnotations.collectAsState()
-        val bookmarks by viewModel.chapterBookmarks.collectAsState()
         val find by viewModel.find.collectAsState()
         val display by AppGraph.display.collectAsState()
         val index by viewModel.library.collectAsState()
@@ -418,23 +410,18 @@ class ReaderScreen(
             reading = true,
             // Back while searching goes back to the search bar to keep typing, not out of the chapter.
             onBack = { if (viewModel.find.value != null) editFind() else goBack() },
-            rightButton = pageMenu(
-                listOf(
-                    MenuItem(if (bookmarks.isEmpty()) "Bookmark" else "Remove bookmark", onSelect = viewModel::toggleBookmark),
-                    // Opens from the menu (BACK returns to it); a search closes the menu and runs here.
-                    MenuItem(
-                        "Find in chapter",
-                        opens = { FindInputScreen(it, viewModel.find.value?.query.orEmpty()) },
-                        onResult = { query -> viewModel.find(query as String) },
-                    ),
-                ),
+            zen = Zen.on,
+            // The app's bar, with play in the middle when the chapter has audio. Search leads with
+            // "Find in <chapter>", which comes back here as a find; Bookmarks leads with adding one here.
+            bottomBar = navBar(
+                play = if (hasAudio) {
+                    LightBarButton.LightIcon(LightIcons.PLAY, onClick = { navigateTo({ PlayerScreen(it, chapter) }) }, contentDescription = "Listen")
+                } else {
+                    null
+                },
+                onSearch = { navigateTo({ SearchScreen(it, findIn = chapter) }) { query -> viewModel.find(query) } },
+                onBookmarks = { navigateTo({ BookmarksScreen(it, here = viewModel.topRef()) }) },
             ),
-            // Chapters change by swiping, so the bar only appears when there's audio to play.
-            bottomBar = if (hasAudio) {
-                listOf(LightBarButton.Text("Listen", onClick = { navigateTo({ PlayerScreen(it, chapter) }) }))
-            } else {
-                null
-            },
             bottomContent = when {
                 currentSelection != null -> {
                     {
@@ -472,6 +459,8 @@ class ReaderScreen(
             Box(
                 Modifier
                     .fillMaxSize()
+                    // Double tap: zen mode on or off (no bars). Highlighting and swiping still work in it.
+                    .doubleTap(Zen::toggle)
                     .pageSwipe(
                         enabled = currentSelection == null,
                         onDrag = { dx -> pages.drag(pageScope, dx) },
@@ -767,7 +756,7 @@ private fun styledVerse(
     val verse = display.verse
     for (a in annotations) {
         val words = a.range.wordsIn(verse, display.wordCount) ?: continue
-        val chars = display.charRange(words) ?: continue
+        val chars = display.markRange(words) ?: continue
         addStyle(
             SpanStyle(
                 background = colors.content.copy(alpha = HIGHLIGHT_ALPHA),
@@ -782,7 +771,7 @@ private fun styledVerse(
         val alpha = if (m == find.currentMatch) FIND_CURRENT_ALPHA else FIND_ALPHA
         addStyle(SpanStyle(background = colors.content.copy(alpha = alpha)), m.start, m.end)
     }
-    selection?.wordsIn(verse, display.wordCount)?.let(display::charRange)?.let { chars ->
+    selection?.wordsIn(verse, display.wordCount)?.let(display::markRange)?.let { chars ->
         addStyle(SpanStyle(background = colors.content.copy(alpha = SELECTION_ALPHA)), chars.first, chars.last + 1)
     }
     for (m in display.markers) {

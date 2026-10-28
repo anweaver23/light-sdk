@@ -59,6 +59,15 @@ class VerseLayoutTest {
     }
 
     @Test
+    fun `mark range takes in touching punctuation, after footnote markers`() {
+        val d = VerseDisplay.build(1, "a perfect knowledge. And", listOf(Footnote(word = 2, marker = "b")))
+        // "1  a perfect knowledgeb. And"
+        assertEquals("knowledgeb.", d.markRange(2..2)?.let { d.text.substring(it.first, it.last + 1) })
+        val q = VerseDisplay.build(2, "said, “Behold")
+        assertEquals("“Behold", q.markRange(1..1)?.let { q.text.substring(it.first, it.last + 1) })
+    }
+
+    @Test
     fun `top visible verse`() {
         val bottoms = listOf(100, 250, 400)
         assertEquals(1, topVisibleVerse(bottoms, 0))

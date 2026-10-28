@@ -16,6 +16,9 @@ class VerseDisplay private constructor(
     /** Display range of each word, start inclusive and end exclusive, by word index. */
     val wordStarts: IntArray,
     val wordEnds: IntArray,
+    /** Each word's display range widened over punctuation touching it, for highlights. */
+    private val markStarts: IntArray,
+    private val markEnds: IntArray,
     val markers: List<MarkerSpan>,
 ) {
     val wordCount: Int get() = wordStarts.size
@@ -24,6 +27,15 @@ class VerseDisplay private constructor(
     fun charRange(words: IntRange): IntRange? {
         if (words.isEmpty() || words.first < 0 || words.last >= wordCount) return null
         return wordStarts[words.first] until wordEnds[words.last]
+    }
+
+    /**
+     * Display characters a highlight of [words] covers: [charRange] plus punctuation touching the
+     * first and last word, so "knowledge." is highlighted with its full stop.
+     */
+    fun markRange(words: IntRange): IntRange? {
+        if (words.isEmpty() || words.first < 0 || words.last >= wordCount) return null
+        return markStarts[words.first] until markEnds[words.last]
     }
 
     /**
@@ -62,11 +74,15 @@ class VerseDisplay private constructor(
             val numberEnd = verse.toString().length
             val starts = IntArray(spans.size)
             val ends = IntArray(spans.size)
+            val markStarts = IntArray(spans.size)
+            val markEnds = IntArray(spans.size)
             val markers = ArrayList<MarkerSpan>()
             var cursor = 0
             for (span in spans) {
                 out.append(text, cursor, span.start)
                 starts[span.index] = out.length
+                // Leading punctuation sits in the gap just appended, so it's directly before the word.
+                markStarts[span.index] = out.length - (span.start - Words.punctuationStart(text, span.start))
                 out.append(text, span.start, span.end)
                 ends[span.index] = out.length
                 cursor = span.end
@@ -75,9 +91,11 @@ class VerseDisplay private constructor(
                     out.append(note.marker)
                     markers += MarkerSpan(note, s, out.length)
                 }
+                // Trailing punctuation is appended next, after any markers.
+                markEnds[span.index] = out.length + (Words.punctuationEnd(text, span.end) - span.end)
             }
             out.append(text, cursor, text.length)
-            return VerseDisplay(verse, out.toString(), numberEnd, starts, ends, markers)
+            return VerseDisplay(verse, out.toString(), numberEnd, starts, ends, markStarts, markEnds, markers)
         }
     }
 }

@@ -44,7 +44,7 @@ class HymnBooksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<U
 
     @Composable
     override fun Content() {
-        ScreenFrame(title = "Hymns", onBack = { goBack() }, rightButton = pageMenu(), bottomBar = navBar()) {
+        ScreenFrame(title = "Hymns", onBack = { goBack() }, bottomBar = navBar()) {
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 AppGraph.catalog.hymnBooks.forEach { book ->
                     ListRow(book.title) {
@@ -71,7 +71,7 @@ class HymnListScreen(sealedActivity: SealedLightActivity, private val hymnBookId
         val book = AppGraph.catalog.hymnBook(hymnBookId) ?: return
 
         // Long titles: the denser Subheading list, so more of each shows.
-        ScreenFrame(title = book.title, onBack = { goBack() }, rightButton = pageMenu(), bottomBar = navBar()) {
+        ScreenFrame(title = book.title, onBack = { goBack() }, bottomBar = navBar()) {
             LightLazyScrollView(
                 Modifier.fillMaxSize(),
                 listState = scrolls.list(),
@@ -176,13 +176,15 @@ class HymnScreen(private val sealedActivity: SealedLightActivity, target: Target
         }
         val paused = pauseHeld && position > 0
         val versions = index.versions(shown)
+        // A hymn counts as where you left off, as a chapter does: home reopens it on launch.
+        LaunchedEffect(shown) { AppGraph.progress.setLastHymn(shown) }
 
         ScreenFrame(
             title = "${hymn.n}. ${hymn.title}",
             reading = true,
             onBack = { goBack() },
-            rightButton = pageMenu(),
-            // Not playing: a centred play. Playing: the transport. Paused: just play and stop.
+            zen = Zen.on,
+            // Not playing: the app's bar, with play in the middle. Playing: the transport. Paused: stop and play.
             bottomBar = when {
                 playingHere && !paused -> listOf(
                     LightBarButton.LightIcon(LightIcons.REWIND, viewModel::previous, contentDescription = "Previous"),
@@ -198,11 +200,9 @@ class HymnScreen(private val sealedActivity: SealedLightActivity, target: Target
                     LightBarButton.LightIcon(LightIcons.PLAY, viewModel::togglePlayPause, contentDescription = "Play"),
                     null,
                 )
-                versions.isEmpty() -> null
-                else -> listOf(
-                    null,
-                    LightBarButton.LightIcon(LightIcons.PLAY, onClick = { listen(versions) }, contentDescription = "Play"),
-                    null,
+                else -> navBar(
+                    play = LightBarButton.LightIcon(LightIcons.PLAY, onClick = { listen(versions) }, contentDescription = "Play")
+                        .takeIf { versions.isNotEmpty() },
                 )
             },
         ) {
@@ -212,6 +212,8 @@ class HymnScreen(private val sealedActivity: SealedLightActivity, target: Target
                     .weight(1f)
                     .fillMaxWidth()
                     .onSizeChanged { pageWidth = it.width.toFloat() }
+                    // Double tap: zen mode on or off (no bars). Swiping still works in it.
+                    .doubleTap(Zen::toggle)
                     .pageSwipe(
                         enabled = true,
                         onDrag = { dx -> pages.drag(pageScope, dx) },
@@ -237,7 +239,7 @@ class HymnScreen(private val sealedActivity: SealedLightActivity, target: Target
                                         "\"${hymn.n}.txt\" to Hymn lyrics in the Tool Manager.",
                                 )
                                 if (versions.isEmpty()) {
-                                    Note("No audio yet either. Open the … menu and choose Add audio.")
+                                    Note("No audio yet either. Add it in Settings, under Add audio.")
                                 }
                             }
                         }

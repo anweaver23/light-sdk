@@ -14,7 +14,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -91,6 +93,8 @@ fun ScreenFrame(
     rightButton: LightBarButton? = null,
     bottomContent: (@Composable () -> Unit)? = null,
     reading: Boolean = false,
+    /** Zen mode: no top bar and no bottom bar ([bottomContent], e.g. the highlight bar, still shows). */
+    zen: Boolean = false,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     AppTheme(reading = reading) {
@@ -99,11 +103,13 @@ fun ScreenFrame(
                 .fillMaxSize()
                 .background(LightThemeTokens.colors.background),
         ) {
-            LightTopBar(
-                leftButton = onBack?.let { LightBarButton.LightIcon(LightIcons.BACK, onClick = it) },
-                center = LightTopBarCenter.Text(title),
-                rightButton = rightButton,
-            )
+            if (!zen) {
+                LightTopBar(
+                    leftButton = onBack?.let { LightBarButton.LightIcon(LightIcons.BACK, onClick = it) },
+                    center = LightTopBarCenter.Text(title),
+                    rightButton = rightButton,
+                )
+            }
             Column(
                 Modifier
                     .weight(1f)
@@ -113,7 +119,7 @@ fun ScreenFrame(
             )
             when {
                 bottomContent != null -> bottomContent()
-                bottomBar != null -> LightBottomBar(items = bottomBar)
+                bottomBar != null && !zen -> LightBottomBar(items = bottomBar)
             }
         }
     }
@@ -235,6 +241,10 @@ fun ActionBar(items: List<LightBarButton>) {
 fun StackRow(
     title: String,
     lines: List<Pair<String, Int>>,
+    /** Dimmed, smaller, on the title's line after it (a date). */
+    titleDetail: String? = null,
+    /** Drawn in the list inset, left of the text, without moving it (edit mode's remove mark). */
+    leading: (@Composable () -> Unit)? = null,
     trailing: (@Composable () -> Unit)? = null,
     onClick: () -> Unit,
 ) {
@@ -242,11 +252,29 @@ fun StackRow(
         modifier = Modifier
             .fillMaxWidth()
             .lightClickable(onClick = onClick)
-            .padding(start = LIST_INSET_UNITS.gridUnitsAsDp(), bottom = 1.5f.gridUnitsAsDp()),
+            .padding(bottom = 1.5f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
+        Box(Modifier.width(LIST_INSET_UNITS.gridUnitsAsDp()).align(Alignment.Top)) { leading?.invoke() }
         Column(Modifier.weight(1f)) {
-            AppText(title, variant = TWO_LINE_TITLE, maxLines = 1, overflow = TextOverflow.Ellipsis)
+            Row(verticalAlignment = Alignment.Bottom) {
+                AppText(
+                    title,
+                    variant = TWO_LINE_TITLE,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f, fill = false),
+                )
+                if (titleDetail != null) {
+                    AppText(
+                        titleDetail,
+                        variant = TWO_LINE_DETAIL,
+                        lighten = true,
+                        maxLines = 1,
+                        modifier = Modifier.padding(start = 0.75f.gridUnitsAsDp(), bottom = 0.1f.gridUnitsAsDp()),
+                    )
+                }
+            }
             lines.forEach { (text, maxLines) ->
                 AppText(
                     text = text,
@@ -312,6 +340,26 @@ class ConfirmScreen(
         }
     }
 }
+
+/**
+ * Light's remove mark (a circled ✕), as LightOS Notes draws it left of each row in edit mode. It sits
+ * in the list inset and reaches into the frame's margin, so the row's text doesn't move.
+ */
+@Composable
+fun RemoveMark(label: String, onClick: () -> Unit) {
+    LightIcon(
+        LightIcons.DENY,
+        contentDescription = "Remove $label",
+        modifier = Modifier
+            .offset(x = (-0.65f).gridUnitsAsDp())
+            .size(1.2f.gridUnitsAsDp())
+            .lightClickable(onClick = onClick),
+    )
+}
+
+/** "Oct 28, 2026", as LightOS Notes dates its notes. */
+fun formatDate(millis: Long): String =
+    java.text.SimpleDateFormat("MMM dd, yyyy", java.util.Locale.US).format(java.util.Date(millis))
 
 fun formatDuration(ms: Long): String {
     val totalSeconds = ms.coerceAtLeast(0L) / 1_000L

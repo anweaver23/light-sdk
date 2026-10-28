@@ -63,6 +63,16 @@ class SelectionTest {
     fun `quote spans verses from first to last letter`() {
         val verses = listOf("And now, behold, faith is not", "to have a perfect knowledge.")
         assertEquals("faith is not to have", quoteOf(verses, WordRange(p(1, 3), p(2, 1))))
-        assertEquals("behold", quoteOf(verses, WordRange(p(1, 2), p(1, 2))))
+        assertEquals("behold,", quoteOf(verses, WordRange(p(1, 2), p(1, 2))))
+    }
+
+    @Test
+    fun `quote keeps punctuation and verse structure`() {
+        val verses = listOf("And now, behold, faith is not", "to have a perfect knowledge.")
+        assertEquals(
+            listOf(1 to "faith is not", 2 to "to have a perfect knowledge."),
+            quoteVerses(verses, WordRange(p(1, 3), p(2, 4))),
+        )
+        assertEquals("(the Lord)", quoteOf(listOf("saith (the Lord) unto"), WordRange(p(1, 1), p(1, 2))))
     }
 }

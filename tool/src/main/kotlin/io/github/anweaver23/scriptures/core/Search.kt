@@ -6,6 +6,9 @@ class SearchBook(val volumeId: String, val bookId: String, val text: BookText)
 /** A verse that matched, with the character range of the first matched word (for the snippet). */
 data class SearchHit(val ref: VerseRef, val verse: String, val matchStart: Int, val matchEnd: Int)
 
+/** A hymn whose title or words match; [snippet] is the matching bit of the words, or null for a title match. */
+data class HymnHit(val ref: Target.HymnRef, val title: String, val snippet: String?)
+
 /** The first [hits] in canonical order, plus how many verses matched in total. */
 data class SearchResults(val hits: List<SearchHit>, val total: Int) {
     val more: Int get() = total - hits.size
@@ -111,6 +114,31 @@ object Search {
             }
         }
         return SearchResults(hits, total)
+    }
+
+    /**
+     * Hymns matching [query] by the same rules as verses: title matches first (in hymnbook order),
+     * then hymns whose words match. [lyricsOf] gives a hymn's uploaded words, or null.
+     */
+    fun searchHymns(books: List<HymnBook>, query: String, lyricsOf: (Target.HymnRef) -> String?): List<HymnHit> {
+        val terms = parse(query)
+        if (terms.isEmpty()) return emptyList()
+        val byTitle = ArrayList<HymnHit>()
+        val byWords = ArrayList<HymnHit>()
+        for (book in books) {
+            for (hymn in book.hymns) {
+                val ref = Target.HymnRef(book.id, hymn.n)
+                if (match(hymn.title, terms) != null) {
+                    byTitle += HymnHit(ref, hymn.title, null)
+                    continue
+                }
+                // Words are matched as one line, so a snippet can run across the song's line breaks.
+                val words = lyricsOf(ref)?.replace(Regex("\\s+"), " ") ?: continue
+                val range = match(words, terms) ?: continue
+                byWords += HymnHit(ref, hymn.title, snippet(words, range.first))
+            }
+        }
+        return byTitle + byWords
     }
 
     /**

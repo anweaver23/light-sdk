@@ -11,21 +11,20 @@ import androidx.compose.ui.Modifier
 import com.thelightphone.sdk.SealedLightActivity
 import com.thelightphone.sdk.SimpleLightScreen
 import com.thelightphone.sdk.ui.LightBarButton
-import com.thelightphone.sdk.ui.LightIcon
-import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightScrollView
-import com.thelightphone.sdk.ui.lightClickable
 import io.github.anweaver23.scriptures.core.label
 import io.github.anweaver23.scriptures.data.AppGraph
 import kotlinx.coroutines.launch
 
-/** Every highlight and note, newest first. Tapping one opens the reader there. */
+/**
+ * Every highlight and note, newest first, each dated beside its reference. Tapping one opens the
+ * reader there. EDIT (bottom bar, as in LightOS Notes) puts a remove mark on each, which asks first.
+ */
 class AnnotationsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack. */
     private val scrolls = ScrollMemory()
 
-    // On the screen, not in remember: opening the "…" menu takes this screen out of composition, so
-    // remembered state would be gone (and the menu's "Edit" would set a dead copy).
+    // On the screen, not in remember: the confirm screen takes this one out of composition.
     private var editing by mutableStateOf(false)
 
     init {
@@ -38,19 +37,15 @@ class AnnotationsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen
         val annotations by AppGraph.study.annotations.collectAsState()
         LaunchedEffect(Unit) { AppGraph.study.load() }
         val sorted = annotations.sortedByDescending { it.createdAt }
+        if (sorted.isEmpty()) editing = false
 
         ScreenFrame(
             title = "Annotations",
             onBack = { goBack() },
-            rightButton = if (editing && sorted.isNotEmpty()) {
-                LightBarButton.Text("DONE", onClick = { editing = false })
+            bottomBar = if (sorted.isEmpty()) {
+                null
             } else {
-                pageMenu(
-                    listOfNotNull(
-                        MenuItem("Edit annotations") { editing = true }
-                            .takeIf { sorted.isNotEmpty() },
-                    ),
-                )
+                listOf(null, LightBarButton.Text(if (editing) "DONE" else "EDIT", onClick = { editing = !editing }), null)
             },
         ) {
             if (sorted.isEmpty()) {
@@ -59,26 +54,22 @@ class AnnotationsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen
             }
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 sorted.forEach { a ->
+                    val remove = {
+                        navigateTo({ confirmRemove(it, a) }) { confirmed ->
+                            if (confirmed) AppGraph.scope.launch { AppGraph.study.deleteAnnotation(a.id) }
+                        }
+                    }
                     StackRow(
                         title = catalog.label(a),
+                        titleDetail = formatDate(a.createdAt),
                         lines = listOfNotNull("“${a.quote}”" to 2, a.note?.let { it to 2 }),
-                        trailing = if (editing) {
-                            {
-                                LightIcon(
-                                    LightIcons.CLOSE,
-                                    contentDescription = "Remove",
-                                    modifier = Modifier.lightClickable {
-                                        navigateTo({ confirmRemove(it, a) }) { confirmed ->
-                                            if (confirmed) AppGraph.scope.launch { AppGraph.study.deleteAnnotation(a.id) }
-                                        }
-                                    },
-                                )
-                            }
+                        leading = if (editing) {
+                            { RemoveMark(catalog.label(a), remove) }
                         } else {
                             null
                         },
                     ) {
-                        navigateTo({ ReaderScreen(it, a.chapter, focusVerse = a.start.ref.verse) })
+                        if (editing) remove() else navigateTo({ ReaderScreen(it, a.chapter, focusVerse = a.start.ref.verse) })
                     }
                 }
             }

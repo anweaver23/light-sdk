@@ -10,6 +10,17 @@ data class DisplaySettings(
     val invertColors: Boolean = false,
 )
 
+/** How home shows the volumes and Hymns: square tiles (the default) or a plain list. */
+enum class HomeLayout(val label: String) {
+    Tiles("Tiles"),
+    List("List"),
+    ;
+
+    companion object {
+        fun fromKey(key: String?): HomeLayout = entries.firstOrNull { it.name == key } ?: Tiles
+    }
+}
+
 /** Whether playback rolls on to the next chapter / hymn when one ends. Both on by default. */
 data class PlaybackSettings(
     val autoplayChapters: Boolean = true,

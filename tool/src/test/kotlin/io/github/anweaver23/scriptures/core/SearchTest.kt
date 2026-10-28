@@ -8,6 +8,17 @@ import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 class SearchTest {
+    @Test
+    fun `hymns match by title first, then by words`() {
+        val book = HymnBook("h", "Hymns", listOf(Hymn(1, "How Firm a Foundation"), Hymn(2, "Abide with Me")))
+        val hits = Search.searchHymns(listOf(book), "firm") { ref ->
+            if (ref.number == 2) "Abide with me;\nfast falls the eventide,\nfirm in thy love" else null
+        }
+        assertEquals(listOf(1, 2), hits.map { it.ref.number })
+        assertEquals(null, hits[0].snippet)
+        assertTrue(hits[1].snippet!!.contains("firm in thy love"))
+    }
+
     private fun matches(verse: String, query: String) = Search.match(verse, Search.parse(query)) != null
 
     @Test

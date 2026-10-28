@@ -54,16 +54,22 @@ data class Selection(val anchor: WordPos, val focus: WordPos = anchor) {
 }
 
 /**
- * The text a range covers, from the first word's first letter to the last word's last letter.
- * Verses are joined with a space; [verses] is the chapter's verse list (verse n at index n - 1).
+ * The text a range covers in each verse, as (verse number, text), from the first word to the last,
+ * with punctuation touching them. [verses] is the chapter's verse list (verse n at index n - 1).
  */
-fun quoteOf(verses: List<String>, range: WordRange): String {
-    val parts = ArrayList<String>()
+fun quoteVerses(verses: List<String>, range: WordRange): List<Pair<Int, String>> {
+    val parts = ArrayList<Pair<Int, String>>()
     for (v in range.start.verse..range.end.verse) {
         val text = verses.getOrNull(v - 1) ?: continue
         val spans = Words.spans(text)
         val words = range.wordsIn(v, spans.size) ?: continue
-        parts += text.substring(spans[words.first].start, spans[words.last].end)
+        val start = Words.punctuationStart(text, spans[words.first].start)
+        val end = Words.punctuationEnd(text, spans[words.last].end)
+        parts += v to text.substring(start, end)
     }
-    return parts.joinToString(" ")
+    return parts
 }
+
+/** [quoteVerses] as one line, verses joined with a space (what an annotation stores for lists). */
+fun quoteOf(verses: List<String>, range: WordRange): String =
+    quoteVerses(verses, range).joinToString(" ") { it.second }

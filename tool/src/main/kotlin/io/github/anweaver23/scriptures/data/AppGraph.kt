@@ -6,6 +6,7 @@ import com.thelightphone.toolmanager.LightFileProvider
 import io.github.anweaver23.scriptures.core.BookText
 import io.github.anweaver23.scriptures.core.Catalog
 import io.github.anweaver23.scriptures.core.Dictionary
+import io.github.anweaver23.scriptures.core.HomeLayout
 import io.github.anweaver23.scriptures.core.PlaybackSettings
 import io.github.anweaver23.scriptures.core.OriginalLanguage
 import io.github.anweaver23.scriptures.core.FileMatcher
@@ -68,6 +69,11 @@ object AppGraph {
      */
     val display: StateFlow<DisplaySettings> by lazy {
         settings.display.stateIn(scope, SharingStarted.Eagerly, DisplaySettings())
+    }
+
+    /** Tiles or a list on home. */
+    val homeLayout: StateFlow<HomeLayout> by lazy {
+        settings.homeLayout.stateIn(scope, SharingStarted.Eagerly, HomeLayout.Tiles)
     }
 
     /** Autoplay settings, read by the players when they build a queue. */

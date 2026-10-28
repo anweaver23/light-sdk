@@ -26,6 +26,7 @@ import com.thelightphone.sdk.ui.LightThemeTokens
 import com.thelightphone.sdk.ui.gridUnitsAsDp
 import com.thelightphone.sdk.ui.lightClickable
 import io.github.anweaver23.scriptures.core.Catalog
+import io.github.anweaver23.scriptures.core.HymnHit
 import io.github.anweaver23.scriptures.core.RefMatch
 import io.github.anweaver23.scriptures.core.References
 import io.github.anweaver23.scriptures.core.Target
@@ -51,14 +52,19 @@ const val SEARCH_RESULT_LIMIT = Search.DEFAULT_LIMIT
 /** Space under each result. */
 private const val RESULT_GAP_UNITS = 0.75f
 
-class SearchViewModel : LightViewModel<Unit>() {
+class SearchViewModel : LightViewModel<String>() {
     val catalog: Catalog = AppGraph.catalog
 
     sealed interface State {
         /** Typing the query. */
         data object Editing : State
         data class Searching(val query: String, val refs: List<RefMatch>) : State
-        data class Done(val query: String, val refs: List<RefMatch>, val results: SearchResults) : State
+        data class Done(
+            val query: String,
+            val refs: List<RefMatch>,
+            val hymns: List<HymnHit>,
+            val results: SearchResults,
+        ) : State
     }
 
     private val _state = MutableStateFlow<State>(State.Editing)
@@ -86,10 +92,16 @@ class SearchViewModel : LightViewModel<Unit>() {
         job?.cancel()
         _state.value = State.Searching(query, refs)
         job = viewModelScope.launch {
+            val hymns = withContext(Dispatchers.IO) {
+                val index = AppGraph.library.index.value
+                Search.searchHymns(catalog.hymnBooks, query) { ref ->
+                    index.lyrics(ref)?.let { runCatching { it.readText() }.getOrNull() }
+                }
+            }
             val results = withContext(Dispatchers.Default) {
                 SearchIndex.search(query, SEARCH_RESULT_LIMIT) { ensureActive() }
             }
-            _state.value = State.Done(query, refs, results)
+            _state.value = State.Done(query, refs, hymns, results)
         }
     }
 
@@ -109,8 +121,14 @@ class SearchViewModel : LightViewModel<Unit>() {
     }
 }
 
-/** Search: scripture references ("genesis 1") and full-text search over all bundled verses. Opens on the keyboard; results show after submit. */
-class SearchScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, SearchViewModel>(sealedActivity) {
+/**
+ * Search: scripture references ("genesis 1"), hymns by title and by their uploaded words, and
+ * full-text search over all bundled verses. Opens on the keyboard; results show after submit.
+ * Opened from the reader, [findIn] is its chapter: the first result finds the term there instead, and
+ * the search returns the term to the reader.
+ */
+class SearchScreen(sealedActivity: SealedLightActivity, private val findIn: Target.Chapter? = null) :
+    LightScreen<String, SearchViewModel>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack. */
     private val scrolls = ScrollMemory()
 
@@ -127,10 +145,10 @@ class SearchScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, Sear
         when (val s = state) {
             SearchViewModel.State.Editing -> Editor()
             is SearchViewModel.State.Searching -> Results(s.query) {
-                ResultList(s.query, s.refs, null)
+                ResultList(s.query, s.refs, emptyList(), null)
             }
             is SearchViewModel.State.Done -> Results(s.query) {
-                ResultList(s.query, s.refs, s.results)
+                ResultList(s.query, s.refs, s.hymns, s.results)
             }
         }
     }
@@ -165,22 +183,31 @@ class SearchScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, Sear
         ScreenFrame(
             title = "“$query”",
             onBack = { goBack() },
-            rightButton = pageMenu(),
             bottomBar = listOf(LightBarButton.LightIcon(LightIcons.SEARCH, onClick = viewModel::edit)),
         ) {
             body()
         }
     }
 
-    /** References first (books, chapters, verses the query names), then verses containing the words. */
+    /**
+     * Find in the reader's chapter (when opened from it), then references (books, chapters, verses the
+     * query names), hymns, and verses containing the words.
+     */
     @Composable
-    private fun ResultList(query: String, refs: List<RefMatch>, results: SearchResults?) {
+    private fun ResultList(query: String, refs: List<RefMatch>, hymns: List<HymnHit>, results: SearchResults?) {
         val catalog = viewModel.catalog
         LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
+            findIn?.let { chapter ->
+                StackRow(title = "Find in this chapter", lines = listOf(catalog.label(chapter) to 1)) { goBack(query) }
+            }
             refs.forEach { ref -> ReferenceRow(catalog, ref) }
+            if (hymns.isNotEmpty()) {
+                Note(if (hymns.size == 1) "1 hymn" else "${hymns.size} hymns")
+                hymns.forEach { hit -> HymnRow(catalog, hit) }
+            }
             when {
                 results == null -> Note("Searching…")
-                results.total == 0 && refs.isEmpty() -> Note("No verses contain every word of “$query”.")
+                results.total == 0 && refs.isEmpty() && hymns.isEmpty() -> Note("Nothing contains every word of “$query”.")
                 results.total == 0 -> Unit
                 else -> {
                     Note(if (results.total == 1) "1 verse" else "${results.total} verses")
@@ -210,6 +237,31 @@ class SearchScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, Sear
             is RefMatch.VerseRefMatch -> ListRow(catalog.verseLabel(ref.ref)) {
                 navigateTo({ ReaderScreen(it, ref.ref.chapterTarget, focusVerse = ref.ref.verse) })
             }
+        }
+    }
+
+    /** A hymn: its number and title, then where its words matched (or its hymnbook, for a title match). */
+    @Composable
+    private fun HymnRow(catalog: Catalog, hit: HymnHit) {
+        Column(
+            Modifier
+                .fillMaxWidth()
+                .lightClickable { navigateTo({ HymnScreen(it, hit.ref) }) }
+                .padding(bottom = RESULT_GAP_UNITS.gridUnitsAsDp()),
+        ) {
+            AppText(
+                text = "${hit.ref.number}. ${hit.title}",
+                variant = ROW_TEXT,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+            AppText(
+                text = hit.snippet ?: catalog.hymnBook(hit.ref.hymnBookId)?.title.orEmpty(),
+                variant = LightTextVariant.Fine,
+                lighten = true,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
         }
     }
 

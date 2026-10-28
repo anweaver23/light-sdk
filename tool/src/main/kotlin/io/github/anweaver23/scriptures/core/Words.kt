@@ -43,4 +43,24 @@ object Words {
     }
 
     private val JOINERS = setOf('\'', '’', '-')
+
+    /**
+     * Where a word starts once punctuation touching it is counted ("(Lord", "“Behold"): back over
+     * characters that are neither letters, digits nor spaces. Highlights and quotes use this, so a
+     * sentence's full stop isn't left out. Word indexes (the anchors) don't change.
+     */
+    fun punctuationStart(text: String, start: Int): Int {
+        var i = start
+        while (i > 0 && isPunctuation(text[i - 1])) i--
+        return i
+    }
+
+    /** Where a word ends once punctuation touching it is counted ("said:", "knowledge."). */
+    fun punctuationEnd(text: String, end: Int): Int {
+        var i = end
+        while (i < text.length && isPunctuation(text[i])) i++
+        return i
+    }
+
+    private fun isPunctuation(c: Char) = !c.isLetterOrDigit() && !c.isWhitespace()
 }

@@ -423,7 +423,6 @@ class PlayerScreen(private val sealedActivity: SealedLightActivity, private val 
         ScreenFrame(
             title = "Listening",
             onBack = { goBack() },
-            rightButton = pageMenu(),
             // Playing: the full transport. Paused: just play and stop, everything else out of the way.
             bottomBar = if (!paused) {
                 listOf(

@@ -1,5 +1,6 @@
 package io.github.anweaver23.scriptures.ui
 
+import io.github.anweaver23.scriptures.core.HomeLayout
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
@@ -68,13 +69,11 @@ class SettingsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Un
     override fun Content() {
         val pending by AppGraph.importer.pending.collectAsState()
         val playback by AppGraph.playback.collectAsState()
+        val homeLayout by AppGraph.homeLayout.collectAsState()
 
         ScreenFrame(title = "Settings", onBack = { goBack() }) {
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 ListRow("Display") { navigateTo(::DisplayScreen) }
-                ListRow("Add audio", if (pending.isEmpty()) null else "${pending.size} to review") {
-                    navigateTo(::AddAudioScreen)
-                }
                 // When a chapter or hymn ends, go on to the next one.
                 ToggleRow("Autoplay chapters", playback.autoplayChapters) {
                     AppGraph.scope.launch { AppGraph.settings.setAutoplayChapters(!playback.autoplayChapters) }
@@ -82,14 +81,21 @@ class SettingsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Un
                 ToggleRow("Autoplay hymns", playback.autoplayHymns) {
                     AppGraph.scope.launch { AppGraph.settings.setAutoplayHymns(!playback.autoplayHymns) }
                 }
+                // Two choices, so a tap flips between them (no picker screen).
+                ListRow("Home", homeLayout.label) {
+                    val next = if (homeLayout == HomeLayout.Tiles) HomeLayout.List else HomeLayout.Tiles
+                    AppGraph.scope.launch { AppGraph.settings.setHomeLayout(next) }
+                }
+                ListRow("Add audio", if (pending.isEmpty()) null else "${pending.size} to review") {
+                    navigateTo(::AddAudioScreen)
+                }
             }
         }
     }
 }
 
 /**
- * Display: text size, line spacing and invert colours. Reached from Settings and from every page's
- * "…" menu. Size and spacing apply to the app's content everywhere (not the bars or menus).
+ * Display: text size, line spacing and invert colours. Reached from Settings. Size and spacing apply to the app's content everywhere (not the bars or menus).
  */
 class DisplayScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack. */

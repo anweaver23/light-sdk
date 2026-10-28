@@ -44,7 +44,7 @@ class BookListScreen(sealedActivity: SealedLightActivity, private val volumeId: 
         val volume = AppGraph.catalog.scriptures.volume(volumeId) ?: return
         val index by AppGraph.library.index.collectAsState()
 
-        ScreenFrame(title = volume.title, onBack = { goBack() }, rightButton = pageMenu(), bottomBar = navBar()) {
+        ScreenFrame(title = volume.title, onBack = { goBack() }, bottomBar = navBar()) {
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 volume.books.forEach { book ->
                     val withAudio = index.audioCount("scriptures/${volume.id}/${book.id}/")
@@ -80,7 +80,7 @@ class ChapterGridScreen(
         val book = AppGraph.catalog.scriptures.book(bookId) ?: return
         val index by AppGraph.library.index.collectAsState()
 
-        ScreenFrame(title = book.title, onBack = { goBack() }, rightButton = pageMenu(), bottomBar = navBar()) {
+        ScreenFrame(title = book.title, onBack = { goBack() }, bottomBar = navBar()) {
             NumberGrid(
                 numbers = (1..book.chapters).toList(),
                 scrollState = scrolls.scroll(),

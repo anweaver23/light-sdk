@@ -1,5 +1,8 @@
 package io.github.anweaver23.scriptures.ui
 
+import androidx.compose.runtime.collectAsState
+import io.github.anweaver23.scriptures.core.Target
+import io.github.anweaver23.scriptures.core.HomeLayout
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Row
@@ -74,11 +77,17 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
     @Composable
     override fun Content() {
         val catalog = viewModel.catalog
+        val layout by AppGraph.homeLayout.collectAsState()
 
-        // On launch, open the scriptures where the user left off (Back returns here).
+        // On launch, open the chapter or hymn where the user left off (Back returns here).
         LaunchedEffect(Unit) {
             if (AppGraph.resumedReading) return@LaunchedEffect
             AppGraph.resumedReading = true
+            val page = AppGraph.progress.lastPage.first()
+            if (page is Target.HymnRef) {
+                navigateTo({ HymnScreen(it, page) })
+                return@LaunchedEffect
+            }
             val chapter = AppGraph.progress.lastRead.first() ?: return@LaunchedEffect
             val verse = AppGraph.progress.lastReadVerse.first()?.verse
             navigateTo({ ReaderScreen(it, chapter, focusVerse = verse, quietFocus = true) })
@@ -93,9 +102,15 @@ class HomeScreen(sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeVi
             ScreenFrame(
                 title = "Scriptures",
                 onBack = null,
-                rightButton = pageMenu(),
                 bottomBar = navBar(),
             ) {
+                // Settings › Home: the tiles, or a plain list.
+                if (layout == HomeLayout.List) {
+                    LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll(HomeLayout.List)) {
+                        shelves.forEach { shelf -> ListRow(shelf.title, onClick = shelf.open) }
+                    }
+                    return@ScreenFrame
+                }
                 BoxWithConstraints(Modifier.fillMaxSize()) {
                     val gap = TILE_GAP_UNITS.gridUnitsAsDp()
                     val columns = TILE_COLUMNS

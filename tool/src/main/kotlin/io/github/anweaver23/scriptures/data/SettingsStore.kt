@@ -7,6 +7,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.floatPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import io.github.anweaver23.scriptures.core.DisplaySettings
+import io.github.anweaver23.scriptures.core.HomeLayout
 import io.github.anweaver23.scriptures.core.LineSpacing
 import io.github.anweaver23.scriptures.core.PlaybackSettings
 import io.github.anweaver23.scriptures.core.TextSize
@@ -29,6 +30,12 @@ class SettingsStore(private val dataStore: DataStore<Preferences>) {
             autoplayChapters = prefs[AUTOPLAY_CHAPTERS] ?: true,
             autoplayHymns = prefs[AUTOPLAY_HYMNS] ?: true,
         )
+    }
+
+    val homeLayout: Flow<HomeLayout> = dataStore.data.map { prefs -> HomeLayout.fromKey(prefs[HOME_LAYOUT]) }
+
+    suspend fun setHomeLayout(layout: HomeLayout) {
+        dataStore.edit { it[HOME_LAYOUT] = layout.name }
     }
 
     suspend fun setAutoplayChapters(on: Boolean) {
@@ -57,5 +64,6 @@ class SettingsStore(private val dataStore: DataStore<Preferences>) {
         val INVERT_COLORS = booleanPreferencesKey("invert_colors")
         val AUTOPLAY_CHAPTERS = booleanPreferencesKey("autoplay_chapters")
         val AUTOPLAY_HYMNS = booleanPreferencesKey("autoplay_hymns")
+        val HOME_LAYOUT = stringPreferencesKey("home_layout")
     }
 }

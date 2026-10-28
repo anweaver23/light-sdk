@@ -1,5 +1,12 @@
 package io.github.anweaver23.scriptures.ui
 
+import io.github.anweaver23.scriptures.core.quoteVerses
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -207,12 +214,46 @@ class AnnotationScreen(sealedActivity: SealedLightActivity, private val id: Stri
             // The quote and note are reading text: they follow the Display size and spacing.
             val display by AppGraph.display.collectAsState()
             val style = readerTextStyle(display.textSize.scale, display.lineSpacing)
+            // The quote verse by verse, as the reader lays it out; the stored one-line quote until the
+            // chapter's text loads (or if it can't).
+            val chapter = annotation.chapter
+            var verses by remember(annotation.id) { mutableStateOf<List<Pair<Int, String>>?>(null) }
+            LaunchedEffect(annotation.id, annotation.range) {
+                verses = withContext(Dispatchers.IO) {
+                    runCatching {
+                        val text = AppGraph.bookText(chapter.volumeId, chapter.bookId).c.getOrNull(chapter.chapter - 1).orEmpty()
+                        quoteVerses(text, annotation.range).takeIf { it.isNotEmpty() }
+                    }.getOrNull()
+                }
+            }
+            val quoteColor = LightThemeTokens.colors.contentSecondary
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
-                BasicText(
-                    text = "“${annotation.quote}”",
-                    style = style.copy(color = LightThemeTokens.colors.contentSecondary),
+                // First line: when it was made, lighter, as LightOS Notes dates a note.
+                AppText(
+                    text = formatDate(annotation.createdAt),
+                    variant = LightTextVariant.Detail,
+                    lighten = true,
                     modifier = Modifier.padding(bottom = 0.5f.gridUnitsAsDp()),
                 )
+                val lines = verses
+                if (lines == null || lines.size == 1) {
+                    BasicText(
+                        text = "“${lines?.single()?.second ?: annotation.quote}”",
+                        style = style.copy(color = quoteColor),
+                        modifier = Modifier.padding(bottom = 0.5f.gridUnitsAsDp()),
+                    )
+                } else {
+                    lines.forEachIndexed { i, (verse, text) ->
+                        BasicText(
+                            text = buildAnnotatedString {
+                                withStyle(SpanStyle(color = quoteColor.copy(alpha = 0.6f))) { append("$verse  ") }
+                                append(text)
+                            },
+                            style = style.copy(color = quoteColor),
+                            modifier = Modifier.padding(bottom = (if (i == lines.lastIndex) 0.5f else VERSE_GAP_UNITS).gridUnitsAsDp()),
+                        )
+                    }
+                }
                 if (annotation.hasNote) {
                     SectionLabel("Note")
                     BasicText(text = annotation.note.orEmpty(), style = style)

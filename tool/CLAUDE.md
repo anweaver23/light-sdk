@@ -87,7 +87,7 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   The Kotlin package stays `io.github.anweaver23.scriptures`; only the id is user-visible and permanent.
   The generated `R` class follows the id: import `com.andyweaver.scriptures.R`.
 - **2026-10-26 Never a star for bookmarks:** bookmarks always use our `ic_bookmark` glyph, everywhere.
-- **2026-10-26 Every landing page has a "…" menu** (`LightIcons.ELLIPSES`, top right) built with
+- **2026-10-26 Every landing page has a "…" menu** *(gone since 2026-10-28, see No "…" menu)* (`LightIcons.ELLIPSES`, top right) built with
   `pageMenu(items)` in `ui/MenuScreen.kt`. Each page passes its own items, and **Add audio** is always
   appended, then **Display** and **Add audio**. An item that `opens` a screen opens it on top of the menu
   (BACK returns to the menu); an action (`onSelect`) closes the menu and runs on the opening page. Home: nothing extra. Reader: Bookmark / Remove bookmark, Find in chapter. Bookmarks /
@@ -209,8 +209,7 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   their `ScrollState` / `LazyListState` in a `ScrollMemory` field, not in composition, so the spot is
   there on the first frame (no jump). Keyed where one screen has several lists (picker levels, each
   hymn). Every new scrolling screen should do the same.
-- **2026-10-27 Find and back:** Find in chapter opens from the "…" menu (BACK returns to the menu); a
-  search closes the menu (`MenuItem.onResult`). While a search is active, the reader's back arrow
+- **2026-10-27 Find and back:** Find in chapter *(now reached through Search, see 2026-10-28)*. While a search is active, the reader's back arrow
   reopens the search bar with the term; backing out of that ends the search. `BackHandler` is blocked
   by the SDK's import rules, so this covers the on-screen arrow (the LP3's back) only.
 - **2026-10-27 Haptics fallback:** a sideloaded (not Light-signed) tool is refused a LightOS service token,
@@ -223,6 +222,31 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-10-27 Material Symbols when Light has no glyph:** Outlined, weight 300 (matches Light's stroke),
   viewport cropped to the art so it fills the box like Light's glyphs, white and tinted by `tintedIcon()`.
   Apache 2.0; source and licence noted in the drawable.
+
+- **2026-10-28 No "…" menu.** Most of the app shares one bottom bar, `navBar()` (`ui/NavBar.kt`):
+  Settings · Search · ▶ (only where there's audio: the reader, a hymn's page) · Bookmarks · Annotations.
+  Display and Add audio live in Settings (order: Display, Autoplay chapters, Autoplay hymns, Home, Add
+  audio last). From the reader, Search leads with "Find in this chapter" (returns the term to the reader)
+  and Bookmarks leads with Add bookmark / Remove bookmark at the top verse (then straight back).
+- **2026-10-28 Zen mode:** a double tap on a chapter or a hymn's words hides the top and bottom bars,
+  and another brings them back, with no confirmation (`Zen`, `Modifier.doubleTap`, `ScreenFrame(zen)`).
+  It's one state for the session. The highlight and find bars still show; swiping still turns pages.
+- **2026-10-28 Editing lists like LightOS Notes:** Bookmarks and Annotations put EDIT / DONE in the middle
+  of the bottom bar; editing shows Light's circled ✕ (`LightIcons.DENY`, `RemoveMark`) in the inset left of
+  each row, and removing asks first (`ConfirmScreen`). Dates are "Oct 28, 2026" (`formatDate`): beside the
+  reference in the annotations list, as the first (lighter) line of a note's page, under each bookmark.
+- **2026-10-28 Highlights take in punctuation:** a highlight, the selection and a quote run over
+  punctuation touching their first and last words ("knowledge." keeps its full stop), via
+  `Words.punctuationStart/End` and `VerseDisplay.markRange`. Anchors (word indexes) don't change.
+- **2026-10-28 A note's quote keeps its verses:** the annotation page rebuilds the quote from the
+  chapter text with `quoteVerses`, one verse per paragraph with its number; the stored one-line quote is
+  the fallback, and what lists show.
+- **2026-10-28 Hymns count as where you left off:** `ProgressStore.lastPage` holds the last chapter or
+  hymn; home reopens a hymn's page as it does a chapter.
+- **2026-10-28 Home layout setting:** Settings › Home flips between Tiles and List on a tap (two choices,
+  no picker).
+- **2026-10-28 Search finds hymns:** by title (first) and by uploaded words (`Search.searchHymns`),
+  listed after references and before verses.
 
 ## Hard rules
 
