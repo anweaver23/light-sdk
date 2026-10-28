@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Highlight (selection bar). No LightIcons glyph fits, so this is Material Symbols "stylus_note", Outlined,
+<!-- Highlight (selection bar). No LightIcons glyph fits, so this is Material Symbols "stylus_highlighter", Outlined,
      weight 300 to match Light's stroke (Apache License 2.0, github.com/google/material-design-icons).
      The viewport crops Material's 80-unit padding so the art fills the box like Light's glyphs.
      Drawn white; tinted to the theme by tintedIcon(). -->
@@ -13,6 +13,6 @@
         android:translateY="880">
         <path
             android:fillColor="#FFFFFFFF"
-            android:pathData="m487.46-283.15 332.31-332.31q2.69-2.69 2.69-6.54t-2.69-6.54l-38.92-38.92q-2.7-2.69-6.54-2.69-3.85 0-6.54 2.69L435.46-335.15l52 52Zm-251 72.38q-89.23-5-134-39.69-44.77-34.69-44.77-98.16 0-60.76 51-98.57 51-37.81 141.77-45.81 43.62-3.77 65.43-15.77 21.8-12 21.8-33.23 0-29.46-29.5-44.96t-96.73-22.27l5.46-59.62q92.23 8.77 136.5 39.77 44.27 31 44.27 87.08 0 47.61-36.57 75.5-36.58 27.88-106.2 33.5-68.61 5.77-102.92 26.77t-34.31 57.61q0 37.31 28.58 55.51 28.58 18.19 92.65 22.34l-2.46 60Zm260.38 3.15L359.92-344.54l373.54-373.15q17.69-17.69 41.35-17.5 23.65.19 41.34 17.5L870-663.85q17.69 17.7 17.69 41.54 0 23.85-17.69 41.54L496.84-207.62ZM363.23-180q-13.54 3.23-23.84-7.08-10.31-10.31-7.08-23.84l27.61-133.62 136.92 136.92L363.23-180Z" />
+            android:pathData="M293.46-333.85v-413.84q0-29.92 21.19-51.12Q335.85-820 365.77-820q8.23 0 16.27 1.81t15.27 5.42l228.07 112.46q18.47 9.23 29.62 26.81 11.15 17.58 11.15 38.27v301.38H293.46Zm60-60h252.69v-241.38q0-3.46-1.92-6.54t-5-4.62L371.15-758.08q-6.15-3.07-11.92.58t-5.77 10.58v353.07ZM180-140l20.46-58.85q7.23-21.54 25.16-34.42 17.92-12.88 40.46-12.88h427.84q22.54 0 40.46 12.88 17.93 12.88 25.16 34.42L780-140H180Zm173.46-253.85h252.69-252.69Z" />
     </group>
 </vector>

@@ -511,8 +511,9 @@ class ReaderScreen(
                                     onClick = viewModel::highlightSelection,
                                     contentDescription = "Highlight",
                                 ),
-                                LightBarButton.Icon(
-                                    painter = tintedIcon(R.drawable.ic_note),
+                                // Light's own compose glyph, as LightOS Notes starts a note.
+                                LightBarButton.LightIcon(
+                                    LightIcons.COMPOSE_MESSAGE,
                                     onClick = { openNoteEditor(chapter, currentSelection.range) },
                                     contentDescription = "Note",
                                 ),

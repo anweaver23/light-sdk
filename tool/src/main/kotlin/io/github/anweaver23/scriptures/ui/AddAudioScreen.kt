@@ -35,7 +35,7 @@ class AddAudioScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Un
         val index by AppGraph.library.index.collectAsState()
         val sorting by importer.busy.collectAsState()
 
-        ScreenFrame(title = "Add audio", onBack = { goBack() }) {
+        ScreenFrame(title = "Add audio", onBack = { goBack() }, rightButton = nowPlayingButton()) {
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 Note(
                     "Audio isn't included, so bring your own. On a computer on the same Wi-Fi, open the " +

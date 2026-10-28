@@ -112,7 +112,7 @@ class DefineScreen private constructor(
             }
         }
 
-        ScreenFrame(title = strongs ?: word, onBack = { goBack() }) {
+        ScreenFrame(title = strongs ?: word, onBack = { goBack() }, rightButton = nowPlayingButton()) {
             val r = result ?: return@ScreenFrame
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 if (strongs == null) {
@@ -189,6 +189,7 @@ class AnnotationScreen(sealedActivity: SealedLightActivity, private val id: Stri
             title = annotation?.let { AppGraph.catalog.label(it) } ?: "Highlight",
             onBack = { goBack() },
             reading = true,
+            rightButton = nowPlayingButton(),
             bottomBar = annotation?.let { a ->
                 listOf(
                     LightBarButton.LightIcon(LightIcons.TRASH, contentDescription = "Remove", onClick = {
@@ -288,7 +289,7 @@ class FootnoteScreen(
     @Composable
     override fun Content() {
         val catalog = AppGraph.catalog
-        ScreenFrame(title = "${catalog.verseLabel(ref)} ${footnote.marker}", onBack = { goBack() }) {
+        ScreenFrame(title = "${catalog.verseLabel(ref)} ${footnote.marker}", onBack = { goBack() }, rightButton = nowPlayingButton()) {
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 if (footnote.text.isNotBlank()) Body(footnote.text)
                 footnote.verseRefs.filter { catalog.scriptures.book(it.bookId) != null }.forEach { target ->

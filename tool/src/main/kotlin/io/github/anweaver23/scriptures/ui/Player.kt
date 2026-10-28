@@ -86,7 +86,18 @@ class PlayerViewModel(
         .stateIn(scope, SharingStarted.Eagerly, initial)
 
     private val currentIndex = fromPlayer(NO_MEDIA_ITEM) { it.currentMediaItemIndex }
-    val current: StateFlow<Target?> = combine(_queue, currentIndex) { queue, i -> queue.getOrNull(i) }
+
+    /**
+     * The item being started, from queueing it until it's actually playing. Until then the player
+     * still reports the old track's index and position, and not playing, so the page would flash
+     * from the transport to its own bar (or the paused bar) and back. While set it's [current].
+     */
+    private val _starting = MutableStateFlow<Target?>(null)
+    val starting: StateFlow<Target?> = _starting.asStateFlow()
+
+    val current: StateFlow<Target?> = combine(_queue, currentIndex, _starting) { queue, i, starting ->
+        starting ?: queue.getOrNull(i)
+    }
         .stateIn(scope, SharingStarted.Eagerly, null)
     val positionMs = fromPlayer(0L) { it.positionMs }
     val durationMs = fromPlayer(0L) { it.durationMs }
@@ -223,10 +234,20 @@ class PlayerViewModel(
                 metadata = LightMediaMetadata(title = catalog.label(target), album = albumFor(target)),
             )
         }
-        _queue.value = queue
-        player.speed = _speed.value
-        player.setMediaQueue(items, startIndex)
-        seekToSaved(player, first, autoplay)
+        _starting.value = first
+        try {
+            _queue.value = queue
+            player.speed = _speed.value
+            player.setMediaQueue(items, startIndex)
+            seekToSaved(player, first, autoplay)
+            if (autoplay) {
+                withTimeoutOrNull(START_SETTLE_MS) {
+                    combine(isPlaying, currentIndex) { playing, i -> playing && i == startIndex }.first { it }
+                }
+            }
+        } finally {
+            _starting.value = null
+        }
     }
 
     /** Asked for before the player was ready (e.g. right after coming back from the version picker). */
@@ -410,6 +431,8 @@ class PlayerViewModel(
     private companion object {
         /** Within this of the end, a recording counts as finished. */
         const val END_MARGIN_MS = 1500L
+        /** Longest a start holds the page in "playing" while waiting for the player to catch up. */
+        const val START_SETTLE_MS = 5000L
         val SPEEDS = listOf(1f, 1.25f, 1.5f, 1.75f, 2f, 0.75f)
     }
 }
@@ -427,6 +450,7 @@ fun PlayerViewModel.transportBar(here: Boolean): List<LightBarButton?>? {
     val position by positionMs.collectAsState()
     val duration by durationMs.collectAsState()
     val playing by isPlaying.collectAsState()
+    val startingNow by starting.collectAsState()
     // Starting and switching tracks report "not playing" for a moment; only a pause that lasts, part
     // way in, swaps the bar.
     val pauseHeld by produceState(initialValue = !playing, playing) {
@@ -434,7 +458,7 @@ fun PlayerViewModel.transportBar(here: Boolean): List<LightBarButton?>? {
     }
     if (!here) return null
     val canSeek = duration > 0
-    return if (pauseHeld && position > 0) {
+    return if (pauseHeld && position > 0 && startingNow == null) {
         listOf(
             null,
             LightBarButton.LightIcon(LightIcons.STOP, ::end, contentDescription = "Stop"),

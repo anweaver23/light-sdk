@@ -118,9 +118,10 @@ private fun equalizerPainter(playing: Boolean): Painter {
 }
 
 /**
- * Material Symbols "graphic_eq" (Outlined, weight 300; Apache License 2.0) drawn bar by bar so the bars
- * can move: each breathes between [EQ_MIN] of its height and full, out of step with its neighbours.
- * A [phase] below 0 draws the still glyph. Same 800-unit crop as our other Material icons.
+ * Three thin bars, as simple as a sound mark gets: the stroke of Material Symbols "graphic_eq"
+ * (Outlined, weight 300), without its outer pairs. Each breathes between [EQ_MIN] of its height and
+ * full, out of step with its neighbours. A [phase] below 0 draws them still. Same 800-unit crop as our
+ * other Material icons.
  */
 private class EqualizerPainter(private val color: Color, private val phase: State<Float>) : Painter() {
     override val intrinsicSize: Size get() = Size.Unspecified
@@ -132,7 +133,7 @@ private class EqualizerPainter(private val color: Color, private val phase: Stat
         // Read in draw, so the animation redraws without recomposing.
         val t = phase.value
         BARS.forEachIndexed { i, (x, half) ->
-            val scale = if (t < 0f) 1f else EQ_MIN + (1f - EQ_MIN) * (0.5f + 0.5f * sin(2 * PI * (t + i * 0.27)).toFloat())
+            val scale = if (t < 0f) 1f else EQ_MIN + (1f - EQ_MIN) * (0.5f + 0.5f * sin(2 * PI * (t + i / 3.0)).toFloat())
             val h = half * scale
             drawRect(
                 color = color,
@@ -148,10 +149,10 @@ private class EqualizerPainter(private val color: Color, private val phase: Stat
         const val MID = 480f
         const val BAR_WIDTH = 60f
         /** Each bar's left edge and half height, in the symbol's 960-unit space. */
-        val BARS = listOf(140f to 66f, 295f to 222f, 450f to 380f, 605f to 222f, 760f to 66f)
+        val BARS = listOf(250f to 170f, 450f to 300f, 650f to 220f)
     }
 }
 
 /** One slow breath: calm, not a VU meter. */
-private const val EQ_PERIOD_MS = 1600
-private const val EQ_MIN = 0.45f
+private const val EQ_PERIOD_MS = 2000
+private const val EQ_MIN = 0.5f

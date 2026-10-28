@@ -252,15 +252,21 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   bar starts the chapter, the bar becomes the transport (`transportBar`, shared with the hymn page), and
   the page slides along when playback moves to the next chapter.
 - **2026-10-28 Now playing:** while something plays or is paused part way, the top bar's right corner
-  shows a small equalizer (Material "graphic_eq", drawn bar by bar, the bars breathing slowly while
-  playing, still while paused; `ui/NowPlaying.kt`) on the main pages. It opens the playing chapter or
+  shows three thin bars (graphic_eq's stroke, drawn by hand so they can breathe slowly while playing;
+  still while paused; `ui/NowPlaying.kt`) on every page you navigate (home, browse, hymns, chapters,
+  search, bookmarks, annotations, a note, Define, a footnote, Settings, Add audio), but not on menus and
+  pickers (Display, text size, Listen, confirmations) or the note editor. It opens the playing chapter or
   hymn, or turns to it in place on a reader / same-hymnbook page, and is hidden on the page that's
   playing. `NowPlaying.live` is set by whichever player is connected, so it can lag after autoplay moves
   on with no page open; a page opened from it (`followPlayback`) turns to what's actually live. On launch,
   home briefly connects (`NowPlaying.probe`) and, if something is playing, opens its page instead of
   where you left off. An overlay over LightOS isn't possible for a tool.
-- **2026-10-28 Selection and notes icons are Material Symbols** (weight 300, same crop): note
-  `edit_square`, define `dictionary`, highlight `stylus_note`, Annotations (my notes) `note_stack`.
+- **2026-10-28 Selection and notes icons:** note is Light's own compose glyph
+  (`LightIcons.COMPOSE_MESSAGE`, as LightOS Notes starts a note); the rest are Material Symbols (weight
+  300, same crop): define `dictionary`, highlight `stylus_highlighter`, Annotations (my notes) `note_stack`.
+- **2026-10-28 Starting playback doesn't flash the bar:** from queueing an item until it's actually
+  playing, `PlayerViewModel.starting` pins `current` to it and keeps the paused bar away; the player
+  still reports the old track's index and position, and "not playing", until then (`START_SETTLE_MS`).
 
 ## Hard rules
 
