@@ -30,7 +30,7 @@ fun SimpleLightScreen<*>.navBar(
     play,
     LightBarButton.Icon(painter = tintedIcon(R.drawable.ic_bookmark), onClick = onBookmarks, contentDescription = "Bookmarks"),
     LightBarButton.Icon(
-        painter = tintedIcon(R.drawable.ic_notebook),
+        painter = tintedIcon(R.drawable.ic_journal),
         onClick = { navigateTo({ AnnotationsScreen(it) }) },
         contentDescription = "Annotations",
     ),
