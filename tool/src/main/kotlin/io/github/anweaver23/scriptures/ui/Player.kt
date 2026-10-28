@@ -7,6 +7,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.thelightphone.sdk.LightViewModel
 import com.thelightphone.sdk.SimpleLightScreen
@@ -121,6 +122,14 @@ class PlayerViewModel(
         scope.launch { autosave() }
         scope.launch { clearFinishedPositions() }
         scope.launch { publishNowPlaying() }
+        scope.launch { logStates() }
+    }
+
+    /** What the player reports as it changes (not position), for chasing bar flicker in logcat. */
+    private suspend fun logStates() {
+        combine(availability, currentIndex, isPlaying, _starting, current) { ready, i, playing, starting, now ->
+            "ready=$ready index=$i playing=$playing starting=${starting?.let(catalog::label)} current=${now?.let(catalog::label)}"
+        }.collect { Log.d(LOG_TAG, it) }
     }
 
     /**
@@ -244,6 +253,9 @@ class PlayerViewModel(
                 withTimeoutOrNull(START_SETTLE_MS) {
                     combine(isPlaying, currentIndex) { playing, i -> playing && i == startIndex }.first { it }
                 }
+                // A fresh start can report playing, then not for a moment (buffering after the seek),
+                // then playing again; stay pinned through that. Pausing ends the hold at once.
+                withTimeoutOrNull(START_HOLD_MS) { _starting.first { it == null } }
             }
         } finally {
             _starting.value = null
@@ -354,6 +366,7 @@ class PlayerViewModel(
 
     fun togglePlayPause() {
         val p = player ?: return
+        _starting.value = null
         if (isPlaying.value) {
             p.pause()
             scope.launch { save() }
@@ -431,8 +444,11 @@ class PlayerViewModel(
     private companion object {
         /** Within this of the end, a recording counts as finished. */
         const val END_MARGIN_MS = 1500L
+        const val LOG_TAG = "ScripturesPlayer"
         /** Longest a start holds the page in "playing" while waiting for the player to catch up. */
         const val START_SETTLE_MS = 5000L
+        /** How long a start stays pinned after it first reports playing. */
+        const val START_HOLD_MS = 1500L
         val SPEEDS = listOf(1f, 1.25f, 1.5f, 1.75f, 2f, 0.75f)
     }
 }

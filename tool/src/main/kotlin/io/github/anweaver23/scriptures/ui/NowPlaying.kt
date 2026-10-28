@@ -119,8 +119,9 @@ private fun equalizerPainter(playing: Boolean): Painter {
 
 /**
  * Three thin bars, as simple as a sound mark gets: the stroke of Material Symbols "graphic_eq"
- * (Outlined, weight 300), without its outer pairs. Each breathes between [EQ_MIN] of its height and
- * full, out of step with its neighbours. A [phase] below 0 draws them still. Same 800-unit crop as our
+ * (Outlined, weight 300), without its outer pairs. While playing, the two outer bars shrink together
+ * as the middle one grows, then the other way, by at most [EQ_DIP] of their height: a slow, slight
+ * see-saw rather than a wave. A [phase] below 0 draws them still. Same 800-unit crop as our
  * other Material icons.
  */
 private class EqualizerPainter(private val color: Color, private val phase: State<Float>) : Painter() {
@@ -132,9 +133,11 @@ private class EqualizerPainter(private val color: Color, private val phase: Stat
         val top = (size.height - CROP * unit) / 2
         // Read in draw, so the animation redraws without recomposing.
         val t = phase.value
+        // 0..1 and back; the outer bars take it, the middle one its opposite.
+        val swing = if (t < 0f) 0.5f else 0.5f + 0.5f * sin(2 * PI * t).toFloat()
         BARS.forEachIndexed { i, (x, half) ->
-            val scale = if (t < 0f) 1f else EQ_MIN + (1f - EQ_MIN) * (0.5f + 0.5f * sin(2 * PI * (t + i / 3.0)).toFloat())
-            val h = half * scale
+            val dip = if (i == 1) 1f - swing else swing
+            val h = half * (1f - EQ_DIP * dip)
             drawRect(
                 color = color,
                 topLeft = Offset(left + (x - PAD) * unit, top + (MID - PAD - h) * unit),
@@ -149,10 +152,10 @@ private class EqualizerPainter(private val color: Color, private val phase: Stat
         const val MID = 480f
         const val BAR_WIDTH = 60f
         /** Each bar's left edge and half height, in the symbol's 960-unit space. */
-        val BARS = listOf(250f to 170f, 450f to 300f, 650f to 220f)
+        val BARS = listOf(250f to 190f, 450f to 300f, 650f to 190f)
     }
 }
 
 /** One slow breath: calm, not a VU meter. */
-private const val EQ_PERIOD_MS = 2000
-private const val EQ_MIN = 0.5f
+private const val EQ_PERIOD_MS = 2400
+private const val EQ_DIP = 0.2f
