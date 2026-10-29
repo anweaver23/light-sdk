@@ -11,6 +11,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -28,11 +31,23 @@ fun AudioLibrary.Index.audioCount(prefix: String): Int =
     // A hymn's two recordings count once.
     audio.keys.filter { it.startsWith(prefix) }.map { it.removeSuffix("/accompaniment") }.distinct().size
 
-/** The books of one volume. */
-class BookListScreen(sealedActivity: SealedLightActivity, private val volumeId: String) :
+/** The books of one volume. Swiping turns to the next or previous volume (no wrapping round). */
+class BookListScreen(sealedActivity: SealedLightActivity, volumeId: String) :
     SimpleLightScreen<Unit>(sealedActivity) {
-    /** Scroll positions, kept while the screen is on the back stack. */
+    /** Scroll positions, kept while the screen is on the back stack; one per volume. */
     private val scrolls = ScrollMemory()
+
+    private var volumeId by mutableStateOf(volumeId)
+
+    private fun neighbor(direction: Int): String? {
+        val volumes = AppGraph.catalog.scriptures.volumes
+        return volumes.getOrNull(volumes.indexOfFirst { it.id == volumeId } + direction)?.id
+    }
+
+    private val pages = PageSlider(
+        canTurn = { neighbor(it) != null },
+        turn = { direction -> neighbor(direction)?.let { this.volumeId = it } },
+    )
 
 
     init {
@@ -45,7 +60,9 @@ class BookListScreen(sealedActivity: SealedLightActivity, private val volumeId: 
         val index by AppGraph.library.index.collectAsState()
 
         ScreenFrame(title = volume.title, onBack = { goBack() }, rightButton = nowPlayingButton(), bottomBar = navBar()) {
-            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
+            SwipePages(pages) {
+            key(volume.id) {
+            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll(volume.id)) {
                 volume.books.forEach { book ->
                     val withAudio = index.audioCount("scriptures/${volume.id}/${book.id}/")
                     ListRow(book.title, if (withAudio > 0) "$withAudio audio" else null) {
@@ -57,18 +74,35 @@ class BookListScreen(sealedActivity: SealedLightActivity, private val volumeId: 
                     }
                 }
             }
+            }
+            }
         }
     }
 }
 
-/** Chapter numbers in a grid. Underlined numbers have audio. */
+/**
+ * Chapter numbers in a grid. Underlined numbers have audio. Swiping turns to the next or previous
+ * book of the same volume (not into the next volume, and no wrapping round).
+ */
 class ChapterGridScreen(
     sealedActivity: SealedLightActivity,
     private val volumeId: String,
-    private val bookId: String,
+    bookId: String,
 ) : SimpleLightScreen<Unit>(sealedActivity) {
-    /** Scroll positions, kept while the screen is on the back stack. */
+    /** Scroll positions, kept while the screen is on the back stack; one per book. */
     private val scrolls = ScrollMemory()
+
+    private var bookId by mutableStateOf(bookId)
+
+    private fun neighbor(direction: Int): String? {
+        val books = AppGraph.catalog.scriptures.volume(volumeId)?.books.orEmpty()
+        return books.getOrNull(books.indexOfFirst { it.id == bookId } + direction)?.id
+    }
+
+    private val pages = PageSlider(
+        canTurn = { neighbor(it) != null },
+        turn = { direction -> neighbor(direction)?.let { this.bookId = it } },
+    )
 
 
     init {
@@ -81,12 +115,16 @@ class ChapterGridScreen(
         val index by AppGraph.library.index.collectAsState()
 
         ScreenFrame(title = book.title, onBack = { goBack() }, rightButton = nowPlayingButton(), bottomBar = navBar()) {
-            NumberGrid(
-                numbers = (1..book.chapters).toList(),
-                scrollState = scrolls.scroll(),
-                isMarked = { index.hasAudio(Target.Chapter(volumeId, bookId, it)) },
-            ) { chapter ->
-                navigateTo({ ReaderScreen(it, Target.Chapter(volumeId, bookId, chapter)) })
+            SwipePages(pages) {
+                key(book.id) {
+                    NumberGrid(
+                        numbers = (1..book.chapters).toList(),
+                        scrollState = scrolls.scroll(book.id),
+                        isMarked = { index.hasAudio(Target.Chapter(volumeId, book.id, it)) },
+                    ) { chapter ->
+                        navigateTo({ ReaderScreen(it, Target.Chapter(volumeId, book.id, chapter)) })
+                    }
+                }
             }
         }
     }

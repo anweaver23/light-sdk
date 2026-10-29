@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Journal and pencil (Annotations). The journal is Material Symbols "menu_book_2", Outlined, weight 300
      (Apache License 2.0, github.com/google/material-design-icons), without the fork and knife on its
-     cover; its rings sit between it and the pencil. The pencil, on the left, follows Light's compose glyph
+     cover and with three ruled lines on its page (the last shorter); its rings sit between it and the pencil. The pencil, on the left, follows Light's compose glyph
      (LightIcons.COMPOSE_MESSAGE, no plus) stood point-up: about three strokes wide, an eraser band,
      a rounded end. It's redrawn as a stroke at the journal's own weight (60) rather than scaled, since
      Light's 3-unit stroke scaled to this height came out thinner than the journal. 60 units apart.
@@ -18,6 +18,12 @@
             android:fillColor="#FFFFFFFF"
             android:pathData="M252.31-100Q222-100 201-121q-21-21-21-51.31v-83.08h-40v-59.99h40V-450h-40v-60h40v-134.62h-40v-59.99h40v-83.08Q180-818 201-839q21-21 51.31-21h455.38Q738-860 759-839q21 21 21 51.31v615.38Q780-142 759-121q-21 21-51.31 21H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-615.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v83.08h40v59.99h-40V-510h40v60h-40v134.62h40v59.99h-40v83.08q0 5.39 3.46 8.85t8.85 3.46Z" />
     </group>
+    <!-- Lines on the page: three, evenly spaced down the page's inside (120..760), the last shorter. -->
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="50"
+        android:strokeLineCap="round"
+        android:pathData="M440,280 L720,280 M440,440 L720,440 M440,600 L610,600" />
     <path
         android:strokeColor="#FFFFFFFF"
         android:strokeWidth="60"

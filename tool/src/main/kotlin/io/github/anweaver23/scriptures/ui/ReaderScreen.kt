@@ -433,6 +433,13 @@ class ReaderScreen(
     /** The last chapter playback was on, to tell when it moves on. */
     private var lastPlaying: Target.Chapter? = null
 
+    /**
+     * The chapter this page is following playback on. When playback moves to the next chapter, the
+     * page stays "the playing page" (its transport, no corner button) while it slides along, instead
+     * of flashing its own bar for the moment between. A swipe by hand lets go.
+     */
+    private var following by mutableStateOf<Target.Chapter?>(null)
+
     private var pageWidth = 0f
 
     init {
@@ -453,12 +460,17 @@ class ReaderScreen(
         val index by viewModel.library.collectAsState()
         val hasAudio = index.hasAudio(chapter)
         val current by viewModel.player.current.collectAsState()
-        val playingHere = current == chapter
+        val playingHere = current == chapter || (current is Target.Chapter && following == chapter)
         val currentSelection = selection
         val currentFind = find
         // Page animations need a frame clock, which the composition's scope has and the view model's
         // doesn't (animating in viewModelScope crashed on the first swipe).
         val pageScope = rememberCoroutineScope()
+
+        // Showing the chapter that's playing: follow it.
+        LaunchedEffect(current, chapter) {
+            if (current == chapter) following = chapter
+        }
 
         // Playback moved on (the next chapter, or NEXT / PREVIOUS): if the page was showing the chapter
         // that was playing, slide along to the new one.
@@ -485,7 +497,7 @@ class ReaderScreen(
             onBack = { if (viewModel.find.value != null) editFind() else goBack() },
             zen = Zen.on,
             // Something else playing: turn to its chapter here.
-            rightButton = nowPlayingButton(showing = chapter) { target ->
+            rightButton = nowPlayingButton(showing = if (playingHere) current else chapter) { target ->
                 (target is Target.Chapter).also { if (it) viewModel.open(target as Target.Chapter) }
             },
             // Playing here: the transport. Otherwise the app's bar, with play in the middle when the
@@ -584,6 +596,7 @@ class ReaderScreen(
                 direction > 0 -> viewModel.next()
                 else -> viewModel.previous()
             }
+            following = jump
             withTimeoutOrNull(PAGE_LOAD_WAIT_MS) { viewModel.displays.first { it != null } }
         },
     )

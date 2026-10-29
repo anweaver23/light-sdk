@@ -52,10 +52,23 @@ class HymnBooksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<U
     }
 }
 
-class HymnListScreen(sealedActivity: SealedLightActivity, private val hymnBookId: String) :
+/** A hymnbook's hymns. Swiping turns to the next or previous hymnbook (no wrapping round). */
+class HymnListScreen(sealedActivity: SealedLightActivity, hymnBookId: String) :
     SimpleLightScreen<Unit>(sealedActivity) {
-    /** Scroll positions, kept while the screen is on the back stack. */
+    /** Scroll positions, kept while the screen is on the back stack; one per hymnbook. */
     private val scrolls = ScrollMemory()
+
+    private var hymnBookId by mutableStateOf(hymnBookId)
+
+    private fun neighbor(direction: Int): String? {
+        val books = AppGraph.catalog.hymnBooks
+        return books.getOrNull(books.indexOfFirst { it.id == hymnBookId } + direction)?.id
+    }
+
+    private val pages = PageSlider(
+        canTurn = { neighbor(it) != null },
+        turn = { direction -> neighbor(direction)?.let { this.hymnBookId = it } },
+    )
 
 
     init {
@@ -68,15 +81,19 @@ class HymnListScreen(sealedActivity: SealedLightActivity, private val hymnBookId
 
         // Long titles: the denser Subheading list, so more of each shows.
         ScreenFrame(title = book.title, onBack = { goBack() }, rightButton = nowPlayingButton(), bottomBar = navBar()) {
-            LightLazyScrollView(
-                Modifier.fillMaxSize(),
-                listState = scrolls.list(),
-                uniformItemHeightGridUnits = DENSE_ROW_UNITS,
-            ) {
-                items(book.hymns, key = { it.n }) { hymn ->
-                    val target = Target.HymnRef(book.id, hymn.n)
-                    ListRow("${hymn.n}  ${hymn.title}", variant = DENSE_ROW_TEXT, heightUnits = DENSE_ROW_UNITS) {
-                        navigateTo({ HymnScreen(it, target) })
+            SwipePages(pages) {
+                key(book.id) {
+                    LightLazyScrollView(
+                        Modifier.fillMaxSize(),
+                        listState = scrolls.list(book.id),
+                        uniformItemHeightGridUnits = DENSE_ROW_UNITS,
+                    ) {
+                        items(book.hymns, key = { it.n }) { hymn ->
+                            val target = Target.HymnRef(book.id, hymn.n)
+                            ListRow("${hymn.n}  ${hymn.title}", variant = DENSE_ROW_TEXT, heightUnits = DENSE_ROW_UNITS) {
+                                navigateTo({ HymnScreen(it, target) })
+                            }
+                        }
                     }
                 }
             }
@@ -119,6 +136,13 @@ class HymnScreen(
     /** The last hymn playback was on, to tell when it moves on. */
     private var lastPlaying: Target.HymnRef? = null
 
+    /**
+     * The hymn this page is following playback on. When playback moves to the next hymn, the page
+     * stays "the playing page" (its transport, no corner button) while it slides along, instead of
+     * flashing its own bar for the moment between. A swipe by hand lets go.
+     */
+    private var following by mutableStateOf<Target.HymnRef?>(null)
+
     private var pageWidth = 0f
 
     private fun neighbor(direction: Int): Target.HymnRef? {
@@ -129,8 +153,10 @@ class HymnScreen(
     private val pages = PageSlider(
         canTurn = { neighbor(it) != null },
         turn = { direction ->
-            (jumpTo ?: neighbor(direction))?.let { shown = it }
+            val jump = jumpTo
             jumpTo = null
+            (jump ?: neighbor(direction))?.let { shown = it }
+            following = jump
         },
     )
 
@@ -148,6 +174,11 @@ class HymnScreen(
             lyrics = lyricsFile?.let { withContext(Dispatchers.IO) { runCatching { it.readText() }.getOrNull() } }
         }
 
+        // Showing the hymn that's playing: follow it.
+        LaunchedEffect(current, shown) {
+            if ((current as? Target.HymnRef)?.base == shown) following = shown
+        }
+
         // Playback moved on (the next hymn in the queue, or NEXT / PREVIOUS): if the page was showing
         // the hymn that was playing, slide along to the new one.
         LaunchedEffect(current) {
@@ -159,6 +190,7 @@ class HymnScreen(
                 if (now.hymnBookId == hymnBookId) shown = now.base
                 return@LaunchedEffect
             }
+            if (now.hymnBookId != hymnBookId) following = null
             if (before == null || before.base != shown || now.base == shown || now.hymnBookId != hymnBookId) {
                 return@LaunchedEffect
             }
@@ -168,7 +200,9 @@ class HymnScreen(
             pages.slide(pageScope, if (to > from) 1 else -1, pageWidth)
         }
 
-        val playingHere = (current as? Target.HymnRef)?.base == shown
+        val playingNow = current as? Target.HymnRef
+        val playingHere = playingNow?.base == shown ||
+            (following == shown && playingNow?.hymnBookId == hymnBookId)
         val versions = index.versions(shown)
         // A hymn counts as where you left off, as a chapter does: home reopens it on launch.
         LaunchedEffect(shown) { AppGraph.progress.setLastHymn(shown) }
@@ -179,7 +213,7 @@ class HymnScreen(
             onBack = { goBack() },
             zen = Zen.on,
             // Another hymn in this book playing: turn to it here, as playback moving on would.
-            rightButton = nowPlayingButton(showing = shown) { target ->
+            rightButton = nowPlayingButton(showing = if (playingHere) current else shown) { target ->
                 (target is Target.HymnRef && target.hymnBookId == hymnBookId).also { if (it) shown = (target as Target.HymnRef).base }
             },
             // Not playing here: the app's bar, with play in the middle. Playing here: the transport.

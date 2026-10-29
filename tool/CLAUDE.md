@@ -266,11 +266,18 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-10-28 Selection and notes icons:** note is Light's own compose glyph
   (`LightIcons.COMPOSE_MESSAGE`, as LightOS Notes starts a note); the rest are Material Symbols (weight
   300, same crop): define `dictionary`, highlight `stylus_highlighter`. Annotations is our own `ic_journal`: Material `menu_book_2`
-  without its fork and knife, rings between it and a pencil on its left in the shape of
+  without its fork and knife, three ruled lines on its page (the last shorter), rings between it and a pencil on its left in the shape of
   Light's compose glyph (point-up, eraser band) redrawn at the journal's stroke weight.
 - **2026-10-28 Starting playback doesn't flash the bar:** from queueing an item until it's actually
   playing, `PlayerViewModel.starting` pins `current` to it and keeps the paused bar away; the player
   still reports the old track's index and position, and "not playing", until then (`START_SETTLE_MS`).
+- **2026-10-29 The directory swipes too:** a volume's book list turns to the next / previous volume, a
+  book's chapter grid to the next / previous book of the same volume, a hymnbook's list to the next /
+  previous hymnbook (`SwipePages` in `ui/PageSwipe.kt`). No wrapping round; chapter grids never cross
+  into another volume, as the reader doesn't (its last chapter of a book turns to the next book's first).
+- **2026-10-29 A page follows playback through the hop:** when playback moves to the next chapter or
+  hymn, the page that was showing it stays the playing page (`following`) while it slides along, so the
+  bar doesn't reset and the corner button doesn't flash. A swipe by hand lets go.
 
 ## Hard rules
 

@@ -5,6 +5,13 @@ import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.changedToUpIgnoreConsumed
@@ -114,5 +121,26 @@ fun Modifier.pageSwipe(
             }
             onDrag(dx)
         }
+    }
+}
+
+/**
+ * A list page that turns by swiping, as the directory does (a volume's books, a book's chapters, a
+ * hymnbook's hymns): the frame reads the drag and stays still, the page inside slides.
+ */
+@Composable
+fun ColumnScope.SwipePages(pages: PageSlider, content: @Composable () -> Unit) {
+    val scope = rememberCoroutineScope()
+    Box(
+        Modifier
+            .weight(1f)
+            .fillMaxWidth()
+            .pageSwipe(
+                enabled = true,
+                onDrag = { dx -> pages.drag(scope, dx) },
+                onRelease = { dx, width -> pages.release(scope, dx, width) },
+            ),
+    ) {
+        Box(Modifier.fillMaxSize().graphicsLayer { translationX = pages.offset.value }) { content() }
     }
 }
