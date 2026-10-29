@@ -31,7 +31,10 @@ fun AudioLibrary.Index.audioCount(prefix: String): Int =
     // A hymn's two recordings count once.
     audio.keys.filter { it.startsWith(prefix) }.map { it.removeSuffix("/accompaniment") }.distinct().size
 
-/** The books of one volume. Swiping turns to the next or previous volume (no wrapping round). */
+/**
+ * The books of one volume. Swiping turns to the next or previous volume (no wrapping round). A volume
+ * of one book (the Doctrine and Covenants) shows that book's chapters instead, as home opens it.
+ */
 class BookListScreen(sealedActivity: SealedLightActivity, volumeId: String) :
     SimpleLightScreen<Unit>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack; one per volume. */
@@ -62,7 +65,10 @@ class BookListScreen(sealedActivity: SealedLightActivity, volumeId: String) :
         ScreenFrame(title = volume.title, onBack = { goBack() }, rightButton = nowPlayingButton(), bottomBar = navBar()) {
             SwipePages(pages) {
             key(volume.id) {
-            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll(volume.id)) {
+            val onlyBook = volume.books.singleOrNull()
+            if (onlyBook != null) {
+                ChapterNumbers(volume.id, onlyBook.id, scrolls.scroll(volume.id))
+            } else LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll(volume.id)) {
                 volume.books.forEach { book ->
                     val withAudio = index.audioCount("scriptures/${volume.id}/${book.id}/")
                     ListRow(book.title, if (withAudio > 0) "$withAudio audio" else null) {
@@ -116,21 +122,27 @@ class ChapterGridScreen(
 
         ScreenFrame(title = book.title, onBack = { goBack() }, rightButton = nowPlayingButton(), bottomBar = navBar()) {
             SwipePages(pages) {
-                key(book.id) {
-                    NumberGrid(
-                        numbers = (1..book.chapters).toList(),
-                        scrollState = scrolls.scroll(book.id),
-                        isMarked = { index.hasAudio(Target.Chapter(volumeId, book.id, it)) },
-                    ) { chapter ->
-                        navigateTo({ ReaderScreen(it, Target.Chapter(volumeId, book.id, chapter)) })
-                    }
-                }
+                key(book.id) { ChapterNumbers(volumeId, book.id, scrolls.scroll(book.id)) }
             }
         }
     }
 }
 
 private const val GRID_COLUMNS = 5
+
+/** A book's chapter numbers; one opens the reader there. Underlined numbers have audio. */
+@Composable
+private fun SimpleLightScreen<*>.ChapterNumbers(volumeId: String, bookId: String, scrollState: ScrollState) {
+    val book = AppGraph.catalog.scriptures.book(bookId) ?: return
+    val index by AppGraph.library.index.collectAsState()
+    NumberGrid(
+        numbers = (1..book.chapters).toList(),
+        scrollState = scrollState,
+        isMarked = { index.hasAudio(Target.Chapter(volumeId, bookId, it)) },
+    ) { chapter ->
+        navigateTo({ ReaderScreen(it, Target.Chapter(volumeId, bookId, chapter)) })
+    }
+}
 
 
 @Composable

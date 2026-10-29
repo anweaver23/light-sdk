@@ -273,7 +273,8 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   still reports the old track's index and position, and "not playing", until then (`START_SETTLE_MS`).
 - **2026-10-29 The directory swipes too:** a volume's book list turns to the next / previous volume, a
   book's chapter grid to the next / previous book of the same volume, a hymnbook's list to the next /
-  previous hymnbook (`SwipePages` in `ui/PageSwipe.kt`). No wrapping round; chapter grids never cross
+  previous hymnbook (`SwipePages` in `ui/PageSwipe.kt`). A one-book volume (D&C) shows its chapter grid on the volume page, and home opens
+  it there too, so it swipes on to the other volumes. No wrapping round; chapter grids never cross
   into another volume, as the reader doesn't (its last chapter of a book turns to the next book's first).
 - **2026-10-29 A page follows playback through the hop:** when playback moves to the next chapter or
   hymn, the page that was showing it stays the playing page (`following`) while it slides along, so the

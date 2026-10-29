@@ -158,13 +158,9 @@ class HomeScreen(private val sealedActivity: SealedLightActivity) : LightScreen<
         }
     }
 
+    /** A volume's page; one of a single book (D&C) shows its chapters there, and swipes on to the others. */
     private fun openVolume(volume: Volume) {
-        val onlyBook = volume.books.singleOrNull()
-        if (onlyBook != null) {
-            navigateTo({ ChapterGridScreen(it, volume.id, onlyBook.id) })
-        } else {
-            navigateTo({ BookListScreen(it, volume.id) })
-        }
+        navigateTo({ BookListScreen(it, volume.id) })
     }
 }
 
