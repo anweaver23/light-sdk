@@ -34,6 +34,7 @@ class ChurchFilenamesTest {
         // Front matter is not a chapter: the catalogue number (0001-0007) and the bitrate (64k) aren't chapters.
         assertNull(chapter("Triple Combination/Book of Mormon/2015-11-0004-the-testimony-of-three-witnesses-female-voice-64k-eng.mp3"))
         assertNull(chapter("Triple Combination/Doctrine and Covenants/2015-11-0001-title-female-voice-64k-eng.mp3"))
+        assertNull(chapter("Triple Combination/Doctrine and Covenants/2015-11-1390-official-declaration-1-female-voice-64k-eng.mp3"))
     }
 
     @Test

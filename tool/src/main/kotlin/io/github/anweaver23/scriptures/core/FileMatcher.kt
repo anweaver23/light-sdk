@@ -48,6 +48,8 @@ class FileMatcher(private val catalog: Catalog) {
         val (folders, rawName) = splitPath(relativePath)
         val fileName = withoutChurchNumbers(rawName)
         val fileTokens = tokenize(fileName)
+        // "Official Declaration 1" in the D&C folder is not section 1 (it took section 1's slot once).
+        if ("declaration" in fileTokens) return null
 
         findChapter(fileTokens)?.let { return it }
 
