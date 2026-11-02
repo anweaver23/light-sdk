@@ -69,6 +69,17 @@ class BookListScreen(sealedActivity: SealedLightActivity, volumeId: String) :
             if (onlyBook != null) {
                 ChapterNumbers(volume.id, onlyBook.id, scrolls.scroll(volume.id))
             } else LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll(volume.id)) {
+                // Front matter (the Book of Mormon's Title Page and Witnesses) leads the list.
+                AppGraph.frontMatter(volume.id).pages.forEach { page ->
+                    ListRow(page.title) {
+                        val ref = page.verseRef
+                        if (ref != null) {
+                            openReader(ref.chapterTarget, ref.verse)
+                        } else {
+                            navigateTo({ FrontPageScreen(it, volume.id, page.id) })
+                        }
+                    }
+                }
                 volume.books.forEach { book ->
                     val withAudio = index.audioCount("scriptures/${volume.id}/${book.id}/")
                     ListRow(book.title, if (withAudio > 0) "$withAudio audio" else null) {

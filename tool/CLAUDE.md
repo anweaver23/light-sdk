@@ -305,6 +305,11 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   matches exactly first (many English accompaniments are named in Spanish, "…musica_solo.mp3"). "songbook",
   "children" or "primary" in a path hints the book.
 
+- **2026-11-02 Book of Mormon front matter** leads its book list: Title Page and the Three and Eight
+  Witnesses (1830 text, Project Gutenberg) as swipeable reading pages (`FrontPageScreen`, follows Display),
+  and the Prophet Joseph Smith's testimony as a link to JS—H 1:29 (it's an excerpt of that). Any volume can
+  have `scriptures/<volume>/front.json`. The modern Introduction and Brief Explanation are copyrighted.
+
 ## Hard rules
 
 - **Copyright:** bundle only public-domain or openly licensed data (PD, CC0, CC BY; CC BY-SA is acceptable for

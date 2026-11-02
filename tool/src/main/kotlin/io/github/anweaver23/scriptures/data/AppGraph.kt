@@ -11,6 +11,7 @@ import io.github.anweaver23.scriptures.core.PlaybackSettings
 import io.github.anweaver23.scriptures.core.OriginalLanguage
 import io.github.anweaver23.scriptures.core.FileMatcher
 import io.github.anweaver23.scriptures.core.FootnoteSource
+import io.github.anweaver23.scriptures.core.FrontMatter
 import io.github.anweaver23.scriptures.core.ItalicsSource
 import io.github.anweaver23.scriptures.core.DisplaySettings
 import java.io.File
@@ -87,6 +88,16 @@ object AppGraph {
 
     /** Footnotes from assets/footnotes. None are bundled yet, so every book reads as empty. */
     val footnotes: FootnoteSource by lazy { AssetFootnotes { path -> ctx().readAsset(path) } }
+
+    private val frontMatterCache = HashMap<String, FrontMatter>()
+
+    /** Pages before a volume's first book; empty for volumes without any. */
+    fun frontMatter(volumeId: String): FrontMatter = synchronized(frontMatterCache) {
+        frontMatterCache.getOrPut(volumeId) {
+            runCatching { FrontMatter.parse(ctx().readAsset(FrontMatter.path(volumeId)).decodeToString()) }
+                .getOrDefault(FrontMatter.EMPTY)
+        }
+    }
 
     /** The KJV's italic (translator-supplied) words, Old and New Testament only. */
     val italics: ItalicsSource by lazy { AssetItalics { path -> ctx().readAsset(path) } }
