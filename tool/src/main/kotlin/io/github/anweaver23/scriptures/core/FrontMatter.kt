@@ -28,6 +28,12 @@ data class FrontPage(
     val verseRef: VerseRef? get() = ref?.let(VerseRef::fromKey)
 }
 
-/** [t] is "heading" (centred), "p" (reading text) or "sig" (a signature line). */
+/**
+ * [t] is "heading" (centred), "p" (reading text), "sig" (a signature line), "entry" (an index line in
+ * the Topical Guide), "verse" (numbered [n]) or "subheading". [s], when set, is the block as linked or
+ * styled runs and [text] is its plain form.
+ */
 @Serializable
-data class FrontBlock(val t: String, val text: String)
+data class FrontBlock(val t: String, val text: String = "", val s: List<Span> = emptyList(), val n: Int? = null) {
+    val spans: List<Span> get() = s.ifEmpty { listOf(Span(text)) }
+}

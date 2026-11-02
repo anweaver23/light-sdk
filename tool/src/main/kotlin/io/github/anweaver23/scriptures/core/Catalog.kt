@@ -29,9 +29,65 @@ data class Book(
     val chapterLabel: String = "Chapter",
 )
 
-/** One book's text: c[chapter - 1][verse - 1]. */
+/**
+ * One book's text: c[chapter - 1][verse - 1]. Imported books also carry [x], each chapter's extras
+ * (heading, summary, italics, small caps, paragraph marks), and [title], the book's full printed
+ * title ("The First Book of Moses Called Genesis").
+ */
 @Serializable
-data class BookText(val c: List<List<String>>)
+data class BookText(
+    val c: List<List<String>>,
+    val x: List<ChapterExtras> = emptyList(),
+    val title: String? = null,
+)
+
+/** A run of text in a note, heading or page. [to] makes it a link (see [LinkTarget]); [s] styles it: "i" italic, "sc" small caps, "b" bold. */
+@Serializable
+data class Span(val t: String, val to: String? = null, val s: String? = null)
+
+fun List<Span>.plain(): String = joinToString("") { it.t }
+
+/**
+ * What the printed page shows around one chapter's verses. Word runs are flat inclusive
+ * `[first, last, first, last, ...]` lists of word indexes ([Words.spans]) per verse.
+ */
+@Serializable
+data class ChapterExtras(
+    /** "Chapter 32", "Section 76", "Psalm 23", "Official Declaration 1". */
+    val title: String? = null,
+    /** A D&C section's heading, a Psalm's title, a book's opening note. */
+    val intro: List<Span> = emptyList(),
+    /** The chapter summary ("Alma teaches the poor…"). */
+    val summary: List<Span> = emptyList(),
+    /** Words the KJV translators supplied (printed in italics), by verse. */
+    val italic: List<List<Int>> = emptyList(),
+    /** Small caps ("LORD"), by verse. */
+    val caps: List<List<Int>> = emptyList(),
+    /** Verses that open a new paragraph (the KJV's ¶). */
+    val para: List<Int> = emptyList(),
+) {
+    fun italicRuns(verse: Int): List<IntRange> = runs(italic.getOrNull(verse - 1))
+    fun capsRuns(verse: Int): List<IntRange> = runs(caps.getOrNull(verse - 1))
+
+    private fun runs(flat: List<Int>?): List<IntRange> =
+        if (flat == null || flat.size < 2) emptyList() else (0 until flat.size / 2).map { flat[it * 2]..flat[it * 2 + 1] }
+}
+
+/**
+ * Where a link in imported text goes. A verse key ("ot/gen/1/1") opens the reader there; a chapter key
+ * ("ot/gen/1") opens the chapter; anything else is a page id ("tg/faith", "bd/aaron", "gs/abraham",
+ * "jst/jst-gen/9", "bofm/three") in the imported study helps and front matter.
+ */
+object LinkTarget {
+    fun verse(to: String): VerseRef? = VerseRef.fromKey(to)
+
+    fun chapter(to: String): Target.Chapter? {
+        val p = to.split('/')
+        if (p.size != 3) return null
+        val n = p[2].toIntOrNull() ?: return null
+        return Target.Chapter(p[0], p[1], n)
+    }
+}
 
 @Serializable
 data class HymnBook(

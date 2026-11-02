@@ -4,9 +4,10 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
 /**
- * One footnote, anchored after the word at index [word] (from [Words.spans]) of its verse.
- * [marker] is the small letter shown in the text ("a", "b", ...). [refs] are verse keys
- * ("bofm/alma/32/21") the note points to; unknown or malformed keys are skipped when shown.
+ * One footnote on the words [word]..[end] (indexes from [Words.spans]) of its verse; the marker is
+ * drawn before the first. [marker] is the small letter ("a", "b", ...). [parts] is the note as linked
+ * runs ("Luke 6:20" → a verse, "TG Poor" → the Topical Guide); [text] is the same note as plain text.
+ * [refs] are extra verse keys ("bofm/alma/32/21") listed under the note; unknown keys are skipped.
  */
 @Serializable
 data class Footnote(
@@ -14,7 +15,12 @@ data class Footnote(
     val marker: String,
     val text: String = "",
     val refs: List<String> = emptyList(),
+    val end: Int = word,
+    val parts: List<Span> = emptyList(),
 ) {
+    /** The note's runs, or its plain [text] as one run. */
+    val spans: List<Span> get() = parts.ifEmpty { listOf(Span(text)) }
+
     val verseRefs: List<VerseRef> get() = refs.mapNotNull(VerseRef::fromKey)
 }
 
