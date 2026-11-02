@@ -29,6 +29,7 @@ import com.thelightphone.sdk.ui.gridUnitsAsDp
 import io.github.anweaver23.scriptures.core.Catalog
 import io.github.anweaver23.scriptures.core.Volume
 import io.github.anweaver23.scriptures.data.AppGraph
+import io.github.anweaver23.scriptures.core.importer.TextBuild
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
@@ -57,6 +58,7 @@ class HomeViewModel : LightViewModel<Unit>() {
         super.onScreenShow(screen)
         // Pick up anything uploaded through the Tool Manager while the tool was closed.
         AppGraph.scope.launch { AppGraph.importer.importAll() }
+        AppGraph.scope.launch { AppGraph.text.importInbox() }
     }
 }
 
@@ -103,8 +105,10 @@ class HomeScreen(private val sealedActivity: SealedLightActivity) : AppLightScre
             navigateTo({ ReaderScreen(it, chapter, focusVerse = verse, quietFocus = true) })
         }
 
+        val manifest by AppGraph.text.manifest.collectAsState()
         val shelves = catalog.scriptures.volumes.map { volume -> Shelf(volume.title) { openVolume(volume) } } +
-            Shelf("Hymns") { navigateTo(::HymnBooksScreen) }
+            Shelf("Hymns") { navigateTo(::HymnBooksScreen) } +
+            listOfNotNull(Shelf("Study Helps") { navigateTo(::StudyHelpsScreen) }.takeIf { manifest.pages.keys.any { it in TextBuild.HELPS } })
 
         // ScreenFrame applies the theme too; this outer one is only so the bookmark glyph picks up
         // the theme's content colour.

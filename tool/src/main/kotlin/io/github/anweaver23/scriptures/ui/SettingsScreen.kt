@@ -88,6 +88,11 @@ class SettingsScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(seal
                     val next = if (homeLayout == HomeLayout.Tiles) HomeLayout.List else HomeLayout.Tiles
                     AppGraph.scope.launch { AppGraph.settings.setHomeLayout(next) }
                 }
+                val textStep by AppGraph.text.step.collectAsState()
+                val manifest by AppGraph.text.manifest.collectAsState()
+                ListRow("Standard works", if (textStep != null) "Importing" else if (manifest.books.isEmpty()) "Not imported" else null) {
+                    navigateTo(::StandardWorksScreen)
+                }
                 ListRow("Add audio", if (pending.isEmpty()) null else "${pending.size} to review") {
                     navigateTo(::AddAudioScreen)
                 }
@@ -271,5 +276,53 @@ private fun StepSlider(count: Int, index: Int, onChange: (Int) -> Unit) {
         drawLine(color, Offset(left, y), Offset(right, y), strokeWidth = track.toPx())
         val x = left + (right - left) * (index.toFloat() / (count - 1).coerceAtLeast(1))
         drawCircle(color, radius = r, center = Offset(x, y))
+    }
+}
+
+/**
+ * Where the scripture text comes from: the Church's downloads, dropped into the Tool Manager's
+ * "Standard works" folder. Shows what's imported, the import as it runs, and what to download.
+ */
+class StandardWorksScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(sealedActivity) {
+    private val scrolls = ScrollMemory()
+
+    init {
+        AppGraph.init(lightContext)
+    }
+
+    @Composable
+    override fun Content() {
+        val text = AppGraph.text
+        val manifest by text.manifest.collectAsState()
+        val step by text.step.collectAsState()
+        val error by text.error.collectAsState()
+        // Pick up files dropped in while this screen is open.
+        androidx.compose.runtime.LaunchedEffect(Unit) { text.importInbox() }
+
+        ScreenFrame(title = "Standard works", onBack = { goBack() }, rightButton = nowPlayingButton()) {
+            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
+                step?.let { Note("Importing $it…") }
+                error?.let { Note("The last import failed: $it") }
+                if (manifest.books.isNotEmpty()) {
+                    val catalog = AppGraph.catalog.scriptures
+                    val volumes = catalog.volumes.filter { v -> v.books.any { "${v.id}/${it.id}" in manifest.books } }
+                    StackRow("Text", volumes.map { it.title to 1 }) {}
+                    val noteVolumes = catalog.volumes.filter { v -> v.books.any { "${v.id}/${it.id}" in manifest.noteBooks } }
+                    StackRow(
+                        "Footnotes",
+                        listOf((if (noteVolumes.isEmpty()) "None yet" else "%,d in ".format(manifest.footnotes) + noteVolumes.joinToString(", ") { it.title }) to 3),
+                    ) {}
+                    val helps = io.github.anweaver23.scriptures.core.importer.TextBuild.HELPS.filterKeys { (manifest.pages[it] ?: 0) > 0 }
+                    if (helps.isNotEmpty()) StackRow("Study helps", helps.values.map { it to 1 }) {}
+                    manifest.problems.take(5).forEach { Note(it) }
+                } else if (step == null) {
+                    Note(
+                        "Download from the Church's website and drop into the Tool Manager's Standard works folder, " +
+                            "as downloaded: \"Standard Works — Victor Reader\" (.zip) for the text and study helps, " +
+                            "and the scripture EPUBs (Holy Bible, Book of Mormon) for footnotes.",
+                    )
+                }
+            }
+        }
     }
 }

@@ -290,8 +290,23 @@ class FootnoteScreen(
     override fun Content() {
         val catalog = AppGraph.catalog
         ScreenFrame(title = "${catalog.verseLabel(ref)} ${footnote.marker}", onBack = { goBack() }, rightButton = nowPlayingButton()) {
+            val display by AppGraph.display.collectAsState()
+            val style = readerTextStyle(display.textSize.scale, display.lineSpacing)
+            // The words the note is on, from the verse, dimmed above the note.
+            val anchor by produceState<String?>(null, ref, footnote) {
+                value = withContext(Dispatchers.IO) {
+                    runCatching {
+                        val text = AppGraph.bookText(ref.volumeId, ref.bookId).c[ref.chapter - 1][ref.verse - 1]
+                        val words = io.github.anweaver23.scriptures.core.Words.spans(text)
+                        text.substring(words[footnote.word].start, words[minOf(footnote.end, words.lastIndex)].end)
+                    }.getOrNull()
+                }
+            }
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
-                if (footnote.text.isNotBlank()) Body(footnote.text)
+                anchor?.let {
+                    AppText(text = it, variant = LightTextVariant.Detail, lighten = true, modifier = Modifier.padding(bottom = 0.5f.gridUnitsAsDp()))
+                }
+                SpanText(footnote.spans, style, Modifier.fillMaxWidth().padding(bottom = 0.5f.gridUnitsAsDp())) { openLink(it) }
                 footnote.verseRefs.filter { catalog.scriptures.book(it.bookId) != null }.forEach { target ->
                     ListRow(catalog.verseLabel(target)) {
                         openReader(target.chapterTarget, target.verse)

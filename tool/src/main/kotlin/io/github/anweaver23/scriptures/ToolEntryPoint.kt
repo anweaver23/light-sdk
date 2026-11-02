@@ -8,6 +8,7 @@ import com.thelightphone.toolmanager.ClientToolManifest
 import com.thelightphone.toolmanager.FileBrowserSpec
 import io.github.anweaver23.scriptures.core.UploadKind
 import io.github.anweaver23.scriptures.data.AppGraph
+import io.github.anweaver23.scriptures.data.TextLibrary
 import kotlinx.coroutines.CancellationException
 
 @EntryPoint
@@ -23,9 +24,16 @@ object ToolEntryPoint : LightEntryPoint {
             "(\"85.txt\", \"1003.txt\") or title.",
     )
 
+    private const val STANDARD_WORKS_HEADER =
+        "Drop the Church's downloads here to load the scriptures: \"Standard Works — Victor Reader\" (the .zip) " +
+            "for the text, introductions, Topical Guide, Bible Dictionary, Guide to the Scriptures and JST, and " +
+            "the Bible and Book of Mormon EPUBs for footnotes. Leave the files as downloaded."
+
     override fun getToolManagerManifest(): ClientToolManifest = ClientToolManifest(
         title = "Scriptures",
-        roots = UploadKind.entries.map { kind ->
+        roots = listOf(
+            ClientLeafNode(FileBrowserSpec(label = TextLibrary.LABEL, path = TextLibrary.FOLDER, headerText = STANDARD_WORKS_HEADER)),
+        ) + UploadKind.entries.map { kind ->
             ClientLeafNode(FileBrowserSpec(label = kind.label, path = kind.folder, headerText = headers.getValue(kind)))
         },
     )
@@ -36,6 +44,7 @@ object ToolEntryPoint : LightEntryPoint {
         if (AppGraph.isReady) {
             try {
                 AppGraph.importer.importAll()
+                AppGraph.text.importInbox()
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {

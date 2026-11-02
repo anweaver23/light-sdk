@@ -103,14 +103,4 @@ class StudyStoreTest {
         val kept = dir.listFiles()!!.single { it.name.startsWith("annotations.json.unreadable-") }
         assertEquals("{not json", kept.readText())
     }
-
-    @Test
-    fun `missing footnote asset means no footnotes`() {
-        val source = AssetFootnotes { throw FileNotFoundException(it) }
-        assertEquals(BookFootnotes.EMPTY, source.book("bofm", "alma"))
-        val fixture = File("src/test/resources/footnotes/bofm/alma.json").readBytes()
-        val withData = AssetFootnotes { path -> if (path == "footnotes/bofm/alma.json") fixture else throw FileNotFoundException(path) }
-        assertEquals(setOf(21), withData.book("bofm", "alma").chapter(32).keys)
-        assertTrue(withData.book("bofm", "ether").verses.isEmpty())
-    }
 }

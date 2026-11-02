@@ -44,7 +44,6 @@ private fun appendText(node: Node, out: StringBuilder) {
 
 object Html {
     private val VOID = setOf("br", "img", "meta", "link", "hr", "input", "col", "area", "base", "wbr", "source")
-    private val ATTR = Regex("""([A-Za-z_:][-A-Za-z0-9_:.]*)\s*(?:=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'>]+)))?""")
 
     /** Parses [html] into a synthetic root element named "#root". */
     fun parse(html: String): Element {
@@ -80,11 +79,7 @@ object Html {
                     if (selfClosing) body = body.dropLast(1)
                     val nameEnd = body.indexOfFirst { it.isWhitespace() }.let { if (it < 0) body.length else it }
                     val name = body.substring(0, nameEnd).lowercase()
-                    val attrs = LinkedHashMap<String, String>()
-                    for (m in ATTR.findAll(body.substring(nameEnd))) {
-                        val v = m.groups[2]?.value ?: m.groups[3]?.value ?: m.groups[4]?.value ?: ""
-                        attrs[m.groupValues[1].lowercase()] = decode(v)
-                    }
+                    val attrs = attributes(body, nameEnd)
                     val el = Element(name, attrs)
                     stack.last().children += el
                     if (!selfClosing && name !in VOID) stack += el
@@ -93,6 +88,38 @@ object Html {
             }
         }
         return root
+    }
+
+    /** `name="value"` pairs (also single-quoted, bare, or valueless) from [from] in a tag's body. */
+    private fun attributes(body: String, from: Int): Map<String, String> {
+        val out = LinkedHashMap<String, String>()
+        var i = from
+        val n = body.length
+        while (i < n) {
+            while (i < n && (body[i].isWhitespace() || body[i] == '/')) i++
+            val nameStart = i
+            while (i < n && !body[i].isWhitespace() && body[i] != '=' && body[i] != '/') i++
+            if (i == nameStart) break
+            val name = body.substring(nameStart, i).lowercase()
+            while (i < n && body[i].isWhitespace()) i++
+            var value = ""
+            if (i < n && body[i] == '=') {
+                i++
+                while (i < n && body[i].isWhitespace()) i++
+                if (i < n && (body[i] == '"' || body[i] == '\'')) {
+                    val q = body[i]
+                    val close = body.indexOf(q, i + 1).let { if (it < 0) n else it }
+                    value = body.substring(i + 1, close)
+                    i = close + 1
+                } else {
+                    val s = i
+                    while (i < n && !body[i].isWhitespace()) i++
+                    value = body.substring(s, i)
+                }
+            }
+            out[name] = decode(value)
+        }
+        return out
     }
 
     /** The '>' closing the tag opened at [lt], skipping any inside quoted attribute values. */
@@ -155,12 +182,20 @@ object Html {
      * sections stay inside their parent.
      */
     fun sections(html: String): LinkedHashMap<String, String> {
-        val marker = Regex("""<section id="(/[^"]*)">""")
-        val starts = marker.findAll(html).toList()
+        val open = "<section id=\"/"
+        val starts = ArrayList<Pair<Int, String>>()
+        var i = html.indexOf(open)
+        while (i >= 0) {
+            val idStart = i + open.length - 1
+            val idEnd = html.indexOf('"', idStart)
+            if (idEnd < 0) break
+            if (html.startsWith("\">", idEnd)) starts += i to html.substring(idStart, idEnd)
+            i = html.indexOf(open, idEnd)
+        }
         val out = LinkedHashMap<String, String>()
-        starts.forEachIndexed { k, m ->
-            val end = starts.getOrNull(k + 1)?.range?.first ?: html.length
-            out[m.groupValues[1]] = html.substring(m.range.first, end)
+        starts.forEachIndexed { k, (start, id) ->
+            val end = starts.getOrNull(k + 1)?.first ?: html.length
+            out[id] = html.substring(start, end)
         }
         return out
     }

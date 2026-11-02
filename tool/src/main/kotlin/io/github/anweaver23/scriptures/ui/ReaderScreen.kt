@@ -66,6 +66,7 @@ import io.github.anweaver23.scriptures.core.Annotation
 import io.github.anweaver23.scriptures.core.Annotations
 import io.github.anweaver23.scriptures.core.Bookmark
 import io.github.anweaver23.scriptures.core.Catalog
+import io.github.anweaver23.scriptures.core.ChapterExtras
 import io.github.anweaver23.scriptures.core.Find
 import io.github.anweaver23.scriptures.core.FindMatch
 import io.github.anweaver23.scriptures.core.Footnote
@@ -114,6 +115,9 @@ const val FOCUS_FADE_MS = 1400
 /** Background of find-in-chapter matches, and of the one the find bar is on. */
 const val FIND_ALPHA = 0.3f
 const val FIND_CURRENT_ALPHA = 0.6f
+
+/** Chapter headings and summaries, relative to the verse text. */
+private const val HEADER_SCALE = 0.85f
 
 /** Footnote markers, relative to the verse text. */
 private const val MARKER_SIZE_EM = 0.62f
@@ -200,6 +204,10 @@ class ReaderViewModel(
     /** The verses as drawn (with footnote markers), built with [verses]. */
     private val _displays = MutableStateFlow<List<VerseDisplay>?>(null)
     val displays: StateFlow<List<VerseDisplay>?> = _displays.asStateFlow()
+
+    /** The chapter's heading and summary (imported text only). */
+    private val _extras = MutableStateFlow<ChapterExtras?>(null)
+    val extras: StateFlow<ChapterExtras?> = _extras.asStateFlow()
 
     private val _selection = MutableStateFlow<Selection?>(null)
     val selection: StateFlow<Selection?> = _selection.asStateFlow()
@@ -288,7 +296,7 @@ class ReaderViewModel(
         val ch = _chapter.value
         val ref = VerseRef(ch.volumeId, ch.bookId, ch.chapter, pos.verse)
         val footnotes = _displays.value?.getOrNull(pos.verse - 1)?.markers.orEmpty()
-            .filter { it.footnote.word == pos.word }
+            .filter { pos.word in it.footnote.word..it.footnote.end }
             .map { TapAction.OpenFootnote(ref, it.footnote) }
         val options = Annotations.allAt(chapterAnnotations.value, pos).map { TapAction.OpenAnnotation(it) } + footnotes
         return when (options.size) {
@@ -385,23 +393,36 @@ class ReaderViewModel(
         _chapter.value = target
         _verses.value = null
         _displays.value = null
+        _extras.value = null
         _selection.value = null
         _find.value = null
         _topVerse.value = null
         scrollState = ScrollState(0)
         _focus.value = focusVerse?.let { FocusRequest(it, ++focusCounter, flash = !quietFocus) }
         viewModelScope.launch {
-            val (verses, displays) = withContext(Dispatchers.IO) {
-                val verses = AppGraph.bookText(target.volumeId, target.bookId).c.getOrNull(target.chapter - 1).orEmpty()
+            val (verses, displays, extras) = withContext(Dispatchers.IO) {
+                val book = AppGraph.bookText(target.volumeId, target.bookId)
+                val verses = book.c.getOrNull(target.chapter - 1).orEmpty()
+                val extras = book.x.getOrNull(target.chapter - 1)
                 val notes = AppGraph.footnotes.book(target.volumeId, target.bookId).chapter(target.chapter)
-                val italics = AppGraph.italics.book(target.volumeId, target.bookId).chapter(target.chapter)
-                verses to verses.mapIndexed { i, text ->
-                    VerseDisplay.build(i + 1, text, notes[i + 1].orEmpty(), italics[i + 1].orEmpty())
-                }
+                Triple(
+                    verses,
+                    verses.mapIndexed { i, text ->
+                        VerseDisplay.build(
+                            i + 1,
+                            text,
+                            notes[i + 1].orEmpty(),
+                            italics = extras?.italicRuns(i + 1).orEmpty(),
+                            caps = extras?.capsRuns(i + 1).orEmpty(),
+                        )
+                    },
+                    extras,
+                )
             }
             // Quick Prev/Next taps can finish out of order; only the latest chapter wins.
             if (_chapter.value != target) return@launch
             _verses.value = verses
+            _extras.value = extras
             _displays.value = displays
             AppGraph.progress.setLastRead(target)
         }
@@ -491,6 +512,7 @@ class ReaderScreen(
         val selection by viewModel.selection.collectAsState()
         val annotations by viewModel.chapterAnnotations.collectAsState()
         val find by viewModel.find.collectAsState()
+        val extras by viewModel.extras.collectAsState()
         val display by AppGraph.display.collectAsState()
         val index by viewModel.library.collectAsState()
         val hasAudio = index.hasAudio(chapter)
@@ -615,6 +637,7 @@ class ReaderScreen(
                     onDrag = viewModel::extendSelection,
                     onWordTap = { pos -> handle(viewModel.onWordTap(pos)) },
                     onMarkerTap = { verse, marker -> handle(viewModel.onMarkerTap(verse, marker)) },
+                    header = extras?.let { x -> { ChapterHeader(x, readerTextStyle(display.textSize.scale, display.lineSpacing)) } },
                 )
             }
             }
@@ -662,6 +685,20 @@ class ReaderScreen(
         val last = viewModel.find.value?.query.orEmpty()
         navigateTo({ FindInputScreen(it, last, blankOnBack = true) }) { query ->
             if (query.isBlank()) viewModel.closeFind() else viewModel.find(query)
+        }
+    }
+
+    /** A D&C section's heading or a Psalm's title, then the chapter summary, as the printed page has them. */
+    @Composable
+    private fun ChapterHeader(x: ChapterExtras, style: TextStyle) {
+        val secondary = LightThemeTokens.colors.contentSecondary
+        val gap = VERSE_GAP_UNITS.gridUnitsAsDp()
+        val small = style.copy(color = secondary, fontSize = style.fontSize * HEADER_SCALE, lineHeight = style.lineHeight * HEADER_SCALE)
+        if (x.intro.isNotEmpty()) {
+            SpanText(x.intro, small, Modifier.fillMaxWidth().padding(bottom = gap)) { openLink(it) }
+        }
+        if (x.summary.isNotEmpty()) {
+            SpanText(x.summary, small.copy(fontStyle = FontStyle.Italic), Modifier.fillMaxWidth().padding(bottom = gap * 1.5f)) { openLink(it) }
         }
     }
 
@@ -716,6 +753,8 @@ private fun ChapterText(
     onDrag: (WordPos) -> Unit,
     onWordTap: (WordPos?) -> Unit,
     onMarkerTap: (Int, MarkerSpan) -> Unit,
+    /** Drawn above verse 1: the chapter's heading and summary. */
+    header: (@Composable () -> Unit)? = null,
 ) {
     val colors = LightThemeTokens.colors
     val geometry = remember(displays) { mutableStateMapOf<Int, VerseGeometry>() }
@@ -842,6 +881,7 @@ private fun ChapterText(
                     }
                 },
         ) {
+            header?.invoke()
             displays.forEach { display ->
                 val verse = display.verse
                 val text = remember(display, annotations, selection, find, colors) {
@@ -897,6 +937,14 @@ private fun styledVerse(
     addStyle(SpanStyle(color = colors.contentSecondary), 0, display.numberEnd)
     for (run in display.italics) {
         display.charRange(run)?.let { addStyle(SpanStyle(fontStyle = FontStyle.Italic), it.first, it.last + 1) }
+    }
+    // Small caps: the text is upper case already; every letter after a word's first is drawn smaller.
+    for (run in display.caps) {
+        for (w in run) {
+            val start = display.wordStarts.getOrNull(w) ?: continue
+            val end = display.wordEnds[w]
+            if (end - start > 1) addStyle(SpanStyle(fontSize = SMALL_CAPS_EM.em), start + 1, end)
+        }
     }
     val verse = display.verse
     for (a in annotations) {

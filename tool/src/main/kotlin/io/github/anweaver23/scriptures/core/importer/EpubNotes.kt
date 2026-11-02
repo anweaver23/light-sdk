@@ -96,7 +96,7 @@ class EpubNotes(private val index: ScriptureIndex) {
         fun walk(node: Node, style: String?, to: String?) {
             when (node) {
                 is TextNode -> {
-                    val t = node.text.replace(Regex("\\s+"), " ")
+                    val t = Scan.collapse(node.text)
                     if (to != null || style == "sc") out += Span(t, to, style) else out += refs.link(t).map { if (style != null && it.to == null) it.copy(s = style) else it }
                 }
                 is Element -> {
@@ -195,8 +195,6 @@ class EpubNotes(private val index: ScriptureIndex) {
         private val HELPERS = mapOf("TG" to "tg", "BD" to "bd", "GS" to "gs")
 
         /** "God, Creator" → "god-creator", "Poor in Spirit" → "poor-in-spirit": the Church's page ids. */
-        fun slug(name: String): String =
-            name.lowercase().replace("’", "").replace("'", "")
-                .replace(Regex("[^a-z0-9]+"), "-").trim('-')
+        fun slug(name: String): String = Scan.slug(name)
     }
 }

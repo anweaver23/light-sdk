@@ -5,7 +5,7 @@ data class MarkerSpan(val footnote: Footnote, val start: Int, val end: Int)
 
 /**
  * One verse as the reader draws it: the verse number, two spaces, then the text with footnote
- * markers inserted right after their words. Everything here maps between the verse's own
+ * markers inserted right before the words they belong to, as the printed scriptures place them. Everything here maps between the verse's own
  * character offsets (what [Words.spans] measures) and the drawn string, so touches and spans line up.
  */
 class VerseDisplay private constructor(
@@ -22,6 +22,8 @@ class VerseDisplay private constructor(
     val markers: List<MarkerSpan>,
     /** Word runs the KJV prints in italics (words the translators supplied). */
     val italics: List<IntRange>,
+    /** Word runs printed in small caps ("LORD"); their text is already upper case. */
+    val caps: List<IntRange> = emptyList(),
 ) {
     val wordCount: Int get() = wordStarts.size
 
@@ -73,6 +75,7 @@ class VerseDisplay private constructor(
             text: String,
             footnotes: List<Footnote> = emptyList(),
             italics: List<IntRange> = emptyList(),
+            caps: List<IntRange> = emptyList(),
         ): VerseDisplay {
             val spans = Words.spans(text)
             val byWord = footnotes.filter { it.word in spans.indices }.groupBy { it.word }
@@ -90,20 +93,21 @@ class VerseDisplay private constructor(
                 starts[span.index] = out.length
                 // Leading punctuation sits in the gap just appended, so it's directly before the word.
                 markStarts[span.index] = out.length - (span.start - Words.punctuationStart(text, span.start))
-                out.append(text, span.start, span.end)
-                ends[span.index] = out.length
-                cursor = span.end
                 byWord[span.index]?.forEach { note ->
                     val s = out.length
                     out.append(note.marker)
                     markers += MarkerSpan(note, s, out.length)
                 }
+                starts[span.index] = out.length
+                out.append(text, span.start, span.end)
+                ends[span.index] = out.length
+                cursor = span.end
                 // Trailing punctuation is appended next, after any markers.
                 markEnds[span.index] = out.length + (Words.punctuationEnd(text, span.end) - span.end)
             }
             out.append(text, cursor, text.length)
-            val runs = italics.filter { it.first >= 0 && it.last < spans.size && !it.isEmpty() }
-            return VerseDisplay(verse, out.toString(), numberEnd, starts, ends, markStarts, markEnds, markers, runs)
+            fun valid(r: List<IntRange>) = r.filter { it.first >= 0 && it.last < spans.size && !it.isEmpty() }
+            return VerseDisplay(verse, out.toString(), numberEnd, starts, ends, markStarts, markEnds, markers, valid(italics), valid(caps))
         }
     }
 }

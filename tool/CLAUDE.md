@@ -296,7 +296,7 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-11-02 Bar order:** Settings · Search · ▶ · Annotations · Bookmarks. Edit mode's remove mark is
   bigger (`REMOVE_MARK_UNITS` 1.7) and centred on the row.
 
-- **2026-11-02 KJV italics** (`assets/italics`, `core/Italics.kt`): the words the KJV translators supplied
+- **2026-11-02 KJV italics** *(replaced the same day by the import's italics, see Text from the Church's downloads)* (`assets/italics`, `core/Italics.kt`): the words the KJV translators supplied
   print in italics in the Old and New Testaments, from eBible's public-domain `eng-kjv2006` `\add` markers,
   aligned onto our words with the Strong's alignment; the same token-CRC test guards them.
 - **2026-11-02 Children's Songbook** is a third hymnbook (titles and numbers only, like the others). Two songs
@@ -305,17 +305,36 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   matches exactly first (many English accompaniments are named in Spanish, "…musica_solo.mp3"). "songbook",
   "children" or "primary" in a path hints the book.
 
-- **2026-11-02 Book of Mormon front matter** leads its book list: Title Page and the Three and Eight
+- **2026-11-02 Book of Mormon front matter** *(replaced the same day by the imported front matter)* leads its book list: Title Page and the Three and Eight
   Witnesses (1830 text, Project Gutenberg) as swipeable reading pages (`FrontPageScreen`, follows Display),
   and the Prophet Joseph Smith's testimony as a link to JS—H 1:29 (it's an excerpt of that). Any volume can
   have `scriptures/<volume>/front.json`. The modern Introduction and Brief Explanation are copyrighted.
+
+- **2026-11-02 Text from the Church's downloads** (`core/importer/`, `data/TextLibrary.kt`): the user drops the
+  Church's "Standard Works — Victor Reader" zip and the scripture EPUBs into the Tool Manager's "Standard works"
+  folder; `TextBuild` turns them into `filesDir/library/text` (books, notes, pages, `pages.json`,
+  `manifest.json`). One source per kind of thing: **Victor Reader** for all text (every volume, JS—H, ODs),
+  chapter headings and summaries, italics (`clarity-word`), small caps, ¶, every introduction and title page,
+  facsimiles, and the TG, BD, GS and JST as pages; **EPUBs** (Bible, Book of Mormon) for footnotes only, each
+  kept only if its verse's words match the Victor text. The files are copyrighted, so they're never bundled;
+  the user brings them, like audio. Victor's words equal the 2013 text word for word (small-caps words are
+  stored upper case, as the KJV text always was), so highlights, notes and Strong's anchors are unchanged.
+  Sources are kept in `library/text-sources`; a new drop rebuilds into `text.new` and swaps in only when done.
+  The import is plain loops, no regex: on Android each regex match holds ICU native memory until GC, and the
+  first version used 3 GB in seconds. On the LP3 it takes about 3½ minutes. D&C and PGP EPUBs (footnotes)
+  wouldn't download from the Church's site on 2026-11-02; the importer takes them when they do.
+- **2026-11-02 Footnotes as printed:** the letter sits before its word, a note can cover a phrase
+  (`Footnote.word..end`) and tapping any word of it opens the note; the note's references, TG and BD names
+  are links (`Span.to`, `openLink`). Chapter headings (D&C section heading, Psalm title) and summaries sit
+  above verse 1. Study Helps is a home tile once imported; pages swipe through their group.
 
 ## Hard rules
 
 - **Copyright:** bundle only public-domain or openly licensed data (PD, CC0, CC BY; CC BY-SA is acceptable for
   data files, as with Webster's, and its credit must appear in-app; never NonCommercial), and record the source, commit/version and
-  license in a `SOURCE.md` next to the asset. Church footnotes, chapter headings, the current hymn lyrics and
-  Church audio are copyrighted, so they are not bundled. Users can bring their own audio and lyrics.
+  license in a `SOURCE.md` next to the asset. Church footnotes, chapter headings, study helps, the current hymn
+  lyrics and Church audio are copyrighted, so they are not bundled. Users bring their own: the Church's scripture
+  downloads (imported, see Text from the Church's downloads), audio and lyrics.
 - **Only `tool/` ships.** Light's build server extracts `tool/build.gradle.kts`, `tool/lighttool.toml` and
   `tool/src/main/{kotlin,java,res,assets}/**`, then builds against its own pinned SDK. Never depend on
   `sdk/*` edits, `local.properties`, or extra Gradle modules. New dependencies must be on the plugin

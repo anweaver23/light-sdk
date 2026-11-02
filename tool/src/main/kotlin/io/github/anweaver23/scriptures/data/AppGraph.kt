@@ -11,8 +11,6 @@ import io.github.anweaver23.scriptures.core.PlaybackSettings
 import io.github.anweaver23.scriptures.core.OriginalLanguage
 import io.github.anweaver23.scriptures.core.FileMatcher
 import io.github.anweaver23.scriptures.core.FootnoteSource
-import io.github.anweaver23.scriptures.core.FrontMatter
-import io.github.anweaver23.scriptures.core.ItalicsSource
 import io.github.anweaver23.scriptures.core.DisplaySettings
 import java.io.File
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -86,21 +84,8 @@ object AppGraph {
     /** Highlights, notes and bookmarks, as JSON in the private files dir. */
     val study: StudyStore by lazy { StudyStore(File(ctx().filesDir, StudyStore.DIR)) }
 
-    /** Footnotes from assets/footnotes. None are bundled yet, so every book reads as empty. */
-    val footnotes: FootnoteSource by lazy { AssetFootnotes { path -> ctx().readAsset(path) } }
-
-    private val frontMatterCache = HashMap<String, FrontMatter>()
-
-    /** Pages before a volume's first book; empty for volumes without any. */
-    fun frontMatter(volumeId: String): FrontMatter = synchronized(frontMatterCache) {
-        frontMatterCache.getOrPut(volumeId) {
-            runCatching { FrontMatter.parse(ctx().readAsset(FrontMatter.path(volumeId)).decodeToString()) }
-                .getOrDefault(FrontMatter.EMPTY)
-        }
-    }
-
-    /** The KJV's italic (translator-supplied) words, Old and New Testament only. */
-    val italics: ItalicsSource by lazy { AssetItalics { path -> ctx().readAsset(path) } }
+    /** Footnotes imported from the Church's scripture EPUBs; empty until then. */
+    val footnotes: FootnoteSource by lazy { FootnoteSource { v, b -> text.notes(v, b) } }
 
     /** Webster's 1828, read one shard at a time. Lookups block; call off the main thread. */
     val dictionary: Dictionary by lazy {
@@ -125,10 +110,19 @@ object AppGraph {
         override fun removeEldestEntry(eldest: MutableMap.MutableEntry<String, BookText>?) = size > 4
     }
 
-    /** Verse text for one book, read from assets on first use. */
-    fun bookText(volumeId: String, bookId: String): BookText = synchronized(bookCache) {
-        bookCache.getOrPut("$volumeId/$bookId") {
-            Catalog.parseBook(ctx().readAsset("scriptures/$volumeId/$bookId.json").decodeToString())
-        }
+    /** The scripture text, footnotes and study helps imported from the Church's downloads. */
+    val text: TextLibrary by lazy {
+        TextLibrary(ctx().filesDir, File(File(ctx().filesDir, LightFileProvider.SHARED_DIR), TextLibrary.FOLDER), catalog.scriptures)
     }
+
+    /**
+     * Verse text for one book: the imported text, or (until the standard works are imported) the
+     * bundled text.
+     */
+    fun bookText(volumeId: String, bookId: String): BookText =
+        text.book(volumeId, bookId) ?: synchronized(bookCache) {
+            bookCache.getOrPut("$volumeId/$bookId") {
+                Catalog.parseBook(ctx().readAsset("scriptures/$volumeId/$bookId.json").decodeToString())
+            }
+        }
 }

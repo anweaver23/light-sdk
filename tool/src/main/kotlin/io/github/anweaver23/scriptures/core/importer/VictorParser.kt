@@ -217,7 +217,7 @@ class VictorParser(private val index: ScriptureIndex) {
         fun walk(node: Node, style: String?, to: String?) {
             when (node) {
                 is TextNode -> {
-                    val t = node.text.replace(Regex("\\s+"), " ")
+                    val t = Scan.collapse(node.text)
                     if (to != null || style != null) out += Span(t, to, style) else out += refs.link(t)
                 }
                 is Element -> {
@@ -252,12 +252,12 @@ class VictorParser(private val index: ScriptureIndex) {
         val parts = path.split('/')
         val chapter = parts.getOrNull(2)?.toIntOrNull()
         if (parts.size == 3 && chapter != null) {
-            val m = Regex("""(\d+):(\d+)""").find(text)
-            val verse = if (m != null && m.groupValues[1].toInt() == chapter) {
-                m.groupValues[2].toInt()
+            val m = Scan.firstChapterVerse(text)
+            val verse = if (m != null) {
+                m.second.takeIf { m.first == chapter }
             } else {
                 // A bare verse number ("31") or range ("1–4") pointing into the linked chapter.
-                Regex("""^\s*(\d+)""").find(text)?.groupValues?.get(1)?.toIntOrNull()?.takeIf { m == null }
+                Scan.leadingNumber(text)
             }
             return if (verse != null) "$path/$verse" else path
         }
@@ -277,7 +277,7 @@ class VictorParser(private val index: ScriptureIndex) {
     companion object {
         private val HEADINGS = setOf("h1", "h2", "h3", "h4", "h5", "h6")
 
-        fun clean(s: String) = s.replace(Regex("\\s+"), " ").trim()
+        fun clean(s: String) = Scan.clean(s)
 
         /** Word indexes → flat inclusive runs `[first, last, ...]`. */
         fun runs(indexes: List<Int>): List<Int> {

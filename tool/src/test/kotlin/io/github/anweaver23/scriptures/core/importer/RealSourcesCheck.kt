@@ -81,6 +81,20 @@ class RealSourcesCheck {
         File(System.getenv("SCRIPTURE_REPORT") ?: "build/scripture-sources-report.txt").writeText(out.toString())
     }
 
+    /** The full import, as the phone runs it, into build/text-import (SCRIPTURE_ZIPS: the downloads folder). */
+    @Test
+    fun build() {
+        val dir = System.getenv("SCRIPTURE_ZIPS")?.let(::File)?.takeIf { it.isDirectory } ?: return
+        val index = Catalog.parseIndex(File("src/main/assets/scriptures/index.json").readText())
+        val out = File("build/text-import").apply { deleteRecursively(); mkdirs() }
+        val started = System.currentTimeMillis()
+        val manifest = TextBuild(index).build(dir.listFiles()!!.sortedBy { it.name }, { path, text ->
+            File(out, path).apply { parentFile?.mkdirs() }.writeText(text)
+        })
+        val ms = System.currentTimeMillis() - started
+        File(out, "report.txt").writeText("$ms ms\n$manifest\n")
+    }
+
     private fun norm(s: String) = s.lowercase().replace('’', '\'')
     private fun tokens(t: String) = Words.spans(t).map { norm(it.text(t)) }
 }

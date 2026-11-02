@@ -27,11 +27,11 @@ class FindTest {
     }
 
     @Test
-    fun `a footnote marker inside a word does not break the match`() {
+    fun `a footnote marker before a word does not break the match`() {
         val d = listOf(VerseDisplay.build(1, "concerning faith is", listOf(Footnote(word = 1, marker = "a"))))
-        assertEquals("1  concerning faitha is", d[0].text)
-        val m = Find.matches(d, "faith is").single()
-        assertEquals("faitha is", d[0].text.substring(m.start, m.end))
+        assertEquals("1  concerning afaith is", d[0].text)
+        val m = Find.matches(d, "concerning faith").single()
+        assertEquals("concerning afaith", d[0].text.substring(m.start, m.end))
     }
 
     @Test

@@ -62,6 +62,11 @@ object NavKeys {
     data object Bookmarks
     data object Annotations
     data object Settings
+
+    data class Page(val id: String)
+
+    /** An imported page ("tg/faith"), or a list of them ("list:tg"). */
+    fun page(id: String): Any = Page(id)
 }
 
 /**

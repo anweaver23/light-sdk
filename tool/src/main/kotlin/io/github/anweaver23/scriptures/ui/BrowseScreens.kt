@@ -67,18 +67,19 @@ class BookListScreen(sealedActivity: SealedLightActivity, volumeId: String) :
             key(volume.id) {
             val onlyBook = volume.books.singleOrNull()
             if (onlyBook != null) {
-                ChapterNumbers(volume.id, onlyBook.id, scrolls.scroll(volume.id))
+                // The D&C's front matter above its sections, the Official Declarations after them.
+                val (after, before) = AppGraph.text.pageIndex().groups[volume.id].orEmpty().partition { it.id.contains("/od/") }
+                ChapterNumbers(
+                    volume.id,
+                    onlyBook.id,
+                    scrolls.scroll(volume.id),
+                    leading = { before.forEach { page -> ListRow(page.title) { open(NavKeys.page(page.id), { PageScreen(it, page.id) }) } } },
+                    trailing = { after.forEach { page -> ListRow(page.title) { open(NavKeys.page(page.id), { PageScreen(it, page.id) }) } } },
+                )
             } else LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll(volume.id)) {
                 // Front matter (the Book of Mormon's Title Page and Witnesses) leads the list.
-                AppGraph.frontMatter(volume.id).pages.forEach { page ->
-                    ListRow(page.title) {
-                        val ref = page.verseRef
-                        if (ref != null) {
-                            openReader(ref.chapterTarget, ref.verse)
-                        } else {
-                            navigateTo({ FrontPageScreen(it, volume.id, page.id) })
-                        }
-                    }
+                AppGraph.text.pageIndex().groups[volume.id].orEmpty().forEach { page ->
+                    ListRow(page.title) { open(NavKeys.page(page.id), { PageScreen(it, page.id) }) }
                 }
                 volume.books.forEach { book ->
                     val withAudio = index.audioCount("scriptures/${volume.id}/${book.id}/")
@@ -143,13 +144,21 @@ private const val GRID_COLUMNS = 5
 
 /** A book's chapter numbers; one opens the reader there. Underlined numbers have audio. */
 @Composable
-private fun SimpleLightScreen<*>.ChapterNumbers(volumeId: String, bookId: String, scrollState: ScrollState) {
+private fun SimpleLightScreen<*>.ChapterNumbers(
+    volumeId: String,
+    bookId: String,
+    scrollState: ScrollState,
+    leading: @Composable () -> Unit = {},
+    trailing: @Composable () -> Unit = {},
+) {
     val book = AppGraph.catalog.scriptures.book(bookId) ?: return
     val index by AppGraph.library.index.collectAsState()
     NumberGrid(
         numbers = (1..book.chapters).toList(),
         scrollState = scrollState,
         isMarked = { index.hasAudio(Target.Chapter(volumeId, bookId, it)) },
+        leading = leading,
+        trailing = trailing,
     ) { chapter ->
         openReader(Target.Chapter(volumeId, bookId, chapter))
     }
@@ -161,9 +170,12 @@ fun NumberGrid(
     numbers: List<Int>,
     isMarked: (Int) -> Boolean,
     scrollState: ScrollState = rememberScrollState(),
+    leading: @Composable () -> Unit = {},
+    trailing: @Composable () -> Unit = {},
     onClick: (Int) -> Unit,
 ) {
     LightScrollView(Modifier.fillMaxSize(), scrollState = scrollState) {
+        leading()
         numbers.chunked(GRID_COLUMNS).forEach { row ->
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Start) {
                 row.forEach { number ->
@@ -186,5 +198,6 @@ fun NumberGrid(
                 repeat(GRID_COLUMNS - row.size) { Box(Modifier.weight(1f)) }
             }
         }
+        trailing()
     }
 }

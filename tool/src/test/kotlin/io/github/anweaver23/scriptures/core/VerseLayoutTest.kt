@@ -22,10 +22,10 @@ class VerseLayoutTest {
     }
 
     @Test
-    fun `markers are inserted after their words and shift what follows`() {
+    fun `markers are inserted before their words and shift what follows`() {
         val notes = listOf(Footnote(word = 6, marker = "a"), Footnote(word = 6, marker = "b"), Footnote(word = 0, marker = "c"))
         val d = VerseDisplay.build(1, verse, notes)
-        assertEquals("1  Andc now as I said concerning faithab—faith is not", d.text)
+        assertEquals("1  cAnd now as I said concerning abfaith—faith is not", d.text)
         assertEquals(listOf("c", "a", "b"), d.markers.map { d.text.substring(it.start, it.end) })
         assertEquals("faith", d.text.substring(d.wordStarts[7], d.wordEnds[7]))
         assertEquals("not", d.text.substring(d.wordStarts[9], d.wordEnds[9]))
@@ -41,12 +41,12 @@ class VerseLayoutTest {
     @Test
     fun `hit offsets map to words and markers`() {
         val d = VerseDisplay.build(3, "I am", listOf(Footnote(word = 0, marker = "a")))
-        // "3  Ia am"
+        // "3  aI am"
         assertNull(d.wordAt(0)) // the verse number
-        assertEquals(0, d.wordAt(3))
-        assertEquals(0, d.wordAt(4)) // caret right after "I"
-        assertEquals("a", d.markerAt(4)?.footnote?.marker)
-        assertEquals(1, d.wordAt(6))
+        assertEquals("a", d.markerAt(3)?.footnote?.marker)
+        assertEquals(0, d.wordAt(4))
+        assertEquals(0, d.wordAt(5)) // caret right after "I"
+        assertEquals(1, d.wordAt(7))
         assertEquals(1, d.nearestWord(99))
         assertEquals(0, d.nearestWord(1))
     }
@@ -59,10 +59,10 @@ class VerseLayoutTest {
     }
 
     @Test
-    fun `mark range takes in touching punctuation, after footnote markers`() {
+    fun `mark range takes in touching punctuation and the word's footnote marker`() {
         val d = VerseDisplay.build(1, "a perfect knowledge. And", listOf(Footnote(word = 2, marker = "b")))
-        // "1  a perfect knowledgeb. And"
-        assertEquals("knowledgeb.", d.markRange(2..2)?.let { d.text.substring(it.first, it.last + 1) })
+        // "1  a perfect bknowledge. And"
+        assertEquals("bknowledge.", d.markRange(2..2)?.let { d.text.substring(it.first, it.last + 1) })
         val q = VerseDisplay.build(2, "said, “Behold")
         assertEquals("“Behold", q.markRange(1..1)?.let { q.text.substring(it.first, it.last + 1) })
     }

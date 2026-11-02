@@ -16,6 +16,11 @@ object SearchIndex {
     @Volatile
     private var cached: SoftReference<List<SearchBook>>? = null
 
+    /** Drops the loaded text, after an import replaced it. */
+    fun clear() {
+        cached = null
+    }
+
     fun books(): List<SearchBook> {
         cached?.get()?.let { return it }
         synchronized(this) {
