@@ -321,8 +321,9 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   stored upper case, as the KJV text always was), so highlights, notes and Strong's anchors are unchanged.
   Sources are kept in `library/text-sources`; a new drop rebuilds into `text.new` and swaps in only when done.
   The import is plain loops, no regex: on Android each regex match holds ICU native memory until GC, and the
-  first version used 3 GB in seconds. On the LP3 it takes about 3½ minutes. D&C and PGP EPUBs (footnotes)
-  wouldn't download from the Church's site on 2026-11-02; the importer takes them when they do.
+  first version used 3 GB in seconds. On the LP3 it takes about 3½ minutes. The Church's D&C and PGP EPUBs are one file ("Doctrine and Covenants and Pearl of Great
+  Price", served under both names); a footnote already placed is skipped, so duplicates are harmless.
+  Footnotes: 47,085 across all five volumes. Poetic lines (`line`, D&C 84:99) count as word breaks.
 - **2026-11-02 Footnotes as printed:** the letter sits before its word, a note can cover a phrase
   (`Footnote.word..end`) and tapping any word of it opens the note; the note's references, TG and BD names
   are links (`Span.to`, `openLink`). Chapter headings (D&C section heading, Psalm title) and summaries sit

@@ -27,7 +27,8 @@ object ToolEntryPoint : LightEntryPoint {
     private const val STANDARD_WORKS_HEADER =
         "Drop the Church's downloads here to load the scriptures: \"Standard Works — Victor Reader\" (the .zip) " +
             "for the text, introductions, Topical Guide, Bible Dictionary, Guide to the Scriptures and JST, and " +
-            "the Bible and Book of Mormon EPUBs for footnotes. Leave the files as downloaded."
+            "the Holy Bible, Book of Mormon, and Doctrine and Covenants and Pearl of Great Price EPUBs for footnotes. " +
+            "Leave the files as downloaded."
 
     override fun getToolManagerManifest(): ClientToolManifest = ClientToolManifest(
         title = "Scriptures",

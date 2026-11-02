@@ -319,7 +319,7 @@ class StandardWorksScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>
                     Note(
                         "Download from the Church's website and drop into the Tool Manager's Standard works folder, " +
                             "as downloaded: \"Standard Works — Victor Reader\" (.zip) for the text and study helps, " +
-                            "and the scripture EPUBs (Holy Bible, Book of Mormon) for footnotes.",
+                            "and the scripture EPUBs (Holy Bible; Book of Mormon; Doctrine and Covenants and Pearl of Great Price) for footnotes.",
                     )
                 }
             }

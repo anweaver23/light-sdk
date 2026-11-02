@@ -54,6 +54,12 @@ class EpubNotes(private val index: ScriptureIndex) {
                     is Element -> when {
                         node.hasClass("verse-number") || node.hasClass("verseNumber") || node.isMarker() -> Unit
                         node.name == "br" -> append(" ")
+                        // A poetic line (D&C 84:99) has no space before the next: keep the words apart.
+                        node.hasClass("line") -> {
+                            append(" ")
+                            node.children.forEach(::walk)
+                            append(" ")
+                        }
                         node.isNoteRef() -> {
                             val link = if (node.name == "a") node else node.first { it.name == "a" }
                             val id = link?.attrs?.get("href")?.substringAfter('#')

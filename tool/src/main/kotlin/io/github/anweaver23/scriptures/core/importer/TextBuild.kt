@@ -107,10 +107,12 @@ class TextBuild(private val index: ScriptureIndex) {
                             dropped++
                             continue
                         }
+                        val verseNotes = notes.getOrPut("$volumeId/$bookId") { HashMap() }.getOrPut("$chapter:${n.verse}") { ArrayList() }
+                        // The same EPUB twice (the Church serves the D&C and PGP as one file under two names).
+                        if (verseNotes.any { it.marker == n.marker && it.word == n.word }) continue
                         placed++
                         val parts = links.clean(n.parts)
-                        notes.getOrPut("$volumeId/$bookId") { HashMap() }.getOrPut("$chapter:${n.verse}") { ArrayList() } +=
-                            Footnote(word = n.word, end = n.end, marker = n.marker, text = parts.joinToString("") { it.t }, parts = parts)
+                        verseNotes += Footnote(word = n.word, end = n.end, marker = n.marker, text = parts.joinToString("") { it.t }, parts = parts)
                     }
                 }
             }
