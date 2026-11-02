@@ -77,7 +77,7 @@ class TargetPickerScreen(sealedActivity: SealedLightActivity, private val mode: 
                         }
                     }
                     else -> Picker(book.title, onBack = back) {
-                        NumberGrid((1..book.chapters).toList(), isMarked = { false }, scrollState = scrolls.scroll(path)) { chapter ->
+                        NumberGrid((1..book.chapters).toList(), scrollState = scrolls.scroll(path)) { chapter ->
                             goBack(Target.Chapter(volume.id, book.id, chapter))
                         }
                     }

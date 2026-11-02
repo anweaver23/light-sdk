@@ -60,7 +60,6 @@ class BookListScreen(sealedActivity: SealedLightActivity, volumeId: String) :
     @Composable
     override fun Content() {
         val volume = AppGraph.catalog.scriptures.volume(volumeId) ?: return
-        val index by AppGraph.library.index.collectAsState()
 
         AppPage(title = volume.title) {
             SwipePages(pages) {
@@ -79,8 +78,7 @@ class BookListScreen(sealedActivity: SealedLightActivity, volumeId: String) :
                 // Front matter leads the list (the Book of Mormon's in its Introduction and Witnesses folder).
                 FrontMatterRows(volume.id, end = false)
                 volume.books.forEach { book ->
-                    val withAudio = index.audioCount("scriptures/${volume.id}/${book.id}/")
-                    ListRow(book.title, if (withAudio > 0) "$withAudio audio" else null) {
+                    ListRow(book.title) {
                         if (book.chapters == 1) {
                             openReader(Target.Chapter(volume.id, book.id, 1))
                         } else {
@@ -97,7 +95,7 @@ class BookListScreen(sealedActivity: SealedLightActivity, volumeId: String) :
 }
 
 /**
- * Chapter numbers in a grid. Underlined numbers have audio. Swiping turns to the next or previous
+ * Chapter numbers in a grid. Swiping turns to the next or previous
  * book of the same volume (not into the next volume, and no wrapping round).
  */
 class ChapterGridScreen(
@@ -128,7 +126,6 @@ class ChapterGridScreen(
     @Composable
     override fun Content() {
         val book = AppGraph.catalog.scriptures.book(bookId) ?: return
-        val index by AppGraph.library.index.collectAsState()
 
         AppPage(title = book.title) {
             SwipePages(pages) {
@@ -140,7 +137,7 @@ class ChapterGridScreen(
 
 private const val GRID_COLUMNS = 5
 
-/** A book's chapter numbers; one opens the reader there. Underlined numbers have audio. */
+/** A book's chapter numbers; one opens the reader there. */
 @Composable
 private fun SimpleLightScreen<*>.ChapterNumbers(
     volumeId: String,
@@ -150,11 +147,9 @@ private fun SimpleLightScreen<*>.ChapterNumbers(
     trailing: @Composable () -> Unit = {},
 ) {
     val book = AppGraph.catalog.scriptures.book(bookId) ?: return
-    val index by AppGraph.library.index.collectAsState()
     NumberGrid(
         numbers = (1..book.chapters).toList(),
         scrollState = scrollState,
-        isMarked = { index.hasAudio(Target.Chapter(volumeId, bookId, it)) },
         leading = leading,
         trailing = trailing,
     ) { chapter ->
@@ -166,7 +161,6 @@ private fun SimpleLightScreen<*>.ChapterNumbers(
 @Composable
 fun NumberGrid(
     numbers: List<Int>,
-    isMarked: (Int) -> Boolean,
     scrollState: ScrollState = rememberScrollState(),
     leading: @Composable () -> Unit = {},
     trailing: @Composable () -> Unit = {},
@@ -188,7 +182,6 @@ fun NumberGrid(
                             text = number.toString(),
                             variant = ROW_TEXT,
                             align = TextAlign.Center,
-                            underline = isMarked(number),
                         )
                     }
                 }

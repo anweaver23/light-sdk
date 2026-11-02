@@ -360,6 +360,10 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   show not preceded by a hide (the SDK's onResume) → foreground. `PlayerViewModel` connects only then and
   reconnects on return. A text import interrupted part way (`text.new` left behind) reruns on next open.
 
+- **2026-11-02 No audio indicators in browsing:** book lists don't count recordings and chapter grids don't
+  underline chapters with audio. Settings › Add audio says what's in the library. The reader's and a hymn's
+  play button still appear only where there's a recording (it's the control, not a marker).
+
 ## Hard rules
 
 - **Copyright:** bundle only public-domain or openly licensed data (PD, CC0, CC BY; CC BY-SA is acceptable for
