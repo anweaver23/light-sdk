@@ -26,6 +26,17 @@ class ChurchFilenamesTest {
     }
 
     @Test
+    fun completeStandardWorksZip() {
+        // Folders and names from "standard-works-female-voice-complete-mp3-eng.zip".
+        assertEquals("morm 1", chapter("Triple Combination/Book of Mormon/2015-11-2060-mormon-01-female-voice-64k-eng.mp3"))
+        assertEquals("dc 64", chapter("Triple Combination/Doctrine and Covenants/2015-11-0640-section-64-female-voice-64k-eng.mp3"))
+        assertEquals("js-h 1", chapter("Triple Combination/Pearl of Great Price/2015-11-0150-joseph-smith-history-female-voice-64k-eng.mp3"))
+        // Front matter is not a chapter: the catalogue number (0001-0007) and the bitrate (64k) aren't chapters.
+        assertNull(chapter("Triple Combination/Book of Mormon/2015-11-0004-the-testimony-of-three-witnesses-female-voice-64k-eng.mp3"))
+        assertNull(chapter("Triple Combination/Doctrine and Covenants/2015-11-0001-title-female-voice-64k-eng.mp3"))
+    }
+
+    @Test
     fun scriptureStudyDownloads() {
         assertEquals("alma 32", chapter("2015-11-1270-alma-32-male-voice-64k-eng.mp3"))
         assertEquals("dc 4", chapter("2015-11-0040-section-04-female-voice-64k-eng.mp3"))
