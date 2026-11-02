@@ -83,6 +83,17 @@ class SearchViewModel : LightViewModel<String>() {
     /** Results to return to if the user backs out of editing a new query. */
     private var previous: State? = null
 
+    /**
+     * A query naming exactly one chapter or verse ("alma 2:3", "moroni 10") goes straight there, with
+     * no search: the chapter, and the verse to mark if one was named.
+     */
+    fun jumpTarget(raw: CharSequence): Pair<Target.Chapter, Int?>? =
+        when (val only = References.find(catalog.scriptures, raw.toString().trim()).singleOrNull()) {
+            is RefMatch.ChapterRef -> only.target to null
+            is RefMatch.VerseRefMatch -> only.ref.chapterTarget to only.ref.verse
+            else -> null
+        }
+
     fun submit(raw: CharSequence) {
         val query = raw.toString().trim()
         lastQuery = query
@@ -122,13 +133,14 @@ class SearchViewModel : LightViewModel<String>() {
 }
 
 /**
- * Search: scripture references ("genesis 1"), hymns by title and by their uploaded words, and
+ * Search: a single chapter or verse ("alma 2:3") opens straight away in place of search. Otherwise
+ * scripture references ("genesis"), hymns by title and by their uploaded words, and
  * full-text search over all bundled verses. Opens on the keyboard; results show after submit.
  * Opened from the reader, [findIn] is its chapter: the first result finds the term there instead, and
  * the search returns the term to the reader.
  */
 class SearchScreen(sealedActivity: SealedLightActivity, private val findIn: Target.Chapter? = null) :
-    LightScreen<String, SearchViewModel>(sealedActivity) {
+    AppLightScreen<String, SearchViewModel>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack. */
     private val scrolls = ScrollMemory()
 
@@ -164,7 +176,10 @@ class SearchScreen(sealedActivity: SealedLightActivity, private val findIn: Targ
                     title = "Search",
                     state = text,
                     keyboardOptionsFlow = keyboardOptions,
-                    onSubmit = viewModel::submit,
+                    onSubmit = { query ->
+                        val jump = viewModel.jumpTarget(query)
+                        if (jump != null) jumpTo(jump.first, jump.second) else viewModel.submit(query)
+                    },
                     onBack = { if (!viewModel.cancelEdit()) goBack() },
                     submitIcon = LightIcons.SEARCH,
                     singleLine = true,
@@ -175,6 +190,12 @@ class SearchScreen(sealedActivity: SealedLightActivity, private val findIn: Targ
                 )
             }
         }
+    }
+
+    /** Search steps aside for the reference it named, so back from the reader skips it. */
+    private fun jumpTo(chapter: Target.Chapter, verse: Int?) {
+        goBack()
+        Nav.top?.openReader(chapter, verse)
     }
 
     @Composable
@@ -227,16 +248,16 @@ class SearchScreen(sealedActivity: SealedLightActivity, private val findIn: Targ
         when (ref) {
             is RefMatch.BookRef -> ListRow(ref.book.title, catalog.scriptures.volume(ref.volumeId)?.title) {
                 if (ref.book.chapters == 1) {
-                    navigateTo({ ReaderScreen(it, Target.Chapter(ref.volumeId, ref.book.id, 1)) })
+                    openReader(Target.Chapter(ref.volumeId, ref.book.id, 1))
                 } else {
                     navigateTo({ ChapterGridScreen(it, ref.volumeId, ref.book.id) })
                 }
             }
             is RefMatch.ChapterRef -> ListRow(catalog.label(ref.target)) {
-                navigateTo({ ReaderScreen(it, ref.target) })
+                openReader(ref.target)
             }
             is RefMatch.VerseRefMatch -> ListRow(catalog.verseLabel(ref.ref)) {
-                navigateTo({ ReaderScreen(it, ref.ref.chapterTarget, focusVerse = ref.ref.verse) })
+                openReader(ref.ref.chapterTarget, ref.ref.verse)
             }
         }
     }
@@ -272,7 +293,7 @@ class SearchScreen(sealedActivity: SealedLightActivity, private val findIn: Targ
             Modifier
                 .fillMaxWidth()
                 .lightClickable {
-                    navigateTo({ ReaderScreen(it, hit.ref.chapterTarget, focusVerse = hit.ref.verse) })
+                    openReader(hit.ref.chapterTarget, hit.ref.verse)
                 }
                 .padding(bottom = RESULT_GAP_UNITS.gridUnitsAsDp()),
         ) {

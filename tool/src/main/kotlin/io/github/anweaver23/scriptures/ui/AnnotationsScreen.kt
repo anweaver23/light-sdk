@@ -20,7 +20,9 @@ import kotlinx.coroutines.launch
  * Every highlight and note, newest first, each dated beside its reference. Tapping one opens the
  * reader there. EDIT (bottom bar, as in LightOS Notes) puts a remove mark on each, which asks first.
  */
-class AnnotationsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
+class AnnotationsScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(sealedActivity), Keyed {
+    override val navKey: Any get() = NavKeys.Annotations
+
     /** Scroll positions, kept while the screen is on the back stack. */
     private val scrolls = ScrollMemory()
 
@@ -70,7 +72,7 @@ class AnnotationsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen
                             null
                         },
                     ) {
-                        if (editing) remove() else navigateTo({ ReaderScreen(it, a.chapter, focusVerse = a.start.ref.verse) })
+                        if (editing) remove() else openReader(a.chapter, a.start.ref.verse)
                     }
                 }
             }

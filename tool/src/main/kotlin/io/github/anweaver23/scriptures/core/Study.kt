@@ -164,10 +164,17 @@ object Annotations {
      * The annotation a tap on [pos] should open: one with a note wins over a plain highlight,
      * then the newest.
      */
-    fun at(chapterAnnotations: List<Annotation>, pos: WordPos): Annotation? =
+    fun at(chapterAnnotations: List<Annotation>, pos: WordPos): Annotation? = allAt(chapterAnnotations, pos).firstOrNull()
+
+    /** Every annotation covering [pos]: notes before plain highlights, then newest first. */
+    fun allAt(chapterAnnotations: List<Annotation>, pos: WordPos): List<Annotation> =
         chapterAnnotations
             .filter { pos in it.range }
-            .maxWithOrNull(compareBy<Annotation> { it.hasNote }.thenBy { it.createdAt })
+            .sortedWith(compareByDescending<Annotation> { it.hasNote }.thenByDescending { it.createdAt })
+
+    /** The annotation over exactly [range], which a new note on the same words replaces. */
+    fun sameRange(chapterAnnotations: List<Annotation>, range: WordRange): Annotation? =
+        chapterAnnotations.filter { it.range == range }.maxByOrNull { it.createdAt }
 }
 
 /** "Alma 32:21". Single-chapter books keep the 1 ("Enos 1:3"), as printed. */

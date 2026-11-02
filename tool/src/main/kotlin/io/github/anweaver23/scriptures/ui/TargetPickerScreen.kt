@@ -19,7 +19,7 @@ import io.github.anweaver23.scriptures.data.AppGraph
  * goBack(target). Back steps up one level; backing out of the top level returns nothing.
  */
 class TargetPickerScreen(sealedActivity: SealedLightActivity, private val mode: Mode) :
-    SimpleLightScreen<Target>(sealedActivity) {
+    AppScreen<Target>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack. */
     private val scrolls = ScrollMemory()
 

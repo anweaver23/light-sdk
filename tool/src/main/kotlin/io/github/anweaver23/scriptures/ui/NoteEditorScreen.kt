@@ -93,7 +93,7 @@ class NoteEditorScreen(
     sealedActivity: SealedLightActivity,
     private val title: String,
     private val initial: String,
-) : LightScreen<String, NoteEditorViewModel>(sealedActivity) {
+) : AppLightScreen<String, NoteEditorViewModel>(sealedActivity) {
 
     init {
         AppGraph.init(lightContext)

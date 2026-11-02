@@ -137,6 +137,8 @@ sealed interface TapAction {
     data object None : TapAction
     data class OpenAnnotation(val annotation: Annotation) : TapAction
     data class OpenFootnote(val ref: VerseRef, val footnote: Footnote) : TapAction
+    /** The word has more than one note, highlight or footnote: ask which. */
+    data class Choose(val options: List<TapAction>) : TapAction
 }
 
 /**
@@ -250,6 +252,11 @@ class ReaderViewModel(
         _topVerse.value = VerseRef(_chapter.value.volumeId, _chapter.value.bookId, _chapter.value.chapter, verse)
     }
 
+    fun focusOn(verse: Int) {
+        clearSelection()
+        _focus.value = FocusRequest(verse, ++focusCounter)
+    }
+
     fun focusHandled(request: FocusRequest) {
         if (_focus.value == request) _focus.value = null
     }
@@ -276,7 +283,18 @@ class ReaderViewModel(
             return TapAction.None
         }
         if (pos == null) return TapAction.None
-        return Annotations.at(chapterAnnotations.value, pos)?.let { TapAction.OpenAnnotation(it) } ?: TapAction.None
+        // A footnoted word is a link too, not just its letter.
+        val ch = _chapter.value
+        val ref = VerseRef(ch.volumeId, ch.bookId, ch.chapter, pos.verse)
+        val footnotes = _displays.value?.getOrNull(pos.verse - 1)?.markers.orEmpty()
+            .filter { it.footnote.word == pos.word }
+            .map { TapAction.OpenFootnote(ref, it.footnote) }
+        val options = Annotations.allAt(chapterAnnotations.value, pos).map { TapAction.OpenAnnotation(it) } + footnotes
+        return when (options.size) {
+            0 -> TapAction.None
+            1 -> options.single()
+            else -> TapAction.Choose(options)
+        }
     }
 
     fun onMarkerTap(verse: Int, marker: MarkerSpan): TapAction {
@@ -411,6 +429,13 @@ class ReaderViewModel(
 }
 
 /**
+ * Opens the reader at [chapter], marking [verse], or goes back to a reader already showing that
+ * chapter (see [Nav]) and marks the verse there.
+ */
+fun SimpleLightScreen<*>.openReader(chapter: Target.Chapter, verse: Int? = null) =
+    open(chapter, { ReaderScreen(it, chapter, focusVerse = verse) }) { reader -> verse?.let(reader::focus) }
+
+/**
  * Reads one chapter. [focusVerse] scrolls to that verse and marks it briefly (used by bookmarks,
  * annotations, footnote references and search).
  */
@@ -425,7 +450,13 @@ class ReaderScreen(
      * in case autoplay moved on while no page was watching.
      */
     private var followPlayback: Boolean = false,
-) : LightScreen<Unit, ReaderViewModel>(sealedActivity) {
+) : AppLightScreen<Unit, ReaderViewModel>(sealedActivity), Keyed {
+
+    /** The chapter on the page: going to it again (a bookmark, a footnote link) comes back here. */
+    override val navKey: Any get() = viewModel.chapter.value
+
+    /** Scrolls to [verse] and marks it, as when opened with a focus verse. */
+    fun focus(verse: Int) = viewModel.focusOn(verse)
 
     /** Set when the page follows playback to a chapter that isn't simply the next one over. */
     private var jumpTo: Target.Chapter? = null
@@ -510,7 +541,10 @@ class ReaderScreen(
                     null
                 },
                 onSearch = { navigateTo({ SearchScreen(it, findIn = chapter) }) { query -> viewModel.find(query) } },
-                onBookmarks = { navigateTo({ BookmarksScreen(it, here = viewModel.topRef()) }) },
+                onBookmarks = {
+                    val here = viewModel.topRef()
+                    open(NavKeys.Bookmarks, { BookmarksScreen(it, here = here) }) { it.here = here }
+                },
             ),
             bottomContent = when {
                 currentSelection != null -> {
@@ -632,6 +666,9 @@ class ReaderScreen(
             TapAction.None -> Unit
             is TapAction.OpenAnnotation -> navigateTo({ AnnotationScreen(it, action.annotation.id) })
             is TapAction.OpenFootnote -> navigateTo({ FootnoteScreen(it, action.ref, action.footnote) })
+            is TapAction.Choose -> navigateTo({ TapChoiceScreen(it, action.options) }) { i ->
+                action.options.getOrNull(i)?.let(::handle)
+            }
         }
     }
 

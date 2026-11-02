@@ -241,7 +241,10 @@ fun ActionBar(items: List<LightBarButton>) {
 fun StackRow(
     title: String,
     lines: List<Pair<String, Int>>,
-    /** Drawn in the list inset, left of the text, without moving it (edit mode's remove mark). */
+    /**
+     * Drawn in the list inset, left of the text, without moving it, centred on the row's lines
+     * (edit mode's remove mark).
+     */
     leading: (@Composable () -> Unit)? = null,
     trailing: (@Composable () -> Unit)? = null,
     onClick: () -> Unit,
@@ -253,7 +256,7 @@ fun StackRow(
             .padding(bottom = 1.5f.gridUnitsAsDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Box(Modifier.width(LIST_INSET_UNITS.gridUnitsAsDp()).align(Alignment.Top)) { leading?.invoke() }
+        Box(Modifier.width(LIST_INSET_UNITS.gridUnitsAsDp())) { leading?.invoke() }
         Column(Modifier.weight(1f)) {
             AppText(title, variant = TWO_LINE_TITLE, maxLines = 1, overflow = TextOverflow.Ellipsis)
             lines.forEach { (text, maxLines) ->
@@ -302,7 +305,7 @@ class ConfirmScreen(
     private val title: String,
     private val message: String,
     private val confirmLabel: String,
-) : SimpleLightScreen<Boolean>(sealedActivity) {
+) : AppScreen<Boolean>(sealedActivity) {
 
     @Composable
     override fun Content() {
@@ -322,6 +325,9 @@ class ConfirmScreen(
     }
 }
 
+/** Size of the remove mark, in grid units. */
+const val REMOVE_MARK_UNITS = 1.7f
+
 /**
  * Light's remove mark (a circled ✕), as LightOS Notes draws it left of each row in edit mode. It sits
  * in the list inset and reaches into the frame's margin, so the row's text doesn't move.
@@ -332,8 +338,8 @@ fun RemoveMark(label: String, onClick: () -> Unit) {
         LightIcons.DELETE,
         contentDescription = "Remove $label",
         modifier = Modifier
-            .offset(x = (-0.65f).gridUnitsAsDp())
-            .size(1.2f.gridUnitsAsDp())
+            .offset(x = (-REMOVE_MARK_UNITS / 2 + 0.05f).gridUnitsAsDp())
+            .size(REMOVE_MARK_UNITS.gridUnitsAsDp())
             .lightClickable(onClick = onClick),
     )
 }

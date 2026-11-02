@@ -15,7 +15,7 @@ import com.thelightphone.sdk.ui.LightThemeTokens
 
 /**
  * The bottom bar of most of the app (home, the browse pages, the reader, a hymn's page):
- * Settings · Search · [play] · Bookmarks · Annotations. There's no "…" menu: Display and Add audio
+ * Settings · Search · [play] · Annotations · Bookmarks. There's no "…" menu: Display and Add audio
  * live in Settings, and pages that need more pass their own search and bookmark actions (the reader
  * offers Find in chapter through search, and adding a bookmark through Bookmarks).
  */
@@ -23,17 +23,17 @@ import com.thelightphone.sdk.ui.LightThemeTokens
 fun SimpleLightScreen<*>.navBar(
     play: LightBarButton? = null,
     onSearch: () -> Unit = { navigateTo({ SearchScreen(it) }) },
-    onBookmarks: () -> Unit = { navigateTo({ BookmarksScreen(it) }) },
+    onBookmarks: () -> Unit = { open(NavKeys.Bookmarks, { BookmarksScreen(it) }) { it.here = null } },
 ): List<LightBarButton> = listOfNotNull(
-    LightBarButton.LightIcon(LightIcons.SETTINGS, onClick = { navigateTo(::SettingsScreen) }, contentDescription = "Settings"),
+    LightBarButton.LightIcon(LightIcons.SETTINGS, onClick = { open(NavKeys.Settings, ::SettingsScreen) }, contentDescription = "Settings"),
     LightBarButton.LightIcon(LightIcons.SEARCH, onClick = onSearch, contentDescription = "Search"),
     play,
-    LightBarButton.Icon(painter = tintedIcon(R.drawable.ic_bookmark), onClick = onBookmarks, contentDescription = "Bookmarks"),
     LightBarButton.Icon(
         painter = tintedIcon(R.drawable.ic_journal),
-        onClick = { navigateTo({ AnnotationsScreen(it) }) },
+        onClick = { open(NavKeys.Annotations, ::AnnotationsScreen) },
         contentDescription = "Annotations",
     ),
+    LightBarButton.Icon(painter = tintedIcon(R.drawable.ic_bookmark), onClick = onBookmarks, contentDescription = "Bookmarks"),
 )
 
 /**
@@ -44,7 +44,7 @@ class FindInputScreen(
     sealedActivity: SealedLightActivity,
     private val initial: String,
     private val blankOnBack: Boolean = false,
-) : SimpleLightScreen<String>(sealedActivity) {
+) : AppScreen<String>(sealedActivity) {
 
     @Composable
     override fun Content() {

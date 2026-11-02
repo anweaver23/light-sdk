@@ -30,7 +30,7 @@ import io.github.anweaver23.scriptures.data.AppGraph
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class HymnBooksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
+class HymnBooksScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack. */
     private val scrolls = ScrollMemory()
 
@@ -54,7 +54,7 @@ class HymnBooksScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<U
 
 /** A hymnbook's hymns. Swiping turns to the next or previous hymnbook (no wrapping round). */
 class HymnListScreen(sealedActivity: SealedLightActivity, hymnBookId: String) :
-    SimpleLightScreen<Unit>(sealedActivity) {
+    AppScreen<Unit>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack; one per hymnbook. */
     private val scrolls = ScrollMemory()
 
@@ -112,7 +112,7 @@ class HymnScreen(
     private val sealedActivity: SealedLightActivity,
     target: Target.HymnRef,
     private var followPlayback: Boolean = false,
-) : LightScreen<Unit, PlayerViewModel>(sealedActivity) {
+) : AppLightScreen<Unit, PlayerViewModel>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack. */
     private val scrolls = ScrollMemory()
 
@@ -277,7 +277,7 @@ class HymnScreen(
 }
 
 /** Vocal or Accompaniment, as a LightOS picker. Returns true for accompaniment; BACK returns nothing. */
-class HymnVersionScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Boolean>(sealedActivity) {
+class HymnVersionScreen(sealedActivity: SealedLightActivity) : AppScreen<Boolean>(sealedActivity) {
     @Composable
     override fun Content() {
         ScreenFrame(title = "Listen", onBack = { goBack() }) {

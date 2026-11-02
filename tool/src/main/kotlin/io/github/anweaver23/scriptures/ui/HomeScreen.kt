@@ -64,7 +64,7 @@ class HomeViewModel : LightViewModel<Unit>() {
 private data class Shelf(val title: String, val open: () -> Unit)
 
 @InitialScreen
-class HomeScreen(private val sealedActivity: SealedLightActivity) : LightScreen<Unit, HomeViewModel>(sealedActivity) {
+class HomeScreen(private val sealedActivity: SealedLightActivity) : AppLightScreen<Unit, HomeViewModel>(sealedActivity, root = true) {
     /** Scroll positions, kept while the screen is on the back stack. */
     private val scrolls = ScrollMemory()
 

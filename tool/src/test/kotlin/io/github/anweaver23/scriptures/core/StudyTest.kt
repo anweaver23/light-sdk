@@ -71,6 +71,19 @@ class StudyTest {
     }
 
     @Test
+    fun `every mark on a word is listed, notes first then newest`() {
+        val list = listOf(
+            ann("old", r(1, 0, 1, 9), at = 1),
+            ann("note", r(1, 2, 1, 3), note = "n", at = 2),
+            ann("new", r(1, 0, 1, 9), at = 3),
+        )
+        assertEquals(listOf("note", "new", "old"), Annotations.allAt(list, p(1, 2)).map { it.id })
+        assertEquals(listOf("new", "old"), Annotations.allAt(list, p(1, 5)).map { it.id })
+        assertEquals("new", Annotations.sameRange(list, r(1, 0, 1, 9))?.id)
+        assertNull(Annotations.sameRange(list, r(1, 0, 1, 8)))
+    }
+
+    @Test
     fun `blank notes are stored as plain highlights`() {
         assertNull(ann("x", r(1, 0, 1, 0), note = "   ").note)
     }

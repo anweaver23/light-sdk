@@ -57,7 +57,9 @@ private const val SLIDER_KNOB_PX = 22f
  * Settings, opened from home, laid out like LightOS Settings: one row per item, its current value
  * dimmed on the right.
  */
-class SettingsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
+class SettingsScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(sealedActivity), Keyed {
+    override val navKey: Any get() = NavKeys.Settings
+
     /** Scroll positions, kept while the screen is on the back stack. */
     private val scrolls = ScrollMemory()
 
@@ -97,7 +99,7 @@ class SettingsScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Un
 /**
  * Display: text size, line spacing and invert colours. Reached from Settings. Size and spacing apply to the app's content everywhere (not the bars or menus).
  */
-class DisplayScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
+class DisplayScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack. */
     private val scrolls = ScrollMemory()
 
@@ -122,7 +124,7 @@ class DisplayScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Uni
 }
 
 /** Picks the text size: the current one is underlined, with a preview underneath. */
-class TextSizeScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
+class TextSizeScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(sealedActivity) {
     init {
         AppGraph.init(lightContext)
     }
@@ -145,7 +147,7 @@ class TextSizeScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Un
 }
 
 /** Line spacing on a slider that snaps to [LineSpacing.STEPS] (no visible notches), with a preview. */
-class LineSpacingScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
+class LineSpacingScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(sealedActivity) {
     init {
         AppGraph.init(lightContext)
     }

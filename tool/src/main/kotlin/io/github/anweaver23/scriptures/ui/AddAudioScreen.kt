@@ -19,7 +19,7 @@ import io.github.anweaver23.scriptures.data.Importer
 import kotlinx.coroutines.launch
 
 /** How to bulk upload, what's in the library, and anything the importer couldn't place. */
-class AddAudioScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Unit>(sealedActivity) {
+class AddAudioScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack. */
     private val scrolls = ScrollMemory()
 
@@ -81,7 +81,7 @@ class AddAudioScreen(sealedActivity: SealedLightActivity) : SimpleLightScreen<Un
 
 /** One file the importer couldn't place: assign it by hand or delete it. */
 class ReviewFileScreen(sealedActivity: SealedLightActivity, private val item: Importer.ReviewItem) :
-    SimpleLightScreen<Unit>(sealedActivity) {
+    AppScreen<Unit>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack. */
     private val scrolls = ScrollMemory()
 

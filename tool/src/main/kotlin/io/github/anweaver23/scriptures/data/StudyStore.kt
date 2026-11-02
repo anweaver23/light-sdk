@@ -71,12 +71,23 @@ class StudyStore(
         created
     }
 
-    /** Adds a note on [range]. Notes never merge with other annotations. */
+    /**
+     * Adds a note on [range]. Notes never merge with other annotations, except that a note on exactly
+     * the words of an existing highlight or note overwrites that one's note (same id, same date).
+     */
     suspend fun addNote(chapter: Target.Chapter, range: WordRange, quote: String, note: String): Annotation =
         mutex.withLock {
             ensureLoaded()
-            val created = Annotations.create(newId(), chapter, range, quote, note, now = clock())
-            saveAnnotations(_annotations.value + created)
+            val current = _annotations.value
+            val now = clock()
+            val same = Annotations.sameRange(current.filter { it.isIn(chapter) }, range)
+            if (same != null) {
+                val updated = same.copy(note = note.trim().takeIf { it.isNotEmpty() }, updatedAt = now)
+                saveAnnotations(current.map { if (it.id == same.id) updated else it })
+                return@withLock updated
+            }
+            val created = Annotations.create(newId(), chapter, range, quote, note, now = now)
+            saveAnnotations(current + created)
             created
         }
 

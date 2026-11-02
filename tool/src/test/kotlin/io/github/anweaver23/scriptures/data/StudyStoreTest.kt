@@ -57,6 +57,21 @@ class StudyStoreTest {
     }
 
     @Test
+    fun `a note on exactly the same words overwrites, otherwise it overlaps`() = runBlocking {
+        val s = store(tempDir())
+        val first = s.addNote(alma32, r(1, 0, 1, 3), "q", "first")
+        val again = s.addNote(alma32, r(1, 0, 1, 3), "q", "second")
+        assertEquals(first.id, again.id)
+        assertEquals("second", s.annotations.value.single().note)
+        s.addNote(alma32, r(1, 0, 1, 4), "q", "wider")
+        assertEquals(2, s.annotations.value.size)
+        // A note over a plain highlight's exact words becomes that highlight's note.
+        val h = s.highlight(alma32, r(2, 0, 2, 2), { 10 }) { "h" }!!
+        assertEquals(h.id, s.addNote(alma32, r(2, 0, 2, 2), "h", "on it").id)
+        assertEquals(3, s.annotations.value.size)
+    }
+
+    @Test
     fun `clearing a note keeps the highlight and delete removes it`() = runBlocking {
         val s = store(tempDir())
         val a = s.addNote(alma32, r(1, 0, 1, 1), "q", "note")

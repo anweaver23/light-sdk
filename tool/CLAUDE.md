@@ -224,7 +224,7 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   Apache 2.0; source and licence noted in the drawable.
 
 - **2026-10-28 No "…" menu.** Most of the app shares one bottom bar, `navBar()` (`ui/NavBar.kt`):
-  Settings · Search · ▶ (only where there's audio: the reader, a hymn's page) · Bookmarks · Annotations.
+  Settings · Search · ▶ (only where there's audio: the reader, a hymn's page) · Bookmarks · Annotations *(order swapped 2026-11-02)*.
   Display and Add audio live in Settings (order: Display, Autoplay chapters, Autoplay hymns, Home, Add
   audio last). From the reader, Search leads with "Find in this chapter" (returns the term to the reader)
   and Bookmarks leads with Add bookmark / Remove bookmark at the top verse (then straight back).
@@ -279,6 +279,22 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-10-29 A page follows playback through the hop:** when playback moves to the next chapter or
   hymn, the page that was showing it stays the playing page (`following`) while it slides along, so the
   bar doesn't reset and the corner button doesn't flash. A swipe by hand lets go.
+
+- **2026-11-02 Back closes loops** (`ui/Nav.kt`): going somewhere already on the back stack pops back to
+  it instead of stacking a copy, so bookmark → verse → Bookmarks → verse … stays Home › Bookmarks › verse.
+  Keyed places: Bookmarks, Annotations, Settings (one each) and a reader by the chapter on its page
+  (`openReader`, which marks the new verse there). Everything else still pushes. The SDK's stack is
+  private and we can't edit `sdk/`, so every screen extends `AppScreen` / `AppLightScreen`, which mirror it
+  into `Nav`; HomeScreen is the root and resets it. New screens must extend one of those.
+- **2026-11-02 A lone reference skips search:** a query naming exactly one chapter or verse ("alma 2:3",
+  "moroni 10") opens the reader straight away, and search leaves the stack, so back skips it. A bare book
+  name still lists results.
+- **2026-11-02 Several marks on one word ask:** a tap on a word with more than one highlight, note or
+  footnote opens `TapChoiceScreen` (notes first, then newest, then footnotes); one opens directly. A
+  footnoted word is tappable as a whole (no underline; the superscript letter still is). A note on exactly
+  the words of an existing highlight or note overwrites that one's note (`Annotations.sameRange`).
+- **2026-11-02 Bar order:** Settings · Search · ▶ · Annotations · Bookmarks. Edit mode's remove mark is
+  bigger (`REMOVE_MARK_UNITS` 1.7) and centred on the row.
 
 ## Hard rules
 

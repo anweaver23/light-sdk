@@ -79,7 +79,7 @@ class DefineScreen private constructor(
     private val ref: VerseRef?,
     private val wordIndex: Int,
     private val strongs: String?,
-) : SimpleLightScreen<Unit>(sealedActivity) {
+) : AppScreen<Unit>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack. */
     private val scrolls = ScrollMemory()
 
@@ -170,7 +170,7 @@ class DefineScreen private constructor(
 
 /** A highlight or note, opened by tapping it in the reader: read, edit the note, or remove. */
 class AnnotationScreen(sealedActivity: SealedLightActivity, private val id: String) :
-    SimpleLightScreen<Unit>(sealedActivity) {
+    AppScreen<Unit>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack. */
     private val scrolls = ScrollMemory()
 
@@ -277,7 +277,7 @@ class FootnoteScreen(
     sealedActivity: SealedLightActivity,
     private val ref: VerseRef,
     private val footnote: Footnote,
-) : SimpleLightScreen<Unit>(sealedActivity) {
+) : AppScreen<Unit>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack. */
     private val scrolls = ScrollMemory()
 
@@ -294,7 +294,58 @@ class FootnoteScreen(
                 if (footnote.text.isNotBlank()) Body(footnote.text)
                 footnote.verseRefs.filter { catalog.scriptures.book(it.bookId) != null }.forEach { target ->
                     ListRow(catalog.verseLabel(target)) {
-                        navigateTo({ ReaderScreen(it, target.chapterTarget, focusVerse = target.verse) })
+                        openReader(target.chapterTarget, target.verse)
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * A tapped word carries more than one note, highlight or footnote: list them and return the index
+ * of the one picked, which the reader then opens in this screen's place.
+ */
+class TapChoiceScreen(
+    sealedActivity: SealedLightActivity,
+    private val options: List<TapAction>,
+) : AppScreen<Int>(sealedActivity) {
+    private val scrolls = ScrollMemory()
+
+    init {
+        AppGraph.init(lightContext)
+    }
+
+    @Composable
+    override fun Content() {
+        val catalog = AppGraph.catalog
+        val verse = options.firstNotNullOfOrNull {
+            when (it) {
+                is TapAction.OpenAnnotation -> it.annotation.start.ref
+                is TapAction.OpenFootnote -> it.ref
+                else -> null
+            }
+        }
+        ScreenFrame(title = verse?.let(catalog::verseLabel) ?: "Open", onBack = { goBack() }, rightButton = nowPlayingButton()) {
+            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
+                options.forEachIndexed { i, option ->
+                    when (option) {
+                        is TapAction.OpenAnnotation -> {
+                            val a = option.annotation
+                            StackRow(
+                                title = if (a.hasNote) "Note" else "Highlight",
+                                lines = listOfNotNull(a.note?.let { it to 2 }, "“${a.quote}”" to 1),
+                            ) { goBack(i) }
+                        }
+                        is TapAction.OpenFootnote -> {
+                            val f = option.footnote
+                            val refs = f.verseRefs.joinToString("; ") { catalog.verseLabel(it) }
+                            StackRow(
+                                title = "Footnote ${f.marker}",
+                                lines = listOf((f.text.ifBlank { refs }) to 2),
+                            ) { goBack(i) }
+                        }
+                        else -> Unit
                     }
                 }
             }

@@ -25,8 +25,13 @@ import kotlinx.coroutines.launch
  * the first row adds a bookmark there, or removes the one already in that chapter.
  * (Where you left off isn't listed: the app reopens there on launch.)
  */
-class BookmarksScreen(sealedActivity: SealedLightActivity, private val here: VerseRef? = null) :
-    SimpleLightScreen<Unit>(sealedActivity) {
+class BookmarksScreen(sealedActivity: SealedLightActivity, here: VerseRef? = null) :
+    AppScreen<Unit>(sealedActivity), Keyed {
+    override val navKey: Any get() = NavKeys.Bookmarks
+
+    /** The reader's top verse when opened from it; set again when the reader comes back here through [open]. */
+    var here by mutableStateOf(here)
+
     /** Scroll positions, kept while the screen is on the back stack. */
     private val scrolls = ScrollMemory()
 
@@ -56,7 +61,7 @@ class BookmarksScreen(sealedActivity: SealedLightActivity, private val here: Ver
             },
         ) {
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
-                if (here != null && !editing) HereRow(here, sorted)
+                here?.let { if (!editing) HereRow(it, sorted) }
                 if (sorted.isEmpty()) {
                     Note("Tap the bookmark under a chapter to mark where you are.")
                 }
@@ -73,7 +78,7 @@ class BookmarksScreen(sealedActivity: SealedLightActivity, private val here: Ver
                         if (editing) {
                             confirmRemove(bookmark)
                         } else {
-                            navigateTo({ ReaderScreen(it, bookmark.ref.chapterTarget, focusVerse = bookmark.ref.verse) })
+                            openReader(bookmark.ref.chapterTarget, bookmark.ref.verse)
                         }
                     }
                 }

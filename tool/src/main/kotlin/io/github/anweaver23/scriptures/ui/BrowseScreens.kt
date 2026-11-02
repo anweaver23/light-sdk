@@ -36,7 +36,7 @@ fun AudioLibrary.Index.audioCount(prefix: String): Int =
  * of one book (the Doctrine and Covenants) shows that book's chapters instead, as home opens it.
  */
 class BookListScreen(sealedActivity: SealedLightActivity, volumeId: String) :
-    SimpleLightScreen<Unit>(sealedActivity) {
+    AppScreen<Unit>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack; one per volume. */
     private val scrolls = ScrollMemory()
 
@@ -73,7 +73,7 @@ class BookListScreen(sealedActivity: SealedLightActivity, volumeId: String) :
                     val withAudio = index.audioCount("scriptures/${volume.id}/${book.id}/")
                     ListRow(book.title, if (withAudio > 0) "$withAudio audio" else null) {
                         if (book.chapters == 1) {
-                            navigateTo({ ReaderScreen(it, Target.Chapter(volume.id, book.id, 1)) })
+                            openReader(Target.Chapter(volume.id, book.id, 1))
                         } else {
                             navigateTo({ ChapterGridScreen(it, volume.id, book.id) })
                         }
@@ -94,7 +94,7 @@ class ChapterGridScreen(
     sealedActivity: SealedLightActivity,
     private val volumeId: String,
     bookId: String,
-) : SimpleLightScreen<Unit>(sealedActivity) {
+) : AppScreen<Unit>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack; one per book. */
     private val scrolls = ScrollMemory()
 
@@ -140,7 +140,7 @@ private fun SimpleLightScreen<*>.ChapterNumbers(volumeId: String, bookId: String
         scrollState = scrollState,
         isMarked = { index.hasAudio(Target.Chapter(volumeId, bookId, it)) },
     ) { chapter ->
-        navigateTo({ ReaderScreen(it, Target.Chapter(volumeId, bookId, chapter)) })
+        openReader(Target.Chapter(volumeId, bookId, chapter))
     }
 }
 
