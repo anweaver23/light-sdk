@@ -100,21 +100,36 @@ class VictorParser(private val index: ScriptureIndex) {
             italic = italic.takeIf { l -> l.any { it.isNotEmpty() } }.orEmpty(),
             caps = caps.takeIf { l -> l.any { it.isNotEmpty() } }.orEmpty(),
             para = para,
+            closing = closing(root),
         )
         return ParsedChapter(verses, extras, bookTitle)
+    }
+
+    /**
+     * An epistle's subscription or "The End of the Prophets", without its ¶ and the asterisk of a note
+     * the import doesn't carry.
+     */
+    private fun closing(root: Element): List<Span> {
+        val parts = root.allByClass("closing").map { el ->
+            spans(el, skipClass = "para-mark").let { s ->
+                if (s.isEmpty()) s else s.dropLast(1) + s.last().copy(t = s.last().t.trimEnd('*', ' '))
+            }
+        }
+        return RefText.merge(parts.flatMapIndexed { i, s -> (if (i > 0) listOf(Span(" ")) else emptyList()) + s })
     }
 
     private class Verse(val text: String, val italic: List<Int>, val caps: List<Int>, val para: Boolean)
 
     /** Flags per character while walking a verse. */
-    private class Run(val text: String, val italic: Boolean, val caps: Boolean)
+    private class Run(val text: String, val italic: Boolean, val caps: Boolean, val upper: Boolean = false)
 
     private fun verse(p: Element): Verse {
         val runs = ArrayList<Run>()
         var para = false
+        var upper = false
         fun walk(node: Node, italic: Boolean, caps: Boolean) {
             when (node) {
-                is TextNode -> runs += Run(node.text, italic, caps)
+                is TextNode -> runs += Run(node.text, italic, caps, upper)
                 is Element -> when {
                     node.hasClass("verse-number") -> Unit
                     node.hasClass("para-mark") -> para = true
@@ -124,6 +139,13 @@ class VictorParser(private val index: ScriptureIndex) {
                         runs += Run(" ", false, false)
                         node.children.forEach { walk(it, italic, caps) }
                         runs += Run(" ", false, false)
+                    }
+                    // An inscription in capitals ("HOLINESS TO THE LORD"): upper case, not small caps.
+                    node.hasClass("uppercase") -> {
+                        val was = upper
+                        upper = true
+                        node.children.forEach { walk(it, italic, caps) }
+                        upper = was
                     }
                     else -> {
                         val i = italic || node.hasClass("clarity-word")
@@ -149,9 +171,9 @@ class VictorParser(private val index: ScriptureIndex) {
                         space = true
                     }
                 } else {
-                    text.append(if (run.caps) ch.uppercaseChar() else ch)
+                    text.append(if (run.caps || run.upper) ch.uppercaseChar() else ch)
                     italicAt += run.italic
-                    capsAt += run.caps
+                    capsAt += run.caps && !run.upper
                     space = false
                 }
             }
@@ -175,6 +197,9 @@ class VictorParser(private val index: ScriptureIndex) {
         var skippedTitle = false
         fun block(el: Element) {
             when {
+                // Illustrations and their captions aren't carried over (no images in the import).
+                el.name == "figure" || el.name == "img" || el.hasClass("image") || el.hasClass("credit") ||
+                    el.hasClass("image-text") || el.hasClass("diagram") -> Unit
                 el.name in HEADINGS -> {
                     val text = clean(el.text())
                     if (!skippedTitle && text == title) {

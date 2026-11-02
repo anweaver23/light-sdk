@@ -73,7 +73,7 @@ class SettingsScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(seal
         val playback by AppGraph.playback.collectAsState()
         val homeLayout by AppGraph.homeLayout.collectAsState()
 
-        ScreenFrame(title = "Settings", onBack = { goBack() }, rightButton = nowPlayingButton()) {
+        AppPage(title = "Settings") {
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 ListRow("Display") { navigateTo(::DisplayScreen) }
                 // When a chapter or hymn ends, go on to the next one.
@@ -116,7 +116,7 @@ class DisplayScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(seale
     override fun Content() {
         val display by AppGraph.display.collectAsState()
 
-        ScreenFrame(title = "Display", onBack = { goBack() }) {
+        AppPage(title = "Display") {
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 ListRow("Text size", display.textSize.label) { navigateTo(::TextSizeScreen) }
                 ListRow("Line spacing", LineSpacing.label(display.lineSpacing)) { navigateTo(::LineSpacingScreen) }
@@ -138,7 +138,7 @@ class TextSizeScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(seal
     override fun Content() {
         val display by AppGraph.display.collectAsState()
 
-        ScreenFrame(title = "Text size", onBack = { goBack() }) {
+        Picker(title = "Text size") {
             LightScrollView(Modifier.fillMaxSize()) {
                 TextSize.entries.forEach { size ->
                     SelectableRow(size.label, selected = size == display.textSize) {
@@ -164,7 +164,7 @@ class LineSpacingScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(s
         // Local so the preview follows the finger at once; each step is saved as it's reached.
         var index by remember { mutableIntStateOf(steps.indexOf(LineSpacing.snap(display.lineSpacing))) }
 
-        ScreenFrame(title = "Line spacing", onBack = { goBack() }) {
+        Picker(title = "Line spacing") {
             LightScrollView(Modifier.fillMaxSize()) {
                 Row(
                     Modifier
@@ -299,7 +299,7 @@ class StandardWorksScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>
         // Pick up files dropped in while this screen is open.
         androidx.compose.runtime.LaunchedEffect(Unit) { text.importInbox() }
 
-        ScreenFrame(title = "Standard works", onBack = { goBack() }, rightButton = nowPlayingButton()) {
+        AppPage(title = "Standard works") {
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 step?.let { Note("Importing $it…") }
                 error?.let { Note("The last import failed: $it") }

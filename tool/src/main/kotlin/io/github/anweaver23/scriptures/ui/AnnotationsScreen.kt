@@ -41,19 +41,18 @@ class AnnotationsScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(s
         val sorted = annotations.sortedByDescending { it.createdAt }
         if (sorted.isEmpty()) editing = false
 
-        ScreenFrame(
+        // An empty list has nothing to edit: the app's bar. Otherwise EDIT / DONE, as LightOS Notes.
+        AppPage(
             title = "Annotations",
-            onBack = { goBack() },
-            rightButton = nowPlayingButton(),
             bottomBar = if (sorted.isEmpty()) {
-                null
+                navBar()
             } else {
                 listOf(null, LightBarButton.Text(if (editing) "DONE" else "EDIT", onClick = { editing = !editing }), null)
             },
         ) {
             if (sorted.isEmpty()) {
                 Note("Press and hold a word in the reader to highlight it or add a note.")
-                return@ScreenFrame
+                return@AppPage
             }
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 sorted.forEach { a ->

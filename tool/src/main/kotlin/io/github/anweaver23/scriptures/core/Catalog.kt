@@ -65,6 +65,8 @@ data class ChapterExtras(
     val caps: List<List<Int>> = emptyList(),
     /** Verses that open a new paragraph (the KJV's ¶). */
     val para: List<Int> = emptyList(),
+    /** Printed after the last verse: an epistle's subscription, "The End of the Prophets". */
+    val closing: List<Span> = emptyList(),
 ) {
     fun italicRuns(verse: Int): List<IntRange> = runs(italic.getOrNull(verse - 1))
     fun capsRuns(verse: Int): List<IntRange> = runs(caps.getOrNull(verse - 1))

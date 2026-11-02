@@ -45,7 +45,8 @@ class FileMatcher(private val catalog: Catalog) {
     }
 
     fun matchScripture(relativePath: String, tagText: String? = null): Target.Chapter? {
-        val (folders, fileName) = splitPath(relativePath)
+        val (folders, rawName) = splitPath(relativePath)
+        val fileName = withoutChurchNumbers(rawName)
         val fileTokens = tokenize(fileName)
 
         findChapter(fileTokens)?.let { return it }
@@ -265,6 +266,17 @@ class FileMatcher(private val catalog: Catalog) {
                 .filter { it.isNotEmpty() }
                 .map { token -> token.toIntOrNull()?.toString() ?: token }
         }
+
+        private val CHURCH_ID = Regex("""^\d{4}-\d{2}-\d{4}-""")
+        private val BITRATE = Regex("""(?<=-)\d{2,3}k(?=-|$)""")
+
+        /**
+         * "2015-11-0001-title-page-female-voice-64k-eng" → "title-page-female-voice--eng": the Church's
+         * catalogue number and the bitrate aren't chapter numbers. Without this, the Book of Mormon's
+         * front-matter recordings (numbered 0001-0007, in a "Book of Mormon" folder) took Mormon 1-7, and
+         * "64k" made the D&C's title recording section 64.
+         */
+        internal fun withoutChurchNumbers(name: String): String = BITRATE.replace(CHURCH_ID.replace(name, ""), "")
 
         internal fun splitPath(relativePath: String): Pair<List<String>, String> {
             val parts = relativePath.replace('\\', '/').split('/').filter { it.isNotEmpty() }

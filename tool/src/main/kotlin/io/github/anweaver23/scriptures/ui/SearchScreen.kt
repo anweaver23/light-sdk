@@ -201,10 +201,8 @@ class SearchScreen(sealedActivity: SealedLightActivity, private val findIn: Targ
     @Composable
     private fun Results(query: String, body: @Composable () -> Unit) {
         // The search term, in quotes, is the title; the search icon below edits it.
-        ScreenFrame(
+        AppPage(
             title = "“$query”",
-            onBack = { goBack() },
-            rightButton = nowPlayingButton(),
             bottomBar = listOf(LightBarButton.LightIcon(LightIcons.SEARCH, onClick = viewModel::edit)),
         ) {
             body()

@@ -62,25 +62,22 @@ class BookListScreen(sealedActivity: SealedLightActivity, volumeId: String) :
         val volume = AppGraph.catalog.scriptures.volume(volumeId) ?: return
         val index by AppGraph.library.index.collectAsState()
 
-        ScreenFrame(title = volume.title, onBack = { goBack() }, rightButton = nowPlayingButton(), bottomBar = navBar()) {
+        AppPage(title = volume.title) {
             SwipePages(pages) {
             key(volume.id) {
             val onlyBook = volume.books.singleOrNull()
             if (onlyBook != null) {
-                // The D&C's front matter above its sections, the Official Declarations after them.
-                val (after, before) = AppGraph.text.pageIndex().groups[volume.id].orEmpty().partition { it.id.contains("/od/") }
+                // The D&C's introduction above its sections, the Official Declarations after them.
                 ChapterNumbers(
                     volume.id,
                     onlyBook.id,
                     scrolls.scroll(volume.id),
-                    leading = { before.forEach { page -> ListRow(page.title) { open(NavKeys.page(page.id), { PageScreen(it, page.id) }) } } },
-                    trailing = { after.forEach { page -> ListRow(page.title) { open(NavKeys.page(page.id), { PageScreen(it, page.id) }) } } },
+                    leading = { FrontMatterRows(volume.id, end = false) },
+                    trailing = { FrontMatterRows(volume.id, end = true) },
                 )
             } else LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll(volume.id)) {
-                // Front matter (the Book of Mormon's Title Page and Witnesses) leads the list.
-                AppGraph.text.pageIndex().groups[volume.id].orEmpty().forEach { page ->
-                    ListRow(page.title) { open(NavKeys.page(page.id), { PageScreen(it, page.id) }) }
-                }
+                // Front matter leads the list (the Book of Mormon's in its Introduction and Witnesses folder).
+                FrontMatterRows(volume.id, end = false)
                 volume.books.forEach { book ->
                     val withAudio = index.audioCount("scriptures/${volume.id}/${book.id}/")
                     ListRow(book.title, if (withAudio > 0) "$withAudio audio" else null) {
@@ -91,6 +88,7 @@ class BookListScreen(sealedActivity: SealedLightActivity, volumeId: String) :
                         }
                     }
                 }
+                FrontMatterRows(volume.id, end = true)
             }
             }
             }
@@ -132,7 +130,7 @@ class ChapterGridScreen(
         val book = AppGraph.catalog.scriptures.book(bookId) ?: return
         val index by AppGraph.library.index.collectAsState()
 
-        ScreenFrame(title = book.title, onBack = { goBack() }, rightButton = nowPlayingButton(), bottomBar = navBar()) {
+        AppPage(title = book.title) {
             SwipePages(pages) {
                 key(book.id) { ChapterNumbers(volumeId, book.id, scrolls.scroll(book.id)) }
             }

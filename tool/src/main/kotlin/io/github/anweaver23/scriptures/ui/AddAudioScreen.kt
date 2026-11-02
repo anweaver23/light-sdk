@@ -35,7 +35,7 @@ class AddAudioScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(seal
         val index by AppGraph.library.index.collectAsState()
         val sorting by importer.busy.collectAsState()
 
-        ScreenFrame(title = "Add audio", onBack = { goBack() }, rightButton = nowPlayingButton()) {
+        AppPage(title = "Add audio") {
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 Note(
                     "Audio isn't included, so bring your own. On a computer on the same Wi-Fi, open the " +
@@ -96,7 +96,7 @@ class ReviewFileScreen(sealedActivity: SealedLightActivity, private val item: Im
         val file = item.file
         val isAudio = file.kind != UploadKind.HymnLyrics
 
-        ScreenFrame(title = "Review file", onBack = { goBack() }) {
+        Picker(title = "Review file") {
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 AppText(file.relativePath, LightTextVariant.Copy, modifier = Modifier.fillMaxWidth())
                 Note("${file.kind.label}. ${item.reason.message}.")

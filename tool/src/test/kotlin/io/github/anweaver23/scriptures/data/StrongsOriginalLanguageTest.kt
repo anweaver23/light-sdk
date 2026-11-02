@@ -21,7 +21,7 @@ class StrongsOriginalLanguageTest {
     })
 
     private fun verse(ref: VerseRef): String =
-        Catalog.parseBook(File(assets, "scriptures/${ref.volumeId}/${ref.bookId}.json").readText())
+        Catalog.parseBook(File("src/test/resources/scripture-text/${ref.volumeId}/${ref.bookId}.json").readText())
             .c[ref.chapter - 1][ref.verse - 1]
 
     /** Word indexes of every occurrence of [word] in the verse, as numbered by Words.spans. */
@@ -124,7 +124,7 @@ class StrongsOriginalLanguageTest {
         for (volumeId in listOf("ot", "nt")) {
             val prefix = StrongsData.prefixFor(volumeId)!!
             for (book in index.volume(volumeId)!!.books) {
-                val text = Catalog.parseBook(File(assets, "scriptures/$volumeId/${book.id}.json").readText())
+                val text = Catalog.parseBook(File("src/test/resources/scripture-text/$volumeId/${book.id}.json").readText())
                 val tags = StrongsData.parseTags(File(assets, StrongsData.tagPath(volumeId, book.id)).readText(), prefix)
                 assertEquals(tags.tokenChecksum, StrongsData.tokenChecksum(text.c.asSequence().flatten()), book.id)
                 books++

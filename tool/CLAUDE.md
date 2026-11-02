@@ -328,6 +328,31 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   are links (`Span.to`, `openLink`). Chapter headings (D&C section heading, Psalm title) and summaries sit
   above verse 1. Study Helps is a home tile once imported; pages swipe through their group.
 
+- **2026-11-02 No bundled verse text:** the import is the only source. Before it, home and the reader say so and
+  link to Settings › Standard works. The public-domain 2013 text (bcbooks) moved to
+  `src/test/resources/scripture-text` as test data (same words as the Church's), so search, Strong's and
+  anchor tests still run on real text; only `assets/scriptures/index.json` (books, chapter counts) ships.
+- **2026-11-02 Front matter list** (`TextBuild.FRONT`): kept pages, their titles and places are fixed there,
+  not taken from the source's headings (two pages were both "The Book of Mormon"). Book of Mormon: an
+  "Introduction and Witnesses" folder at the top (Title Page, Title Page of the Book of Mormon, Introduction,
+  the three testimonies, Brief Explanation), Pronunciation Guide at the end. OT: Title Page, Epistle
+  Dedicatory. NT, D&C, PGP: Title Page (+ Introduction); the Official Declarations follow the D&C's sections.
+  Dropped: illustrations (and any figure, image or credit), the D&C's chronological order (a wide table),
+  the facsimiles. Links to dropped or unknown pages become plain text (`TextBuild.Links`). Epistle closing
+  lines ("Written to the Romans from Corinthus…", "The End of the Prophets") show under the last verse.
+- **2026-11-02 Pages and pickers** (`AppPage` / `Picker` in `ui/Common.kt`; nothing else calls `ScreenFrame`):
+  every page you navigate to (browse, read, look up, Settings and its pages) shows the app's bar; a page
+  with its own actions passes its own bar (the reader selecting or playing, a list in edit mode, a note,
+  search results). A choice in progress (confirm, text size, line spacing, which note, which recording,
+  review a file) is a `Picker`: back and its own buttons only, no app bar or now-playing corner, so it
+  isn't left half made. Long lists use `LightLazyScrollView` (it draws the scroll bar; plain `LazyColumn`
+  doesn't).
+- **2026-11-02 Tap a title to read it all:** any page's title opens `TitleModal` (LightOS's transient
+  overlay, 4 s or a tap); the reader shows the book's printed title and the chapter's.
+- **2026-11-02 Church audio names:** the "2015-11-0001-" catalogue number and "-64k-" bitrate are ignored when
+  matching chapters (`FileMatcher.withoutChurchNumbers`); they had put the Book of Mormon's front-matter
+  recordings on Mormon 1-7 and the D&C's title on section 64. Front-matter recordings go to review for now.
+
 ## Hard rules
 
 - **Copyright:** bundle only public-domain or openly licensed data (PD, CC0, CC BY; CC BY-SA is acceptable for

@@ -113,18 +113,14 @@ class HomeScreen(private val sealedActivity: SealedLightActivity) : AppLightScre
         // ScreenFrame applies the theme too; this outer one is only so the bookmark glyph picks up
         // the theme's content colour.
         AppTheme {
-            ScreenFrame(
-                title = "Scriptures",
-                onBack = null,
-                rightButton = nowPlayingButton(),
-                bottomBar = navBar(),
-            ) {
+            AppPage(title = "Scriptures", onBack = null) {
                 // Settings › Home: the tiles, or a plain list.
+                if (manifest.books.isEmpty()) NoTextYet()
                 if (layout == HomeLayout.List) {
                     LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll(HomeLayout.List)) {
                         shelves.forEach { shelf -> ListRow(shelf.title, onClick = shelf.open) }
                     }
-                    return@ScreenFrame
+                    return@AppPage
                 }
                 BoxWithConstraints(Modifier.fillMaxSize()) {
                     val gap = TILE_GAP_UNITS.gridUnitsAsDp()

@@ -106,23 +106,11 @@ object AppGraph {
 
     private const val TAG = "Scriptures"
 
-    private val bookCache = object : LinkedHashMap<String, BookText>(8, 0.75f, true) {
-        override fun removeEldestEntry(eldest: MutableMap.MutableEntry<String, BookText>?) = size > 4
-    }
-
     /** The scripture text, footnotes and study helps imported from the Church's downloads. */
     val text: TextLibrary by lazy {
         TextLibrary(ctx().filesDir, File(File(ctx().filesDir, LightFileProvider.SHARED_DIR), TextLibrary.FOLDER), catalog.scriptures)
     }
 
-    /**
-     * Verse text for one book: the imported text, or (until the standard works are imported) the
-     * bundled text.
-     */
-    fun bookText(volumeId: String, bookId: String): BookText =
-        text.book(volumeId, bookId) ?: synchronized(bookCache) {
-            bookCache.getOrPut("$volumeId/$bookId") {
-                Catalog.parseBook(ctx().readAsset("scriptures/$volumeId/$bookId.json").decodeToString())
-            }
-        }
+    /** Verse text for one book, from the imported standard works; empty until they're imported. */
+    fun bookText(volumeId: String, bookId: String): BookText = text.book(volumeId, bookId) ?: BookText(emptyList())
 }

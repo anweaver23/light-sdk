@@ -50,12 +50,11 @@ class BookmarksScreen(sealedActivity: SealedLightActivity, here: VerseRef? = nul
         val sorted = bookmarks.sortedByDescending { it.createdAt }
         if (sorted.isEmpty()) editing = false
 
-        ScreenFrame(
+        // An empty list has nothing to edit: the app's bar. Otherwise EDIT / DONE, as LightOS Notes.
+        AppPage(
             title = "Bookmarks",
-            onBack = { goBack() },
-            rightButton = nowPlayingButton(),
             bottomBar = if (sorted.isEmpty()) {
-                null
+                navBar()
             } else {
                 listOf(null, LightBarButton.Text(if (editing) "DONE" else "EDIT", onClick = { editing = !editing }), null)
             },

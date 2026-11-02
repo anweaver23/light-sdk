@@ -55,7 +55,7 @@ class TargetPickerScreen(sealedActivity: SealedLightActivity, private val mode: 
                 val volume = path.getOrNull(0)?.let(catalog.scriptures::volume)
                 val book = path.getOrNull(1)?.let(catalog.scriptures::book)
                 when {
-                    volume == null -> ScreenFrame("Pick a volume", back) {
+                    volume == null -> Picker("Pick a volume", onBack = back) {
                         LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll(path)) {
                             catalog.scriptures.volumes.forEach { v ->
                                 // D&C is a single book, so skip straight to its sections.
@@ -63,7 +63,7 @@ class TargetPickerScreen(sealedActivity: SealedLightActivity, private val mode: 
                             }
                         }
                     }
-                    book == null -> ScreenFrame(volume.title, back) {
+                    book == null -> Picker(volume.title, onBack = back) {
                         LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll(path)) {
                             volume.books.forEach { b ->
                                 ListRow(b.title) {
@@ -76,7 +76,7 @@ class TargetPickerScreen(sealedActivity: SealedLightActivity, private val mode: 
                             }
                         }
                     }
-                    else -> ScreenFrame(book.title, back) {
+                    else -> Picker(book.title, onBack = back) {
                         NumberGrid((1..book.chapters).toList(), isMarked = { false }, scrollState = scrolls.scroll(path)) { chapter ->
                             goBack(Target.Chapter(volume.id, book.id, chapter))
                         }
@@ -86,13 +86,13 @@ class TargetPickerScreen(sealedActivity: SealedLightActivity, private val mode: 
             Mode.Hymn -> {
                 val hymnBook = path.getOrNull(0)?.let(catalog::hymnBook)
                 if (hymnBook == null) {
-                    ScreenFrame("Pick a hymnbook", back) {
+                    Picker("Pick a hymnbook", onBack = back) {
                         LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll(path)) {
                             catalog.hymnBooks.forEach { b -> ListRow(b.title) { path = listOf(b.id) } }
                         }
                     }
                 } else {
-                    ScreenFrame(hymnBook.title, back) {
+                    Picker(hymnBook.title, onBack = back) {
                         LightLazyScrollView(Modifier.fillMaxSize(), listState = scrolls.list(path), uniformItemHeightGridUnits = ROW_UNITS) {
                             items(hymnBook.hymns, key = { it.n }) { hymn ->
                                 ListRow("${hymn.number}  ${hymn.title}") { goBack(Target.HymnRef(hymnBook.id, hymn.n)) }

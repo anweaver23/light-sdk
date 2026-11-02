@@ -9,7 +9,7 @@ Usage:
     <usfm-dir>        unzipped eng-kjv2006_usfm.zip from ebible.org (KJV with Strong's numbers)
     <hebrew-xml>      openscriptures/strongs  hebrew/StrongHebrewG.xml
     <greek-xml>       openscriptures/strongs  greek/StrongsGreekDictionaryXML_1.4/strongsgreek.xml
-    <scriptures-dir>  tool/src/main/assets/scriptures (our verse text; tags are aligned to it)
+    <scriptures-dir>  tool/src/test/resources/scripture-text (our verse text; tags are aligned to it)
     <out-dir>         tool/src/main/assets/strongs
 
 See tool/src/main/assets/strongs/SOURCE.md for exact versions and licenses.

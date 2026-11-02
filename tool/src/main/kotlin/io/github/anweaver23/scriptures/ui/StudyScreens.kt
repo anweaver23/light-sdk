@@ -112,8 +112,8 @@ class DefineScreen private constructor(
             }
         }
 
-        ScreenFrame(title = strongs ?: word, onBack = { goBack() }, rightButton = nowPlayingButton()) {
-            val r = result ?: return@ScreenFrame
+        AppPage(title = strongs ?: word) {
+            val r = result ?: return@AppPage
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 if (strongs == null) {
                     SectionLabel("Webster's 1828")
@@ -185,11 +185,9 @@ class AnnotationScreen(sealedActivity: SealedLightActivity, private val id: Stri
         val annotation = all.firstOrNull { it.id == id }
         LaunchedEffect(Unit) { AppGraph.study.load() }
 
-        ScreenFrame(
+        AppPage(
             title = annotation?.let { AppGraph.catalog.label(it) } ?: "Highlight",
-            onBack = { goBack() },
             reading = true,
-            rightButton = nowPlayingButton(),
             bottomBar = annotation?.let { a ->
                 listOf(
                     LightBarButton.LightIcon(LightIcons.TRASH, contentDescription = "Remove", onClick = {
@@ -206,11 +204,11 @@ class AnnotationScreen(sealedActivity: SealedLightActivity, private val id: Stri
                     }),
                     null,
                 )
-            },
+            } ?: navBar(),
         ) {
             if (annotation == null) {
                 Note("This highlight was removed.")
-                return@ScreenFrame
+                return@AppPage
             }
             // The quote and note are reading text: they follow the Display size and spacing.
             val display by AppGraph.display.collectAsState()
@@ -289,7 +287,7 @@ class FootnoteScreen(
     @Composable
     override fun Content() {
         val catalog = AppGraph.catalog
-        ScreenFrame(title = "${catalog.verseLabel(ref)} ${footnote.marker}", onBack = { goBack() }, rightButton = nowPlayingButton()) {
+        AppPage(title = "${catalog.verseLabel(ref)} ${footnote.marker}") {
             val display by AppGraph.display.collectAsState()
             val style = readerTextStyle(display.textSize.scale, display.lineSpacing)
             // The words the note is on, from the verse, dimmed above the note.
@@ -341,7 +339,7 @@ class TapChoiceScreen(
                 else -> null
             }
         }
-        ScreenFrame(title = verse?.let(catalog::verseLabel) ?: "Open", onBack = { goBack() }, rightButton = nowPlayingButton()) {
+        Picker(title = verse?.let(catalog::verseLabel) ?: "Open") {
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 options.forEachIndexed { i, option ->
                     when (option) {

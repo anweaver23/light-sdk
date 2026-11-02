@@ -52,12 +52,12 @@ class EpubNotes(private val index: ScriptureIndex) {
                 when (node) {
                     is TextNode -> append(node.text)
                     is Element -> when {
-                        node.hasClass("verse-number") || node.hasClass("verseNumber") || node.hasClass("marker") -> Unit
+                        node.hasClass("verse-number") || node.hasClass("verseNumber") || node.isMarker() -> Unit
                         node.name == "br" -> append(" ")
                         node.isNoteRef() -> {
                             val link = if (node.name == "a") node else node.first { it.name == "a" }
                             val id = link?.attrs?.get("href")?.substringAfter('#')
-                            val marker = node.first { it.hasClass("marker") }?.text()?.trim().orEmpty()
+                            val marker = node.first { it.isMarker() }?.text()?.trim().orEmpty()
                             val start = text.length
                             node.children.forEach(::walk)
                             if (id != null) anchors += Triple(start, text.length, marker to id)
@@ -81,6 +81,9 @@ class EpubNotes(private val index: ScriptureIndex) {
         }
         return out
     }
+
+    /** "marker", and the Bible's "marker_low-case" (in all-caps inscriptions) and "marker_asterisk". */
+    private fun Element.isMarker() = classes.any { it.startsWith("marker") }
 
     private fun Element.isNoteRef() = hasClass("study-note-ref") || hasClass("studyNoteReference")
 

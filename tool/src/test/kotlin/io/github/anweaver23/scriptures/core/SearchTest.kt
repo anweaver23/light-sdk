@@ -91,7 +91,7 @@ class SearchTest {
         assertEquals("Ask, and it shall be given you", Search.snippet("Ask, and it shall be given you", 0))
     }
 
-    // --- Against the real bundled text. Unit tests run with the module directory as the working directory. ---
+    // --- Against the public-domain 2013 text kept as test data (the app imports the Church's). ---
 
     private val catalog = Catalog(
         Catalog.parseIndex(File("src/main/assets/scriptures/index.json").readText()),
@@ -101,7 +101,7 @@ class SearchTest {
     private val corpus: List<SearchBook> by lazy {
         catalog.scriptures.volumes.flatMap { v ->
             v.books.map { b ->
-                SearchBook(v.id, b.id, Catalog.parseBook(File("src/main/assets/scriptures/${v.id}/${b.id}.json").readText()))
+                SearchBook(v.id, b.id, Catalog.parseBook(File("src/test/resources/scripture-text/${v.id}/${b.id}.json").readText()))
             }
         }
     }

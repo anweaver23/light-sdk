@@ -95,6 +95,8 @@ fun ScreenFrame(
     reading: Boolean = false,
     /** Zen mode: no top bar and no bottom bar ([bottomContent], e.g. the highlight bar, still shows). */
     zen: Boolean = false,
+    /** Tapping the title (e.g. to see one the bar cuts short). */
+    onTitleClick: (() -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     AppTheme(reading = reading) {
@@ -106,7 +108,7 @@ fun ScreenFrame(
             if (!zen) {
                 LightTopBar(
                     leftButton = onBack?.let { LightBarButton.LightIcon(LightIcons.BACK, onClick = it) },
-                    center = LightTopBarCenter.Text(title),
+                    center = LightTopBarCenter.Text(title, onTitleClick),
                     rightButton = rightButton,
                 )
             }
@@ -309,7 +311,7 @@ class ConfirmScreen(
 
     @Composable
     override fun Content() {
-        ScreenFrame(
+        Picker(
             title = title,
             onBack = { goBack() },
             bottomBar = listOf(
@@ -368,4 +370,53 @@ class ScrollMemory {
 
     fun scroll(key: Any = Unit): ScrollState = scrolls.getOrPut(key) { ScrollState(0) }
     fun list(key: Any = Unit): LazyListState = lists.getOrPut(key) { LazyListState() }
+}
+
+/**
+ * The frame of every page you navigate to (browse, read, look up, settings): back, the now-playing
+ * corner, and the app's bar (`navBar()`). Pass [bottomBar] only for a page with its own actions (the
+ * reader while selecting or playing, a list being edited, a note). Choices use [Picker] instead.
+ */
+@Composable
+fun SimpleLightScreen<*>.AppPage(
+    title: String,
+    reading: Boolean = false,
+    zen: Boolean = false,
+    /** Null only on home, which has nothing to go back to. */
+    onBack: (() -> Unit)? = { goBack() },
+    bottomBar: List<LightBarButton?>? = navBar(),
+    bottomContent: (@Composable () -> Unit)? = null,
+    rightButton: LightBarButton? = nowPlayingButton(),
+    /** What tapping the title shows in full; the title itself by default. */
+    fullTitle: List<String>? = null,
+    content: @Composable ColumnScope.() -> Unit,
+) = ScreenFrame(
+    title = title,
+    onBack = onBack,
+    bottomBar = bottomBar,
+    rightButton = rightButton,
+    bottomContent = bottomContent,
+    reading = reading,
+    zen = zen,
+    onTitleClick = { TitleModal.show(fullTitle ?: listOf(title)) },
+    content = content,
+)
+
+/**
+ * A choice in progress (confirm, a text size, which note, which recording): back and the choice's own
+ * buttons, no app bar and no now-playing corner, so it isn't left half made.
+ */
+@Composable
+fun SimpleLightScreen<*>.Picker(
+    title: String,
+    onBack: () -> Unit = { goBack() },
+    bottomBar: List<LightBarButton?>? = null,
+    content: @Composable ColumnScope.() -> Unit,
+) = ScreenFrame(title = title, onBack = onBack, bottomBar = bottomBar, content = content)
+
+/** Before the standard works are imported: what to do, and the way to Settings › Standard works. */
+@Composable
+fun SimpleLightScreen<*>.NoTextYet() {
+    Note("The scriptures aren't loaded yet. Download them from the Church's website and add them in the Tool Manager.")
+    ListRow("Standard works") { navigateTo(::StandardWorksScreen) }
 }

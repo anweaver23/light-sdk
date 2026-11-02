@@ -175,6 +175,21 @@ object Html {
         return out.toString()
     }
 
+    /** The ids of a file's `<section id="/scriptures/...">` blocks, without "/scriptures/". */
+    fun sectionIds(html: String): List<String> {
+        val open = "<section id=\"/scriptures/"
+        val out = ArrayList<String>()
+        var i = html.indexOf(open)
+        while (i >= 0) {
+            val start = i + open.length
+            val end = html.indexOf('"', start)
+            if (end < 0) break
+            out += html.substring(start, end)
+            i = html.indexOf(open, end)
+        }
+        return out
+    }
+
     /**
      * Splits a big file into its `<section id="...">` blocks without parsing the whole thing: each value
      * is the section's raw HTML, from its start tag to just before the next top-level section start.

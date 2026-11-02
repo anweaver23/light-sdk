@@ -5,6 +5,7 @@ import io.github.anweaver23.scriptures.core.BookText
 import io.github.anweaver23.scriptures.core.Footnote
 import io.github.anweaver23.scriptures.core.FrontPage
 import io.github.anweaver23.scriptures.core.ScriptureIndex
+import io.github.anweaver23.scriptures.core.Span
 import io.github.anweaver23.scriptures.core.Words
 import java.io.File
 import java.io.InputStream
@@ -51,11 +52,22 @@ class TextBuild(private val index: ScriptureIndex) {
         val parser = VictorParser(index)
         val texts = HashMap<String, BookText>() // "ot/gen"
         val pageIndex = LinkedHashMap<String, MutableList<PageEntry>>()
-        fun addPages(group: String, pages: List<FrontPage>) {
+
+        // Every page that will exist, known up front so links to anything else become plain text.
+        val pageIds = HashSet<String>()
+        for (v in index.volumes) victor[v.id]?.let { html -> pageIds += Html.sectionIds(html).filter { it in FRONT } }
+        for (h in HELPS.keys) victor[h]?.let { html -> pageIds += Html.sectionIds(html) }
+        val links = Links(pageIds)
+
+        fun addPages(group: String, pages: List<FrontPage>, front: Boolean) {
             val list = pageIndex.getOrPut(group) { ArrayList() }
-            for (p in pages) {
-                sink.write("pages/${p.id}.json", json.encodeToString(FrontPage.serializer(), p))
-                list += PageEntry(p.id, p.title)
+            val order = FRONT.keys.toList()
+            val kept = if (front) pages.filter { it.id in FRONT }.sortedBy { order.indexOf(it.id) } else pages
+            for (p in kept) {
+                val spec = FRONT[p.id]
+                val page = links.clean(p).let { if (spec != null) it.copy(title = spec.title) else it }
+                sink.write("pages/${page.id}.json", json.encodeToString(FrontPage.serializer(), page))
+                list += PageEntry(page.id, page.title, folder = spec?.folder, end = spec?.end == true)
             }
         }
         for (v in index.volumes) {
@@ -63,16 +75,17 @@ class TextBuild(private val index: ScriptureIndex) {
             progress.step(v.title)
             val vol = parser.volume(html, v.id)
             problems += vol.problems
-            for ((bookId, text) in vol.books) {
+            for ((bookId, raw) in vol.books) {
+                val text = links.clean(raw)
                 texts["${v.id}/$bookId"] = text
                 sink.write("books/${v.id}/$bookId.json", json.encodeToString(BookText.serializer(), text))
             }
-            addPages(v.id, vol.pages)
+            addPages(v.id, vol.pages, front = true)
         }
         for ((id, title) in HELPS) {
             val html = victor.remove(id) ?: continue
             progress.step(title)
-            addPages(id, parser.pages(html))
+            addPages(id, parser.pages(html), front = false)
         }
 
         // Footnotes, checked against the text just built.
@@ -95,8 +108,9 @@ class TextBuild(private val index: ScriptureIndex) {
                             continue
                         }
                         placed++
+                        val parts = links.clean(n.parts)
                         notes.getOrPut("$volumeId/$bookId") { HashMap() }.getOrPut("$chapter:${n.verse}") { ArrayList() } +=
-                            Footnote(word = n.word, end = n.end, marker = n.marker, text = n.parts.joinToString("") { it.t }, parts = n.parts)
+                            Footnote(word = n.word, end = n.end, marker = n.marker, text = parts.joinToString("") { it.t }, parts = parts)
                     }
                 }
             }
@@ -140,8 +154,61 @@ class TextBuild(private val index: ScriptureIndex) {
     private fun tokens(t: String) = Words.spans(t).map { norm(it.text(t)) }
     private fun norm(s: String) = s.lowercase().replace('’', '\'')
 
+    /** Drops links to pages that weren't imported (dropped front matter, unknown topics); verse links stay. */
+    private class Links(private val pages: Set<String>) {
+        private fun ok(to: String): Boolean {
+            val parts = to.split('/')
+            return (parts.size >= 3 && parts[2].toIntOrNull() != null) || to in pages
+        }
+
+        fun clean(spans: List<Span>): List<Span> =
+            if (spans.all { it.to == null || ok(it.to) }) {
+                spans
+            } else {
+                RefText.merge(spans.map { if (it.to != null && !ok(it.to)) it.copy(to = null) else it })
+            }
+
+        fun clean(page: FrontPage) = page.copy(blocks = page.blocks.map { b -> if (b.s.isEmpty()) b else b.copy(s = clean(b.s)) })
+
+        fun clean(book: BookText) = book.copy(
+            x = book.x.map { x -> x.copy(intro = clean(x.intro), summary = clean(x.summary), closing = clean(x.closing)) },
+        )
+    }
+
+    /** How one front-matter page is listed. */
+    class FrontSpec(val title: String, val folder: String? = null, val end: Boolean = false)
+
     companion object {
         val json = Json { ignoreUnknownKeys = true; encodeDefaults = false }
+
+        /** The Book of Mormon's folder of front matter, named as the Church names it. */
+        const val BOFM_INTRO = "Introduction and Witnesses"
+
+        /**
+         * The front matter kept, in order, with the titles the app shows (the source titles them by
+         * heading, so two pages were both "The Book of Mormon"). Anything else is dropped: the Book of
+         * Mormon's illustrations, the D&C's chronological order (a wide table) and the facsimiles
+         * (images; links to them turn into plain text).
+         */
+        val FRONT: Map<String, FrontSpec> = linkedMapOf(
+            "ot/title-page" to FrontSpec("Title Page"),
+            "ot/dedication" to FrontSpec("Epistle Dedicatory"),
+            "nt/title-page" to FrontSpec("Title Page"),
+            "bofm/title-page" to FrontSpec("Title Page", BOFM_INTRO),
+            "bofm/bofm-title" to FrontSpec("Title Page of the Book of Mormon", BOFM_INTRO),
+            "bofm/introduction" to FrontSpec("Introduction", BOFM_INTRO),
+            "bofm/three" to FrontSpec("Testimony of Three Witnesses", BOFM_INTRO),
+            "bofm/eight" to FrontSpec("Testimony of Eight Witnesses", BOFM_INTRO),
+            "bofm/js" to FrontSpec("Testimony of the Prophet Joseph Smith", BOFM_INTRO),
+            "bofm/explanation" to FrontSpec("Brief Explanation about the Book of Mormon", BOFM_INTRO),
+            "bofm/pronunciation" to FrontSpec("Pronunciation Guide", end = true),
+            "dc-testament/title-page" to FrontSpec("Title Page"),
+            "dc-testament/introduction" to FrontSpec("Introduction"),
+            "dc-testament/od/1" to FrontSpec("Official Declaration 1", end = true),
+            "dc-testament/od/2" to FrontSpec("Official Declaration 2", end = true),
+            "pgp/title-page" to FrontSpec("Title Page"),
+            "pgp/introduction" to FrontSpec("Introduction"),
+        )
 
         /** Study helps in the Victor Reader set, in the order the app lists them. */
         val HELPS = linkedMapOf(
@@ -174,8 +241,9 @@ class TextBuild(private val index: ScriptureIndex) {
     }
 }
 
+/** A page in a list. Front matter can sit in a [folder] (the Book of Mormon's Introduction and Witnesses) or at the [end]. */
 @Serializable
-data class PageEntry(val id: String, val title: String)
+data class PageEntry(val id: String, val title: String, val folder: String? = null, val end: Boolean = false)
 
 /** Every imported page, by group: a volume's front matter ("bofm") or a study help ("tg"). */
 @Serializable

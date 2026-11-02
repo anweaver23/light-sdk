@@ -26,7 +26,7 @@ class RealSourcesCheck {
             out.appendLine("${v.id}: ${vol.books.size} books, ${vol.pages.size} pages ${vol.pages.map { it.id }.take(12)} problems=${vol.problems}")
             for ((bookId, text) in vol.books) {
                 texts["${v.id}/$bookId"] = text.c
-                val old = File(assets, "${v.id}/$bookId.json").takeIf { it.isFile }?.let { Catalog.parseBook(it.readText()).c } ?: continue
+                val old = File("src/test/resources/scripture-text/${v.id}/$bookId.json").takeIf { it.isFile }?.let { Catalog.parseBook(it.readText()).c } ?: continue
                 text.c.forEachIndexed { ci, ch ->
                     ch.forEachIndexed { vi, verse ->
                         verses++

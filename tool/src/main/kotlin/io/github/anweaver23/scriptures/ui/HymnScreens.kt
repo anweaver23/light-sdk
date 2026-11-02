@@ -40,7 +40,7 @@ class HymnBooksScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(sea
 
     @Composable
     override fun Content() {
-        ScreenFrame(title = "Hymns", onBack = { goBack() }, rightButton = nowPlayingButton(), bottomBar = navBar()) {
+        AppPage(title = "Hymns") {
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 AppGraph.catalog.hymnBooks.forEach { book ->
                     ListRow(book.title) {
@@ -80,7 +80,7 @@ class HymnListScreen(sealedActivity: SealedLightActivity, hymnBookId: String) :
         val book = AppGraph.catalog.hymnBook(hymnBookId) ?: return
 
         // Long titles: the denser Subheading list, so more of each shows.
-        ScreenFrame(title = book.title, onBack = { goBack() }, rightButton = nowPlayingButton(), bottomBar = navBar()) {
+        AppPage(title = book.title) {
             SwipePages(pages) {
                 key(book.id) {
                     LightLazyScrollView(
@@ -207,10 +207,9 @@ class HymnScreen(
         // A hymn counts as where you left off, as a chapter does: home reopens it on launch.
         LaunchedEffect(shown) { AppGraph.progress.setLastHymn(shown) }
 
-        ScreenFrame(
+        AppPage(
             title = "${hymn.number}. ${hymn.title}",
             reading = true,
-            onBack = { goBack() },
             zen = Zen.on,
             // Another hymn in this book playing: turn to it here, as playback moving on would.
             rightButton = nowPlayingButton(showing = if (playingHere) current else shown) { target ->
@@ -280,7 +279,7 @@ class HymnScreen(
 class HymnVersionScreen(sealedActivity: SealedLightActivity) : AppScreen<Boolean>(sealedActivity) {
     @Composable
     override fun Content() {
-        ScreenFrame(title = "Listen", onBack = { goBack() }) {
+        Picker(title = "Listen") {
             LightScrollView(Modifier.fillMaxSize()) {
                 ListRow("Vocal") { goBack(false) }
                 ListRow("Accompaniment") { goBack(true) }

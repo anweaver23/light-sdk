@@ -26,6 +26,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.style.TextAlign
 import com.thelightphone.sdk.audio.LightAudio
 import com.thelightphone.sdk.audio.DefaultLightAudio
 import com.thelightphone.sdk.SimpleLightScreen
@@ -204,6 +205,10 @@ class ReaderViewModel(
     /** The verses as drawn (with footnote markers), built with [verses]. */
     private val _displays = MutableStateFlow<List<VerseDisplay>?>(null)
     val displays: StateFlow<List<VerseDisplay>?> = _displays.asStateFlow()
+
+    /** The book's printed title and the chapter's ("The First Book of Moses Called Genesis", "Chapter 1"). */
+    private val _fullTitle = MutableStateFlow<List<String>>(emptyList())
+    val fullTitle: StateFlow<List<String>> = _fullTitle.asStateFlow()
 
     /** The chapter's heading and summary (imported text only). */
     private val _extras = MutableStateFlow<ChapterExtras?>(null)
@@ -423,6 +428,11 @@ class ReaderViewModel(
             if (_chapter.value != target) return@launch
             _verses.value = verses
             _extras.value = extras
+            val book = catalog.scriptures.book(target.bookId)
+            _fullTitle.value = listOfNotNull(
+                AppGraph.bookText(target.volumeId, target.bookId).title ?: book?.title,
+                extras?.title ?: "${book?.chapterLabel ?: "Chapter"} ${target.chapter}",
+            )
             _displays.value = displays
             AppGraph.progress.setLastRead(target)
         }
@@ -513,6 +523,8 @@ class ReaderScreen(
         val annotations by viewModel.chapterAnnotations.collectAsState()
         val find by viewModel.find.collectAsState()
         val extras by viewModel.extras.collectAsState()
+        val fullTitle by viewModel.fullTitle.collectAsState()
+        val manifest by AppGraph.text.manifest.collectAsState()
         val display by AppGraph.display.collectAsState()
         val index by viewModel.library.collectAsState()
         val hasAudio = index.hasAudio(chapter)
@@ -547,8 +559,9 @@ class ReaderScreen(
             pages.slide(pageScope, if (forward) 1 else -1, pageWidth)
         }
 
-        ScreenFrame(
+        AppPage(
             title = viewModel.catalog.label(chapter),
+            fullTitle = fullTitle.ifEmpty { null },
             reading = true,
             // Back while searching goes back to the search bar to keep typing, not out of the chapter.
             onBack = { if (viewModel.find.value != null) editFind() else goBack() },
@@ -621,7 +634,9 @@ class ReaderScreen(
                     ),
             ) {
             Box(Modifier.fillMaxSize().graphicsLayer { translationX = pages.offset.value }) {
-            if (list != null) {
+            if (list != null && list.isEmpty() && manifest.books.isEmpty()) {
+                NoTextYet()
+            } else if (list != null) {
                 ChapterText(
                     displays = list,
                     annotations = annotations,
@@ -638,6 +653,16 @@ class ReaderScreen(
                     onWordTap = { pos -> handle(viewModel.onWordTap(pos)) },
                     onMarkerTap = { verse, marker -> handle(viewModel.onMarkerTap(verse, marker)) },
                     header = extras?.let { x -> { ChapterHeader(x, readerTextStyle(display.textSize.scale, display.lineSpacing)) } },
+                    footer = extras?.closing?.takeIf { it.isNotEmpty() }?.let { closing ->
+                        {
+                            val style = readerTextStyle(display.textSize.scale, display.lineSpacing)
+                            SpanText(
+                                closing,
+                                style.copy(color = LightThemeTokens.colors.contentSecondary, fontStyle = FontStyle.Italic, textAlign = TextAlign.Center),
+                                Modifier.fillMaxWidth().padding(top = VERSE_GAP_UNITS.gridUnitsAsDp()),
+                            ) { openLink(it) }
+                        }
+                    },
                 )
             }
             }
@@ -755,6 +780,8 @@ private fun ChapterText(
     onMarkerTap: (Int, MarkerSpan) -> Unit,
     /** Drawn above verse 1: the chapter's heading and summary. */
     header: (@Composable () -> Unit)? = null,
+    /** Drawn after the last verse: an epistle's closing line. */
+    footer: (@Composable () -> Unit)? = null,
 ) {
     val colors = LightThemeTokens.colors
     val geometry = remember(displays) { mutableStateMapOf<Int, VerseGeometry>() }
@@ -907,6 +934,7 @@ private fun ChapterText(
                         .padding(bottom = verseGap),
                 )
             }
+            footer?.invoke()
         }
     }
 }
@@ -972,6 +1000,7 @@ private fun styledVerse(
             SpanStyle(
                 fontSize = MARKER_SIZE_EM.em,
                 baselineShift = BaselineShift.Superscript,
+                fontStyle = FontStyle.Italic,
                 color = colors.contentSecondary,
                 background = Color.Transparent,
                 textDecoration = TextDecoration.None,
