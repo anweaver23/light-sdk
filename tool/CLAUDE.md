@@ -353,6 +353,13 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   matching chapters (`FileMatcher.withoutChurchNumbers`); they had put the Book of Mormon's front-matter
   recordings on Mormon 1-7 and the D&C's title on section 64. Front-matter recordings go to review for now.
 
+- **2026-11-02 Players connect only in the foreground** (`ui/AppLifecycle.kt`): a page opened just after the app
+  paused (launch-time "where you left off" with the phone's screen off) bound the audio service after the
+  pause that should have released it; the activity's end then crashed in media3 ("Service not registered").
+  The SDK blocks `LocalLifecycleOwner`, so foreground is read off screen callbacks: pause → background; a
+  show not preceded by a hide (the SDK's onResume) → foreground. `PlayerViewModel` connects only then and
+  reconnects on return. A text import interrupted part way (`text.new` left behind) reruns on next open.
+
 ## Hard rules
 
 - **Copyright:** bundle only public-domain or openly licensed data (PD, CC0, CC BY; CC BY-SA is acceptable for

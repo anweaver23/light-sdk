@@ -120,7 +120,12 @@ class PlayerViewModel(
 
     fun label(target: Target) = catalog.label(target)
 
+    /** On screen ([onScreenShow] to [onScreenHide]); the player connects only then, and only in the foreground. */
+    private var shown = false
+
     init {
+        // Back in the foreground on a page that wants the player: connect (see AppLifecycle).
+        scope.launch { AppLifecycle.resumed.collect { resumed -> if (resumed && shown) connect() else if (!resumed) disconnect() } }
         scope.launch { autosave() }
         scope.launch { clearFinishedPositions() }
         scope.launch { publishNowPlaying() }
@@ -169,10 +174,12 @@ class PlayerViewModel(
 
     override fun onScreenShow(screen: SimpleLightScreen<Unit>) {
         super.onScreenShow(screen)
+        shown = true
         connect()
     }
 
     override fun onScreenHide(screen: SimpleLightScreen<Unit>) {
+        shown = false
         disconnect()
         super.onScreenHide(screen)
     }
@@ -183,7 +190,7 @@ class PlayerViewModel(
     }
 
     private fun connect() {
-        if (playerFlow.value != null) return
+        if (playerFlow.value != null || !AppLifecycle.resumed.value) return
         val newPlayer = try {
             audio.newPlayer(playback = LightAudioPlayback.Detached)
         } catch (e: LightAudioPlayerException) {

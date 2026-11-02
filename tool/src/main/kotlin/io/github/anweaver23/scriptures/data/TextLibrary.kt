@@ -51,14 +51,16 @@ class TextLibrary(filesDir: File, private val inbox: File, private val index: Sc
     fun sourceNames(): List<String> = sources.listFiles()?.map { it.name }?.sorted().orEmpty()
 
     /**
-     * Takes any new files from the inbox and rebuilds. Returns true when it rebuilt. Safe to call
-     * often: with an empty inbox it does nothing.
+     * Takes any new files from the inbox and rebuilds; also finishes a build that was interrupted.
+     * Returns true when it rebuilt. Safe to call often: otherwise it does nothing.
      */
     suspend fun importInbox(): Boolean = mutex.withLock {
         withContext(Dispatchers.IO) {
             inbox.mkdirs()
             val dropped = inbox.walkTopDown().filter { it.isFile && accepted(it.name) }.toList()
-            if (dropped.isEmpty()) return@withContext false
+            // A build that never finished (the app was closed or crashed part way) runs again.
+            val interrupted = File(base, "text.new").exists() && !sourceNames().isEmpty()
+            if (dropped.isEmpty() && !interrupted) return@withContext false
             sources.mkdirs()
             for (f in dropped) {
                 val target = File(sources, f.name)

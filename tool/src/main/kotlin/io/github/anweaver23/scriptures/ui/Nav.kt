@@ -89,8 +89,19 @@ abstract class AppScreen<R>(sealedActivity: SealedLightActivity) : SimpleLightSc
     }
 
     override fun willShow() {
+        AppLifecycle.showing()
         super.willShow()
         Nav.shown(this)
+    }
+
+    override fun willHide() {
+        AppLifecycle.hiding()
+        super.willHide()
+    }
+
+    override fun onAppPause() {
+        AppLifecycle.paused()
+        super.onAppPause()
     }
 
     override fun onScreenDestroy() {
@@ -107,8 +118,19 @@ abstract class AppLightScreen<R, VM : LightViewModel<R>>(sealedActivity: SealedL
     }
 
     override fun willShow() {
+        AppLifecycle.showing()
         super.willShow()
         Nav.shown(this)
+    }
+
+    override fun willHide() {
+        AppLifecycle.hiding()
+        super.willHide()
+    }
+
+    override fun onAppPause() {
+        AppLifecycle.paused()
+        super.onAppPause()
     }
 
     override fun onScreenDestroy() {
