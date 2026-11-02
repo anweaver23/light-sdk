@@ -20,6 +20,8 @@ class VerseDisplay private constructor(
     private val markStarts: IntArray,
     private val markEnds: IntArray,
     val markers: List<MarkerSpan>,
+    /** Word runs the KJV prints in italics (words the translators supplied). */
+    val italics: List<IntRange>,
 ) {
     val wordCount: Int get() = wordStarts.size
 
@@ -66,7 +68,12 @@ class VerseDisplay private constructor(
     companion object {
         const val NUMBER_GAP = "  "
 
-        fun build(verse: Int, text: String, footnotes: List<Footnote> = emptyList()): VerseDisplay {
+        fun build(
+            verse: Int,
+            text: String,
+            footnotes: List<Footnote> = emptyList(),
+            italics: List<IntRange> = emptyList(),
+        ): VerseDisplay {
             val spans = Words.spans(text)
             val byWord = footnotes.filter { it.word in spans.indices }.groupBy { it.word }
             val out = StringBuilder()
@@ -95,7 +102,8 @@ class VerseDisplay private constructor(
                 markEnds[span.index] = out.length + (Words.punctuationEnd(text, span.end) - span.end)
             }
             out.append(text, cursor, text.length)
-            return VerseDisplay(verse, out.toString(), numberEnd, starts, ends, markStarts, markEnds, markers)
+            val runs = italics.filter { it.first >= 0 && it.last < spans.size && !it.isEmpty() }
+            return VerseDisplay(verse, out.toString(), numberEnd, starts, ends, markStarts, markEnds, markers, runs)
         }
     }
 }

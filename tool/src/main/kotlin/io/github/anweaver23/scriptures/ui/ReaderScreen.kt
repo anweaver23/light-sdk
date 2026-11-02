@@ -25,6 +25,7 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontStyle
 import com.thelightphone.sdk.audio.LightAudio
 import com.thelightphone.sdk.audio.DefaultLightAudio
 import com.thelightphone.sdk.SimpleLightScreen
@@ -393,7 +394,10 @@ class ReaderViewModel(
             val (verses, displays) = withContext(Dispatchers.IO) {
                 val verses = AppGraph.bookText(target.volumeId, target.bookId).c.getOrNull(target.chapter - 1).orEmpty()
                 val notes = AppGraph.footnotes.book(target.volumeId, target.bookId).chapter(target.chapter)
-                verses to verses.mapIndexed { i, text -> VerseDisplay.build(i + 1, text, notes[i + 1].orEmpty()) }
+                val italics = AppGraph.italics.book(target.volumeId, target.bookId).chapter(target.chapter)
+                verses to verses.mapIndexed { i, text ->
+                    VerseDisplay.build(i + 1, text, notes[i + 1].orEmpty(), italics[i + 1].orEmpty())
+                }
             }
             // Quick Prev/Next taps can finish out of order; only the latest chapter wins.
             if (_chapter.value != target) return@launch
@@ -881,7 +885,7 @@ fun readerTextStyle(scale: Float, spacing: Float): TextStyle {
     )
 }
 
-/** One verse with its number, highlights, notes, find matches, the selection and footnote markers as spans. */
+/** One verse with its number, KJV italics, highlights, notes, find matches, the selection and footnote markers as spans. */
 private fun styledVerse(
     display: VerseDisplay,
     annotations: List<Annotation>,
@@ -891,6 +895,9 @@ private fun styledVerse(
 ): AnnotatedString = buildAnnotatedString {
     append(display.text)
     addStyle(SpanStyle(color = colors.contentSecondary), 0, display.numberEnd)
+    for (run in display.italics) {
+        display.charRange(run)?.let { addStyle(SpanStyle(fontStyle = FontStyle.Italic), it.first, it.last + 1) }
+    }
     val verse = display.verse
     for (a in annotations) {
         val words = a.range.wordsIn(verse, display.wordCount) ?: continue
