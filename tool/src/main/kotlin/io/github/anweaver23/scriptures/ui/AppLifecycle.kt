@@ -21,8 +21,19 @@ object AppLifecycle {
 
     private var navigating = false
 
+    /**
+     * Also forgets a hide that no show followed: back from home hides it and closes the app, and that
+     * stale hide once made the next launch's first show look like navigation, so the app never counted
+     * as resumed and no player could connect.
+     */
     internal fun paused() {
         _resumed.value = false
+        navigating = false
+    }
+
+    /** A new activity starts with nothing half navigated. */
+    internal fun newActivity() {
+        navigating = false
     }
 
     internal fun hiding() {

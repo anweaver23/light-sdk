@@ -17,7 +17,10 @@ object Nav {
 
     /** A screen was built; it's about to be pushed. The initial screen ([HomeScreen]) starts over. */
     internal fun created(screen: SimpleLightScreen<*>, root: Boolean) {
-        if (root) stack.clear()
+        if (root) {
+            stack.clear()
+            AppLifecycle.newActivity()
+        }
         stack += screen
     }
 

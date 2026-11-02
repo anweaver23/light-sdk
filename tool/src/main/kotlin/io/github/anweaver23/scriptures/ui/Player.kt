@@ -190,7 +190,11 @@ class PlayerViewModel(
     }
 
     private fun connect() {
-        if (playerFlow.value != null || !AppLifecycle.resumed.value) return
+        if (playerFlow.value != null) return
+        if (!AppLifecycle.resumed.value) {
+            Log.d(LOG_TAG, "not connecting: app in the background")
+            return
+        }
         val newPlayer = try {
             audio.newPlayer(playback = LightAudioPlayback.Detached)
         } catch (e: LightAudioPlayerException) {
