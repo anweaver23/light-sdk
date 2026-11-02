@@ -1,0 +1,2175 @@
+{
+ "id": "childrens-songbook",
+ "title": "Children’s Songbook",
+ "hymns": [
+  {
+   "n": 2,
+   "title": "I Am a Child of God",
+   "files": {
+    "soy_un_hijo_de_diosmusica_solo.mp3": "accompaniment",
+    "i_am_a_child_of_god_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 4,
+   "title": "I Lived in Heaven",
+   "files": {
+    "vivi_en_los_cielosmusica_solo.mp3": "accompaniment",
+    "i_lived_in_heaven_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 5,
+   "title": "I Know My Father Lives",
+   "files": {
+    "dios_vivemusica_solo.mp3": "accompaniment",
+    "i_know_my_father_lives_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 6,
+   "title": "Thanks to Thee",
+   "files": {
+    "thanks_to_theemusic_only.mp3": "accompaniment",
+    "thanks_to_thee_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 7,
+   "title": "I Thank Thee, Dear Father",
+   "files": {
+    "doy_gracias_oh_padremusica_solo.mp3": "accompaniment",
+    "i_thank_thee_dear_father_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 8,
+   "title": "Father, We Thank Thee for the Night",
+   "files": {
+    "father_we_thank_thee_for_the_nightmusic_only.mp3": "accompaniment",
+    "father_we_thank_thee_for_the_night_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 9,
+   "title": "Can a Little Child like Me?",
+   "files": {
+    "puede_un_nino_como_yo_musica_solo.mp3": "accompaniment",
+    "can_a_little_child_like_me_words_and_music.mp3": "vocal"
+   }
+  },
+  {
+   "n": 10,
+   "title": "Thank Thee for Everything",
+   "files": {
+    "thank_thee_for_everythingmusic_only.mp3": "accompaniment",
+    "thank_thee_for_everything_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 11,
+   "title": "I’m Thankful to Be Me",
+   "files": {
+    "i_m_thankful_to_be_memusic_only.mp3": "accompaniment",
+    "im_thankful_to_be_me_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 12,
+   "title": "A Child’s Prayer",
+   "files": {
+    "oracion_de_un_ninomusica_solo.mp3": "accompaniment",
+    "a_childs_prayer_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 14,
+   "title": "I Pray in Faith",
+   "files": {
+    "i_pray_in_faithmusic_only.mp3": "accompaniment",
+    "i_pray_in_faith_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 15,
+   "title": "If with All Your Hearts",
+   "files": {
+    "if_with_all_your_heartsmusic_only.mp3": "accompaniment",
+    "if_with_all_your_hearts_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 16,
+   "title": "Children All Over the World",
+   "files": {
+    "ninos_de_todo_el_mundomusica_solo.mp3": "accompaniment",
+    "children_all_over_the_world_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 18,
+   "title": "I Need My Heavenly Father",
+   "files": {
+    "i_need_my_heavenly_fathermusic_only.mp3": "accompaniment",
+    "i_need_my_heavenly_father_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 19,
+   "title": "Heavenly Father, Now I Pray",
+   "files": {
+    "heavenly_father_now_i_praymusic_only.mp3": "accompaniment",
+    "heavenly_father_now_i_pray_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 20001,
+   "title": "A Song of Thanks",
+   "label": "20a",
+   "files": {
+    "a_song_of_thanksmusic_only_restricted_pending_ip_approval.mp3": "accompaniment",
+    "a_song_of_thanks_words_and_music.mp3": "vocal"
+   }
+  },
+  {
+   "n": 20002,
+   "title": "Thanks to Our Father",
+   "label": "20b",
+   "files": {
+    "demos_gracias_al_padremusica_solo.mp3": "accompaniment",
+    "thanks_to_our_father_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 21001,
+   "title": "For Health and Strength",
+   "label": "21a",
+   "files": {
+    "rondo_de_gracias_rondo_musica_solo.mp3": "accompaniment",
+    "for_health_and_strength_round_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 21002,
+   "title": "For Thy Bounteous Blessings",
+   "label": "21b",
+   "files": {
+    "for_thy_bounteous_blessingsmusic_only.mp3": "accompaniment",
+    "for_thy_bounteous_blessings_round_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 22001,
+   "title": "A Prayer Song",
+   "label": "22a",
+   "files": {
+    "a_prayer_songmusic_only.mp3": "accompaniment",
+    "a_prayer_song_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 22002,
+   "title": "A Prayer",
+   "label": "22b",
+   "files": {
+    "a_prayermusic_only.mp3": "accompaniment",
+    "a_prayer_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 23001,
+   "title": "Father Up Above",
+   "label": "23a",
+   "files": {
+    "father_up_abovemusic_only.mp3": "accompaniment",
+    "father_up_above_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 23002,
+   "title": "Heavenly Father, While I Pray",
+   "label": "23b",
+   "files": {
+    "heavenly_father_while_i_praymusic_only.mp3": "accompaniment",
+    "heavenly_father_while_i_pray_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 24,
+   "title": "Thank Thee, Father",
+   "files": {
+    "thank_thee_fathermusic_only.mp3": "accompaniment",
+    "thank_thee_father_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 25001,
+   "title": "We Bow Our Heads",
+   "label": "25a",
+   "files": {
+    "al_orarmusica_solo.mp3": "accompaniment",
+    "we_bow_our_heads_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 25002,
+   "title": "I Love to Pray",
+   "label": "25b",
+   "files": {
+    "i_love_to_praymusic_only.mp3": "accompaniment",
+    "i_love_to_pray_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 26,
+   "title": "Reverently, Quietly",
+   "files": {
+    "con_quietudmusica_solo.mp3": "accompaniment",
+    "reverently_quietly_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 27001,
+   "title": "Reverence",
+   "label": "27a",
+   "files": {
+    "reverencemusic_only.mp3": "accompaniment",
+    "reverence_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 27002,
+   "title": "We Are Reverent",
+   "label": "27b",
+   "files": {
+    "we_are_reverent_music_only.mp3": "accompaniment",
+    "we_are_reverent_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 28001,
+   "title": "I Want to Be Reverent",
+   "label": "28a",
+   "files": {
+    "i_want_to_be_reverentmusic_only.mp3": "accompaniment",
+    "i_want_to_be_reverent_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 28002,
+   "title": "I Will Try to Be Reverent",
+   "label": "28b",
+   "files": {
+    "reverencia_mostraremusica_solo.mp3": "accompaniment",
+    "i_will_try_to_be_reverent_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 29,
+   "title": "Father, I Will Reverent Be",
+   "files": {
+    "con_reverenciamusica_solo.mp3": "accompaniment",
+    "father_i_will_reverent_be_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 30001,
+   "title": "This Is God’s House",
+   "label": "30a",
+   "files": {
+    "this_is_god_s_housemusic_only.mp3": "accompaniment",
+    "this_is_gods_house_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 30002,
+   "title": "Our Chapel Is a Sacred Place",
+   "label": "30b",
+   "files": {
+    "our_chapel_is_a_sacred_placemusic_only.mp3": "accompaniment",
+    "our_chapel_is_a_sacred_place_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 31,
+   "title": "Reverence Is Love",
+   "files": {
+    "la_reverencia_es_amormusica_solo.mp3": "accompaniment",
+    "reverence_is_love_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 34,
+   "title": "He Sent His Son",
+   "files": {
+    "mando_a_su_hijomusica_solo.mp3": "accompaniment",
+    "he_sent_his_son_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 36,
+   "title": "Samuel Tells of the Baby Jesus",
+   "files": {
+    "samuel_tells_of_the_baby_jesusmusic_only.mp3": "accompaniment",
+    "samuel_tells_of_the_baby_jesus_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 37,
+   "title": "Stars Were Gleaming",
+   "files": {
+    "la_nochebuenamusica_solo.mp3": "accompaniment",
+    "stars_were_gleaming_words_and_music.mp3": "vocal"
+   }
+  },
+  {
+   "n": 38,
+   "title": "When Joseph Went to Bethlehem",
+   "files": {
+    "al_irse_a_belen_josemusica_solo.mp3": "accompaniment",
+    "when_joseph_went_to_bethlehem_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 39,
+   "title": "Little Jesus",
+   "files": {
+    "little_jesusmusic_only.mp3": "accompaniment",
+    "little_jesus_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 40001,
+   "title": "There Was Starlight on the Hillside",
+   "label": "40a",
+   "files": {
+    "there_was_starlight_on_the_hillsidemusic_only.mp3": "accompaniment",
+    "there_was_starlight_on_the_hillside_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 40002,
+   "title": "The Shepherd’s Carol",
+   "label": "40b",
+   "files": {
+    "the_shepherd_s_carol_round_music_only.mp3": "accompaniment",
+    "the_shepherds_carol_round_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 41,
+   "title": "Once within a Lowly Stable",
+   "files": {
+    "dentro_de_un_establo_humildemusica_solo.mp3": "accompaniment",
+    "once_within_a_lowly_stable_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 42,
+   "title": "Away in a Manger",
+   "files": {
+    "jesus_en_pesebremusica_solo.mp3": "accompaniment",
+    "away_in_a_manger_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 44,
+   "title": "Mary’s Lullaby",
+   "files": {
+    "el_arrullo_de_mariamusica_solo.mp3": "accompaniment",
+    "marys_lullaby_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 46,
+   "title": "Who Is the Child?",
+   "files": {
+    "who_is_the_child_music_only.mp3": "accompaniment",
+    "who_is_the_child_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 47,
+   "title": "Sleep, Little Jesus",
+   "files": {
+    "sleep_little_jesusmusic_only.mp3": "accompaniment",
+    "sleep_little_jesus_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 48,
+   "title": "Oh, Hush Thee, My Baby",
+   "files": {
+    "duerme_mi_nenemusica_solo.mp3": "accompaniment",
+    "oh_hush_thee_my_baby_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 50,
+   "title": "Picture a Christmas",
+   "files": {
+    "picture_a_christmasmusic_only.mp3": "accompaniment",
+    "picture_a_christmas_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 51,
+   "title": "Have a Very Merry Christmas!",
+   "files": {
+    "have_a_very_merry_christmas_music_only.mp3": "accompaniment",
+    "have_a_very_merry_christmas_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 52,
+   "title": "The Nativity Song",
+   "files": {
+    "canto_de_navidadmusica_solo.mp3": "accompaniment",
+    "the_nativity_song_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 54,
+   "title": "Christmas Bells",
+   "files": {
+    "christmas_bellsmusic_only.mp3": "accompaniment",
+    "christmas_bells_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 55,
+   "title": "Jesus Once Was a Little Child",
+   "files": {
+    "pequeno_nino_fue_jesusmusica_solo.mp3": "accompaniment",
+    "jesus_once_was_a_little_child_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 56,
+   "title": "I Think When I Read That Sweet Story",
+   "files": {
+    "me_gusta_pensar_en_el_senormusica_solo.mp3": "accompaniment",
+    "i_think_when_i_read_that_sweet_story_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 57,
+   "title": "Tell Me the Stories of Jesus",
+   "files": {
+    "dime_la_historia_de_cristomusica_solo.mp3": "accompaniment",
+    "tell_me_the_stories_of_jesus_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 58001,
+   "title": "Little Lambs So White and Fair",
+   "label": "58a",
+   "files": {
+    "little_lambs_so_white_and_fairmusic_only.mp3": "accompaniment",
+    "little_lambs_so_white_and_fair_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 58002,
+   "title": "Jesus Is Our Loving Friend",
+   "label": "58b",
+   "files": {
+    "jesus_is_our_loving_friend_accompaniment_eng.mp3": "accompaniment",
+    "jesus_is_our_loving_friend_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 59,
+   "title": "Jesus Loved the Little Children",
+   "files": {
+    "jesus_loved_the_little_childrenmusic_only.mp3": "accompaniment",
+    "jesus_loved_the_little_children_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 60,
+   "title": "Jesus Wants Me for a Sunbeam",
+   "files": {
+    "cristo_me_manda_que_brillemusica_solo.mp3": "accompaniment",
+    "jesus_wants_me_for_a_sunbeam_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 61,
+   "title": "Jesus Said Love Everyone",
+   "files": {
+    "ama_a_todos_dijo_el_senormusica_solo.mp3": "accompaniment",
+    "jesus_said_love_everyone_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 62,
+   "title": "Beautiful Savior",
+   "files": {
+    "beautiful_saviormusic_only.mp3": "accompaniment",
+    "beautiful_savior_crusaders_hymn_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 64,
+   "title": "Did Jesus Really Live Again?",
+   "files": {
+    "vivio_jesus_una_vez_mas_musica_solo.mp3": "accompaniment",
+    "did_jesus_really_live_again_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 65,
+   "title": "He Died That We Might Live Again",
+   "files": {
+    "he_died_that_we_might_live_againmusic_only.mp3": "accompaniment",
+    "he_died_that_we_might_live_again_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 66,
+   "title": "Hosanna",
+   "files": {
+    "hosannamusic_only.mp3": "accompaniment",
+    "hosanna_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 68,
+   "title": "Easter Hosanna",
+   "files": {
+    "easter_hosannamusic_only.mp3": "accompaniment",
+    "easter_hosanna_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 70,
+   "title": "Jesus Has Risen",
+   "files": {
+    "resucito_jesusmusica_solo.mp3": "accompaniment",
+    "jesus_has_risen_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 71,
+   "title": "To Think about Jesus",
+   "files": {
+    "to_think_about_jesusmusic_only.mp3": "accompaniment",
+    "to_think_about_jesus_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 72,
+   "title": "The Sacrament",
+   "files": {
+    "the_sacramentmusic_only.mp3": "accompaniment",
+    "the_sacrament_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 73001,
+   "title": "Before I Take the Sacrament",
+   "label": "73a",
+   "files": {
+    "before_i_take_the_sacramentmusic_only.mp3": "accompaniment",
+    "before_i_take_the_sacrament_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 73002,
+   "title": "Help Us, O God, to Understand",
+   "label": "73b",
+   "files": {
+    "help_us_o_god_to_understandmusic_only.mp3": "accompaniment",
+    "help_us_o_god_to_understand_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 74,
+   "title": "I Feel My Savior’s Love",
+   "files": {
+    "siento_el_amor_de_mi_salvadormusica_solo.mp3": "accompaniment",
+    "i_feel_my_saviors_love_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 76,
+   "title": "This Is My Beloved Son",
+   "files": {
+    "this_is_my_beloved_sonmusic_only.mp3": "accompaniment",
+    "this_is_my_beloved_son_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 77,
+   "title": "The Church of Jesus Christ",
+   "files": {
+    "2002-01-0730-the-church-of-jesus-christ-music-only-192k-eng.mp3": "accompaniment",
+    "2002-01-0730-the-church-of-jesus-christ-words-and-music-192k-eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 78,
+   "title": "I’m Trying to Be like Jesus",
+   "files": {
+    "2002-01-0740-im-trying-to-be-like-jesus-music-only-192k-eng.mp3": "accompaniment",
+    "2002-01-0740-im-trying-to-be-like-jesus-words-and-music-192k-eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 80,
+   "title": "Had I Been a Child",
+   "files": {
+    "had_i_been_a_childmusic_only.mp3": "accompaniment",
+    "had_i_been_a_child_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 82,
+   "title": "When He Comes Again",
+   "files": {
+    "cuando_venga_jesusmusica_solo.mp3": "accompaniment",
+    "when_he_comes_again_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 86001,
+   "title": "An Angel Came to Joseph Smith",
+   "label": "86a",
+   "files": {
+    "an_angel_came_to_joseph_smithmusic_only.mp3": "accompaniment",
+    "an_angel_came_to_joseph_smith_words_and_music.mp3": "vocal"
+   }
+  },
+  {
+   "n": 86002,
+   "title": "The Golden Plates",
+   "label": "86b",
+   "files": {
+    "las_planchas_de_oromusica_solo.mp3": "accompaniment",
+    "the_golden_plates_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 87,
+   "title": "The Sacred Grove",
+   "files": {
+    "the_sacred_grovemusic_only.mp3": "accompaniment",
+    "the_sacred_grove_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 88,
+   "title": "On a Golden Springtime",
+   "files": {
+    "en_la_primaveramusica_solo.mp3": "accompaniment",
+    "on_a_golden_springtime_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 89,
+   "title": "The Priesthood Is Restored",
+   "files": {
+    "el_sacerdocio_se_restauromusica_solo.mp3": "accompaniment",
+    "the_priesthood_is_restored_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 90,
+   "title": "Truth from Elijah",
+   "files": {
+    "truth_from_elijahmusic_only.mp3": "accompaniment",
+    "truth_from_elijah_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 92,
+   "title": "The Hearts of the Children",
+   "files": {
+    "the_hearts_of_the_childrenmusic_only.mp3": "accompaniment",
+    "the_hearts_of_the_children_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 94,
+   "title": "Family History—I Am Doing It",
+   "files": {
+    "family_history_i_am_doing_it.mp3": "accompaniment",
+    "family_history_i_am_doing_it_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 95,
+   "title": "I Love to See the Temple",
+   "files": {
+    "2002-01-0850-i-love-to-see-the-temple-music-only-192k-eng.mp3": "accompaniment",
+    "2002-01-0850-i-love-to-see-the-temple-words-and-music-192k-eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 96,
+   "title": "Faith",
+   "files": {
+    "la_femusica_solo.mp3": "accompaniment",
+    "faith_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 97,
+   "title": "God’s Love",
+   "files": {
+    "god_s_lovemusic_only_restricted_pending_ip_approval.mp3": "accompaniment",
+    "gods_love_words_and_music.mp3": "vocal"
+   }
+  },
+  {
+   "n": 98,
+   "title": "Repentance",
+   "files": {
+    "repentancemusic_only.mp3": "accompaniment",
+    "repentance_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 99,
+   "title": "Help Me, Dear Father",
+   "files": {
+    "saber_perdonarmusica_solo.mp3": "accompaniment",
+    "help_me_dear_father_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 100,
+   "title": "Baptism",
+   "files": {
+    "el_bautismomusica_solo.mp3": "accompaniment",
+    "baptism_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 102,
+   "title": "When Jesus Christ Was Baptized",
+   "files": {
+    "when_jesus_christ_was_baptizedmusic_only.mp3": "accompaniment",
+    "when_jesus_christ_was_baptized_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 103,
+   "title": "When I Am Baptized",
+   "files": {
+    "p1odbd6nv91wgf0tvznm6az24lybovf1nhn0w012-32k-en.m4a": "accompaniment",
+    "when_i_am_baptized.mp3": "vocal"
+   }
+  },
+  {
+   "n": 104,
+   "title": "I Like My Birthdays",
+   "files": {
+    "i_like_my_birthdaysmusic_only.mp3": "accompaniment",
+    "i_like_my_birthdays_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 105,
+   "title": "The Holy Ghost",
+   "files": {
+    "el_espiritu_santomusica_solo.mp3": "accompaniment",
+    "the_holy_ghost_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 106,
+   "title": "The Still, Small Voice",
+   "files": {
+    "the_still_small_voicemusic_only.mp3": "accompaniment",
+    "the_still_small_voice_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 107,
+   "title": "Listen, Listen",
+   "files": {
+    "listen_listenmusic_only.mp3": "accompaniment",
+    "listen_listen_round_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 108,
+   "title": "Seek the Lord Early",
+   "files": {
+    "buscare_al_senormusica_solo.mp3": "accompaniment",
+    "seek_the_lord_early_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 109,
+   "title": "Search, Ponder, and Pray",
+   "files": {
+    "escudrinar_meditar_y_orarmusica_solo.mp3": "accompaniment",
+    "search_ponder_and_pray_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 110,
+   "title": "Follow the Prophet",
+   "files": {
+    "sigue_al_profetamusica_solo.mp3": "accompaniment",
+    "follow_the_prophet_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 112,
+   "title": "The Commandments",
+   "files": {
+    "the_commandmentsmusic_only.mp3": "accompaniment",
+    "the_commandments_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 114,
+   "title": "The Books in the Old Testament",
+   "files": {
+    "the_books_in_the_old_testamentmusic_only.mp3": "accompaniment",
+    "the_books_in_the_old_testament_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 116,
+   "title": "The Books in the New Testament",
+   "files": {
+    "the_books_in_the_new_testamentmusic_only.mp3": "accompaniment",
+    "the_books_in_the_new_testament_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 118,
+   "title": "Book of Mormon Stories",
+   "files": {
+    "historias_del_libro_de_mormonmusica_solo.mp3": "accompaniment",
+    "book_of_mormon_stories_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 119,
+   "title": "The Books in the Book of Mormon",
+   "files": {
+    "los_libros_del_libro_de_mormonmusica_solo.mp3": "accompaniment",
+    "the_books_in_the_book_of_mormon_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 120,
+   "title": "Nephi’s Courage",
+   "files": {
+    "el_valor_de_nefimusica_solo.mp3": "accompaniment",
+    "nephis_courage_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 122001,
+   "title": "The First Article of Faith",
+   "label": "122a",
+   "files": {
+    "the_first_article_of_faithmusic_only.mp3": "accompaniment",
+    "the_first_article_of_faith_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 122002,
+   "title": "The Second Article of Faith",
+   "label": "122b",
+   "files": {
+    "the_second_article_of_faithmusic_only.mp3": "accompaniment",
+    "the_second_article_of_faith_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 123,
+   "title": "The Third Article of Faith",
+   "files": {
+    "the_third_article_of_faithmusic_only.mp3": "accompaniment",
+    "the_third_article_of_faith_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 124,
+   "title": "The Fourth Article of Faith",
+   "files": {
+    "the_fourth_article_of_faithmusic_only.mp3": "accompaniment",
+    "the_fourth_article_of_faith_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 125,
+   "title": "The Fifth Article of Faith",
+   "files": {
+    "the_fifth_article_of_faith_accompaniment_eng.mp3": "accompaniment",
+    "the_fifth_article_of_faith_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 126001,
+   "title": "The Sixth Article of Faith",
+   "label": "126a",
+   "files": {
+    "the_sixth_article_of_faithmusic_only.mp3": "accompaniment",
+    "the_sixth_article_of_faith_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 126002,
+   "title": "The Seventh Article of Faith",
+   "label": "126b",
+   "files": {
+    "the_seventh_article_of_faithmusic_only.mp3": "accompaniment",
+    "the_seventh_article_of_faith_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 127,
+   "title": "The Eighth Article of Faith",
+   "files": {
+    "the_eighth_article_of_faithmusic_only.mp3": "accompaniment",
+    "the_eighth_article_of_faith_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 128001,
+   "title": "The Ninth Article of Faith",
+   "label": "128a",
+   "files": {
+    "the_ninth_article_of_faithmusic_only.mp3": "accompaniment",
+    "the_ninth_article_of_faith_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 128002,
+   "title": "The Tenth Article of Faith",
+   "label": "128b",
+   "files": {
+    "the_tenth_article_of_faithmusic_only.mp3": "accompaniment",
+    "the_tenth_article_of_faith_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 130,
+   "title": "The Eleventh Article of Faith",
+   "files": {
+    "the_eleventh_article_of_faithmusic_only.mp3": "accompaniment",
+    "the_eleventh_article_of_faith_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 131,
+   "title": "The Twelfth Article of Faith",
+   "files": {
+    "the_twelfth_article_of_faithmusic_only.mp3": "accompaniment",
+    "the_twelfth_article_of_faith_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 132,
+   "title": "The Thirteenth Article of Faith",
+   "files": {
+    "the_thirteenth_article_of_faithmusic_only.mp3": "accompaniment",
+    "the_thirteenth_article_of_faith_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 134,
+   "title": "Latter-day Prophets",
+   "files": {
+    "latter_day_prophetsmusic_only.mp3": "accompaniment",
+    "latter_day_prophets_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 135,
+   "title": "Our Bishop",
+   "files": {
+    "our_bishopmusic_only.mp3": "accompaniment",
+    "our_bishop_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 136,
+   "title": "Love One Another",
+   "files": {
+    "amad_a_otrosmusica_solo.mp3": "accompaniment",
+    "love_one_another_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 138,
+   "title": "Where Love Is",
+   "files": {
+    "donde_hay_amormusica_solo.mp3": "accompaniment",
+    "where_love_is_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 140,
+   "title": "I’ll Walk with You",
+   "files": {
+    "contigo_iremusica_solo.mp3": "accompaniment",
+    "ill_walk_with_you_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 142,
+   "title": "Every Star Is Different",
+   "files": {
+    "every_star_is_differentmusic_only.mp3": "accompaniment",
+    "every_star_is_different_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 144,
+   "title": "Shine On",
+   "files": {
+    "brilha_instrumental.mp3": "accompaniment",
+    "shine_on_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 145001,
+   "title": "A Special Gift Is Kindness",
+   "label": "145a",
+   "files": {
+    "a_special_gift_is_kindnessmusic_only.mp3": "accompaniment",
+    "a_special_gift_is_kindness_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 145002,
+   "title": "Kindness Begins with Me",
+   "label": "145b",
+   "files": {
+    "la_bondad_por_mi_empiezamusica_solo.mp3": "accompaniment",
+    "kindness_begins_with_me_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 146,
+   "title": "Keep the Commandments",
+   "files": {
+    "siempre_obedece_los_mandamientosmusica_solo.mp3": "accompaniment",
+    "keep_the_commandments_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 148,
+   "title": "I Want to Live the Gospel",
+   "files": {
+    "voy_a_vivir_el_evangeliomusica_solo.mp3": "accompaniment",
+    "i_want_to_live_the_gospel_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 149,
+   "title": "I Believe in Being Honest",
+   "files": {
+    "i_believe_in_being_honestmusic_only.mp3": "accompaniment",
+    "i_believe_in_being_honest_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 150001,
+   "title": "I’m Glad to Pay a Tithing",
+   "label": "150a",
+   "files": {
+    "i_m_glad_to_pay_a_tithingmusic_only.mp3": "accompaniment",
+    "im_glad_to_pay_a_tithing_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 150002,
+   "title": "I Want to Give the Lord My Tenth",
+   "label": "150b",
+   "files": {
+    "i_want_to_give_the_lord_my_tenthmusic_only.mp3": "accompaniment",
+    "i_want_to_give_the_lord_my_tenth_words_and_music.mp3": "vocal"
+   }
+  },
+  {
+   "n": 151,
+   "title": "I Am Glad for Many Things",
+   "files": {
+    "i_am_glad_for_many_things_accompaniment_eng.mp3": "accompaniment",
+    "i_am_glad_for_many_things_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 152,
+   "title": "Hum Your Favorite Hymn",
+   "files": {
+    "hum_your_favorite_hymnmusic_only.mp3": "accompaniment",
+    "hum_your_favorite_hymn_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 153,
+   "title": "The Lord Gave Me a Temple",
+   "files": {
+    "el_senor_me_dio_un_templomusica_solo.mp3": "accompaniment",
+    "the_lord_gave_me_a_temple_words_and_music.mp3": "vocal"
+   }
+  },
+  {
+   "n": 154,
+   "title": "The Word of Wisdom",
+   "files": {
+    "the_word_of_wisdom_accompaniment_eng.mp3": "accompaniment",
+    "the_word_of_wisdom_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 155,
+   "title": "Remember the Sabbath Day",
+   "files": {
+    "remember_the_sabbath_daymusic_only.mp3": "accompaniment",
+    "remember_the_sabbath_day_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 156,
+   "title": "The Chapel Doors",
+   "files": {
+    "the_chapel_doorsmusic_only.mp3": "accompaniment",
+    "the_chapel_doors_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 157,
+   "title": "When I Go to Church",
+   "files": {
+    "when_i_go_to_churchmusic_only.mp3": "accompaniment",
+    "when_i_go_to_church_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 158,
+   "title": "Dare to Do Right",
+   "files": {
+    "muestra_valormusica_solo.mp3": "accompaniment",
+    "dare_to_do_right_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 159,
+   "title": "Stand for the Right",
+   "files": {
+    "defiende_el_bienmusica_solo.mp3": "accompaniment",
+    "stand_for_the_right_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 160,
+   "title": "Choose the Right Way",
+   "files": {
+    "escojamos_lo_correctomusica_solo.mp3": "accompaniment",
+    "choose_the_right_way_words_and_music.mp3": "vocal"
+   }
+  },
+  {
+   "n": 161,
+   "title": "I Pledge Myself to Love the Right",
+   "files": {
+    "i_pledge_myself_to_love_the_rightmusic_only.mp3": "accompaniment",
+    "i_pledge_myself_to_love_the_right_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 162,
+   "title": "I Will Be Valiant",
+   "files": {
+    "voy_a_ser_valientemusica_solo.mp3": "accompaniment",
+    "i_will_be_valiant_words_and_music.mp3": "vocal"
+   }
+  },
+  {
+   "n": 163,
+   "title": "I Am like a Star",
+   "files": {
+    "yo_soy_como_estrellamusica_solo.mp3": "accompaniment",
+    "i_am_like_a_star_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 164,
+   "title": "I Will Follow God’s Plan",
+   "files": {
+    "el_plan_de_dios_puedo_seguirmusica_solo.mp3": "accompaniment",
+    "i_will_follow_gods_plan_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 166,
+   "title": "A Young Man Prepared",
+   "files": {
+    "joven_digno_y_habil_seremusica_solo.mp3": "accompaniment",
+    "a_young_man_prepared_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 167,
+   "title": "Go the Second Mile",
+   "files": {
+    "go_the_second_milemusic_only.mp3": "accompaniment",
+    "go_the_second_mile_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 168,
+   "title": "I Want to Be a Missionary Now",
+   "files": {
+    "yo_quiero_ser_un_misionero_yamusica_solo.mp3": "accompaniment",
+    "i_want_to_be_a_missionary_now_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 169,
+   "title": "I Hope They Call Me on a Mission",
+   "files": {
+    "espero_ser_llamado_a_una_misionmusica_solo.mp3": "accompaniment",
+    "i_hope_they_call_me_on_a_mission_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 170,
+   "title": "The Things I Do",
+   "files": {
+    "the_things_i_domusic_only.mp3": "accompaniment",
+    "the_things_i_do_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 172,
+   "title": "We’ll Bring the World His Truth",
+   "files": {
+    "llevaremos_su_verdad_al_mundo_el_ejercito_de_helaman_musica_solo.mp3": "accompaniment",
+    "well_bring_the_world_his_truth_army_of_helaman_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 174,
+   "title": "Called to Serve",
+   "files": {
+    "llamados_a_servirmusica_solo.mp3": "accompaniment",
+    "called_to_serve_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 176,
+   "title": "Tell Me, Dear Lord",
+   "files": {
+    "dime_senormusica_solo.mp3": "accompaniment",
+    "tell_me_dear_lord_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 177,
+   "title": "Teach Me to Walk in the Light",
+   "files": {
+    "hazme_andar_en_la_luzmusica_solo.mp3": "accompaniment",
+    "teach_me_to_walk_in_the_light_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 178,
+   "title": "Teacher, Do You Love Me?",
+   "files": {
+    "teacher_do_you_love_me_music_only.mp3": "accompaniment",
+    "teacher_do_you_love_me_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 180,
+   "title": "How Dear to God Are Little Children",
+   "files": {
+    "how_dear_to_god_are_little_childrenmusic_only.mp3": "accompaniment",
+    "how_dear_to_god_are_little_children_appropriate_for_parents_and_leaders_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 182,
+   "title": "How Will They Know?",
+   "files": {
+    "how_will_they_know_music_only.mp3": "accompaniment",
+    "how_will_they_know_appropriate_for_parents_and_leaders_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 188,
+   "title": "Families Can Be Together Forever",
+   "files": {
+    "las_familias_pueden_ser_eternasmusica_solo.mp3": "accompaniment",
+    "families_can_be_together_forever_words_and_music.mp3": "vocal"
+   }
+  },
+  {
+   "n": 189,
+   "title": "Family Prayer",
+   "files": {
+    "oracion_familiarmusica_solo.mp3": "accompaniment",
+    "family_prayer_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 190,
+   "title": "Love Is Spoken Here",
+   "files": {
+    "love_is_spoken_here_accompaniment_eng.mp3": "accompaniment",
+    "love_is_spoken_here_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 192,
+   "title": "Home",
+   "files": {
+    "homemusic_only.mp3": "accompaniment",
+    "home_words_and_music.mp3": "vocal"
+   }
+  },
+  {
+   "n": 193,
+   "title": "Sing Your Way Home",
+   "files": {
+    "con_un_cantarmusica_solo.mp3": "accompaniment",
+    "sing_your_way_home_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 194,
+   "title": "The Family",
+   "files": {
+    "the_familymusic_only.mp3": "accompaniment",
+    "the_family_words_and_music.mp3": "vocal"
+   }
+  },
+  {
+   "n": 195,
+   "title": "Family Night",
+   "files": {
+    "family_nightmusic_only.mp3": "accompaniment",
+    "family_night_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 196,
+   "title": "Saturday",
+   "files": {
+    "el_sabadomusica_solo.mp3": "accompaniment",
+    "saturday_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 197001,
+   "title": "A Happy Helper",
+   "label": "197a",
+   "files": {
+    "a_happy_helpermusic_only.mp3": "accompaniment",
+    "a_happy_helper_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 197002,
+   "title": "Quickly I’ll Obey",
+   "label": "197b",
+   "files": {
+    "obedienciamusica_solo.mp3": "accompaniment",
+    "quickly_ill_obey_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 198001,
+   "title": "A Happy Family",
+   "label": "198a",
+   "files": {
+    "una_familia_felizmusica_solo.mp3": "accompaniment",
+    "a_happy_family_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 198002,
+   "title": "When We’re Helping",
+   "label": "198b",
+   "files": {
+    "cuando_ayudamosmusica_solo.mp3": "accompaniment",
+    "when_were_helping_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 199,
+   "title": "I Have a Family Tree",
+   "files": {
+    "i_have_a_family_treemusic_only.mp3": "accompaniment",
+    "i_have_a_family_tree_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 200,
+   "title": "Grandmother",
+   "files": {
+    "la_abuelitamusica_solo.mp3": "accompaniment",
+    "grandmother_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 201,
+   "title": "When Grandpa Comes"
+  },
+  {
+   "n": 202,
+   "title": "I Often Go Walking",
+   "files": {
+    "por_campos_de_trebol_paseomusica_solo.mp3": "accompaniment",
+    "i_often_go_walking_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 203,
+   "title": "My Mother Dear",
+   "files": {
+    "como_el_sol_en_la_mananamusica_solo.mp3": "accompaniment",
+    "my_mother_dear_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 204,
+   "title": "Mother, Tell Me the Story",
+   "files": {
+    "mother_tell_me_the_storymusic_only.mp3": "accompaniment",
+    "mother_tell_me_the_story_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 206001,
+   "title": "Mother Dear",
+   "label": "206a",
+   "files": {
+    "madrecita_de_mi_amormusica_solo.mp3": "accompaniment",
+    "mother_dear_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 206002,
+   "title": "Dearest Mother, I Love You",
+   "label": "206b",
+   "files": {
+    "dearest_mother_i_love_youmusic_only.mp3": "accompaniment",
+    "dearest_mother_i_love_you_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 207,
+   "title": "Mother, I Love You",
+   "files": {
+    "madre_te_amomusica_solo.mp3": "accompaniment",
+    "mother_i_love_you_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 208,
+   "title": "The Dearest Names",
+   "files": {
+    "los_nombres_mas_bellosmusica_solo.mp3": "accompaniment",
+    "the_dearest_names_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 209,
+   "title": "Fathers",
+   "files": {
+    "fathersmusic_only.mp3": "accompaniment",
+    "fathers_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 210,
+   "title": "Daddy’s Homecoming",
+   "files": {
+    "cuando_papa_vuelvemusica_solo.mp3": "accompaniment",
+    "daddys_homecoming_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 211,
+   "title": "My Dad",
+   "files": {
+    "mi_papamusica_solo.mp3": "accompaniment",
+    "my_dad_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 214,
+   "title": "Pioneer Children Sang As They Walked",
+   "files": {
+    "ninos_pionerosmusica_solo.mp3": "accompaniment",
+    "pioneer_children_sang_as_they_walked_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 215,
+   "title": "Pioneer Children Were Quick to Obey",
+   "files": {
+    "pioneer_children_were_quick_to_obeymusic_only.mp3": "accompaniment",
+    "pioneer_children_were_quick_to_obey_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 216,
+   "title": "Little Pioneer Children",
+   "files": {
+    "little_pioneer_childrenmusic_only.mp3": "accompaniment",
+    "little_pioneer_children_round_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 217,
+   "title": "Westward Ho!",
+   "files": {
+    "westward_ho_music_only.mp3": "accompaniment",
+    "westward_ho_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 218,
+   "title": "To Be a Pioneer",
+   "files": {
+    "para_ser_pioneromusica_solo.mp3": "accompaniment",
+    "to_be_a_pioneer_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 219,
+   "title": "The Oxcart",
+   "files": {
+    "the_oxcartmusic_only.mp3": "accompaniment",
+    "the_oxcart_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 220,
+   "title": "The Handcart Song",
+   "files": {
+    "pioneros_fielesmusica_solo.mp3": "accompaniment",
+    "the_handcart_song_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 221,
+   "title": "Covered Wagons",
+   "files": {
+    "covered_wagonsmusic_only.mp3": "accompaniment",
+    "covered_wagons_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 222,
+   "title": "Whenever I Think about Pioneers",
+   "files": {
+    "whenever_i_think_about_pioneersmusic_only.mp3": "accompaniment",
+    "whenever_i_think_about_pioneers_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 224,
+   "title": "My Country",
+   "files": {
+    "my_countrymusic_only.mp3": "accompaniment",
+    "my_country_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 225,
+   "title": "My Flag, My Flag",
+   "files": {
+    "my_flag_my_flagmusic_only.mp3": "accompaniment",
+    "my_flag_my_flag_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 228,
+   "title": "My Heavenly Father Loves Me",
+   "files": {
+    "mi_padre_celestial_me_amamusica_solo.mp3": "accompaniment",
+    "my_heavenly_father_loves_me_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 229,
+   "title": "God Is Watching Over All"
+  },
+  {
+   "n": 230,
+   "title": "I Think the World Is Glorious",
+   "files": {
+    "el_mundo_es_gloriosomusica_solo.mp3": "accompaniment",
+    "i_think_the_world_is_glorious_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 231,
+   "title": "All Things Bright and Beautiful",
+   "files": {
+    "all_things_bright_and_beautifulmusic_only.mp3": "accompaniment",
+    "all_things_bright_and_beautiful_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 232,
+   "title": "Beauty Everywhere",
+   "files": {
+    "belleza_por_doquiermusica_solo.mp3": "accompaniment",
+    "beauty_everywhere_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 233,
+   "title": "The World Is So Lovely",
+   "files": {
+    "el_mundo_es_tan_bello_musica_solo.mp3": "accompaniment",
+    "the_world_is_so_lovely_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 234,
+   "title": "Because God Loves Me",
+   "files": {
+    "because_god_loves_memusic_only.mp3": "accompaniment",
+    "because_god_loves_me_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 235,
+   "title": "The World Is So Big",
+   "files": {
+    "the_world_is_so_bigmusic_only.mp3": "accompaniment",
+    "the_world_is_so_big_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 236,
+   "title": "“Give,” Said the Little Stream",
+   "files": {
+    "el_arroyito_damusica_solo.mp3": "accompaniment",
+    "give_said_the_little_stream_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 237,
+   "title": "The Prophet Said to Plant a Garden",
+   "files": {
+    "the_prophet_said_to_plant_a_gardenmusic_only.mp3": "accompaniment",
+    "the_prophet_said_to_plant_a_garden_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 238,
+   "title": "Springtime Is Coming"
+  },
+  {
+   "n": 239,
+   "title": "Because It’s Spring",
+   "files": {
+    "because_it_s_springmusic_only.mp3": "accompaniment",
+    "because_its_spring_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 240,
+   "title": "In the Leafy Treetops",
+   "files": {
+    "in_the_leafy_treetopsmusic_only.mp3": "accompaniment",
+    "in_the_leafy_treetops_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 241001,
+   "title": "Birds in the Tree",
+   "label": "241a",
+   "files": {
+    "birds_in_the_treemusic_only.mp3": "accompaniment",
+    "birds_in_the_tree_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 241002,
+   "title": "Rain Is Falling All Around",
+   "label": "241b",
+   "files": {
+    "cae_la_lluvia_alrededormusica_solo.mp3": "accompaniment",
+    "rain_is_falling_all_around_words_and_music.mp3": "vocal"
+   }
+  },
+  {
+   "n": 242,
+   "title": "Popcorn Popping",
+   "files": {
+    "palomitas_de_maizmusica_solo.mp3": "accompaniment",
+    "popcorn_popping_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 243,
+   "title": "Little Seeds Lie Fast Asleep",
+   "files": {
+    "las_semillas_duermenmusica_solo.mp3": "accompaniment",
+    "little_seeds_lie_fast_asleep_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 244,
+   "title": "Little Purple Pansies",
+   "files": {
+    "little_purple_pansiesmusic_only.mp3": "accompaniment",
+    "little_purple_pansies_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 245,
+   "title": "Oh, What Do You Do in the Summertime?",
+   "files": {
+    "que_haces_en_el_verano_musica_solo.mp3": "accompaniment",
+    "oh_what_do_you_do_in_the_summertime_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 246,
+   "title": "It’s Autumntime",
+   "files": {
+    "it_s_autumntimemusic_only.mp3": "accompaniment",
+    "its_autumntime_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 247,
+   "title": "Autumn Day",
+   "files": {
+    "autumn_daymusic_only.mp3": "accompaniment",
+    "autumn_day_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 248,
+   "title": "Falling Snow",
+   "files": {
+    "falling_snowmusic_only.mp3": "accompaniment",
+    "falling_snow_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 249,
+   "title": "Once There Was a Snowman",
+   "files": {
+    "este_era_un_monomusica_solo.mp3": "accompaniment",
+    "once_there_was_a_snowman_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 252,
+   "title": "Lift Up Your Voice and Sing",
+   "files": {
+    "alza_al_cielo_el_sonmusica_solo.mp3": "accompaniment",
+    "lift_up_your_voice_and_sing_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 253001,
+   "title": "Sing a Song",
+   "label": "253a",
+   "files": {
+    "sing_a_song_round_music_only.mp3": "accompaniment",
+    "sing_a_song_round_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 253002,
+   "title": "Fun to Do",
+   "label": "253b",
+   "files": {
+    "que_divertido_esmusica_solo.mp3": "accompaniment",
+    "fun_to_do_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 254001,
+   "title": "Hello, Friends!",
+   "label": "254a",
+   "files": {
+    "hello_friends_music_only.mp3": "accompaniment",
+    "hello_friends_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 254002,
+   "title": "Our Door Is Always Open",
+   "label": "254b",
+   "files": {
+    "our_door_is_always_openmusic_only.mp3": "accompaniment",
+    "our_door_is_always_open_round_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 255,
+   "title": "Come with Me to Primary",
+   "files": {
+    "come_with_me_to_primarymusic_only.mp3": "accompaniment",
+    "come_with_me_to_primary_round_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 256,
+   "title": "We Welcome You",
+   "files": {
+    "we_welcome_youmusic_only.mp3": "accompaniment",
+    "we_welcome_you_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 258,
+   "title": "Our Primary Colors",
+   "files": {
+    "los_colores_de_nuestra_primariamusica_solo.mp3": "accompaniment",
+    "our_primary_colors_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 259,
+   "title": "We’re All Together Again",
+   "files": {
+    "we_re_all_together_againmusic_only.mp3": "accompaniment",
+    "were_all_together_again_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 260,
+   "title": "Hello Song",
+   "files": {
+    "hola_musica_solo.mp3": "accompaniment",
+    "hello_song_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 261,
+   "title": "Here We Are Together",
+   "files": {
+    "here_we_are_togethermusic_only.mp3": "accompaniment",
+    "here_we_are_together_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 262,
+   "title": "Friends Are Fun",
+   "files": {
+    "friends_are_funmusic_only.mp3": "accompaniment",
+    "friends_are_fun_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 263,
+   "title": "We Are Different",
+   "files": {
+    "we_are_differentmusic_only.mp3": "accompaniment",
+    "we_are_different_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 264,
+   "title": "Happy Song",
+   "files": {
+    "happy_songmusic_only.mp3": "accompaniment",
+    "happy_song_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 265,
+   "title": "Be Happy!"
+  },
+  {
+   "n": 266,
+   "title": "If You’re Happy",
+   "files": {
+    "si_te_sientes_felizmusica_solo.mp3": "accompaniment",
+    "if_youre_happy_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 267001,
+   "title": "Smiles",
+   "label": "267a",
+   "files": {
+    "sonrisasmusica_solo.mp3": "accompaniment",
+    "smiles_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 267002,
+   "title": "A Smile Is like the Sunshine",
+   "label": "267b",
+   "files": {
+    "a_smile_is_like_the_sunshinemusic_only.mp3": "accompaniment",
+    "a_smile_is_like_the_sunshine_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 268,
+   "title": "Two Little Eyes",
+   "files": {
+    "two_little_eyesmusic_only.mp3": "accompaniment",
+    "two_little_eyes_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 269,
+   "title": "I Have Two Ears",
+   "files": {
+    "i_have_two_earsmusic_only.mp3": "accompaniment",
+    "i_have_two_ears_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 270,
+   "title": "Two Happy Feet",
+   "files": {
+    "two_happy_feetmusic_only.mp3": "accompaniment",
+    "two_happy_feet_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 271,
+   "title": "I Wiggle",
+   "files": {
+    "i_wigglemusic_only.mp3": "accompaniment",
+    "i_wiggle_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 272,
+   "title": "I Have Two Little Hands",
+   "files": {
+    "mis_manitasmusica_solo.mp3": "accompaniment",
+    "i_have_two_little_hands_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 273,
+   "title": "My Hands",
+   "files": {
+    "my_hands_music_only.mp3": "accompaniment",
+    "my_hands_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 274,
+   "title": "Roll Your Hands",
+   "files": {
+    "roll_your_handsmusic_only.mp3": "accompaniment",
+    "roll_your_hands_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 275001,
+   "title": "Head, Shoulders, Knees, and Toes",
+   "label": "275a",
+   "files": {
+    "cabeza_cara_hombros_piesmusica_solo.mp3": "accompaniment",
+    "head_shoulders_knees_and_toes_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 275002,
+   "title": "To Get Quiet",
+   "label": "275b",
+   "files": {
+    "to_get_quietmusic_only.mp3": "accompaniment",
+    "to_get_quiet_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 276,
+   "title": "Do as I’m Doing",
+   "files": {
+    "hazlo_conmigomusica_solo.mp3": "accompaniment",
+    "do_as_im_doing_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 277,
+   "title": "Hinges",
+   "files": {
+    "me_doblomusica_solo.mp3": "accompaniment",
+    "hinges_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 278,
+   "title": "Stand Up",
+   "files": {
+    "stand_upmusic_only.mp3": "accompaniment",
+    "stand_up_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 279,
+   "title": "Oh, How We Love to Stand",
+   "files": {
+    "oh_how_we_love_to_standmusic_only.mp3": "accompaniment",
+    "oh_how_we_love_to_stand_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 280,
+   "title": "Healthy, Wealthy, and Wise",
+   "files": {
+    "healthy_wealthy_and_wisemusic_only.mp3": "accompaniment",
+    "healthy_wealthy_and_wise_round_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 281,
+   "title": "The Wise Man and the Foolish Man",
+   "files": {
+    "el_sabio_y_el_imprudentemusica_solo.mp3": "accompaniment",
+    "the_wise_man_and_the_foolish_man_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 282,
+   "title": "Feliz Cumpleaños",
+   "files": {
+    "feliz_feliz_cumpleanosmusica_solo.mp3": "accompaniment",
+    "feliz_cumpleanos_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 283,
+   "title": "Your Happy Birthday",
+   "files": {
+    "your_happy_birthdaymusic_only.mp3": "accompaniment",
+    "your_happy_birthday_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 284001,
+   "title": "Happy, Happy Birthday",
+   "label": "284a",
+   "files": {
+    "happy_happy_birthdaymusic_only.mp3": "accompaniment",
+    "happy_happy_birthday_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 284002,
+   "title": "Have a Very Happy Birthday!",
+   "label": "284b",
+   "files": {
+    "have_a_very_happy_birthday_music_only.mp3": "accompaniment",
+    "have_a_very_happy_birthday_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 285,
+   "title": "You’ve Had a Birthday",
+   "files": {
+    "cumpliste_anos_rondo_musica_solo.mp3": "accompaniment",
+    "youve_had_a_birthday_round_vocal_accompaniment_eng.mp3": "vocal"
+   }
+  },
+  {
+   "n": 288,
+   "title": "Impromptu",
+   "files": {
+    "impromptuprelude_music_only.mp3": "vocal"
+   }
+  },
+  {
+   "n": 289,
+   "title": "To a Wild Rose",
+   "files": {
+    "to_a_wild_roseprelude_music_only.mp3": "vocal"
+   }
+  },
+  {
+   "n": 290,
+   "title": "Each Sunday Morning",
+   "files": {
+    "each_sunday_morningprelude_music_only.mp3": "vocal"
+   }
+  },
+  {
+   "n": 291,
+   "title": "In Quietude",
+   "files": {
+    "in_quietude.mp3": "vocal"
+   }
+  },
+  {
+   "n": 292001,
+   "title": "Loving Shepherd",
+   "label": "292a",
+   "files": {
+    "loving_shepherdprelude_music_only.mp3": "vocal"
+   }
+  },
+  {
+   "n": 292002,
+   "title": "Morning Prayer",
+   "label": "292b",
+   "files": {
+    "morning_prayerprelude_music_only.mp3": "vocal"
+   }
+  },
+  {
+   "n": 293,
+   "title": "My Heart Ever Faithful",
+   "files": {
+    "my_heart_ever_faithfulprelude_music_only.mp3": "vocal"
+   }
+  },
+  {
+   "n": 294,
+   "title": "Andante",
+   "files": {
+    "andanteprelude_music_only.mp3": "vocal"
+   }
+  },
+  {
+   "n": 295,
+   "title": "O Rest in the Lord",
+   "files": {
+    "o_rest_in_the_lordprelude_music_only.mp3": "vocal"
+   }
+  },
+  {
+   "n": 296,
+   "title": "Air from Orpheus",
+   "files": {
+    "air_from_orpheusprelude_music_only.mp3": "vocal"
+   }
+  },
+  {
+   "n": 297,
+   "title": "Supplication",
+   "files": {
+    "supplicationprelude_music_only.mp3": "vocal"
+   }
+  },
+  {
+   "n": 298,
+   "title": "Prelude in F",
+   "files": {
+    "prelude_in_fprelude_music_only.mp3": "vocal"
+   }
+  },
+  {
+   "n": 299,
+   "title": "Distant Bells",
+   "files": {
+    "distant_bellsprelude_music_only.mp3": "vocal"
+   }
+  }
+ ]
+}

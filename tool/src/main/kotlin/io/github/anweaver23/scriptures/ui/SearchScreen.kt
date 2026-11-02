@@ -272,7 +272,7 @@ class SearchScreen(sealedActivity: SealedLightActivity, private val findIn: Targ
                 .padding(bottom = RESULT_GAP_UNITS.gridUnitsAsDp()),
         ) {
             AppText(
-                text = "${hit.ref.number}. ${hit.title}",
+                text = "${catalog.hymnBook(hit.ref.hymnBookId)?.hymn(hit.ref.number)?.number ?: hit.ref.number}. ${hit.title}",
                 variant = ROW_TEXT,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,

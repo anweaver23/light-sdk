@@ -26,9 +26,19 @@ class FileMatcher(private val catalog: Catalog) {
     // One-word titles are too easy to hit by accident inside a longer filename.
     private val hymnTitles: List<TitleAlias> = allTitles.filter { it.tokens.size >= 2 }
 
+    /** The Church's own download names, which say exactly which song and recording they are. */
+    private val knownFiles: Map<String, Target.HymnRef> = catalog.hymnBooks.flatMap { book ->
+        book.hymns.flatMap { hymn ->
+            hymn.files.map { (name, kind) ->
+                name.lowercase() to Target.HymnRef(book.id, hymn.n, accompaniment = kind == "accompaniment")
+            }
+        }
+    }.toMap()
+
     fun match(kind: UploadKind, relativePath: String, tagText: String? = null): Target? = when (kind) {
         UploadKind.ScriptureAudio -> matchScripture(relativePath, tagText)
-        UploadKind.HymnAudio -> matchHymn(relativePath, tagText)?.let {
+        UploadKind.HymnAudio -> knownFiles[relativePath.substringAfterLast('/').lowercase()]
+            ?: matchHymn(relativePath, tagText)?.let {
             if (Target.isAccompanimentOnly(relativePath.substringAfterLast('/'))) it.copy(accompaniment = true) else it
         }
         UploadKind.HymnLyrics -> matchHymn(relativePath, tagText)
@@ -143,6 +153,8 @@ class FileMatcher(private val catalog: Catalog) {
         return when {
             "home and church" in text || "home church" in text -> Catalog.HYMNS_HOME_CHURCH
             "1985" in tokens -> Catalog.HYMNS_1985
+            "songbook" in tokens || "children" in tokens || "childrens" in tokens || "primary" in tokens ->
+                Catalog.CHILDRENS_SONGBOOK
             else -> null
         }
     }

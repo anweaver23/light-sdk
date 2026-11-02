@@ -41,10 +41,27 @@ data class HymnBook(
     val asOf: String? = null,
 ) {
     fun hymn(number: Int): Hymn? = hymns.firstOrNull { it.n == number }
+
+    /** A hymn by its printed number ("85", "20a"). */
+    fun hymn(label: String): Hymn? = hymns.firstOrNull { it.number.equals(label, ignoreCase = true) }
 }
 
+/**
+ * One hymn or song. [n] is its number, unique in its book; where the book prints a number that isn't
+ * a plain integer (the Children's Songbook's "20a" and "20b", two songs on page 20), [label] is what's
+ * shown and [n] is an internal page × 1000 + 1 or 2. [files] maps the Church's own download filenames
+ * (lowercase) to "vocal" or "accompaniment", for names the matcher couldn't place from the title.
+ */
 @Serializable
-data class Hymn(val n: Int, val title: String)
+data class Hymn(
+    val n: Int,
+    val title: String,
+    val label: String? = null,
+    val files: Map<String, String> = emptyMap(),
+) {
+    /** The number as the book prints it. */
+    val number: String get() = label ?: n.toString()
+}
 
 /** Everything the app knows about, loaded once at startup. */
 data class Catalog(val scriptures: ScriptureIndex, val hymnBooks: List<HymnBook>) {
@@ -55,7 +72,8 @@ data class Catalog(val scriptures: ScriptureIndex, val hymnBooks: List<HymnBook>
 
         const val HYMNS_1985 = "hymns-1985"
         const val HYMNS_HOME_CHURCH = "hymns-home-church"
-        val HYMN_BOOK_FILES = listOf("$HYMNS_1985.json", "$HYMNS_HOME_CHURCH.json")
+        const val CHILDRENS_SONGBOOK = "childrens-songbook"
+        val HYMN_BOOK_FILES = listOf("$HYMNS_1985.json", "$HYMNS_HOME_CHURCH.json", "$CHILDRENS_SONGBOOK.json")
 
         fun parseIndex(text: String): ScriptureIndex = json.decodeFromString(text)
         fun parseBook(text: String): BookText = json.decodeFromString(text)

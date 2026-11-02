@@ -90,7 +90,7 @@ class HymnListScreen(sealedActivity: SealedLightActivity, hymnBookId: String) :
                     ) {
                         items(book.hymns, key = { it.n }) { hymn ->
                             val target = Target.HymnRef(book.id, hymn.n)
-                            ListRow("${hymn.n}  ${hymn.title}", variant = DENSE_ROW_TEXT, heightUnits = DENSE_ROW_UNITS) {
+                            ListRow("${hymn.number}  ${hymn.title}", variant = DENSE_ROW_TEXT, heightUnits = DENSE_ROW_UNITS) {
                                 navigateTo({ HymnScreen(it, target) })
                             }
                         }
@@ -208,7 +208,7 @@ class HymnScreen(
         LaunchedEffect(shown) { AppGraph.progress.setLastHymn(shown) }
 
         ScreenFrame(
-            title = "${hymn.n}. ${hymn.title}",
+            title = "${hymn.number}. ${hymn.title}",
             reading = true,
             onBack = { goBack() },
             zen = Zen.on,
@@ -252,7 +252,7 @@ class HymnScreen(
                             } else {
                                 Note(
                                     "No words saved for this hymn. To add them, upload a text file named " +
-                                        "\"${hymn.n}.txt\" to Hymn lyrics in the Tool Manager.",
+                                        "\"${hymn.number}.txt\" to Hymn lyrics in the Tool Manager.",
                                 )
                                 if (versions.isEmpty()) {
                                     Note("No audio yet either. Add it in Settings, under Add audio.")

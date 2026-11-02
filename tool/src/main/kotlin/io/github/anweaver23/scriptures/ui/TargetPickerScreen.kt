@@ -95,7 +95,7 @@ class TargetPickerScreen(sealedActivity: SealedLightActivity, private val mode: 
                     ScreenFrame(hymnBook.title, back) {
                         LightLazyScrollView(Modifier.fillMaxSize(), listState = scrolls.list(path), uniformItemHeightGridUnits = ROW_UNITS) {
                             items(hymnBook.hymns, key = { it.n }) { hymn ->
-                                ListRow("${hymn.n}  ${hymn.title}") { goBack(Target.HymnRef(hymnBook.id, hymn.n)) }
+                                ListRow("${hymn.number}  ${hymn.title}") { goBack(Target.HymnRef(hymnBook.id, hymn.n)) }
                             }
                         }
                     }

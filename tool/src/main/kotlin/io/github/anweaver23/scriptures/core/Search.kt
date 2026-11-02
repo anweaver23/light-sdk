@@ -124,14 +124,14 @@ object Search {
     fun searchHymns(books: List<HymnBook>, query: String, lyricsOf: (Target.HymnRef) -> String?): List<HymnHit> {
         val terms = parse(query)
         if (terms.isEmpty()) return emptyList()
-        val number = HYMN_NUMBER.matchEntire(query.trim())?.groupValues?.get(1)?.toIntOrNull()
+        val number = HYMN_NUMBER.matchEntire(query.trim())?.groupValues?.get(1)
         val byNumber = ArrayList<HymnHit>()
         val byTitle = ArrayList<HymnHit>()
         val byWords = ArrayList<HymnHit>()
         for (book in books) {
             for (hymn in book.hymns) {
                 val ref = Target.HymnRef(book.id, hymn.n)
-                if (hymn.n == number) {
+                if (number != null && hymn.number.equals(number, ignoreCase = true)) {
                     byNumber += HymnHit(ref, hymn.title, null)
                     continue
                 }
@@ -149,7 +149,7 @@ object Search {
     }
 
     /** "85", "#85", "hymn 85", "hymns 85". */
-    private val HYMN_NUMBER = Regex("""(?i)(?:hymns?\s*|#\s*)?(\d{1,4})""")
+    private val HYMN_NUMBER = Regex("""(?i)(?:hymns?\s*|songs?\s*|#\s*)?(\d{1,4}[ab]?)""")
 
     /**
      * A short excerpt of [verse] around [start]: up to [before] characters of lead-in, cut at a

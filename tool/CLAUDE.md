@@ -296,6 +296,15 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-11-02 Bar order:** Settings · Search · ▶ · Annotations · Bookmarks. Edit mode's remove mark is
   bigger (`REMOVE_MARK_UNITS` 1.7) and centred on the row.
 
+- **2026-11-02 KJV italics** (`assets/italics`, `core/Italics.kt`): the words the KJV translators supplied
+  print in italics in the Old and New Testaments, from eBible's public-domain `eng-kjv2006` `\add` markers,
+  aligned onto our words with the Strong's alignment; the same token-CRC test guards them.
+- **2026-11-02 Children's Songbook** is a third hymnbook (titles and numbers only, like the others). Two songs
+  on one page keep the book's "20a" / "20b" as `Hymn.label`, with an internal `n` of page × 1000 + 1 or 2;
+  show `Hymn.number`, never `n`. `Hymn.files` lists the Church's own download names, which the importer
+  matches exactly first (many English accompaniments are named in Spanish, "…musica_solo.mp3"). "songbook",
+  "children" or "primary" in a path hints the book.
+
 ## Hard rules
 
 - **Copyright:** bundle only public-domain or openly licensed data (PD, CC0, CC BY; CC BY-SA is acceptable for
