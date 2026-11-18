@@ -10,11 +10,12 @@ import io.github.anweaver23.scriptures.core.DisplaySettings
 import io.github.anweaver23.scriptures.core.HomeLayout
 import io.github.anweaver23.scriptures.core.LineSpacing
 import io.github.anweaver23.scriptures.core.PlaybackSettings
+import io.github.anweaver23.scriptures.core.PlaybackSpeed
 import io.github.anweaver23.scriptures.core.TextSize
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-/** User settings: the Display group (text size, line spacing, invert colours) and autoplay. */
+/** User settings: the Display group (text size, line spacing, invert colours, home layout) and Playback. */
 class SettingsStore(private val dataStore: DataStore<Preferences>) {
 
     val display: Flow<DisplaySettings> = dataStore.data.map { prefs ->
@@ -29,6 +30,8 @@ class SettingsStore(private val dataStore: DataStore<Preferences>) {
         PlaybackSettings(
             autoplayChapters = prefs[AUTOPLAY_CHAPTERS] ?: true,
             autoplayHymns = prefs[AUTOPLAY_HYMNS] ?: true,
+            scriptureSpeed = PlaybackSpeed.snap(prefs[SCRIPTURE_SPEED] ?: PlaybackSpeed.DEFAULT),
+            autoScroll = prefs[AUTO_SCROLL] ?: true,
         )
     }
 
@@ -44,6 +47,14 @@ class SettingsStore(private val dataStore: DataStore<Preferences>) {
 
     suspend fun setAutoplayHymns(on: Boolean) {
         dataStore.edit { it[AUTOPLAY_HYMNS] = on }
+    }
+
+    suspend fun setScriptureSpeed(speed: Float) {
+        dataStore.edit { it[SCRIPTURE_SPEED] = PlaybackSpeed.snap(speed) }
+    }
+
+    suspend fun setAutoScroll(on: Boolean) {
+        dataStore.edit { it[AUTO_SCROLL] = on }
     }
 
     suspend fun setTextSize(size: TextSize) {
@@ -65,5 +76,7 @@ class SettingsStore(private val dataStore: DataStore<Preferences>) {
         val AUTOPLAY_CHAPTERS = booleanPreferencesKey("autoplay_chapters")
         val AUTOPLAY_HYMNS = booleanPreferencesKey("autoplay_hymns")
         val HOME_LAYOUT = stringPreferencesKey("home_layout")
+        val SCRIPTURE_SPEED = floatPreferencesKey("scripture_speed")
+        val AUTO_SCROLL = booleanPreferencesKey("auto_scroll")
     }
 }

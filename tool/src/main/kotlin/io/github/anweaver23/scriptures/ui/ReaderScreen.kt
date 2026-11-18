@@ -24,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
+import androidx.compose.runtime.withFrameMillis
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
@@ -113,6 +114,12 @@ const val FOCUS_ALPHA = 0.16f
 const val FOCUS_HOLD_MS = 500L
 const val FOCUS_FADE_MS = 1400
 
+/**
+ * Background of the verses a link opened (a footnote's "Alma 32:5–6"): like a highlight, and it stays
+ * until the chapter changes.
+ */
+const val LINKED_ALPHA = HIGHLIGHT_ALPHA
+
 /** Background of find-in-chapter matches, and of the one the find bar is on. */
 const val FIND_ALPHA = 0.3f
 const val FIND_CURRENT_ALPHA = 0.6f
@@ -137,6 +144,15 @@ internal const val VERSE_GAP_UNITS = 0.75f
 
 /** Space above a focused verse when scrolling to it, in grid units. */
 private const val FOCUS_TOP_MARGIN_UNITS = 0.5f
+
+/** The zen-mode chapter title, relative to the verse text. */
+private const val ZEN_TITLE_SCALE = 1.15f
+
+/** Auto-scroll: share of the way to its target the page moves each frame, for a smooth follow. */
+private const val FOLLOW_EASE = 0.08f
+
+/** Auto-scroll: after the reader scrolls by hand, it leaves the page alone this long. */
+private const val FOLLOW_HAND_HOLD_MS = 6000L
 
 /** What a tap on the text should do. */
 sealed interface TapAction {
@@ -165,6 +181,10 @@ class ReaderViewModel(
     focusVerse: Int?,
     quietFocus: Boolean = false,
     audio: LightAudio,
+    /** With [holdFocus], the last verse of the range opened (a link to "5–6"). */
+    focusThrough: Int? = null,
+    /** Mark the focus verses until the chapter changes, rather than a fading flash. */
+    holdFocus: Boolean = false,
 ) : LightViewModel<Unit>() {
     val catalog: Catalog = AppGraph.catalog
     val library = AppGraph.library.index
@@ -236,6 +256,10 @@ class ReaderViewModel(
     private val _find = MutableStateFlow<FindState?>(null)
     val find: StateFlow<FindState?> = _find.asStateFlow()
 
+    /** Verses a link opened, marked until the chapter changes. */
+    private val _marked = MutableStateFlow<IntRange?>(null)
+    val marked: StateFlow<IntRange?> = _marked.asStateFlow()
+
     /** The verse at the top of the screen, reported by the UI as the user scrolls. */
     private val _topVerse = MutableStateFlow<VerseRef?>(null)
 
@@ -243,6 +267,7 @@ class ReaderViewModel(
         viewModelScope.launch { study.load() }
         saveReadingPosition()
         load(start, focusVerse, quietFocus)
+        if (focusVerse != null && holdFocus) focusOn(focusVerse, focusThrough, hold = true)
     }
 
     fun previous() {
@@ -266,9 +291,14 @@ class ReaderViewModel(
         _topVerse.value = VerseRef(_chapter.value.volumeId, _chapter.value.bookId, _chapter.value.chapter, verse)
     }
 
-    fun focusOn(verse: Int) {
+    /**
+     * Scrolls to [verse] and marks it: with [hold], verses [verse] to [through] stay marked until the
+     * chapter changes; otherwise the verse flashes and fades.
+     */
+    fun focusOn(verse: Int, through: Int? = null, hold: Boolean = false) {
         clearSelection()
-        _focus.value = FocusRequest(verse, ++focusCounter)
+        _marked.value = if (hold) verse..maxOf(verse, through ?: verse) else null
+        _focus.value = FocusRequest(verse, ++focusCounter, flash = !hold)
     }
 
     fun focusHandled(request: FocusRequest) {
@@ -402,6 +432,7 @@ class ReaderViewModel(
         _selection.value = null
         _find.value = null
         _topVerse.value = null
+        _marked.value = null
         scrollState = ScrollState(0)
         _focus.value = focusVerse?.let { FocusRequest(it, ++focusCounter, flash = !quietFocus) }
         viewModelScope.launch {
@@ -467,8 +498,10 @@ class ReaderViewModel(
  * Opens the reader at [chapter], marking [verse], or goes back to a reader already showing that
  * chapter (see [Nav]) and marks the verse there.
  */
-fun SimpleLightScreen<*>.openReader(chapter: Target.Chapter, verse: Int? = null) =
-    open(chapter, { ReaderScreen(it, chapter, focusVerse = verse) }) { reader -> verse?.let(reader::focus) }
+fun SimpleLightScreen<*>.openReader(chapter: Target.Chapter, verse: Int? = null, through: Int? = null, hold: Boolean = false) =
+    open(chapter, { ReaderScreen(it, chapter, focusVerse = verse, focusThrough = through, holdFocus = hold) }) { reader ->
+        verse?.let { reader.focus(it, through, hold) }
+    }
 
 /**
  * Reads one chapter. [focusVerse] scrolls to that verse and marks it briefly (used by bookmarks,
@@ -485,13 +518,17 @@ class ReaderScreen(
      * in case autoplay moved on while no page was watching.
      */
     private var followPlayback: Boolean = false,
+    /** With [holdFocus], the last verse to mark (a link to a range, "5–6"). */
+    private val focusThrough: Int? = null,
+    /** Keep [focusVerse] (to [focusThrough]) marked until the chapter changes, as a link opens it. */
+    private val holdFocus: Boolean = false,
 ) : AppLightScreen<Unit, ReaderViewModel>(sealedActivity), Keyed {
 
     /** The chapter on the page: going to it again (a bookmark, a footnote link) comes back here. */
     override val navKey: Any get() = viewModel.chapter.value
 
     /** Scrolls to [verse] and marks it, as when opened with a focus verse. */
-    fun focus(verse: Int) = viewModel.focusOn(verse)
+    fun focus(verse: Int, through: Int? = null, hold: Boolean = false) = viewModel.focusOn(verse, through, hold)
 
     /** Set when the page follows playback to a chapter that isn't simply the next one over. */
     private var jumpTo: Target.Chapter? = null
@@ -513,7 +550,7 @@ class ReaderScreen(
     }
 
     override val viewModelClass = ReaderViewModel::class.java
-    override fun createViewModel() = ReaderViewModel(start, focusVerse, quietFocus, DefaultLightAudio(sealedActivity))
+    override fun createViewModel() = ReaderViewModel(start, focusVerse, quietFocus, DefaultLightAudio(sealedActivity), focusThrough, holdFocus)
 
     @Composable
     override fun Content() {
@@ -522,6 +559,7 @@ class ReaderScreen(
         val selection by viewModel.selection.collectAsState()
         val annotations by viewModel.chapterAnnotations.collectAsState()
         val find by viewModel.find.collectAsState()
+        val marked by viewModel.marked.collectAsState()
         val extras by viewModel.extras.collectAsState()
         val fullTitle by viewModel.fullTitle.collectAsState()
         val manifest by AppGraph.text.manifest.collectAsState()
@@ -535,6 +573,19 @@ class ReaderScreen(
         // Page animations need a frame clock, which the composition's scope has and the view model's
         // doesn't (animating in viewModelScope crashed on the first swipe).
         val pageScope = rememberCoroutineScope()
+
+        // Playing this chapter: keep the line being read near the middle of the screen (Settings ›
+        // Playback › Auto-scroll). Not while selecting or finding, which move the page themselves.
+        val playing by viewModel.player.isPlaying.collectAsState()
+        val playback by AppGraph.playback.collectAsState()
+        val autoScroll = playback.autoScroll && playing && current == chapter && currentSelection == null && currentFind == null
+        LaunchedEffect(autoScroll, chapter, displays != null) {
+            if (autoScroll && displays != null) {
+                followPlayback(viewModel.scrollState, viewModel.player.positionMs, viewModel.player.durationMs) {
+                    AppGraph.playback.value.scriptureSpeed
+                }
+            }
+        }
 
         // Showing the chapter that's playing: follow it.
         LaunchedEffect(current, chapter) {
@@ -640,6 +691,7 @@ class ReaderScreen(
                 ChapterText(
                     displays = list,
                     annotations = annotations,
+                    marked = marked,
                     selection = currentSelection?.range,
                     find = currentFind,
                     textStyle = readerTextStyle(display.textSize.scale, display.lineSpacing),
@@ -652,7 +704,12 @@ class ReaderScreen(
                     onDrag = viewModel::extendSelection,
                     onWordTap = { pos -> handle(viewModel.onWordTap(pos)) },
                     onMarkerTap = { verse, marker -> handle(viewModel.onMarkerTap(verse, marker)) },
-                    header = extras?.let { x -> { ChapterHeader(x, readerTextStyle(display.textSize.scale, display.lineSpacing)) } },
+                    header = {
+                        val style = readerTextStyle(display.textSize.scale, display.lineSpacing)
+                        // Zen mode hides the top bar, so the chapter's name leads the text (it scrolls away).
+                        if (Zen.on) ZenTitle(viewModel.catalog.label(chapter), style)
+                        extras?.let { ChapterHeader(it, style) }
+                    },
                     footer = extras?.closing?.takeIf { it.isNotEmpty() }?.let { closing ->
                         {
                             val style = readerTextStyle(display.textSize.scale, display.lineSpacing)
@@ -713,6 +770,20 @@ class ReaderScreen(
         }
     }
 
+    /** The chapter's name over its text in zen mode, where there's no top bar to show it. */
+    @Composable
+    private fun ZenTitle(title: String, style: TextStyle) {
+        BasicText(
+            text = title,
+            style = style.copy(
+                fontSize = style.fontSize * ZEN_TITLE_SCALE,
+                lineHeight = style.lineHeight * ZEN_TITLE_SCALE,
+                textAlign = TextAlign.Center,
+            ),
+            modifier = Modifier.fillMaxWidth().padding(bottom = VERSE_GAP_UNITS.gridUnitsAsDp() * 1.5f),
+        )
+    }
+
     /** A D&C section's heading or a Psalm's title, then the chapter summary, as the printed page has them. */
     @Composable
     private fun ChapterHeader(x: ChapterExtras, style: TextStyle) {
@@ -766,6 +837,8 @@ private sealed interface Hit {
 private fun ChapterText(
     displays: List<VerseDisplay>,
     annotations: List<Annotation>,
+    /** Verses a link opened, marked like a highlight. */
+    marked: IntRange?,
     selection: WordRange?,
     find: FindState?,
     textStyle: TextStyle,
@@ -911,8 +984,9 @@ private fun ChapterText(
             header?.invoke()
             displays.forEach { display ->
                 val verse = display.verse
-                val text = remember(display, annotations, selection, find, colors) {
-                    styledVerse(display, annotations, selection, find, colors)
+                val isMarked = marked != null && verse in marked
+                val text = remember(display, annotations, isMarked, selection, find, colors) {
+                    styledVerse(display, annotations, isMarked, selection, find, colors)
                 }
                 BasicText(
                     text = text,
@@ -940,6 +1014,46 @@ private fun ChapterText(
 }
 
 /**
+ * Auto-scroll while a chapter plays: a rough guess at the line being read from how far through the
+ * recording playback is, taken as the same share of the chapter's height, kept near the middle of the
+ * screen. So the page sits still until the reading passes the middle, and stops a little before the
+ * end. Position is extrapolated between the player's reports (at [speed]) and the page eases toward
+ * its target each frame. A scroll by hand (the page moved without us) leaves it alone for a while.
+ */
+private suspend fun followPlayback(
+    scroll: ScrollState,
+    positionMs: StateFlow<Long>,
+    durationMs: StateFlow<Long>,
+    speed: () -> Float,
+) {
+    var reported = positionMs.value
+    var reportedAt = System.currentTimeMillis()
+    var expected = scroll.value
+    var handUntil = 0L
+    while (true) {
+        withFrameMillis { }
+        val now = System.currentTimeMillis()
+        if (positionMs.value != reported) {
+            reported = positionMs.value
+            reportedAt = now
+        }
+        // Moved by a finger (or a fling, or a find): leave it be for a while.
+        if (scroll.isScrollInProgress || abs(scroll.value - expected) > 2) handUntil = now + FOLLOW_HAND_HOLD_MS
+        expected = scroll.value
+        val duration = durationMs.value
+        if (now < handUntil || duration <= 0 || scroll.maxValue <= 0) continue
+        val position = reported + ((now - reportedAt) * speed()).toLong()
+        val fraction = (position.toFloat() / duration).coerceIn(0f, 1f)
+        val content = scroll.maxValue + scroll.viewportSize
+        val target = (fraction * content - scroll.viewportSize / 2f).coerceIn(0f, scroll.maxValue.toFloat())
+        val delta = (target - scroll.value) * FOLLOW_EASE
+        if (abs(delta) < 0.05f) continue
+        scroll.dispatchRawDelta(delta)
+        expected = scroll.value
+    }
+}
+
+/**
  * Paragraph style, scaled to the screen the way LightText scales it, then by the Display text size
  * [scale] and line [spacing].
  */
@@ -957,6 +1071,7 @@ fun readerTextStyle(scale: Float, spacing: Float): TextStyle {
 private fun styledVerse(
     display: VerseDisplay,
     annotations: List<Annotation>,
+    marked: Boolean,
     selection: WordRange?,
     find: FindState?,
     colors: LightColors,
@@ -975,6 +1090,11 @@ private fun styledVerse(
         }
     }
     val verse = display.verse
+    if (marked && display.wordCount > 0) {
+        display.markRange(0 until display.wordCount)?.let { chars ->
+            addStyle(SpanStyle(background = colors.content.copy(alpha = LINKED_ALPHA)), chars.first, chars.last + 1)
+        }
+    }
     for (a in annotations) {
         val words = a.range.wordsIn(verse, display.wordCount) ?: continue
         val chars = display.markRange(words) ?: continue

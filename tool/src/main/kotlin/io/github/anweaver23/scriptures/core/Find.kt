@@ -7,20 +7,22 @@ object Find {
     /**
      * Every case-insensitive occurrence of [query] in the chapter's verse text, in reading order.
      * Verse numbers are skipped, and footnote markers are ignored, so "faith" still matches where a
-     * marker sits inside it ("faithab"); the match's range then covers the marker too.
+     * marker sits inside it ("faithab"); the match's range then covers the marker too. Apostrophes
+     * and hyphens are ignored on both sides, as in [Search]: "lords" finds "LORD’s".
      */
     fun matches(displays: List<VerseDisplay>, query: String): List<FindMatch> {
-        val needle = query.trim().lowercase()
+        val needle = Search.fold(query.trim()).trim()
         if (needle.isEmpty()) return emptyList()
         return displays.flatMap { matchesIn(it, needle) }
     }
 
     private fun matchesIn(display: VerseDisplay, needle: String): List<FindMatch> {
-        // The verse text with markers taken out, and where each of its characters sits in the display.
+        // The verse text with markers, apostrophes and hyphens taken out, and where each of its
+        // characters sits in the display.
         val inMarker = BooleanArray(display.text.length)
         display.markers.forEach { m -> for (i in m.start until m.end.coerceAtMost(inMarker.size)) inMarker[i] = true }
         val textStart = display.numberEnd + VerseDisplay.NUMBER_GAP.length
-        val positions = (textStart until display.text.length).filter { !inMarker[it] }
+        val positions = (textStart until display.text.length).filter { !inMarker[it] && !Search.isIgnored(display.text[it]) }
         val plain = positions.map { display.text[it] }.joinToString("").lowercase()
 
         val out = mutableListOf<FindMatch>()

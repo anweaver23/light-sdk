@@ -3,6 +3,7 @@ package io.github.anweaver23.scriptures.core.importer
 import io.github.anweaver23.scriptures.core.BookFootnotes
 import io.github.anweaver23.scriptures.core.BookText
 import io.github.anweaver23.scriptures.core.Footnote
+import io.github.anweaver23.scriptures.core.FrontBlock
 import io.github.anweaver23.scriptures.core.FrontPage
 import io.github.anweaver23.scriptures.core.ScriptureIndex
 import io.github.anweaver23.scriptures.core.Span
@@ -65,7 +66,7 @@ class TextBuild(private val index: ScriptureIndex) {
             val kept = if (front) pages.filter { it.id in FRONT }.sortedBy { order.indexOf(it.id) } else pages
             for (p in kept) {
                 val spec = FRONT[p.id]
-                val page = links.clean(p).let { if (spec != null) it.copy(title = spec.title) else it }
+                val page = links.clean(p).let { spec?.applyTo(it) ?: it }
                 sink.write("pages/${page.id}.json", json.encodeToString(FrontPage.serializer(), page))
                 list += PageEntry(page.id, page.title, folder = spec?.folder, end = spec?.end == true)
             }
@@ -130,6 +131,7 @@ class TextBuild(private val index: ScriptureIndex) {
             footnotes = placed,
             pages = pageIndex.mapValues { it.value.size },
             problems = problems,
+            format = FORMAT,
         )
         sink.write("manifest.json", json.encodeToString(TextManifest.serializer(), manifest))
         return manifest
@@ -177,11 +179,27 @@ class TextBuild(private val index: ScriptureIndex) {
         )
     }
 
-    /** How one front-matter page is listed. */
-    class FrontSpec(val title: String, val folder: String? = null, val end: Boolean = false)
+    /**
+     * How one front-matter page is listed. [printed]: the source's heading is part of the page ("The Old
+     * Testament" is all of the OT's title page), so it stays on the page as a heading when [title]
+     * replaces it; otherwise the parser drops the heading as the page's title and it would be lost.
+     */
+    class FrontSpec(val title: String, val folder: String? = null, val end: Boolean = false, val printed: Boolean = false) {
+        fun applyTo(page: FrontPage): FrontPage {
+            val heading = page.title.takeIf { printed && it.isNotBlank() && it != title && it != page.id.substringAfterLast('/') }
+            return page.copy(title = title, blocks = if (heading != null) listOf(FrontBlock("heading", heading)) + page.blocks else page.blocks)
+        }
+    }
 
     companion object {
         val json = Json { ignoreUnknownKeys = true; encodeDefaults = false }
+
+        /**
+         * What the build writes. Raise it when a change to the importer changes its output, so an existing
+         * import is rebuilt from the kept sources (`TextLibrary.importInbox`). 1: title pages keep their
+         * printed heading (the OT's was empty).
+         */
+        const val FORMAT = 1
 
         /** The Book of Mormon's folder of front matter, named as the Church names it. */
         const val BOFM_INTRO = "Introduction and Witnesses"
@@ -193,22 +211,22 @@ class TextBuild(private val index: ScriptureIndex) {
          * (images; links to them turn into plain text).
          */
         val FRONT: Map<String, FrontSpec> = linkedMapOf(
-            "ot/title-page" to FrontSpec("Title Page"),
-            "ot/dedication" to FrontSpec("Epistle Dedicatory"),
-            "nt/title-page" to FrontSpec("Title Page"),
-            "bofm/title-page" to FrontSpec("Title Page", BOFM_INTRO),
-            "bofm/bofm-title" to FrontSpec("Title Page of the Book of Mormon", BOFM_INTRO),
+            "ot/title-page" to FrontSpec("Title Page", printed = true),
+            "ot/dedication" to FrontSpec("Epistle Dedicatory", printed = true),
+            "nt/title-page" to FrontSpec("Title Page", printed = true),
+            "bofm/title-page" to FrontSpec("Title Page", BOFM_INTRO, printed = true),
+            "bofm/bofm-title" to FrontSpec("Title Page of the Book of Mormon", BOFM_INTRO, printed = true),
             "bofm/introduction" to FrontSpec("Introduction", BOFM_INTRO),
             "bofm/three" to FrontSpec("Testimony of Three Witnesses", BOFM_INTRO),
             "bofm/eight" to FrontSpec("Testimony of Eight Witnesses", BOFM_INTRO),
             "bofm/js" to FrontSpec("Testimony of the Prophet Joseph Smith", BOFM_INTRO),
             "bofm/explanation" to FrontSpec("Brief Explanation about the Book of Mormon", BOFM_INTRO),
             "bofm/pronunciation" to FrontSpec("Pronunciation Guide", end = true),
-            "dc-testament/title-page" to FrontSpec("Title Page"),
+            "dc-testament/title-page" to FrontSpec("Title Page", printed = true),
             "dc-testament/introduction" to FrontSpec("Introduction"),
             "dc-testament/od/1" to FrontSpec("Official Declaration 1", end = true),
             "dc-testament/od/2" to FrontSpec("Official Declaration 2", end = true),
-            "pgp/title-page" to FrontSpec("Title Page"),
+            "pgp/title-page" to FrontSpec("Title Page", printed = true),
             "pgp/introduction" to FrontSpec("Introduction"),
         )
 
@@ -259,4 +277,6 @@ data class TextManifest(
     val footnotes: Int = 0,
     val pages: Map<String, Int> = emptyMap(),
     val problems: List<String> = emptyList(),
+    /** [TextBuild.FORMAT] of the build; 0 before it was recorded. */
+    val format: Int = 0,
 )

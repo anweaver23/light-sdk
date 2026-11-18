@@ -28,22 +28,37 @@ const val SMALL_CAPS_EM = 0.8f
  * underlined links that call [onLink].
  */
 fun annotated(spans: List<Span>, onLink: ((String) -> Unit)?): AnnotatedString = buildAnnotatedString {
-    for (s in spans) {
+    // A range tail ("–6" after "Alma 32:5") taken into the link before it, and left out of its own run.
+    var skip = 0
+    spans.forEachIndexed { i, s ->
         val style = when (s.s) {
             "i" -> SpanStyle(fontStyle = FontStyle.Italic)
             "b" -> SpanStyle(fontWeight = FontWeight.Bold)
             "sc" -> SpanStyle(fontSize = SMALL_CAPS_EM.em)
             else -> null
         }
-        val text = if (s.s == "sc") s.t.uppercase() else s.t
+        val raw = if (s.s == "sc") s.t.uppercase() else s.t
+        var text = raw.substring(skip.coerceAtMost(raw.length))
+        skip = 0
+        var to = s.to
+        // A verse link followed by "–6": link the whole range, so following it marks verses 5 to 6.
+        val next = spans.getOrNull(i + 1)
+        val first = to?.let(LinkTarget::verse)
+        if (to != null && first != null && next != null && next.to == null && next.s == s.s) {
+            LinkTarget.rangeTail(next.t, first.verse)?.let { (last, length) ->
+                text += next.t.substring(0, length)
+                to = "$to-$last"
+                skip = length
+            }
+        }
         fun body() = if (style != null) withStyle(style) { append(text) } else append(text)
-        val to = s.to
-        if (to != null && onLink != null) {
+        val target = to
+        if (target != null && onLink != null) {
             withLink(
                 LinkAnnotation.Clickable(
-                    tag = to,
+                    tag = target,
                     styles = TextLinkStyles(SpanStyle(textDecoration = TextDecoration.Underline)),
-                ) { onLink(to) },
+                ) { onLink(target) },
             ) { body() }
         } else {
             body()
@@ -59,11 +74,12 @@ fun SpanText(spans: List<Span>, style: TextStyle, modifier: Modifier = Modifier,
 }
 
 /**
- * Follows a link from imported text: a verse or chapter opens the reader (going back to one already
- * open, see [Nav]); anything else is a page (Topical Guide entry, front matter, JST passage).
+ * Follows a link from imported text: a verse or range of verses opens the reader with them marked
+ * until the chapter changes (going back to a reader already open, see [Nav]); a chapter opens the
+ * reader; anything else is a page (Topical Guide entry, front matter, JST passage).
  */
 fun SimpleLightScreen<*>.openLink(to: String) {
-    LinkTarget.verse(to)?.let { return openReader(it.chapterTarget, it.verse) }
+    LinkTarget.verses(to)?.let { (first, last) -> return openReader(first.chapterTarget, first.verse, through = last, hold = true) }
     LinkTarget.chapter(to)?.let { return openReader(it) }
     open(NavKeys.page(to), { PageScreen(it, to) })
 }

@@ -25,22 +25,23 @@ data class SearchResults(val hits: List<SearchHit>, val total: Int) {
  * - Every query word must appear in the verse (AND).
  * - A query word matches the *start* of a verse word, as tokenized by [Words.spans]:
  *   "fait" finds "faith" and "faithful", but "aith" finds nothing.
- * - Curly and straight apostrophes are the same character, so "man's" finds "man’s".
+ * - Apostrophes and hyphens are ignored on both sides, so "mans", "man's" and "man’s" all find
+ *   "man’s", and "bethel" finds "Beth-el".
  */
 object Search {
     const val DEFAULT_LIMIT = 200
 
-    /** Lowercases and turns curly apostrophes into straight ones. */
+    /** Lowercases and drops apostrophes and hyphens. */
     fun fold(s: String): String {
         val sb = StringBuilder(s.length)
-        for (c in s) sb.append(foldChar(c))
+        for (c in s) if (!isIgnored(c)) sb.append(c.lowercaseChar())
         return sb.toString()
     }
 
-    private fun foldChar(c: Char): Char = when (c) {
-        '’', '‘', 'ʼ' -> '\''
-        else -> c.lowercaseChar()
-    }
+    /** Apostrophes (straight and curly) and hyphens: left out of matching altogether. */
+    fun isIgnored(c: Char): Boolean = c in IGNORED
+
+    private val IGNORED = setOf('\'','’', '‘', 'ʼ', '-', '‐', '‑')
 
     /** The query's words, folded and de-duplicated. A word that is a prefix of another is dropped as redundant. */
     fun parse(query: String): List<String> {
@@ -55,10 +56,12 @@ object Search {
      */
     fun match(verse: String, terms: List<String>): IntRange? {
         if (terms.isEmpty()) return null
-        // Cheap substring pre-check before tokenizing. Apostrophes are left out of it, since the
-        // verse may use either kind; the token check below is the real test.
-        for (t in terms) {
-            if (!verse.contains(prefilterPart(t), ignoreCase = true)) return null
+        // Cheap substring pre-check before tokenizing. It only holds when the verse has nothing to
+        // ignore; otherwise the token check below is the real test.
+        if (verse.none(::isIgnored)) {
+            for (t in terms) {
+                if (!verse.contains(t, ignoreCase = true)) return null
+            }
         }
         val spans = Words.spans(verse)
         var first: WordSpan? = null
@@ -69,13 +72,13 @@ object Search {
         return first!!.let { it.start until it.end }
     }
 
-    private fun prefilterPart(term: String): String =
-        term.split('\'').maxBy { it.length }
-
+    /** Whether the word at [span], with apostrophes and hyphens skipped, starts with [term]. */
     private fun startsWithFolded(verse: String, span: WordSpan, term: String): Boolean {
-        if (span.end - span.start < term.length) return false
-        for (i in term.indices) {
-            if (foldChar(verse[span.start + i]) != term[i]) return false
+        var i = span.start
+        for (c in term) {
+            while (i < span.end && isIgnored(verse[i])) i++
+            if (i >= span.end || verse[i].lowercaseChar() != c) return false
+            i++
         }
         return true
     }

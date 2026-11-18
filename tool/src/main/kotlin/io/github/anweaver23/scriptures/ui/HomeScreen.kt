@@ -114,7 +114,7 @@ class HomeScreen(private val sealedActivity: SealedLightActivity) : AppLightScre
         // the theme's content colour.
         AppTheme {
             AppPage(title = "Scriptures", onBack = null) {
-                // Settings › Home: the tiles, or a plain list.
+                // Settings › Display › Home: the tiles, or a plain list.
                 if (manifest.books.isEmpty()) NoTextYet()
                 if (layout == HomeLayout.List) {
                     LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll(HomeLayout.List)) {

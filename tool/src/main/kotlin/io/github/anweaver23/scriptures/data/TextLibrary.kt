@@ -33,6 +33,7 @@ class TextLibrary(filesDir: File, private val inbox: File, private val index: Sc
     private val root = File(base, "text")
     private val sources = File(base, "text-sources")
     private val mutex = Mutex()
+    private var upgradeTried = false
 
     private val _manifest = MutableStateFlow(readManifest())
     /** What's imported; empty until the first import. */
@@ -51,7 +52,8 @@ class TextLibrary(filesDir: File, private val inbox: File, private val index: Sc
     fun sourceNames(): List<String> = sources.listFiles()?.map { it.name }?.sorted().orEmpty()
 
     /**
-     * Takes any new files from the inbox and rebuilds; also finishes a build that was interrupted.
+     * Takes any new files from the inbox and rebuilds; also finishes a build that was interrupted, and
+     * rebuilds one made by an older importer ([TextBuild.FORMAT]).
      * Returns true when it rebuilt. Safe to call often: otherwise it does nothing.
      */
     suspend fun importInbox(): Boolean = mutex.withLock {
@@ -60,7 +62,11 @@ class TextLibrary(filesDir: File, private val inbox: File, private val index: Sc
             val dropped = inbox.walkTopDown().filter { it.isFile && accepted(it.name) }.toList()
             // A build that never finished (the app was closed or crashed part way) runs again.
             val interrupted = File(base, "text.new").exists() && !sourceNames().isEmpty()
-            if (dropped.isEmpty() && !interrupted) return@withContext false
+            // An import made by an older importer is rebuilt from its kept sources (tried once per run,
+            // so a failing source doesn't rebuild on every visit home).
+            val stale = !upgradeTried && _manifest.value.format < TextBuild.FORMAT && sourceNames().isNotEmpty()
+            if (stale) upgradeTried = true
+            if (dropped.isEmpty() && !interrupted && !stale) return@withContext false
             sources.mkdirs()
             for (f in dropped) {
                 val target = File(sources, f.name)

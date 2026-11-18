@@ -307,7 +307,7 @@ class FootnoteScreen(
                 SpanText(footnote.spans, style, Modifier.fillMaxWidth().padding(bottom = 0.5f.gridUnitsAsDp())) { openLink(it) }
                 footnote.verseRefs.filter { catalog.scriptures.book(it.bookId) != null }.forEach { target ->
                     ListRow(catalog.verseLabel(target)) {
-                        openReader(target.chapterTarget, target.verse)
+                        openReader(target.chapterTarget, target.verse, hold = true)
                     }
                 }
             }

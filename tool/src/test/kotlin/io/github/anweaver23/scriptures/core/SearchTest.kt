@@ -32,7 +32,8 @@ class SearchTest {
     @Test
     fun `parse folds case and apostrophes and drops redundant prefixes`() {
         assertEquals(listOf("faith", "hope"), Search.parse("  Faith, HOPE faith "))
-        assertEquals(listOf("man's"), Search.parse("Man’s"))
+        assertEquals(listOf("mans"), Search.parse("Man’s"))
+        assertEquals(listOf("bethel"), Search.parse("Beth-el"))
         assertEquals(listOf("faithful"), Search.parse("fait faithful"))
         assertEquals(emptyList(), Search.parse(" , — "))
     }
@@ -56,11 +57,20 @@ class SearchTest {
     }
 
     @Test
-    fun `curly and straight apostrophes are interchangeable`() {
+    fun `apostrophes are ignored on both sides`() {
         assertTrue(matches("the man's house", "man’s"))
         assertTrue(matches("the man’s house", "man's"))
         assertTrue(matches("the LORD’s house", "lord's"))
-        assertTrue(!matches("the man's house", "mans"))
+        assertTrue(matches("the man's house", "mans"))
+        assertTrue(matches("the LORD’s house", "lords house"))
+        assertTrue(matches("the mans house", "man's"))
+        assertTrue(!matches("the man's house", "mansion"))
+    }
+
+    @Test
+    fun `hyphens are ignored`() {
+        assertTrue(matches("and called the name of that place Beth-el", "bethel"))
+        assertTrue(matches("the Bethel road", "beth-el"))
     }
 
     @Test

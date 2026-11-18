@@ -1,6 +1,7 @@
 package io.github.anweaver23.scriptures.core.importer
 
 import io.github.anweaver23.scriptures.core.Catalog
+import io.github.anweaver23.scriptures.core.FrontBlock
 import io.github.anweaver23.scriptures.core.Span
 import java.io.File
 import kotlin.test.Test
@@ -45,6 +46,23 @@ class ImporterParsersTest {
         assertEquals(listOf(3..3), x.italicRuns(1))
         assertEquals(listOf(0..0), x.capsRuns(1))
         assertEquals(listOf(2), x.para)
+    }
+
+    @Test
+    fun `a title page that is only its heading keeps the heading`() {
+        // The Old Testament's title page in the Victor Reader set is nothing but its <h1>.
+        val html = """<section id="/scriptures/ot/title-page"><header><h1>The <br />Old Testament</h1></header></section>
+            <section id="/scriptures/ot/dedication"><header><h1>To the Prince</h1><p class="subtitle">King</p></header></section>
+            <section id="/scriptures/ot/other"><header><h1>Other</h1></header></section>"""
+        val pages = VictorParser(index).volume(html, "ot").pages.associateBy { it.id }
+        val title = TextBuild.FRONT.getValue("ot/title-page").applyTo(pages.getValue("ot/title-page"))
+        assertEquals("Title Page", title.title)
+        assertEquals(listOf(FrontBlock("heading", "The Old Testament")), title.blocks)
+        val dedication = TextBuild.FRONT.getValue("ot/dedication").applyTo(pages.getValue("ot/dedication"))
+        assertEquals(listOf("To the Prince", "King"), dedication.blocks.map { it.text })
+        // Pages whose heading is just their name don't repeat it.
+        val plain = TextBuild.FrontSpec("Other").applyTo(pages.getValue("ot/other"))
+        assertEquals(emptyList(), plain.blocks)
     }
 
     @Test

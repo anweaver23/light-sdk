@@ -185,7 +185,7 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-10-27 Hymn lists are denser:** `DENSE_ROW_TEXT` (Subheading) on `DENSE_ROW_UNITS` (4) rows, so
   more of each long title shows.
 - **2026-10-27 Player** *(the player screen is gone since 2026-10-28; chapters and hymns play on their page)*: the progress bar is always drawn (it flashed while the next track reported its
-  length). No speed or stop options. Playing: the full transport bar; paused (for 350 ms or more): just
+  length). No speed or stop options *(scripture speed is a setting since 2026-11-17)*. Playing: the full transport bar; paused (for 350 ms or more): just
   play and a stop square, which ends playback and goes back.
 - **2026-10-28 Hymns play on the hymn page; no player screen.** The bar is a centred play; with both
   recordings it opens `HymnVersionScreen` (Vocal / Accompaniment, a LightOS picker screen: `LightModal`
@@ -225,7 +225,7 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 
 - **2026-10-28 No "…" menu.** Most of the app shares one bottom bar, `navBar()` (`ui/NavBar.kt`):
   Settings · Search · ▶ (only where there's audio: the reader, a hymn's page) · Bookmarks · Annotations *(order swapped 2026-11-02)*.
-  Display and Add audio live in Settings (order: Display, Autoplay chapters, Autoplay hymns, Home, Add
+  Display and Add audio live in Settings *(regrouped 2026-11-17, see Settings in three groups)* (order: Display, Autoplay chapters, Autoplay hymns, Home, Add
   audio last). From the reader, Search leads with "Find in this chapter" (returns the term to the reader)
   and Bookmarks leads with Add bookmark / Remove bookmark at the top verse (then straight back).
 - **2026-10-28 Zen mode:** a double tap on a chapter or a hymn's words hides the top and bottom bars,
@@ -364,6 +364,33 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
 - **2026-11-02 No audio indicators in browsing:** book lists don't count recordings and chapter grids don't
   underline chapters with audio. Settings › Add audio says what's in the library. The reader's and a hymn's
   play button still appear only where there's a recording (it's the control, not a marker).
+
+- **2026-11-17 Settings in three groups:** Settings is Display › (text size, line spacing, invert colours,
+  Home tiles/list), Playback › (Scripture: Autoplay, Speed, Auto-scroll; Music: Autoplay) and Library ›
+  (Standard works, Add audio). Library's row shows what needs attention (Importing, Not imported, n to
+  review). Group headings in a list are Detail text, dimmed (`SectionHeader`).
+- **2026-11-17 Scripture playback speed** (Settings › Playback › Speed, 0.75×–2×, a picker): chapters only;
+  hymns always play at 1×. `PlayerViewModel.applySpeed` sets it on every change of player, item or setting
+  (a new handle's `speed` reads 1× whatever the service is doing, so it's always set, never compared).
+- **2026-11-17 Auto-scroll while a chapter plays** (on by default): a deliberate rough guess, no timings
+  data. The share of the recording played is taken as the same share of the chapter's height and kept in
+  the middle of the screen, so the page waits until reading passes the middle and stops a little before
+  the end. Position is extrapolated between player reports and the page eases toward it each frame
+  (`followPlayback`, `dispatchRawDelta`, so it never fights the scroll mutex). A scroll by hand leaves it
+  alone for `FOLLOW_HAND_HOLD_MS`; off while selecting or finding.
+- **2026-11-17 Links mark their verses until the chapter changes:** a verse link from a footnote, heading or
+  study page (and a footnote's reference list) opens the reader with the verses marked like a highlight
+  (`LINKED_ALPHA`) instead of the fading flash; bookmarks, notes and search still flash. A printed range
+  ("Alma 32:5–6") is linked whole: the plain "–6" after a verse link is taken into it at display time
+  (`annotated`, `LinkTarget.rangeTail`), giving a `…/32/5-6` key (`LinkTarget.verses`), so no re-import.
+- **2026-11-17 Zen shows the chapter's name** above its heading and summary, in the text (it scrolls away).
+- **2026-11-17 Search ignores apostrophes and hyphens** on both sides (`Search.fold`): "mans" finds
+  "man’s", "bethel" finds "Beth-el". Find in chapter too.
+- **2026-11-17 Title pages keep their printed heading** (`FrontSpec.printed`): the parser takes a page's
+  first heading as its title, and `FRONT` replaces that title, so the heading was lost (the OT's title page
+  is nothing but "The Old Testament", so it was blank). **`TextBuild.FORMAT`** is stored in the manifest;
+  an import from an older format rebuilds from its kept sources once per run. Raise it whenever an importer
+  change alters the output.
 
 ## Hard rules
 

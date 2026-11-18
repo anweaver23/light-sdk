@@ -32,12 +32,14 @@ import com.thelightphone.sdk.SimpleLightScreen
 import com.thelightphone.sdk.ui.LightIcon
 import com.thelightphone.sdk.ui.LightIcons
 import com.thelightphone.sdk.ui.LightScrollView
+import com.thelightphone.sdk.ui.LightTextVariant
 import com.thelightphone.sdk.ui.LightThemeTokens
 import com.thelightphone.sdk.ui.LocalHapticsEnabled
 import com.thelightphone.sdk.ui.designVerticalPxToDp
 import com.thelightphone.sdk.ui.gridUnitsAsDp
 import com.thelightphone.sdk.ui.lightClickable
 import io.github.anweaver23.scriptures.core.LineSpacing
+import io.github.anweaver23.scriptures.core.PlaybackSpeed
 import io.github.anweaver23.scriptures.core.TextSize
 import io.github.anweaver23.scriptures.data.AppGraph
 import kotlinx.coroutines.launch
@@ -54,8 +56,9 @@ private const val SLIDER_TRACK_PX = 3f
 private const val SLIDER_KNOB_PX = 22f
 
 /**
- * Settings, opened from home, laid out like LightOS Settings: one row per item, its current value
- * dimmed on the right.
+ * Settings, opened from home, laid out like LightOS Settings: one row per group, its state dimmed on
+ * the right. Display (how text looks, and home), Playback (scripture and music), Library (what's been
+ * brought in: the standard works and audio).
  */
 class SettingsScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(sealedActivity), Keyed {
     override val navKey: Any get() = NavKeys.Settings
@@ -69,40 +72,33 @@ class SettingsScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(seal
 
     @Composable
     override fun Content() {
-        val pending by AppGraph.importer.pending.collectAsState()
-        val playback by AppGraph.playback.collectAsState()
-        val homeLayout by AppGraph.homeLayout.collectAsState()
-
         AppPage(title = "Settings") {
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
                 ListRow("Display") { navigateTo(::DisplayScreen) }
-                // When a chapter or hymn ends, go on to the next one.
-                ToggleRow("Autoplay chapters", playback.autoplayChapters) {
-                    AppGraph.scope.launch { AppGraph.settings.setAutoplayChapters(!playback.autoplayChapters) }
-                }
-                ToggleRow("Autoplay hymns", playback.autoplayHymns) {
-                    AppGraph.scope.launch { AppGraph.settings.setAutoplayHymns(!playback.autoplayHymns) }
-                }
-                // Two choices, so a tap flips between them (no picker screen).
-                ListRow("Home", homeLayout.label) {
-                    val next = if (homeLayout == HomeLayout.Tiles) HomeLayout.List else HomeLayout.Tiles
-                    AppGraph.scope.launch { AppGraph.settings.setHomeLayout(next) }
-                }
-                val textStep by AppGraph.text.step.collectAsState()
-                val manifest by AppGraph.text.manifest.collectAsState()
-                ListRow("Standard works", if (textStep != null) "Importing" else if (manifest.books.isEmpty()) "Not imported" else null) {
-                    navigateTo(::StandardWorksScreen)
-                }
-                ListRow("Add audio", if (pending.isEmpty()) null else "${pending.size} to review") {
-                    navigateTo(::AddAudioScreen)
-                }
+                ListRow("Playback") { navigateTo(::PlaybackScreen) }
+                ListRow("Library", libraryStatus()) { navigateTo(::LibraryScreen) }
             }
         }
     }
 }
 
+/** What needs attention in the library, if anything: an import running or missing, files to review. */
+@Composable
+private fun libraryStatus(): String? {
+    val pending by AppGraph.importer.pending.collectAsState()
+    val textStep by AppGraph.text.step.collectAsState()
+    val manifest by AppGraph.text.manifest.collectAsState()
+    return when {
+        textStep != null -> "Importing"
+        manifest.books.isEmpty() -> "Not imported"
+        pending.isNotEmpty() -> "${pending.size} to review"
+        else -> null
+    }
+}
+
 /**
- * Display: text size, line spacing and invert colours. Reached from Settings. Size and spacing apply to the app's content everywhere (not the bars or menus).
+ * Display: text size, line spacing and invert colours, which apply to reading text (not the bars or
+ * menus), and how home shows the books.
  */
 class DisplayScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(sealedActivity) {
     /** Scroll positions, kept while the screen is on the back stack. */
@@ -115,6 +111,7 @@ class DisplayScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(seale
     @Composable
     override fun Content() {
         val display by AppGraph.display.collectAsState()
+        val homeLayout by AppGraph.homeLayout.collectAsState()
 
         AppPage(title = "Display") {
             LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
@@ -123,9 +120,109 @@ class DisplayScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(seale
                 ToggleRow("Invert colors", display.invertColors) {
                     AppGraph.scope.launch { AppGraph.settings.setInvertColors(!display.invertColors) }
                 }
+                // Two choices, so a tap flips between them (no picker screen).
+                ListRow("Home", homeLayout.label) {
+                    val next = if (homeLayout == HomeLayout.Tiles) HomeLayout.List else HomeLayout.Tiles
+                    AppGraph.scope.launch { AppGraph.settings.setHomeLayout(next) }
+                }
             }
         }
     }
+}
+
+/** Playback, in two groups: Scripture (autoplay, speed, auto-scroll) and Music (autoplay). */
+class PlaybackScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(sealedActivity) {
+    private val scrolls = ScrollMemory()
+
+    init {
+        AppGraph.init(lightContext)
+    }
+
+    @Composable
+    override fun Content() {
+        val playback by AppGraph.playback.collectAsState()
+
+        AppPage(title = "Playback") {
+            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
+                SectionHeader("Scripture")
+                // When a chapter ends, go on to the next one.
+                ToggleRow("Autoplay", playback.autoplayChapters) {
+                    AppGraph.scope.launch { AppGraph.settings.setAutoplayChapters(!playback.autoplayChapters) }
+                }
+                ListRow("Speed", PlaybackSpeed.label(playback.scriptureSpeed)) { navigateTo(::SpeedScreen) }
+                // The reader keeps the line being read near the middle of the screen.
+                ToggleRow("Auto-scroll", playback.autoScroll) {
+                    AppGraph.scope.launch { AppGraph.settings.setAutoScroll(!playback.autoScroll) }
+                }
+                SectionHeader("Music")
+                ToggleRow("Autoplay", playback.autoplayHymns) {
+                    AppGraph.scope.launch { AppGraph.settings.setAutoplayHymns(!playback.autoplayHymns) }
+                }
+            }
+        }
+    }
+}
+
+/** Picks the scripture playback speed; the current one is underlined. */
+class SpeedScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(sealedActivity) {
+    init {
+        AppGraph.init(lightContext)
+    }
+
+    @Composable
+    override fun Content() {
+        val playback by AppGraph.playback.collectAsState()
+
+        Picker(title = "Speed") {
+            LightScrollView(Modifier.fillMaxSize()) {
+                PlaybackSpeed.STEPS.forEach { speed ->
+                    SelectableRow(PlaybackSpeed.label(speed), selected = speed == playback.scriptureSpeed) {
+                        AppGraph.scope.launch { AppGraph.settings.setScriptureSpeed(speed) }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/** Library: what the user brings in. The standard works' text, and audio. */
+class LibraryScreen(sealedActivity: SealedLightActivity) : AppScreen<Unit>(sealedActivity) {
+    private val scrolls = ScrollMemory()
+
+    init {
+        AppGraph.init(lightContext)
+    }
+
+    @Composable
+    override fun Content() {
+        val pending by AppGraph.importer.pending.collectAsState()
+        val textStep by AppGraph.text.step.collectAsState()
+        val manifest by AppGraph.text.manifest.collectAsState()
+
+        AppPage(title = "Library") {
+            LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
+                ListRow("Standard works", if (textStep != null) "Importing" else if (manifest.books.isEmpty()) "Not imported" else null) {
+                    navigateTo(::StandardWorksScreen)
+                }
+                ListRow("Add audio", if (pending.isEmpty()) null else "${pending.size} to review") {
+                    navigateTo(::AddAudioScreen)
+                }
+            }
+        }
+    }
+}
+
+/** A group's name over its rows, dimmed and smaller than the rows, as LightOS Settings heads a group. */
+@Composable
+private fun SectionHeader(text: String) {
+    AppText(
+        text = text,
+        variant = LightTextVariant.Detail,
+        lighten = true,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = LIST_INSET_UNITS.gridUnitsAsDp(), top = 0.5f.gridUnitsAsDp(), bottom = 0.5f.gridUnitsAsDp()),
+    )
 }
 
 /** Picks the text size: the current one is underlined, with a preview underneath. */

@@ -414,7 +414,7 @@ fun SimpleLightScreen<*>.Picker(
     content: @Composable ColumnScope.() -> Unit,
 ) = ScreenFrame(title = title, onBack = onBack, bottomBar = bottomBar, content = content)
 
-/** Before the standard works are imported: what to do, and the way to Settings › Standard works. */
+/** Before the standard works are imported: what to do, and the way to Settings › Library › Standard works. */
 @Composable
 fun SimpleLightScreen<*>.NoTextYet() {
     Note("The scriptures aren't loaded yet. Download them from the Church's website and add them in the Tool Manager.")

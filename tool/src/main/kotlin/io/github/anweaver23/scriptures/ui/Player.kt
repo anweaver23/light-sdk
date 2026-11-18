@@ -40,6 +40,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.first
@@ -108,9 +109,6 @@ class PlayerViewModel(
     val error = fromPlayer<LightAudioError?>(null) { it.error }
     private val availability = fromPlayer<LightAudioPlayerAvailability?>(null) { it.availability }
 
-    private val _speed = MutableStateFlow(1f)
-    val speed = _speed.asStateFlow()
-
     private val _message = MutableStateFlow<String?>(null)
     val message = _message.asStateFlow()
 
@@ -130,6 +128,23 @@ class PlayerViewModel(
         scope.launch { clearFinishedPositions() }
         scope.launch { publishNowPlaying() }
         scope.launch { logStates() }
+        scope.launch { applySpeed() }
+    }
+
+    /** Scripture plays at the speed chosen in Settings › Playback; hymns always at 1×. */
+    private fun speedFor(target: Target?): Float = when (target) {
+        is Target.Chapter -> AppGraph.playback.value.scriptureSpeed
+        else -> 1f
+    }
+
+    /** Keeps the connected player at the speed for what's playing, as it or the setting changes. */
+    private suspend fun applySpeed() {
+        combine(playerFlow, current, AppGraph.playback) { p, now, settings -> Triple(p, now, settings.scriptureSpeed) }
+            .distinctUntilChanged()
+            .collect { (p, now, _) ->
+            // Always set: a new handle's speed reads 1× whatever the service is really playing at.
+            if (p != null && now != null) p.speed = speedFor(now)
+        }
     }
 
     /** What the player reports as it changes (not position), for chasing bar flicker in logcat. */
@@ -276,7 +291,7 @@ class PlayerViewModel(
         _starting.value = first
         try {
             _queue.value = queue
-            player.speed = _speed.value
+            player.speed = speedFor(first)
             player.setMediaQueue(items, startIndex)
             seekToSaved(player, first, autoplay)
             if (autoplay) {
@@ -431,12 +446,6 @@ class PlayerViewModel(
         if (duration > 0) player?.seekTo((duration * fraction).toLong())
     }
 
-    fun cycleSpeed() {
-        val next = SPEEDS[(SPEEDS.indexOf(_speed.value) + 1).mod(SPEEDS.size)]
-        _speed.value = next
-        player?.speed = next
-    }
-
     /** Ends detached playback for good, rather than just leaving the screen. */
     fun stop() {
         saveDetached()
@@ -481,7 +490,6 @@ class PlayerViewModel(
         const val START_SETTLE_MS = 5000L
         /** How long a start stays pinned after it first reports playing. */
         const val START_HOLD_MS = 1500L
-        val SPEEDS = listOf(1f, 1.25f, 1.5f, 1.75f, 2f, 0.75f)
     }
 }
 

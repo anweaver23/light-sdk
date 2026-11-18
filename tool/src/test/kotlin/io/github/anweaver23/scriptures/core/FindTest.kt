@@ -38,4 +38,12 @@ class FindTest {
     fun `blank query finds nothing`() {
         assertTrue(Find.matches(verses, "  ").isEmpty())
     }
+
+    @Test
+    fun `apostrophes and hyphens are ignored`() {
+        val d = listOf(VerseDisplay.build(1, "unto the LORD’s house at Beth-el"))
+        val m = Find.matches(d, "lords house").single()
+        assertEquals("LORD’s house", d[0].text.substring(m.start, m.end))
+        assertEquals("Beth-el", Find.matches(d, "bethel").single().let { d[0].text.substring(it.start, it.end) })
+    }
 }

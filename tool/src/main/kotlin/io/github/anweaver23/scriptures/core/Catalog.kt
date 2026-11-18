@@ -83,6 +83,34 @@ data class ChapterExtras(
 object LinkTarget {
     fun verse(to: String): VerseRef? = VerseRef.fromKey(to)
 
+    /**
+     * A verse link, or a range of verses in one chapter: "bofm/alma/32/5" is verse 5 alone,
+     * "bofm/alma/32/5-6" verses 5 to 6. Returns the first verse and the last.
+     */
+    fun verses(to: String): Pair<VerseRef, Int>? {
+        val dash = to.lastIndexOf('-')
+        if (dash > to.lastIndexOf('/')) {
+            val first = VerseRef.fromKey(to.substring(0, dash)) ?: return null
+            val last = to.substring(dash + 1).toIntOrNull() ?: return null
+            return if (last > first.verse) first to last else first to first.verse
+        }
+        return verse(to)?.let { it to it.verse }
+    }
+
+    /**
+     * The range tail printed right after a verse link, as the Church prints "Alma 32:5–6": a dash and
+     * a later verse of the same chapter at the start of [text]. Returns that verse and how many
+     * characters the tail takes. Not a cross-chapter range ("–33:2") and not a bare dash.
+     */
+    fun rangeTail(text: String, fromVerse: Int): Pair<Int, Int>? {
+        if (text.isEmpty() || (text[0] != '–' && text[0] != '-')) return null
+        var i = 1
+        while (i < text.length && text[i].isDigit()) i++
+        if (i == 1 || (i < text.length && text[i] == ':')) return null
+        val last = text.substring(1, i).toIntOrNull() ?: return null
+        return if (last > fromVerse) last to i else null
+    }
+
     fun chapter(to: String): Target.Chapter? {
         val p = to.split('/')
         if (p.size != 3) return null
