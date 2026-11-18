@@ -124,9 +124,6 @@ const val LINKED_ALPHA = HIGHLIGHT_ALPHA
 const val FIND_ALPHA = 0.3f
 const val FIND_CURRENT_ALPHA = 0.6f
 
-/** Chapter headings and summaries, relative to the verse text. */
-private const val HEADER_SCALE = 0.85f
-
 /** Footnote markers, relative to the verse text. */
 private const val MARKER_SIZE_EM = 0.62f
 
@@ -789,12 +786,13 @@ class ReaderScreen(
     private fun ChapterHeader(x: ChapterExtras, style: TextStyle) {
         val secondary = LightThemeTokens.colors.contentSecondary
         val gap = VERSE_GAP_UNITS.gridUnitsAsDp()
-        val small = style.copy(color = secondary, fontSize = style.fontSize * HEADER_SCALE, lineHeight = style.lineHeight * HEADER_SCALE)
+        // The verses' size, so auto-scroll's height-for-time guess holds over a long heading; dimmed instead.
+        val dim = style.copy(color = secondary)
         if (x.intro.isNotEmpty()) {
-            SpanText(x.intro, small, Modifier.fillMaxWidth().padding(bottom = gap)) { openLink(it) }
+            SpanText(x.intro, dim, Modifier.fillMaxWidth().padding(bottom = gap)) { openLink(it) }
         }
         if (x.summary.isNotEmpty()) {
-            SpanText(x.summary, small.copy(fontStyle = FontStyle.Italic), Modifier.fillMaxWidth().padding(bottom = gap * 1.5f)) { openLink(it) }
+            SpanText(x.summary, dim.copy(fontStyle = FontStyle.Italic), Modifier.fillMaxWidth().padding(bottom = gap * 1.5f)) { openLink(it) }
         }
     }
 

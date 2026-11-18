@@ -384,6 +384,8 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   ("Alma 32:5–6") is linked whole: the plain "–6" after a verse link is taken into it at display time
   (`annotated`, `LinkTarget.rangeTail`), giving a `…/32/5-6` key (`LinkTarget.verses`), so no re-import.
 - **2026-11-17 Zen shows the chapter's name** above its heading and summary, in the text (it scrolls away).
+- **2026-11-17 Chapter headings and summaries are verse size**, dimmed (summary italic): smaller text made
+  auto-scroll run ahead through a long heading, since it maps time to height.
 - **2026-11-17 Search ignores apostrophes and hyphens** on both sides (`Search.fold`): "mans" finds
   "man’s", "bethel" finds "Beth-el". Find in chapter too.
 - **2026-11-17 Title pages keep their printed heading** (`FrontSpec.printed`): the parser takes a page's
