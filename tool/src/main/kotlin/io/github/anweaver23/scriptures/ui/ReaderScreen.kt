@@ -73,6 +73,8 @@ import io.github.anweaver23.scriptures.core.Find
 import io.github.anweaver23.scriptures.core.FindMatch
 import io.github.anweaver23.scriptures.core.Footnote
 import io.github.anweaver23.scriptures.core.MarkerSpan
+import io.github.anweaver23.scriptures.core.ReadAlong
+import io.github.anweaver23.scriptures.core.ReadSegment
 import io.github.anweaver23.scriptures.core.Selection
 import io.github.anweaver23.scriptures.core.Target
 import io.github.anweaver23.scriptures.core.VerseDisplay
@@ -576,12 +578,19 @@ class ReaderScreen(
         val playing by viewModel.player.isPlaying.collectAsState()
         val playback by AppGraph.playback.collectAsState()
         val autoScroll = playback.autoScroll && playing && current == chapter && currentSelection == null && currentFind == null
-        LaunchedEffect(autoScroll, chapter, displays != null) {
-            if (autoScroll && displays != null) {
-                followPlayback(viewModel.scrollState, viewModel.player.positionMs, viewModel.player.durationMs) {
-                    AppGraph.playback.value.scriptureSpeed
-                }
-            }
+        val verses by viewModel.verses.collectAsState()
+        val readAlong = remember(autoScroll, chapter, verses, extras) {
+            val text = verses
+            if (!autoScroll || text == null) return@remember null
+            val announced = "${viewModel.catalog.scriptures.book(chapter.bookId)?.chapterLabel ?: "Chapter"} ${chapter.chapter}"
+            ReadAlongSource(
+                positionMs = viewModel.player.positionMs,
+                durationMs = viewModel.player.durationMs,
+                speed = { AppGraph.playback.value.scriptureSpeed },
+                leadChars = announced.length + LEAD_PAUSE_CHARS,
+                headerChars = extras?.let { x -> (x.intro + x.summary).sumOf { it.t.length } } ?: 0,
+                verseChars = text.map { it.length },
+            )
         }
 
         // Showing the chapter that's playing: follow it.
@@ -689,6 +698,7 @@ class ReaderScreen(
                     displays = list,
                     annotations = annotations,
                     marked = marked,
+                    readAlong = readAlong,
                     selection = currentSelection?.range,
                     find = currentFind,
                     textStyle = readerTextStyle(display.textSize.scale, display.lineSpacing),
@@ -837,6 +847,8 @@ private fun ChapterText(
     annotations: List<Annotation>,
     /** Verses a link opened, marked like a highlight. */
     marked: IntRange?,
+    /** While a chapter plays with auto-scroll on: what to follow. */
+    readAlong: ReadAlongSource?,
     selection: WordRange?,
     find: FindState?,
     textStyle: TextStyle,
@@ -913,6 +925,27 @@ private fun ChapterText(
         }
     }
 
+    // Where the heading sits (top, bottom), for auto-scroll; the verses' places are in geometry.
+    val headerBounds = remember(displays) { FloatArray(2) }
+
+    // Auto-scroll: follow the recording through the text by characters (ReadAlong). The lead-in sits at
+    // the top of the heading; each verse runs over its text, not the gap below it.
+    LaunchedEffect(displays, readAlong) {
+        val follow = readAlong ?: return@LaunchedEffect
+        snapshotFlow { geometry.size }.first { it >= displays.size }
+        followPlayback(scrollState, follow.positionMs, follow.durationMs, follow.speed) { fraction ->
+            val segments = buildList {
+                add(ReadSegment(follow.leadChars, headerBounds[0], headerBounds[0]))
+                add(ReadSegment(follow.headerChars, headerBounds[0], headerBounds[1]))
+                displays.forEach { d ->
+                    val g = geometry[d.verse] ?: return@forEach
+                    add(ReadSegment(follow.verseChars.getOrElse(d.verse - 1) { 0 }, g.top, g.top + g.layout.size.height))
+                }
+            }
+            ReadAlong.y(segments, fraction)
+        }
+    }
+
     // Report the verse at the top of the screen as the user scrolls.
     LaunchedEffect(displays) {
         snapshotFlow {
@@ -979,7 +1012,14 @@ private fun ChapterText(
                     }
                 },
         ) {
-            header?.invoke()
+            if (header != null) {
+                Column(
+                    Modifier.fillMaxWidth().onGloballyPositioned { coords ->
+                        headerBounds[0] = coords.positionInParent().y
+                        headerBounds[1] = headerBounds[0] + coords.size.height
+                    },
+                ) { header() }
+            }
             displays.forEach { display ->
                 val verse = display.verse
                 val isMarked = marked != null && verse in marked
@@ -1012,17 +1052,38 @@ private fun ChapterText(
 }
 
 /**
- * Auto-scroll while a chapter plays: a rough guess at the line being read from how far through the
- * recording playback is, taken as the same share of the chapter's height, kept near the middle of the
- * screen. So the page sits still until the reading passes the middle, and stops a little before the
- * end. Position is extrapolated between the player's reports (at [speed]) and the page eases toward
- * its target each frame. A scroll by hand (the page moved without us) leaves it alone for a while.
+ * What auto-scroll follows: the playing recording ([positionMs] of [durationMs], at [speed]) and the
+ * text it reads aloud: [leadChars] spoken before anything on the page ("Chapter 6" and a pause), the
+ * heading's [headerChars], then each verse's [verseChars].
+ */
+class ReadAlongSource(
+    val positionMs: StateFlow<Long>,
+    val durationMs: StateFlow<Long>,
+    val speed: () -> Float,
+    val leadChars: Int,
+    val headerChars: Int,
+    val verseChars: List<Int>,
+)
+
+/**
+ * The spoken announcement before a chapter's text, in characters: its "Chapter 6" plus a pause either
+ * side, which the recording reads but the page doesn't print.
+ */
+private const val LEAD_PAUSE_CHARS = 30
+
+/**
+ * Auto-scroll while a chapter plays: a rough guess at the line being read ([where], by characters, see
+ * [ReadAlong]) from how far through the recording playback is, kept in the middle of the screen. So
+ * the page sits still until the reading passes the middle, and stops a little before the end.
+ * Position is extrapolated between the player's reports (at [speed]) and the page eases toward its
+ * target each frame. A scroll by hand (the page moved without us) leaves it alone for a while.
  */
 private suspend fun followPlayback(
     scroll: ScrollState,
     positionMs: StateFlow<Long>,
     durationMs: StateFlow<Long>,
     speed: () -> Float,
+    where: (Float) -> Float?,
 ) {
     var reported = positionMs.value
     var reportedAt = System.currentTimeMillis()
@@ -1042,8 +1103,8 @@ private suspend fun followPlayback(
         if (now < handUntil || duration <= 0 || scroll.maxValue <= 0) continue
         val position = reported + ((now - reportedAt) * speed()).toLong()
         val fraction = (position.toFloat() / duration).coerceIn(0f, 1f)
-        val content = scroll.maxValue + scroll.viewportSize
-        val target = (fraction * content - scroll.viewportSize / 2f).coerceIn(0f, scroll.maxValue.toFloat())
+        val y = where(fraction) ?: continue
+        val target = (y - scroll.viewportSize / 2f).coerceIn(0f, scroll.maxValue.toFloat())
         val delta = (target - scroll.value) * FOLLOW_EASE
         if (abs(delta) < 0.05f) continue
         scroll.dispatchRawDelta(delta)

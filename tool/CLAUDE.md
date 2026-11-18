@@ -373,9 +373,13 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   hymns always play at 1×. `PlayerViewModel.applySpeed` sets it on every change of player, item or setting
   (a new handle's `speed` reads 1× whatever the service is doing, so it's always set, never compared).
 - **2026-11-17 Auto-scroll while a chapter plays** (on by default): a deliberate rough guess, no timings
-  data. The share of the recording played is taken as the same share of the chapter's height and kept in
-  the middle of the screen, so the page waits until reading passes the middle and stops a little before
-  the end. Position is extrapolated between player reports and the page eases toward it each frame
+  data. The share of the recording played is taken as the same share of the *spoken characters*
+  (`core/ReadAlong`), not the page's height: a lead-in for the announced "Chapter 6" plus a pause
+  (`LEAD_PAUSE_CHARS`, nothing on the page), the heading and summary (the recording reads them), then each
+  verse over its own text (verse numbers, footnote letters and the gaps between verses take room but no
+  time). That point is kept in the middle of the screen, so the page waits until reading passes the
+  middle and stops a little before the end. By height it ran ahead at the start of long-headed chapters.
+  Position is extrapolated between player reports and the page eases toward it each frame
   (`followPlayback`, `dispatchRawDelta`, so it never fights the scroll mutex). A scroll by hand leaves it
   alone for `FOLLOW_HAND_HOLD_MS`; off while selecting or finding.
 - **2026-11-17 Links mark their verses until the chapter changes:** a verse link from a footnote, heading or
