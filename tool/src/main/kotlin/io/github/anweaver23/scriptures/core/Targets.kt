@@ -55,8 +55,32 @@ sealed interface Target {
     }
 }
 
+/**
+ * Imported pages (a Topical Guide entry, front matter, a JST passage) read in the reader as one-chapter
+ * "books" of the volume [VOLUME], each block a "verse", so bookmarks, highlights, notes and find work
+ * on them as on scripture. The page id's slashes become "~" so the target's key still splits in four:
+ * "tg/faith" is `Chapter("page", "tg~faith", 1)`, key "scriptures/page/tg~faith/1".
+ */
+object PageRefs {
+    const val VOLUME = "page"
+
+    /** A page's title by id; set once the imported page index is available. */
+    @Volatile
+    var titleOf: (String) -> String? = { null }
+
+    fun chapter(pageId: String) = Target.Chapter(VOLUME, pageId.replace('/', '~'), 1)
+
+    fun title(pageId: String): String = titleOf(pageId) ?: pageId.substringAfterLast('/')
+}
+
+/** Whether this "chapter" is an imported page (see [PageRefs]). */
+val Target.Chapter.isPage: Boolean get() = volumeId == PageRefs.VOLUME
+
+/** The page id of a page "chapter", or null for scripture. */
+val Target.Chapter.pageId: String? get() = if (isPage) bookId.replace('~', '/') else null
+
 fun Catalog.label(target: Target): String = when (target) {
-    is Target.Chapter -> {
+    is Target.Chapter -> target.pageId?.let(PageRefs::title) ?: run {
         val book = scriptures.book(target.bookId)
         when {
             book == null -> target.key

@@ -1,5 +1,13 @@
 package io.github.anweaver23.scriptures.ui
 
+import androidx.compose.ui.text.LinkAnnotation
+import androidx.compose.ui.text.ParagraphStyle
+import androidx.compose.ui.text.font.FontWeight
+import kotlinx.coroutines.flow.filter
+import io.github.anweaver23.scriptures.core.Words
+import io.github.anweaver23.scriptures.core.PageRefs
+import io.github.anweaver23.scriptures.core.isPage
+import io.github.anweaver23.scriptures.core.pageId
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Box
@@ -170,8 +178,26 @@ sealed interface TapAction {
     data object None : TapAction
     data class OpenAnnotation(val annotation: Annotation) : TapAction
     data class OpenFootnote(val ref: VerseRef, val footnote: Footnote) : TapAction
+    /** A link in an imported page's text ([label] is its words). */
+    data class OpenLink(val to: String, val label: String) : TapAction
     /** The word has more than one note, highlight or footnote: ask which. */
     data class Choose(val options: List<TapAction>) : TapAction
+}
+
+/**
+ * How one block of an imported page (see [PageRefs]) is drawn in the reader: its kind ("heading",
+ * "subheading", "sig", "entry", "p", "verse") and its runs (italics, bold, links) as styled text over
+ * the block's own characters, which are the "verse" text the reader works with.
+ */
+class PageLook(val kind: String, val text: AnnotatedString) {
+    val links: List<AnnotatedString.Range<LinkAnnotation>> = text.getLinkAnnotations(0, text.length)
+
+    /** The link over character [at] of the block's text, as its target and its words. */
+    fun linkAt(at: Int): Pair<String, String>? {
+        val r = links.firstOrNull { at >= it.start && at < it.end } ?: return null
+        val to = (r.item as? LinkAnnotation.Clickable)?.tag ?: return null
+        return to to text.text.substring(r.start, r.end)
+    }
 }
 
 /**
@@ -240,6 +266,10 @@ class ReaderViewModel(
     /** The book's printed title and the chapter's ("The First Book of Moses Called Genesis", "Chapter 1"). */
     private val _fullTitle = MutableStateFlow<List<String>>(emptyList())
     val fullTitle: StateFlow<List<String>> = _fullTitle.asStateFlow()
+
+    /** An imported page's blocks as drawn; null for scripture. */
+    private val _pageLooks = MutableStateFlow<List<PageLook>?>(null)
+    val pageLooks: StateFlow<List<PageLook>?> = _pageLooks.asStateFlow()
 
     /** The chapter's heading and summary (imported text only). */
     private val _extras = MutableStateFlow<ChapterExtras?>(null)
@@ -340,11 +370,15 @@ class ReaderViewModel(
         if (pos == null) return TapAction.None
         // A footnoted word is a link too, not just its letter.
         val ch = _chapter.value
+        // A word in a page's link (a Topical Guide reference) follows it.
+        val link = _pageLooks.value?.getOrNull(pos.verse - 1)?.let { look ->
+            Words.spans(look.text.text).getOrNull(pos.word)?.let { look.linkAt(it.start) }
+        }?.let { (to, label) -> TapAction.OpenLink(to, label) }
         val ref = VerseRef(ch.volumeId, ch.bookId, ch.chapter, pos.verse)
         val footnotes = _displays.value?.getOrNull(pos.verse - 1)?.markers.orEmpty()
             .filter { pos.word in it.footnote.word..it.footnote.end }
             .map { TapAction.OpenFootnote(ref, it.footnote) }
-        val options = Annotations.allAt(chapterAnnotations.value, pos).map { TapAction.OpenAnnotation(it) } + footnotes
+        val options = listOfNotNull(link) + Annotations.allAt(chapterAnnotations.value, pos).map { TapAction.OpenAnnotation(it) } + footnotes
         return when (options.size) {
             0 -> TapAction.None
             1 -> options.single()
@@ -440,6 +474,7 @@ class ReaderViewModel(
         _verses.value = null
         _displays.value = null
         _extras.value = null
+        _pageLooks.value = null
         _selection.value = null
         _find.value = null
         _topVerse.value = null
@@ -447,6 +482,10 @@ class ReaderViewModel(
         scrollState = ScrollState(0)
         _focus.value = focusVerse?.let { FocusRequest(it, ++focusCounter, flash = !quietFocus) }
         viewModelScope.launch {
+            target.pageId?.let { id ->
+                loadPage(target, id)
+                return@launch
+            }
             val (verses, displays, extras) = withContext(Dispatchers.IO) {
                 val book = AppGraph.bookText(target.volumeId, target.bookId)
                 val verses = book.c.getOrNull(target.chapter - 1).orEmpty()
@@ -480,11 +519,27 @@ class ReaderViewModel(
         }
     }
 
+    /**
+     * An imported page as a one-chapter book: each block a "verse" with no number (a JST verse keeps
+     * its own), styled by [PageLook]. Pages aren't where you left off: that stays with scripture.
+     */
+    private suspend fun loadPage(target: Target.Chapter, id: String) {
+        val page = withContext(Dispatchers.IO) { AppGraph.text.page(id) }
+        if (_chapter.value != target) return
+        val blocks = page?.blocks.orEmpty()
+        val looks = blocks.map { PageLook(it.t, annotated(it.spans) {}) }
+        val texts = looks.map { it.text.text }
+        _verses.value = texts
+        _pageLooks.value = looks
+        _fullTitle.value = listOfNotNull(page?.title)
+        _displays.value = texts.mapIndexed { i, text -> VerseDisplay.build(i + 1, text, number = blocks[i].n?.toString()) }
+    }
+
     /** Remembers the top verse a moment after scrolling settles, for Continue reading. */
     @OptIn(FlowPreview::class)
     private fun saveReadingPosition() {
         viewModelScope.launch {
-            _topVerse.filterNotNull().distinctUntilChanged().debounce(800).collect { ref ->
+            _topVerse.filterNotNull().filter { !it.chapterTarget.isPage }.distinctUntilChanged().debounce(800).collect { ref ->
                 AppGraph.progress.setLastReadVerse(ref)
             }
         }
@@ -493,6 +548,14 @@ class ReaderViewModel(
     /** The chapter before or after this one, crossing into the neighbouring book of the same volume. */
     private fun neighbor(delta: Int): Target.Chapter? {
         val current = _chapter.value
+        // A page turns to the next of the pages listed with it (a folder's, or its group's loose ones).
+        current.pageId?.let { id ->
+            val all = AppGraph.text.pageIndex().groups[pageGroup(id)].orEmpty()
+            val folder = all.firstOrNull { it.id == id }?.folder
+            val list = all.filter { it.folder == folder }
+            val i = list.indexOfFirst { it.id == id }
+            return if (i < 0) null else list.getOrNull(i + delta)?.let { PageRefs.chapter(it.id) }
+        }
         val books = catalog.scriptures.volume(current.volumeId)?.books ?: return null
         val bookIndex = books.indexOfFirst { it.id == current.bookId }
         val book = books.getOrNull(bookIndex) ?: return null
@@ -571,6 +634,7 @@ class ReaderScreen(
         val annotations by viewModel.chapterAnnotations.collectAsState()
         val find by viewModel.find.collectAsState()
         val marked by viewModel.marked.collectAsState()
+        val pageLooks by viewModel.pageLooks.collectAsState()
         val extras by viewModel.extras.collectAsState()
         val fullTitle by viewModel.fullTitle.collectAsState()
         val manifest by AppGraph.text.manifest.collectAsState()
@@ -710,6 +774,7 @@ class ReaderScreen(
                     displays = list,
                     annotations = annotations,
                     marked = marked,
+                    pageLooks = pageLooks,
                     readAlong = readAlong,
                     selection = currentSelection?.range,
                     find = currentFind,
@@ -823,6 +888,7 @@ class ReaderScreen(
             TapAction.None -> Unit
             is TapAction.OpenAnnotation -> navigateTo({ AnnotationScreen(it, action.annotation.id) })
             is TapAction.OpenFootnote -> navigateTo({ FootnoteScreen(it, action.ref, action.footnote) })
+            is TapAction.OpenLink -> openLink(action.to)
             is TapAction.Choose -> navigateTo({ TapChoiceScreen(it, action.options) }) { i ->
                 action.options.getOrNull(i)?.let(::handle)
             }
@@ -859,6 +925,8 @@ private fun ChapterText(
     annotations: List<Annotation>,
     /** Verses a link opened, marked like a highlight. */
     marked: IntRange?,
+    /** An imported page's block styles (see [PageLook]); null for scripture. */
+    pageLooks: List<PageLook>?,
     /** While a chapter plays with auto-scroll on: what to follow. */
     readAlong: ReadAlongSource?,
     selection: WordRange?,
@@ -1041,8 +1109,10 @@ private fun ChapterText(
             displays.forEach { display ->
                 val verse = display.verse
                 val isMarked = marked != null && verse in marked
-                val text = remember(display, annotations, isMarked, selection, find, colors) {
-                    styledVerse(display, annotations, isMarked, selection, find, colors)
+                val look = pageLooks?.getOrNull(verse - 1)
+                val text = remember(display, annotations, isMarked, selection, find, colors, look) {
+                    val styled = styledVerse(display, annotations, isMarked, selection, find, colors)
+                    if (look == null) styled else withLook(styled, look, display.textStart, colors)
                 }
                 BasicText(
                     text = text,
@@ -1184,6 +1254,23 @@ fun readerTextStyle(scale: Float, spacing: Float): TextStyle {
         fontSize = (base.fontSize.value * scale).designVerticalPxToSp(),
         lineHeight = (base.lineHeight.value * scale * spacing).designVerticalPxToSp(),
     )
+}
+
+/** A page block's own styling laid over its drawn verse text, which starts at [offset]. */
+private fun withLook(base: AnnotatedString, look: PageLook, offset: Int, colors: LightColors): AnnotatedString = buildAnnotatedString {
+    append(base)
+    val end = base.length
+    fun at(i: Int) = (i + offset).coerceAtMost(end)
+    for (r in look.text.spanStyles) addStyle(r.item, at(r.start), at(r.end))
+    for (r in look.links) addStyle(SpanStyle(textDecoration = TextDecoration.Underline), at(r.start), at(r.end))
+    when (look.kind) {
+        "heading" -> addStyle(ParagraphStyle(textAlign = TextAlign.Center), 0, end)
+        "subheading" -> addStyle(SpanStyle(fontWeight = FontWeight.Bold), 0, end)
+        "sig" -> {
+            addStyle(SpanStyle(color = colors.contentSecondary), 0, end)
+            addStyle(ParagraphStyle(textAlign = TextAlign.End), 0, end)
+        }
+    }
 }
 
 /** One verse with its number, KJV italics, highlights, notes, find matches, the selection and footnote markers as spans. */

@@ -21,7 +21,7 @@ object Find {
         // characters sits in the display.
         val inMarker = BooleanArray(display.text.length)
         display.markers.forEach { m -> for (i in m.start until m.end.coerceAtMost(inMarker.size)) inMarker[i] = true }
-        val textStart = display.numberEnd + VerseDisplay.NUMBER_GAP.length
+        val textStart = display.textStart
         val positions = (textStart until display.text.length).filter { !inMarker[it] && !Search.isIgnored(display.text[it]) }
         val plain = positions.map { display.text[it] }.joinToString("").lowercase()
 

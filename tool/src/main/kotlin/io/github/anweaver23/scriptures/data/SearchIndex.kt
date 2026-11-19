@@ -2,7 +2,11 @@ package io.github.anweaver23.scriptures.data
 
 import io.github.anweaver23.scriptures.core.Search
 import io.github.anweaver23.scriptures.core.SearchBook
+import io.github.anweaver23.scriptures.core.PageResults
+import io.github.anweaver23.scriptures.core.SearchPage
 import io.github.anweaver23.scriptures.core.SearchResults
+import io.github.anweaver23.scriptures.core.importer.TextBuild
+import io.github.anweaver23.scriptures.core.plain
 import java.lang.ref.SoftReference
 
 /**
@@ -19,7 +23,32 @@ object SearchIndex {
     /** Drops the loaded text, after an import replaced it. */
     fun clear() {
         cached = null
+        pagesCached = null
     }
+
+    @Volatile
+    private var pagesCached: SoftReference<List<SearchPage>>? = null
+
+    /** Every imported study-help page's text (Topical Guide, Bible Dictionary, …), read once and kept. */
+    fun pages(): List<SearchPage> {
+        pagesCached?.get()?.let { return it }
+        synchronized(this) {
+            pagesCached?.get()?.let { return it }
+            val text = AppGraph.text
+            val groups = text.pageIndex().groups
+            val loaded = TextBuild.HELPS.keys.flatMap { group ->
+                groups[group].orEmpty().mapNotNull { entry ->
+                    val page = text.pageUncached(entry.id) ?: return@mapNotNull null
+                    SearchPage(entry.id, group, entry.title, page.blocks.map { it.spans.plain() })
+                }
+            }
+            pagesCached = SoftReference(loaded)
+            return loaded
+        }
+    }
+
+    fun searchPages(query: String, checkCancelled: () -> Unit = {}): PageResults =
+        Search.searchPages(pages(), query, checkCancelled = checkCancelled)
 
     fun books(): List<SearchBook> {
         cached?.get()?.let { return it }

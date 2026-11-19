@@ -403,6 +403,18 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   is nothing but "The Old Testament", so it was blank). **`TextBuild.FORMAT`** is stored in the manifest;
   an import from an older format rebuilds from its kept sources once per run. Raise it whenever an importer
   change alters the output.
+- **2026-11-19 Pages read in the reader, like chapters** (`PageRefs`): a study-help entry, front matter or
+  JST passage opens as a one-chapter "book" of volume `page` (`Chapter("page", "tg~faith", 1)`, slashes as
+  `~` so keys still split in four), each block a "verse" with no number (a JST verse keeps its own). So
+  bookmarks, highlights, notes, Define and find in page work on them unchanged; `PageLook` carries each
+  block's kind (heading centred, subheading bold, sig) and its runs, and a tap on a linked word follows
+  it. Swipes turn among the pages listed together. Pages are never "where you left off". The old
+  `PageScreen` is gone.
+- **2026-11-19 Search has a Study helps section** (after hymns, before verses): Topical Guide, Bible
+  Dictionary, Guide and JST pages by title (an exact title first) then by a block holding every word, up
+  to 50. The page text is read once into memory (`SearchIndex.pages`). **No separate search inside a
+  study help:** search stays one place everywhere; opened from a page it leads with "Find in this page",
+  as a chapter does, which covers looking within it.
 
 ## Hard rules
 

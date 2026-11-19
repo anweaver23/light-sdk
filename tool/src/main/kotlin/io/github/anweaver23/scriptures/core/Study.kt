@@ -179,6 +179,8 @@ object Annotations {
 
 /** "Alma 32:21". Single-chapter books keep the 1 ("Enos 1:3"), as printed. */
 fun Catalog.verseLabel(ref: VerseRef): String {
+    // A page's blocks have no numbers worth showing: its title is the place.
+    ref.chapterTarget.pageId?.let { return PageRefs.title(it) }
     val book = scriptures.book(ref.bookId)
     val base = when {
         book == null -> "${ref.bookId} ${ref.chapter}"
@@ -191,6 +193,7 @@ fun Catalog.verseLabel(ref: VerseRef): String {
 /** "Alma 32:21", "Alma 32:21–23", or "Alma 32:43–33:2" for a range. */
 fun Catalog.rangeLabel(start: VerseRef, end: VerseRef): String {
     val first = verseLabel(start)
+    if (start.chapterTarget.isPage) return first
     return when {
         start == end || (start.chapterTarget == end.chapterTarget && start.verse == end.verse) -> first
         start.chapterTarget == end.chapterTarget -> "$first–${end.verse}"

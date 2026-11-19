@@ -9,6 +9,21 @@ data class SearchHit(val ref: VerseRef, val verse: String, val matchStart: Int, 
 /** A hymn whose title or words match; [snippet] is the matching bit of the words, or null for a title match. */
 data class HymnHit(val ref: Target.HymnRef, val title: String, val snippet: String?)
 
+/** A study-help page as search scans it: its title and each block's text. */
+class SearchPage(val id: String, val group: String, val title: String, val blocks: List<String>)
+
+/** A study-help page that matched: by its title ([block] null), or in [block] (0-based) with a [snippet]. */
+data class PageHit(val id: String, val group: String, val title: String, val block: Int?, val snippet: String?)
+
+/** The first study-help [hits], plus how many pages matched in total. */
+data class PageResults(val hits: List<PageHit>, val total: Int) {
+    val more: Int get() = total - hits.size
+
+    companion object {
+        val EMPTY = PageResults(emptyList(), 0)
+    }
+}
+
 /** The first [hits] in canonical order, plus how many verses matched in total. */
 data class SearchResults(val hits: List<SearchHit>, val total: Int) {
     val more: Int get() = total - hits.size
@@ -150,6 +165,42 @@ object Search {
         }
         return byNumber + byTitle + byWords
     }
+
+    /**
+     * Study-help pages matching [query], by the same word rules as verses: pages whose title matches
+     * first (a title that is exactly the query leads), in book order, then pages with a block holding
+     * every word, with that block's snippet.
+     */
+    fun searchPages(
+        pages: Iterable<SearchPage>,
+        query: String,
+        limit: Int = PAGE_LIMIT,
+        checkCancelled: () -> Unit = {},
+    ): PageResults {
+        val terms = parse(query)
+        if (terms.isEmpty()) return PageResults.EMPTY
+        val folded = fold(query.trim())
+        val exact = ArrayList<PageHit>()
+        val byTitle = ArrayList<PageHit>()
+        val byText = ArrayList<PageHit>()
+        for (page in pages) {
+            checkCancelled()
+            if (match(page.title, terms) != null) {
+                val hit = PageHit(page.id, page.group, page.title, null, null)
+                if (fold(page.title) == folded) exact += hit else byTitle += hit
+                continue
+            }
+            for ((i, block) in page.blocks.withIndex()) {
+                val range = match(block, terms) ?: continue
+                byText += PageHit(page.id, page.group, page.title, i, snippet(block, range.first))
+                break
+            }
+        }
+        val all = exact + byTitle + byText
+        return PageResults(all.take(limit), all.size)
+    }
+
+    const val PAGE_LIMIT = 50
 
     /** "85", "#85", "hymn 85", "hymns 85". */
     private val HYMN_NUMBER = Regex("""(?i)(?:hymns?\s*|songs?\s*|#\s*)?(\d{1,4}[ab]?)""")

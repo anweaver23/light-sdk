@@ -358,6 +358,7 @@ class TapChoiceScreen(
                                 lines = listOf((f.text.ifBlank { refs }) to 2),
                             ) { goBack(i) }
                         }
+                        is TapAction.OpenLink -> StackRow(title = "Link", lines = listOf(option.label to 1)) { goBack(i) }
                         else -> Unit
                     }
                 }

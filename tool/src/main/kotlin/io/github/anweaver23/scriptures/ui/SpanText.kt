@@ -1,5 +1,6 @@
 package io.github.anweaver23.scriptures.ui
 
+import io.github.anweaver23.scriptures.core.PageRefs
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -76,10 +77,11 @@ fun SpanText(spans: List<Span>, style: TextStyle, modifier: Modifier = Modifier,
 /**
  * Follows a link from imported text: a verse or range of verses opens the reader with them marked
  * until the chapter changes (going back to a reader already open, see [Nav]); a chapter opens the
- * reader; anything else is a page (Topical Guide entry, front matter, JST passage).
+ * reader; anything else is a page (Topical Guide entry, front matter, JST passage), read in the reader
+ * like a chapter (see [PageRefs]).
  */
 fun SimpleLightScreen<*>.openLink(to: String) {
     LinkTarget.verses(to)?.let { (first, last) -> return openReader(first.chapterTarget, first.verse, through = last, hold = true) }
     LinkTarget.chapter(to)?.let { return openReader(it) }
-    open(NavKeys.page(to), { PageScreen(it, to) })
+    openReader(PageRefs.chapter(to))
 }

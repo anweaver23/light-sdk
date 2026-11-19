@@ -1,5 +1,10 @@
 package io.github.anweaver23.scriptures.ui
 
+import io.github.anweaver23.scriptures.core.PageHit
+import io.github.anweaver23.scriptures.core.PageRefs
+import io.github.anweaver23.scriptures.core.PageResults
+import io.github.anweaver23.scriptures.core.isPage
+import io.github.anweaver23.scriptures.core.importer.TextBuild
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -63,6 +68,7 @@ class SearchViewModel : LightViewModel<String>() {
             val query: String,
             val refs: List<RefMatch>,
             val hymns: List<HymnHit>,
+            val pages: PageResults,
             val results: SearchResults,
         ) : State
     }
@@ -109,10 +115,13 @@ class SearchViewModel : LightViewModel<String>() {
                     index.lyrics(ref)?.let { runCatching { it.readText() }.getOrNull() }
                 }
             }
+            val pages = withContext(Dispatchers.IO) {
+                SearchIndex.searchPages(query) { ensureActive() }
+            }
             val results = withContext(Dispatchers.Default) {
                 SearchIndex.search(query, SEARCH_RESULT_LIMIT) { ensureActive() }
             }
-            _state.value = State.Done(query, refs, hymns, results)
+            _state.value = State.Done(query, refs, hymns, pages, results)
         }
     }
 
@@ -134,7 +143,8 @@ class SearchViewModel : LightViewModel<String>() {
 
 /**
  * Search: a single chapter or verse ("alma 2:3") opens straight away in place of search. Otherwise
- * scripture references ("genesis"), hymns by title and by their uploaded words, and
+ * scripture references ("genesis"), hymns by title and by their uploaded words, study helps by
+ * title and text, and
  * full-text search over all bundled verses. Opens on the keyboard; results show after submit.
  * Opened from the reader, [findIn] is its chapter: the first result finds the term there instead, and
  * the search returns the term to the reader.
@@ -157,10 +167,10 @@ class SearchScreen(sealedActivity: SealedLightActivity, private val findIn: Targ
         when (val s = state) {
             SearchViewModel.State.Editing -> Editor()
             is SearchViewModel.State.Searching -> Results(s.query) {
-                ResultList(s.query, s.refs, emptyList(), null)
+                ResultList(s.query, s.refs, emptyList(), PageResults.EMPTY, null)
             }
             is SearchViewModel.State.Done -> Results(s.query) {
-                ResultList(s.query, s.refs, s.hymns, s.results)
+                ResultList(s.query, s.refs, s.hymns, s.pages, s.results)
             }
         }
     }
@@ -214,20 +224,25 @@ class SearchScreen(sealedActivity: SealedLightActivity, private val findIn: Targ
      * query names), hymns, and verses containing the words.
      */
     @Composable
-    private fun ResultList(query: String, refs: List<RefMatch>, hymns: List<HymnHit>, results: SearchResults?) {
+    private fun ResultList(query: String, refs: List<RefMatch>, hymns: List<HymnHit>, pages: PageResults, results: SearchResults?) {
         val catalog = viewModel.catalog
         LightScrollView(Modifier.fillMaxSize(), scrollState = scrolls.scroll()) {
             findIn?.let { chapter ->
-                StackRow(title = "Find in this chapter", lines = listOf(catalog.label(chapter) to 1)) { goBack(query) }
+                StackRow(title = if (chapter.isPage) "Find in this page" else "Find in this chapter", lines = listOf(catalog.label(chapter) to 1)) { goBack(query) }
             }
             refs.forEach { ref -> ReferenceRow(catalog, ref) }
             if (hymns.isNotEmpty()) {
                 Note(if (hymns.size == 1) "1 hymn" else "${hymns.size} hymns")
                 hymns.forEach { hit -> HymnRow(catalog, hit) }
             }
+            if (pages.total > 0) {
+                Note(if (pages.total == 1) "1 study help" else "${pages.total} study helps")
+                pages.hits.forEach { hit -> PageRow(hit) }
+                if (pages.more > 0) Note("and ${pages.more} more.")
+            }
             when {
                 results == null -> Note("Searching…")
-                results.total == 0 && refs.isEmpty() && hymns.isEmpty() -> Note("Nothing contains every word of “$query”.")
+                results.total == 0 && refs.isEmpty() && hymns.isEmpty() && pages.total == 0 -> Note("Nothing contains every word of “$query”.")
                 results.total == 0 -> Unit
                 else -> {
                     Note(if (results.total == 1) "1 verse" else "${results.total} verses")
@@ -277,6 +292,27 @@ class SearchScreen(sealedActivity: SealedLightActivity, private val findIn: Targ
             )
             AppText(
                 text = hit.snippet ?: catalog.hymnBook(hit.ref.hymnBookId)?.title.orEmpty(),
+                variant = LightTextVariant.Fine,
+                lighten = true,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+        }
+    }
+
+    /** A study-help page: its title, then where the words matched (or which study help, for a title match). */
+    @Composable
+    private fun PageRow(hit: PageHit) {
+        val help = TextBuild.HELPS[hit.group] ?: hit.group
+        Column(
+            Modifier
+                .fillMaxWidth()
+                .lightClickable { openReader(PageRefs.chapter(hit.id), hit.block?.let { it + 1 }) }
+                .padding(bottom = RESULT_GAP_UNITS.gridUnitsAsDp()),
+        ) {
+            AppText(text = hit.title, variant = ROW_TEXT, maxLines = 1, overflow = TextOverflow.Ellipsis)
+            AppText(
+                text = hit.snippet?.let { "$help · $it" } ?: help,
                 variant = LightTextVariant.Fine,
                 lighten = true,
                 maxLines = 1,

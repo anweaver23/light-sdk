@@ -27,6 +27,9 @@ class VerseDisplay private constructor(
 ) {
     val wordCount: Int get() = wordStarts.size
 
+    /** Where the verse's own text starts, after its number and the gap (0 with no number). */
+    val textStart: Int get() = if (numberEnd == 0) 0 else numberEnd + NUMBER_GAP.length
+
     /** Display characters covering [words], from the first word's start to the last word's end. */
     fun charRange(words: IntRange): IntRange? {
         if (words.isEmpty() || words.first < 0 || words.last >= wordCount) return null
@@ -76,12 +79,14 @@ class VerseDisplay private constructor(
             footnotes: List<Footnote> = emptyList(),
             italics: List<IntRange> = emptyList(),
             caps: List<IntRange> = emptyList(),
+            /** The number drawn before the text; null for none (a page's paragraphs). */
+            number: String? = verse.toString(),
         ): VerseDisplay {
             val spans = Words.spans(text)
             val byWord = footnotes.filter { it.word in spans.indices }.groupBy { it.word }
             val out = StringBuilder()
-            out.append(verse).append(NUMBER_GAP)
-            val numberEnd = verse.toString().length
+            if (number != null) out.append(number).append(NUMBER_GAP)
+            val numberEnd = number?.length ?: 0
             val starts = IntArray(spans.size)
             val ends = IntArray(spans.size)
             val markStarts = IntArray(spans.size)

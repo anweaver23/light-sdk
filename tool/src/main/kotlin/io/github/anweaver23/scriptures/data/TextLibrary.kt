@@ -128,6 +128,13 @@ class TextLibrary(filesDir: File, private val inbox: File, private val index: Sc
         TextBuild.json.decodeFromString(FrontPage.serializer(), it)
     }
 
+    /** A page read without keeping it, for scanning every page (search). */
+    fun pageUncached(id: String): FrontPage? {
+        val f = File(root, "pages/$id.json")
+        if (!f.isFile) return null
+        return runCatching { TextBuild.json.decodeFromString(FrontPage.serializer(), f.readText()) }.getOrNull()
+    }
+
     fun pageIndex(): PageIndex = pageIndex ?: run {
         val f = File(root, "pages.json")
         (if (f.isFile) runCatching { TextBuild.json.decodeFromString(PageIndex.serializer(), f.readText()) }.getOrNull() else null)

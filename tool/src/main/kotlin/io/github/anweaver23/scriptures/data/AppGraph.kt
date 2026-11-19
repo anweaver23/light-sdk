@@ -12,6 +12,7 @@ import io.github.anweaver23.scriptures.core.OriginalLanguage
 import io.github.anweaver23.scriptures.core.FileMatcher
 import io.github.anweaver23.scriptures.core.FootnoteSource
 import io.github.anweaver23.scriptures.core.DisplaySettings
+import io.github.anweaver23.scriptures.core.PageRefs
 import java.io.File
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
@@ -32,6 +33,8 @@ object AppGraph {
     /** Keeps the newest screen's context, so a destroyed activity isn't held onto. */
     fun init(lightContext: SealedLightContext) {
         context = lightContext
+        // Pages read as "chapters" (PageRefs) are labelled by their imported titles.
+        PageRefs.titleOf = { id -> text.pageIndex().groups[id.substringBefore('/')]?.firstOrNull { it.id == id }?.title }
     }
 
     val isReady: Boolean get() = context != null
