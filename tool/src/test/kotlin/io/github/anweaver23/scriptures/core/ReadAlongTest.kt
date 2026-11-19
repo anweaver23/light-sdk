@@ -29,6 +29,14 @@ class ReadAlongTest {
     }
 
     @Test
+    fun `numbers are read out and a dash is a pause`() {
+        assertEquals(5, ReadAlong.spokenLength("faith"))
+        // "About 600–592 B.C.": six digits read out in full.
+        assertEquals("About ".length + 6 * 6 + "–".length + " B.C.".length, ReadAlong.spokenLength("About 600–592 B.C."))
+        assertEquals(3 + 10 + 4, ReadAlong.spokenLength("God—Lord"))
+    }
+
+    @Test
     fun `no text, no guess`() {
         assertNull(ReadAlong.y(emptyList(), 0.5f))
         assertNull(ReadAlong.y(listOf(ReadSegment(0, 0f, 10f)), 0.5f))

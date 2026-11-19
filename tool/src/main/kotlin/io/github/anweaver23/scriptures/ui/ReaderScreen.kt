@@ -147,8 +147,20 @@ private const val FOCUS_TOP_MARGIN_UNITS = 0.5f
 /** The zen-mode chapter title, relative to the verse text. */
 private const val ZEN_TITLE_SCALE = 1.15f
 
-/** Auto-scroll: share of the way to its target the page moves each frame, for a smooth follow. */
-private const val FOLLOW_EASE = 0.08f
+/** Auto-scroll: how long the page's pace takes to settle to the reading's, so it glides between verses. */
+private const val FOLLOW_PACE_SMOOTH_MS = 1500f
+
+/** Auto-scroll: how slowly the page is pulled onto the guess when it's a little off. */
+private const val FOLLOW_PULL_MS = 3000f
+
+/** Auto-scroll: how quickly it catches up after a big miss (a seek, a skip). */
+private const val FOLLOW_CATCH_UP_MS = 300f
+
+/** Auto-scroll: a player report this far from the page's clock is a seek, taken at once. */
+private const val FOLLOW_CLOCK_SNAP_MS = 1500f
+
+/** Auto-scroll: how long a player report's small correction takes to fold into the clock. */
+private const val FOLLOW_CLOCK_BLEND_MS = 500f
 
 /** Auto-scroll: after the reader scrolls by hand, it leaves the page alone this long. */
 private const val FOLLOW_HAND_HOLD_MS = 6000L
@@ -588,8 +600,8 @@ class ReaderScreen(
                 durationMs = viewModel.player.durationMs,
                 speed = { AppGraph.playback.value.scriptureSpeed },
                 leadChars = announced.length + LEAD_PAUSE_CHARS,
-                headerChars = extras?.let { x -> (x.intro + x.summary).sumOf { it.t.length } } ?: 0,
-                verseChars = text.map { it.length },
+                headerChars = extras?.let { x -> ReadAlong.spokenLength((x.intro + x.summary).joinToString("") { it.t }) } ?: 0,
+                verseChars = text.map(ReadAlong::spokenLength),
             )
         }
 
@@ -928,18 +940,24 @@ private fun ChapterText(
     // Where the heading sits (top, bottom), for auto-scroll; the verses' places are in geometry.
     val headerBounds = remember(displays) { FloatArray(2) }
 
-    // Auto-scroll: follow the recording through the text by characters (ReadAlong). The lead-in sits at
-    // the top of the heading; each verse runs over its text, not the gap below it.
+    // Auto-scroll: follow the recording through the text by spoken characters (ReadAlong). The lead-in
+    // sits at the top of the heading; each verse runs over its text, then its pause over the gap below,
+    // so the guess moves down the page without a jump.
     LaunchedEffect(displays, readAlong) {
         val follow = readAlong ?: return@LaunchedEffect
         snapshotFlow { geometry.size }.first { it >= displays.size }
         followPlayback(scrollState, follow.positionMs, follow.durationMs, follow.speed) { fraction ->
             val segments = buildList {
                 add(ReadSegment(follow.leadChars, headerBounds[0], headerBounds[0]))
-                add(ReadSegment(follow.headerChars, headerBounds[0], headerBounds[1]))
+                if (follow.headerChars > 0) {
+                    add(ReadSegment(follow.headerChars, headerBounds[0], headerBounds[1]))
+                    add(ReadSegment(ReadAlong.HEADING_PAUSE, headerBounds[1], headerBounds[1]))
+                }
                 displays.forEach { d ->
                     val g = geometry[d.verse] ?: return@forEach
-                    add(ReadSegment(follow.verseChars.getOrElse(d.verse - 1) { 0 }, g.top, g.top + g.layout.size.height))
+                    val textBottom = g.top + g.layout.size.height
+                    add(ReadSegment(follow.verseChars.getOrElse(d.verse - 1) { 0 }, g.top, textBottom))
+                    add(ReadSegment(ReadAlong.VERSE_PAUSE, textBottom, g.top + g.height))
                 }
             }
             ReadAlong.y(segments, fraction)
@@ -1075,8 +1093,12 @@ private const val LEAD_PAUSE_CHARS = 30
  * Auto-scroll while a chapter plays: a rough guess at the line being read ([where], by characters, see
  * [ReadAlong]) from how far through the recording playback is, kept in the middle of the screen. So
  * the page sits still until the reading passes the middle, and stops a little before the end.
- * Position is extrapolated between the player's reports (at [speed]) and the page eases toward its
- * target each frame. A scroll by hand (the page moved without us) leaves it alone for a while.
+ *
+ * It should flow, not hop: the playback position runs on its own clock (at [speed]), nudged toward the
+ * player's reports (every 250 ms) rather than reset by them; the page moves at the reading's pace,
+ * smoothed, plus a gentle pull onto the guess, and never backs up for a small error (it waits
+ * instead). Only a big miss (a seek, a skip) moves it quickly. A scroll by hand (the page moved
+ * without us) leaves it alone for a while.
  */
 private suspend fun followPlayback(
     scroll: ScrollState,
@@ -1086,29 +1108,67 @@ private suspend fun followPlayback(
     where: (Float) -> Float?,
 ) {
     var reported = positionMs.value
-    var reportedAt = System.currentTimeMillis()
+    var clock = reported.toFloat()
+    var clockError = 0f
+    var last = withFrameMillis { it }
     var expected = scroll.value
     var handUntil = 0L
+    var pos = scroll.value.toFloat()
+    var lastTarget: Float? = null
+    var velocity = 0f
     while (true) {
-        withFrameMillis { }
-        val now = System.currentTimeMillis()
+        val now = withFrameMillis { it }
+        val dt = (now - last).coerceIn(0L, 100L).toFloat()
+        last = now
+        // The playback clock: run at speed, and fold each report's error in over a moment.
+        clock += dt * speed()
         if (positionMs.value != reported) {
             reported = positionMs.value
-            reportedAt = now
+            val error = reported - clock
+            if (abs(error) > FOLLOW_CLOCK_SNAP_MS) {
+                clock = reported.toFloat()
+                clockError = 0f
+            } else {
+                clockError = error
+            }
         }
-        // Moved by a finger (or a fling, or a find): leave it be for a while.
-        if (scroll.isScrollInProgress || abs(scroll.value - expected) > 2) handUntil = now + FOLLOW_HAND_HOLD_MS
+        val fold = clockError * (dt / FOLLOW_CLOCK_BLEND_MS).coerceAtMost(1f)
+        clock += fold
+        clockError -= fold
+
+        // Moved by a finger (or a fling, or a find): leave it be for a while, then pick up from there.
+        if (scroll.isScrollInProgress || abs(scroll.value - expected) > 2) {
+            handUntil = now + FOLLOW_HAND_HOLD_MS
+            lastTarget = null
+            velocity = 0f
+        }
         expected = scroll.value
         val duration = durationMs.value
-        if (now < handUntil || duration <= 0 || scroll.maxValue <= 0) continue
-        val position = reported + ((now - reportedAt) * speed()).toLong()
-        val fraction = (position.toFloat() / duration).coerceIn(0f, 1f)
-        val y = where(fraction) ?: continue
+        if (now < handUntil || duration <= 0 || scroll.maxValue <= 0 || dt <= 0f) {
+            pos = scroll.value.toFloat()
+            continue
+        }
+        val y = where((clock / duration).coerceIn(0f, 1f)) ?: continue
         val target = (y - scroll.viewportSize / 2f).coerceIn(0f, scroll.maxValue.toFloat())
-        val delta = (target - scroll.value) * FOLLOW_EASE
-        if (abs(delta) < 0.05f) continue
-        scroll.dispatchRawDelta(delta)
-        expected = scroll.value
+
+        // The reading's pace down the page, smoothed so the page glides between verses.
+        lastTarget?.let { previous ->
+            val pace = (target - previous) / dt
+            velocity += (pace - velocity) * (dt / FOLLOW_PACE_SMOOTH_MS).coerceAtMost(1f)
+        }
+        lastTarget = target
+        val gap = target - pos
+        val far = abs(gap) > scroll.viewportSize / 3f
+        val pull = gap * (dt / if (far) FOLLOW_CATCH_UP_MS else FOLLOW_PULL_MS).coerceAtMost(1f)
+        var move = velocity * dt + pull
+        if (!far) move = move.coerceAtLeast(0f)
+        pos = (pos + move).coerceIn(0f, scroll.maxValue.toFloat())
+        // Whole pixels, so the scroll state keeps no fraction of its own and stays level with pos.
+        val delta = (pos - scroll.value).toInt()
+        if (delta != 0) {
+            scroll.dispatchRawDelta(delta.toFloat())
+            expected = scroll.value
+        }
     }
 }
 

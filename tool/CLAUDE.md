@@ -379,7 +379,13 @@ Issue labels: `phase-1-reading`, `phase-2-hymns`, `phase-3-audio`, plus `refine`
   verse over its own text (verse numbers, footnote letters and the gaps between verses take room but no
   time). That point is kept in the middle of the screen, so the page waits until reading passes the
   middle and stops a little before the end. By height it ran ahead at the start of long-headed chapters.
-  Position is extrapolated between player reports and the page eases toward it each frame
+  **2026-11-18:** characters are *spoken* length (`ReadAlong.spokenLength`): digits are read out in full
+  and a dash is a pause, plus a pause after the heading and after each verse (run over the gap below it,
+  so the guess has no jumps). Measured on the Church's mp3s (1 Nephi 2 and 6, Alma 32): ~15 chars/s, the
+  heading starts ~2.7 s in, ~0.7 s between verses, ~1.3 s after the heading; plain character counts put
+  1 Nephi 6's verse 1 three seconds early. The page flows instead of easing to each new target: a
+  playback clock nudged toward the player's 250 ms reports, the page moving at the reading's smoothed
+  pace plus a slow pull, never backing up for a small error; only a big miss (seek) catches up quickly
   (`followPlayback`, `dispatchRawDelta`, so it never fights the scroll mutex). A scroll by hand leaves it
   alone for `FOLLOW_HAND_HOLD_MS`; off while selecting or finding.
 - **2026-11-17 Links mark their verses until the chapter changes:** a verse link from a footnote, heading or
